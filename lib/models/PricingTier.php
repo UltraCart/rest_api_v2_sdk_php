@@ -65,6 +65,7 @@ class PricingTier implements ModelInterface, ArrayAccess, \JsonSerializable
         'approval_notification' => '\ultracart\v2\models\PricingTierNotification',
         'auto_approve_cod' => 'bool',
         'auto_approve_purchase_order' => 'bool',
+        'currency_code' => 'string',
         'default_on_wholesale_signup' => 'bool',
         'default_percentage_discount' => 'float',
         'default_shipping_method_oid' => 'int',
@@ -108,6 +109,7 @@ class PricingTier implements ModelInterface, ArrayAccess, \JsonSerializable
         'approval_notification' => null,
         'auto_approve_cod' => null,
         'auto_approve_purchase_order' => null,
+        'currency_code' => null,
         'default_on_wholesale_signup' => null,
         'default_percentage_discount' => null,
         'default_shipping_method_oid' => 'int32',
@@ -170,6 +172,7 @@ class PricingTier implements ModelInterface, ArrayAccess, \JsonSerializable
         'approval_notification' => 'approval_notification',
         'auto_approve_cod' => 'auto_approve_cod',
         'auto_approve_purchase_order' => 'auto_approve_purchase_order',
+        'currency_code' => 'currency_code',
         'default_on_wholesale_signup' => 'default_on_wholesale_signup',
         'default_percentage_discount' => 'default_percentage_discount',
         'default_shipping_method_oid' => 'default_shipping_method_oid',
@@ -211,6 +214,7 @@ class PricingTier implements ModelInterface, ArrayAccess, \JsonSerializable
         'approval_notification' => 'setApprovalNotification',
         'auto_approve_cod' => 'setAutoApproveCod',
         'auto_approve_purchase_order' => 'setAutoApprovePurchaseOrder',
+        'currency_code' => 'setCurrencyCode',
         'default_on_wholesale_signup' => 'setDefaultOnWholesaleSignup',
         'default_percentage_discount' => 'setDefaultPercentageDiscount',
         'default_shipping_method_oid' => 'setDefaultShippingMethodOid',
@@ -252,6 +256,7 @@ class PricingTier implements ModelInterface, ArrayAccess, \JsonSerializable
         'approval_notification' => 'getApprovalNotification',
         'auto_approve_cod' => 'getAutoApproveCod',
         'auto_approve_purchase_order' => 'getAutoApprovePurchaseOrder',
+        'currency_code' => 'getCurrencyCode',
         'default_on_wholesale_signup' => 'getDefaultOnWholesaleSignup',
         'default_percentage_discount' => 'getDefaultPercentageDiscount',
         'default_shipping_method_oid' => 'getDefaultShippingMethodOid',
@@ -344,6 +349,7 @@ class PricingTier implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['approval_notification'] = $data['approval_notification'] ?? null;
         $this->container['auto_approve_cod'] = $data['auto_approve_cod'] ?? null;
         $this->container['auto_approve_purchase_order'] = $data['auto_approve_purchase_order'] ?? null;
+        $this->container['currency_code'] = $data['currency_code'] ?? null;
         $this->container['default_on_wholesale_signup'] = $data['default_on_wholesale_signup'] ?? null;
         $this->container['default_percentage_discount'] = $data['default_percentage_discount'] ?? null;
         $this->container['default_shipping_method_oid'] = $data['default_shipping_method_oid'] ?? null;
@@ -564,6 +570,30 @@ class PricingTier implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setAutoApprovePurchaseOrder($auto_approve_purchase_order)
     {
         $this->container['auto_approve_purchase_order'] = $auto_approve_purchase_order;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency_code
+     *
+     * @return string|null
+     */
+    public function getCurrencyCode()
+    {
+        return $this->container['currency_code'];
+    }
+
+    /**
+     * Sets currency_code
+     *
+     * @param string|null $currency_code Any currency code specified on this pricing tier will force a shopping cart into that currency
+     *
+     * @return self
+     */
+    public function setCurrencyCode($currency_code)
+    {
+        $this->container['currency_code'] = $currency_code;
 
         return $this;
     }

@@ -335,6 +335,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailCommseqEmailStats**](docs/Api/StorefrontApi.md#getemailcommseqemailstats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/emailStats | Get email communication sequence emails stats
 *StorefrontApi* | [**getEmailCommseqPostcardStats**](docs/Api/StorefrontApi.md#getemailcommseqpostcardstats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/postcardStats | Get email communication sequence postcard stats
 *StorefrontApi* | [**getEmailCommseqPostcardTracking**](docs/Api/StorefrontApi.md#getemailcommseqpostcardtracking) | **GET** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}/tracking | Get email communication postcard tracking
+*StorefrontApi* | [**getEmailCommseqSmsStats**](docs/Api/StorefrontApi.md#getemailcommseqsmsstats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/smsStats | Get email communication sequence sms stats
 *StorefrontApi* | [**getEmailCommseqStatOverall**](docs/Api/StorefrontApi.md#getemailcommseqstatoverall) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat | Get communication sequence stats overall
 *StorefrontApi* | [**getEmailCommseqStepStats**](docs/Api/StorefrontApi.md#getemailcommseqstepstats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stepStats | Get email communication sequence step stats
 *StorefrontApi* | [**getEmailCommseqStepWaiting**](docs/Api/StorefrontApi.md#getemailcommseqstepwaiting) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/waiting | Get email communication sequence customers waiting at each requested step
@@ -376,6 +377,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailSendingDomainStatus**](docs/Api/StorefrontApi.md#getemailsendingdomainstatus) | **POST** /storefront/email/sending_domains/{domain}/status | Get email sending domain status
 *StorefrontApi* | [**getEmailSendingDomains**](docs/Api/StorefrontApi.md#getemailsendingdomains) | **GET** /storefront/email/sending_domains | Get email sending domains
 *StorefrontApi* | [**getEmailSettings**](docs/Api/StorefrontApi.md#getemailsettings) | **GET** /storefront/{storefront_oid}/email/settings | Get email settings
+*StorefrontApi* | [**getEmailSmsOrders**](docs/Api/StorefrontApi.md#getemailsmsorders) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/sms/orders | Get email sms orders
 *StorefrontApi* | [**getEmailTemplate**](docs/Api/StorefrontApi.md#getemailtemplate) | **GET** /storefront/{storefront_oid}/email/templates/{email_template_oid} | Get email template
 *StorefrontApi* | [**getEmailTemplates**](docs/Api/StorefrontApi.md#getemailtemplates) | **GET** /storefront/{storefront_oid}/email/templates | Get email templates
 *StorefrontApi* | [**getEmailThirdPartyProviders**](docs/Api/StorefrontApi.md#getemailthirdpartyproviders) | **GET** /storefront/{storefront_oid}/email/third_party_providers | Get a list of third party email providers
@@ -913,9 +915,14 @@ Class | Method | HTTP request | Description
 - [EmailSendingDomainsResponse](docs/Model/EmailSendingDomainsResponse.md)
 - [EmailSettings](docs/Model/EmailSettings.md)
 - [EmailSettingsResponse](docs/Model/EmailSettingsResponse.md)
+- [EmailSmsOrder](docs/Model/EmailSmsOrder.md)
+- [EmailSmsOrdersResponse](docs/Model/EmailSmsOrdersResponse.md)
+- [EmailSmsStat](docs/Model/EmailSmsStat.md)
 - [EmailStat](docs/Model/EmailStat.md)
 - [EmailStatPostcardSummaryRequest](docs/Model/EmailStatPostcardSummaryRequest.md)
 - [EmailStatPostcardSummaryResponse](docs/Model/EmailStatPostcardSummaryResponse.md)
+- [EmailStatSmsSummaryRequest](docs/Model/EmailStatSmsSummaryRequest.md)
+- [EmailStatSmsSummaryResponse](docs/Model/EmailStatSmsSummaryResponse.md)
 - [EmailStatSummaryRequest](docs/Model/EmailStatSummaryRequest.md)
 - [EmailStatSummaryResponse](docs/Model/EmailStatSummaryResponse.md)
 - [EmailStepStat](docs/Model/EmailStepStat.md)
@@ -1416,6 +1423,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.201 | 02/27/2024 | esp - sms statistic layer |
 | 4.0.200 | 02/20/2024 | Add tag support to CouponAmountOffItems, CouponBuyOneGetOneLimit, CouponDiscountItemWithItemPurchase, CouponFreeItemWithItemPurchase, CouponPercentOffItemsWithItemsPurchase |
 | 4.0.199 | 01/16/2024 | order query - support searching by custom fields 8 through 10 |
 | 4.0.198 | 01/12/2024 | workflow task - add properties array |
