@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **approval_notification** | [**\ultracart\v2\models\PricingTierNotification**](PricingTierNotification.md) |  | [optional] 
 **auto_approve_cod** | **bool** | Auto approve COD | [optional] 
 **auto_approve_purchase_order** | **bool** | Auto approve purchase order | [optional] 
+**currency_code** | **string** | Any currency code specified on this pricing tier will force a shopping cart into that currency | [optional] 
 **default_on_wholesale_signup** | **bool** | Default on wholesale signup | [optional] 
 **default_percentage_discount** | **float** | Default percentage discount | [optional] 
 **default_shipping_method_oid** | **int** | Default shipping method oid | [optional] 
