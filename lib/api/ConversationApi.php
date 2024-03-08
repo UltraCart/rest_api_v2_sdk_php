@@ -1087,6 +1087,3558 @@ class ConversationApi
     }
 
     /**
+     * Operation deletePbxAgent
+     *
+     * Delete pbx agent
+     *
+     * @param  string $conversation_pbx_agent_uuid conversation_pbx_agent_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxAgentResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function deletePbxAgent($conversation_pbx_agent_uuid)
+    {
+        list($response) = $this->deletePbxAgentWithHttpInfo($conversation_pbx_agent_uuid);
+        return $response;
+    }
+
+    /**
+     * Operation deletePbxAgentWithHttpInfo
+     *
+     * Delete pbx agent
+     *
+     * @param  string $conversation_pbx_agent_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxAgentResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deletePbxAgentWithHttpInfo($conversation_pbx_agent_uuid)
+    {
+        return $this->deletePbxAgentWithHttpInfoRetry(true ,   $conversation_pbx_agent_uuid);
+    }
+
+
+
+    /**
+     * Operation deletePbxAgentWithHttpInfoRetry
+     *
+     * Delete pbx agent
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $conversation_pbx_agent_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxAgentResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deletePbxAgentWithHttpInfoRetry($retry , $conversation_pbx_agent_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxAgentResponse';
+        $request = $this->deletePbxAgentRequest($conversation_pbx_agent_uuid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deletePbxAgentWithHttpInfoRetry(false ,   $conversation_pbx_agent_uuid);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxAgentResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxAgentResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxAgentResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxAgentResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxAgentResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation deletePbxAgentAsync
+     *
+     * Delete pbx agent
+     *
+     * @param  string $conversation_pbx_agent_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deletePbxAgentAsync($conversation_pbx_agent_uuid)
+    {
+        return $this->deletePbxAgentAsyncWithHttpInfo($conversation_pbx_agent_uuid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deletePbxAgentAsyncWithHttpInfo
+     *
+     * Delete pbx agent
+     *
+     * @param  string $conversation_pbx_agent_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deletePbxAgentAsyncWithHttpInfo($conversation_pbx_agent_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxAgentResponse';
+        $request = $this->deletePbxAgentRequest($conversation_pbx_agent_uuid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deletePbxAgent'
+     *
+     * @param  string $conversation_pbx_agent_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deletePbxAgentRequest($conversation_pbx_agent_uuid)
+    {
+        // verify the required parameter 'conversation_pbx_agent_uuid' is set
+        if ($conversation_pbx_agent_uuid === null || (is_array($conversation_pbx_agent_uuid) && count($conversation_pbx_agent_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $conversation_pbx_agent_uuid when calling deletePbxAgent'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/agent/{conversationPbxAgentUuid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($conversation_pbx_agent_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'conversationPbxAgentUuid' . '}',
+                ObjectSerializer::toPathValue($conversation_pbx_agent_uuid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deletePbxAudio
+     *
+     * Delete pbx audio
+     *
+     * @param  string $conversation_pbx_audio_uuid conversation_pbx_audio_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxAudioResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function deletePbxAudio($conversation_pbx_audio_uuid)
+    {
+        list($response) = $this->deletePbxAudioWithHttpInfo($conversation_pbx_audio_uuid);
+        return $response;
+    }
+
+    /**
+     * Operation deletePbxAudioWithHttpInfo
+     *
+     * Delete pbx audio
+     *
+     * @param  string $conversation_pbx_audio_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxAudioResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deletePbxAudioWithHttpInfo($conversation_pbx_audio_uuid)
+    {
+        return $this->deletePbxAudioWithHttpInfoRetry(true ,   $conversation_pbx_audio_uuid);
+    }
+
+
+
+    /**
+     * Operation deletePbxAudioWithHttpInfoRetry
+     *
+     * Delete pbx audio
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $conversation_pbx_audio_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxAudioResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deletePbxAudioWithHttpInfoRetry($retry , $conversation_pbx_audio_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxAudioResponse';
+        $request = $this->deletePbxAudioRequest($conversation_pbx_audio_uuid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deletePbxAudioWithHttpInfoRetry(false ,   $conversation_pbx_audio_uuid);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxAudioResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxAudioResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxAudioResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxAudioResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxAudioResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation deletePbxAudioAsync
+     *
+     * Delete pbx audio
+     *
+     * @param  string $conversation_pbx_audio_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deletePbxAudioAsync($conversation_pbx_audio_uuid)
+    {
+        return $this->deletePbxAudioAsyncWithHttpInfo($conversation_pbx_audio_uuid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deletePbxAudioAsyncWithHttpInfo
+     *
+     * Delete pbx audio
+     *
+     * @param  string $conversation_pbx_audio_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deletePbxAudioAsyncWithHttpInfo($conversation_pbx_audio_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxAudioResponse';
+        $request = $this->deletePbxAudioRequest($conversation_pbx_audio_uuid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deletePbxAudio'
+     *
+     * @param  string $conversation_pbx_audio_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deletePbxAudioRequest($conversation_pbx_audio_uuid)
+    {
+        // verify the required parameter 'conversation_pbx_audio_uuid' is set
+        if ($conversation_pbx_audio_uuid === null || (is_array($conversation_pbx_audio_uuid) && count($conversation_pbx_audio_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $conversation_pbx_audio_uuid when calling deletePbxAudio'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/audio/{conversationPbxAudioUuid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($conversation_pbx_audio_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'conversationPbxAudioUuid' . '}',
+                ObjectSerializer::toPathValue($conversation_pbx_audio_uuid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deletePbxMenu
+     *
+     * Delete pbx menu
+     *
+     * @param  string $conversation_pbx_menu_uuid conversation_pbx_menu_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxMenuResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function deletePbxMenu($conversation_pbx_menu_uuid)
+    {
+        list($response) = $this->deletePbxMenuWithHttpInfo($conversation_pbx_menu_uuid);
+        return $response;
+    }
+
+    /**
+     * Operation deletePbxMenuWithHttpInfo
+     *
+     * Delete pbx menu
+     *
+     * @param  string $conversation_pbx_menu_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxMenuResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deletePbxMenuWithHttpInfo($conversation_pbx_menu_uuid)
+    {
+        return $this->deletePbxMenuWithHttpInfoRetry(true ,   $conversation_pbx_menu_uuid);
+    }
+
+
+
+    /**
+     * Operation deletePbxMenuWithHttpInfoRetry
+     *
+     * Delete pbx menu
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $conversation_pbx_menu_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxMenuResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deletePbxMenuWithHttpInfoRetry($retry , $conversation_pbx_menu_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxMenuResponse';
+        $request = $this->deletePbxMenuRequest($conversation_pbx_menu_uuid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deletePbxMenuWithHttpInfoRetry(false ,   $conversation_pbx_menu_uuid);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxMenuResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxMenuResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxMenuResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxMenuResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxMenuResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation deletePbxMenuAsync
+     *
+     * Delete pbx menu
+     *
+     * @param  string $conversation_pbx_menu_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deletePbxMenuAsync($conversation_pbx_menu_uuid)
+    {
+        return $this->deletePbxMenuAsyncWithHttpInfo($conversation_pbx_menu_uuid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deletePbxMenuAsyncWithHttpInfo
+     *
+     * Delete pbx menu
+     *
+     * @param  string $conversation_pbx_menu_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deletePbxMenuAsyncWithHttpInfo($conversation_pbx_menu_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxMenuResponse';
+        $request = $this->deletePbxMenuRequest($conversation_pbx_menu_uuid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deletePbxMenu'
+     *
+     * @param  string $conversation_pbx_menu_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deletePbxMenuRequest($conversation_pbx_menu_uuid)
+    {
+        // verify the required parameter 'conversation_pbx_menu_uuid' is set
+        if ($conversation_pbx_menu_uuid === null || (is_array($conversation_pbx_menu_uuid) && count($conversation_pbx_menu_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $conversation_pbx_menu_uuid when calling deletePbxMenu'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/menu/{conversationPbxMenuUuid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($conversation_pbx_menu_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'conversationPbxMenuUuid' . '}',
+                ObjectSerializer::toPathValue($conversation_pbx_menu_uuid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deletePbxPhoneNumber
+     *
+     * Delete pbx phoneNumber
+     *
+     * @param  string $conversation_pbx_phone_number_uuid conversation_pbx_phone_number_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxPhoneNumberResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function deletePbxPhoneNumber($conversation_pbx_phone_number_uuid)
+    {
+        list($response) = $this->deletePbxPhoneNumberWithHttpInfo($conversation_pbx_phone_number_uuid);
+        return $response;
+    }
+
+    /**
+     * Operation deletePbxPhoneNumberWithHttpInfo
+     *
+     * Delete pbx phoneNumber
+     *
+     * @param  string $conversation_pbx_phone_number_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxPhoneNumberResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deletePbxPhoneNumberWithHttpInfo($conversation_pbx_phone_number_uuid)
+    {
+        return $this->deletePbxPhoneNumberWithHttpInfoRetry(true ,   $conversation_pbx_phone_number_uuid);
+    }
+
+
+
+    /**
+     * Operation deletePbxPhoneNumberWithHttpInfoRetry
+     *
+     * Delete pbx phoneNumber
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $conversation_pbx_phone_number_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxPhoneNumberResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deletePbxPhoneNumberWithHttpInfoRetry($retry , $conversation_pbx_phone_number_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxPhoneNumberResponse';
+        $request = $this->deletePbxPhoneNumberRequest($conversation_pbx_phone_number_uuid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deletePbxPhoneNumberWithHttpInfoRetry(false ,   $conversation_pbx_phone_number_uuid);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxPhoneNumberResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxPhoneNumberResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxPhoneNumberResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxPhoneNumberResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxPhoneNumberResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation deletePbxPhoneNumberAsync
+     *
+     * Delete pbx phoneNumber
+     *
+     * @param  string $conversation_pbx_phone_number_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deletePbxPhoneNumberAsync($conversation_pbx_phone_number_uuid)
+    {
+        return $this->deletePbxPhoneNumberAsyncWithHttpInfo($conversation_pbx_phone_number_uuid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deletePbxPhoneNumberAsyncWithHttpInfo
+     *
+     * Delete pbx phoneNumber
+     *
+     * @param  string $conversation_pbx_phone_number_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deletePbxPhoneNumberAsyncWithHttpInfo($conversation_pbx_phone_number_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxPhoneNumberResponse';
+        $request = $this->deletePbxPhoneNumberRequest($conversation_pbx_phone_number_uuid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deletePbxPhoneNumber'
+     *
+     * @param  string $conversation_pbx_phone_number_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deletePbxPhoneNumberRequest($conversation_pbx_phone_number_uuid)
+    {
+        // verify the required parameter 'conversation_pbx_phone_number_uuid' is set
+        if ($conversation_pbx_phone_number_uuid === null || (is_array($conversation_pbx_phone_number_uuid) && count($conversation_pbx_phone_number_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $conversation_pbx_phone_number_uuid when calling deletePbxPhoneNumber'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/phone_number/{conversationPbxPhoneNumberUuid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($conversation_pbx_phone_number_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'conversationPbxPhoneNumberUuid' . '}',
+                ObjectSerializer::toPathValue($conversation_pbx_phone_number_uuid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deletePbxQueue
+     *
+     * Delete pbx queue
+     *
+     * @param  string $conversation_pbx_queue_uuid conversation_pbx_queue_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxQueueResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function deletePbxQueue($conversation_pbx_queue_uuid)
+    {
+        list($response) = $this->deletePbxQueueWithHttpInfo($conversation_pbx_queue_uuid);
+        return $response;
+    }
+
+    /**
+     * Operation deletePbxQueueWithHttpInfo
+     *
+     * Delete pbx queue
+     *
+     * @param  string $conversation_pbx_queue_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxQueueResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deletePbxQueueWithHttpInfo($conversation_pbx_queue_uuid)
+    {
+        return $this->deletePbxQueueWithHttpInfoRetry(true ,   $conversation_pbx_queue_uuid);
+    }
+
+
+
+    /**
+     * Operation deletePbxQueueWithHttpInfoRetry
+     *
+     * Delete pbx queue
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $conversation_pbx_queue_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxQueueResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deletePbxQueueWithHttpInfoRetry($retry , $conversation_pbx_queue_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxQueueResponse';
+        $request = $this->deletePbxQueueRequest($conversation_pbx_queue_uuid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deletePbxQueueWithHttpInfoRetry(false ,   $conversation_pbx_queue_uuid);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxQueueResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxQueueResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxQueueResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxQueueResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxQueueResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation deletePbxQueueAsync
+     *
+     * Delete pbx queue
+     *
+     * @param  string $conversation_pbx_queue_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deletePbxQueueAsync($conversation_pbx_queue_uuid)
+    {
+        return $this->deletePbxQueueAsyncWithHttpInfo($conversation_pbx_queue_uuid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deletePbxQueueAsyncWithHttpInfo
+     *
+     * Delete pbx queue
+     *
+     * @param  string $conversation_pbx_queue_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deletePbxQueueAsyncWithHttpInfo($conversation_pbx_queue_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxQueueResponse';
+        $request = $this->deletePbxQueueRequest($conversation_pbx_queue_uuid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deletePbxQueue'
+     *
+     * @param  string $conversation_pbx_queue_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deletePbxQueueRequest($conversation_pbx_queue_uuid)
+    {
+        // verify the required parameter 'conversation_pbx_queue_uuid' is set
+        if ($conversation_pbx_queue_uuid === null || (is_array($conversation_pbx_queue_uuid) && count($conversation_pbx_queue_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $conversation_pbx_queue_uuid when calling deletePbxQueue'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/queue/{conversationPbxQueueUuid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($conversation_pbx_queue_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'conversationPbxQueueUuid' . '}',
+                ObjectSerializer::toPathValue($conversation_pbx_queue_uuid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deletePbxTimeBased
+     *
+     * Delete pbx timeBased
+     *
+     * @param  string $conversation_pbx_time_based_uuid conversation_pbx_time_based_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxTimeBasedResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function deletePbxTimeBased($conversation_pbx_time_based_uuid)
+    {
+        list($response) = $this->deletePbxTimeBasedWithHttpInfo($conversation_pbx_time_based_uuid);
+        return $response;
+    }
+
+    /**
+     * Operation deletePbxTimeBasedWithHttpInfo
+     *
+     * Delete pbx timeBased
+     *
+     * @param  string $conversation_pbx_time_based_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxTimeBasedResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deletePbxTimeBasedWithHttpInfo($conversation_pbx_time_based_uuid)
+    {
+        return $this->deletePbxTimeBasedWithHttpInfoRetry(true ,   $conversation_pbx_time_based_uuid);
+    }
+
+
+
+    /**
+     * Operation deletePbxTimeBasedWithHttpInfoRetry
+     *
+     * Delete pbx timeBased
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $conversation_pbx_time_based_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxTimeBasedResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deletePbxTimeBasedWithHttpInfoRetry($retry , $conversation_pbx_time_based_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxTimeBasedResponse';
+        $request = $this->deletePbxTimeBasedRequest($conversation_pbx_time_based_uuid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deletePbxTimeBasedWithHttpInfoRetry(false ,   $conversation_pbx_time_based_uuid);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxTimeBasedResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxTimeBasedResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxTimeBasedResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxTimeBasedResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxTimeBasedResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation deletePbxTimeBasedAsync
+     *
+     * Delete pbx timeBased
+     *
+     * @param  string $conversation_pbx_time_based_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deletePbxTimeBasedAsync($conversation_pbx_time_based_uuid)
+    {
+        return $this->deletePbxTimeBasedAsyncWithHttpInfo($conversation_pbx_time_based_uuid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deletePbxTimeBasedAsyncWithHttpInfo
+     *
+     * Delete pbx timeBased
+     *
+     * @param  string $conversation_pbx_time_based_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deletePbxTimeBasedAsyncWithHttpInfo($conversation_pbx_time_based_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxTimeBasedResponse';
+        $request = $this->deletePbxTimeBasedRequest($conversation_pbx_time_based_uuid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deletePbxTimeBased'
+     *
+     * @param  string $conversation_pbx_time_based_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deletePbxTimeBasedRequest($conversation_pbx_time_based_uuid)
+    {
+        // verify the required parameter 'conversation_pbx_time_based_uuid' is set
+        if ($conversation_pbx_time_based_uuid === null || (is_array($conversation_pbx_time_based_uuid) && count($conversation_pbx_time_based_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $conversation_pbx_time_based_uuid when calling deletePbxTimeBased'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/time_based/{conversationPbxTimeBasedUuid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($conversation_pbx_time_based_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'conversationPbxTimeBasedUuid' . '}',
+                ObjectSerializer::toPathValue($conversation_pbx_time_based_uuid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deletePbxTimeRange
+     *
+     * Delete pbx timeRange
+     *
+     * @param  string $conversation_pbx_time_range_uuid conversation_pbx_time_range_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxTimeRangeResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function deletePbxTimeRange($conversation_pbx_time_range_uuid)
+    {
+        list($response) = $this->deletePbxTimeRangeWithHttpInfo($conversation_pbx_time_range_uuid);
+        return $response;
+    }
+
+    /**
+     * Operation deletePbxTimeRangeWithHttpInfo
+     *
+     * Delete pbx timeRange
+     *
+     * @param  string $conversation_pbx_time_range_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxTimeRangeResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deletePbxTimeRangeWithHttpInfo($conversation_pbx_time_range_uuid)
+    {
+        return $this->deletePbxTimeRangeWithHttpInfoRetry(true ,   $conversation_pbx_time_range_uuid);
+    }
+
+
+
+    /**
+     * Operation deletePbxTimeRangeWithHttpInfoRetry
+     *
+     * Delete pbx timeRange
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $conversation_pbx_time_range_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxTimeRangeResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deletePbxTimeRangeWithHttpInfoRetry($retry , $conversation_pbx_time_range_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxTimeRangeResponse';
+        $request = $this->deletePbxTimeRangeRequest($conversation_pbx_time_range_uuid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deletePbxTimeRangeWithHttpInfoRetry(false ,   $conversation_pbx_time_range_uuid);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxTimeRangeResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxTimeRangeResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxTimeRangeResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxTimeRangeResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxTimeRangeResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation deletePbxTimeRangeAsync
+     *
+     * Delete pbx timeRange
+     *
+     * @param  string $conversation_pbx_time_range_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deletePbxTimeRangeAsync($conversation_pbx_time_range_uuid)
+    {
+        return $this->deletePbxTimeRangeAsyncWithHttpInfo($conversation_pbx_time_range_uuid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deletePbxTimeRangeAsyncWithHttpInfo
+     *
+     * Delete pbx timeRange
+     *
+     * @param  string $conversation_pbx_time_range_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deletePbxTimeRangeAsyncWithHttpInfo($conversation_pbx_time_range_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxTimeRangeResponse';
+        $request = $this->deletePbxTimeRangeRequest($conversation_pbx_time_range_uuid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deletePbxTimeRange'
+     *
+     * @param  string $conversation_pbx_time_range_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deletePbxTimeRangeRequest($conversation_pbx_time_range_uuid)
+    {
+        // verify the required parameter 'conversation_pbx_time_range_uuid' is set
+        if ($conversation_pbx_time_range_uuid === null || (is_array($conversation_pbx_time_range_uuid) && count($conversation_pbx_time_range_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $conversation_pbx_time_range_uuid when calling deletePbxTimeRange'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/time_range/{conversationPbxTimeRangeUuid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($conversation_pbx_time_range_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'conversationPbxTimeRangeUuid' . '}',
+                ObjectSerializer::toPathValue($conversation_pbx_time_range_uuid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deletePbxVoicemailMailbox
+     *
+     * Delete pbx voicemailMailbox
+     *
+     * @param  string $conversation_pbx_voicemail_mailbox_uuid conversation_pbx_voicemail_mailbox_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxVoicemailMailboxResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function deletePbxVoicemailMailbox($conversation_pbx_voicemail_mailbox_uuid)
+    {
+        list($response) = $this->deletePbxVoicemailMailboxWithHttpInfo($conversation_pbx_voicemail_mailbox_uuid);
+        return $response;
+    }
+
+    /**
+     * Operation deletePbxVoicemailMailboxWithHttpInfo
+     *
+     * Delete pbx voicemailMailbox
+     *
+     * @param  string $conversation_pbx_voicemail_mailbox_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxVoicemailMailboxResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deletePbxVoicemailMailboxWithHttpInfo($conversation_pbx_voicemail_mailbox_uuid)
+    {
+        return $this->deletePbxVoicemailMailboxWithHttpInfoRetry(true ,   $conversation_pbx_voicemail_mailbox_uuid);
+    }
+
+
+
+    /**
+     * Operation deletePbxVoicemailMailboxWithHttpInfoRetry
+     *
+     * Delete pbx voicemailMailbox
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $conversation_pbx_voicemail_mailbox_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxVoicemailMailboxResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deletePbxVoicemailMailboxWithHttpInfoRetry($retry , $conversation_pbx_voicemail_mailbox_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxVoicemailMailboxResponse';
+        $request = $this->deletePbxVoicemailMailboxRequest($conversation_pbx_voicemail_mailbox_uuid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deletePbxVoicemailMailboxWithHttpInfoRetry(false ,   $conversation_pbx_voicemail_mailbox_uuid);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxVoicemailMailboxResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxVoicemailMailboxResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxVoicemailMailboxResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxVoicemailMailboxResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxVoicemailMailboxResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation deletePbxVoicemailMailboxAsync
+     *
+     * Delete pbx voicemailMailbox
+     *
+     * @param  string $conversation_pbx_voicemail_mailbox_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deletePbxVoicemailMailboxAsync($conversation_pbx_voicemail_mailbox_uuid)
+    {
+        return $this->deletePbxVoicemailMailboxAsyncWithHttpInfo($conversation_pbx_voicemail_mailbox_uuid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deletePbxVoicemailMailboxAsyncWithHttpInfo
+     *
+     * Delete pbx voicemailMailbox
+     *
+     * @param  string $conversation_pbx_voicemail_mailbox_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deletePbxVoicemailMailboxAsyncWithHttpInfo($conversation_pbx_voicemail_mailbox_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxVoicemailMailboxResponse';
+        $request = $this->deletePbxVoicemailMailboxRequest($conversation_pbx_voicemail_mailbox_uuid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deletePbxVoicemailMailbox'
+     *
+     * @param  string $conversation_pbx_voicemail_mailbox_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deletePbxVoicemailMailboxRequest($conversation_pbx_voicemail_mailbox_uuid)
+    {
+        // verify the required parameter 'conversation_pbx_voicemail_mailbox_uuid' is set
+        if ($conversation_pbx_voicemail_mailbox_uuid === null || (is_array($conversation_pbx_voicemail_mailbox_uuid) && count($conversation_pbx_voicemail_mailbox_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $conversation_pbx_voicemail_mailbox_uuid when calling deletePbxVoicemailMailbox'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($conversation_pbx_voicemail_mailbox_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'conversationPbxVoicemailMailboxUuid' . '}',
+                ObjectSerializer::toPathValue($conversation_pbx_voicemail_mailbox_uuid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getAgentKeepAlive
      *
      * Agent keep alive
@@ -6196,6 +9748,892 @@ class ConversationApi
     }
 
     /**
+     * Operation getConversationPbxAudioUploadUrl
+     *
+     * Get a pre-signed conversation multimedia upload URL
+     *
+     * @param  string $extension extension (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationMultimediaUploadUrlResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function getConversationPbxAudioUploadUrl($extension)
+    {
+        list($response) = $this->getConversationPbxAudioUploadUrlWithHttpInfo($extension);
+        return $response;
+    }
+
+    /**
+     * Operation getConversationPbxAudioUploadUrlWithHttpInfo
+     *
+     * Get a pre-signed conversation multimedia upload URL
+     *
+     * @param  string $extension (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationMultimediaUploadUrlResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getConversationPbxAudioUploadUrlWithHttpInfo($extension)
+    {
+        return $this->getConversationPbxAudioUploadUrlWithHttpInfoRetry(true ,   $extension);
+    }
+
+
+
+    /**
+     * Operation getConversationPbxAudioUploadUrlWithHttpInfoRetry
+     *
+     * Get a pre-signed conversation multimedia upload URL
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $extension (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationMultimediaUploadUrlResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getConversationPbxAudioUploadUrlWithHttpInfoRetry($retry , $extension)
+    {
+        $returnType = '\ultracart\v2\models\ConversationMultimediaUploadUrlResponse';
+        $request = $this->getConversationPbxAudioUploadUrlRequest($extension);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getConversationPbxAudioUploadUrlWithHttpInfoRetry(false ,   $extension);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationMultimediaUploadUrlResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationMultimediaUploadUrlResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationMultimediaUploadUrlResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationMultimediaUploadUrlResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationMultimediaUploadUrlResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation getConversationPbxAudioUploadUrlAsync
+     *
+     * Get a pre-signed conversation multimedia upload URL
+     *
+     * @param  string $extension (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getConversationPbxAudioUploadUrlAsync($extension)
+    {
+        return $this->getConversationPbxAudioUploadUrlAsyncWithHttpInfo($extension)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getConversationPbxAudioUploadUrlAsyncWithHttpInfo
+     *
+     * Get a pre-signed conversation multimedia upload URL
+     *
+     * @param  string $extension (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getConversationPbxAudioUploadUrlAsyncWithHttpInfo($extension)
+    {
+        $returnType = '\ultracart\v2\models\ConversationMultimediaUploadUrlResponse';
+        $request = $this->getConversationPbxAudioUploadUrlRequest($extension);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getConversationPbxAudioUploadUrl'
+     *
+     * @param  string $extension (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getConversationPbxAudioUploadUrlRequest($extension)
+    {
+        // verify the required parameter 'extension' is set
+        if ($extension === null || (is_array($extension) && count($extension) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $extension when calling getConversationPbxAudioUploadUrl'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/audio/upload_url/{extension}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($extension !== null) {
+            $resourcePath = str_replace(
+                '{' . 'extension' . '}',
+                ObjectSerializer::toPathValue($extension),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getConversationPbxCustomerSnapshot
+     *
+     * Get orders and customer information for a phone number
+     *
+     * @param  \ultracart\v2\models\ConversationPbxCustomerSnapshotRequest $pbx_customer_snapshot_request Conversation pbx customer snapshot request (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxCustomerSnapshotResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function getConversationPbxCustomerSnapshot($pbx_customer_snapshot_request)
+    {
+        list($response) = $this->getConversationPbxCustomerSnapshotWithHttpInfo($pbx_customer_snapshot_request);
+        return $response;
+    }
+
+    /**
+     * Operation getConversationPbxCustomerSnapshotWithHttpInfo
+     *
+     * Get orders and customer information for a phone number
+     *
+     * @param  \ultracart\v2\models\ConversationPbxCustomerSnapshotRequest $pbx_customer_snapshot_request Conversation pbx customer snapshot request (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxCustomerSnapshotResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getConversationPbxCustomerSnapshotWithHttpInfo($pbx_customer_snapshot_request)
+    {
+        return $this->getConversationPbxCustomerSnapshotWithHttpInfoRetry(true ,   $pbx_customer_snapshot_request);
+    }
+
+
+
+    /**
+     * Operation getConversationPbxCustomerSnapshotWithHttpInfoRetry
+     *
+     * Get orders and customer information for a phone number
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\ConversationPbxCustomerSnapshotRequest $pbx_customer_snapshot_request Conversation pbx customer snapshot request (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxCustomerSnapshotResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getConversationPbxCustomerSnapshotWithHttpInfoRetry($retry , $pbx_customer_snapshot_request)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxCustomerSnapshotResponse';
+        $request = $this->getConversationPbxCustomerSnapshotRequest($pbx_customer_snapshot_request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getConversationPbxCustomerSnapshotWithHttpInfoRetry(false ,   $pbx_customer_snapshot_request);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxCustomerSnapshotResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxCustomerSnapshotResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxCustomerSnapshotResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxCustomerSnapshotResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxCustomerSnapshotResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation getConversationPbxCustomerSnapshotAsync
+     *
+     * Get orders and customer information for a phone number
+     *
+     * @param  \ultracart\v2\models\ConversationPbxCustomerSnapshotRequest $pbx_customer_snapshot_request Conversation pbx customer snapshot request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getConversationPbxCustomerSnapshotAsync($pbx_customer_snapshot_request)
+    {
+        return $this->getConversationPbxCustomerSnapshotAsyncWithHttpInfo($pbx_customer_snapshot_request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getConversationPbxCustomerSnapshotAsyncWithHttpInfo
+     *
+     * Get orders and customer information for a phone number
+     *
+     * @param  \ultracart\v2\models\ConversationPbxCustomerSnapshotRequest $pbx_customer_snapshot_request Conversation pbx customer snapshot request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getConversationPbxCustomerSnapshotAsyncWithHttpInfo($pbx_customer_snapshot_request)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxCustomerSnapshotResponse';
+        $request = $this->getConversationPbxCustomerSnapshotRequest($pbx_customer_snapshot_request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getConversationPbxCustomerSnapshot'
+     *
+     * @param  \ultracart\v2\models\ConversationPbxCustomerSnapshotRequest $pbx_customer_snapshot_request Conversation pbx customer snapshot request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getConversationPbxCustomerSnapshotRequest($pbx_customer_snapshot_request)
+    {
+        // verify the required parameter 'pbx_customer_snapshot_request' is set
+        if ($pbx_customer_snapshot_request === null || (is_array($pbx_customer_snapshot_request) && count($pbx_customer_snapshot_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $pbx_customer_snapshot_request when calling getConversationPbxCustomerSnapshot'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/customer_snapshot';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($pbx_customer_snapshot_request)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($pbx_customer_snapshot_request));
+            } else {
+                $httpBody = $pbx_customer_snapshot_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getConversationPermissions
      *
      * Retrieve conversation permissions
@@ -8836,6 +13274,6950 @@ class ConversationApi
     }
 
     /**
+     * Operation getPbxAgent
+     *
+     * Get pbx agent
+     *
+     * @param  string $conversation_pbx_agent_uuid conversation_pbx_agent_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxAgentResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function getPbxAgent($conversation_pbx_agent_uuid)
+    {
+        list($response) = $this->getPbxAgentWithHttpInfo($conversation_pbx_agent_uuid);
+        return $response;
+    }
+
+    /**
+     * Operation getPbxAgentWithHttpInfo
+     *
+     * Get pbx agent
+     *
+     * @param  string $conversation_pbx_agent_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxAgentResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPbxAgentWithHttpInfo($conversation_pbx_agent_uuid)
+    {
+        return $this->getPbxAgentWithHttpInfoRetry(true ,   $conversation_pbx_agent_uuid);
+    }
+
+
+
+    /**
+     * Operation getPbxAgentWithHttpInfoRetry
+     *
+     * Get pbx agent
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $conversation_pbx_agent_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxAgentResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPbxAgentWithHttpInfoRetry($retry , $conversation_pbx_agent_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxAgentResponse';
+        $request = $this->getPbxAgentRequest($conversation_pbx_agent_uuid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getPbxAgentWithHttpInfoRetry(false ,   $conversation_pbx_agent_uuid);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxAgentResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxAgentResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxAgentResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxAgentResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxAgentResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation getPbxAgentAsync
+     *
+     * Get pbx agent
+     *
+     * @param  string $conversation_pbx_agent_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPbxAgentAsync($conversation_pbx_agent_uuid)
+    {
+        return $this->getPbxAgentAsyncWithHttpInfo($conversation_pbx_agent_uuid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getPbxAgentAsyncWithHttpInfo
+     *
+     * Get pbx agent
+     *
+     * @param  string $conversation_pbx_agent_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPbxAgentAsyncWithHttpInfo($conversation_pbx_agent_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxAgentResponse';
+        $request = $this->getPbxAgentRequest($conversation_pbx_agent_uuid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getPbxAgent'
+     *
+     * @param  string $conversation_pbx_agent_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getPbxAgentRequest($conversation_pbx_agent_uuid)
+    {
+        // verify the required parameter 'conversation_pbx_agent_uuid' is set
+        if ($conversation_pbx_agent_uuid === null || (is_array($conversation_pbx_agent_uuid) && count($conversation_pbx_agent_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $conversation_pbx_agent_uuid when calling getPbxAgent'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/agent/{conversationPbxAgentUuid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($conversation_pbx_agent_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'conversationPbxAgentUuid' . '}',
+                ObjectSerializer::toPathValue($conversation_pbx_agent_uuid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getPbxAgents
+     *
+     * Get pbx agents
+     *
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxAgentsResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function getPbxAgents()
+    {
+        list($response) = $this->getPbxAgentsWithHttpInfo();
+        return $response;
+    }
+
+    /**
+     * Operation getPbxAgentsWithHttpInfo
+     *
+     * Get pbx agents
+     *
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxAgentsResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPbxAgentsWithHttpInfo()
+    {
+        return $this->getPbxAgentsWithHttpInfoRetry(true );
+    }
+
+
+
+    /**
+     * Operation getPbxAgentsWithHttpInfoRetry
+     *
+     * Get pbx agents
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxAgentsResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPbxAgentsWithHttpInfoRetry($retry )
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxAgentsResponse';
+        $request = $this->getPbxAgentsRequest();
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getPbxAgentsWithHttpInfoRetry(false );
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxAgentsResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxAgentsResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxAgentsResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxAgentsResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxAgentsResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation getPbxAgentsAsync
+     *
+     * Get pbx agents
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPbxAgentsAsync()
+    {
+        return $this->getPbxAgentsAsyncWithHttpInfo()
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getPbxAgentsAsyncWithHttpInfo
+     *
+     * Get pbx agents
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPbxAgentsAsyncWithHttpInfo()
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxAgentsResponse';
+        $request = $this->getPbxAgentsRequest();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getPbxAgents'
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getPbxAgentsRequest()
+    {
+
+        $resourcePath = '/conversation/pbx/agent';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getPbxAudio
+     *
+     * Get pbx audio
+     *
+     * @param  string $conversation_pbx_audio_uuid conversation_pbx_audio_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxAudioResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function getPbxAudio($conversation_pbx_audio_uuid)
+    {
+        list($response) = $this->getPbxAudioWithHttpInfo($conversation_pbx_audio_uuid);
+        return $response;
+    }
+
+    /**
+     * Operation getPbxAudioWithHttpInfo
+     *
+     * Get pbx audio
+     *
+     * @param  string $conversation_pbx_audio_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxAudioResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPbxAudioWithHttpInfo($conversation_pbx_audio_uuid)
+    {
+        return $this->getPbxAudioWithHttpInfoRetry(true ,   $conversation_pbx_audio_uuid);
+    }
+
+
+
+    /**
+     * Operation getPbxAudioWithHttpInfoRetry
+     *
+     * Get pbx audio
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $conversation_pbx_audio_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxAudioResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPbxAudioWithHttpInfoRetry($retry , $conversation_pbx_audio_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxAudioResponse';
+        $request = $this->getPbxAudioRequest($conversation_pbx_audio_uuid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getPbxAudioWithHttpInfoRetry(false ,   $conversation_pbx_audio_uuid);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxAudioResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxAudioResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxAudioResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxAudioResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxAudioResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation getPbxAudioAsync
+     *
+     * Get pbx audio
+     *
+     * @param  string $conversation_pbx_audio_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPbxAudioAsync($conversation_pbx_audio_uuid)
+    {
+        return $this->getPbxAudioAsyncWithHttpInfo($conversation_pbx_audio_uuid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getPbxAudioAsyncWithHttpInfo
+     *
+     * Get pbx audio
+     *
+     * @param  string $conversation_pbx_audio_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPbxAudioAsyncWithHttpInfo($conversation_pbx_audio_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxAudioResponse';
+        $request = $this->getPbxAudioRequest($conversation_pbx_audio_uuid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getPbxAudio'
+     *
+     * @param  string $conversation_pbx_audio_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getPbxAudioRequest($conversation_pbx_audio_uuid)
+    {
+        // verify the required parameter 'conversation_pbx_audio_uuid' is set
+        if ($conversation_pbx_audio_uuid === null || (is_array($conversation_pbx_audio_uuid) && count($conversation_pbx_audio_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $conversation_pbx_audio_uuid when calling getPbxAudio'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/audio/{conversationPbxAudioUuid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($conversation_pbx_audio_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'conversationPbxAudioUuid' . '}',
+                ObjectSerializer::toPathValue($conversation_pbx_audio_uuid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getPbxAudios
+     *
+     * Get pbx audios
+     *
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxAudiosResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function getPbxAudios()
+    {
+        list($response) = $this->getPbxAudiosWithHttpInfo();
+        return $response;
+    }
+
+    /**
+     * Operation getPbxAudiosWithHttpInfo
+     *
+     * Get pbx audios
+     *
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxAudiosResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPbxAudiosWithHttpInfo()
+    {
+        return $this->getPbxAudiosWithHttpInfoRetry(true );
+    }
+
+
+
+    /**
+     * Operation getPbxAudiosWithHttpInfoRetry
+     *
+     * Get pbx audios
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxAudiosResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPbxAudiosWithHttpInfoRetry($retry )
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxAudiosResponse';
+        $request = $this->getPbxAudiosRequest();
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getPbxAudiosWithHttpInfoRetry(false );
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxAudiosResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxAudiosResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxAudiosResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxAudiosResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxAudiosResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation getPbxAudiosAsync
+     *
+     * Get pbx audios
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPbxAudiosAsync()
+    {
+        return $this->getPbxAudiosAsyncWithHttpInfo()
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getPbxAudiosAsyncWithHttpInfo
+     *
+     * Get pbx audios
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPbxAudiosAsyncWithHttpInfo()
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxAudiosResponse';
+        $request = $this->getPbxAudiosRequest();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getPbxAudios'
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getPbxAudiosRequest()
+    {
+
+        $resourcePath = '/conversation/pbx/audio';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getPbxMenu
+     *
+     * Get pbx menu
+     *
+     * @param  string $conversation_pbx_menu_uuid conversation_pbx_menu_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxMenuResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function getPbxMenu($conversation_pbx_menu_uuid)
+    {
+        list($response) = $this->getPbxMenuWithHttpInfo($conversation_pbx_menu_uuid);
+        return $response;
+    }
+
+    /**
+     * Operation getPbxMenuWithHttpInfo
+     *
+     * Get pbx menu
+     *
+     * @param  string $conversation_pbx_menu_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxMenuResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPbxMenuWithHttpInfo($conversation_pbx_menu_uuid)
+    {
+        return $this->getPbxMenuWithHttpInfoRetry(true ,   $conversation_pbx_menu_uuid);
+    }
+
+
+
+    /**
+     * Operation getPbxMenuWithHttpInfoRetry
+     *
+     * Get pbx menu
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $conversation_pbx_menu_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxMenuResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPbxMenuWithHttpInfoRetry($retry , $conversation_pbx_menu_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxMenuResponse';
+        $request = $this->getPbxMenuRequest($conversation_pbx_menu_uuid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getPbxMenuWithHttpInfoRetry(false ,   $conversation_pbx_menu_uuid);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxMenuResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxMenuResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxMenuResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxMenuResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxMenuResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation getPbxMenuAsync
+     *
+     * Get pbx menu
+     *
+     * @param  string $conversation_pbx_menu_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPbxMenuAsync($conversation_pbx_menu_uuid)
+    {
+        return $this->getPbxMenuAsyncWithHttpInfo($conversation_pbx_menu_uuid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getPbxMenuAsyncWithHttpInfo
+     *
+     * Get pbx menu
+     *
+     * @param  string $conversation_pbx_menu_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPbxMenuAsyncWithHttpInfo($conversation_pbx_menu_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxMenuResponse';
+        $request = $this->getPbxMenuRequest($conversation_pbx_menu_uuid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getPbxMenu'
+     *
+     * @param  string $conversation_pbx_menu_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getPbxMenuRequest($conversation_pbx_menu_uuid)
+    {
+        // verify the required parameter 'conversation_pbx_menu_uuid' is set
+        if ($conversation_pbx_menu_uuid === null || (is_array($conversation_pbx_menu_uuid) && count($conversation_pbx_menu_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $conversation_pbx_menu_uuid when calling getPbxMenu'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/menu/{conversationPbxMenuUuid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($conversation_pbx_menu_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'conversationPbxMenuUuid' . '}',
+                ObjectSerializer::toPathValue($conversation_pbx_menu_uuid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getPbxMenus
+     *
+     * Get pbx menus
+     *
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxMenusResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function getPbxMenus()
+    {
+        list($response) = $this->getPbxMenusWithHttpInfo();
+        return $response;
+    }
+
+    /**
+     * Operation getPbxMenusWithHttpInfo
+     *
+     * Get pbx menus
+     *
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxMenusResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPbxMenusWithHttpInfo()
+    {
+        return $this->getPbxMenusWithHttpInfoRetry(true );
+    }
+
+
+
+    /**
+     * Operation getPbxMenusWithHttpInfoRetry
+     *
+     * Get pbx menus
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxMenusResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPbxMenusWithHttpInfoRetry($retry )
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxMenusResponse';
+        $request = $this->getPbxMenusRequest();
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getPbxMenusWithHttpInfoRetry(false );
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxMenusResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxMenusResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxMenusResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxMenusResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxMenusResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation getPbxMenusAsync
+     *
+     * Get pbx menus
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPbxMenusAsync()
+    {
+        return $this->getPbxMenusAsyncWithHttpInfo()
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getPbxMenusAsyncWithHttpInfo
+     *
+     * Get pbx menus
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPbxMenusAsyncWithHttpInfo()
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxMenusResponse';
+        $request = $this->getPbxMenusRequest();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getPbxMenus'
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getPbxMenusRequest()
+    {
+
+        $resourcePath = '/conversation/pbx/menu';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getPbxPhoneNumber
+     *
+     * Get pbx phoneNumber
+     *
+     * @param  string $conversation_pbx_phone_number_uuid conversation_pbx_phone_number_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxPhoneNumberResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function getPbxPhoneNumber($conversation_pbx_phone_number_uuid)
+    {
+        list($response) = $this->getPbxPhoneNumberWithHttpInfo($conversation_pbx_phone_number_uuid);
+        return $response;
+    }
+
+    /**
+     * Operation getPbxPhoneNumberWithHttpInfo
+     *
+     * Get pbx phoneNumber
+     *
+     * @param  string $conversation_pbx_phone_number_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxPhoneNumberResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPbxPhoneNumberWithHttpInfo($conversation_pbx_phone_number_uuid)
+    {
+        return $this->getPbxPhoneNumberWithHttpInfoRetry(true ,   $conversation_pbx_phone_number_uuid);
+    }
+
+
+
+    /**
+     * Operation getPbxPhoneNumberWithHttpInfoRetry
+     *
+     * Get pbx phoneNumber
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $conversation_pbx_phone_number_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxPhoneNumberResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPbxPhoneNumberWithHttpInfoRetry($retry , $conversation_pbx_phone_number_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxPhoneNumberResponse';
+        $request = $this->getPbxPhoneNumberRequest($conversation_pbx_phone_number_uuid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getPbxPhoneNumberWithHttpInfoRetry(false ,   $conversation_pbx_phone_number_uuid);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxPhoneNumberResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxPhoneNumberResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxPhoneNumberResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxPhoneNumberResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxPhoneNumberResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation getPbxPhoneNumberAsync
+     *
+     * Get pbx phoneNumber
+     *
+     * @param  string $conversation_pbx_phone_number_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPbxPhoneNumberAsync($conversation_pbx_phone_number_uuid)
+    {
+        return $this->getPbxPhoneNumberAsyncWithHttpInfo($conversation_pbx_phone_number_uuid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getPbxPhoneNumberAsyncWithHttpInfo
+     *
+     * Get pbx phoneNumber
+     *
+     * @param  string $conversation_pbx_phone_number_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPbxPhoneNumberAsyncWithHttpInfo($conversation_pbx_phone_number_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxPhoneNumberResponse';
+        $request = $this->getPbxPhoneNumberRequest($conversation_pbx_phone_number_uuid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getPbxPhoneNumber'
+     *
+     * @param  string $conversation_pbx_phone_number_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getPbxPhoneNumberRequest($conversation_pbx_phone_number_uuid)
+    {
+        // verify the required parameter 'conversation_pbx_phone_number_uuid' is set
+        if ($conversation_pbx_phone_number_uuid === null || (is_array($conversation_pbx_phone_number_uuid) && count($conversation_pbx_phone_number_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $conversation_pbx_phone_number_uuid when calling getPbxPhoneNumber'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/phone_number/{conversationPbxPhoneNumberUuid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($conversation_pbx_phone_number_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'conversationPbxPhoneNumberUuid' . '}',
+                ObjectSerializer::toPathValue($conversation_pbx_phone_number_uuid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getPbxPhoneNumbers
+     *
+     * Get pbx phoneNumbers
+     *
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxPhoneNumbersResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function getPbxPhoneNumbers()
+    {
+        list($response) = $this->getPbxPhoneNumbersWithHttpInfo();
+        return $response;
+    }
+
+    /**
+     * Operation getPbxPhoneNumbersWithHttpInfo
+     *
+     * Get pbx phoneNumbers
+     *
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxPhoneNumbersResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPbxPhoneNumbersWithHttpInfo()
+    {
+        return $this->getPbxPhoneNumbersWithHttpInfoRetry(true );
+    }
+
+
+
+    /**
+     * Operation getPbxPhoneNumbersWithHttpInfoRetry
+     *
+     * Get pbx phoneNumbers
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxPhoneNumbersResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPbxPhoneNumbersWithHttpInfoRetry($retry )
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxPhoneNumbersResponse';
+        $request = $this->getPbxPhoneNumbersRequest();
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getPbxPhoneNumbersWithHttpInfoRetry(false );
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxPhoneNumbersResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxPhoneNumbersResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxPhoneNumbersResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxPhoneNumbersResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxPhoneNumbersResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation getPbxPhoneNumbersAsync
+     *
+     * Get pbx phoneNumbers
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPbxPhoneNumbersAsync()
+    {
+        return $this->getPbxPhoneNumbersAsyncWithHttpInfo()
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getPbxPhoneNumbersAsyncWithHttpInfo
+     *
+     * Get pbx phoneNumbers
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPbxPhoneNumbersAsyncWithHttpInfo()
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxPhoneNumbersResponse';
+        $request = $this->getPbxPhoneNumbersRequest();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getPbxPhoneNumbers'
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getPbxPhoneNumbersRequest()
+    {
+
+        $resourcePath = '/conversation/pbx/phone_number';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getPbxQueue
+     *
+     * Get pbx queue
+     *
+     * @param  string $conversation_pbx_queue_uuid conversation_pbx_queue_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxQueueResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function getPbxQueue($conversation_pbx_queue_uuid)
+    {
+        list($response) = $this->getPbxQueueWithHttpInfo($conversation_pbx_queue_uuid);
+        return $response;
+    }
+
+    /**
+     * Operation getPbxQueueWithHttpInfo
+     *
+     * Get pbx queue
+     *
+     * @param  string $conversation_pbx_queue_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxQueueResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPbxQueueWithHttpInfo($conversation_pbx_queue_uuid)
+    {
+        return $this->getPbxQueueWithHttpInfoRetry(true ,   $conversation_pbx_queue_uuid);
+    }
+
+
+
+    /**
+     * Operation getPbxQueueWithHttpInfoRetry
+     *
+     * Get pbx queue
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $conversation_pbx_queue_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxQueueResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPbxQueueWithHttpInfoRetry($retry , $conversation_pbx_queue_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxQueueResponse';
+        $request = $this->getPbxQueueRequest($conversation_pbx_queue_uuid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getPbxQueueWithHttpInfoRetry(false ,   $conversation_pbx_queue_uuid);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxQueueResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxQueueResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxQueueResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxQueueResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxQueueResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation getPbxQueueAsync
+     *
+     * Get pbx queue
+     *
+     * @param  string $conversation_pbx_queue_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPbxQueueAsync($conversation_pbx_queue_uuid)
+    {
+        return $this->getPbxQueueAsyncWithHttpInfo($conversation_pbx_queue_uuid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getPbxQueueAsyncWithHttpInfo
+     *
+     * Get pbx queue
+     *
+     * @param  string $conversation_pbx_queue_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPbxQueueAsyncWithHttpInfo($conversation_pbx_queue_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxQueueResponse';
+        $request = $this->getPbxQueueRequest($conversation_pbx_queue_uuid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getPbxQueue'
+     *
+     * @param  string $conversation_pbx_queue_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getPbxQueueRequest($conversation_pbx_queue_uuid)
+    {
+        // verify the required parameter 'conversation_pbx_queue_uuid' is set
+        if ($conversation_pbx_queue_uuid === null || (is_array($conversation_pbx_queue_uuid) && count($conversation_pbx_queue_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $conversation_pbx_queue_uuid when calling getPbxQueue'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/queue/{conversationPbxQueueUuid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($conversation_pbx_queue_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'conversationPbxQueueUuid' . '}',
+                ObjectSerializer::toPathValue($conversation_pbx_queue_uuid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getPbxQueues
+     *
+     * Get pbx queues
+     *
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxQueuesResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function getPbxQueues()
+    {
+        list($response) = $this->getPbxQueuesWithHttpInfo();
+        return $response;
+    }
+
+    /**
+     * Operation getPbxQueuesWithHttpInfo
+     *
+     * Get pbx queues
+     *
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxQueuesResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPbxQueuesWithHttpInfo()
+    {
+        return $this->getPbxQueuesWithHttpInfoRetry(true );
+    }
+
+
+
+    /**
+     * Operation getPbxQueuesWithHttpInfoRetry
+     *
+     * Get pbx queues
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxQueuesResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPbxQueuesWithHttpInfoRetry($retry )
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxQueuesResponse';
+        $request = $this->getPbxQueuesRequest();
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getPbxQueuesWithHttpInfoRetry(false );
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxQueuesResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxQueuesResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxQueuesResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxQueuesResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxQueuesResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation getPbxQueuesAsync
+     *
+     * Get pbx queues
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPbxQueuesAsync()
+    {
+        return $this->getPbxQueuesAsyncWithHttpInfo()
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getPbxQueuesAsyncWithHttpInfo
+     *
+     * Get pbx queues
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPbxQueuesAsyncWithHttpInfo()
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxQueuesResponse';
+        $request = $this->getPbxQueuesRequest();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getPbxQueues'
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getPbxQueuesRequest()
+    {
+
+        $resourcePath = '/conversation/pbx/queue';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getPbxTimeBased
+     *
+     * Get pbx timeBased
+     *
+     * @param  string $conversation_pbx_time_based_uuid conversation_pbx_time_based_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxTimeBasedResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function getPbxTimeBased($conversation_pbx_time_based_uuid)
+    {
+        list($response) = $this->getPbxTimeBasedWithHttpInfo($conversation_pbx_time_based_uuid);
+        return $response;
+    }
+
+    /**
+     * Operation getPbxTimeBasedWithHttpInfo
+     *
+     * Get pbx timeBased
+     *
+     * @param  string $conversation_pbx_time_based_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxTimeBasedResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPbxTimeBasedWithHttpInfo($conversation_pbx_time_based_uuid)
+    {
+        return $this->getPbxTimeBasedWithHttpInfoRetry(true ,   $conversation_pbx_time_based_uuid);
+    }
+
+
+
+    /**
+     * Operation getPbxTimeBasedWithHttpInfoRetry
+     *
+     * Get pbx timeBased
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $conversation_pbx_time_based_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxTimeBasedResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPbxTimeBasedWithHttpInfoRetry($retry , $conversation_pbx_time_based_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxTimeBasedResponse';
+        $request = $this->getPbxTimeBasedRequest($conversation_pbx_time_based_uuid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getPbxTimeBasedWithHttpInfoRetry(false ,   $conversation_pbx_time_based_uuid);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxTimeBasedResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxTimeBasedResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxTimeBasedResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxTimeBasedResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxTimeBasedResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation getPbxTimeBasedAsync
+     *
+     * Get pbx timeBased
+     *
+     * @param  string $conversation_pbx_time_based_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPbxTimeBasedAsync($conversation_pbx_time_based_uuid)
+    {
+        return $this->getPbxTimeBasedAsyncWithHttpInfo($conversation_pbx_time_based_uuid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getPbxTimeBasedAsyncWithHttpInfo
+     *
+     * Get pbx timeBased
+     *
+     * @param  string $conversation_pbx_time_based_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPbxTimeBasedAsyncWithHttpInfo($conversation_pbx_time_based_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxTimeBasedResponse';
+        $request = $this->getPbxTimeBasedRequest($conversation_pbx_time_based_uuid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getPbxTimeBased'
+     *
+     * @param  string $conversation_pbx_time_based_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getPbxTimeBasedRequest($conversation_pbx_time_based_uuid)
+    {
+        // verify the required parameter 'conversation_pbx_time_based_uuid' is set
+        if ($conversation_pbx_time_based_uuid === null || (is_array($conversation_pbx_time_based_uuid) && count($conversation_pbx_time_based_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $conversation_pbx_time_based_uuid when calling getPbxTimeBased'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/time_based/{conversationPbxTimeBasedUuid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($conversation_pbx_time_based_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'conversationPbxTimeBasedUuid' . '}',
+                ObjectSerializer::toPathValue($conversation_pbx_time_based_uuid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getPbxTimeBaseds
+     *
+     * Get pbx timeBaseds
+     *
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxTimeBasedsResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function getPbxTimeBaseds()
+    {
+        list($response) = $this->getPbxTimeBasedsWithHttpInfo();
+        return $response;
+    }
+
+    /**
+     * Operation getPbxTimeBasedsWithHttpInfo
+     *
+     * Get pbx timeBaseds
+     *
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxTimeBasedsResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPbxTimeBasedsWithHttpInfo()
+    {
+        return $this->getPbxTimeBasedsWithHttpInfoRetry(true );
+    }
+
+
+
+    /**
+     * Operation getPbxTimeBasedsWithHttpInfoRetry
+     *
+     * Get pbx timeBaseds
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxTimeBasedsResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPbxTimeBasedsWithHttpInfoRetry($retry )
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxTimeBasedsResponse';
+        $request = $this->getPbxTimeBasedsRequest();
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getPbxTimeBasedsWithHttpInfoRetry(false );
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxTimeBasedsResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxTimeBasedsResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxTimeBasedsResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxTimeBasedsResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxTimeBasedsResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation getPbxTimeBasedsAsync
+     *
+     * Get pbx timeBaseds
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPbxTimeBasedsAsync()
+    {
+        return $this->getPbxTimeBasedsAsyncWithHttpInfo()
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getPbxTimeBasedsAsyncWithHttpInfo
+     *
+     * Get pbx timeBaseds
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPbxTimeBasedsAsyncWithHttpInfo()
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxTimeBasedsResponse';
+        $request = $this->getPbxTimeBasedsRequest();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getPbxTimeBaseds'
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getPbxTimeBasedsRequest()
+    {
+
+        $resourcePath = '/conversation/pbx/time_based';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getPbxTimeRange
+     *
+     * Get pbx timeRange
+     *
+     * @param  string $conversation_pbx_time_range_uuid conversation_pbx_time_range_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxTimeRangeResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function getPbxTimeRange($conversation_pbx_time_range_uuid)
+    {
+        list($response) = $this->getPbxTimeRangeWithHttpInfo($conversation_pbx_time_range_uuid);
+        return $response;
+    }
+
+    /**
+     * Operation getPbxTimeRangeWithHttpInfo
+     *
+     * Get pbx timeRange
+     *
+     * @param  string $conversation_pbx_time_range_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxTimeRangeResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPbxTimeRangeWithHttpInfo($conversation_pbx_time_range_uuid)
+    {
+        return $this->getPbxTimeRangeWithHttpInfoRetry(true ,   $conversation_pbx_time_range_uuid);
+    }
+
+
+
+    /**
+     * Operation getPbxTimeRangeWithHttpInfoRetry
+     *
+     * Get pbx timeRange
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $conversation_pbx_time_range_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxTimeRangeResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPbxTimeRangeWithHttpInfoRetry($retry , $conversation_pbx_time_range_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxTimeRangeResponse';
+        $request = $this->getPbxTimeRangeRequest($conversation_pbx_time_range_uuid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getPbxTimeRangeWithHttpInfoRetry(false ,   $conversation_pbx_time_range_uuid);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxTimeRangeResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxTimeRangeResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxTimeRangeResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxTimeRangeResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxTimeRangeResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation getPbxTimeRangeAsync
+     *
+     * Get pbx timeRange
+     *
+     * @param  string $conversation_pbx_time_range_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPbxTimeRangeAsync($conversation_pbx_time_range_uuid)
+    {
+        return $this->getPbxTimeRangeAsyncWithHttpInfo($conversation_pbx_time_range_uuid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getPbxTimeRangeAsyncWithHttpInfo
+     *
+     * Get pbx timeRange
+     *
+     * @param  string $conversation_pbx_time_range_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPbxTimeRangeAsyncWithHttpInfo($conversation_pbx_time_range_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxTimeRangeResponse';
+        $request = $this->getPbxTimeRangeRequest($conversation_pbx_time_range_uuid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getPbxTimeRange'
+     *
+     * @param  string $conversation_pbx_time_range_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getPbxTimeRangeRequest($conversation_pbx_time_range_uuid)
+    {
+        // verify the required parameter 'conversation_pbx_time_range_uuid' is set
+        if ($conversation_pbx_time_range_uuid === null || (is_array($conversation_pbx_time_range_uuid) && count($conversation_pbx_time_range_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $conversation_pbx_time_range_uuid when calling getPbxTimeRange'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/time_range/{conversationPbxTimeRangeUuid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($conversation_pbx_time_range_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'conversationPbxTimeRangeUuid' . '}',
+                ObjectSerializer::toPathValue($conversation_pbx_time_range_uuid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getPbxTimeRanges
+     *
+     * Get pbx timeRanges
+     *
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxTimeRangesResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function getPbxTimeRanges()
+    {
+        list($response) = $this->getPbxTimeRangesWithHttpInfo();
+        return $response;
+    }
+
+    /**
+     * Operation getPbxTimeRangesWithHttpInfo
+     *
+     * Get pbx timeRanges
+     *
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxTimeRangesResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPbxTimeRangesWithHttpInfo()
+    {
+        return $this->getPbxTimeRangesWithHttpInfoRetry(true );
+    }
+
+
+
+    /**
+     * Operation getPbxTimeRangesWithHttpInfoRetry
+     *
+     * Get pbx timeRanges
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxTimeRangesResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPbxTimeRangesWithHttpInfoRetry($retry )
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxTimeRangesResponse';
+        $request = $this->getPbxTimeRangesRequest();
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getPbxTimeRangesWithHttpInfoRetry(false );
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxTimeRangesResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxTimeRangesResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxTimeRangesResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxTimeRangesResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxTimeRangesResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation getPbxTimeRangesAsync
+     *
+     * Get pbx timeRanges
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPbxTimeRangesAsync()
+    {
+        return $this->getPbxTimeRangesAsyncWithHttpInfo()
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getPbxTimeRangesAsyncWithHttpInfo
+     *
+     * Get pbx timeRanges
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPbxTimeRangesAsyncWithHttpInfo()
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxTimeRangesResponse';
+        $request = $this->getPbxTimeRangesRequest();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getPbxTimeRanges'
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getPbxTimeRangesRequest()
+    {
+
+        $resourcePath = '/conversation/pbx/time_range';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getPbxVoicemailMailbox
+     *
+     * Get pbx voicemailMailbox
+     *
+     * @param  string $conversation_pbx_voicemail_mailbox_uuid conversation_pbx_voicemail_mailbox_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxVoicemailMailboxResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function getPbxVoicemailMailbox($conversation_pbx_voicemail_mailbox_uuid)
+    {
+        list($response) = $this->getPbxVoicemailMailboxWithHttpInfo($conversation_pbx_voicemail_mailbox_uuid);
+        return $response;
+    }
+
+    /**
+     * Operation getPbxVoicemailMailboxWithHttpInfo
+     *
+     * Get pbx voicemailMailbox
+     *
+     * @param  string $conversation_pbx_voicemail_mailbox_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxVoicemailMailboxResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPbxVoicemailMailboxWithHttpInfo($conversation_pbx_voicemail_mailbox_uuid)
+    {
+        return $this->getPbxVoicemailMailboxWithHttpInfoRetry(true ,   $conversation_pbx_voicemail_mailbox_uuid);
+    }
+
+
+
+    /**
+     * Operation getPbxVoicemailMailboxWithHttpInfoRetry
+     *
+     * Get pbx voicemailMailbox
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $conversation_pbx_voicemail_mailbox_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxVoicemailMailboxResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPbxVoicemailMailboxWithHttpInfoRetry($retry , $conversation_pbx_voicemail_mailbox_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxVoicemailMailboxResponse';
+        $request = $this->getPbxVoicemailMailboxRequest($conversation_pbx_voicemail_mailbox_uuid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getPbxVoicemailMailboxWithHttpInfoRetry(false ,   $conversation_pbx_voicemail_mailbox_uuid);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxVoicemailMailboxResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxVoicemailMailboxResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxVoicemailMailboxResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxVoicemailMailboxResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxVoicemailMailboxResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation getPbxVoicemailMailboxAsync
+     *
+     * Get pbx voicemailMailbox
+     *
+     * @param  string $conversation_pbx_voicemail_mailbox_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPbxVoicemailMailboxAsync($conversation_pbx_voicemail_mailbox_uuid)
+    {
+        return $this->getPbxVoicemailMailboxAsyncWithHttpInfo($conversation_pbx_voicemail_mailbox_uuid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getPbxVoicemailMailboxAsyncWithHttpInfo
+     *
+     * Get pbx voicemailMailbox
+     *
+     * @param  string $conversation_pbx_voicemail_mailbox_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPbxVoicemailMailboxAsyncWithHttpInfo($conversation_pbx_voicemail_mailbox_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxVoicemailMailboxResponse';
+        $request = $this->getPbxVoicemailMailboxRequest($conversation_pbx_voicemail_mailbox_uuid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getPbxVoicemailMailbox'
+     *
+     * @param  string $conversation_pbx_voicemail_mailbox_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getPbxVoicemailMailboxRequest($conversation_pbx_voicemail_mailbox_uuid)
+    {
+        // verify the required parameter 'conversation_pbx_voicemail_mailbox_uuid' is set
+        if ($conversation_pbx_voicemail_mailbox_uuid === null || (is_array($conversation_pbx_voicemail_mailbox_uuid) && count($conversation_pbx_voicemail_mailbox_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $conversation_pbx_voicemail_mailbox_uuid when calling getPbxVoicemailMailbox'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($conversation_pbx_voicemail_mailbox_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'conversationPbxVoicemailMailboxUuid' . '}',
+                ObjectSerializer::toPathValue($conversation_pbx_voicemail_mailbox_uuid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getPbxVoicemailMailboxes
+     *
+     * Get pbx voicemailMailboxes
+     *
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxVoicemailMailboxesResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function getPbxVoicemailMailboxes()
+    {
+        list($response) = $this->getPbxVoicemailMailboxesWithHttpInfo();
+        return $response;
+    }
+
+    /**
+     * Operation getPbxVoicemailMailboxesWithHttpInfo
+     *
+     * Get pbx voicemailMailboxes
+     *
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxVoicemailMailboxesResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPbxVoicemailMailboxesWithHttpInfo()
+    {
+        return $this->getPbxVoicemailMailboxesWithHttpInfoRetry(true );
+    }
+
+
+
+    /**
+     * Operation getPbxVoicemailMailboxesWithHttpInfoRetry
+     *
+     * Get pbx voicemailMailboxes
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxVoicemailMailboxesResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPbxVoicemailMailboxesWithHttpInfoRetry($retry )
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxVoicemailMailboxesResponse';
+        $request = $this->getPbxVoicemailMailboxesRequest();
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getPbxVoicemailMailboxesWithHttpInfoRetry(false );
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxVoicemailMailboxesResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxVoicemailMailboxesResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxVoicemailMailboxesResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxVoicemailMailboxesResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxVoicemailMailboxesResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation getPbxVoicemailMailboxesAsync
+     *
+     * Get pbx voicemailMailboxes
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPbxVoicemailMailboxesAsync()
+    {
+        return $this->getPbxVoicemailMailboxesAsyncWithHttpInfo()
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getPbxVoicemailMailboxesAsyncWithHttpInfo
+     *
+     * Get pbx voicemailMailboxes
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPbxVoicemailMailboxesAsyncWithHttpInfo()
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxVoicemailMailboxesResponse';
+        $request = $this->getPbxVoicemailMailboxesRequest();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getPbxVoicemailMailboxes'
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getPbxVoicemailMailboxesRequest()
+    {
+
+        $resourcePath = '/conversation/pbx/voicemail_mailbox';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation insertConversationCannedMessage
      *
      * Insert a canned message
@@ -10106,6 +21488,3542 @@ class ConversationApi
                 $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($engagement));
             } else {
                 $httpBody = $engagement;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation insertPbxAgent
+     *
+     * Insert pbx agent
+     *
+     * @param  \ultracart\v2\models\ConversationPbxAgent $pbx_agent Pbx Agent (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxAgentResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function insertPbxAgent($pbx_agent)
+    {
+        list($response) = $this->insertPbxAgentWithHttpInfo($pbx_agent);
+        return $response;
+    }
+
+    /**
+     * Operation insertPbxAgentWithHttpInfo
+     *
+     * Insert pbx agent
+     *
+     * @param  \ultracart\v2\models\ConversationPbxAgent $pbx_agent Pbx Agent (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxAgentResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertPbxAgentWithHttpInfo($pbx_agent)
+    {
+        return $this->insertPbxAgentWithHttpInfoRetry(true ,   $pbx_agent);
+    }
+
+
+
+    /**
+     * Operation insertPbxAgentWithHttpInfoRetry
+     *
+     * Insert pbx agent
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\ConversationPbxAgent $pbx_agent Pbx Agent (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxAgentResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertPbxAgentWithHttpInfoRetry($retry , $pbx_agent)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxAgentResponse';
+        $request = $this->insertPbxAgentRequest($pbx_agent);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->insertPbxAgentWithHttpInfoRetry(false ,   $pbx_agent);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxAgentResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxAgentResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxAgentResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxAgentResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxAgentResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation insertPbxAgentAsync
+     *
+     * Insert pbx agent
+     *
+     * @param  \ultracart\v2\models\ConversationPbxAgent $pbx_agent Pbx Agent (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function insertPbxAgentAsync($pbx_agent)
+    {
+        return $this->insertPbxAgentAsyncWithHttpInfo($pbx_agent)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation insertPbxAgentAsyncWithHttpInfo
+     *
+     * Insert pbx agent
+     *
+     * @param  \ultracart\v2\models\ConversationPbxAgent $pbx_agent Pbx Agent (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function insertPbxAgentAsyncWithHttpInfo($pbx_agent)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxAgentResponse';
+        $request = $this->insertPbxAgentRequest($pbx_agent);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'insertPbxAgent'
+     *
+     * @param  \ultracart\v2\models\ConversationPbxAgent $pbx_agent Pbx Agent (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function insertPbxAgentRequest($pbx_agent)
+    {
+        // verify the required parameter 'pbx_agent' is set
+        if ($pbx_agent === null || (is_array($pbx_agent) && count($pbx_agent) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $pbx_agent when calling insertPbxAgent'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/agent';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($pbx_agent)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($pbx_agent));
+            } else {
+                $httpBody = $pbx_agent;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation insertPbxAudio
+     *
+     * Insert pbx audio
+     *
+     * @param  \ultracart\v2\models\ConversationPbxAudio $pbx_audio Pbx Audio (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxAudioResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function insertPbxAudio($pbx_audio)
+    {
+        list($response) = $this->insertPbxAudioWithHttpInfo($pbx_audio);
+        return $response;
+    }
+
+    /**
+     * Operation insertPbxAudioWithHttpInfo
+     *
+     * Insert pbx audio
+     *
+     * @param  \ultracart\v2\models\ConversationPbxAudio $pbx_audio Pbx Audio (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxAudioResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertPbxAudioWithHttpInfo($pbx_audio)
+    {
+        return $this->insertPbxAudioWithHttpInfoRetry(true ,   $pbx_audio);
+    }
+
+
+
+    /**
+     * Operation insertPbxAudioWithHttpInfoRetry
+     *
+     * Insert pbx audio
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\ConversationPbxAudio $pbx_audio Pbx Audio (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxAudioResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertPbxAudioWithHttpInfoRetry($retry , $pbx_audio)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxAudioResponse';
+        $request = $this->insertPbxAudioRequest($pbx_audio);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->insertPbxAudioWithHttpInfoRetry(false ,   $pbx_audio);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxAudioResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxAudioResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxAudioResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxAudioResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxAudioResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation insertPbxAudioAsync
+     *
+     * Insert pbx audio
+     *
+     * @param  \ultracart\v2\models\ConversationPbxAudio $pbx_audio Pbx Audio (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function insertPbxAudioAsync($pbx_audio)
+    {
+        return $this->insertPbxAudioAsyncWithHttpInfo($pbx_audio)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation insertPbxAudioAsyncWithHttpInfo
+     *
+     * Insert pbx audio
+     *
+     * @param  \ultracart\v2\models\ConversationPbxAudio $pbx_audio Pbx Audio (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function insertPbxAudioAsyncWithHttpInfo($pbx_audio)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxAudioResponse';
+        $request = $this->insertPbxAudioRequest($pbx_audio);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'insertPbxAudio'
+     *
+     * @param  \ultracart\v2\models\ConversationPbxAudio $pbx_audio Pbx Audio (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function insertPbxAudioRequest($pbx_audio)
+    {
+        // verify the required parameter 'pbx_audio' is set
+        if ($pbx_audio === null || (is_array($pbx_audio) && count($pbx_audio) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $pbx_audio when calling insertPbxAudio'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/audio';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($pbx_audio)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($pbx_audio));
+            } else {
+                $httpBody = $pbx_audio;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation insertPbxMenu
+     *
+     * Insert pbx menu
+     *
+     * @param  \ultracart\v2\models\ConversationPbxMenu $pbx_menu Pbx Menu (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxMenuResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function insertPbxMenu($pbx_menu)
+    {
+        list($response) = $this->insertPbxMenuWithHttpInfo($pbx_menu);
+        return $response;
+    }
+
+    /**
+     * Operation insertPbxMenuWithHttpInfo
+     *
+     * Insert pbx menu
+     *
+     * @param  \ultracart\v2\models\ConversationPbxMenu $pbx_menu Pbx Menu (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxMenuResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertPbxMenuWithHttpInfo($pbx_menu)
+    {
+        return $this->insertPbxMenuWithHttpInfoRetry(true ,   $pbx_menu);
+    }
+
+
+
+    /**
+     * Operation insertPbxMenuWithHttpInfoRetry
+     *
+     * Insert pbx menu
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\ConversationPbxMenu $pbx_menu Pbx Menu (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxMenuResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertPbxMenuWithHttpInfoRetry($retry , $pbx_menu)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxMenuResponse';
+        $request = $this->insertPbxMenuRequest($pbx_menu);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->insertPbxMenuWithHttpInfoRetry(false ,   $pbx_menu);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxMenuResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxMenuResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxMenuResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxMenuResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxMenuResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation insertPbxMenuAsync
+     *
+     * Insert pbx menu
+     *
+     * @param  \ultracart\v2\models\ConversationPbxMenu $pbx_menu Pbx Menu (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function insertPbxMenuAsync($pbx_menu)
+    {
+        return $this->insertPbxMenuAsyncWithHttpInfo($pbx_menu)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation insertPbxMenuAsyncWithHttpInfo
+     *
+     * Insert pbx menu
+     *
+     * @param  \ultracart\v2\models\ConversationPbxMenu $pbx_menu Pbx Menu (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function insertPbxMenuAsyncWithHttpInfo($pbx_menu)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxMenuResponse';
+        $request = $this->insertPbxMenuRequest($pbx_menu);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'insertPbxMenu'
+     *
+     * @param  \ultracart\v2\models\ConversationPbxMenu $pbx_menu Pbx Menu (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function insertPbxMenuRequest($pbx_menu)
+    {
+        // verify the required parameter 'pbx_menu' is set
+        if ($pbx_menu === null || (is_array($pbx_menu) && count($pbx_menu) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $pbx_menu when calling insertPbxMenu'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/menu';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($pbx_menu)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($pbx_menu));
+            } else {
+                $httpBody = $pbx_menu;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation insertPbxPhoneNumber
+     *
+     * Insert pbx phoneNumber
+     *
+     * @param  \ultracart\v2\models\ConversationPbxPhoneNumber $pbx_phone_number Pbx PhoneNumber (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxPhoneNumberResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function insertPbxPhoneNumber($pbx_phone_number)
+    {
+        list($response) = $this->insertPbxPhoneNumberWithHttpInfo($pbx_phone_number);
+        return $response;
+    }
+
+    /**
+     * Operation insertPbxPhoneNumberWithHttpInfo
+     *
+     * Insert pbx phoneNumber
+     *
+     * @param  \ultracart\v2\models\ConversationPbxPhoneNumber $pbx_phone_number Pbx PhoneNumber (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxPhoneNumberResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertPbxPhoneNumberWithHttpInfo($pbx_phone_number)
+    {
+        return $this->insertPbxPhoneNumberWithHttpInfoRetry(true ,   $pbx_phone_number);
+    }
+
+
+
+    /**
+     * Operation insertPbxPhoneNumberWithHttpInfoRetry
+     *
+     * Insert pbx phoneNumber
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\ConversationPbxPhoneNumber $pbx_phone_number Pbx PhoneNumber (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxPhoneNumberResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertPbxPhoneNumberWithHttpInfoRetry($retry , $pbx_phone_number)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxPhoneNumberResponse';
+        $request = $this->insertPbxPhoneNumberRequest($pbx_phone_number);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->insertPbxPhoneNumberWithHttpInfoRetry(false ,   $pbx_phone_number);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxPhoneNumberResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxPhoneNumberResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxPhoneNumberResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxPhoneNumberResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxPhoneNumberResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation insertPbxPhoneNumberAsync
+     *
+     * Insert pbx phoneNumber
+     *
+     * @param  \ultracart\v2\models\ConversationPbxPhoneNumber $pbx_phone_number Pbx PhoneNumber (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function insertPbxPhoneNumberAsync($pbx_phone_number)
+    {
+        return $this->insertPbxPhoneNumberAsyncWithHttpInfo($pbx_phone_number)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation insertPbxPhoneNumberAsyncWithHttpInfo
+     *
+     * Insert pbx phoneNumber
+     *
+     * @param  \ultracart\v2\models\ConversationPbxPhoneNumber $pbx_phone_number Pbx PhoneNumber (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function insertPbxPhoneNumberAsyncWithHttpInfo($pbx_phone_number)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxPhoneNumberResponse';
+        $request = $this->insertPbxPhoneNumberRequest($pbx_phone_number);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'insertPbxPhoneNumber'
+     *
+     * @param  \ultracart\v2\models\ConversationPbxPhoneNumber $pbx_phone_number Pbx PhoneNumber (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function insertPbxPhoneNumberRequest($pbx_phone_number)
+    {
+        // verify the required parameter 'pbx_phone_number' is set
+        if ($pbx_phone_number === null || (is_array($pbx_phone_number) && count($pbx_phone_number) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $pbx_phone_number when calling insertPbxPhoneNumber'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/phone_number';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($pbx_phone_number)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($pbx_phone_number));
+            } else {
+                $httpBody = $pbx_phone_number;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation insertPbxQueue
+     *
+     * Insert pbx queue
+     *
+     * @param  \ultracart\v2\models\ConversationPbxQueue $pbx_queue Pbx Queue (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxQueueResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function insertPbxQueue($pbx_queue)
+    {
+        list($response) = $this->insertPbxQueueWithHttpInfo($pbx_queue);
+        return $response;
+    }
+
+    /**
+     * Operation insertPbxQueueWithHttpInfo
+     *
+     * Insert pbx queue
+     *
+     * @param  \ultracart\v2\models\ConversationPbxQueue $pbx_queue Pbx Queue (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxQueueResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertPbxQueueWithHttpInfo($pbx_queue)
+    {
+        return $this->insertPbxQueueWithHttpInfoRetry(true ,   $pbx_queue);
+    }
+
+
+
+    /**
+     * Operation insertPbxQueueWithHttpInfoRetry
+     *
+     * Insert pbx queue
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\ConversationPbxQueue $pbx_queue Pbx Queue (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxQueueResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertPbxQueueWithHttpInfoRetry($retry , $pbx_queue)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxQueueResponse';
+        $request = $this->insertPbxQueueRequest($pbx_queue);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->insertPbxQueueWithHttpInfoRetry(false ,   $pbx_queue);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxQueueResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxQueueResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxQueueResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxQueueResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxQueueResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation insertPbxQueueAsync
+     *
+     * Insert pbx queue
+     *
+     * @param  \ultracart\v2\models\ConversationPbxQueue $pbx_queue Pbx Queue (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function insertPbxQueueAsync($pbx_queue)
+    {
+        return $this->insertPbxQueueAsyncWithHttpInfo($pbx_queue)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation insertPbxQueueAsyncWithHttpInfo
+     *
+     * Insert pbx queue
+     *
+     * @param  \ultracart\v2\models\ConversationPbxQueue $pbx_queue Pbx Queue (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function insertPbxQueueAsyncWithHttpInfo($pbx_queue)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxQueueResponse';
+        $request = $this->insertPbxQueueRequest($pbx_queue);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'insertPbxQueue'
+     *
+     * @param  \ultracart\v2\models\ConversationPbxQueue $pbx_queue Pbx Queue (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function insertPbxQueueRequest($pbx_queue)
+    {
+        // verify the required parameter 'pbx_queue' is set
+        if ($pbx_queue === null || (is_array($pbx_queue) && count($pbx_queue) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $pbx_queue when calling insertPbxQueue'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/queue';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($pbx_queue)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($pbx_queue));
+            } else {
+                $httpBody = $pbx_queue;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation insertPbxTimeBased
+     *
+     * Insert pbx timeBased
+     *
+     * @param  \ultracart\v2\models\ConversationPbxTimeBased $pbx_time_based Pbx TimeBased (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxTimeBasedResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function insertPbxTimeBased($pbx_time_based)
+    {
+        list($response) = $this->insertPbxTimeBasedWithHttpInfo($pbx_time_based);
+        return $response;
+    }
+
+    /**
+     * Operation insertPbxTimeBasedWithHttpInfo
+     *
+     * Insert pbx timeBased
+     *
+     * @param  \ultracart\v2\models\ConversationPbxTimeBased $pbx_time_based Pbx TimeBased (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxTimeBasedResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertPbxTimeBasedWithHttpInfo($pbx_time_based)
+    {
+        return $this->insertPbxTimeBasedWithHttpInfoRetry(true ,   $pbx_time_based);
+    }
+
+
+
+    /**
+     * Operation insertPbxTimeBasedWithHttpInfoRetry
+     *
+     * Insert pbx timeBased
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\ConversationPbxTimeBased $pbx_time_based Pbx TimeBased (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxTimeBasedResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertPbxTimeBasedWithHttpInfoRetry($retry , $pbx_time_based)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxTimeBasedResponse';
+        $request = $this->insertPbxTimeBasedRequest($pbx_time_based);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->insertPbxTimeBasedWithHttpInfoRetry(false ,   $pbx_time_based);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxTimeBasedResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxTimeBasedResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxTimeBasedResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxTimeBasedResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxTimeBasedResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation insertPbxTimeBasedAsync
+     *
+     * Insert pbx timeBased
+     *
+     * @param  \ultracart\v2\models\ConversationPbxTimeBased $pbx_time_based Pbx TimeBased (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function insertPbxTimeBasedAsync($pbx_time_based)
+    {
+        return $this->insertPbxTimeBasedAsyncWithHttpInfo($pbx_time_based)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation insertPbxTimeBasedAsyncWithHttpInfo
+     *
+     * Insert pbx timeBased
+     *
+     * @param  \ultracart\v2\models\ConversationPbxTimeBased $pbx_time_based Pbx TimeBased (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function insertPbxTimeBasedAsyncWithHttpInfo($pbx_time_based)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxTimeBasedResponse';
+        $request = $this->insertPbxTimeBasedRequest($pbx_time_based);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'insertPbxTimeBased'
+     *
+     * @param  \ultracart\v2\models\ConversationPbxTimeBased $pbx_time_based Pbx TimeBased (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function insertPbxTimeBasedRequest($pbx_time_based)
+    {
+        // verify the required parameter 'pbx_time_based' is set
+        if ($pbx_time_based === null || (is_array($pbx_time_based) && count($pbx_time_based) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $pbx_time_based when calling insertPbxTimeBased'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/time_based';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($pbx_time_based)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($pbx_time_based));
+            } else {
+                $httpBody = $pbx_time_based;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation insertPbxTimeRange
+     *
+     * Insert pbx timeRange
+     *
+     * @param  \ultracart\v2\models\ConversationPbxTimeRange $pbx_time_range Pbx TimeRange (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxTimeRangeResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function insertPbxTimeRange($pbx_time_range)
+    {
+        list($response) = $this->insertPbxTimeRangeWithHttpInfo($pbx_time_range);
+        return $response;
+    }
+
+    /**
+     * Operation insertPbxTimeRangeWithHttpInfo
+     *
+     * Insert pbx timeRange
+     *
+     * @param  \ultracart\v2\models\ConversationPbxTimeRange $pbx_time_range Pbx TimeRange (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxTimeRangeResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertPbxTimeRangeWithHttpInfo($pbx_time_range)
+    {
+        return $this->insertPbxTimeRangeWithHttpInfoRetry(true ,   $pbx_time_range);
+    }
+
+
+
+    /**
+     * Operation insertPbxTimeRangeWithHttpInfoRetry
+     *
+     * Insert pbx timeRange
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\ConversationPbxTimeRange $pbx_time_range Pbx TimeRange (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxTimeRangeResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertPbxTimeRangeWithHttpInfoRetry($retry , $pbx_time_range)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxTimeRangeResponse';
+        $request = $this->insertPbxTimeRangeRequest($pbx_time_range);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->insertPbxTimeRangeWithHttpInfoRetry(false ,   $pbx_time_range);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxTimeRangeResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxTimeRangeResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxTimeRangeResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxTimeRangeResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxTimeRangeResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation insertPbxTimeRangeAsync
+     *
+     * Insert pbx timeRange
+     *
+     * @param  \ultracart\v2\models\ConversationPbxTimeRange $pbx_time_range Pbx TimeRange (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function insertPbxTimeRangeAsync($pbx_time_range)
+    {
+        return $this->insertPbxTimeRangeAsyncWithHttpInfo($pbx_time_range)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation insertPbxTimeRangeAsyncWithHttpInfo
+     *
+     * Insert pbx timeRange
+     *
+     * @param  \ultracart\v2\models\ConversationPbxTimeRange $pbx_time_range Pbx TimeRange (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function insertPbxTimeRangeAsyncWithHttpInfo($pbx_time_range)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxTimeRangeResponse';
+        $request = $this->insertPbxTimeRangeRequest($pbx_time_range);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'insertPbxTimeRange'
+     *
+     * @param  \ultracart\v2\models\ConversationPbxTimeRange $pbx_time_range Pbx TimeRange (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function insertPbxTimeRangeRequest($pbx_time_range)
+    {
+        // verify the required parameter 'pbx_time_range' is set
+        if ($pbx_time_range === null || (is_array($pbx_time_range) && count($pbx_time_range) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $pbx_time_range when calling insertPbxTimeRange'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/time_range';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($pbx_time_range)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($pbx_time_range));
+            } else {
+                $httpBody = $pbx_time_range;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation insertPbxVoicemailMailbox
+     *
+     * Insert pbx voicemailMailbox
+     *
+     * @param  \ultracart\v2\models\ConversationPbxVoicemailMailbox $pbx_voicemail_mailbox Pbx VoicemailMailbox (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxVoicemailMailboxResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function insertPbxVoicemailMailbox($pbx_voicemail_mailbox)
+    {
+        list($response) = $this->insertPbxVoicemailMailboxWithHttpInfo($pbx_voicemail_mailbox);
+        return $response;
+    }
+
+    /**
+     * Operation insertPbxVoicemailMailboxWithHttpInfo
+     *
+     * Insert pbx voicemailMailbox
+     *
+     * @param  \ultracart\v2\models\ConversationPbxVoicemailMailbox $pbx_voicemail_mailbox Pbx VoicemailMailbox (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxVoicemailMailboxResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertPbxVoicemailMailboxWithHttpInfo($pbx_voicemail_mailbox)
+    {
+        return $this->insertPbxVoicemailMailboxWithHttpInfoRetry(true ,   $pbx_voicemail_mailbox);
+    }
+
+
+
+    /**
+     * Operation insertPbxVoicemailMailboxWithHttpInfoRetry
+     *
+     * Insert pbx voicemailMailbox
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\ConversationPbxVoicemailMailbox $pbx_voicemail_mailbox Pbx VoicemailMailbox (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxVoicemailMailboxResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertPbxVoicemailMailboxWithHttpInfoRetry($retry , $pbx_voicemail_mailbox)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxVoicemailMailboxResponse';
+        $request = $this->insertPbxVoicemailMailboxRequest($pbx_voicemail_mailbox);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->insertPbxVoicemailMailboxWithHttpInfoRetry(false ,   $pbx_voicemail_mailbox);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxVoicemailMailboxResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxVoicemailMailboxResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxVoicemailMailboxResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxVoicemailMailboxResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxVoicemailMailboxResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation insertPbxVoicemailMailboxAsync
+     *
+     * Insert pbx voicemailMailbox
+     *
+     * @param  \ultracart\v2\models\ConversationPbxVoicemailMailbox $pbx_voicemail_mailbox Pbx VoicemailMailbox (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function insertPbxVoicemailMailboxAsync($pbx_voicemail_mailbox)
+    {
+        return $this->insertPbxVoicemailMailboxAsyncWithHttpInfo($pbx_voicemail_mailbox)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation insertPbxVoicemailMailboxAsyncWithHttpInfo
+     *
+     * Insert pbx voicemailMailbox
+     *
+     * @param  \ultracart\v2\models\ConversationPbxVoicemailMailbox $pbx_voicemail_mailbox Pbx VoicemailMailbox (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function insertPbxVoicemailMailboxAsyncWithHttpInfo($pbx_voicemail_mailbox)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxVoicemailMailboxResponse';
+        $request = $this->insertPbxVoicemailMailboxRequest($pbx_voicemail_mailbox);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'insertPbxVoicemailMailbox'
+     *
+     * @param  \ultracart\v2\models\ConversationPbxVoicemailMailbox $pbx_voicemail_mailbox Pbx VoicemailMailbox (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function insertPbxVoicemailMailboxRequest($pbx_voicemail_mailbox)
+    {
+        // verify the required parameter 'pbx_voicemail_mailbox' is set
+        if ($pbx_voicemail_mailbox === null || (is_array($pbx_voicemail_mailbox) && count($pbx_voicemail_mailbox) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $pbx_voicemail_mailbox when calling insertPbxVoicemailMailbox'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/voicemail_mailbox';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($pbx_voicemail_mailbox)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($pbx_voicemail_mailbox));
+            } else {
+                $httpBody = $pbx_voicemail_mailbox;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -14423,6 +29341,3702 @@ class ConversationApi
                 $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($status_request));
             } else {
                 $httpBody = $status_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updatePbxAgent
+     *
+     * Update pbx agent
+     *
+     * @param  string $conversation_pbx_agent_uuid conversation_pbx_agent_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxAgent $pbx_agent Pbx Agent (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxAgentResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function updatePbxAgent($conversation_pbx_agent_uuid, $pbx_agent)
+    {
+        list($response) = $this->updatePbxAgentWithHttpInfo($conversation_pbx_agent_uuid, $pbx_agent);
+        return $response;
+    }
+
+    /**
+     * Operation updatePbxAgentWithHttpInfo
+     *
+     * Update pbx agent
+     *
+     * @param  string $conversation_pbx_agent_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxAgent $pbx_agent Pbx Agent (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxAgentResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updatePbxAgentWithHttpInfo($conversation_pbx_agent_uuid, $pbx_agent)
+    {
+        return $this->updatePbxAgentWithHttpInfoRetry(true ,   $conversation_pbx_agent_uuid,   $pbx_agent);
+    }
+
+
+
+    /**
+     * Operation updatePbxAgentWithHttpInfoRetry
+     *
+     * Update pbx agent
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $conversation_pbx_agent_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxAgent $pbx_agent Pbx Agent (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxAgentResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updatePbxAgentWithHttpInfoRetry($retry , $conversation_pbx_agent_uuid, $pbx_agent)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxAgentResponse';
+        $request = $this->updatePbxAgentRequest($conversation_pbx_agent_uuid, $pbx_agent);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updatePbxAgentWithHttpInfoRetry(false ,   $conversation_pbx_agent_uuid,   $pbx_agent);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxAgentResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxAgentResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxAgentResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxAgentResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxAgentResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation updatePbxAgentAsync
+     *
+     * Update pbx agent
+     *
+     * @param  string $conversation_pbx_agent_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxAgent $pbx_agent Pbx Agent (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updatePbxAgentAsync($conversation_pbx_agent_uuid, $pbx_agent)
+    {
+        return $this->updatePbxAgentAsyncWithHttpInfo($conversation_pbx_agent_uuid, $pbx_agent)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updatePbxAgentAsyncWithHttpInfo
+     *
+     * Update pbx agent
+     *
+     * @param  string $conversation_pbx_agent_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxAgent $pbx_agent Pbx Agent (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updatePbxAgentAsyncWithHttpInfo($conversation_pbx_agent_uuid, $pbx_agent)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxAgentResponse';
+        $request = $this->updatePbxAgentRequest($conversation_pbx_agent_uuid, $pbx_agent);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updatePbxAgent'
+     *
+     * @param  string $conversation_pbx_agent_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxAgent $pbx_agent Pbx Agent (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updatePbxAgentRequest($conversation_pbx_agent_uuid, $pbx_agent)
+    {
+        // verify the required parameter 'conversation_pbx_agent_uuid' is set
+        if ($conversation_pbx_agent_uuid === null || (is_array($conversation_pbx_agent_uuid) && count($conversation_pbx_agent_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $conversation_pbx_agent_uuid when calling updatePbxAgent'
+            );
+        }
+        // verify the required parameter 'pbx_agent' is set
+        if ($pbx_agent === null || (is_array($pbx_agent) && count($pbx_agent) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $pbx_agent when calling updatePbxAgent'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/agent/{conversationPbxAgentUuid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($conversation_pbx_agent_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'conversationPbxAgentUuid' . '}',
+                ObjectSerializer::toPathValue($conversation_pbx_agent_uuid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($pbx_agent)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($pbx_agent));
+            } else {
+                $httpBody = $pbx_agent;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updatePbxAudio
+     *
+     * Update pbx audio
+     *
+     * @param  string $conversation_pbx_audio_uuid conversation_pbx_audio_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxAudio $pbx_audio Pbx Audio (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxAudioResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function updatePbxAudio($conversation_pbx_audio_uuid, $pbx_audio)
+    {
+        list($response) = $this->updatePbxAudioWithHttpInfo($conversation_pbx_audio_uuid, $pbx_audio);
+        return $response;
+    }
+
+    /**
+     * Operation updatePbxAudioWithHttpInfo
+     *
+     * Update pbx audio
+     *
+     * @param  string $conversation_pbx_audio_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxAudio $pbx_audio Pbx Audio (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxAudioResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updatePbxAudioWithHttpInfo($conversation_pbx_audio_uuid, $pbx_audio)
+    {
+        return $this->updatePbxAudioWithHttpInfoRetry(true ,   $conversation_pbx_audio_uuid,   $pbx_audio);
+    }
+
+
+
+    /**
+     * Operation updatePbxAudioWithHttpInfoRetry
+     *
+     * Update pbx audio
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $conversation_pbx_audio_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxAudio $pbx_audio Pbx Audio (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxAudioResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updatePbxAudioWithHttpInfoRetry($retry , $conversation_pbx_audio_uuid, $pbx_audio)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxAudioResponse';
+        $request = $this->updatePbxAudioRequest($conversation_pbx_audio_uuid, $pbx_audio);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updatePbxAudioWithHttpInfoRetry(false ,   $conversation_pbx_audio_uuid,   $pbx_audio);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxAudioResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxAudioResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxAudioResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxAudioResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxAudioResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation updatePbxAudioAsync
+     *
+     * Update pbx audio
+     *
+     * @param  string $conversation_pbx_audio_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxAudio $pbx_audio Pbx Audio (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updatePbxAudioAsync($conversation_pbx_audio_uuid, $pbx_audio)
+    {
+        return $this->updatePbxAudioAsyncWithHttpInfo($conversation_pbx_audio_uuid, $pbx_audio)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updatePbxAudioAsyncWithHttpInfo
+     *
+     * Update pbx audio
+     *
+     * @param  string $conversation_pbx_audio_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxAudio $pbx_audio Pbx Audio (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updatePbxAudioAsyncWithHttpInfo($conversation_pbx_audio_uuid, $pbx_audio)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxAudioResponse';
+        $request = $this->updatePbxAudioRequest($conversation_pbx_audio_uuid, $pbx_audio);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updatePbxAudio'
+     *
+     * @param  string $conversation_pbx_audio_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxAudio $pbx_audio Pbx Audio (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updatePbxAudioRequest($conversation_pbx_audio_uuid, $pbx_audio)
+    {
+        // verify the required parameter 'conversation_pbx_audio_uuid' is set
+        if ($conversation_pbx_audio_uuid === null || (is_array($conversation_pbx_audio_uuid) && count($conversation_pbx_audio_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $conversation_pbx_audio_uuid when calling updatePbxAudio'
+            );
+        }
+        // verify the required parameter 'pbx_audio' is set
+        if ($pbx_audio === null || (is_array($pbx_audio) && count($pbx_audio) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $pbx_audio when calling updatePbxAudio'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/audio/{conversationPbxAudioUuid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($conversation_pbx_audio_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'conversationPbxAudioUuid' . '}',
+                ObjectSerializer::toPathValue($conversation_pbx_audio_uuid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($pbx_audio)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($pbx_audio));
+            } else {
+                $httpBody = $pbx_audio;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updatePbxMenu
+     *
+     * Update pbx menu
+     *
+     * @param  string $conversation_pbx_menu_uuid conversation_pbx_menu_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxMenu $pbx_menu Pbx Menu (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxMenuResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function updatePbxMenu($conversation_pbx_menu_uuid, $pbx_menu)
+    {
+        list($response) = $this->updatePbxMenuWithHttpInfo($conversation_pbx_menu_uuid, $pbx_menu);
+        return $response;
+    }
+
+    /**
+     * Operation updatePbxMenuWithHttpInfo
+     *
+     * Update pbx menu
+     *
+     * @param  string $conversation_pbx_menu_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxMenu $pbx_menu Pbx Menu (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxMenuResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updatePbxMenuWithHttpInfo($conversation_pbx_menu_uuid, $pbx_menu)
+    {
+        return $this->updatePbxMenuWithHttpInfoRetry(true ,   $conversation_pbx_menu_uuid,   $pbx_menu);
+    }
+
+
+
+    /**
+     * Operation updatePbxMenuWithHttpInfoRetry
+     *
+     * Update pbx menu
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $conversation_pbx_menu_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxMenu $pbx_menu Pbx Menu (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxMenuResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updatePbxMenuWithHttpInfoRetry($retry , $conversation_pbx_menu_uuid, $pbx_menu)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxMenuResponse';
+        $request = $this->updatePbxMenuRequest($conversation_pbx_menu_uuid, $pbx_menu);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updatePbxMenuWithHttpInfoRetry(false ,   $conversation_pbx_menu_uuid,   $pbx_menu);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxMenuResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxMenuResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxMenuResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxMenuResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxMenuResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation updatePbxMenuAsync
+     *
+     * Update pbx menu
+     *
+     * @param  string $conversation_pbx_menu_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxMenu $pbx_menu Pbx Menu (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updatePbxMenuAsync($conversation_pbx_menu_uuid, $pbx_menu)
+    {
+        return $this->updatePbxMenuAsyncWithHttpInfo($conversation_pbx_menu_uuid, $pbx_menu)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updatePbxMenuAsyncWithHttpInfo
+     *
+     * Update pbx menu
+     *
+     * @param  string $conversation_pbx_menu_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxMenu $pbx_menu Pbx Menu (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updatePbxMenuAsyncWithHttpInfo($conversation_pbx_menu_uuid, $pbx_menu)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxMenuResponse';
+        $request = $this->updatePbxMenuRequest($conversation_pbx_menu_uuid, $pbx_menu);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updatePbxMenu'
+     *
+     * @param  string $conversation_pbx_menu_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxMenu $pbx_menu Pbx Menu (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updatePbxMenuRequest($conversation_pbx_menu_uuid, $pbx_menu)
+    {
+        // verify the required parameter 'conversation_pbx_menu_uuid' is set
+        if ($conversation_pbx_menu_uuid === null || (is_array($conversation_pbx_menu_uuid) && count($conversation_pbx_menu_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $conversation_pbx_menu_uuid when calling updatePbxMenu'
+            );
+        }
+        // verify the required parameter 'pbx_menu' is set
+        if ($pbx_menu === null || (is_array($pbx_menu) && count($pbx_menu) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $pbx_menu when calling updatePbxMenu'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/menu/{conversationPbxMenuUuid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($conversation_pbx_menu_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'conversationPbxMenuUuid' . '}',
+                ObjectSerializer::toPathValue($conversation_pbx_menu_uuid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($pbx_menu)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($pbx_menu));
+            } else {
+                $httpBody = $pbx_menu;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updatePbxPhoneNumber
+     *
+     * Update pbx phoneNumber
+     *
+     * @param  string $conversation_pbx_phone_number_uuid conversation_pbx_phone_number_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxPhoneNumber $pbx_phone_number Pbx PhoneNumber (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxPhoneNumberResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function updatePbxPhoneNumber($conversation_pbx_phone_number_uuid, $pbx_phone_number)
+    {
+        list($response) = $this->updatePbxPhoneNumberWithHttpInfo($conversation_pbx_phone_number_uuid, $pbx_phone_number);
+        return $response;
+    }
+
+    /**
+     * Operation updatePbxPhoneNumberWithHttpInfo
+     *
+     * Update pbx phoneNumber
+     *
+     * @param  string $conversation_pbx_phone_number_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxPhoneNumber $pbx_phone_number Pbx PhoneNumber (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxPhoneNumberResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updatePbxPhoneNumberWithHttpInfo($conversation_pbx_phone_number_uuid, $pbx_phone_number)
+    {
+        return $this->updatePbxPhoneNumberWithHttpInfoRetry(true ,   $conversation_pbx_phone_number_uuid,   $pbx_phone_number);
+    }
+
+
+
+    /**
+     * Operation updatePbxPhoneNumberWithHttpInfoRetry
+     *
+     * Update pbx phoneNumber
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $conversation_pbx_phone_number_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxPhoneNumber $pbx_phone_number Pbx PhoneNumber (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxPhoneNumberResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updatePbxPhoneNumberWithHttpInfoRetry($retry , $conversation_pbx_phone_number_uuid, $pbx_phone_number)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxPhoneNumberResponse';
+        $request = $this->updatePbxPhoneNumberRequest($conversation_pbx_phone_number_uuid, $pbx_phone_number);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updatePbxPhoneNumberWithHttpInfoRetry(false ,   $conversation_pbx_phone_number_uuid,   $pbx_phone_number);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxPhoneNumberResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxPhoneNumberResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxPhoneNumberResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxPhoneNumberResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxPhoneNumberResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation updatePbxPhoneNumberAsync
+     *
+     * Update pbx phoneNumber
+     *
+     * @param  string $conversation_pbx_phone_number_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxPhoneNumber $pbx_phone_number Pbx PhoneNumber (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updatePbxPhoneNumberAsync($conversation_pbx_phone_number_uuid, $pbx_phone_number)
+    {
+        return $this->updatePbxPhoneNumberAsyncWithHttpInfo($conversation_pbx_phone_number_uuid, $pbx_phone_number)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updatePbxPhoneNumberAsyncWithHttpInfo
+     *
+     * Update pbx phoneNumber
+     *
+     * @param  string $conversation_pbx_phone_number_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxPhoneNumber $pbx_phone_number Pbx PhoneNumber (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updatePbxPhoneNumberAsyncWithHttpInfo($conversation_pbx_phone_number_uuid, $pbx_phone_number)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxPhoneNumberResponse';
+        $request = $this->updatePbxPhoneNumberRequest($conversation_pbx_phone_number_uuid, $pbx_phone_number);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updatePbxPhoneNumber'
+     *
+     * @param  string $conversation_pbx_phone_number_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxPhoneNumber $pbx_phone_number Pbx PhoneNumber (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updatePbxPhoneNumberRequest($conversation_pbx_phone_number_uuid, $pbx_phone_number)
+    {
+        // verify the required parameter 'conversation_pbx_phone_number_uuid' is set
+        if ($conversation_pbx_phone_number_uuid === null || (is_array($conversation_pbx_phone_number_uuid) && count($conversation_pbx_phone_number_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $conversation_pbx_phone_number_uuid when calling updatePbxPhoneNumber'
+            );
+        }
+        // verify the required parameter 'pbx_phone_number' is set
+        if ($pbx_phone_number === null || (is_array($pbx_phone_number) && count($pbx_phone_number) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $pbx_phone_number when calling updatePbxPhoneNumber'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/phone_number/{conversationPbxPhoneNumberUuid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($conversation_pbx_phone_number_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'conversationPbxPhoneNumberUuid' . '}',
+                ObjectSerializer::toPathValue($conversation_pbx_phone_number_uuid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($pbx_phone_number)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($pbx_phone_number));
+            } else {
+                $httpBody = $pbx_phone_number;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updatePbxQueue
+     *
+     * Update pbx queue
+     *
+     * @param  string $conversation_pbx_queue_uuid conversation_pbx_queue_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxQueue $pbx_queue Pbx Queue (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxQueueResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function updatePbxQueue($conversation_pbx_queue_uuid, $pbx_queue)
+    {
+        list($response) = $this->updatePbxQueueWithHttpInfo($conversation_pbx_queue_uuid, $pbx_queue);
+        return $response;
+    }
+
+    /**
+     * Operation updatePbxQueueWithHttpInfo
+     *
+     * Update pbx queue
+     *
+     * @param  string $conversation_pbx_queue_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxQueue $pbx_queue Pbx Queue (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxQueueResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updatePbxQueueWithHttpInfo($conversation_pbx_queue_uuid, $pbx_queue)
+    {
+        return $this->updatePbxQueueWithHttpInfoRetry(true ,   $conversation_pbx_queue_uuid,   $pbx_queue);
+    }
+
+
+
+    /**
+     * Operation updatePbxQueueWithHttpInfoRetry
+     *
+     * Update pbx queue
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $conversation_pbx_queue_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxQueue $pbx_queue Pbx Queue (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxQueueResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updatePbxQueueWithHttpInfoRetry($retry , $conversation_pbx_queue_uuid, $pbx_queue)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxQueueResponse';
+        $request = $this->updatePbxQueueRequest($conversation_pbx_queue_uuid, $pbx_queue);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updatePbxQueueWithHttpInfoRetry(false ,   $conversation_pbx_queue_uuid,   $pbx_queue);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxQueueResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxQueueResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxQueueResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxQueueResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxQueueResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation updatePbxQueueAsync
+     *
+     * Update pbx queue
+     *
+     * @param  string $conversation_pbx_queue_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxQueue $pbx_queue Pbx Queue (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updatePbxQueueAsync($conversation_pbx_queue_uuid, $pbx_queue)
+    {
+        return $this->updatePbxQueueAsyncWithHttpInfo($conversation_pbx_queue_uuid, $pbx_queue)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updatePbxQueueAsyncWithHttpInfo
+     *
+     * Update pbx queue
+     *
+     * @param  string $conversation_pbx_queue_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxQueue $pbx_queue Pbx Queue (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updatePbxQueueAsyncWithHttpInfo($conversation_pbx_queue_uuid, $pbx_queue)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxQueueResponse';
+        $request = $this->updatePbxQueueRequest($conversation_pbx_queue_uuid, $pbx_queue);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updatePbxQueue'
+     *
+     * @param  string $conversation_pbx_queue_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxQueue $pbx_queue Pbx Queue (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updatePbxQueueRequest($conversation_pbx_queue_uuid, $pbx_queue)
+    {
+        // verify the required parameter 'conversation_pbx_queue_uuid' is set
+        if ($conversation_pbx_queue_uuid === null || (is_array($conversation_pbx_queue_uuid) && count($conversation_pbx_queue_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $conversation_pbx_queue_uuid when calling updatePbxQueue'
+            );
+        }
+        // verify the required parameter 'pbx_queue' is set
+        if ($pbx_queue === null || (is_array($pbx_queue) && count($pbx_queue) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $pbx_queue when calling updatePbxQueue'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/queue/{conversationPbxQueueUuid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($conversation_pbx_queue_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'conversationPbxQueueUuid' . '}',
+                ObjectSerializer::toPathValue($conversation_pbx_queue_uuid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($pbx_queue)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($pbx_queue));
+            } else {
+                $httpBody = $pbx_queue;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updatePbxTimeBased
+     *
+     * Update pbx timeBased
+     *
+     * @param  string $conversation_pbx_time_based_uuid conversation_pbx_time_based_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxTimeBased $pbx_time_based Pbx TimeBased (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxTimeBasedResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function updatePbxTimeBased($conversation_pbx_time_based_uuid, $pbx_time_based)
+    {
+        list($response) = $this->updatePbxTimeBasedWithHttpInfo($conversation_pbx_time_based_uuid, $pbx_time_based);
+        return $response;
+    }
+
+    /**
+     * Operation updatePbxTimeBasedWithHttpInfo
+     *
+     * Update pbx timeBased
+     *
+     * @param  string $conversation_pbx_time_based_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxTimeBased $pbx_time_based Pbx TimeBased (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxTimeBasedResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updatePbxTimeBasedWithHttpInfo($conversation_pbx_time_based_uuid, $pbx_time_based)
+    {
+        return $this->updatePbxTimeBasedWithHttpInfoRetry(true ,   $conversation_pbx_time_based_uuid,   $pbx_time_based);
+    }
+
+
+
+    /**
+     * Operation updatePbxTimeBasedWithHttpInfoRetry
+     *
+     * Update pbx timeBased
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $conversation_pbx_time_based_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxTimeBased $pbx_time_based Pbx TimeBased (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxTimeBasedResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updatePbxTimeBasedWithHttpInfoRetry($retry , $conversation_pbx_time_based_uuid, $pbx_time_based)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxTimeBasedResponse';
+        $request = $this->updatePbxTimeBasedRequest($conversation_pbx_time_based_uuid, $pbx_time_based);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updatePbxTimeBasedWithHttpInfoRetry(false ,   $conversation_pbx_time_based_uuid,   $pbx_time_based);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxTimeBasedResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxTimeBasedResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxTimeBasedResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxTimeBasedResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxTimeBasedResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation updatePbxTimeBasedAsync
+     *
+     * Update pbx timeBased
+     *
+     * @param  string $conversation_pbx_time_based_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxTimeBased $pbx_time_based Pbx TimeBased (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updatePbxTimeBasedAsync($conversation_pbx_time_based_uuid, $pbx_time_based)
+    {
+        return $this->updatePbxTimeBasedAsyncWithHttpInfo($conversation_pbx_time_based_uuid, $pbx_time_based)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updatePbxTimeBasedAsyncWithHttpInfo
+     *
+     * Update pbx timeBased
+     *
+     * @param  string $conversation_pbx_time_based_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxTimeBased $pbx_time_based Pbx TimeBased (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updatePbxTimeBasedAsyncWithHttpInfo($conversation_pbx_time_based_uuid, $pbx_time_based)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxTimeBasedResponse';
+        $request = $this->updatePbxTimeBasedRequest($conversation_pbx_time_based_uuid, $pbx_time_based);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updatePbxTimeBased'
+     *
+     * @param  string $conversation_pbx_time_based_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxTimeBased $pbx_time_based Pbx TimeBased (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updatePbxTimeBasedRequest($conversation_pbx_time_based_uuid, $pbx_time_based)
+    {
+        // verify the required parameter 'conversation_pbx_time_based_uuid' is set
+        if ($conversation_pbx_time_based_uuid === null || (is_array($conversation_pbx_time_based_uuid) && count($conversation_pbx_time_based_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $conversation_pbx_time_based_uuid when calling updatePbxTimeBased'
+            );
+        }
+        // verify the required parameter 'pbx_time_based' is set
+        if ($pbx_time_based === null || (is_array($pbx_time_based) && count($pbx_time_based) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $pbx_time_based when calling updatePbxTimeBased'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/time_based/{conversationPbxTimeBasedUuid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($conversation_pbx_time_based_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'conversationPbxTimeBasedUuid' . '}',
+                ObjectSerializer::toPathValue($conversation_pbx_time_based_uuid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($pbx_time_based)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($pbx_time_based));
+            } else {
+                $httpBody = $pbx_time_based;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updatePbxTimeRange
+     *
+     * Update pbx timeRange
+     *
+     * @param  string $conversation_pbx_time_range_uuid conversation_pbx_time_range_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxTimeRange $pbx_time_range Pbx TimeRange (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxTimeRangeResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function updatePbxTimeRange($conversation_pbx_time_range_uuid, $pbx_time_range)
+    {
+        list($response) = $this->updatePbxTimeRangeWithHttpInfo($conversation_pbx_time_range_uuid, $pbx_time_range);
+        return $response;
+    }
+
+    /**
+     * Operation updatePbxTimeRangeWithHttpInfo
+     *
+     * Update pbx timeRange
+     *
+     * @param  string $conversation_pbx_time_range_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxTimeRange $pbx_time_range Pbx TimeRange (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxTimeRangeResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updatePbxTimeRangeWithHttpInfo($conversation_pbx_time_range_uuid, $pbx_time_range)
+    {
+        return $this->updatePbxTimeRangeWithHttpInfoRetry(true ,   $conversation_pbx_time_range_uuid,   $pbx_time_range);
+    }
+
+
+
+    /**
+     * Operation updatePbxTimeRangeWithHttpInfoRetry
+     *
+     * Update pbx timeRange
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $conversation_pbx_time_range_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxTimeRange $pbx_time_range Pbx TimeRange (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxTimeRangeResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updatePbxTimeRangeWithHttpInfoRetry($retry , $conversation_pbx_time_range_uuid, $pbx_time_range)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxTimeRangeResponse';
+        $request = $this->updatePbxTimeRangeRequest($conversation_pbx_time_range_uuid, $pbx_time_range);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updatePbxTimeRangeWithHttpInfoRetry(false ,   $conversation_pbx_time_range_uuid,   $pbx_time_range);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxTimeRangeResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxTimeRangeResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxTimeRangeResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxTimeRangeResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxTimeRangeResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation updatePbxTimeRangeAsync
+     *
+     * Update pbx timeRange
+     *
+     * @param  string $conversation_pbx_time_range_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxTimeRange $pbx_time_range Pbx TimeRange (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updatePbxTimeRangeAsync($conversation_pbx_time_range_uuid, $pbx_time_range)
+    {
+        return $this->updatePbxTimeRangeAsyncWithHttpInfo($conversation_pbx_time_range_uuid, $pbx_time_range)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updatePbxTimeRangeAsyncWithHttpInfo
+     *
+     * Update pbx timeRange
+     *
+     * @param  string $conversation_pbx_time_range_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxTimeRange $pbx_time_range Pbx TimeRange (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updatePbxTimeRangeAsyncWithHttpInfo($conversation_pbx_time_range_uuid, $pbx_time_range)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxTimeRangeResponse';
+        $request = $this->updatePbxTimeRangeRequest($conversation_pbx_time_range_uuid, $pbx_time_range);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updatePbxTimeRange'
+     *
+     * @param  string $conversation_pbx_time_range_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxTimeRange $pbx_time_range Pbx TimeRange (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updatePbxTimeRangeRequest($conversation_pbx_time_range_uuid, $pbx_time_range)
+    {
+        // verify the required parameter 'conversation_pbx_time_range_uuid' is set
+        if ($conversation_pbx_time_range_uuid === null || (is_array($conversation_pbx_time_range_uuid) && count($conversation_pbx_time_range_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $conversation_pbx_time_range_uuid when calling updatePbxTimeRange'
+            );
+        }
+        // verify the required parameter 'pbx_time_range' is set
+        if ($pbx_time_range === null || (is_array($pbx_time_range) && count($pbx_time_range) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $pbx_time_range when calling updatePbxTimeRange'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/time_range/{conversationPbxTimeRangeUuid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($conversation_pbx_time_range_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'conversationPbxTimeRangeUuid' . '}',
+                ObjectSerializer::toPathValue($conversation_pbx_time_range_uuid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($pbx_time_range)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($pbx_time_range));
+            } else {
+                $httpBody = $pbx_time_range;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updatePbxVoicemailMailbox
+     *
+     * Update pbx voicemailMailbox
+     *
+     * @param  string $conversation_pbx_voicemail_mailbox_uuid conversation_pbx_voicemail_mailbox_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxVoicemailMailbox $pbx_voicemail_mailbox Pbx VoicemailMailbox (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationPbxVoicemailMailboxResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function updatePbxVoicemailMailbox($conversation_pbx_voicemail_mailbox_uuid, $pbx_voicemail_mailbox)
+    {
+        list($response) = $this->updatePbxVoicemailMailboxWithHttpInfo($conversation_pbx_voicemail_mailbox_uuid, $pbx_voicemail_mailbox);
+        return $response;
+    }
+
+    /**
+     * Operation updatePbxVoicemailMailboxWithHttpInfo
+     *
+     * Update pbx voicemailMailbox
+     *
+     * @param  string $conversation_pbx_voicemail_mailbox_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxVoicemailMailbox $pbx_voicemail_mailbox Pbx VoicemailMailbox (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxVoicemailMailboxResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updatePbxVoicemailMailboxWithHttpInfo($conversation_pbx_voicemail_mailbox_uuid, $pbx_voicemail_mailbox)
+    {
+        return $this->updatePbxVoicemailMailboxWithHttpInfoRetry(true ,   $conversation_pbx_voicemail_mailbox_uuid,   $pbx_voicemail_mailbox);
+    }
+
+
+
+    /**
+     * Operation updatePbxVoicemailMailboxWithHttpInfoRetry
+     *
+     * Update pbx voicemailMailbox
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $conversation_pbx_voicemail_mailbox_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxVoicemailMailbox $pbx_voicemail_mailbox Pbx VoicemailMailbox (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationPbxVoicemailMailboxResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updatePbxVoicemailMailboxWithHttpInfoRetry($retry , $conversation_pbx_voicemail_mailbox_uuid, $pbx_voicemail_mailbox)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxVoicemailMailboxResponse';
+        $request = $this->updatePbxVoicemailMailboxRequest($conversation_pbx_voicemail_mailbox_uuid, $pbx_voicemail_mailbox);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updatePbxVoicemailMailboxWithHttpInfoRetry(false ,   $conversation_pbx_voicemail_mailbox_uuid,   $pbx_voicemail_mailbox);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\ConversationPbxVoicemailMailboxResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ConversationPbxVoicemailMailboxResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxVoicemailMailboxResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\ConversationPbxVoicemailMailboxResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationPbxVoicemailMailboxResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation updatePbxVoicemailMailboxAsync
+     *
+     * Update pbx voicemailMailbox
+     *
+     * @param  string $conversation_pbx_voicemail_mailbox_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxVoicemailMailbox $pbx_voicemail_mailbox Pbx VoicemailMailbox (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updatePbxVoicemailMailboxAsync($conversation_pbx_voicemail_mailbox_uuid, $pbx_voicemail_mailbox)
+    {
+        return $this->updatePbxVoicemailMailboxAsyncWithHttpInfo($conversation_pbx_voicemail_mailbox_uuid, $pbx_voicemail_mailbox)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updatePbxVoicemailMailboxAsyncWithHttpInfo
+     *
+     * Update pbx voicemailMailbox
+     *
+     * @param  string $conversation_pbx_voicemail_mailbox_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxVoicemailMailbox $pbx_voicemail_mailbox Pbx VoicemailMailbox (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updatePbxVoicemailMailboxAsyncWithHttpInfo($conversation_pbx_voicemail_mailbox_uuid, $pbx_voicemail_mailbox)
+    {
+        $returnType = '\ultracart\v2\models\ConversationPbxVoicemailMailboxResponse';
+        $request = $this->updatePbxVoicemailMailboxRequest($conversation_pbx_voicemail_mailbox_uuid, $pbx_voicemail_mailbox);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updatePbxVoicemailMailbox'
+     *
+     * @param  string $conversation_pbx_voicemail_mailbox_uuid (required)
+     * @param  \ultracart\v2\models\ConversationPbxVoicemailMailbox $pbx_voicemail_mailbox Pbx VoicemailMailbox (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updatePbxVoicemailMailboxRequest($conversation_pbx_voicemail_mailbox_uuid, $pbx_voicemail_mailbox)
+    {
+        // verify the required parameter 'conversation_pbx_voicemail_mailbox_uuid' is set
+        if ($conversation_pbx_voicemail_mailbox_uuid === null || (is_array($conversation_pbx_voicemail_mailbox_uuid) && count($conversation_pbx_voicemail_mailbox_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $conversation_pbx_voicemail_mailbox_uuid when calling updatePbxVoicemailMailbox'
+            );
+        }
+        // verify the required parameter 'pbx_voicemail_mailbox' is set
+        if ($pbx_voicemail_mailbox === null || (is_array($pbx_voicemail_mailbox) && count($pbx_voicemail_mailbox) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $pbx_voicemail_mailbox when calling updatePbxVoicemailMailbox'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($conversation_pbx_voicemail_mailbox_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'conversationPbxVoicemailMailboxUuid' . '}',
+                ObjectSerializer::toPathValue($conversation_pbx_voicemail_mailbox_uuid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($pbx_voicemail_mailbox)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($pbx_voicemail_mailbox));
+            } else {
+                $httpBody = $pbx_voicemail_mailbox;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
