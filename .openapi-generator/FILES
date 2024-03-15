@@ -846,6 +846,8 @@ docs/Model/WebhookSampleRequest.md
 docs/Model/WebhookSampleRequestResponse.md
 docs/Model/WebhooksResponse.md
 docs/Model/Weight.md
+docs/Model/WorkflowAgentAuth.md
+docs/Model/WorkflowAgentAuthResponse.md
 docs/Model/WorkflowAttachment.md
 docs/Model/WorkflowAttachmentUploadUrl.md
 docs/Model/WorkflowAttachmentUploadUrlResponse.md
@@ -1710,6 +1712,8 @@ lib/models/WebhookSampleRequest.php
 lib/models/WebhookSampleRequestResponse.php
 lib/models/WebhooksResponse.php
 lib/models/Weight.php
+lib/models/WorkflowAgentAuth.php
+lib/models/WorkflowAgentAuthResponse.php
 lib/models/WorkflowAttachment.php
 lib/models/WorkflowAttachmentUploadUrl.php
 lib/models/WorkflowAttachmentUploadUrlResponse.php
