@@ -627,6 +627,7 @@ Class | Method | HTTP request | Description
 *WebhookApi* | [**insertWebhook**](docs/Api/WebhookApi.md#insertwebhook) | **POST** /webhook/webhooks | Add a webhook
 *WebhookApi* | [**resendEvent**](docs/Api/WebhookApi.md#resendevent) | **POST** /webhook/webhooks/{webhookOid}/reflow/{eventName} | Resend events to the webhook endpoint.
 *WebhookApi* | [**updateWebhook**](docs/Api/WebhookApi.md#updatewebhook) | **PUT** /webhook/webhooks/{webhookOid} | Update a webhook
+*WorkflowApi* | [**getWorkflowAgentWebsocketAuthorization**](docs/Api/WorkflowApi.md#getworkflowagentwebsocketauthorization) | **PUT** /workflow/agent/auth | Get agent websocket authorization
 *WorkflowApi* | [**getWorkflowAssignmentGroups**](docs/Api/WorkflowApi.md#getworkflowassignmentgroups) | **GET** /workflow/assignment_groups | Retrieve a list of groups that workflow tasks can be assigned to
 *WorkflowApi* | [**getWorkflowAssignmentUsers**](docs/Api/WorkflowApi.md#getworkflowassignmentusers) | **GET** /workflow/assignment_users | Retrieve a list of users that workflow tasks can be assigned to
 *WorkflowApi* | [**getWorkflowMe**](docs/Api/WorkflowApi.md#getworkflowme) | **GET** /workflow/me | Retrieve a user object for myself
@@ -1464,6 +1465,8 @@ Class | Method | HTTP request | Description
  - [WebhookSampleRequestResponse](docs/Model/WebhookSampleRequestResponse.md)
  - [WebhooksResponse](docs/Model/WebhooksResponse.md)
  - [Weight](docs/Model/Weight.md)
+ - [WorkflowAgentAuth](docs/Model/WorkflowAgentAuth.md)
+ - [WorkflowAgentAuthResponse](docs/Model/WorkflowAgentAuthResponse.md)
  - [WorkflowAttachment](docs/Model/WorkflowAttachment.md)
  - [WorkflowAttachmentUploadUrl](docs/Model/WorkflowAttachmentUploadUrl.md)
  - [WorkflowAttachmentUploadUrlResponse](docs/Model/WorkflowAttachmentUploadUrlResponse.md)
@@ -1557,6 +1560,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.186 | 03/15/2024 | workflow - getWorkflowAgentWebsocketAuthorization method added |
 | 3.10.185 | 03/08/2024 | added getWorkflowTaskTags method |
 | 3.10.184 | 02/27/2024 | esp - sms statistic layer |
 | 3.10.183 | 02/20/2024 | Add tag support to CouponAmountOffItems, CouponBuyOneGetOneLimit, CouponDiscountItemWithItemPurchase, CouponFreeItemWithItemPurchase, CouponPercentOffItemsWithItemsPurchase |

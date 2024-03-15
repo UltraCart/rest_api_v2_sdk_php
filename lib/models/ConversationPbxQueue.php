@@ -74,7 +74,9 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess
         'say_voice' => 'string',
         'twilio_taskrouter_workflow_sid' => 'string',
         'twilio_workspace_queue_sid' => 'string',
-        'voicemail' => 'bool'
+        'voicemail' => 'bool',
+        'wait_critical_seconds' => 'int',
+        'wait_warning_seconds' => 'int'
     ];
 
     /**
@@ -100,7 +102,9 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess
         'say_voice' => null,
         'twilio_taskrouter_workflow_sid' => null,
         'twilio_workspace_queue_sid' => null,
-        'voicemail' => null
+        'voicemail' => null,
+        'wait_critical_seconds' => 'int32',
+        'wait_warning_seconds' => 'int32'
     ];
 
     /**
@@ -147,7 +151,9 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess
         'say_voice' => 'say_voice',
         'twilio_taskrouter_workflow_sid' => 'twilio_taskrouter_workflow_sid',
         'twilio_workspace_queue_sid' => 'twilio_workspace_queue_sid',
-        'voicemail' => 'voicemail'
+        'voicemail' => 'voicemail',
+        'wait_critical_seconds' => 'wait_critical_seconds',
+        'wait_warning_seconds' => 'wait_warning_seconds'
     ];
 
     /**
@@ -173,7 +179,9 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess
         'say_voice' => 'setSayVoice',
         'twilio_taskrouter_workflow_sid' => 'setTwilioTaskrouterWorkflowSid',
         'twilio_workspace_queue_sid' => 'setTwilioWorkspaceQueueSid',
-        'voicemail' => 'setVoicemail'
+        'voicemail' => 'setVoicemail',
+        'wait_critical_seconds' => 'setWaitCriticalSeconds',
+        'wait_warning_seconds' => 'setWaitWarningSeconds'
     ];
 
     /**
@@ -199,7 +207,9 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess
         'say_voice' => 'getSayVoice',
         'twilio_taskrouter_workflow_sid' => 'getTwilioTaskrouterWorkflowSid',
         'twilio_workspace_queue_sid' => 'getTwilioWorkspaceQueueSid',
-        'voicemail' => 'getVoicemail'
+        'voicemail' => 'getVoicemail',
+        'wait_critical_seconds' => 'getWaitCriticalSeconds',
+        'wait_warning_seconds' => 'getWaitWarningSeconds'
     ];
 
     /**
@@ -280,6 +290,8 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess
         $this->container['twilio_taskrouter_workflow_sid'] = isset($data['twilio_taskrouter_workflow_sid']) ? $data['twilio_taskrouter_workflow_sid'] : null;
         $this->container['twilio_workspace_queue_sid'] = isset($data['twilio_workspace_queue_sid']) ? $data['twilio_workspace_queue_sid'] : null;
         $this->container['voicemail'] = isset($data['voicemail']) ? $data['voicemail'] : null;
+        $this->container['wait_critical_seconds'] = isset($data['wait_critical_seconds']) ? $data['wait_critical_seconds'] : null;
+        $this->container['wait_warning_seconds'] = isset($data['wait_warning_seconds']) ? $data['wait_warning_seconds'] : null;
     }
 
     /**
@@ -814,6 +826,54 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess
     public function setVoicemail($voicemail)
     {
         $this->container['voicemail'] = $voicemail;
+
+        return $this;
+    }
+
+    /**
+     * Gets wait_critical_seconds
+     *
+     * @return int
+     */
+    public function getWaitCriticalSeconds()
+    {
+        return $this->container['wait_critical_seconds'];
+    }
+
+    /**
+     * Sets wait_critical_seconds
+     *
+     * @param int $wait_critical_seconds Wait time in seconds before critical
+     *
+     * @return $this
+     */
+    public function setWaitCriticalSeconds($wait_critical_seconds)
+    {
+        $this->container['wait_critical_seconds'] = $wait_critical_seconds;
+
+        return $this;
+    }
+
+    /**
+     * Gets wait_warning_seconds
+     *
+     * @return int
+     */
+    public function getWaitWarningSeconds()
+    {
+        return $this->container['wait_warning_seconds'];
+    }
+
+    /**
+     * Sets wait_warning_seconds
+     *
+     * @param int $wait_warning_seconds Wait time in seconds before warning
+     *
+     * @return $this
+     */
+    public function setWaitWarningSeconds($wait_warning_seconds)
+    {
+        $this->container['wait_warning_seconds'] = $wait_warning_seconds;
 
         return $this;
     }

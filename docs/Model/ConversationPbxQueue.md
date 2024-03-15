@@ -21,6 +21,8 @@ Name | Type | Description | Notes
 **twilio_taskrouter_workflow_sid** | **string** | Twilio taskrouter workflow sid | [optional] 
 **twilio_workspace_queue_sid** | **string** | Twilio workspace queue sid | [optional] 
 **voicemail** | **bool** | If true, this queue has a voicemail associated with it | [optional] 
+**wait_critical_seconds** | **int** | Wait time in seconds before critical | [optional] 
+**wait_warning_seconds** | **int** | Wait time in seconds before warning | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
