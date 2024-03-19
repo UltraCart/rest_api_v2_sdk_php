@@ -67,6 +67,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess
         'delay_until_dts' => 'string',
         'dependant_workflow_task_uuid' => 'string',
         'due_dts' => 'string',
+        'expiration_dts' => 'string',
         'histories' => '\ultracart\v2\models\WorkflowTaskHistory[]',
         'last_update_dts' => 'string',
         'merchant_id' => 'string',
@@ -79,6 +80,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess
         'properties' => '\ultracart\v2\models\Property[]',
         'related_workflow_task_uuid' => 'string',
         'status' => 'string',
+        'system_task_type' => 'string',
         'tags' => 'string[]',
         'task_context' => 'string',
         'task_details' => 'string',
@@ -102,6 +104,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess
         'delay_until_dts' => 'dateTime',
         'dependant_workflow_task_uuid' => null,
         'due_dts' => 'dateTime',
+        'expiration_dts' => 'dateTime',
         'histories' => null,
         'last_update_dts' => 'dateTime',
         'merchant_id' => null,
@@ -114,6 +117,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess
         'properties' => null,
         'related_workflow_task_uuid' => null,
         'status' => null,
+        'system_task_type' => null,
         'tags' => null,
         'task_context' => null,
         'task_details' => null,
@@ -158,6 +162,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess
         'delay_until_dts' => 'delay_until_dts',
         'dependant_workflow_task_uuid' => 'dependant_workflow_task_uuid',
         'due_dts' => 'due_dts',
+        'expiration_dts' => 'expiration_dts',
         'histories' => 'histories',
         'last_update_dts' => 'last_update_dts',
         'merchant_id' => 'merchant_id',
@@ -170,6 +175,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess
         'properties' => 'properties',
         'related_workflow_task_uuid' => 'related_workflow_task_uuid',
         'status' => 'status',
+        'system_task_type' => 'system_task_type',
         'tags' => 'tags',
         'task_context' => 'task_context',
         'task_details' => 'task_details',
@@ -193,6 +199,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess
         'delay_until_dts' => 'setDelayUntilDts',
         'dependant_workflow_task_uuid' => 'setDependantWorkflowTaskUuid',
         'due_dts' => 'setDueDts',
+        'expiration_dts' => 'setExpirationDts',
         'histories' => 'setHistories',
         'last_update_dts' => 'setLastUpdateDts',
         'merchant_id' => 'setMerchantId',
@@ -205,6 +212,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess
         'properties' => 'setProperties',
         'related_workflow_task_uuid' => 'setRelatedWorkflowTaskUuid',
         'status' => 'setStatus',
+        'system_task_type' => 'setSystemTaskType',
         'tags' => 'setTags',
         'task_context' => 'setTaskContext',
         'task_details' => 'setTaskDetails',
@@ -228,6 +236,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess
         'delay_until_dts' => 'getDelayUntilDts',
         'dependant_workflow_task_uuid' => 'getDependantWorkflowTaskUuid',
         'due_dts' => 'getDueDts',
+        'expiration_dts' => 'getExpirationDts',
         'histories' => 'getHistories',
         'last_update_dts' => 'getLastUpdateDts',
         'merchant_id' => 'getMerchantId',
@@ -240,6 +249,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess
         'properties' => 'getProperties',
         'related_workflow_task_uuid' => 'getRelatedWorkflowTaskUuid',
         'status' => 'getStatus',
+        'system_task_type' => 'getSystemTaskType',
         'tags' => 'getTags',
         'task_context' => 'getTaskContext',
         'task_details' => 'getTaskDetails',
@@ -301,6 +311,15 @@ class WorkflowTask implements ModelInterface, ArrayAccess
     const STATUS_CLOSED = 'closed';
     const STATUS_DELAYED = 'delayed';
     const STATUS_AWAITING_CUSTOMER_FEEDBACK = 'awaiting customer feedback';
+    const STATUS_CLOSED___SYSTEM = 'closed - system';
+    const STATUS_CLOSED___CUSTOMER = 'closed - customer';
+    const STATUS_CLOSED___EXPIRATION = 'closed - expiration';
+    const SYSTEM_TASK_TYPE_ORDER_ACCOUNTS_RECEIVABLE = 'order_accounts_receivable';
+    const SYSTEM_TASK_TYPE_ORDER_FRAUD_REVIEW = 'order_fraud_review';
+    const SYSTEM_TASK_TYPE_AUTO_ORDER_CARD_UPDATE_ISSUE = 'auto_order_card_update_issue';
+    const SYSTEM_TASK_TYPE_AUTO_ORDER_CANCELED_PAYMENT = 'auto_order_canceled_payment';
+    const SYSTEM_TASK_TYPE_ITEM_LOW_STOCK = 'item_low_stock';
+    const SYSTEM_TASK_TYPE_ITEM_OUT_OF_STOCK = 'item_out_of_stock';
     
 
     
@@ -347,6 +366,26 @@ class WorkflowTask implements ModelInterface, ArrayAccess
             self::STATUS_CLOSED,
             self::STATUS_DELAYED,
             self::STATUS_AWAITING_CUSTOMER_FEEDBACK,
+            self::STATUS_CLOSED___SYSTEM,
+            self::STATUS_CLOSED___CUSTOMER,
+            self::STATUS_CLOSED___EXPIRATION,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSystemTaskTypeAllowableValues()
+    {
+        return [
+            self::SYSTEM_TASK_TYPE_ORDER_ACCOUNTS_RECEIVABLE,
+            self::SYSTEM_TASK_TYPE_ORDER_FRAUD_REVIEW,
+            self::SYSTEM_TASK_TYPE_AUTO_ORDER_CARD_UPDATE_ISSUE,
+            self::SYSTEM_TASK_TYPE_AUTO_ORDER_CANCELED_PAYMENT,
+            self::SYSTEM_TASK_TYPE_ITEM_LOW_STOCK,
+            self::SYSTEM_TASK_TYPE_ITEM_OUT_OF_STOCK,
         ];
     }
     
@@ -376,6 +415,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess
         $this->container['delay_until_dts'] = isset($data['delay_until_dts']) ? $data['delay_until_dts'] : null;
         $this->container['dependant_workflow_task_uuid'] = isset($data['dependant_workflow_task_uuid']) ? $data['dependant_workflow_task_uuid'] : null;
         $this->container['due_dts'] = isset($data['due_dts']) ? $data['due_dts'] : null;
+        $this->container['expiration_dts'] = isset($data['expiration_dts']) ? $data['expiration_dts'] : null;
         $this->container['histories'] = isset($data['histories']) ? $data['histories'] : null;
         $this->container['last_update_dts'] = isset($data['last_update_dts']) ? $data['last_update_dts'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
@@ -388,6 +428,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess
         $this->container['properties'] = isset($data['properties']) ? $data['properties'] : null;
         $this->container['related_workflow_task_uuid'] = isset($data['related_workflow_task_uuid']) ? $data['related_workflow_task_uuid'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['system_task_type'] = isset($data['system_task_type']) ? $data['system_task_type'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['task_context'] = isset($data['task_context']) ? $data['task_context'] : null;
         $this->container['task_details'] = isset($data['task_details']) ? $data['task_details'] : null;
@@ -424,6 +465,14 @@ class WorkflowTask implements ModelInterface, ArrayAccess
         if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getSystemTaskTypeAllowableValues();
+        if (!is_null($this->container['system_task_type']) && !in_array($this->container['system_task_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'system_task_type', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -679,6 +728,30 @@ class WorkflowTask implements ModelInterface, ArrayAccess
     public function setDueDts($due_dts)
     {
         $this->container['due_dts'] = $due_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets expiration_dts
+     *
+     * @return string
+     */
+    public function getExpirationDts()
+    {
+        return $this->container['expiration_dts'];
+    }
+
+    /**
+     * Sets expiration_dts
+     *
+     * @param string $expiration_dts Date/time that the workflow task will expire and be closed.  This is set by system generated tasks.
+     *
+     * @return $this
+     */
+    public function setExpirationDts($expiration_dts)
+    {
+        $this->container['expiration_dts'] = $expiration_dts;
 
         return $this;
     }
@@ -994,6 +1067,39 @@ class WorkflowTask implements ModelInterface, ArrayAccess
             );
         }
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets system_task_type
+     *
+     * @return string
+     */
+    public function getSystemTaskType()
+    {
+        return $this->container['system_task_type'];
+    }
+
+    /**
+     * Sets system_task_type
+     *
+     * @param string $system_task_type Constant for the type of system generated task
+     *
+     * @return $this
+     */
+    public function setSystemTaskType($system_task_type)
+    {
+        $allowedValues = $this->getSystemTaskTypeAllowableValues();
+        if (!is_null($system_task_type) && !in_array($system_task_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'system_task_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['system_task_type'] = $system_task_type;
 
         return $this;
     }
