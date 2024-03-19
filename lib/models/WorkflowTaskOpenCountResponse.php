@@ -1,6 +1,6 @@
 <?php
 /**
- * WorkflowUsersResponse
+ * WorkflowTaskOpenCountResponse
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * WorkflowUsersResponse Class Doc Comment
+ * WorkflowTaskOpenCountResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class WorkflowUsersResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class WorkflowTaskOpenCountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class WorkflowUsersResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       *
       * @var string
       */
-    protected static $openAPIModelName = 'WorkflowUsersResponse';
+    protected static $openAPIModelName = 'WorkflowTaskOpenCountResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,9 +60,8 @@ class WorkflowUsersResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $openAPITypes = [
         'error' => '\ultracart\v2\models\Error',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
-        'my_user_id' => 'int',
+        'open_count' => 'int',
         'success' => 'bool',
-        'users' => '\ultracart\v2\models\WorkflowUser[]',
         'warning' => '\ultracart\v2\models\Warning'
     ];
 
@@ -76,9 +75,8 @@ class WorkflowUsersResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $openAPIFormats = [
         'error' => null,
         'metadata' => null,
-        'my_user_id' => 'int32',
+        'open_count' => 'int32',
         'success' => null,
-        'users' => null,
         'warning' => null
     ];
 
@@ -111,9 +109,8 @@ class WorkflowUsersResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $attributeMap = [
         'error' => 'error',
         'metadata' => 'metadata',
-        'my_user_id' => 'my_user_id',
+        'open_count' => 'open_count',
         'success' => 'success',
-        'users' => 'users',
         'warning' => 'warning'
     ];
 
@@ -125,9 +122,8 @@ class WorkflowUsersResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $setters = [
         'error' => 'setError',
         'metadata' => 'setMetadata',
-        'my_user_id' => 'setMyUserId',
+        'open_count' => 'setOpenCount',
         'success' => 'setSuccess',
-        'users' => 'setUsers',
         'warning' => 'setWarning'
     ];
 
@@ -139,9 +135,8 @@ class WorkflowUsersResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $getters = [
         'error' => 'getError',
         'metadata' => 'getMetadata',
-        'my_user_id' => 'getMyUserId',
+        'open_count' => 'getOpenCount',
         'success' => 'getSuccess',
-        'users' => 'getUsers',
         'warning' => 'getWarning'
     ];
 
@@ -204,9 +199,8 @@ class WorkflowUsersResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $this->container['error'] = $data['error'] ?? null;
         $this->container['metadata'] = $data['metadata'] ?? null;
-        $this->container['my_user_id'] = $data['my_user_id'] ?? null;
+        $this->container['open_count'] = $data['open_count'] ?? null;
         $this->container['success'] = $data['success'] ?? null;
-        $this->container['users'] = $data['users'] ?? null;
         $this->container['warning'] = $data['warning'] ?? null;
     }
 
@@ -283,25 +277,25 @@ class WorkflowUsersResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Gets my_user_id
+     * Gets open_count
      *
      * @return int|null
      */
-    public function getMyUserId()
+    public function getOpenCount()
     {
-        return $this->container['my_user_id'];
+        return $this->container['open_count'];
     }
 
     /**
-     * Sets my_user_id
+     * Sets open_count
      *
-     * @param int|null $my_user_id User ID of myself
+     * @param int|null $open_count Open Task Count
      *
      * @return self
      */
-    public function setMyUserId($my_user_id)
+    public function setOpenCount($open_count)
     {
-        $this->container['my_user_id'] = $my_user_id;
+        $this->container['open_count'] = $open_count;
 
         return $this;
     }
@@ -326,30 +320,6 @@ class WorkflowUsersResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setSuccess($success)
     {
         $this->container['success'] = $success;
-
-        return $this;
-    }
-
-    /**
-     * Gets users
-     *
-     * @return \ultracart\v2\models\WorkflowUser[]|null
-     */
-    public function getUsers()
-    {
-        return $this->container['users'];
-    }
-
-    /**
-     * Sets users
-     *
-     * @param \ultracart\v2\models\WorkflowUser[]|null $users users
-     *
-     * @return self
-     */
-    public function setUsers($users)
-    {
-        $this->container['users'] = $users;
 
         return $this;
     }

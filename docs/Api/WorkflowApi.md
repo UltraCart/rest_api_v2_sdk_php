@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**getWorkflowTask()**](WorkflowApi.md#getWorkflowTask) | **GET** /workflow/tasks/{task_uuid} | Retrieve a workflow task
 [**getWorkflowTaskAttachmentUploadUrl()**](WorkflowApi.md#getWorkflowTaskAttachmentUploadUrl) | **GET** /workflow/tasks/attachments/{extension} | Get a presigned workflow task attachment upload URL
 [**getWorkflowTaskByObjectType()**](WorkflowApi.md#getWorkflowTaskByObjectType) | **GET** /workflow/tasks/by/{object_type}/{object_id} | Retrieve a workflow task by object type and id
+[**getWorkflowTaskOpenCount()**](WorkflowApi.md#getWorkflowTaskOpenCount) | **GET** /workflow/tasks/open_count | Retrieve workflow task open count
 [**getWorkflowTaskTags()**](WorkflowApi.md#getWorkflowTaskTags) | **GET** /workflow/tasks/tags | Get a list of existing workflow task tags
 [**getWorkflowTasks()**](WorkflowApi.md#getWorkflowTasks) | **POST** /workflow/tasks/search | Search workflow tasks
 [**insertWorkflowTask()**](WorkflowApi.md#insertWorkflowTask) | **POST** /workflow/tasks | Insert a workflow task
@@ -402,6 +403,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\WorkflowTasksResponse**](../Model/WorkflowTasksResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getWorkflowTaskOpenCount()`
+
+```php
+getWorkflowTaskOpenCount(): \ultracart\v2\models\WorkflowTaskOpenCountResponse
+```
+
+Retrieve workflow task open count
+
+Retrieve workflow task open count
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\WorkflowApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+
+try {
+    $result = $apiInstance->getWorkflowTaskOpenCount();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling WorkflowApi->getWorkflowTaskOpenCount: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\ultracart\v2\models\WorkflowTaskOpenCountResponse**](../Model/WorkflowTaskOpenCountResponse.md)
 
 ### Authorization
 

@@ -563,6 +563,7 @@ Class | Method | HTTP request | Description
 *WorkflowApi* | [**getWorkflowTask**](docs/Api/WorkflowApi.md#getworkflowtask) | **GET** /workflow/tasks/{task_uuid} | Retrieve a workflow task
 *WorkflowApi* | [**getWorkflowTaskAttachmentUploadUrl**](docs/Api/WorkflowApi.md#getworkflowtaskattachmentuploadurl) | **GET** /workflow/tasks/attachments/{extension} | Get a presigned workflow task attachment upload URL
 *WorkflowApi* | [**getWorkflowTaskByObjectType**](docs/Api/WorkflowApi.md#getworkflowtaskbyobjecttype) | **GET** /workflow/tasks/by/{object_type}/{object_id} | Retrieve a workflow task by object type and id
+*WorkflowApi* | [**getWorkflowTaskOpenCount**](docs/Api/WorkflowApi.md#getworkflowtaskopencount) | **GET** /workflow/tasks/open_count | Retrieve workflow task open count
 *WorkflowApi* | [**getWorkflowTaskTags**](docs/Api/WorkflowApi.md#getworkflowtasktags) | **GET** /workflow/tasks/tags | Get a list of existing workflow task tags
 *WorkflowApi* | [**getWorkflowTasks**](docs/Api/WorkflowApi.md#getworkflowtasks) | **POST** /workflow/tasks/search | Search workflow tasks
 *WorkflowApi* | [**insertWorkflowTask**](docs/Api/WorkflowApi.md#insertworkflowtask) | **POST** /workflow/tasks | Insert a workflow task
@@ -1402,6 +1403,7 @@ Class | Method | HTTP request | Description
 - [WorkflowNote](docs/Model/WorkflowNote.md)
 - [WorkflowTask](docs/Model/WorkflowTask.md)
 - [WorkflowTaskHistory](docs/Model/WorkflowTaskHistory.md)
+- [WorkflowTaskOpenCountResponse](docs/Model/WorkflowTaskOpenCountResponse.md)
 - [WorkflowTaskResponse](docs/Model/WorkflowTaskResponse.md)
 - [WorkflowTaskTagsResponse](docs/Model/WorkflowTaskTagsResponse.md)
 - [WorkflowTasksRequest](docs/Model/WorkflowTasksRequest.md)
@@ -1502,6 +1504,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.205 | 03/19/2024 | workflow task - method to obtain open task count |
 | 4.0.204 | 03/19/2024 | workflow task - addl status values, expiration_dts, and system task type |
 | 4.0.203 | 03/15/2024 | workflow - getWorkflowAgentWebsocketAuthorization method added |
 | 4.0.202 | 03/08/2024 | added getWorkflowTaskTags method |

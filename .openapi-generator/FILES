@@ -856,6 +856,7 @@ docs/Model/WorkflowGroupsResponse.md
 docs/Model/WorkflowNote.md
 docs/Model/WorkflowTask.md
 docs/Model/WorkflowTaskHistory.md
+docs/Model/WorkflowTaskOpenCountResponse.md
 docs/Model/WorkflowTaskResponse.md
 docs/Model/WorkflowTaskTagsResponse.md
 docs/Model/WorkflowTasksRequest.md
@@ -1722,6 +1723,7 @@ lib/models/WorkflowGroupsResponse.php
 lib/models/WorkflowNote.php
 lib/models/WorkflowTask.php
 lib/models/WorkflowTaskHistory.php
+lib/models/WorkflowTaskOpenCountResponse.php
 lib/models/WorkflowTaskResponse.php
 lib/models/WorkflowTaskTagsResponse.php
 lib/models/WorkflowTasksRequest.php
