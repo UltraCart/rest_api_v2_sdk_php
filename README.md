@@ -192,6 +192,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**joinConversation**](docs/Api/ConversationApi.md#joinconversation) | **PUT** /conversation/conversations/{conversation_uuid}/join | Join a conversation
 *ConversationApi* | [**leaveConversation**](docs/Api/ConversationApi.md#leaveconversation) | **DELETE** /conversation/conversations/{conversation_uuid}/leave | Leave a conversation
 *ConversationApi* | [**markReadConversation**](docs/Api/ConversationApi.md#markreadconversation) | **PUT** /conversation/conversations/{conversation_uuid}/markread | Mark a conversation as read
+*ConversationApi* | [**resetConversationPbxQueueStatistics**](docs/Api/ConversationApi.md#resetconversationpbxqueuestatistics) | **POST** /conversation/pbx/queues/{queue_uuid}/reset_statistics | reset statistics within the queue
 *ConversationApi* | [**searchConversationCannedMessages**](docs/Api/ConversationApi.md#searchconversationcannedmessages) | **POST** /conversation/canned_messages/search | Search for canned messages by short_code
 *ConversationApi* | [**smsUnsubscribeConversation**](docs/Api/ConversationApi.md#smsunsubscribeconversation) | **PUT** /conversation/conversations/{conversation_uuid}/sms_unsubscribe | Unsubscribe any SMS participants in this conversation
 *ConversationApi* | [**startConversation**](docs/Api/ConversationApi.md#startconversation) | **PUT** /conversation/conversations | Start a conversation
@@ -1501,6 +1502,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.204 | 03/19/2024 | workflow task - addl status values, expiration_dts, and system task type |
 | 4.0.203 | 03/15/2024 | workflow - getWorkflowAgentWebsocketAuthorization method added |
 | 4.0.202 | 03/08/2024 | added getWorkflowTaskTags method |
 | 4.0.201 | 02/27/2024 | esp - sms statistic layer |

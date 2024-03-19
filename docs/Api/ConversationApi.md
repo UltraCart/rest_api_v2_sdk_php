@@ -65,6 +65,7 @@ Method | HTTP request | Description
 [**joinConversation()**](ConversationApi.md#joinConversation) | **PUT** /conversation/conversations/{conversation_uuid}/join | Join a conversation
 [**leaveConversation()**](ConversationApi.md#leaveConversation) | **DELETE** /conversation/conversations/{conversation_uuid}/leave | Leave a conversation
 [**markReadConversation()**](ConversationApi.md#markReadConversation) | **PUT** /conversation/conversations/{conversation_uuid}/markread | Mark a conversation as read
+[**resetConversationPbxQueueStatistics()**](ConversationApi.md#resetConversationPbxQueueStatistics) | **POST** /conversation/pbx/queues/{queue_uuid}/reset_statistics | reset statistics within the queue
 [**searchConversationCannedMessages()**](ConversationApi.md#searchConversationCannedMessages) | **POST** /conversation/canned_messages/search | Search for canned messages by short_code
 [**smsUnsubscribeConversation()**](ConversationApi.md#smsUnsubscribeConversation) | **PUT** /conversation/conversations/{conversation_uuid}/sms_unsubscribe | Unsubscribe any SMS participants in this conversation
 [**startConversation()**](ConversationApi.md#startConversation) | **PUT** /conversation/conversations | Start a conversation
@@ -3495,6 +3496,62 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **conversation_uuid** | **string**|  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `resetConversationPbxQueueStatistics()`
+
+```php
+resetConversationPbxQueueStatistics($queue_uuid)
+```
+
+reset statistics within the queue
+
+reset statistics within the queue
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+$queue_uuid = 'queue_uuid_example'; // string
+
+try {
+    $apiInstance->resetConversationPbxQueueStatistics($queue_uuid);
+} catch (Exception $e) {
+    echo 'Exception when calling ConversationApi->resetConversationPbxQueueStatistics: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **queue_uuid** | **string**|  |
 
 ### Return type
 
