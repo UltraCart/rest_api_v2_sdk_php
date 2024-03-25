@@ -113,6 +113,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess
         'payment_method' => 'string',
         'purchase_order_number' => 'string',
         'rotating_transaction_gateway_code' => 'string',
+        'sales_rep_code' => 'string',
         'screen_branding_theme_code' => 'string',
         'ship_on_date' => 'string',
         'ship_to_residential' => 'bool',
@@ -201,6 +202,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess
         'payment_method' => null,
         'purchase_order_number' => null,
         'rotating_transaction_gateway_code' => null,
+        'sales_rep_code' => null,
         'screen_branding_theme_code' => null,
         'ship_on_date' => 'dateTime',
         'ship_to_residential' => null,
@@ -310,6 +312,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess
         'payment_method' => 'payment_method',
         'purchase_order_number' => 'purchase_order_number',
         'rotating_transaction_gateway_code' => 'rotating_transaction_gateway_code',
+        'sales_rep_code' => 'sales_rep_code',
         'screen_branding_theme_code' => 'screen_branding_theme_code',
         'ship_on_date' => 'ship_on_date',
         'ship_to_residential' => 'ship_to_residential',
@@ -398,6 +401,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess
         'payment_method' => 'setPaymentMethod',
         'purchase_order_number' => 'setPurchaseOrderNumber',
         'rotating_transaction_gateway_code' => 'setRotatingTransactionGatewayCode',
+        'sales_rep_code' => 'setSalesRepCode',
         'screen_branding_theme_code' => 'setScreenBrandingThemeCode',
         'ship_on_date' => 'setShipOnDate',
         'ship_to_residential' => 'setShipToResidential',
@@ -486,6 +490,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess
         'payment_method' => 'getPaymentMethod',
         'purchase_order_number' => 'getPurchaseOrderNumber',
         'rotating_transaction_gateway_code' => 'getRotatingTransactionGatewayCode',
+        'sales_rep_code' => 'getSalesRepCode',
         'screen_branding_theme_code' => 'getScreenBrandingThemeCode',
         'ship_on_date' => 'getShipOnDate',
         'ship_to_residential' => 'getShipToResidential',
@@ -661,6 +666,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess
         $this->container['payment_method'] = isset($data['payment_method']) ? $data['payment_method'] : null;
         $this->container['purchase_order_number'] = isset($data['purchase_order_number']) ? $data['purchase_order_number'] : null;
         $this->container['rotating_transaction_gateway_code'] = isset($data['rotating_transaction_gateway_code']) ? $data['rotating_transaction_gateway_code'] : null;
+        $this->container['sales_rep_code'] = isset($data['sales_rep_code']) ? $data['sales_rep_code'] : null;
         $this->container['screen_branding_theme_code'] = isset($data['screen_branding_theme_code']) ? $data['screen_branding_theme_code'] : null;
         $this->container['ship_on_date'] = isset($data['ship_on_date']) ? $data['ship_on_date'] : null;
         $this->container['ship_to_residential'] = isset($data['ship_to_residential']) ? $data['ship_to_residential'] : null;
@@ -2308,6 +2314,30 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess
     public function setRotatingTransactionGatewayCode($rotating_transaction_gateway_code)
     {
         $this->container['rotating_transaction_gateway_code'] = $rotating_transaction_gateway_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets sales_rep_code
+     *
+     * @return string
+     */
+    public function getSalesRepCode()
+    {
+        return $this->container['sales_rep_code'];
+    }
+
+    /**
+     * Sets sales_rep_code
+     *
+     * @param string $sales_rep_code Sales rep code
+     *
+     * @return $this
+     */
+    public function setSalesRepCode($sales_rep_code)
+    {
+        $this->container['sales_rep_code'] = $sales_rep_code;
 
         return $this;
     }

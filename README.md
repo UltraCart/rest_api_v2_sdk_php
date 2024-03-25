@@ -1563,6 +1563,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.189 | 03/25/2024 | added sales_rep_code to Channel partner order |
 | 3.10.188 | 03/19/2024 | workflow task - method to obtain open task count |
 | 3.10.187 | 03/19/2024 | workflow task - addl status values, expiration_dts, and system task type |
 | 3.10.186 | 03/15/2024 | workflow - getWorkflowAgentWebsocketAuthorization method added |
