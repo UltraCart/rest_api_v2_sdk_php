@@ -69,12 +69,14 @@ class WorkflowTask implements ModelInterface, ArrayAccess, \JsonSerializable
         'dependant_workflow_task_uuid' => 'string',
         'due_dts' => 'string',
         'expiration_dts' => 'string',
+        'global_task_number' => 'int',
         'histories' => '\ultracart\v2\models\WorkflowTaskHistory[]',
         'last_update_dts' => 'string',
         'merchant_id' => 'string',
         'notes' => '\ultracart\v2\models\WorkflowNote[]',
         'object_email' => 'string',
         'object_id' => 'string',
+        'object_task_number' => 'int',
         'object_type' => 'string',
         'object_url' => 'string',
         'priority' => 'string',
@@ -108,12 +110,14 @@ class WorkflowTask implements ModelInterface, ArrayAccess, \JsonSerializable
         'dependant_workflow_task_uuid' => null,
         'due_dts' => 'dateTime',
         'expiration_dts' => 'dateTime',
+        'global_task_number' => 'int32',
         'histories' => null,
         'last_update_dts' => 'dateTime',
         'merchant_id' => null,
         'notes' => null,
         'object_email' => null,
         'object_id' => null,
+        'object_task_number' => 'int32',
         'object_type' => null,
         'object_url' => null,
         'priority' => null,
@@ -166,12 +170,14 @@ class WorkflowTask implements ModelInterface, ArrayAccess, \JsonSerializable
         'dependant_workflow_task_uuid' => 'dependant_workflow_task_uuid',
         'due_dts' => 'due_dts',
         'expiration_dts' => 'expiration_dts',
+        'global_task_number' => 'global_task_number',
         'histories' => 'histories',
         'last_update_dts' => 'last_update_dts',
         'merchant_id' => 'merchant_id',
         'notes' => 'notes',
         'object_email' => 'object_email',
         'object_id' => 'object_id',
+        'object_task_number' => 'object_task_number',
         'object_type' => 'object_type',
         'object_url' => 'object_url',
         'priority' => 'priority',
@@ -203,12 +209,14 @@ class WorkflowTask implements ModelInterface, ArrayAccess, \JsonSerializable
         'dependant_workflow_task_uuid' => 'setDependantWorkflowTaskUuid',
         'due_dts' => 'setDueDts',
         'expiration_dts' => 'setExpirationDts',
+        'global_task_number' => 'setGlobalTaskNumber',
         'histories' => 'setHistories',
         'last_update_dts' => 'setLastUpdateDts',
         'merchant_id' => 'setMerchantId',
         'notes' => 'setNotes',
         'object_email' => 'setObjectEmail',
         'object_id' => 'setObjectId',
+        'object_task_number' => 'setObjectTaskNumber',
         'object_type' => 'setObjectType',
         'object_url' => 'setObjectUrl',
         'priority' => 'setPriority',
@@ -240,12 +248,14 @@ class WorkflowTask implements ModelInterface, ArrayAccess, \JsonSerializable
         'dependant_workflow_task_uuid' => 'getDependantWorkflowTaskUuid',
         'due_dts' => 'getDueDts',
         'expiration_dts' => 'getExpirationDts',
+        'global_task_number' => 'getGlobalTaskNumber',
         'histories' => 'getHistories',
         'last_update_dts' => 'getLastUpdateDts',
         'merchant_id' => 'getMerchantId',
         'notes' => 'getNotes',
         'object_email' => 'getObjectEmail',
         'object_id' => 'getObjectId',
+        'object_task_number' => 'getObjectTaskNumber',
         'object_type' => 'getObjectType',
         'object_url' => 'getObjectUrl',
         'priority' => 'getPriority',
@@ -416,12 +426,14 @@ class WorkflowTask implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['dependant_workflow_task_uuid'] = $data['dependant_workflow_task_uuid'] ?? null;
         $this->container['due_dts'] = $data['due_dts'] ?? null;
         $this->container['expiration_dts'] = $data['expiration_dts'] ?? null;
+        $this->container['global_task_number'] = $data['global_task_number'] ?? null;
         $this->container['histories'] = $data['histories'] ?? null;
         $this->container['last_update_dts'] = $data['last_update_dts'] ?? null;
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
         $this->container['notes'] = $data['notes'] ?? null;
         $this->container['object_email'] = $data['object_email'] ?? null;
         $this->container['object_id'] = $data['object_id'] ?? null;
+        $this->container['object_task_number'] = $data['object_task_number'] ?? null;
         $this->container['object_type'] = $data['object_type'] ?? null;
         $this->container['object_url'] = $data['object_url'] ?? null;
         $this->container['priority'] = $data['priority'] ?? null;
@@ -761,6 +773,30 @@ class WorkflowTask implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets global_task_number
+     *
+     * @return int|null
+     */
+    public function getGlobalTaskNumber()
+    {
+        return $this->container['global_task_number'];
+    }
+
+    /**
+     * Sets global_task_number
+     *
+     * @param int|null $global_task_number Global task numer
+     *
+     * @return self
+     */
+    public function setGlobalTaskNumber($global_task_number)
+    {
+        $this->container['global_task_number'] = $global_task_number;
+
+        return $this;
+    }
+
+    /**
      * Gets histories
      *
      * @return \ultracart\v2\models\WorkflowTaskHistory[]|null
@@ -900,6 +936,30 @@ class WorkflowTask implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setObjectId($object_id)
     {
         $this->container['object_id'] = $object_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets object_task_number
+     *
+     * @return int|null
+     */
+    public function getObjectTaskNumber()
+    {
+        return $this->container['object_task_number'];
+    }
+
+    /**
+     * Sets object_task_number
+     *
+     * @param int|null $object_task_number Object specific task numer
+     *
+     * @return self
+     */
+    public function setObjectTaskNumber($object_task_number)
+    {
+        $this->container['object_task_number'] = $object_task_number;
 
         return $this;
     }

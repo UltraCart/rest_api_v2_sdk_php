@@ -1504,6 +1504,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.207 | 03/25/2024 | workflowtask - add global_task_number and object_task_number |
 | 4.0.206 | 03/25/2024 | added sales_rep_code to Channel partner order |
 | 4.0.205 | 03/19/2024 | workflow task - method to obtain open task count |
 | 4.0.204 | 03/19/2024 | workflow task - addl status values, expiration_dts, and system task type |
