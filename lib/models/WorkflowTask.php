@@ -61,6 +61,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess
         'assigned_to_group_id' => 'int',
         'assigned_to_user' => 'string',
         'assigned_to_user_id' => 'int',
+        'assigned_to_user_or_group' => 'string',
         'attachments' => '\ultracart\v2\models\WorkflowAttachment[]',
         'created_by' => '\ultracart\v2\models\WorkflowUser',
         'created_dts' => 'string',
@@ -100,6 +101,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess
         'assigned_to_group_id' => 'int32',
         'assigned_to_user' => null,
         'assigned_to_user_id' => 'int32',
+        'assigned_to_user_or_group' => null,
         'attachments' => null,
         'created_by' => null,
         'created_dts' => 'dateTime',
@@ -160,6 +162,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess
         'assigned_to_group_id' => 'assigned_to_group_id',
         'assigned_to_user' => 'assigned_to_user',
         'assigned_to_user_id' => 'assigned_to_user_id',
+        'assigned_to_user_or_group' => 'assigned_to_user_or_group',
         'attachments' => 'attachments',
         'created_by' => 'created_by',
         'created_dts' => 'created_dts',
@@ -199,6 +202,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess
         'assigned_to_group_id' => 'setAssignedToGroupId',
         'assigned_to_user' => 'setAssignedToUser',
         'assigned_to_user_id' => 'setAssignedToUserId',
+        'assigned_to_user_or_group' => 'setAssignedToUserOrGroup',
         'attachments' => 'setAttachments',
         'created_by' => 'setCreatedBy',
         'created_dts' => 'setCreatedDts',
@@ -238,6 +242,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess
         'assigned_to_group_id' => 'getAssignedToGroupId',
         'assigned_to_user' => 'getAssignedToUser',
         'assigned_to_user_id' => 'getAssignedToUserId',
+        'assigned_to_user_or_group' => 'getAssignedToUserOrGroup',
         'attachments' => 'getAttachments',
         'created_by' => 'getCreatedBy',
         'created_dts' => 'getCreatedDts',
@@ -419,6 +424,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess
         $this->container['assigned_to_group_id'] = isset($data['assigned_to_group_id']) ? $data['assigned_to_group_id'] : null;
         $this->container['assigned_to_user'] = isset($data['assigned_to_user']) ? $data['assigned_to_user'] : null;
         $this->container['assigned_to_user_id'] = isset($data['assigned_to_user_id']) ? $data['assigned_to_user_id'] : null;
+        $this->container['assigned_to_user_or_group'] = isset($data['assigned_to_user_or_group']) ? $data['assigned_to_user_or_group'] : null;
         $this->container['attachments'] = isset($data['attachments']) ? $data['attachments'] : null;
         $this->container['created_by'] = isset($data['created_by']) ? $data['created_by'] : null;
         $this->container['created_dts'] = isset($data['created_dts']) ? $data['created_dts'] : null;
@@ -596,6 +602,30 @@ class WorkflowTask implements ModelInterface, ArrayAccess
     public function setAssignedToUserId($assigned_to_user_id)
     {
         $this->container['assigned_to_user_id'] = $assigned_to_user_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets assigned_to_user_or_group
+     *
+     * @return string
+     */
+    public function getAssignedToUserOrGroup()
+    {
+        return $this->container['assigned_to_user_or_group'];
+    }
+
+    /**
+     * Sets assigned_to_user_or_group
+     *
+     * @param string $assigned_to_user_or_group Assigned to user or group (used for sorting)
+     *
+     * @return $this
+     */
+    public function setAssignedToUserOrGroup($assigned_to_user_or_group)
+    {
+        $this->container['assigned_to_user_or_group'] = $assigned_to_user_or_group;
 
         return $this;
     }
