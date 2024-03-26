@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **assigned_to_group_id** | **int** | Assigned to group ID | [optional]
 **assigned_to_user** | **string** | Assigned to user | [optional]
 **assigned_to_user_id** | **int** | Assigned to user ID | [optional]
+**assigned_to_user_or_group** | **string** | Assigned to user or group (used for sorting) | [optional]
 **attachments** | [**\ultracart\v2\models\WorkflowAttachment[]**](WorkflowAttachment.md) | Attachments to the Workflow Task | [optional]
 **created_by** | [**\ultracart\v2\models\WorkflowUser**](WorkflowUser.md) |  | [optional]
 **created_dts** | **string** | Date/time that the workflow task was created | [optional]
