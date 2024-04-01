@@ -223,6 +223,10 @@ docs/Model/ConversationPbxTimeRangesResponse.md
 docs/Model/ConversationPbxVoicemailMailbox.md
 docs/Model/ConversationPbxVoicemailMailboxResponse.md
 docs/Model/ConversationPbxVoicemailMailboxesResponse.md
+docs/Model/ConversationPbxVoicemailMessage.md
+docs/Model/ConversationPbxVoicemailMessageResponse.md
+docs/Model/ConversationPbxVoicemailMessageSummariesResponse.md
+docs/Model/ConversationPbxVoicemailMessageSummary.md
 docs/Model/ConversationPermissions.md
 docs/Model/ConversationPermissionsResponse.md
 docs/Model/ConversationResponse.md
@@ -1089,6 +1093,10 @@ lib/models/ConversationPbxTimeRangesResponse.php
 lib/models/ConversationPbxVoicemailMailbox.php
 lib/models/ConversationPbxVoicemailMailboxResponse.php
 lib/models/ConversationPbxVoicemailMailboxesResponse.php
+lib/models/ConversationPbxVoicemailMessage.php
+lib/models/ConversationPbxVoicemailMessageResponse.php
+lib/models/ConversationPbxVoicemailMessageSummariesResponse.php
+lib/models/ConversationPbxVoicemailMessageSummary.php
 lib/models/ConversationPermissions.php
 lib/models/ConversationPermissionsResponse.php
 lib/models/ConversationResponse.php

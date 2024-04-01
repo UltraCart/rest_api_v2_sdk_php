@@ -110,7 +110,7 @@ class ConversationPbxVoicemailMailboxResponse implements ModelInterface, ArrayAc
         'error' => 'error',
         'metadata' => 'metadata',
         'success' => 'success',
-        'voicemail_mailbox' => 'voicemailMailbox',
+        'voicemail_mailbox' => 'voicemail_mailbox',
         'warning' => 'warning'
     ];
 

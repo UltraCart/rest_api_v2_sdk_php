@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**deleteDepartment()**](ConversationApi.md#deleteDepartment) | **DELETE** /conversation/departments/{conversation_department_oid} | Delete a conversation department
 [**deleteEngagement()**](ConversationApi.md#deleteEngagement) | **DELETE** /conversation/engagements/{conversation_engagement_oid} | Delete a conversation engagement
 [**deletePbxAgent()**](ConversationApi.md#deletePbxAgent) | **DELETE** /conversation/pbx/agent/{conversationPbxAgentUuid} | Delete pbx agent
+[**deletePbxAgentVoicemail()**](ConversationApi.md#deletePbxAgentVoicemail) | **DELETE** /conversation/pbx/agent/voicemails/{recording_sid} | Delete Agent Voicemail
 [**deletePbxAudio()**](ConversationApi.md#deletePbxAudio) | **DELETE** /conversation/pbx/audio/{conversationPbxAudioUuid} | Delete pbx audio
 [**deletePbxMenu()**](ConversationApi.md#deletePbxMenu) | **DELETE** /conversation/pbx/menu/{conversationPbxMenuUuid} | Delete pbx menu
 [**deletePbxPhoneNumber()**](ConversationApi.md#deletePbxPhoneNumber) | **DELETE** /conversation/pbx/phone_number/{conversationPbxPhoneNumberUuid} | Delete pbx phoneNumber
@@ -36,6 +37,8 @@ Method | HTTP request | Description
 [**getConversationsSearch()**](ConversationApi.md#getConversationsSearch) | **POST** /conversation/conversations/search | Search conversations
 [**getLocationsForEngagement()**](ConversationApi.md#getLocationsForEngagement) | **POST** /conversation/locations | Get location data for engagement configuration
 [**getPbxAgent()**](ConversationApi.md#getPbxAgent) | **GET** /conversation/pbx/agent/{conversationPbxAgentUuid} | Get pbx agent
+[**getPbxAgentVoicemail()**](ConversationApi.md#getPbxAgentVoicemail) | **GET** /conversation/pbx/agent/voicemails/{recording_sid} | Get Agent Voicemail
+[**getPbxAgentVoicemails()**](ConversationApi.md#getPbxAgentVoicemails) | **GET** /conversation/pbx/agent/voicemails | Get Agent Voicemails
 [**getPbxAgents()**](ConversationApi.md#getPbxAgents) | **GET** /conversation/pbx/agent | Get pbx agents
 [**getPbxAudio()**](ConversationApi.md#getPbxAudio) | **GET** /conversation/pbx/audio/{conversationPbxAudioUuid} | Get pbx audio
 [**getPbxAudios()**](ConversationApi.md#getPbxAudios) | **GET** /conversation/pbx/audio | Get pbx audios
@@ -44,6 +47,8 @@ Method | HTTP request | Description
 [**getPbxPhoneNumber()**](ConversationApi.md#getPbxPhoneNumber) | **GET** /conversation/pbx/phone_number/{conversationPbxPhoneNumberUuid} | Get pbx phoneNumber
 [**getPbxPhoneNumbers()**](ConversationApi.md#getPbxPhoneNumbers) | **GET** /conversation/pbx/phone_number | Get pbx phoneNumbers
 [**getPbxQueue()**](ConversationApi.md#getPbxQueue) | **GET** /conversation/pbx/queue/{conversationPbxQueueUuid} | Get pbx queue
+[**getPbxQueueVoicemail()**](ConversationApi.md#getPbxQueueVoicemail) | **GET** /conversation/pbx/queues/{queue_uuid}/voicemails/{recording_sid} | Get Queue Voicemail
+[**getPbxQueueVoicemails()**](ConversationApi.md#getPbxQueueVoicemails) | **GET** /conversation/pbx/queues/{queue_uuid}/voicemails | Get Queue Voicemails
 [**getPbxQueues()**](ConversationApi.md#getPbxQueues) | **GET** /conversation/pbx/queue | Get pbx queues
 [**getPbxTimeBased()**](ConversationApi.md#getPbxTimeBased) | **GET** /conversation/pbx/time_based/{conversationPbxTimeBasedUuid} | Get pbx timeBased
 [**getPbxTimeBaseds()**](ConversationApi.md#getPbxTimeBaseds) | **GET** /conversation/pbx/time_based | Get pbx timeBaseds
@@ -64,6 +69,7 @@ Method | HTTP request | Description
 [**insertPbxVoicemailMailbox()**](ConversationApi.md#insertPbxVoicemailMailbox) | **POST** /conversation/pbx/voicemail_mailbox | Insert pbx voicemailMailbox
 [**joinConversation()**](ConversationApi.md#joinConversation) | **PUT** /conversation/conversations/{conversation_uuid}/join | Join a conversation
 [**leaveConversation()**](ConversationApi.md#leaveConversation) | **DELETE** /conversation/conversations/{conversation_uuid}/leave | Leave a conversation
+[**listenedPbxAgentVoicemail()**](ConversationApi.md#listenedPbxAgentVoicemail) | **GET** /conversation/pbx/agent/voicemails/{recording_sid}/listened | Listened Agent Voicemail
 [**markReadConversation()**](ConversationApi.md#markReadConversation) | **PUT** /conversation/conversations/{conversation_uuid}/markread | Mark a conversation as read
 [**resetConversationPbxQueueStatistics()**](ConversationApi.md#resetConversationPbxQueueStatistics) | **POST** /conversation/pbx/queues/{queue_uuid}/reset_statistics | reset statistics within the queue
 [**searchConversationCannedMessages()**](ConversationApi.md#searchConversationCannedMessages) | **POST** /conversation/canned_messages/search | Search for canned messages by short_code
@@ -295,6 +301,62 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\ConversationPbxAgentResponse**](../Model/ConversationPbxAgentResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deletePbxAgentVoicemail()`
+
+```php
+deletePbxAgentVoicemail($recording_sid)
+```
+
+Delete Agent Voicemail
+
+Delete pbx agent Voicemail
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+$recording_sid = 'recording_sid_example'; // string
+
+try {
+    $apiInstance->deletePbxAgentVoicemail($recording_sid);
+} catch (Exception $e) {
+    echo 'Exception when calling ConversationApi->deletePbxAgentVoicemail: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **recording_sid** | **string**|  |
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 
@@ -1886,6 +1948,117 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getPbxAgentVoicemail()`
+
+```php
+getPbxAgentVoicemail($recording_sid): \ultracart\v2\models\ConversationPbxVoicemailMessageResponse
+```
+
+Get Agent Voicemail
+
+Retrieve pbx agent Voicemail
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+$recording_sid = 'recording_sid_example'; // string
+
+try {
+    $result = $apiInstance->getPbxAgentVoicemail($recording_sid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ConversationApi->getPbxAgentVoicemail: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **recording_sid** | **string**|  |
+
+### Return type
+
+[**\ultracart\v2\models\ConversationPbxVoicemailMessageResponse**](../Model/ConversationPbxVoicemailMessageResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getPbxAgentVoicemails()`
+
+```php
+getPbxAgentVoicemails(): \ultracart\v2\models\ConversationPbxVoicemailMessageSummariesResponse
+```
+
+Get Agent Voicemails
+
+Retrieve pbx agent Voicemails
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+
+try {
+    $result = $apiInstance->getPbxAgentVoicemails();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ConversationApi->getPbxAgentVoicemails: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\ultracart\v2\models\ConversationPbxVoicemailMessageSummariesResponse**](../Model/ConversationPbxVoicemailMessageSummariesResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getPbxAgents()`
 
 ```php
@@ -2316,6 +2489,122 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\ConversationPbxQueueResponse**](../Model/ConversationPbxQueueResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getPbxQueueVoicemail()`
+
+```php
+getPbxQueueVoicemail($queue_uuid, $recording_sid): \ultracart\v2\models\ConversationPbxVoicemailMessageResponse
+```
+
+Get Queue Voicemail
+
+Retrieve pbx queue Voicemail
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+$queue_uuid = 'queue_uuid_example'; // string
+$recording_sid = 'recording_sid_example'; // string
+
+try {
+    $result = $apiInstance->getPbxQueueVoicemail($queue_uuid, $recording_sid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ConversationApi->getPbxQueueVoicemail: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **queue_uuid** | **string**|  |
+ **recording_sid** | **string**|  |
+
+### Return type
+
+[**\ultracart\v2\models\ConversationPbxVoicemailMessageResponse**](../Model/ConversationPbxVoicemailMessageResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getPbxQueueVoicemails()`
+
+```php
+getPbxQueueVoicemails($queue_uuid): \ultracart\v2\models\ConversationPbxVoicemailMessageSummariesResponse
+```
+
+Get Queue Voicemails
+
+Retrieve pbx queue voicemails
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+$queue_uuid = 'queue_uuid_example'; // string
+
+try {
+    $result = $apiInstance->getPbxQueueVoicemails($queue_uuid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ConversationApi->getPbxQueueVoicemails: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **queue_uuid** | **string**|  |
+
+### Return type
+
+[**\ultracart\v2\models\ConversationPbxVoicemailMessageSummariesResponse**](../Model/ConversationPbxVoicemailMessageSummariesResponse.md)
 
 ### Authorization
 
@@ -3440,6 +3729,62 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **conversation_uuid** | **string**|  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `listenedPbxAgentVoicemail()`
+
+```php
+listenedPbxAgentVoicemail($recording_sid)
+```
+
+Listened Agent Voicemail
+
+Listened pbx agent Voicemail
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+$recording_sid = 'recording_sid_example'; // string
+
+try {
+    $apiInstance->listenedPbxAgentVoicemail($recording_sid);
+} catch (Exception $e) {
+    echo 'Exception when calling ConversationApi->listenedPbxAgentVoicemail: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **recording_sid** | **string**|  |
 
 ### Return type
 

@@ -135,6 +135,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**deleteDepartment**](docs/Api/ConversationApi.md#deletedepartment) | **DELETE** /conversation/departments/{conversation_department_oid} | Delete a conversation department
 *ConversationApi* | [**deleteEngagement**](docs/Api/ConversationApi.md#deleteengagement) | **DELETE** /conversation/engagements/{conversation_engagement_oid} | Delete a conversation engagement
 *ConversationApi* | [**deletePbxAgent**](docs/Api/ConversationApi.md#deletepbxagent) | **DELETE** /conversation/pbx/agent/{conversationPbxAgentUuid} | Delete pbx agent
+*ConversationApi* | [**deletePbxAgentVoicemail**](docs/Api/ConversationApi.md#deletepbxagentvoicemail) | **DELETE** /conversation/pbx/agent/voicemails/{recording_sid} | Delete Agent Voicemail
 *ConversationApi* | [**deletePbxAudio**](docs/Api/ConversationApi.md#deletepbxaudio) | **DELETE** /conversation/pbx/audio/{conversationPbxAudioUuid} | Delete pbx audio
 *ConversationApi* | [**deletePbxMenu**](docs/Api/ConversationApi.md#deletepbxmenu) | **DELETE** /conversation/pbx/menu/{conversationPbxMenuUuid} | Delete pbx menu
 *ConversationApi* | [**deletePbxPhoneNumber**](docs/Api/ConversationApi.md#deletepbxphonenumber) | **DELETE** /conversation/pbx/phone_number/{conversationPbxPhoneNumberUuid} | Delete pbx phoneNumber
@@ -163,6 +164,8 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getConversationsSearch**](docs/Api/ConversationApi.md#getconversationssearch) | **POST** /conversation/conversations/search | Search conversations
 *ConversationApi* | [**getLocationsForEngagement**](docs/Api/ConversationApi.md#getlocationsforengagement) | **POST** /conversation/locations | Get location data for engagement configuration
 *ConversationApi* | [**getPbxAgent**](docs/Api/ConversationApi.md#getpbxagent) | **GET** /conversation/pbx/agent/{conversationPbxAgentUuid} | Get pbx agent
+*ConversationApi* | [**getPbxAgentVoicemail**](docs/Api/ConversationApi.md#getpbxagentvoicemail) | **GET** /conversation/pbx/agent/voicemails/{recording_sid} | Get Agent Voicemail
+*ConversationApi* | [**getPbxAgentVoicemails**](docs/Api/ConversationApi.md#getpbxagentvoicemails) | **GET** /conversation/pbx/agent/voicemails | Get Agent Voicemails
 *ConversationApi* | [**getPbxAgents**](docs/Api/ConversationApi.md#getpbxagents) | **GET** /conversation/pbx/agent | Get pbx agents
 *ConversationApi* | [**getPbxAudio**](docs/Api/ConversationApi.md#getpbxaudio) | **GET** /conversation/pbx/audio/{conversationPbxAudioUuid} | Get pbx audio
 *ConversationApi* | [**getPbxAudios**](docs/Api/ConversationApi.md#getpbxaudios) | **GET** /conversation/pbx/audio | Get pbx audios
@@ -171,6 +174,8 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getPbxPhoneNumber**](docs/Api/ConversationApi.md#getpbxphonenumber) | **GET** /conversation/pbx/phone_number/{conversationPbxPhoneNumberUuid} | Get pbx phoneNumber
 *ConversationApi* | [**getPbxPhoneNumbers**](docs/Api/ConversationApi.md#getpbxphonenumbers) | **GET** /conversation/pbx/phone_number | Get pbx phoneNumbers
 *ConversationApi* | [**getPbxQueue**](docs/Api/ConversationApi.md#getpbxqueue) | **GET** /conversation/pbx/queue/{conversationPbxQueueUuid} | Get pbx queue
+*ConversationApi* | [**getPbxQueueVoicemail**](docs/Api/ConversationApi.md#getpbxqueuevoicemail) | **GET** /conversation/pbx/queues/{queue_uuid}/voicemails/{recording_sid} | Get Queue Voicemail
+*ConversationApi* | [**getPbxQueueVoicemails**](docs/Api/ConversationApi.md#getpbxqueuevoicemails) | **GET** /conversation/pbx/queues/{queue_uuid}/voicemails | Get Queue Voicemails
 *ConversationApi* | [**getPbxQueues**](docs/Api/ConversationApi.md#getpbxqueues) | **GET** /conversation/pbx/queue | Get pbx queues
 *ConversationApi* | [**getPbxTimeBased**](docs/Api/ConversationApi.md#getpbxtimebased) | **GET** /conversation/pbx/time_based/{conversationPbxTimeBasedUuid} | Get pbx timeBased
 *ConversationApi* | [**getPbxTimeBaseds**](docs/Api/ConversationApi.md#getpbxtimebaseds) | **GET** /conversation/pbx/time_based | Get pbx timeBaseds
@@ -191,6 +196,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**insertPbxVoicemailMailbox**](docs/Api/ConversationApi.md#insertpbxvoicemailmailbox) | **POST** /conversation/pbx/voicemail_mailbox | Insert pbx voicemailMailbox
 *ConversationApi* | [**joinConversation**](docs/Api/ConversationApi.md#joinconversation) | **PUT** /conversation/conversations/{conversation_uuid}/join | Join a conversation
 *ConversationApi* | [**leaveConversation**](docs/Api/ConversationApi.md#leaveconversation) | **DELETE** /conversation/conversations/{conversation_uuid}/leave | Leave a conversation
+*ConversationApi* | [**listenedPbxAgentVoicemail**](docs/Api/ConversationApi.md#listenedpbxagentvoicemail) | **GET** /conversation/pbx/agent/voicemails/{recording_sid}/listened | Listened Agent Voicemail
 *ConversationApi* | [**markReadConversation**](docs/Api/ConversationApi.md#markreadconversation) | **PUT** /conversation/conversations/{conversation_uuid}/markread | Mark a conversation as read
 *ConversationApi* | [**resetConversationPbxQueueStatistics**](docs/Api/ConversationApi.md#resetconversationpbxqueuestatistics) | **POST** /conversation/pbx/queues/{queue_uuid}/reset_statistics | reset statistics within the queue
 *ConversationApi* | [**searchConversationCannedMessages**](docs/Api/ConversationApi.md#searchconversationcannedmessages) | **POST** /conversation/canned_messages/search | Search for canned messages by short_code
@@ -770,6 +776,10 @@ Class | Method | HTTP request | Description
 - [ConversationPbxVoicemailMailbox](docs/Model/ConversationPbxVoicemailMailbox.md)
 - [ConversationPbxVoicemailMailboxResponse](docs/Model/ConversationPbxVoicemailMailboxResponse.md)
 - [ConversationPbxVoicemailMailboxesResponse](docs/Model/ConversationPbxVoicemailMailboxesResponse.md)
+- [ConversationPbxVoicemailMessage](docs/Model/ConversationPbxVoicemailMessage.md)
+- [ConversationPbxVoicemailMessageResponse](docs/Model/ConversationPbxVoicemailMessageResponse.md)
+- [ConversationPbxVoicemailMessageSummariesResponse](docs/Model/ConversationPbxVoicemailMessageSummariesResponse.md)
+- [ConversationPbxVoicemailMessageSummary](docs/Model/ConversationPbxVoicemailMessageSummary.md)
 - [ConversationPermissions](docs/Model/ConversationPermissions.md)
 - [ConversationPermissionsResponse](docs/Model/ConversationPermissionsResponse.md)
 - [ConversationResponse](docs/Model/ConversationResponse.md)
@@ -1504,6 +1514,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.209 | 04/01/2024 | added merchant_id as read-only top level property of AutoOrder object |
 | 4.0.208 | 03/26/2024 | WorkflowTask - added assigned_to_user_or_group field |
 | 4.0.207 | 03/25/2024 | workflowtask - add global_task_number and object_task_number |
 | 4.0.206 | 03/25/2024 | added sales_rep_code to Channel partner order |

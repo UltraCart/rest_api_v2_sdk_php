@@ -75,6 +75,7 @@ class AutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'items' => '\ultracart\v2\models\AutoOrderItem[]',
         'logs' => '\ultracart\v2\models\AutoOrderLog[]',
         'management' => '\ultracart\v2\models\AutoOrderManagement',
+        'merchant_id' => 'string',
         'next_attempt' => 'string',
         'original_order' => '\ultracart\v2\models\Order',
         'original_order_id' => 'string',
@@ -109,6 +110,7 @@ class AutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'items' => null,
         'logs' => null,
         'management' => null,
+        'merchant_id' => null,
         'next_attempt' => 'dateTime',
         'original_order' => null,
         'original_order_id' => null,
@@ -162,6 +164,7 @@ class AutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'items' => 'items',
         'logs' => 'logs',
         'management' => 'management',
+        'merchant_id' => 'merchant_id',
         'next_attempt' => 'next_attempt',
         'original_order' => 'original_order',
         'original_order_id' => 'original_order_id',
@@ -194,6 +197,7 @@ class AutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'items' => 'setItems',
         'logs' => 'setLogs',
         'management' => 'setManagement',
+        'merchant_id' => 'setMerchantId',
         'next_attempt' => 'setNextAttempt',
         'original_order' => 'setOriginalOrder',
         'original_order_id' => 'setOriginalOrderId',
@@ -226,6 +230,7 @@ class AutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'items' => 'getItems',
         'logs' => 'getLogs',
         'management' => 'getManagement',
+        'merchant_id' => 'getMerchantId',
         'next_attempt' => 'getNextAttempt',
         'original_order' => 'getOriginalOrder',
         'original_order_id' => 'getOriginalOrderId',
@@ -326,6 +331,7 @@ class AutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['items'] = $data['items'] ?? null;
         $this->container['logs'] = $data['logs'] ?? null;
         $this->container['management'] = $data['management'] ?? null;
+        $this->container['merchant_id'] = $data['merchant_id'] ?? null;
         $this->container['next_attempt'] = $data['next_attempt'] ?? null;
         $this->container['original_order'] = $data['original_order'] ?? null;
         $this->container['original_order_id'] = $data['original_order_id'] ?? null;
@@ -772,6 +778,30 @@ class AutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setManagement($management)
     {
         $this->container['management'] = $management;
+
+        return $this;
+    }
+
+    /**
+     * Gets merchant_id
+     *
+     * @return string|null
+     */
+    public function getMerchantId()
+    {
+        return $this->container['merchant_id'];
+    }
+
+    /**
+     * Sets merchant_id
+     *
+     * @param string|null $merchant_id UltraCart merchant ID owning this order
+     *
+     * @return self
+     */
+    public function setMerchantId($merchant_id)
+    {
+        $this->container['merchant_id'] = $merchant_id;
 
         return $this;
     }

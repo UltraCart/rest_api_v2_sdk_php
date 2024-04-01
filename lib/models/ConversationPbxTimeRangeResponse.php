@@ -110,7 +110,7 @@ class ConversationPbxTimeRangeResponse implements ModelInterface, ArrayAccess, \
         'error' => 'error',
         'metadata' => 'metadata',
         'success' => 'success',
-        'time_range' => 'timeRange',
+        'time_range' => 'time_range',
         'warning' => 'warning'
     ];
 

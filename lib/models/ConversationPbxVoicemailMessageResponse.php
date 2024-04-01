@@ -1,6 +1,6 @@
 <?php
 /**
- * ConversationPbxTimeRangesResponse
+ * ConversationPbxVoicemailMessageResponse
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ConversationPbxTimeRangesResponse Class Doc Comment
+ * ConversationPbxVoicemailMessageResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ConversationPbxTimeRangesResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class ConversationPbxVoicemailMessageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ConversationPbxTimeRangesResponse implements ModelInterface, ArrayAccess, 
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ConversationPbxTimeRangesResponse';
+    protected static $openAPIModelName = 'ConversationPbxVoicemailMessageResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -61,7 +61,7 @@ class ConversationPbxTimeRangesResponse implements ModelInterface, ArrayAccess, 
         'error' => '\ultracart\v2\models\Error',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
         'success' => 'bool',
-        'time_ranges' => '\ultracart\v2\models\ConversationPbxTimeRange[]',
+        'voicemail_message' => '\ultracart\v2\models\ConversationPbxVoicemailMessage',
         'warning' => '\ultracart\v2\models\Warning'
     ];
 
@@ -76,7 +76,7 @@ class ConversationPbxTimeRangesResponse implements ModelInterface, ArrayAccess, 
         'error' => null,
         'metadata' => null,
         'success' => null,
-        'time_ranges' => null,
+        'voicemail_message' => null,
         'warning' => null
     ];
 
@@ -110,7 +110,7 @@ class ConversationPbxTimeRangesResponse implements ModelInterface, ArrayAccess, 
         'error' => 'error',
         'metadata' => 'metadata',
         'success' => 'success',
-        'time_ranges' => 'time_ranges',
+        'voicemail_message' => 'voicemail_message',
         'warning' => 'warning'
     ];
 
@@ -123,7 +123,7 @@ class ConversationPbxTimeRangesResponse implements ModelInterface, ArrayAccess, 
         'error' => 'setError',
         'metadata' => 'setMetadata',
         'success' => 'setSuccess',
-        'time_ranges' => 'setTimeRanges',
+        'voicemail_message' => 'setVoicemailMessage',
         'warning' => 'setWarning'
     ];
 
@@ -136,7 +136,7 @@ class ConversationPbxTimeRangesResponse implements ModelInterface, ArrayAccess, 
         'error' => 'getError',
         'metadata' => 'getMetadata',
         'success' => 'getSuccess',
-        'time_ranges' => 'getTimeRanges',
+        'voicemail_message' => 'getVoicemailMessage',
         'warning' => 'getWarning'
     ];
 
@@ -200,7 +200,7 @@ class ConversationPbxTimeRangesResponse implements ModelInterface, ArrayAccess, 
         $this->container['error'] = $data['error'] ?? null;
         $this->container['metadata'] = $data['metadata'] ?? null;
         $this->container['success'] = $data['success'] ?? null;
-        $this->container['time_ranges'] = $data['time_ranges'] ?? null;
+        $this->container['voicemail_message'] = $data['voicemail_message'] ?? null;
         $this->container['warning'] = $data['warning'] ?? null;
     }
 
@@ -301,25 +301,25 @@ class ConversationPbxTimeRangesResponse implements ModelInterface, ArrayAccess, 
     }
 
     /**
-     * Gets time_ranges
+     * Gets voicemail_message
      *
-     * @return \ultracart\v2\models\ConversationPbxTimeRange[]|null
+     * @return \ultracart\v2\models\ConversationPbxVoicemailMessage|null
      */
-    public function getTimeRanges()
+    public function getVoicemailMessage()
     {
-        return $this->container['time_ranges'];
+        return $this->container['voicemail_message'];
     }
 
     /**
-     * Sets time_ranges
+     * Sets voicemail_message
      *
-     * @param \ultracart\v2\models\ConversationPbxTimeRange[]|null $time_ranges time_ranges
+     * @param \ultracart\v2\models\ConversationPbxVoicemailMessage|null $voicemail_message voicemail_message
      *
      * @return self
      */
-    public function setTimeRanges($time_ranges)
+    public function setVoicemailMessage($voicemail_message)
     {
-        $this->container['time_ranges'] = $time_ranges;
+        $this->container['voicemail_message'] = $voicemail_message;
 
         return $this;
     }
