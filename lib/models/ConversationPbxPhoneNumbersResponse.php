@@ -106,7 +106,7 @@ class ConversationPbxPhoneNumbersResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'error' => 'error',
         'metadata' => 'metadata',
-        'phone_numbers' => 'phoneNumbers',
+        'phone_numbers' => 'phone_numbers',
         'success' => 'success',
         'warning' => 'warning'
     ];

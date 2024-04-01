@@ -69,6 +69,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         'future_schedules' => '\ultracart\v2\models\AutoOrderItemFutureSchedule[]',
         'last_order_dts' => 'string',
         'life_time_value' => 'float',
+        'next_item_id' => 'string',
         'next_preshipment_notice_dts' => 'string',
         'next_shipment_dts' => 'string',
         'no_order_after_dts' => 'string',
@@ -103,6 +104,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         'future_schedules' => null,
         'last_order_dts' => 'dateTime',
         'life_time_value' => null,
+        'next_item_id' => null,
         'next_preshipment_notice_dts' => 'dateTime',
         'next_shipment_dts' => 'dateTime',
         'no_order_after_dts' => 'dateTime',
@@ -158,6 +160,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         'future_schedules' => 'future_schedules',
         'last_order_dts' => 'last_order_dts',
         'life_time_value' => 'life_time_value',
+        'next_item_id' => 'next_item_id',
         'next_preshipment_notice_dts' => 'next_preshipment_notice_dts',
         'next_shipment_dts' => 'next_shipment_dts',
         'no_order_after_dts' => 'no_order_after_dts',
@@ -192,6 +195,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         'future_schedules' => 'setFutureSchedules',
         'last_order_dts' => 'setLastOrderDts',
         'life_time_value' => 'setLifeTimeValue',
+        'next_item_id' => 'setNextItemId',
         'next_preshipment_notice_dts' => 'setNextPreshipmentNoticeDts',
         'next_shipment_dts' => 'setNextShipmentDts',
         'no_order_after_dts' => 'setNoOrderAfterDts',
@@ -226,6 +230,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         'future_schedules' => 'getFutureSchedules',
         'last_order_dts' => 'getLastOrderDts',
         'life_time_value' => 'getLifeTimeValue',
+        'next_item_id' => 'getNextItemId',
         'next_preshipment_notice_dts' => 'getNextPreshipmentNoticeDts',
         'next_shipment_dts' => 'getNextShipmentDts',
         'no_order_after_dts' => 'getNoOrderAfterDts',
@@ -357,6 +362,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         $this->container['future_schedules'] = isset($data['future_schedules']) ? $data['future_schedules'] : null;
         $this->container['last_order_dts'] = isset($data['last_order_dts']) ? $data['last_order_dts'] : null;
         $this->container['life_time_value'] = isset($data['life_time_value']) ? $data['life_time_value'] : null;
+        $this->container['next_item_id'] = isset($data['next_item_id']) ? $data['next_item_id'] : null;
         $this->container['next_preshipment_notice_dts'] = isset($data['next_preshipment_notice_dts']) ? $data['next_preshipment_notice_dts'] : null;
         $this->container['next_shipment_dts'] = isset($data['next_shipment_dts']) ? $data['next_shipment_dts'] : null;
         $this->container['no_order_after_dts'] = isset($data['no_order_after_dts']) ? $data['no_order_after_dts'] : null;
@@ -698,6 +704,30 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
     public function setLifeTimeValue($life_time_value)
     {
         $this->container['life_time_value'] = $life_time_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_item_id
+     *
+     * @return string
+     */
+    public function getNextItemId()
+    {
+        return $this->container['next_item_id'];
+    }
+
+    /**
+     * Sets next_item_id
+     *
+     * @param string $next_item_id Calculated next item id
+     *
+     * @return $this
+     */
+    public function setNextItemId($next_item_id)
+    {
+        $this->container['next_item_id'] = $next_item_id;
 
         return $this;
     }

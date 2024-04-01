@@ -208,8 +208,23 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const VOICEMAIL_MAILBOX_TYPE_AGENT = 'agent';
+    const VOICEMAIL_MAILBOX_TYPE_SHARED = 'shared';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getVoicemailMailboxTypeAllowableValues()
+    {
+        return [
+            self::VOICEMAIL_MAILBOX_TYPE_AGENT,
+            self::VOICEMAIL_MAILBOX_TYPE_SHARED,
+        ];
+    }
     
 
     /**
@@ -267,6 +282,14 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess
 
         if (!is_null($this->container['voicemail_mailbox_id']) && (mb_strlen($this->container['voicemail_mailbox_id']) > 50)) {
             $invalidProperties[] = "invalid value for 'voicemail_mailbox_id', the character length must be smaller than or equal to 50.";
+        }
+
+        $allowedValues = $this->getVoicemailMailboxTypeAllowableValues();
+        if (!is_null($this->container['voicemail_mailbox_type']) && !in_array($this->container['voicemail_mailbox_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'voicemail_mailbox_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
 
         if (!is_null($this->container['voicemail_mailbox_type']) && (mb_strlen($this->container['voicemail_mailbox_type']) > 50)) {
@@ -503,6 +526,15 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess
      */
     public function setVoicemailMailboxType($voicemail_mailbox_type)
     {
+        $allowedValues = $this->getVoicemailMailboxTypeAllowableValues();
+        if (!is_null($voicemail_mailbox_type) && !in_array($voicemail_mailbox_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'voicemail_mailbox_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         if (!is_null($voicemail_mailbox_type) && (mb_strlen($voicemail_mailbox_type) > 50)) {
             throw new \InvalidArgumentException('invalid length for $voicemail_mailbox_type when calling ConversationPbxVoicemailMailbox., must be smaller than or equal to 50.');
         }
