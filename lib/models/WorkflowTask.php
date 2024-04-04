@@ -815,7 +815,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets global_task_number
      *
-     * @param int|null $global_task_number Global task numer
+     * @param int|null $global_task_number Global task number
      *
      * @return self
      */
@@ -983,7 +983,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets object_task_number
      *
-     * @param int|null $object_task_number Object specific task numer
+     * @param int|null $object_task_number Object specific task number
      *
      * @return self
      */
