@@ -3,8 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**assigned_to_group** | **string** | Assigned to group | [optional] 
 **assigned_to_group_id** | **int** | Assigned to group ID | [optional] 
 **assigned_to_me** | **bool** | Tasks are assigned to me either by direct user id or a group that the user is a member of | [optional] 
+**assigned_to_user** | **string** | Assigned to user | [optional] 
 **assigned_to_user_id** | **int** | Assigned to user ID | [optional] 
 **created_by** | [**\ultracart\v2\models\WorkflowUser**](WorkflowUser.md) |  | [optional] 
 **created_dts_begin** | **string** | Date/time that the workflow task was created | [optional] 

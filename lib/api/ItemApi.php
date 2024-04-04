@@ -5638,6 +5638,322 @@ class ItemApi
     }
 
     /**
+     * Operation insertUpdateItemContentAttribute
+     *
+     * Upsert an item content attribute
+     *
+     * @param  \ultracart\v2\models\ItemContentAttribute $item_attribute Item content attribute to upsert (required)
+     * @param  int $merchant_item_oid The item oid to modify. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function insertUpdateItemContentAttribute($item_attribute, $merchant_item_oid)
+    {
+        $this->insertUpdateItemContentAttributeWithHttpInfo($item_attribute, $merchant_item_oid);
+    }
+
+
+    /**
+     * Operation insertUpdateItemContentAttributeWithHttpInfo
+     *
+     * Upsert an item content attribute
+     *
+     * @param  \ultracart\v2\models\ItemContentAttribute $item_attribute Item content attribute to upsert (required)
+     * @param  int $merchant_item_oid The item oid to modify. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertUpdateItemContentAttributeWithHttpInfo($item_attribute, $merchant_item_oid)
+    {
+        $this->insertUpdateItemContentAttributeWithHttpInfoRetry(true ,   $item_attribute,   $merchant_item_oid);
+    }
+
+
+    /**
+     * Operation insertUpdateItemContentAttributeWithHttpInfoRetry
+     *
+     * Upsert an item content attribute
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\ItemContentAttribute $item_attribute Item content attribute to upsert (required)
+     * @param  int $merchant_item_oid The item oid to modify. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertUpdateItemContentAttributeWithHttpInfoRetry($retry ,  $item_attribute,  $merchant_item_oid)
+    {
+        $returnType = '';
+        $request = $this->insertUpdateItemContentAttributeRequest($item_attribute, $merchant_item_oid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        $this->insertUpdateItemContentAttributeWithHttpInfoRetry(false ,   $item_attribute,   $merchant_item_oid);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            return [null, $response->getStatusCode(), $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation insertUpdateItemContentAttributeAsync
+     *
+     * Upsert an item content attribute
+     *
+     * @param  \ultracart\v2\models\ItemContentAttribute $item_attribute Item content attribute to upsert (required)
+     * @param  int $merchant_item_oid The item oid to modify. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function insertUpdateItemContentAttributeAsync($item_attribute, $merchant_item_oid)
+    {
+        return $this->insertUpdateItemContentAttributeAsyncWithHttpInfo($item_attribute, $merchant_item_oid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation insertUpdateItemContentAttributeAsyncWithHttpInfo
+     *
+     * Upsert an item content attribute
+     *
+     * @param  \ultracart\v2\models\ItemContentAttribute $item_attribute Item content attribute to upsert (required)
+     * @param  int $merchant_item_oid The item oid to modify. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function insertUpdateItemContentAttributeAsyncWithHttpInfo($item_attribute, $merchant_item_oid)
+    {
+        $returnType = '';
+        $request = $this->insertUpdateItemContentAttributeRequest($item_attribute, $merchant_item_oid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'insertUpdateItemContentAttribute'
+     *
+     * @param  \ultracart\v2\models\ItemContentAttribute $item_attribute Item content attribute to upsert (required)
+     * @param  int $merchant_item_oid The item oid to modify. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function insertUpdateItemContentAttributeRequest($item_attribute, $merchant_item_oid)
+    {
+        // verify the required parameter 'item_attribute' is set
+        if ($item_attribute === null || (is_array($item_attribute) && count($item_attribute) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $item_attribute when calling insertUpdateItemContentAttribute'
+            );
+        }
+        // verify the required parameter 'merchant_item_oid' is set
+        if ($merchant_item_oid === null || (is_array($merchant_item_oid) && count($merchant_item_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $merchant_item_oid when calling insertUpdateItemContentAttribute'
+            );
+        }
+
+        $resourcePath = '/item/items/{merchant_item_oid}/content/attributes';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($merchant_item_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'merchant_item_oid' . '}',
+                ObjectSerializer::toPathValue($merchant_item_oid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($item_attribute)) {
+            $_tempBody = $item_attribute;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json; charset=UTF-8']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation updateDigitalItem
      *
      * Updates a file within the digital library

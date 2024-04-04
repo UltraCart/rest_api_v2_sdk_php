@@ -20,6 +20,7 @@ Method | HTTP request | Description
 [**insertDigitalItem**](ItemApi.md#insertDigitalItem) | **POST** /item/digital_library | Create a file within the digital library
 [**insertItem**](ItemApi.md#insertItem) | **POST** /item/items | Create an item
 [**insertReview**](ItemApi.md#insertReview) | **POST** /item/items/{merchant_item_oid}/reviews | Insert a review
+[**insertUpdateItemContentAttribute**](ItemApi.md#insertUpdateItemContentAttribute) | **POST** /item/items/{merchant_item_oid}/content/attributes | Upsert an item content attribute
 [**updateDigitalItem**](ItemApi.md#updateDigitalItem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 [**updateItem**](ItemApi.md#updateItem) | **PUT** /item/items/{merchant_item_oid} | Update an item
 [**updateItems**](ItemApi.md#updateItems) | **PUT** /item/items/batch | Update multiple items
@@ -832,6 +833,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\ItemReviewResponse**](../Model/ItemReviewResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **insertUpdateItemContentAttribute**
+> insertUpdateItemContentAttribute($item_attribute, $merchant_item_oid)
+
+Upsert an item content attribute
+
+Update an item content attribute, creating it new if it does not yet exist.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\ItemApi::usingApiKey($simple_key);
+
+$item_attribute = new \ultracart\v2\models\ItemContentAttribute(); // \ultracart\v2\models\ItemContentAttribute | Item content attribute to upsert
+$merchant_item_oid = 56; // int | The item oid to modify.
+
+try {
+    $apiInstance->insertUpdateItemContentAttribute($item_attribute, $merchant_item_oid);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemApi->insertUpdateItemContentAttribute: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **item_attribute** | [**\ultracart\v2\models\ItemContentAttribute**](../Model/ItemContentAttribute.md)| Item content attribute to upsert |
+ **merchant_item_oid** | **int**| The item oid to modify. |
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 

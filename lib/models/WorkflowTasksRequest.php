@@ -57,8 +57,10 @@ class WorkflowTasksRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'assigned_to_group' => 'string',
         'assigned_to_group_id' => 'int',
         'assigned_to_me' => 'bool',
+        'assigned_to_user' => 'string',
         'assigned_to_user_id' => 'int',
         'created_by' => '\ultracart\v2\models\WorkflowUser',
         'created_dts_begin' => 'string',
@@ -83,8 +85,10 @@ class WorkflowTasksRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'assigned_to_group' => null,
         'assigned_to_group_id' => 'int32',
         'assigned_to_me' => null,
+        'assigned_to_user' => null,
         'assigned_to_user_id' => 'int32',
         'created_by' => null,
         'created_dts_begin' => 'dateTime',
@@ -130,8 +134,10 @@ class WorkflowTasksRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'assigned_to_group' => 'assigned_to_group',
         'assigned_to_group_id' => 'assigned_to_group_id',
         'assigned_to_me' => 'assigned_to_me',
+        'assigned_to_user' => 'assigned_to_user',
         'assigned_to_user_id' => 'assigned_to_user_id',
         'created_by' => 'created_by',
         'created_dts_begin' => 'created_dts_begin',
@@ -156,8 +162,10 @@ class WorkflowTasksRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'assigned_to_group' => 'setAssignedToGroup',
         'assigned_to_group_id' => 'setAssignedToGroupId',
         'assigned_to_me' => 'setAssignedToMe',
+        'assigned_to_user' => 'setAssignedToUser',
         'assigned_to_user_id' => 'setAssignedToUserId',
         'created_by' => 'setCreatedBy',
         'created_dts_begin' => 'setCreatedDtsBegin',
@@ -182,8 +190,10 @@ class WorkflowTasksRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'assigned_to_group' => 'getAssignedToGroup',
         'assigned_to_group_id' => 'getAssignedToGroupId',
         'assigned_to_me' => 'getAssignedToMe',
+        'assigned_to_user' => 'getAssignedToUser',
         'assigned_to_user_id' => 'getAssignedToUserId',
         'created_by' => 'getCreatedBy',
         'created_dts_begin' => 'getCreatedDtsBegin',
@@ -319,8 +329,10 @@ class WorkflowTasksRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['assigned_to_group'] = isset($data['assigned_to_group']) ? $data['assigned_to_group'] : null;
         $this->container['assigned_to_group_id'] = isset($data['assigned_to_group_id']) ? $data['assigned_to_group_id'] : null;
         $this->container['assigned_to_me'] = isset($data['assigned_to_me']) ? $data['assigned_to_me'] : null;
+        $this->container['assigned_to_user'] = isset($data['assigned_to_user']) ? $data['assigned_to_user'] : null;
         $this->container['assigned_to_user_id'] = isset($data['assigned_to_user_id']) ? $data['assigned_to_user_id'] : null;
         $this->container['created_by'] = isset($data['created_by']) ? $data['created_by'] : null;
         $this->container['created_dts_begin'] = isset($data['created_dts_begin']) ? $data['created_dts_begin'] : null;
@@ -388,6 +400,30 @@ class WorkflowTasksRequest implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets assigned_to_group
+     *
+     * @return string
+     */
+    public function getAssignedToGroup()
+    {
+        return $this->container['assigned_to_group'];
+    }
+
+    /**
+     * Sets assigned_to_group
+     *
+     * @param string $assigned_to_group Assigned to group
+     *
+     * @return $this
+     */
+    public function setAssignedToGroup($assigned_to_group)
+    {
+        $this->container['assigned_to_group'] = $assigned_to_group;
+
+        return $this;
+    }
+
+    /**
      * Gets assigned_to_group_id
      *
      * @return int
@@ -431,6 +467,30 @@ class WorkflowTasksRequest implements ModelInterface, ArrayAccess
     public function setAssignedToMe($assigned_to_me)
     {
         $this->container['assigned_to_me'] = $assigned_to_me;
+
+        return $this;
+    }
+
+    /**
+     * Gets assigned_to_user
+     *
+     * @return string
+     */
+    public function getAssignedToUser()
+    {
+        return $this->container['assigned_to_user'];
+    }
+
+    /**
+     * Sets assigned_to_user
+     *
+     * @param string $assigned_to_user Assigned to user
+     *
+     * @return $this
+     */
+    public function setAssignedToUser($assigned_to_user)
+    {
+        $this->container['assigned_to_user'] = $assigned_to_user;
 
         return $this;
     }

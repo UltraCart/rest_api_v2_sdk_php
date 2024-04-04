@@ -811,7 +811,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess
     /**
      * Sets global_task_number
      *
-     * @param int $global_task_number Global task numer
+     * @param int $global_task_number Global task number
      *
      * @return $this
      */
@@ -979,7 +979,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess
     /**
      * Sets object_task_number
      *
-     * @param int $object_task_number Object specific task numer
+     * @param int $object_task_number Object specific task number
      *
      * @return $this
      */

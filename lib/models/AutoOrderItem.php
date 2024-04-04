@@ -64,6 +64,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         'arbitrary_unit_cost' => 'float',
         'arbitrary_unit_cost_remaining_orders' => 'int',
         'auto_order_item_oid' => 'int',
+        'calculated_next_shipment_dts' => 'string',
         'first_order_dts' => 'string',
         'frequency' => 'string',
         'future_schedules' => '\ultracart\v2\models\AutoOrderItemFutureSchedule[]',
@@ -99,6 +100,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         'arbitrary_unit_cost' => null,
         'arbitrary_unit_cost_remaining_orders' => 'int32',
         'auto_order_item_oid' => 'int32',
+        'calculated_next_shipment_dts' => 'dateTime',
         'first_order_dts' => 'dateTime',
         'frequency' => null,
         'future_schedules' => null,
@@ -155,6 +157,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         'arbitrary_unit_cost' => 'arbitrary_unit_cost',
         'arbitrary_unit_cost_remaining_orders' => 'arbitrary_unit_cost_remaining_orders',
         'auto_order_item_oid' => 'auto_order_item_oid',
+        'calculated_next_shipment_dts' => 'calculated_next_shipment_dts',
         'first_order_dts' => 'first_order_dts',
         'frequency' => 'frequency',
         'future_schedules' => 'future_schedules',
@@ -190,6 +193,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         'arbitrary_unit_cost' => 'setArbitraryUnitCost',
         'arbitrary_unit_cost_remaining_orders' => 'setArbitraryUnitCostRemainingOrders',
         'auto_order_item_oid' => 'setAutoOrderItemOid',
+        'calculated_next_shipment_dts' => 'setCalculatedNextShipmentDts',
         'first_order_dts' => 'setFirstOrderDts',
         'frequency' => 'setFrequency',
         'future_schedules' => 'setFutureSchedules',
@@ -225,6 +229,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         'arbitrary_unit_cost' => 'getArbitraryUnitCost',
         'arbitrary_unit_cost_remaining_orders' => 'getArbitraryUnitCostRemainingOrders',
         'auto_order_item_oid' => 'getAutoOrderItemOid',
+        'calculated_next_shipment_dts' => 'getCalculatedNextShipmentDts',
         'first_order_dts' => 'getFirstOrderDts',
         'frequency' => 'getFrequency',
         'future_schedules' => 'getFutureSchedules',
@@ -357,6 +362,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         $this->container['arbitrary_unit_cost'] = isset($data['arbitrary_unit_cost']) ? $data['arbitrary_unit_cost'] : null;
         $this->container['arbitrary_unit_cost_remaining_orders'] = isset($data['arbitrary_unit_cost_remaining_orders']) ? $data['arbitrary_unit_cost_remaining_orders'] : null;
         $this->container['auto_order_item_oid'] = isset($data['auto_order_item_oid']) ? $data['auto_order_item_oid'] : null;
+        $this->container['calculated_next_shipment_dts'] = isset($data['calculated_next_shipment_dts']) ? $data['calculated_next_shipment_dts'] : null;
         $this->container['first_order_dts'] = isset($data['first_order_dts']) ? $data['first_order_dts'] : null;
         $this->container['frequency'] = isset($data['frequency']) ? $data['frequency'] : null;
         $this->container['future_schedules'] = isset($data['future_schedules']) ? $data['future_schedules'] : null;
@@ -575,6 +581,30 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
     public function setAutoOrderItemOid($auto_order_item_oid)
     {
         $this->container['auto_order_item_oid'] = $auto_order_item_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets calculated_next_shipment_dts
+     *
+     * @return string
+     */
+    public function getCalculatedNextShipmentDts()
+    {
+        return $this->container['calculated_next_shipment_dts'];
+    }
+
+    /**
+     * Sets calculated_next_shipment_dts
+     *
+     * @param string $calculated_next_shipment_dts Calculated Date/time that this item is scheduled to rebill.  Will be null if no more shipments are going to occur on this item
+     *
+     * @return $this
+     */
+    public function setCalculatedNextShipmentDts($calculated_next_shipment_dts)
+    {
+        $this->container['calculated_next_shipment_dts'] = $calculated_next_shipment_dts;
 
         return $this;
     }

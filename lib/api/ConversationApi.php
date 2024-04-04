@@ -3000,6 +3000,327 @@ class ConversationApi
     }
 
     /**
+     * Operation deletePbxQueueVoicemail
+     *
+     * Delete Queue Voicemail
+     *
+     * @param  string $queue_uuid queue_uuid (required)
+     * @param  string $recording_sid recording_sid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deletePbxQueueVoicemail($queue_uuid, $recording_sid)
+    {
+        $this->deletePbxQueueVoicemailWithHttpInfo($queue_uuid, $recording_sid);
+    }
+
+
+    /**
+     * Operation deletePbxQueueVoicemailWithHttpInfo
+     *
+     * Delete Queue Voicemail
+     *
+     * @param  string $queue_uuid (required)
+     * @param  string $recording_sid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deletePbxQueueVoicemailWithHttpInfo($queue_uuid, $recording_sid)
+    {
+        $this->deletePbxQueueVoicemailWithHttpInfoRetry(true ,   $queue_uuid,   $recording_sid);
+    }
+
+
+    /**
+     * Operation deletePbxQueueVoicemailWithHttpInfoRetry
+     *
+     * Delete Queue Voicemail
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $queue_uuid (required)
+     * @param  string $recording_sid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deletePbxQueueVoicemailWithHttpInfoRetry($retry ,  $queue_uuid,  $recording_sid)
+    {
+        $returnType = '';
+        $request = $this->deletePbxQueueVoicemailRequest($queue_uuid, $recording_sid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        $this->deletePbxQueueVoicemailWithHttpInfoRetry(false ,   $queue_uuid,   $recording_sid);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            return [null, $response->getStatusCode(), $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deletePbxQueueVoicemailAsync
+     *
+     * Delete Queue Voicemail
+     *
+     * @param  string $queue_uuid (required)
+     * @param  string $recording_sid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deletePbxQueueVoicemailAsync($queue_uuid, $recording_sid)
+    {
+        return $this->deletePbxQueueVoicemailAsyncWithHttpInfo($queue_uuid, $recording_sid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deletePbxQueueVoicemailAsyncWithHttpInfo
+     *
+     * Delete Queue Voicemail
+     *
+     * @param  string $queue_uuid (required)
+     * @param  string $recording_sid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deletePbxQueueVoicemailAsyncWithHttpInfo($queue_uuid, $recording_sid)
+    {
+        $returnType = '';
+        $request = $this->deletePbxQueueVoicemailRequest($queue_uuid, $recording_sid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deletePbxQueueVoicemail'
+     *
+     * @param  string $queue_uuid (required)
+     * @param  string $recording_sid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deletePbxQueueVoicemailRequest($queue_uuid, $recording_sid)
+    {
+        // verify the required parameter 'queue_uuid' is set
+        if ($queue_uuid === null || (is_array($queue_uuid) && count($queue_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $queue_uuid when calling deletePbxQueueVoicemail'
+            );
+        }
+        // verify the required parameter 'recording_sid' is set
+        if ($recording_sid === null || (is_array($recording_sid) && count($recording_sid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $recording_sid when calling deletePbxQueueVoicemail'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/queues/{queue_uuid}/voicemails/{recording_sid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($queue_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'queue_uuid' . '}',
+                ObjectSerializer::toPathValue($queue_uuid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($recording_sid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'recording_sid' . '}',
+                ObjectSerializer::toPathValue($recording_sid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation deletePbxTimeBased
      *
      * Delete pbx timeBased
@@ -21667,6 +21988,327 @@ class ConversationApi
         $multipart = false;
 
 
+        // path params
+        if ($recording_sid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'recording_sid' . '}',
+                ObjectSerializer::toPathValue($recording_sid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation listenedPbxQueueVoicemail
+     *
+     * Listened Queue Voicemail
+     *
+     * @param  string $queue_uuid queue_uuid (required)
+     * @param  string $recording_sid recording_sid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function listenedPbxQueueVoicemail($queue_uuid, $recording_sid)
+    {
+        $this->listenedPbxQueueVoicemailWithHttpInfo($queue_uuid, $recording_sid);
+    }
+
+
+    /**
+     * Operation listenedPbxQueueVoicemailWithHttpInfo
+     *
+     * Listened Queue Voicemail
+     *
+     * @param  string $queue_uuid (required)
+     * @param  string $recording_sid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listenedPbxQueueVoicemailWithHttpInfo($queue_uuid, $recording_sid)
+    {
+        $this->listenedPbxQueueVoicemailWithHttpInfoRetry(true ,   $queue_uuid,   $recording_sid);
+    }
+
+
+    /**
+     * Operation listenedPbxQueueVoicemailWithHttpInfoRetry
+     *
+     * Listened Queue Voicemail
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $queue_uuid (required)
+     * @param  string $recording_sid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listenedPbxQueueVoicemailWithHttpInfoRetry($retry ,  $queue_uuid,  $recording_sid)
+    {
+        $returnType = '';
+        $request = $this->listenedPbxQueueVoicemailRequest($queue_uuid, $recording_sid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        $this->listenedPbxQueueVoicemailWithHttpInfoRetry(false ,   $queue_uuid,   $recording_sid);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            return [null, $response->getStatusCode(), $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation listenedPbxQueueVoicemailAsync
+     *
+     * Listened Queue Voicemail
+     *
+     * @param  string $queue_uuid (required)
+     * @param  string $recording_sid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listenedPbxQueueVoicemailAsync($queue_uuid, $recording_sid)
+    {
+        return $this->listenedPbxQueueVoicemailAsyncWithHttpInfo($queue_uuid, $recording_sid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listenedPbxQueueVoicemailAsyncWithHttpInfo
+     *
+     * Listened Queue Voicemail
+     *
+     * @param  string $queue_uuid (required)
+     * @param  string $recording_sid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listenedPbxQueueVoicemailAsyncWithHttpInfo($queue_uuid, $recording_sid)
+    {
+        $returnType = '';
+        $request = $this->listenedPbxQueueVoicemailRequest($queue_uuid, $recording_sid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listenedPbxQueueVoicemail'
+     *
+     * @param  string $queue_uuid (required)
+     * @param  string $recording_sid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function listenedPbxQueueVoicemailRequest($queue_uuid, $recording_sid)
+    {
+        // verify the required parameter 'queue_uuid' is set
+        if ($queue_uuid === null || (is_array($queue_uuid) && count($queue_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $queue_uuid when calling listenedPbxQueueVoicemail'
+            );
+        }
+        // verify the required parameter 'recording_sid' is set
+        if ($recording_sid === null || (is_array($recording_sid) && count($recording_sid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $recording_sid when calling listenedPbxQueueVoicemail'
+            );
+        }
+
+        $resourcePath = '/conversation/pbx/{queue_uuid}/voicemails/voicemails/{recording_sid}/listened';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($queue_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'queue_uuid' . '}',
+                ObjectSerializer::toPathValue($queue_uuid),
+                $resourcePath
+            );
+        }
         // path params
         if ($recording_sid !== null) {
             $resourcePath = str_replace(
