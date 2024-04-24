@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **metadata** | [**\ultracart\v2\models\ResponseMetadata**](ResponseMetadata.md) |  | [optional]
 **order_level_refund_reason_required** | **bool** | True if the order level refund reason is required | [optional]
 **order_level_refund_reasons** | [**\ultracart\v2\models\OrderReason[]**](OrderReason.md) | Reason codes available at the order level. | [optional]
+**order_level_reject_reason_required** | **bool** | True if the order level reject reason is required | [optional]
 **order_level_reject_reasons** | [**\ultracart\v2\models\OrderReason[]**](OrderReason.md) | Reject codes available at the order level. | [optional]
 **refundable** | **bool** | Whether the order is refundable or not.  Null should be interpreted as false. | [optional]
 **success** | **bool** | Indicates if API call was successful | [optional]

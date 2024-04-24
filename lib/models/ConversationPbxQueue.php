@@ -77,7 +77,8 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
         'twilio_workspace_queue_sid' => 'string',
         'voicemail' => 'bool',
         'wait_critical_seconds' => 'int',
-        'wait_warning_seconds' => 'int'
+        'wait_warning_seconds' => 'int',
+        'wrap_up_seconds' => 'int'
     ];
 
     /**
@@ -107,7 +108,8 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
         'twilio_workspace_queue_sid' => null,
         'voicemail' => null,
         'wait_critical_seconds' => 'int32',
-        'wait_warning_seconds' => 'int32'
+        'wait_warning_seconds' => 'int32',
+        'wrap_up_seconds' => 'int32'
     ];
 
     /**
@@ -156,7 +158,8 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
         'twilio_workspace_queue_sid' => 'twilio_workspace_queue_sid',
         'voicemail' => 'voicemail',
         'wait_critical_seconds' => 'wait_critical_seconds',
-        'wait_warning_seconds' => 'wait_warning_seconds'
+        'wait_warning_seconds' => 'wait_warning_seconds',
+        'wrap_up_seconds' => 'wrap_up_seconds'
     ];
 
     /**
@@ -184,7 +187,8 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
         'twilio_workspace_queue_sid' => 'setTwilioWorkspaceQueueSid',
         'voicemail' => 'setVoicemail',
         'wait_critical_seconds' => 'setWaitCriticalSeconds',
-        'wait_warning_seconds' => 'setWaitWarningSeconds'
+        'wait_warning_seconds' => 'setWaitWarningSeconds',
+        'wrap_up_seconds' => 'setWrapUpSeconds'
     ];
 
     /**
@@ -212,7 +216,8 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
         'twilio_workspace_queue_sid' => 'getTwilioWorkspaceQueueSid',
         'voicemail' => 'getVoicemail',
         'wait_critical_seconds' => 'getWaitCriticalSeconds',
-        'wait_warning_seconds' => 'getWaitWarningSeconds'
+        'wait_warning_seconds' => 'getWaitWarningSeconds',
+        'wrap_up_seconds' => 'getWrapUpSeconds'
     ];
 
     /**
@@ -292,6 +297,7 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->container['voicemail'] = $data['voicemail'] ?? null;
         $this->container['wait_critical_seconds'] = $data['wait_critical_seconds'] ?? null;
         $this->container['wait_warning_seconds'] = $data['wait_warning_seconds'] ?? null;
+        $this->container['wrap_up_seconds'] = $data['wrap_up_seconds'] ?? null;
     }
 
     /**
@@ -874,6 +880,30 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setWaitWarningSeconds($wait_warning_seconds)
     {
         $this->container['wait_warning_seconds'] = $wait_warning_seconds;
+
+        return $this;
+    }
+
+    /**
+     * Gets wrap_up_seconds
+     *
+     * @return int|null
+     */
+    public function getWrapUpSeconds()
+    {
+        return $this->container['wrap_up_seconds'];
+    }
+
+    /**
+     * Sets wrap_up_seconds
+     *
+     * @param int|null $wrap_up_seconds Wrap up time in seconds
+     *
+     * @return self
+     */
+    public function setWrapUpSeconds($wrap_up_seconds)
+    {
+        $this->container['wrap_up_seconds'] = $wrap_up_seconds;
 
         return $this;
     }

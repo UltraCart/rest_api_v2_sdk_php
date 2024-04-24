@@ -62,7 +62,10 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
         'conversation_participant_name' => 'string',
         'jwt' => 'string',
         'merchant_id' => 'string',
+        'pbx_admin' => 'bool',
         'pbx_jwt' => 'string',
+        'pbx_supervisor' => 'bool',
+        'pbx_user' => 'bool',
         'pbx_voice_identity' => 'string',
         'pbx_voice_token' => 'string',
         'pbx_worker_token' => 'string',
@@ -82,7 +85,10 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
         'conversation_participant_name' => null,
         'jwt' => null,
         'merchant_id' => null,
+        'pbx_admin' => null,
         'pbx_jwt' => null,
+        'pbx_supervisor' => null,
+        'pbx_user' => null,
         'pbx_voice_identity' => null,
         'pbx_voice_token' => null,
         'pbx_worker_token' => null,
@@ -121,7 +127,10 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
         'conversation_participant_name' => 'conversation_participant_name',
         'jwt' => 'jwt',
         'merchant_id' => 'merchant_id',
+        'pbx_admin' => 'pbx_admin',
         'pbx_jwt' => 'pbx_jwt',
+        'pbx_supervisor' => 'pbx_supervisor',
+        'pbx_user' => 'pbx_user',
         'pbx_voice_identity' => 'pbx_voice_identity',
         'pbx_voice_token' => 'pbx_voice_token',
         'pbx_worker_token' => 'pbx_worker_token',
@@ -139,7 +148,10 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
         'conversation_participant_name' => 'setConversationParticipantName',
         'jwt' => 'setJwt',
         'merchant_id' => 'setMerchantId',
+        'pbx_admin' => 'setPbxAdmin',
         'pbx_jwt' => 'setPbxJwt',
+        'pbx_supervisor' => 'setPbxSupervisor',
+        'pbx_user' => 'setPbxUser',
         'pbx_voice_identity' => 'setPbxVoiceIdentity',
         'pbx_voice_token' => 'setPbxVoiceToken',
         'pbx_worker_token' => 'setPbxWorkerToken',
@@ -157,7 +169,10 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
         'conversation_participant_name' => 'getConversationParticipantName',
         'jwt' => 'getJwt',
         'merchant_id' => 'getMerchantId',
+        'pbx_admin' => 'getPbxAdmin',
         'pbx_jwt' => 'getPbxJwt',
+        'pbx_supervisor' => 'getPbxSupervisor',
+        'pbx_user' => 'getPbxUser',
         'pbx_voice_identity' => 'getPbxVoiceIdentity',
         'pbx_voice_token' => 'getPbxVoiceToken',
         'pbx_worker_token' => 'getPbxWorkerToken',
@@ -226,7 +241,10 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->container['conversation_participant_name'] = $data['conversation_participant_name'] ?? null;
         $this->container['jwt'] = $data['jwt'] ?? null;
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
+        $this->container['pbx_admin'] = $data['pbx_admin'] ?? null;
         $this->container['pbx_jwt'] = $data['pbx_jwt'] ?? null;
+        $this->container['pbx_supervisor'] = $data['pbx_supervisor'] ?? null;
+        $this->container['pbx_user'] = $data['pbx_user'] ?? null;
         $this->container['pbx_voice_identity'] = $data['pbx_voice_identity'] ?? null;
         $this->container['pbx_voice_token'] = $data['pbx_voice_token'] ?? null;
         $this->container['pbx_worker_token'] = $data['pbx_worker_token'] ?? null;
@@ -355,6 +373,30 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
+     * Gets pbx_admin
+     *
+     * @return bool|null
+     */
+    public function getPbxAdmin()
+    {
+        return $this->container['pbx_admin'];
+    }
+
+    /**
+     * Sets pbx_admin
+     *
+     * @param bool|null $pbx_admin pbx_admin
+     *
+     * @return self
+     */
+    public function setPbxAdmin($pbx_admin)
+    {
+        $this->container['pbx_admin'] = $pbx_admin;
+
+        return $this;
+    }
+
+    /**
      * Gets pbx_jwt
      *
      * @return string|null
@@ -374,6 +416,54 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setPbxJwt($pbx_jwt)
     {
         $this->container['pbx_jwt'] = $pbx_jwt;
+
+        return $this;
+    }
+
+    /**
+     * Gets pbx_supervisor
+     *
+     * @return bool|null
+     */
+    public function getPbxSupervisor()
+    {
+        return $this->container['pbx_supervisor'];
+    }
+
+    /**
+     * Sets pbx_supervisor
+     *
+     * @param bool|null $pbx_supervisor pbx_supervisor
+     *
+     * @return self
+     */
+    public function setPbxSupervisor($pbx_supervisor)
+    {
+        $this->container['pbx_supervisor'] = $pbx_supervisor;
+
+        return $this;
+    }
+
+    /**
+     * Gets pbx_user
+     *
+     * @return bool|null
+     */
+    public function getPbxUser()
+    {
+        return $this->container['pbx_user'];
+    }
+
+    /**
+     * Sets pbx_user
+     *
+     * @param bool|null $pbx_user pbx_user
+     *
+     * @return self
+     */
+    public function setPbxUser($pbx_user)
+    {
+        $this->container['pbx_user'] = $pbx_user;
 
         return $this;
     }

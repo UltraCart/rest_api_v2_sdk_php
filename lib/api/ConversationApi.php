@@ -28704,7 +28704,7 @@ class ConversationApi
             );
         }
 
-        $resourcePath = '/conversation/pbx/{queue_uuid}/voicemails/voicemails/{recording_sid}/listened';
+        $resourcePath = '/conversation/pbx/queues/{queue_uuid}/voicemails/{recording_sid}/listened';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
