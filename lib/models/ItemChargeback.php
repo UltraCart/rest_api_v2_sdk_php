@@ -223,7 +223,7 @@ class ItemChargeback implements ModelInterface, ArrayAccess
     /**
      * Sets addendums
      *
-     * @param \ultracart\v2\models\ItemChargebackAddendum[] $addendums Addendums
+     * @param \ultracart\v2\models\ItemChargebackAddendum[] $addendums Addendums (deprecated)
      *
      * @return $this
      */
@@ -247,7 +247,7 @@ class ItemChargeback implements ModelInterface, ArrayAccess
     /**
      * Sets adjustment_requests
      *
-     * @param \ultracart\v2\models\ItemChargebackAdjustmentRequest[] $adjustment_requests Adjustment requests
+     * @param \ultracart\v2\models\ItemChargebackAdjustmentRequest[] $adjustment_requests Adjustment requests (deprecated)
      *
      * @return $this
      */

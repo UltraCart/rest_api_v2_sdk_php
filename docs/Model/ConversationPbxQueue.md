@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **voicemail** | **bool** | If true, this queue has a voicemail associated with it | [optional] 
 **wait_critical_seconds** | **int** | Wait time in seconds before critical | [optional] 
 **wait_warning_seconds** | **int** | Wait time in seconds before warning | [optional] 
+**wrap_up_seconds** | **int** | Wrap up time in seconds | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

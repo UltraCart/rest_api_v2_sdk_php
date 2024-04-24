@@ -64,6 +64,14 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'email_container_cjson' => 'string',
         'email_container_cjson_last_modified_dts' => 'string',
         'email_template_vm_path' => 'string',
+        'external_generation' => 'bool',
+        'external_generation_authentication' => 'string',
+        'external_generation_basic_password' => 'string',
+        'external_generation_basic_username' => 'string',
+        'external_generation_header_name' => 'string',
+        'external_generation_header_value' => 'string',
+        'external_generation_id' => 'string',
+        'external_generation_url' => 'string',
         'filter_profile_equation_json' => 'string',
         'individually_render' => 'bool',
         'library_item_oid' => 'int',
@@ -98,6 +106,14 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'email_container_cjson' => null,
         'email_container_cjson_last_modified_dts' => 'dateTime',
         'email_template_vm_path' => null,
+        'external_generation' => null,
+        'external_generation_authentication' => null,
+        'external_generation_basic_password' => null,
+        'external_generation_basic_username' => null,
+        'external_generation_header_name' => null,
+        'external_generation_header_value' => null,
+        'external_generation_id' => null,
+        'external_generation_url' => null,
         'filter_profile_equation_json' => null,
         'individually_render' => null,
         'library_item_oid' => 'int32',
@@ -153,6 +169,14 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'email_container_cjson' => 'email_container_cjson',
         'email_container_cjson_last_modified_dts' => 'email_container_cjson_last_modified_dts',
         'email_template_vm_path' => 'email_template_vm_path',
+        'external_generation' => 'external_generation',
+        'external_generation_authentication' => 'external_generation_authentication',
+        'external_generation_basic_password' => 'external_generation_basic_password',
+        'external_generation_basic_username' => 'external_generation_basic_username',
+        'external_generation_header_name' => 'external_generation_header_name',
+        'external_generation_header_value' => 'external_generation_header_value',
+        'external_generation_id' => 'external_generation_id',
+        'external_generation_url' => 'external_generation_url',
         'filter_profile_equation_json' => 'filter_profile_equation_json',
         'individually_render' => 'individually_render',
         'library_item_oid' => 'library_item_oid',
@@ -187,6 +211,14 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'email_container_cjson' => 'setEmailContainerCjson',
         'email_container_cjson_last_modified_dts' => 'setEmailContainerCjsonLastModifiedDts',
         'email_template_vm_path' => 'setEmailTemplateVmPath',
+        'external_generation' => 'setExternalGeneration',
+        'external_generation_authentication' => 'setExternalGenerationAuthentication',
+        'external_generation_basic_password' => 'setExternalGenerationBasicPassword',
+        'external_generation_basic_username' => 'setExternalGenerationBasicUsername',
+        'external_generation_header_name' => 'setExternalGenerationHeaderName',
+        'external_generation_header_value' => 'setExternalGenerationHeaderValue',
+        'external_generation_id' => 'setExternalGenerationId',
+        'external_generation_url' => 'setExternalGenerationUrl',
         'filter_profile_equation_json' => 'setFilterProfileEquationJson',
         'individually_render' => 'setIndividuallyRender',
         'library_item_oid' => 'setLibraryItemOid',
@@ -221,6 +253,14 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'email_container_cjson' => 'getEmailContainerCjson',
         'email_container_cjson_last_modified_dts' => 'getEmailContainerCjsonLastModifiedDts',
         'email_template_vm_path' => 'getEmailTemplateVmPath',
+        'external_generation' => 'getExternalGeneration',
+        'external_generation_authentication' => 'getExternalGenerationAuthentication',
+        'external_generation_basic_password' => 'getExternalGenerationBasicPassword',
+        'external_generation_basic_username' => 'getExternalGenerationBasicUsername',
+        'external_generation_header_name' => 'getExternalGenerationHeaderName',
+        'external_generation_header_value' => 'getExternalGenerationHeaderValue',
+        'external_generation_id' => 'getExternalGenerationId',
+        'external_generation_url' => 'getExternalGenerationUrl',
         'filter_profile_equation_json' => 'getFilterProfileEquationJson',
         'individually_render' => 'getIndividuallyRender',
         'library_item_oid' => 'getLibraryItemOid',
@@ -309,6 +349,14 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         $this->container['email_container_cjson'] = isset($data['email_container_cjson']) ? $data['email_container_cjson'] : null;
         $this->container['email_container_cjson_last_modified_dts'] = isset($data['email_container_cjson_last_modified_dts']) ? $data['email_container_cjson_last_modified_dts'] : null;
         $this->container['email_template_vm_path'] = isset($data['email_template_vm_path']) ? $data['email_template_vm_path'] : null;
+        $this->container['external_generation'] = isset($data['external_generation']) ? $data['external_generation'] : null;
+        $this->container['external_generation_authentication'] = isset($data['external_generation_authentication']) ? $data['external_generation_authentication'] : null;
+        $this->container['external_generation_basic_password'] = isset($data['external_generation_basic_password']) ? $data['external_generation_basic_password'] : null;
+        $this->container['external_generation_basic_username'] = isset($data['external_generation_basic_username']) ? $data['external_generation_basic_username'] : null;
+        $this->container['external_generation_header_name'] = isset($data['external_generation_header_name']) ? $data['external_generation_header_name'] : null;
+        $this->container['external_generation_header_value'] = isset($data['external_generation_header_value']) ? $data['external_generation_header_value'] : null;
+        $this->container['external_generation_id'] = isset($data['external_generation_id']) ? $data['external_generation_id'] : null;
+        $this->container['external_generation_url'] = isset($data['external_generation_url']) ? $data['external_generation_url'] : null;
         $this->container['filter_profile_equation_json'] = isset($data['filter_profile_equation_json']) ? $data['filter_profile_equation_json'] : null;
         $this->container['individually_render'] = isset($data['individually_render']) ? $data['individually_render'] : null;
         $this->container['library_item_oid'] = isset($data['library_item_oid']) ? $data['library_item_oid'] : null;
@@ -518,6 +566,198 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
     public function setEmailTemplateVmPath($email_template_vm_path)
     {
         $this->container['email_template_vm_path'] = $email_template_vm_path;
+
+        return $this;
+    }
+
+    /**
+     * Gets external_generation
+     *
+     * @return bool
+     */
+    public function getExternalGeneration()
+    {
+        return $this->container['external_generation'];
+    }
+
+    /**
+     * Sets external_generation
+     *
+     * @param bool $external_generation external_generation
+     *
+     * @return $this
+     */
+    public function setExternalGeneration($external_generation)
+    {
+        $this->container['external_generation'] = $external_generation;
+
+        return $this;
+    }
+
+    /**
+     * Gets external_generation_authentication
+     *
+     * @return string
+     */
+    public function getExternalGenerationAuthentication()
+    {
+        return $this->container['external_generation_authentication'];
+    }
+
+    /**
+     * Sets external_generation_authentication
+     *
+     * @param string $external_generation_authentication external_generation_authentication
+     *
+     * @return $this
+     */
+    public function setExternalGenerationAuthentication($external_generation_authentication)
+    {
+        $this->container['external_generation_authentication'] = $external_generation_authentication;
+
+        return $this;
+    }
+
+    /**
+     * Gets external_generation_basic_password
+     *
+     * @return string
+     */
+    public function getExternalGenerationBasicPassword()
+    {
+        return $this->container['external_generation_basic_password'];
+    }
+
+    /**
+     * Sets external_generation_basic_password
+     *
+     * @param string $external_generation_basic_password external_generation_basic_password
+     *
+     * @return $this
+     */
+    public function setExternalGenerationBasicPassword($external_generation_basic_password)
+    {
+        $this->container['external_generation_basic_password'] = $external_generation_basic_password;
+
+        return $this;
+    }
+
+    /**
+     * Gets external_generation_basic_username
+     *
+     * @return string
+     */
+    public function getExternalGenerationBasicUsername()
+    {
+        return $this->container['external_generation_basic_username'];
+    }
+
+    /**
+     * Sets external_generation_basic_username
+     *
+     * @param string $external_generation_basic_username external_generation_basic_username
+     *
+     * @return $this
+     */
+    public function setExternalGenerationBasicUsername($external_generation_basic_username)
+    {
+        $this->container['external_generation_basic_username'] = $external_generation_basic_username;
+
+        return $this;
+    }
+
+    /**
+     * Gets external_generation_header_name
+     *
+     * @return string
+     */
+    public function getExternalGenerationHeaderName()
+    {
+        return $this->container['external_generation_header_name'];
+    }
+
+    /**
+     * Sets external_generation_header_name
+     *
+     * @param string $external_generation_header_name external_generation_header_name
+     *
+     * @return $this
+     */
+    public function setExternalGenerationHeaderName($external_generation_header_name)
+    {
+        $this->container['external_generation_header_name'] = $external_generation_header_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets external_generation_header_value
+     *
+     * @return string
+     */
+    public function getExternalGenerationHeaderValue()
+    {
+        return $this->container['external_generation_header_value'];
+    }
+
+    /**
+     * Sets external_generation_header_value
+     *
+     * @param string $external_generation_header_value external_generation_header_value
+     *
+     * @return $this
+     */
+    public function setExternalGenerationHeaderValue($external_generation_header_value)
+    {
+        $this->container['external_generation_header_value'] = $external_generation_header_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets external_generation_id
+     *
+     * @return string
+     */
+    public function getExternalGenerationId()
+    {
+        return $this->container['external_generation_id'];
+    }
+
+    /**
+     * Sets external_generation_id
+     *
+     * @param string $external_generation_id external_generation_id
+     *
+     * @return $this
+     */
+    public function setExternalGenerationId($external_generation_id)
+    {
+        $this->container['external_generation_id'] = $external_generation_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets external_generation_url
+     *
+     * @return string
+     */
+    public function getExternalGenerationUrl()
+    {
+        return $this->container['external_generation_url'];
+    }
+
+    /**
+     * Sets external_generation_url
+     *
+     * @param string $external_generation_url external_generation_url
+     *
+     * @return $this
+     */
+    public function setExternalGenerationUrl($external_generation_url)
+    {
+        $this->container['external_generation_url'] = $external_generation_url;
 
         return $this;
     }

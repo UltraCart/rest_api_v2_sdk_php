@@ -65,6 +65,7 @@ class OrderRefundableResponse implements ModelInterface, ArrayAccess
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
         'order_level_refund_reason_required' => 'bool',
         'order_level_refund_reasons' => '\ultracart\v2\models\OrderReason[]',
+        'order_level_reject_reason_required' => 'bool',
         'order_level_reject_reasons' => '\ultracart\v2\models\OrderReason[]',
         'refundable' => 'bool',
         'success' => 'bool',
@@ -85,6 +86,7 @@ class OrderRefundableResponse implements ModelInterface, ArrayAccess
         'metadata' => null,
         'order_level_refund_reason_required' => null,
         'order_level_refund_reasons' => null,
+        'order_level_reject_reason_required' => null,
         'order_level_reject_reasons' => null,
         'refundable' => null,
         'success' => null,
@@ -126,6 +128,7 @@ class OrderRefundableResponse implements ModelInterface, ArrayAccess
         'metadata' => 'metadata',
         'order_level_refund_reason_required' => 'order_level_refund_reason_required',
         'order_level_refund_reasons' => 'order_level_refund_reasons',
+        'order_level_reject_reason_required' => 'order_level_reject_reason_required',
         'order_level_reject_reasons' => 'order_level_reject_reasons',
         'refundable' => 'refundable',
         'success' => 'success',
@@ -146,6 +149,7 @@ class OrderRefundableResponse implements ModelInterface, ArrayAccess
         'metadata' => 'setMetadata',
         'order_level_refund_reason_required' => 'setOrderLevelRefundReasonRequired',
         'order_level_refund_reasons' => 'setOrderLevelRefundReasons',
+        'order_level_reject_reason_required' => 'setOrderLevelRejectReasonRequired',
         'order_level_reject_reasons' => 'setOrderLevelRejectReasons',
         'refundable' => 'setRefundable',
         'success' => 'setSuccess',
@@ -166,6 +170,7 @@ class OrderRefundableResponse implements ModelInterface, ArrayAccess
         'metadata' => 'getMetadata',
         'order_level_refund_reason_required' => 'getOrderLevelRefundReasonRequired',
         'order_level_refund_reasons' => 'getOrderLevelRefundReasons',
+        'order_level_reject_reason_required' => 'getOrderLevelRejectReasonRequired',
         'order_level_reject_reasons' => 'getOrderLevelRejectReasons',
         'refundable' => 'getRefundable',
         'success' => 'getSuccess',
@@ -240,6 +245,7 @@ class OrderRefundableResponse implements ModelInterface, ArrayAccess
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['order_level_refund_reason_required'] = isset($data['order_level_refund_reason_required']) ? $data['order_level_refund_reason_required'] : null;
         $this->container['order_level_refund_reasons'] = isset($data['order_level_refund_reasons']) ? $data['order_level_refund_reasons'] : null;
+        $this->container['order_level_reject_reason_required'] = isset($data['order_level_reject_reason_required']) ? $data['order_level_reject_reason_required'] : null;
         $this->container['order_level_reject_reasons'] = isset($data['order_level_reject_reasons']) ? $data['order_level_reject_reasons'] : null;
         $this->container['refundable'] = isset($data['refundable']) ? $data['refundable'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
@@ -458,6 +464,30 @@ class OrderRefundableResponse implements ModelInterface, ArrayAccess
     public function setOrderLevelRefundReasons($order_level_refund_reasons)
     {
         $this->container['order_level_refund_reasons'] = $order_level_refund_reasons;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_level_reject_reason_required
+     *
+     * @return bool
+     */
+    public function getOrderLevelRejectReasonRequired()
+    {
+        return $this->container['order_level_reject_reason_required'];
+    }
+
+    /**
+     * Sets order_level_reject_reason_required
+     *
+     * @param bool $order_level_reject_reason_required True if the order level reject reason is required
+     *
+     * @return $this
+     */
+    public function setOrderLevelRejectReasonRequired($order_level_reject_reason_required)
+    {
+        $this->container['order_level_reject_reason_required'] = $order_level_reject_reason_required;
 
         return $this;
     }

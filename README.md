@@ -270,7 +270,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**joinConversation**](docs/Api/ConversationApi.md#joinconversation) | **PUT** /conversation/conversations/{conversation_uuid}/join | Join a conversation
 *ConversationApi* | [**leaveConversation**](docs/Api/ConversationApi.md#leaveconversation) | **DELETE** /conversation/conversations/{conversation_uuid}/leave | Leave a conversation
 *ConversationApi* | [**listenedPbxAgentVoicemail**](docs/Api/ConversationApi.md#listenedpbxagentvoicemail) | **GET** /conversation/pbx/agent/voicemails/{recording_sid}/listened | Listened Agent Voicemail
-*ConversationApi* | [**listenedPbxQueueVoicemail**](docs/Api/ConversationApi.md#listenedpbxqueuevoicemail) | **GET** /conversation/pbx/{queue_uuid}/voicemails/voicemails/{recording_sid}/listened | Listened Queue Voicemail
+*ConversationApi* | [**listenedPbxQueueVoicemail**](docs/Api/ConversationApi.md#listenedpbxqueuevoicemail) | **GET** /conversation/pbx/queues/{queue_uuid}/voicemails/{recording_sid}/listened | Listened Queue Voicemail
 *ConversationApi* | [**markReadConversation**](docs/Api/ConversationApi.md#markreadconversation) | **PUT** /conversation/conversations/{conversation_uuid}/markread | Mark a conversation as read
 *ConversationApi* | [**resetConversationPbxQueueStatistics**](docs/Api/ConversationApi.md#resetconversationpbxqueuestatistics) | **POST** /conversation/pbx/queues/{queue_uuid}/reset_statistics | reset statistics within the queue
 *ConversationApi* | [**searchConversationCannedMessages**](docs/Api/ConversationApi.md#searchconversationcannedmessages) | **POST** /conversation/canned_messages/search | Search for canned messages by short_code
@@ -1576,6 +1576,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.194 | 04/24/2024 | esp - add fields for external generation on email |
 | 3.10.193 | 04/04/2024 | AutoOrder.calculated_next_shipment_dts |
 | 3.10.192 | 04/01/2024 | added merchant_id as read-only top level property of AutoOrder object |
 | 3.10.191 | 03/26/2024 | WorkflowTask - added assigned_to_user_or_group field |
