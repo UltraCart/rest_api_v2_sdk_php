@@ -1501,7 +1501,7 @@ Name | Type | Description  | Notes
 ## `getConversationPbxAudioUploadUrl()`
 
 ```php
-getConversationPbxAudioUploadUrl($extension): \ultracart\v2\models\ConversationMultimediaUploadUrlResponse
+getConversationPbxAudioUploadUrl($extension): \ultracart\v2\models\ConversationPbxAudioUploadUrlResponse
 ```
 
 Get a pre-signed conversation multimedia upload URL
@@ -1540,7 +1540,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\ConversationMultimediaUploadUrlResponse**](../Model/ConversationMultimediaUploadUrlResponse.md)
+[**\ultracart\v2\models\ConversationPbxAudioUploadUrlResponse**](../Model/ConversationPbxAudioUploadUrlResponse.md)
 
 ### Authorization
 

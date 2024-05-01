@@ -49,6 +49,7 @@ docs/Model/ApplyLibraryItemResponse.md
 docs/Model/AutoOrder.md
 docs/Model/AutoOrderAddonItem.md
 docs/Model/AutoOrderAddonItemOption.md
+docs/Model/AutoOrderConsolidate.md
 docs/Model/AutoOrderItem.md
 docs/Model/AutoOrderItemFutureSchedule.md
 docs/Model/AutoOrderItemOption.md
@@ -197,6 +198,8 @@ docs/Model/ConversationPbxAgentResponse.md
 docs/Model/ConversationPbxAgentsResponse.md
 docs/Model/ConversationPbxAudio.md
 docs/Model/ConversationPbxAudioResponse.md
+docs/Model/ConversationPbxAudioUploadUrl.md
+docs/Model/ConversationPbxAudioUploadUrlResponse.md
 docs/Model/ConversationPbxAudiosResponse.md
 docs/Model/ConversationPbxCustomerSnapshotRequest.md
 docs/Model/ConversationPbxCustomerSnapshotResponse.md
@@ -919,6 +922,7 @@ lib/models/ApplyLibraryItemResponse.php
 lib/models/AutoOrder.php
 lib/models/AutoOrderAddonItem.php
 lib/models/AutoOrderAddonItemOption.php
+lib/models/AutoOrderConsolidate.php
 lib/models/AutoOrderItem.php
 lib/models/AutoOrderItemFutureSchedule.php
 lib/models/AutoOrderItemOption.php
@@ -1067,6 +1071,8 @@ lib/models/ConversationPbxAgentResponse.php
 lib/models/ConversationPbxAgentsResponse.php
 lib/models/ConversationPbxAudio.php
 lib/models/ConversationPbxAudioResponse.php
+lib/models/ConversationPbxAudioUploadUrl.php
+lib/models/ConversationPbxAudioUploadUrlResponse.php
 lib/models/ConversationPbxAudiosResponse.php
 lib/models/ConversationPbxCustomerSnapshotRequest.php
 lib/models/ConversationPbxCustomerSnapshotResponse.php

@@ -87,6 +87,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AffiliateApi* | [**getClicksByQuery**](docs/Api/AffiliateApi.md#getclicksbyquery) | **POST** /affiliate/clicks/query | Retrieve clicks
 *AffiliateApi* | [**getLedgersByQuery**](docs/Api/AffiliateApi.md#getledgersbyquery) | **POST** /affiliate/ledgers/query | Retrieve ledger entries
+*AutoOrderApi* | [**consolidateAutoOrders**](docs/Api/AutoOrderApi.md#consolidateautoorders) | **PUT** /auto_order/auto_orders/{auto_order_oid}/consolidate | Consolidates multiple auto orders
 *AutoOrderApi* | [**establishAutoOrderByReferenceOrderId**](docs/Api/AutoOrderApi.md#establishautoorderbyreferenceorderid) | **POST** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Establish an auto order by referencing a regular order id
 *AutoOrderApi* | [**getAutoOrder**](docs/Api/AutoOrderApi.md#getautoorder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order by oid
 *AutoOrderApi* | [**getAutoOrderByCode**](docs/Api/AutoOrderApi.md#getautoorderbycode) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order by code
@@ -605,6 +606,7 @@ Class | Method | HTTP request | Description
 - [AutoOrder](docs/Model/AutoOrder.md)
 - [AutoOrderAddonItem](docs/Model/AutoOrderAddonItem.md)
 - [AutoOrderAddonItemOption](docs/Model/AutoOrderAddonItemOption.md)
+- [AutoOrderConsolidate](docs/Model/AutoOrderConsolidate.md)
 - [AutoOrderItem](docs/Model/AutoOrderItem.md)
 - [AutoOrderItemFutureSchedule](docs/Model/AutoOrderItemFutureSchedule.md)
 - [AutoOrderItemOption](docs/Model/AutoOrderItemOption.md)
@@ -753,6 +755,8 @@ Class | Method | HTTP request | Description
 - [ConversationPbxAgentsResponse](docs/Model/ConversationPbxAgentsResponse.md)
 - [ConversationPbxAudio](docs/Model/ConversationPbxAudio.md)
 - [ConversationPbxAudioResponse](docs/Model/ConversationPbxAudioResponse.md)
+- [ConversationPbxAudioUploadUrl](docs/Model/ConversationPbxAudioUploadUrl.md)
+- [ConversationPbxAudioUploadUrlResponse](docs/Model/ConversationPbxAudioUploadUrlResponse.md)
 - [ConversationPbxAudiosResponse](docs/Model/ConversationPbxAudiosResponse.md)
 - [ConversationPbxCustomerSnapshotRequest](docs/Model/ConversationPbxCustomerSnapshotRequest.md)
 - [ConversationPbxCustomerSnapshotResponse](docs/Model/ConversationPbxCustomerSnapshotResponse.md)
@@ -1517,6 +1521,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.212 | 05/01/2024 | getConversationPbxAudioUploadUrl - fix the response obj def |
 | 4.0.211 | 04/24/2024 | esp - add fields for external generation on email |
 | 4.0.210 | 04/04/2024 | AutoOrder.calculated_next_shipment_dts |
 | 4.0.209 | 04/01/2024 | added merchant_id as read-only top level property of AutoOrder object |

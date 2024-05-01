@@ -4,6 +4,7 @@ All URIs are relative to https://secure.ultracart.com/rest/v2.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**consolidateAutoOrders()**](AutoOrderApi.md#consolidateAutoOrders) | **PUT** /auto_order/auto_orders/{auto_order_oid}/consolidate | Consolidates multiple auto orders
 [**establishAutoOrderByReferenceOrderId()**](AutoOrderApi.md#establishAutoOrderByReferenceOrderId) | **POST** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Establish an auto order by referencing a regular order id
 [**getAutoOrder()**](AutoOrderApi.md#getAutoOrder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order by oid
 [**getAutoOrderByCode()**](AutoOrderApi.md#getAutoOrderByCode) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order by code
@@ -14,6 +15,67 @@ Method | HTTP request | Description
 [**updateAutoOrder()**](AutoOrderApi.md#updateAutoOrder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
 [**updateAutoOrdersBatch()**](AutoOrderApi.md#updateAutoOrdersBatch) | **PUT** /auto_order/auto_orders/batch | Update multiple auto orders
 
+
+## `consolidateAutoOrders()`
+
+```php
+consolidateAutoOrders($auto_order_oid, $auto_order_consolidate, $_expand): \ultracart\v2\models\AutoOrderResponse
+```
+
+Consolidates multiple auto orders
+
+Consolidates mutliple auto orders on the UltraCart account.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\AutoOrderApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+$auto_order_oid = 56; // int | The auto order oid to consolidate into.
+$auto_order_consolidate = new \ultracart\v2\models\AutoOrderConsolidate(); // \ultracart\v2\models\AutoOrderConsolidate | Auto orders to consolidate
+$_expand = '_expand_example'; // string | The object expansion to perform on the result.  See documentation for examples
+
+try {
+    $result = $apiInstance->consolidateAutoOrders($auto_order_oid, $auto_order_consolidate, $_expand);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AutoOrderApi->consolidateAutoOrders: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **auto_order_oid** | **int**| The auto order oid to consolidate into. |
+ **auto_order_consolidate** | [**\ultracart\v2\models\AutoOrderConsolidate**](../Model/AutoOrderConsolidate.md)| Auto orders to consolidate |
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\AutoOrderResponse**](../Model/AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `establishAutoOrderByReferenceOrderId()`
 

@@ -10406,7 +10406,7 @@ class ConversationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\ConversationMultimediaUploadUrlResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     * @return \ultracart\v2\models\ConversationPbxAudioUploadUrlResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
      */
     public function getConversationPbxAudioUploadUrl($extension)
     {
@@ -10423,7 +10423,7 @@ class ConversationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\ConversationMultimediaUploadUrlResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\ConversationPbxAudioUploadUrlResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getConversationPbxAudioUploadUrlWithHttpInfo($extension)
     {
@@ -10442,11 +10442,11 @@ class ConversationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\ConversationMultimediaUploadUrlResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\ConversationPbxAudioUploadUrlResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getConversationPbxAudioUploadUrlWithHttpInfoRetry($retry , $extension)
     {
-        $returnType = '\ultracart\v2\models\ConversationMultimediaUploadUrlResponse';
+        $returnType = '\ultracart\v2\models\ConversationPbxAudioUploadUrlResponse';
         $request = $this->getConversationPbxAudioUploadUrlRequest($extension);
 
         try {
@@ -10503,17 +10503,17 @@ class ConversationApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\ultracart\v2\models\ConversationMultimediaUploadUrlResponse' === '\SplFileObject') {
+                    if ('\ultracart\v2\models\ConversationPbxAudioUploadUrlResponse' === '\SplFileObject') {
                         $content = $response->getBody()->getContents(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\ultracart\v2\models\ConversationMultimediaUploadUrlResponse' !== 'string') {
+                        if ('\ultracart\v2\models\ConversationPbxAudioUploadUrlResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationMultimediaUploadUrlResponse', []),
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationPbxAudioUploadUrlResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -10594,7 +10594,7 @@ class ConversationApi
                     ];
             }
 
-            $returnType = '\ultracart\v2\models\ConversationMultimediaUploadUrlResponse';
+            $returnType = '\ultracart\v2\models\ConversationPbxAudioUploadUrlResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody()->getContents()(); //stream goes to serializer
             } else {
@@ -10615,7 +10615,7 @@ class ConversationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\ConversationMultimediaUploadUrlResponse',
+                        '\ultracart\v2\models\ConversationPbxAudioUploadUrlResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10700,7 +10700,7 @@ class ConversationApi
      */
     public function getConversationPbxAudioUploadUrlAsyncWithHttpInfo($extension)
     {
-        $returnType = '\ultracart\v2\models\ConversationMultimediaUploadUrlResponse';
+        $returnType = '\ultracart\v2\models\ConversationPbxAudioUploadUrlResponse';
         $request = $this->getConversationPbxAudioUploadUrlRequest($extension);
 
         return $this->client
