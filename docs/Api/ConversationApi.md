@@ -1267,7 +1267,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getConversationPbxAudioUploadUrl**
-> \ultracart\v2\models\ConversationMultimediaUploadUrlResponse getConversationPbxAudioUploadUrl($extension)
+> \ultracart\v2\models\ConversationPbxAudioUploadUrlResponse getConversationPbxAudioUploadUrl($extension)
 
 Get a pre-signed conversation multimedia upload URL
 
@@ -1301,7 +1301,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\ConversationMultimediaUploadUrlResponse**](../Model/ConversationMultimediaUploadUrlResponse.md)
+[**\ultracart\v2\models\ConversationPbxAudioUploadUrlResponse**](../Model/ConversationPbxAudioUploadUrlResponse.md)
 
 ### Authorization
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * ConversationPbxCustomerSnapshotResponse
+ * ConversationPbxAudioUploadUrlResponse
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ConversationPbxCustomerSnapshotResponse Class Doc Comment
+ * ConversationPbxAudioUploadUrlResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ConversationPbxCustomerSnapshotResponse implements ModelInterface, ArrayAccess
+class ConversationPbxAudioUploadUrlResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ConversationPbxCustomerSnapshotResponse implements ModelInterface, ArrayAc
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConversationPbxCustomerSnapshotResponse';
+    protected static $swaggerModelName = 'ConversationPbxAudioUploadUrlResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,9 @@ class ConversationPbxCustomerSnapshotResponse implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'auto_orders' => '\ultracart\v2\models\AutoOrder[]',
-        'customers' => '\ultracart\v2\models\Customer[]',
+        'conversation_pbx_audio_upload_url' => '\ultracart\v2\models\ConversationPbxAudioUploadUrl',
         'error' => '\ultracart\v2\models\Error',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
-        'orders' => '\ultracart\v2\models\Order[]',
         'success' => 'bool',
         'warning' => '\ultracart\v2\models\Warning'
     ];
@@ -72,11 +70,9 @@ class ConversationPbxCustomerSnapshotResponse implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'auto_orders' => null,
-        'customers' => null,
+        'conversation_pbx_audio_upload_url' => null,
         'error' => null,
         'metadata' => null,
-        'orders' => null,
         'success' => null,
         'warning' => null
     ];
@@ -108,11 +104,9 @@ class ConversationPbxCustomerSnapshotResponse implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
-        'auto_orders' => 'auto_orders',
-        'customers' => 'customers',
+        'conversation_pbx_audio_upload_url' => 'conversation_pbx_audio_upload_url',
         'error' => 'error',
         'metadata' => 'metadata',
-        'orders' => 'orders',
         'success' => 'success',
         'warning' => 'warning'
     ];
@@ -123,11 +117,9 @@ class ConversationPbxCustomerSnapshotResponse implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $setters = [
-        'auto_orders' => 'setAutoOrders',
-        'customers' => 'setCustomers',
+        'conversation_pbx_audio_upload_url' => 'setConversationPbxAudioUploadUrl',
         'error' => 'setError',
         'metadata' => 'setMetadata',
-        'orders' => 'setOrders',
         'success' => 'setSuccess',
         'warning' => 'setWarning'
     ];
@@ -138,11 +130,9 @@ class ConversationPbxCustomerSnapshotResponse implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $getters = [
-        'auto_orders' => 'getAutoOrders',
-        'customers' => 'getCustomers',
+        'conversation_pbx_audio_upload_url' => 'getConversationPbxAudioUploadUrl',
         'error' => 'getError',
         'metadata' => 'getMetadata',
-        'orders' => 'getOrders',
         'success' => 'getSuccess',
         'warning' => 'getWarning'
     ];
@@ -207,11 +197,9 @@ class ConversationPbxCustomerSnapshotResponse implements ModelInterface, ArrayAc
      */
     public function __construct(array $data = null)
     {
-        $this->container['auto_orders'] = isset($data['auto_orders']) ? $data['auto_orders'] : null;
-        $this->container['customers'] = isset($data['customers']) ? $data['customers'] : null;
+        $this->container['conversation_pbx_audio_upload_url'] = isset($data['conversation_pbx_audio_upload_url']) ? $data['conversation_pbx_audio_upload_url'] : null;
         $this->container['error'] = isset($data['error']) ? $data['error'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['orders'] = isset($data['orders']) ? $data['orders'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
         $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
@@ -241,49 +229,25 @@ class ConversationPbxCustomerSnapshotResponse implements ModelInterface, ArrayAc
 
 
     /**
-     * Gets auto_orders
+     * Gets conversation_pbx_audio_upload_url
      *
-     * @return \ultracart\v2\models\AutoOrder[]
+     * @return \ultracart\v2\models\ConversationPbxAudioUploadUrl
      */
-    public function getAutoOrders()
+    public function getConversationPbxAudioUploadUrl()
     {
-        return $this->container['auto_orders'];
+        return $this->container['conversation_pbx_audio_upload_url'];
     }
 
     /**
-     * Sets auto_orders
+     * Sets conversation_pbx_audio_upload_url
      *
-     * @param \ultracart\v2\models\AutoOrder[] $auto_orders auto_orders
+     * @param \ultracart\v2\models\ConversationPbxAudioUploadUrl $conversation_pbx_audio_upload_url conversation_pbx_audio_upload_url
      *
      * @return $this
      */
-    public function setAutoOrders($auto_orders)
+    public function setConversationPbxAudioUploadUrl($conversation_pbx_audio_upload_url)
     {
-        $this->container['auto_orders'] = $auto_orders;
-
-        return $this;
-    }
-
-    /**
-     * Gets customers
-     *
-     * @return \ultracart\v2\models\Customer[]
-     */
-    public function getCustomers()
-    {
-        return $this->container['customers'];
-    }
-
-    /**
-     * Sets customers
-     *
-     * @param \ultracart\v2\models\Customer[] $customers customers
-     *
-     * @return $this
-     */
-    public function setCustomers($customers)
-    {
-        $this->container['customers'] = $customers;
+        $this->container['conversation_pbx_audio_upload_url'] = $conversation_pbx_audio_upload_url;
 
         return $this;
     }
@@ -332,30 +296,6 @@ class ConversationPbxCustomerSnapshotResponse implements ModelInterface, ArrayAc
     public function setMetadata($metadata)
     {
         $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets orders
-     *
-     * @return \ultracart\v2\models\Order[]
-     */
-    public function getOrders()
-    {
-        return $this->container['orders'];
-    }
-
-    /**
-     * Sets orders
-     *
-     * @param \ultracart\v2\models\Order[] $orders orders
-     *
-     * @return $this
-     */
-    public function setOrders($orders)
-    {
-        $this->container['orders'] = $orders;
 
         return $this;
     }

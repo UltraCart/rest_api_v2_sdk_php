@@ -1,6 +1,6 @@
 <?php
 /**
- * ConversationPbxCustomerSnapshotResponse
+ * ConversationPbxAudioUploadUrl
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ConversationPbxCustomerSnapshotResponse Class Doc Comment
+ * ConversationPbxAudioUploadUrl Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ConversationPbxCustomerSnapshotResponse implements ModelInterface, ArrayAccess
+class ConversationPbxAudioUploadUrl implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ConversationPbxCustomerSnapshotResponse implements ModelInterface, ArrayAc
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConversationPbxCustomerSnapshotResponse';
+    protected static $swaggerModelName = 'ConversationPbxAudioUploadUrl';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,13 +57,8 @@ class ConversationPbxCustomerSnapshotResponse implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'auto_orders' => '\ultracart\v2\models\AutoOrder[]',
-        'customers' => '\ultracart\v2\models\Customer[]',
-        'error' => '\ultracart\v2\models\Error',
-        'metadata' => '\ultracart\v2\models\ResponseMetadata',
-        'orders' => '\ultracart\v2\models\Order[]',
-        'success' => 'bool',
-        'warning' => '\ultracart\v2\models\Warning'
+        'key' => 'string',
+        'url' => 'string'
     ];
 
     /**
@@ -72,13 +67,8 @@ class ConversationPbxCustomerSnapshotResponse implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'auto_orders' => null,
-        'customers' => null,
-        'error' => null,
-        'metadata' => null,
-        'orders' => null,
-        'success' => null,
-        'warning' => null
+        'key' => null,
+        'url' => null
     ];
 
     /**
@@ -108,13 +98,8 @@ class ConversationPbxCustomerSnapshotResponse implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
-        'auto_orders' => 'auto_orders',
-        'customers' => 'customers',
-        'error' => 'error',
-        'metadata' => 'metadata',
-        'orders' => 'orders',
-        'success' => 'success',
-        'warning' => 'warning'
+        'key' => 'key',
+        'url' => 'url'
     ];
 
     /**
@@ -123,13 +108,8 @@ class ConversationPbxCustomerSnapshotResponse implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $setters = [
-        'auto_orders' => 'setAutoOrders',
-        'customers' => 'setCustomers',
-        'error' => 'setError',
-        'metadata' => 'setMetadata',
-        'orders' => 'setOrders',
-        'success' => 'setSuccess',
-        'warning' => 'setWarning'
+        'key' => 'setKey',
+        'url' => 'setUrl'
     ];
 
     /**
@@ -138,13 +118,8 @@ class ConversationPbxCustomerSnapshotResponse implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $getters = [
-        'auto_orders' => 'getAutoOrders',
-        'customers' => 'getCustomers',
-        'error' => 'getError',
-        'metadata' => 'getMetadata',
-        'orders' => 'getOrders',
-        'success' => 'getSuccess',
-        'warning' => 'getWarning'
+        'key' => 'getKey',
+        'url' => 'getUrl'
     ];
 
     /**
@@ -207,13 +182,8 @@ class ConversationPbxCustomerSnapshotResponse implements ModelInterface, ArrayAc
      */
     public function __construct(array $data = null)
     {
-        $this->container['auto_orders'] = isset($data['auto_orders']) ? $data['auto_orders'] : null;
-        $this->container['customers'] = isset($data['customers']) ? $data['customers'] : null;
-        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
-        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['orders'] = isset($data['orders']) ? $data['orders'] : null;
-        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
-        $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
 
     /**
@@ -241,169 +211,49 @@ class ConversationPbxCustomerSnapshotResponse implements ModelInterface, ArrayAc
 
 
     /**
-     * Gets auto_orders
+     * Gets key
      *
-     * @return \ultracart\v2\models\AutoOrder[]
+     * @return string
      */
-    public function getAutoOrders()
+    public function getKey()
     {
-        return $this->container['auto_orders'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets auto_orders
+     * Sets key
      *
-     * @param \ultracart\v2\models\AutoOrder[] $auto_orders auto_orders
+     * @param string $key key
      *
      * @return $this
      */
-    public function setAutoOrders($auto_orders)
+    public function setKey($key)
     {
-        $this->container['auto_orders'] = $auto_orders;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets customers
+     * Gets url
      *
-     * @return \ultracart\v2\models\Customer[]
+     * @return string
      */
-    public function getCustomers()
+    public function getUrl()
     {
-        return $this->container['customers'];
+        return $this->container['url'];
     }
 
     /**
-     * Sets customers
+     * Sets url
      *
-     * @param \ultracart\v2\models\Customer[] $customers customers
+     * @param string $url url
      *
      * @return $this
      */
-    public function setCustomers($customers)
+    public function setUrl($url)
     {
-        $this->container['customers'] = $customers;
-
-        return $this;
-    }
-
-    /**
-     * Gets error
-     *
-     * @return \ultracart\v2\models\Error
-     */
-    public function getError()
-    {
-        return $this->container['error'];
-    }
-
-    /**
-     * Sets error
-     *
-     * @param \ultracart\v2\models\Error $error error
-     *
-     * @return $this
-     */
-    public function setError($error)
-    {
-        $this->container['error'] = $error;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return \ultracart\v2\models\ResponseMetadata
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
-     *
-     * @return $this
-     */
-    public function setMetadata($metadata)
-    {
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets orders
-     *
-     * @return \ultracart\v2\models\Order[]
-     */
-    public function getOrders()
-    {
-        return $this->container['orders'];
-    }
-
-    /**
-     * Sets orders
-     *
-     * @param \ultracart\v2\models\Order[] $orders orders
-     *
-     * @return $this
-     */
-    public function setOrders($orders)
-    {
-        $this->container['orders'] = $orders;
-
-        return $this;
-    }
-
-    /**
-     * Gets success
-     *
-     * @return bool
-     */
-    public function getSuccess()
-    {
-        return $this->container['success'];
-    }
-
-    /**
-     * Sets success
-     *
-     * @param bool $success Indicates if API call was successful
-     *
-     * @return $this
-     */
-    public function setSuccess($success)
-    {
-        $this->container['success'] = $success;
-
-        return $this;
-    }
-
-    /**
-     * Gets warning
-     *
-     * @return \ultracart\v2\models\Warning
-     */
-    public function getWarning()
-    {
-        return $this->container['warning'];
-    }
-
-    /**
-     * Sets warning
-     *
-     * @param \ultracart\v2\models\Warning $warning warning
-     *
-     * @return $this
-     */
-    public function setWarning($warning)
-    {
-        $this->container['warning'] = $warning;
+        $this->container['url'] = $url;
 
         return $this;
     }

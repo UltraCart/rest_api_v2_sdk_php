@@ -8262,7 +8262,7 @@ class ConversationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\ConversationMultimediaUploadUrlResponse
+     * @return \ultracart\v2\models\ConversationPbxAudioUploadUrlResponse
      */
     public function getConversationPbxAudioUploadUrl($extension)
     {
@@ -8280,7 +8280,7 @@ class ConversationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\ConversationMultimediaUploadUrlResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\ConversationPbxAudioUploadUrlResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getConversationPbxAudioUploadUrlWithHttpInfo($extension)
     {
@@ -8298,11 +8298,11 @@ class ConversationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\ConversationMultimediaUploadUrlResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\ConversationPbxAudioUploadUrlResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getConversationPbxAudioUploadUrlWithHttpInfoRetry($retry ,  $extension)
     {
-        $returnType = '\ultracart\v2\models\ConversationMultimediaUploadUrlResponse';
+        $returnType = '\ultracart\v2\models\ConversationPbxAudioUploadUrlResponse';
         $request = $this->getConversationPbxAudioUploadUrlRequest($extension);
 
         try {
@@ -8355,7 +8355,7 @@ class ConversationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\ConversationMultimediaUploadUrlResponse',
+                        '\ultracart\v2\models\ConversationPbxAudioUploadUrlResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8437,7 +8437,7 @@ class ConversationApi
      */
     public function getConversationPbxAudioUploadUrlAsyncWithHttpInfo($extension)
     {
-        $returnType = '\ultracart\v2\models\ConversationMultimediaUploadUrlResponse';
+        $returnType = '\ultracart\v2\models\ConversationPbxAudioUploadUrlResponse';
         $request = $this->getConversationPbxAudioUploadUrlRequest($extension);
 
         return $this->client
