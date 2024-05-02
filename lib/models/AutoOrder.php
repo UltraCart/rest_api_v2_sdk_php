@@ -75,6 +75,8 @@ class AutoOrder implements ModelInterface, ArrayAccess
         'logs' => '\ultracart\v2\models\AutoOrderLog[]',
         'management' => '\ultracart\v2\models\AutoOrderManagement',
         'merchant_id' => 'string',
+        'merged_dts' => 'string',
+        'merged_into_auto_order_oid' => 'int',
         'next_attempt' => 'string',
         'original_order' => '\ultracart\v2\models\Order',
         'original_order_id' => 'string',
@@ -108,6 +110,8 @@ class AutoOrder implements ModelInterface, ArrayAccess
         'logs' => null,
         'management' => null,
         'merchant_id' => null,
+        'merged_dts' => 'dateTime',
+        'merged_into_auto_order_oid' => 'int32',
         'next_attempt' => 'dateTime',
         'original_order' => null,
         'original_order_id' => null,
@@ -162,6 +166,8 @@ class AutoOrder implements ModelInterface, ArrayAccess
         'logs' => 'logs',
         'management' => 'management',
         'merchant_id' => 'merchant_id',
+        'merged_dts' => 'merged_dts',
+        'merged_into_auto_order_oid' => 'merged_into_auto_order_oid',
         'next_attempt' => 'next_attempt',
         'original_order' => 'original_order',
         'original_order_id' => 'original_order_id',
@@ -195,6 +201,8 @@ class AutoOrder implements ModelInterface, ArrayAccess
         'logs' => 'setLogs',
         'management' => 'setManagement',
         'merchant_id' => 'setMerchantId',
+        'merged_dts' => 'setMergedDts',
+        'merged_into_auto_order_oid' => 'setMergedIntoAutoOrderOid',
         'next_attempt' => 'setNextAttempt',
         'original_order' => 'setOriginalOrder',
         'original_order_id' => 'setOriginalOrderId',
@@ -228,6 +236,8 @@ class AutoOrder implements ModelInterface, ArrayAccess
         'logs' => 'getLogs',
         'management' => 'getManagement',
         'merchant_id' => 'getMerchantId',
+        'merged_dts' => 'getMergedDts',
+        'merged_into_auto_order_oid' => 'getMergedIntoAutoOrderOid',
         'next_attempt' => 'getNextAttempt',
         'original_order' => 'getOriginalOrder',
         'original_order_id' => 'getOriginalOrderId',
@@ -281,6 +291,7 @@ class AutoOrder implements ModelInterface, ArrayAccess
     const STATUS_ACTIVE = 'active';
     const STATUS_CANCELED = 'canceled';
     const STATUS_DISABLED = 'disabled';
+    const STATUS_MERGED = 'merged';
     
 
     
@@ -295,6 +306,7 @@ class AutoOrder implements ModelInterface, ArrayAccess
             self::STATUS_ACTIVE,
             self::STATUS_CANCELED,
             self::STATUS_DISABLED,
+            self::STATUS_MERGED,
         ];
     }
     
@@ -332,6 +344,8 @@ class AutoOrder implements ModelInterface, ArrayAccess
         $this->container['logs'] = isset($data['logs']) ? $data['logs'] : null;
         $this->container['management'] = isset($data['management']) ? $data['management'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
+        $this->container['merged_dts'] = isset($data['merged_dts']) ? $data['merged_dts'] : null;
+        $this->container['merged_into_auto_order_oid'] = isset($data['merged_into_auto_order_oid']) ? $data['merged_into_auto_order_oid'] : null;
         $this->container['next_attempt'] = isset($data['next_attempt']) ? $data['next_attempt'] : null;
         $this->container['original_order'] = isset($data['original_order']) ? $data['original_order'] : null;
         $this->container['original_order_id'] = isset($data['original_order_id']) ? $data['original_order_id'] : null;
@@ -801,6 +815,54 @@ class AutoOrder implements ModelInterface, ArrayAccess
     public function setMerchantId($merchant_id)
     {
         $this->container['merchant_id'] = $merchant_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets merged_dts
+     *
+     * @return string
+     */
+    public function getMergedDts()
+    {
+        return $this->container['merged_dts'];
+    }
+
+    /**
+     * Sets merged_dts
+     *
+     * @param string $merged_dts The date/time the auto order was merged into another auto order
+     *
+     * @return $this
+     */
+    public function setMergedDts($merged_dts)
+    {
+        $this->container['merged_dts'] = $merged_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets merged_into_auto_order_oid
+     *
+     * @return int
+     */
+    public function getMergedIntoAutoOrderOid()
+    {
+        return $this->container['merged_into_auto_order_oid'];
+    }
+
+    /**
+     * Sets merged_into_auto_order_oid
+     *
+     * @param int $merged_into_auto_order_oid The auto order that this auto order was merged into
+     *
+     * @return $this
+     */
+    public function setMergedIntoAutoOrderOid($merged_into_auto_order_oid)
+    {
+        $this->container['merged_into_auto_order_oid'] = $merged_into_auto_order_oid;
 
         return $this;
     }
