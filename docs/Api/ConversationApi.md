@@ -42,6 +42,7 @@ Method | HTTP request | Description
 [**getPbxAgentVoicemails()**](ConversationApi.md#getPbxAgentVoicemails) | **GET** /conversation/pbx/agent/voicemails | Get Agent Voicemails
 [**getPbxAgents()**](ConversationApi.md#getPbxAgents) | **GET** /conversation/pbx/agent | Get pbx agents
 [**getPbxAudio()**](ConversationApi.md#getPbxAudio) | **GET** /conversation/pbx/audio/{conversationPbxAudioUuid} | Get pbx audio
+[**getPbxAudioUsage()**](ConversationApi.md#getPbxAudioUsage) | **GET** /conversation/pbx/audio/{conversationPbxAudioUuid}/usage | Get pbx audio usage
 [**getPbxAudios()**](ConversationApi.md#getPbxAudios) | **GET** /conversation/pbx/audio | Get pbx audios
 [**getPbxMenu()**](ConversationApi.md#getPbxMenu) | **GET** /conversation/pbx/menu/{conversationPbxMenuUuid} | Get pbx menu
 [**getPbxMenus()**](ConversationApi.md#getPbxMenus) | **GET** /conversation/pbx/menu | Get pbx menus
@@ -2216,6 +2217,63 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\ConversationPbxAudioResponse**](../Model/ConversationPbxAudioResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getPbxAudioUsage()`
+
+```php
+getPbxAudioUsage($conversation_pbx_audio_uuid): \ultracart\v2\models\ConversationPbxAudioUsageResponse
+```
+
+Get pbx audio usage
+
+Retrieve a pbx audio usage
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+$conversation_pbx_audio_uuid = 'conversation_pbx_audio_uuid_example'; // string
+
+try {
+    $result = $apiInstance->getPbxAudioUsage($conversation_pbx_audio_uuid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ConversationApi->getPbxAudioUsage: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **conversation_pbx_audio_uuid** | **string**|  |
+
+### Return type
+
+[**\ultracart\v2\models\ConversationPbxAudioUsageResponse**](../Model/ConversationPbxAudioUsageResponse.md)
 
 ### Authorization
 

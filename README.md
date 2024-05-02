@@ -170,6 +170,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getPbxAgentVoicemails**](docs/Api/ConversationApi.md#getpbxagentvoicemails) | **GET** /conversation/pbx/agent/voicemails | Get Agent Voicemails
 *ConversationApi* | [**getPbxAgents**](docs/Api/ConversationApi.md#getpbxagents) | **GET** /conversation/pbx/agent | Get pbx agents
 *ConversationApi* | [**getPbxAudio**](docs/Api/ConversationApi.md#getpbxaudio) | **GET** /conversation/pbx/audio/{conversationPbxAudioUuid} | Get pbx audio
+*ConversationApi* | [**getPbxAudioUsage**](docs/Api/ConversationApi.md#getpbxaudiousage) | **GET** /conversation/pbx/audio/{conversationPbxAudioUuid}/usage | Get pbx audio usage
 *ConversationApi* | [**getPbxAudios**](docs/Api/ConversationApi.md#getpbxaudios) | **GET** /conversation/pbx/audio | Get pbx audios
 *ConversationApi* | [**getPbxMenu**](docs/Api/ConversationApi.md#getpbxmenu) | **GET** /conversation/pbx/menu/{conversationPbxMenuUuid} | Get pbx menu
 *ConversationApi* | [**getPbxMenus**](docs/Api/ConversationApi.md#getpbxmenus) | **GET** /conversation/pbx/menu | Get pbx menus
@@ -757,6 +758,7 @@ Class | Method | HTTP request | Description
 - [ConversationPbxAudioResponse](docs/Model/ConversationPbxAudioResponse.md)
 - [ConversationPbxAudioUploadUrl](docs/Model/ConversationPbxAudioUploadUrl.md)
 - [ConversationPbxAudioUploadUrlResponse](docs/Model/ConversationPbxAudioUploadUrlResponse.md)
+- [ConversationPbxAudioUsageResponse](docs/Model/ConversationPbxAudioUsageResponse.md)
 - [ConversationPbxAudiosResponse](docs/Model/ConversationPbxAudiosResponse.md)
 - [ConversationPbxCustomerSnapshotRequest](docs/Model/ConversationPbxCustomerSnapshotRequest.md)
 - [ConversationPbxCustomerSnapshotResponse](docs/Model/ConversationPbxCustomerSnapshotResponse.md)
@@ -1521,6 +1523,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.214 | 05/02/2024 | conversation - new method to load pbx audio usage |
 | 4.0.213 | 05/02/2024 | autoorder - fields to record merge association and tstamp |
 | 4.0.212 | 05/01/2024 | getConversationPbxAudioUploadUrl - fix the response obj def |
 | 4.0.211 | 04/24/2024 | esp - add fields for external generation on email |
