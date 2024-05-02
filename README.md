@@ -1521,6 +1521,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.213 | 05/02/2024 | autoorder - fields to record merge association and tstamp |
 | 4.0.212 | 05/01/2024 | getConversationPbxAudioUploadUrl - fix the response obj def |
 | 4.0.211 | 04/24/2024 | esp - add fields for external generation on email |
 | 4.0.210 | 04/04/2024 | AutoOrder.calculated_next_shipment_dts |
