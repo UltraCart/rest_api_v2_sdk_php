@@ -1523,6 +1523,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.215 | 05/08/2024 | added echeck fields to channel partner order import |
 | 4.0.214 | 05/02/2024 | conversation - new method to load pbx audio usage |
 | 4.0.213 | 05/02/2024 | autoorder - fields to record merge association and tstamp |
 | 4.0.212 | 05/01/2024 | getConversationPbxAudioUploadUrl - fix the response obj def |

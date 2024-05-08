@@ -97,6 +97,16 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'custom_field6' => 'string',
         'custom_field7' => 'string',
         'delivery_date' => 'string',
+        'echeck_bank_aba_code' => 'string',
+        'echeck_bank_account_name' => 'string',
+        'echeck_bank_account_number' => 'string',
+        'echeck_bank_account_type' => 'string',
+        'echeck_bank_name' => 'string',
+        'echeck_bank_owner_type' => 'string',
+        'echeck_customer_tax_id' => 'string',
+        'echeck_drivers_license_dob' => 'string',
+        'echeck_drivers_license_number' => 'string',
+        'echeck_drivers_license_state' => 'string',
         'email' => 'string',
         'gift' => 'bool',
         'gift_email' => 'string',
@@ -188,6 +198,16 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'custom_field6' => null,
         'custom_field7' => null,
         'delivery_date' => 'dateTime',
+        'echeck_bank_aba_code' => null,
+        'echeck_bank_account_name' => null,
+        'echeck_bank_account_number' => null,
+        'echeck_bank_account_type' => null,
+        'echeck_bank_name' => null,
+        'echeck_bank_owner_type' => null,
+        'echeck_customer_tax_id' => null,
+        'echeck_drivers_license_dob' => null,
+        'echeck_drivers_license_number' => null,
+        'echeck_drivers_license_state' => null,
         'email' => null,
         'gift' => null,
         'gift_email' => null,
@@ -298,6 +318,16 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'custom_field6' => 'custom_field6',
         'custom_field7' => 'custom_field7',
         'delivery_date' => 'delivery_date',
+        'echeck_bank_aba_code' => 'echeck_bank_aba_code',
+        'echeck_bank_account_name' => 'echeck_bank_account_name',
+        'echeck_bank_account_number' => 'echeck_bank_account_number',
+        'echeck_bank_account_type' => 'echeck_bank_account_type',
+        'echeck_bank_name' => 'echeck_bank_name',
+        'echeck_bank_owner_type' => 'echeck_bank_owner_type',
+        'echeck_customer_tax_id' => 'echeck_customer_tax_id',
+        'echeck_drivers_license_dob' => 'echeck_drivers_license_dob',
+        'echeck_drivers_license_number' => 'echeck_drivers_license_number',
+        'echeck_drivers_license_state' => 'echeck_drivers_license_state',
         'email' => 'email',
         'gift' => 'gift',
         'gift_email' => 'gift_email',
@@ -387,6 +417,16 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'custom_field6' => 'setCustomField6',
         'custom_field7' => 'setCustomField7',
         'delivery_date' => 'setDeliveryDate',
+        'echeck_bank_aba_code' => 'setEcheckBankAbaCode',
+        'echeck_bank_account_name' => 'setEcheckBankAccountName',
+        'echeck_bank_account_number' => 'setEcheckBankAccountNumber',
+        'echeck_bank_account_type' => 'setEcheckBankAccountType',
+        'echeck_bank_name' => 'setEcheckBankName',
+        'echeck_bank_owner_type' => 'setEcheckBankOwnerType',
+        'echeck_customer_tax_id' => 'setEcheckCustomerTaxId',
+        'echeck_drivers_license_dob' => 'setEcheckDriversLicenseDob',
+        'echeck_drivers_license_number' => 'setEcheckDriversLicenseNumber',
+        'echeck_drivers_license_state' => 'setEcheckDriversLicenseState',
         'email' => 'setEmail',
         'gift' => 'setGift',
         'gift_email' => 'setGiftEmail',
@@ -476,6 +516,16 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'custom_field6' => 'getCustomField6',
         'custom_field7' => 'getCustomField7',
         'delivery_date' => 'getDeliveryDate',
+        'echeck_bank_aba_code' => 'getEcheckBankAbaCode',
+        'echeck_bank_account_name' => 'getEcheckBankAccountName',
+        'echeck_bank_account_number' => 'getEcheckBankAccountNumber',
+        'echeck_bank_account_type' => 'getEcheckBankAccountType',
+        'echeck_bank_name' => 'getEcheckBankName',
+        'echeck_bank_owner_type' => 'getEcheckBankOwnerType',
+        'echeck_customer_tax_id' => 'getEcheckCustomerTaxId',
+        'echeck_drivers_license_dob' => 'getEcheckDriversLicenseDob',
+        'echeck_drivers_license_number' => 'getEcheckDriversLicenseNumber',
+        'echeck_drivers_license_state' => 'getEcheckDriversLicenseState',
         'email' => 'getEmail',
         'gift' => 'getGift',
         'gift_email' => 'getGiftEmail',
@@ -561,17 +611,48 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         return self::$openAPIModelName;
     }
 
+    public const ECHECK_BANK_ACCOUNT_TYPE_CHECKING = 'Checking';
+    public const ECHECK_BANK_ACCOUNT_TYPE_SAVINGS = 'Savings';
+    public const ECHECK_BANK_OWNER_TYPE_BUSINESS = 'Business';
+    public const ECHECK_BANK_OWNER_TYPE_PERSONAL = 'Personal';
     public const PAYMENT_METHOD_AFFIRM = 'Affirm';
     public const PAYMENT_METHOD_AMAZON = 'Amazon';
     public const PAYMENT_METHOD_CHECK = 'Check';
     public const PAYMENT_METHOD_COD = 'COD';
     public const PAYMENT_METHOD_CREDIT_CARD = 'Credit Card';
+    public const PAYMENT_METHOD_E_CHECK = 'eCheck';
     public const PAYMENT_METHOD_LOAN_HERO = 'LoanHero';
     public const PAYMENT_METHOD_MONEY_ORDER = 'Money Order';
     public const PAYMENT_METHOD_PAY_PAL = 'PayPal';
     public const PAYMENT_METHOD_PURCHASE_ORDER = 'Purchase Order';
     public const PAYMENT_METHOD_QUOTE_REQUEST = 'Quote Request';
     public const PAYMENT_METHOD_WIRE_TRANSFER = 'Wire Transfer';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getEcheckBankAccountTypeAllowableValues()
+    {
+        return [
+            self::ECHECK_BANK_ACCOUNT_TYPE_CHECKING,
+            self::ECHECK_BANK_ACCOUNT_TYPE_SAVINGS,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getEcheckBankOwnerTypeAllowableValues()
+    {
+        return [
+            self::ECHECK_BANK_OWNER_TYPE_BUSINESS,
+            self::ECHECK_BANK_OWNER_TYPE_PERSONAL,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -586,6 +667,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
             self::PAYMENT_METHOD_CHECK,
             self::PAYMENT_METHOD_COD,
             self::PAYMENT_METHOD_CREDIT_CARD,
+            self::PAYMENT_METHOD_E_CHECK,
             self::PAYMENT_METHOD_LOAN_HERO,
             self::PAYMENT_METHOD_MONEY_ORDER,
             self::PAYMENT_METHOD_PAY_PAL,
@@ -649,6 +731,16 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['custom_field6'] = $data['custom_field6'] ?? null;
         $this->container['custom_field7'] = $data['custom_field7'] ?? null;
         $this->container['delivery_date'] = $data['delivery_date'] ?? null;
+        $this->container['echeck_bank_aba_code'] = $data['echeck_bank_aba_code'] ?? null;
+        $this->container['echeck_bank_account_name'] = $data['echeck_bank_account_name'] ?? null;
+        $this->container['echeck_bank_account_number'] = $data['echeck_bank_account_number'] ?? null;
+        $this->container['echeck_bank_account_type'] = $data['echeck_bank_account_type'] ?? null;
+        $this->container['echeck_bank_name'] = $data['echeck_bank_name'] ?? null;
+        $this->container['echeck_bank_owner_type'] = $data['echeck_bank_owner_type'] ?? null;
+        $this->container['echeck_customer_tax_id'] = $data['echeck_customer_tax_id'] ?? null;
+        $this->container['echeck_drivers_license_dob'] = $data['echeck_drivers_license_dob'] ?? null;
+        $this->container['echeck_drivers_license_number'] = $data['echeck_drivers_license_number'] ?? null;
+        $this->container['echeck_drivers_license_state'] = $data['echeck_drivers_license_state'] ?? null;
         $this->container['email'] = $data['email'] ?? null;
         $this->container['gift'] = $data['gift'] ?? null;
         $this->container['gift_email'] = $data['gift_email'] ?? null;
@@ -780,6 +872,24 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
 
         if (!is_null($this->container['custom_field7']) && (mb_strlen($this->container['custom_field7']) > 50)) {
             $invalidProperties[] = "invalid value for 'custom_field7', the character length must be smaller than or equal to 50.";
+        }
+
+        $allowedValues = $this->getEcheckBankAccountTypeAllowableValues();
+        if (!is_null($this->container['echeck_bank_account_type']) && !in_array($this->container['echeck_bank_account_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'echeck_bank_account_type', must be one of '%s'",
+                $this->container['echeck_bank_account_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getEcheckBankOwnerTypeAllowableValues();
+        if (!is_null($this->container['echeck_bank_owner_type']) && !in_array($this->container['echeck_bank_owner_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'echeck_bank_owner_type', must be one of '%s'",
+                $this->container['echeck_bank_owner_type'],
+                implode("', '", $allowedValues)
+            );
         }
 
         if (!is_null($this->container['email']) && (mb_strlen($this->container['email']) > 100)) {
@@ -1886,6 +1996,266 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setDeliveryDate($delivery_date)
     {
         $this->container['delivery_date'] = $delivery_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets echeck_bank_aba_code
+     *
+     * @return string|null
+     */
+    public function getEcheckBankAbaCode()
+    {
+        return $this->container['echeck_bank_aba_code'];
+    }
+
+    /**
+     * Sets echeck_bank_aba_code
+     *
+     * @param string|null $echeck_bank_aba_code eCheck bank ABA code
+     *
+     * @return self
+     */
+    public function setEcheckBankAbaCode($echeck_bank_aba_code)
+    {
+        $this->container['echeck_bank_aba_code'] = $echeck_bank_aba_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets echeck_bank_account_name
+     *
+     * @return string|null
+     */
+    public function getEcheckBankAccountName()
+    {
+        return $this->container['echeck_bank_account_name'];
+    }
+
+    /**
+     * Sets echeck_bank_account_name
+     *
+     * @param string|null $echeck_bank_account_name eCheck bank account name
+     *
+     * @return self
+     */
+    public function setEcheckBankAccountName($echeck_bank_account_name)
+    {
+        $this->container['echeck_bank_account_name'] = $echeck_bank_account_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets echeck_bank_account_number
+     *
+     * @return string|null
+     */
+    public function getEcheckBankAccountNumber()
+    {
+        return $this->container['echeck_bank_account_number'];
+    }
+
+    /**
+     * Sets echeck_bank_account_number
+     *
+     * @param string|null $echeck_bank_account_number eCheck bank account number
+     *
+     * @return self
+     */
+    public function setEcheckBankAccountNumber($echeck_bank_account_number)
+    {
+        $this->container['echeck_bank_account_number'] = $echeck_bank_account_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets echeck_bank_account_type
+     *
+     * @return string|null
+     */
+    public function getEcheckBankAccountType()
+    {
+        return $this->container['echeck_bank_account_type'];
+    }
+
+    /**
+     * Sets echeck_bank_account_type
+     *
+     * @param string|null $echeck_bank_account_type eCheck bank account type
+     *
+     * @return self
+     */
+    public function setEcheckBankAccountType($echeck_bank_account_type)
+    {
+        $allowedValues = $this->getEcheckBankAccountTypeAllowableValues();
+        if (!is_null($echeck_bank_account_type) && !in_array($echeck_bank_account_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'echeck_bank_account_type', must be one of '%s'",
+                    $echeck_bank_account_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['echeck_bank_account_type'] = $echeck_bank_account_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets echeck_bank_name
+     *
+     * @return string|null
+     */
+    public function getEcheckBankName()
+    {
+        return $this->container['echeck_bank_name'];
+    }
+
+    /**
+     * Sets echeck_bank_name
+     *
+     * @param string|null $echeck_bank_name eCheck bank name
+     *
+     * @return self
+     */
+    public function setEcheckBankName($echeck_bank_name)
+    {
+        $this->container['echeck_bank_name'] = $echeck_bank_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets echeck_bank_owner_type
+     *
+     * @return string|null
+     */
+    public function getEcheckBankOwnerType()
+    {
+        return $this->container['echeck_bank_owner_type'];
+    }
+
+    /**
+     * Sets echeck_bank_owner_type
+     *
+     * @param string|null $echeck_bank_owner_type eCheck bank owner type
+     *
+     * @return self
+     */
+    public function setEcheckBankOwnerType($echeck_bank_owner_type)
+    {
+        $allowedValues = $this->getEcheckBankOwnerTypeAllowableValues();
+        if (!is_null($echeck_bank_owner_type) && !in_array($echeck_bank_owner_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'echeck_bank_owner_type', must be one of '%s'",
+                    $echeck_bank_owner_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['echeck_bank_owner_type'] = $echeck_bank_owner_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets echeck_customer_tax_id
+     *
+     * @return string|null
+     */
+    public function getEcheckCustomerTaxId()
+    {
+        return $this->container['echeck_customer_tax_id'];
+    }
+
+    /**
+     * Sets echeck_customer_tax_id
+     *
+     * @param string|null $echeck_customer_tax_id eCheck customer tax id
+     *
+     * @return self
+     */
+    public function setEcheckCustomerTaxId($echeck_customer_tax_id)
+    {
+        $this->container['echeck_customer_tax_id'] = $echeck_customer_tax_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets echeck_drivers_license_dob
+     *
+     * @return string|null
+     */
+    public function getEcheckDriversLicenseDob()
+    {
+        return $this->container['echeck_drivers_license_dob'];
+    }
+
+    /**
+     * Sets echeck_drivers_license_dob
+     *
+     * @param string|null $echeck_drivers_license_dob eCheck drivers license dob
+     *
+     * @return self
+     */
+    public function setEcheckDriversLicenseDob($echeck_drivers_license_dob)
+    {
+        $this->container['echeck_drivers_license_dob'] = $echeck_drivers_license_dob;
+
+        return $this;
+    }
+
+    /**
+     * Gets echeck_drivers_license_number
+     *
+     * @return string|null
+     */
+    public function getEcheckDriversLicenseNumber()
+    {
+        return $this->container['echeck_drivers_license_number'];
+    }
+
+    /**
+     * Sets echeck_drivers_license_number
+     *
+     * @param string|null $echeck_drivers_license_number eCheck drivers license number
+     *
+     * @return self
+     */
+    public function setEcheckDriversLicenseNumber($echeck_drivers_license_number)
+    {
+        $this->container['echeck_drivers_license_number'] = $echeck_drivers_license_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets echeck_drivers_license_state
+     *
+     * @return string|null
+     */
+    public function getEcheckDriversLicenseState()
+    {
+        return $this->container['echeck_drivers_license_state'];
+    }
+
+    /**
+     * Sets echeck_drivers_license_state
+     *
+     * @param string|null $echeck_drivers_license_state eCheck drivers license state
+     *
+     * @return self
+     */
+    public function setEcheckDriversLicenseState($echeck_drivers_license_state)
+    {
+        $this->container['echeck_drivers_license_state'] = $echeck_drivers_license_state;
 
         return $this;
     }

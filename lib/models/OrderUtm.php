@@ -71,6 +71,12 @@ class OrderUtm implements ModelInterface, ArrayAccess, \JsonSerializable
         'fbclid' => 'string',
         'gbraid' => 'string',
         'glcid' => 'string',
+        'itm_campaign' => 'string',
+        'itm_content' => 'string',
+        'itm_id' => 'string',
+        'itm_medium' => 'string',
+        'itm_source' => 'string',
+        'itm_term' => 'string',
         'msclkid' => 'string',
         'ttclid' => 'string',
         'uc_message_id' => 'string',
@@ -105,6 +111,12 @@ class OrderUtm implements ModelInterface, ArrayAccess, \JsonSerializable
         'fbclid' => null,
         'gbraid' => null,
         'glcid' => null,
+        'itm_campaign' => null,
+        'itm_content' => null,
+        'itm_id' => null,
+        'itm_medium' => null,
+        'itm_source' => null,
+        'itm_term' => null,
         'msclkid' => null,
         'ttclid' => null,
         'uc_message_id' => null,
@@ -158,6 +170,12 @@ class OrderUtm implements ModelInterface, ArrayAccess, \JsonSerializable
         'fbclid' => 'fbclid',
         'gbraid' => 'gbraid',
         'glcid' => 'glcid',
+        'itm_campaign' => 'itm_campaign',
+        'itm_content' => 'itm_content',
+        'itm_id' => 'itm_id',
+        'itm_medium' => 'itm_medium',
+        'itm_source' => 'itm_source',
+        'itm_term' => 'itm_term',
         'msclkid' => 'msclkid',
         'ttclid' => 'ttclid',
         'uc_message_id' => 'uc_message_id',
@@ -190,6 +208,12 @@ class OrderUtm implements ModelInterface, ArrayAccess, \JsonSerializable
         'fbclid' => 'setFbclid',
         'gbraid' => 'setGbraid',
         'glcid' => 'setGlcid',
+        'itm_campaign' => 'setItmCampaign',
+        'itm_content' => 'setItmContent',
+        'itm_id' => 'setItmId',
+        'itm_medium' => 'setItmMedium',
+        'itm_source' => 'setItmSource',
+        'itm_term' => 'setItmTerm',
         'msclkid' => 'setMsclkid',
         'ttclid' => 'setTtclid',
         'uc_message_id' => 'setUcMessageId',
@@ -222,6 +246,12 @@ class OrderUtm implements ModelInterface, ArrayAccess, \JsonSerializable
         'fbclid' => 'getFbclid',
         'gbraid' => 'getGbraid',
         'glcid' => 'getGlcid',
+        'itm_campaign' => 'getItmCampaign',
+        'itm_content' => 'getItmContent',
+        'itm_id' => 'getItmId',
+        'itm_medium' => 'getItmMedium',
+        'itm_source' => 'getItmSource',
+        'itm_term' => 'getItmTerm',
         'msclkid' => 'getMsclkid',
         'ttclid' => 'getTtclid',
         'uc_message_id' => 'getUcMessageId',
@@ -305,6 +335,12 @@ class OrderUtm implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['fbclid'] = $data['fbclid'] ?? null;
         $this->container['gbraid'] = $data['gbraid'] ?? null;
         $this->container['glcid'] = $data['glcid'] ?? null;
+        $this->container['itm_campaign'] = $data['itm_campaign'] ?? null;
+        $this->container['itm_content'] = $data['itm_content'] ?? null;
+        $this->container['itm_id'] = $data['itm_id'] ?? null;
+        $this->container['itm_medium'] = $data['itm_medium'] ?? null;
+        $this->container['itm_source'] = $data['itm_source'] ?? null;
+        $this->container['itm_term'] = $data['itm_term'] ?? null;
         $this->container['msclkid'] = $data['msclkid'] ?? null;
         $this->container['ttclid'] = $data['ttclid'] ?? null;
         $this->container['uc_message_id'] = $data['uc_message_id'] ?? null;
@@ -650,6 +686,150 @@ class OrderUtm implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setGlcid($glcid)
     {
         $this->container['glcid'] = $glcid;
+
+        return $this;
+    }
+
+    /**
+     * Gets itm_campaign
+     *
+     * @return string|null
+     */
+    public function getItmCampaign()
+    {
+        return $this->container['itm_campaign'];
+    }
+
+    /**
+     * Sets itm_campaign
+     *
+     * @param string|null $itm_campaign itm_campaign
+     *
+     * @return self
+     */
+    public function setItmCampaign($itm_campaign)
+    {
+        $this->container['itm_campaign'] = $itm_campaign;
+
+        return $this;
+    }
+
+    /**
+     * Gets itm_content
+     *
+     * @return string|null
+     */
+    public function getItmContent()
+    {
+        return $this->container['itm_content'];
+    }
+
+    /**
+     * Sets itm_content
+     *
+     * @param string|null $itm_content itm_content
+     *
+     * @return self
+     */
+    public function setItmContent($itm_content)
+    {
+        $this->container['itm_content'] = $itm_content;
+
+        return $this;
+    }
+
+    /**
+     * Gets itm_id
+     *
+     * @return string|null
+     */
+    public function getItmId()
+    {
+        return $this->container['itm_id'];
+    }
+
+    /**
+     * Sets itm_id
+     *
+     * @param string|null $itm_id itm_id
+     *
+     * @return self
+     */
+    public function setItmId($itm_id)
+    {
+        $this->container['itm_id'] = $itm_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets itm_medium
+     *
+     * @return string|null
+     */
+    public function getItmMedium()
+    {
+        return $this->container['itm_medium'];
+    }
+
+    /**
+     * Sets itm_medium
+     *
+     * @param string|null $itm_medium itm_medium
+     *
+     * @return self
+     */
+    public function setItmMedium($itm_medium)
+    {
+        $this->container['itm_medium'] = $itm_medium;
+
+        return $this;
+    }
+
+    /**
+     * Gets itm_source
+     *
+     * @return string|null
+     */
+    public function getItmSource()
+    {
+        return $this->container['itm_source'];
+    }
+
+    /**
+     * Sets itm_source
+     *
+     * @param string|null $itm_source itm_source
+     *
+     * @return self
+     */
+    public function setItmSource($itm_source)
+    {
+        $this->container['itm_source'] = $itm_source;
+
+        return $this;
+    }
+
+    /**
+     * Gets itm_term
+     *
+     * @return string|null
+     */
+    public function getItmTerm()
+    {
+        return $this->container['itm_term'];
+    }
+
+    /**
+     * Sets itm_term
+     *
+     * @param string|null $itm_term itm_term
+     *
+     * @return self
+     */
+    public function setItmTerm($itm_term)
+    {
+        $this->container['itm_term'] = $itm_term;
 
         return $this;
     }
