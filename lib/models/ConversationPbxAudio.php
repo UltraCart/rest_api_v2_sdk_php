@@ -64,6 +64,7 @@ class ConversationPbxAudio implements ModelInterface, ArrayAccess
         'filename' => 'string',
         'merchant_id' => 'string',
         'mime_type' => 'string',
+        'url' => 'string',
         'user_id' => 'int',
         'version' => 'int'
     ];
@@ -81,6 +82,7 @@ class ConversationPbxAudio implements ModelInterface, ArrayAccess
         'filename' => null,
         'merchant_id' => null,
         'mime_type' => null,
+        'url' => null,
         'user_id' => 'int32',
         'version' => 'int32'
     ];
@@ -119,6 +121,7 @@ class ConversationPbxAudio implements ModelInterface, ArrayAccess
         'filename' => 'filename',
         'merchant_id' => 'merchant_id',
         'mime_type' => 'mime_type',
+        'url' => 'url',
         'user_id' => 'user_id',
         'version' => 'version'
     ];
@@ -136,6 +139,7 @@ class ConversationPbxAudio implements ModelInterface, ArrayAccess
         'filename' => 'setFilename',
         'merchant_id' => 'setMerchantId',
         'mime_type' => 'setMimeType',
+        'url' => 'setUrl',
         'user_id' => 'setUserId',
         'version' => 'setVersion'
     ];
@@ -153,6 +157,7 @@ class ConversationPbxAudio implements ModelInterface, ArrayAccess
         'filename' => 'getFilename',
         'merchant_id' => 'getMerchantId',
         'mime_type' => 'getMimeType',
+        'url' => 'getUrl',
         'user_id' => 'getUserId',
         'version' => 'getVersion'
     ];
@@ -224,6 +229,7 @@ class ConversationPbxAudio implements ModelInterface, ArrayAccess
         $this->container['filename'] = isset($data['filename']) ? $data['filename'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['mime_type'] = isset($data['mime_type']) ? $data['mime_type'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
         $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
         $this->container['version'] = isset($data['version']) ? $data['version'] : null;
     }
@@ -464,6 +470,30 @@ class ConversationPbxAudio implements ModelInterface, ArrayAccess
         }
 
         $this->container['mime_type'] = $mime_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->container['url'];
+    }
+
+    /**
+     * Sets url
+     *
+     * @param string $url URL
+     *
+     * @return $this
+     */
+    public function setUrl($url)
+    {
+        $this->container['url'] = $url;
 
         return $this;
     }
