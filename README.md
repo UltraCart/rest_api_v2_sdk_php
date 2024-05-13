@@ -1582,6 +1582,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.200 | 05/13/2024 | conversation pbx - bug fix on camelCase property names |
 | 3.10.199 | 05/13/2024 | conversation pbx - allow nullable day of week in time range |
 | 3.10.198 | 05/08/2024 | added echeck fields to channel partner order import |
 | 3.10.197 | 05/02/2024 | conversation - new method to load pbx audio usage |
