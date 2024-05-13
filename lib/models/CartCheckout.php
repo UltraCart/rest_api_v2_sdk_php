@@ -59,6 +59,7 @@ class CartCheckout implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'comments' => 'string',
+        'current_step' => 'string',
         'custom_field1' => 'string',
         'custom_field10' => 'string',
         'custom_field2' => 'string',
@@ -86,6 +87,7 @@ class CartCheckout implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'comments' => null,
+        'current_step' => null,
         'custom_field1' => null,
         'custom_field10' => null,
         'custom_field2' => null,
@@ -132,6 +134,7 @@ class CartCheckout implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'comments' => 'comments',
+        'current_step' => 'current_step',
         'custom_field1' => 'custom_field1',
         'custom_field10' => 'custom_field10',
         'custom_field2' => 'custom_field2',
@@ -157,6 +160,7 @@ class CartCheckout implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'comments' => 'setComments',
+        'current_step' => 'setCurrentStep',
         'custom_field1' => 'setCustomField1',
         'custom_field10' => 'setCustomField10',
         'custom_field2' => 'setCustomField2',
@@ -182,6 +186,7 @@ class CartCheckout implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'comments' => 'getComments',
+        'current_step' => 'getCurrentStep',
         'custom_field1' => 'getCustomField1',
         'custom_field10' => 'getCustomField10',
         'custom_field2' => 'getCustomField2',
@@ -258,6 +263,7 @@ class CartCheckout implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->container['comments'] = $data['comments'] ?? null;
+        $this->container['current_step'] = $data['current_step'] ?? null;
         $this->container['custom_field1'] = $data['custom_field1'] ?? null;
         $this->container['custom_field10'] = $data['custom_field10'] ?? null;
         $this->container['custom_field2'] = $data['custom_field2'] ?? null;
@@ -376,6 +382,30 @@ class CartCheckout implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['comments'] = $comments;
+
+        return $this;
+    }
+
+    /**
+     * Gets current_step
+     *
+     * @return string|null
+     */
+    public function getCurrentStep()
+    {
+        return $this->container['current_step'];
+    }
+
+    /**
+     * Sets current_step
+     *
+     * @param string|null $current_step Current step of the checkout (read only)
+     *
+     * @return self
+     */
+    public function setCurrentStep($current_step)
+    {
+        $this->container['current_step'] = $current_step;
 
         return $this;
     }
