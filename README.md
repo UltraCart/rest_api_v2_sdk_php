@@ -1523,6 +1523,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.218 | 05/14/2024 | conversation pbx - allowed value constants on the action |
 | 4.0.217 | 05/13/2024 | conversation pbx - bug fix on camelCase property names |
 | 4.0.216 | 05/13/2024 | conversation pbx - allow nullable day of week in time range |
 | 4.0.215 | 05/08/2024 | added echeck fields to channel partner order import |
