@@ -178,8 +178,29 @@ class ConversationPbxPhoneNumber implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const ACTION_TIME_BASED = 'time based';
+    const ACTION_MENU = 'menu';
+    const ACTION_QUEUE = 'queue';
+    const ACTION_VOICEMAIL = 'voicemail';
+    const ACTION_AGENT = 'agent';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getActionAllowableValues()
+    {
+        return [
+            self::ACTION_TIME_BASED,
+            self::ACTION_MENU,
+            self::ACTION_QUEUE,
+            self::ACTION_VOICEMAIL,
+            self::ACTION_AGENT,
+        ];
+    }
     
 
     /**
@@ -212,6 +233,14 @@ class ConversationPbxPhoneNumber implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getActionAllowableValues();
+        if (!is_null($this->container['action']) && !in_array($this->container['action'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'action', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         if (!is_null($this->container['action']) && (mb_strlen($this->container['action']) > 30)) {
             $invalidProperties[] = "invalid value for 'action', the character length must be smaller than or equal to 30.";
@@ -267,6 +296,15 @@ class ConversationPbxPhoneNumber implements ModelInterface, ArrayAccess
      */
     public function setAction($action)
     {
+        $allowedValues = $this->getActionAllowableValues();
+        if (!is_null($action) && !in_array($action, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'action', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         if (!is_null($action) && (mb_strlen($action) > 30)) {
             throw new \InvalidArgumentException('invalid length for $action when calling ConversationPbxPhoneNumber., must be smaller than or equal to 30.');
         }
@@ -289,7 +327,7 @@ class ConversationPbxPhoneNumber implements ModelInterface, ArrayAccess
     /**
      * Sets action_target
      *
-     * @param string $action_target Action target
+     * @param string $action_target Action target.  This is the UUID associated with the configuration object of that particular type.
      *
      * @return $this
      */

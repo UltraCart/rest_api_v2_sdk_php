@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **action** | **string** | Action | [optional] 
-**action_target** | **string** | Action target | [optional] 
+**action_target** | **string** | Action target.  This is the UUID associated with the configuration object of that particular type. | [optional] 
 **name** | **string** | Name | [optional] 
 **time_range_uuid** | **string** | Time range UUID | [optional] 
 
