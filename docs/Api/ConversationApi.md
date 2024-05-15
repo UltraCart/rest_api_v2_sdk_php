@@ -7,11 +7,9 @@ Method | HTTP request | Description
 [**deleteConversationCannedMessage()**](ConversationApi.md#deleteConversationCannedMessage) | **DELETE** /conversation/canned_messages/{conversation_canned_message_oid} | Delete a conversation canned message
 [**deleteDepartment()**](ConversationApi.md#deleteDepartment) | **DELETE** /conversation/departments/{conversation_department_oid} | Delete a conversation department
 [**deleteEngagement()**](ConversationApi.md#deleteEngagement) | **DELETE** /conversation/engagements/{conversation_engagement_oid} | Delete a conversation engagement
-[**deletePbxAgent()**](ConversationApi.md#deletePbxAgent) | **DELETE** /conversation/pbx/agent/{conversationPbxAgentUuid} | Delete pbx agent
 [**deletePbxAgentVoicemail()**](ConversationApi.md#deletePbxAgentVoicemail) | **DELETE** /conversation/pbx/agent/voicemails/{recording_sid} | Delete Agent Voicemail
 [**deletePbxAudio()**](ConversationApi.md#deletePbxAudio) | **DELETE** /conversation/pbx/audio/{conversationPbxAudioUuid} | Delete pbx audio
 [**deletePbxMenu()**](ConversationApi.md#deletePbxMenu) | **DELETE** /conversation/pbx/menu/{conversationPbxMenuUuid} | Delete pbx menu
-[**deletePbxPhoneNumber()**](ConversationApi.md#deletePbxPhoneNumber) | **DELETE** /conversation/pbx/phone_number/{conversationPbxPhoneNumberUuid} | Delete pbx phoneNumber
 [**deletePbxQueue()**](ConversationApi.md#deletePbxQueue) | **DELETE** /conversation/pbx/queue/{conversationPbxQueueUuid} | Delete pbx queue
 [**deletePbxQueueVoicemail()**](ConversationApi.md#deletePbxQueueVoicemail) | **DELETE** /conversation/pbx/queues/{queue_uuid}/voicemails/{recording_sid} | Delete Queue Voicemail
 [**deletePbxTimeBased()**](ConversationApi.md#deletePbxTimeBased) | **DELETE** /conversation/pbx/time_based/{conversationPbxTimeBasedUuid} | Delete pbx timeBased
@@ -61,10 +59,8 @@ Method | HTTP request | Description
 [**insertConversationCannedMessage()**](ConversationApi.md#insertConversationCannedMessage) | **POST** /conversation/canned_messages | Insert a canned message
 [**insertConversationDepartment()**](ConversationApi.md#insertConversationDepartment) | **POST** /conversation/departments | Insert a department
 [**insertConversationEngagement()**](ConversationApi.md#insertConversationEngagement) | **POST** /conversation/engagements | Insert a engagement
-[**insertPbxAgent()**](ConversationApi.md#insertPbxAgent) | **POST** /conversation/pbx/agent | Insert pbx agent
 [**insertPbxAudio()**](ConversationApi.md#insertPbxAudio) | **POST** /conversation/pbx/audio | Insert pbx audio
 [**insertPbxMenu()**](ConversationApi.md#insertPbxMenu) | **POST** /conversation/pbx/menu | Insert pbx menu
-[**insertPbxPhoneNumber()**](ConversationApi.md#insertPbxPhoneNumber) | **POST** /conversation/pbx/phone_number | Insert pbx phoneNumber
 [**insertPbxQueue()**](ConversationApi.md#insertPbxQueue) | **POST** /conversation/pbx/queue | Insert pbx queue
 [**insertPbxTimeBased()**](ConversationApi.md#insertPbxTimeBased) | **POST** /conversation/pbx/time_based | Insert pbx timeBased
 [**insertPbxTimeRange()**](ConversationApi.md#insertPbxTimeRange) | **POST** /conversation/pbx/time_range | Insert pbx timeRange
@@ -261,63 +257,6 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `deletePbxAgent()`
-
-```php
-deletePbxAgent($conversation_pbx_agent_uuid): \ultracart\v2\models\ConversationPbxAgentResponse
-```
-
-Delete pbx agent
-
-Delete a pbx agent
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_pbx_agent_uuid = 'conversation_pbx_agent_uuid_example'; // string
-
-try {
-    $result = $apiInstance->deletePbxAgent($conversation_pbx_agent_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->deletePbxAgent: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **conversation_pbx_agent_uuid** | **string**|  |
-
-### Return type
-
-[**\ultracart\v2\models\ConversationPbxAgentResponse**](../Model/ConversationPbxAgentResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
 ## `deletePbxAgentVoicemail()`
 
 ```php
@@ -474,63 +413,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\ConversationPbxMenuResponse**](../Model/ConversationPbxMenuResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `deletePbxPhoneNumber()`
-
-```php
-deletePbxPhoneNumber($conversation_pbx_phone_number_uuid): \ultracart\v2\models\ConversationPbxPhoneNumberResponse
-```
-
-Delete pbx phoneNumber
-
-Delete a pbx phoneNumber
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_pbx_phone_number_uuid = 'conversation_pbx_phone_number_uuid_example'; // string
-
-try {
-    $result = $apiInstance->deletePbxPhoneNumber($conversation_pbx_phone_number_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->deletePbxPhoneNumber: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **conversation_pbx_phone_number_uuid** | **string**|  |
-
-### Return type
-
-[**\ultracart\v2\models\ConversationPbxPhoneNumberResponse**](../Model/ConversationPbxPhoneNumberResponse.md)
 
 ### Authorization
 
@@ -3295,63 +3177,6 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `insertPbxAgent()`
-
-```php
-insertPbxAgent($pbx_agent): \ultracart\v2\models\ConversationPbxAgentResponse
-```
-
-Insert pbx agent
-
-Insert a pbx agent
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$pbx_agent = new \ultracart\v2\models\ConversationPbxAgent(); // \ultracart\v2\models\ConversationPbxAgent | Pbx Agent
-
-try {
-    $result = $apiInstance->insertPbxAgent($pbx_agent);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->insertPbxAgent: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pbx_agent** | [**\ultracart\v2\models\ConversationPbxAgent**](../Model/ConversationPbxAgent.md)| Pbx Agent |
-
-### Return type
-
-[**\ultracart\v2\models\ConversationPbxAgentResponse**](../Model/ConversationPbxAgentResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
 ## `insertPbxAudio()`
 
 ```php
@@ -3452,63 +3277,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\ConversationPbxMenuResponse**](../Model/ConversationPbxMenuResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `insertPbxPhoneNumber()`
-
-```php
-insertPbxPhoneNumber($pbx_phone_number): \ultracart\v2\models\ConversationPbxPhoneNumberResponse
-```
-
-Insert pbx phoneNumber
-
-Insert a pbx phoneNumber
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$pbx_phone_number = new \ultracart\v2\models\ConversationPbxPhoneNumber(); // \ultracart\v2\models\ConversationPbxPhoneNumber | Pbx PhoneNumber
-
-try {
-    $result = $apiInstance->insertPbxPhoneNumber($pbx_phone_number);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->insertPbxPhoneNumber: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pbx_phone_number** | [**\ultracart\v2\models\ConversationPbxPhoneNumber**](../Model/ConversationPbxPhoneNumber.md)| Pbx PhoneNumber |
-
-### Return type
-
-[**\ultracart\v2\models\ConversationPbxPhoneNumberResponse**](../Model/ConversationPbxPhoneNumberResponse.md)
 
 ### Authorization
 
