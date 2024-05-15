@@ -62,13 +62,14 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess, \J
         'merchant_id' => 'string',
         'send_notices_to_email' => 'string',
         'user_id' => 'int',
-        'voicemail_follow_play_audio_uuid' => 'string',
+        'voicemail_followup_play_audio_uuid' => 'string',
         'voicemail_followup_say' => 'string',
+        'voicemail_followup_say_voice' => 'string',
         'voicemail_mailbox_id' => 'string',
         'voicemail_mailbox_type' => 'string',
         'voicemail_prompt_play_audio_uuid' => 'string',
         'voicemail_prompt_say' => 'string',
-        'voicemail_say_voice' => 'string'
+        'voicemail_prompt_say_voice' => 'string'
     ];
 
     /**
@@ -83,13 +84,14 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess, \J
         'merchant_id' => null,
         'send_notices_to_email' => null,
         'user_id' => 'int32',
-        'voicemail_follow_play_audio_uuid' => null,
+        'voicemail_followup_play_audio_uuid' => null,
         'voicemail_followup_say' => null,
+        'voicemail_followup_say_voice' => null,
         'voicemail_mailbox_id' => null,
         'voicemail_mailbox_type' => null,
         'voicemail_prompt_play_audio_uuid' => null,
         'voicemail_prompt_say' => null,
-        'voicemail_say_voice' => null
+        'voicemail_prompt_say_voice' => null
     ];
 
     /**
@@ -123,13 +125,14 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess, \J
         'merchant_id' => 'merchant_id',
         'send_notices_to_email' => 'send_notices_to_email',
         'user_id' => 'user_id',
-        'voicemail_follow_play_audio_uuid' => 'voicemail_follow_play_audio_uuid',
+        'voicemail_followup_play_audio_uuid' => 'voicemail_followup_play_audio_uuid',
         'voicemail_followup_say' => 'voicemail_followup_say',
+        'voicemail_followup_say_voice' => 'voicemail_followup_say_voice',
         'voicemail_mailbox_id' => 'voicemail_mailbox_id',
         'voicemail_mailbox_type' => 'voicemail_mailbox_type',
         'voicemail_prompt_play_audio_uuid' => 'voicemail_prompt_play_audio_uuid',
         'voicemail_prompt_say' => 'voicemail_prompt_say',
-        'voicemail_say_voice' => 'voicemail_say_voice'
+        'voicemail_prompt_say_voice' => 'voicemail_prompt_say_voice'
     ];
 
     /**
@@ -142,13 +145,14 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess, \J
         'merchant_id' => 'setMerchantId',
         'send_notices_to_email' => 'setSendNoticesToEmail',
         'user_id' => 'setUserId',
-        'voicemail_follow_play_audio_uuid' => 'setVoicemailFollowPlayAudioUuid',
+        'voicemail_followup_play_audio_uuid' => 'setVoicemailFollowupPlayAudioUuid',
         'voicemail_followup_say' => 'setVoicemailFollowupSay',
+        'voicemail_followup_say_voice' => 'setVoicemailFollowupSayVoice',
         'voicemail_mailbox_id' => 'setVoicemailMailboxId',
         'voicemail_mailbox_type' => 'setVoicemailMailboxType',
         'voicemail_prompt_play_audio_uuid' => 'setVoicemailPromptPlayAudioUuid',
         'voicemail_prompt_say' => 'setVoicemailPromptSay',
-        'voicemail_say_voice' => 'setVoicemailSayVoice'
+        'voicemail_prompt_say_voice' => 'setVoicemailPromptSayVoice'
     ];
 
     /**
@@ -161,13 +165,14 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess, \J
         'merchant_id' => 'getMerchantId',
         'send_notices_to_email' => 'getSendNoticesToEmail',
         'user_id' => 'getUserId',
-        'voicemail_follow_play_audio_uuid' => 'getVoicemailFollowPlayAudioUuid',
+        'voicemail_followup_play_audio_uuid' => 'getVoicemailFollowupPlayAudioUuid',
         'voicemail_followup_say' => 'getVoicemailFollowupSay',
+        'voicemail_followup_say_voice' => 'getVoicemailFollowupSayVoice',
         'voicemail_mailbox_id' => 'getVoicemailMailboxId',
         'voicemail_mailbox_type' => 'getVoicemailMailboxType',
         'voicemail_prompt_play_audio_uuid' => 'getVoicemailPromptPlayAudioUuid',
         'voicemail_prompt_say' => 'getVoicemailPromptSay',
-        'voicemail_say_voice' => 'getVoicemailSayVoice'
+        'voicemail_prompt_say_voice' => 'getVoicemailPromptSayVoice'
     ];
 
     /**
@@ -246,13 +251,14 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess, \J
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
         $this->container['send_notices_to_email'] = $data['send_notices_to_email'] ?? null;
         $this->container['user_id'] = $data['user_id'] ?? null;
-        $this->container['voicemail_follow_play_audio_uuid'] = $data['voicemail_follow_play_audio_uuid'] ?? null;
+        $this->container['voicemail_followup_play_audio_uuid'] = $data['voicemail_followup_play_audio_uuid'] ?? null;
         $this->container['voicemail_followup_say'] = $data['voicemail_followup_say'] ?? null;
+        $this->container['voicemail_followup_say_voice'] = $data['voicemail_followup_say_voice'] ?? null;
         $this->container['voicemail_mailbox_id'] = $data['voicemail_mailbox_id'] ?? null;
         $this->container['voicemail_mailbox_type'] = $data['voicemail_mailbox_type'] ?? null;
         $this->container['voicemail_prompt_play_audio_uuid'] = $data['voicemail_prompt_play_audio_uuid'] ?? null;
         $this->container['voicemail_prompt_say'] = $data['voicemail_prompt_say'] ?? null;
-        $this->container['voicemail_say_voice'] = $data['voicemail_say_voice'] ?? null;
+        $this->container['voicemail_prompt_say_voice'] = $data['voicemail_prompt_say_voice'] ?? null;
     }
 
     /**
@@ -276,8 +282,12 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess, \J
             $invalidProperties[] = "invalid value for 'send_notices_to_email', the character length must be smaller than or equal to 250.";
         }
 
-        if (!is_null($this->container['voicemail_follow_play_audio_uuid']) && (mb_strlen($this->container['voicemail_follow_play_audio_uuid']) > 50)) {
-            $invalidProperties[] = "invalid value for 'voicemail_follow_play_audio_uuid', the character length must be smaller than or equal to 50.";
+        if (!is_null($this->container['voicemail_followup_play_audio_uuid']) && (mb_strlen($this->container['voicemail_followup_play_audio_uuid']) > 50)) {
+            $invalidProperties[] = "invalid value for 'voicemail_followup_play_audio_uuid', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['voicemail_followup_say_voice']) && (mb_strlen($this->container['voicemail_followup_say_voice']) > 50)) {
+            $invalidProperties[] = "invalid value for 'voicemail_followup_say_voice', the character length must be smaller than or equal to 50.";
         }
 
         if (!is_null($this->container['voicemail_mailbox_id']) && (mb_strlen($this->container['voicemail_mailbox_id']) > 50)) {
@@ -301,8 +311,8 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess, \J
             $invalidProperties[] = "invalid value for 'voicemail_prompt_play_audio_uuid', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['voicemail_say_voice']) && (mb_strlen($this->container['voicemail_say_voice']) > 50)) {
-            $invalidProperties[] = "invalid value for 'voicemail_say_voice', the character length must be smaller than or equal to 50.";
+        if (!is_null($this->container['voicemail_prompt_say_voice']) && (mb_strlen($this->container['voicemail_prompt_say_voice']) > 50)) {
+            $invalidProperties[] = "invalid value for 'voicemail_prompt_say_voice', the character length must be smaller than or equal to 50.";
         }
 
         return $invalidProperties;
@@ -429,29 +439,29 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess, \J
     }
 
     /**
-     * Gets voicemail_follow_play_audio_uuid
+     * Gets voicemail_followup_play_audio_uuid
      *
      * @return string|null
      */
-    public function getVoicemailFollowPlayAudioUuid()
+    public function getVoicemailFollowupPlayAudioUuid()
     {
-        return $this->container['voicemail_follow_play_audio_uuid'];
+        return $this->container['voicemail_followup_play_audio_uuid'];
     }
 
     /**
-     * Sets voicemail_follow_play_audio_uuid
+     * Sets voicemail_followup_play_audio_uuid
      *
-     * @param string|null $voicemail_follow_play_audio_uuid Voicemail follow play audio UUID
+     * @param string|null $voicemail_followup_play_audio_uuid Voicemail follow play audio UUID
      *
      * @return self
      */
-    public function setVoicemailFollowPlayAudioUuid($voicemail_follow_play_audio_uuid)
+    public function setVoicemailFollowupPlayAudioUuid($voicemail_followup_play_audio_uuid)
     {
-        if (!is_null($voicemail_follow_play_audio_uuid) && (mb_strlen($voicemail_follow_play_audio_uuid) > 50)) {
-            throw new \InvalidArgumentException('invalid length for $voicemail_follow_play_audio_uuid when calling ConversationPbxVoicemailMailbox., must be smaller than or equal to 50.');
+        if (!is_null($voicemail_followup_play_audio_uuid) && (mb_strlen($voicemail_followup_play_audio_uuid) > 50)) {
+            throw new \InvalidArgumentException('invalid length for $voicemail_followup_play_audio_uuid when calling ConversationPbxVoicemailMailbox., must be smaller than or equal to 50.');
         }
 
-        $this->container['voicemail_follow_play_audio_uuid'] = $voicemail_follow_play_audio_uuid;
+        $this->container['voicemail_followup_play_audio_uuid'] = $voicemail_followup_play_audio_uuid;
 
         return $this;
     }
@@ -476,6 +486,34 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess, \J
     public function setVoicemailFollowupSay($voicemail_followup_say)
     {
         $this->container['voicemail_followup_say'] = $voicemail_followup_say;
+
+        return $this;
+    }
+
+    /**
+     * Gets voicemail_followup_say_voice
+     *
+     * @return string|null
+     */
+    public function getVoicemailFollowupSayVoice()
+    {
+        return $this->container['voicemail_followup_say_voice'];
+    }
+
+    /**
+     * Sets voicemail_followup_say_voice
+     *
+     * @param string|null $voicemail_followup_say_voice Voicemail followup say voice
+     *
+     * @return self
+     */
+    public function setVoicemailFollowupSayVoice($voicemail_followup_say_voice)
+    {
+        if (!is_null($voicemail_followup_say_voice) && (mb_strlen($voicemail_followup_say_voice) > 50)) {
+            throw new \InvalidArgumentException('invalid length for $voicemail_followup_say_voice when calling ConversationPbxVoicemailMailbox., must be smaller than or equal to 50.');
+        }
+
+        $this->container['voicemail_followup_say_voice'] = $voicemail_followup_say_voice;
 
         return $this;
     }
@@ -599,29 +637,29 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess, \J
     }
 
     /**
-     * Gets voicemail_say_voice
+     * Gets voicemail_prompt_say_voice
      *
      * @return string|null
      */
-    public function getVoicemailSayVoice()
+    public function getVoicemailPromptSayVoice()
     {
-        return $this->container['voicemail_say_voice'];
+        return $this->container['voicemail_prompt_say_voice'];
     }
 
     /**
-     * Sets voicemail_say_voice
+     * Sets voicemail_prompt_say_voice
      *
-     * @param string|null $voicemail_say_voice Voicemail say voice
+     * @param string|null $voicemail_prompt_say_voice Voicemail prompt say voice
      *
      * @return self
      */
-    public function setVoicemailSayVoice($voicemail_say_voice)
+    public function setVoicemailPromptSayVoice($voicemail_prompt_say_voice)
     {
-        if (!is_null($voicemail_say_voice) && (mb_strlen($voicemail_say_voice) > 50)) {
-            throw new \InvalidArgumentException('invalid length for $voicemail_say_voice when calling ConversationPbxVoicemailMailbox., must be smaller than or equal to 50.');
+        if (!is_null($voicemail_prompt_say_voice) && (mb_strlen($voicemail_prompt_say_voice) > 50)) {
+            throw new \InvalidArgumentException('invalid length for $voicemail_prompt_say_voice when calling ConversationPbxVoicemailMailbox., must be smaller than or equal to 50.');
         }
 
-        $this->container['voicemail_say_voice'] = $voicemail_say_voice;
+        $this->container['voicemail_prompt_say_voice'] = $voicemail_prompt_say_voice;
 
         return $this;
     }
