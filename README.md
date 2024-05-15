@@ -1578,6 +1578,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.203 | 05/15/2024 | conversation pbx voicemail mailbox indep. voice properties |
 | 3.10.202 | 05/15/2024 | conversation pbx - missing fields on agent object |
 | 3.10.201 | 05/14/2024 | conversation pbx - allowed value constants on the action |
 | 3.10.200 | 05/13/2024 | conversation pbx - bug fix on camelCase property names |
