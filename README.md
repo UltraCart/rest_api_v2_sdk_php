@@ -1578,6 +1578,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.204 | 05/16/2024 | OrderPayment - constants for payment method Amazon Pay and Link |
 | 3.10.203 | 05/15/2024 | conversation pbx voicemail mailbox indep. voice properties |
 | 3.10.202 | 05/15/2024 | conversation pbx - missing fields on agent object |
 | 3.10.201 | 05/14/2024 | conversation pbx - allowed value constants on the action |

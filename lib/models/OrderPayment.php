@@ -250,6 +250,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
 
     const PAYMENT_METHOD_AFFIRM = 'Affirm';
     const PAYMENT_METHOD_AMAZON = 'Amazon';
+    const PAYMENT_METHOD_AMAZON_PAY = 'Amazon Pay';
     const PAYMENT_METHOD_AMAZON_SC = 'Amazon SC';
     const PAYMENT_METHOD_CASH = 'Cash';
     const PAYMENT_METHOD_CHECK = 'Check';
@@ -259,6 +260,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
     const PAYMENT_METHOD_E_CHECK = 'eCheck';
     const PAYMENT_METHOD_GOOGLE_SHOPPING = 'Google Shopping';
     const PAYMENT_METHOD_INSURANCE = 'Insurance';
+    const PAYMENT_METHOD_LINK = 'Link';
     const PAYMENT_METHOD_LOAN_HERO = 'LoanHero';
     const PAYMENT_METHOD_MONEY_ORDER = 'Money Order';
     const PAYMENT_METHOD_PAY_PAL = 'PayPal';
@@ -294,6 +296,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
         return [
             self::PAYMENT_METHOD_AFFIRM,
             self::PAYMENT_METHOD_AMAZON,
+            self::PAYMENT_METHOD_AMAZON_PAY,
             self::PAYMENT_METHOD_AMAZON_SC,
             self::PAYMENT_METHOD_CASH,
             self::PAYMENT_METHOD_CHECK,
@@ -303,6 +306,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
             self::PAYMENT_METHOD_E_CHECK,
             self::PAYMENT_METHOD_GOOGLE_SHOPPING,
             self::PAYMENT_METHOD_INSURANCE,
+            self::PAYMENT_METHOD_LINK,
             self::PAYMENT_METHOD_LOAN_HERO,
             self::PAYMENT_METHOD_MONEY_ORDER,
             self::PAYMENT_METHOD_PAY_PAL,
