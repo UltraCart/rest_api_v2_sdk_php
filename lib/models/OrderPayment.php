@@ -253,6 +253,7 @@ class OrderPayment implements ModelInterface, ArrayAccess, \JsonSerializable
 
     public const PAYMENT_METHOD_AFFIRM = 'Affirm';
     public const PAYMENT_METHOD_AMAZON = 'Amazon';
+    public const PAYMENT_METHOD_AMAZON_PAY = 'Amazon Pay';
     public const PAYMENT_METHOD_AMAZON_SC = 'Amazon SC';
     public const PAYMENT_METHOD_CASH = 'Cash';
     public const PAYMENT_METHOD_CHECK = 'Check';
@@ -262,6 +263,7 @@ class OrderPayment implements ModelInterface, ArrayAccess, \JsonSerializable
     public const PAYMENT_METHOD_E_CHECK = 'eCheck';
     public const PAYMENT_METHOD_GOOGLE_SHOPPING = 'Google Shopping';
     public const PAYMENT_METHOD_INSURANCE = 'Insurance';
+    public const PAYMENT_METHOD_LINK = 'Link';
     public const PAYMENT_METHOD_LOAN_HERO = 'LoanHero';
     public const PAYMENT_METHOD_MONEY_ORDER = 'Money Order';
     public const PAYMENT_METHOD_PAY_PAL = 'PayPal';
@@ -295,6 +297,7 @@ class OrderPayment implements ModelInterface, ArrayAccess, \JsonSerializable
         return [
             self::PAYMENT_METHOD_AFFIRM,
             self::PAYMENT_METHOD_AMAZON,
+            self::PAYMENT_METHOD_AMAZON_PAY,
             self::PAYMENT_METHOD_AMAZON_SC,
             self::PAYMENT_METHOD_CASH,
             self::PAYMENT_METHOD_CHECK,
@@ -304,6 +307,7 @@ class OrderPayment implements ModelInterface, ArrayAccess, \JsonSerializable
             self::PAYMENT_METHOD_E_CHECK,
             self::PAYMENT_METHOD_GOOGLE_SHOPPING,
             self::PAYMENT_METHOD_INSURANCE,
+            self::PAYMENT_METHOD_LINK,
             self::PAYMENT_METHOD_LOAN_HERO,
             self::PAYMENT_METHOD_MONEY_ORDER,
             self::PAYMENT_METHOD_PAY_PAL,
