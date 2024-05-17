@@ -58,7 +58,7 @@ class ConversationPbxTimeBasedMappingConfig implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $openAPITypes = [
-        'default' => '\ultracart\v2\models\ConversationPbxTimeBasedMapping',
+        'default_mapping' => '\ultracart\v2\models\ConversationPbxTimeBasedMapping',
         'mappings' => '\ultracart\v2\models\ConversationPbxTimeBasedMapping[]'
     ];
 
@@ -70,7 +70,7 @@ class ConversationPbxTimeBasedMappingConfig implements ModelInterface, ArrayAcce
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'default' => null,
+        'default_mapping' => null,
         'mappings' => null
     ];
 
@@ -101,7 +101,7 @@ class ConversationPbxTimeBasedMappingConfig implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'default' => 'default',
+        'default_mapping' => 'default_mapping',
         'mappings' => 'mappings'
     ];
 
@@ -111,7 +111,7 @@ class ConversationPbxTimeBasedMappingConfig implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'default' => 'setDefault',
+        'default_mapping' => 'setDefaultMapping',
         'mappings' => 'setMappings'
     ];
 
@@ -121,7 +121,7 @@ class ConversationPbxTimeBasedMappingConfig implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'default' => 'getDefault',
+        'default_mapping' => 'getDefaultMapping',
         'mappings' => 'getMappings'
     ];
 
@@ -182,7 +182,7 @@ class ConversationPbxTimeBasedMappingConfig implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
-        $this->container['default'] = $data['default'] ?? null;
+        $this->container['default_mapping'] = $data['default_mapping'] ?? null;
         $this->container['mappings'] = $data['mappings'] ?? null;
     }
 
@@ -211,25 +211,25 @@ class ConversationPbxTimeBasedMappingConfig implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets default
+     * Gets default_mapping
      *
      * @return \ultracart\v2\models\ConversationPbxTimeBasedMapping|null
      */
-    public function getDefault()
+    public function getDefaultMapping()
     {
-        return $this->container['default'];
+        return $this->container['default_mapping'];
     }
 
     /**
-     * Sets default
+     * Sets default_mapping
      *
-     * @param \ultracart\v2\models\ConversationPbxTimeBasedMapping|null $default default
+     * @param \ultracart\v2\models\ConversationPbxTimeBasedMapping|null $default_mapping default_mapping
      *
      * @return self
      */
-    public function setDefault($default)
+    public function setDefaultMapping($default_mapping)
     {
-        $this->container['default'] = $default;
+        $this->container['default_mapping'] = $default_mapping;
 
         return $this;
     }
