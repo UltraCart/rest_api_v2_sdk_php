@@ -34,6 +34,7 @@ Name | Type | Description | Notes
 **phone** | **string** | Phone | [optional] 
 **postal_code** | **string** | Postal code | [optional] 
 **purchase_order_number** | **string** | Purchase order number | [optional] 
+**query_target** | **string** | Query Target | [optional] 
 **refund_date_begin** | **string** | Date/time that the order was refunded | [optional] 
 **refund_date_end** | **string** | Date/time that the order was refunded | [optional] 
 **rma** | **string** | RMA number | [optional] 
