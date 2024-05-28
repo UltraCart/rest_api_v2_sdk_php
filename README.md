@@ -1519,6 +1519,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.223 | 05/28/2024 | added property to OrderQuery object to allow querying from cache |
 | 4.0.222 | 05/17/2024 | conv.pbx time based config - changed name from default to default_mapping |
 | 4.0.221 | 05/16/2024 | OrderPayment - constants for payment method Amazon Pay and Link |
 | 4.0.220 | 05/15/2024 | conversation pbx voicemail mailbox indep. voice properties |

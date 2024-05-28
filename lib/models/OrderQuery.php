@@ -89,6 +89,7 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
         'phone' => 'string',
         'postal_code' => 'string',
         'purchase_order_number' => 'string',
+        'query_target' => 'string',
         'refund_date_begin' => 'string',
         'refund_date_end' => 'string',
         'rma' => 'string',
@@ -141,6 +142,7 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
         'phone' => null,
         'postal_code' => null,
         'purchase_order_number' => null,
+        'query_target' => null,
         'refund_date_begin' => 'dateTime',
         'refund_date_end' => 'dateTime',
         'rma' => null,
@@ -212,6 +214,7 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
         'phone' => 'phone',
         'postal_code' => 'postal_code',
         'purchase_order_number' => 'purchase_order_number',
+        'query_target' => 'query_target',
         'refund_date_begin' => 'refund_date_begin',
         'refund_date_end' => 'refund_date_end',
         'rma' => 'rma',
@@ -262,6 +265,7 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
         'phone' => 'setPhone',
         'postal_code' => 'setPostalCode',
         'purchase_order_number' => 'setPurchaseOrderNumber',
+        'query_target' => 'setQueryTarget',
         'refund_date_begin' => 'setRefundDateBegin',
         'refund_date_end' => 'setRefundDateEnd',
         'rma' => 'setRma',
@@ -312,6 +316,7 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
         'phone' => 'getPhone',
         'postal_code' => 'getPostalCode',
         'purchase_order_number' => 'getPurchaseOrderNumber',
+        'query_target' => 'getQueryTarget',
         'refund_date_begin' => 'getRefundDateBegin',
         'refund_date_end' => 'getRefundDateEnd',
         'rma' => 'getRma',
@@ -394,6 +399,8 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
     public const PAYMENT_METHOD_VENMO = 'Venmo';
     public const PAYMENT_METHOD_APPLE_PAY = 'Apple Pay';
     public const PAYMENT_METHOD_GOOGLE_PAY = 'Google Pay';
+    public const QUERY_TARGET_ORIGIN = 'origin';
+    public const QUERY_TARGET_CACHE = 'cache';
 
     /**
      * Gets allowable values of the enum
@@ -446,6 +453,19 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getQueryTargetAllowableValues()
+    {
+        return [
+            self::QUERY_TARGET_ORIGIN,
+            self::QUERY_TARGET_CACHE,
+        ];
+    }
+
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -491,6 +511,7 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['phone'] = $data['phone'] ?? null;
         $this->container['postal_code'] = $data['postal_code'] ?? null;
         $this->container['purchase_order_number'] = $data['purchase_order_number'] ?? null;
+        $this->container['query_target'] = $data['query_target'] ?? null;
         $this->container['refund_date_begin'] = $data['refund_date_begin'] ?? null;
         $this->container['refund_date_end'] = $data['refund_date_end'] ?? null;
         $this->container['rma'] = $data['rma'] ?? null;
@@ -565,6 +586,15 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
 
         if (!is_null($this->container['postal_code']) && (mb_strlen($this->container['postal_code']) > 20)) {
             $invalidProperties[] = "invalid value for 'postal_code', the character length must be smaller than or equal to 20.";
+        }
+
+        $allowedValues = $this->getQueryTargetAllowableValues();
+        if (!is_null($this->container['query_target']) && !in_array($this->container['query_target'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'query_target', must be one of '%s'",
+                $this->container['query_target'],
+                implode("', '", $allowedValues)
+            );
         }
 
         if (!is_null($this->container['rma']) && (mb_strlen($this->container['rma']) > 30)) {
@@ -1390,6 +1420,40 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setPurchaseOrderNumber($purchase_order_number)
     {
         $this->container['purchase_order_number'] = $purchase_order_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets query_target
+     *
+     * @return string|null
+     */
+    public function getQueryTarget()
+    {
+        return $this->container['query_target'];
+    }
+
+    /**
+     * Sets query_target
+     *
+     * @param string|null $query_target Query Target
+     *
+     * @return self
+     */
+    public function setQueryTarget($query_target)
+    {
+        $allowedValues = $this->getQueryTargetAllowableValues();
+        if (!is_null($query_target) && !in_array($query_target, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'query_target', must be one of '%s'",
+                    $query_target,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['query_target'] = $query_target;
 
         return $this;
     }
