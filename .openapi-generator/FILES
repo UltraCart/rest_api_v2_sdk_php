@@ -442,6 +442,8 @@ docs/Model/EmailPlanResponse.md
 docs/Model/EmailPostcardStat.md
 docs/Model/EmailPostcardTracking.md
 docs/Model/EmailPostcardTrackingResponse.md
+docs/Model/EmailRateLimiter.md
+docs/Model/EmailRateLimitersResponse.md
 docs/Model/EmailSegment.md
 docs/Model/EmailSegmentArchiveResponse.md
 docs/Model/EmailSegmentCustomer.md
@@ -1316,6 +1318,8 @@ lib/models/EmailPlanResponse.php
 lib/models/EmailPostcardStat.php
 lib/models/EmailPostcardTracking.php
 lib/models/EmailPostcardTrackingResponse.php
+lib/models/EmailRateLimiter.php
+lib/models/EmailRateLimitersResponse.php
 lib/models/EmailSegment.php
 lib/models/EmailSegmentArchiveResponse.php
 lib/models/EmailSegmentCustomer.php
