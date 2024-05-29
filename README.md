@@ -457,6 +457,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailCommseqEmailStats**](docs/Api/StorefrontApi.md#getemailcommseqemailstats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/emailStats | Get email communication sequence emails stats
 *StorefrontApi* | [**getEmailCommseqPostcardStats**](docs/Api/StorefrontApi.md#getemailcommseqpostcardstats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/postcardStats | Get email communication sequence postcard stats
 *StorefrontApi* | [**getEmailCommseqPostcardTracking**](docs/Api/StorefrontApi.md#getemailcommseqpostcardtracking) | **GET** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}/tracking | Get email communication postcard tracking
+*StorefrontApi* | [**getEmailCommseqRateLimiters**](docs/Api/StorefrontApi.md#getemailcommseqratelimiters) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/rate_limiters | Get email commseq rate limiters
 *StorefrontApi* | [**getEmailCommseqSmsStats**](docs/Api/StorefrontApi.md#getemailcommseqsmsstats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/smsStats | Get email communication sequence sms stats
 *StorefrontApi* | [**getEmailCommseqStatOverall**](docs/Api/StorefrontApi.md#getemailcommseqstatoverall) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat | Get communication sequence stats overall
 *StorefrontApi* | [**getEmailCommseqStepStats**](docs/Api/StorefrontApi.md#getemailcommseqstepstats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stepStats | Get email communication sequence step stats
@@ -546,6 +547,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**publishLibraryItem**](docs/Api/StorefrontApi.md#publishlibraryitem) | **POST** /storefront/code_library/{library_item_oid}/publish | Publish library item.
 *StorefrontApi* | [**purchaseLibraryItem**](docs/Api/StorefrontApi.md#purchaselibraryitem) | **POST** /storefront/code_library/{library_item_oid}/purchase | Purchase public library item, which creates a copy of the item in your personal code library
 *StorefrontApi* | [**releaseEmailCommseqStepWaiting**](docs/Api/StorefrontApi.md#releaseemailcommseqstepwaiting) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/waiting/{commseq_step_uuid} | Release email communication sequence customers waiting at the specified step
+*StorefrontApi* | [**resetEmailCommseqRateLimiters**](docs/Api/StorefrontApi.md#resetemailcommseqratelimiters) | **DELETE** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/rate_limiters | Reset email commseq rate limiters (only callable by UltraCart Support)
 *StorefrontApi* | [**review**](docs/Api/StorefrontApi.md#review) | **POST** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/review | Request a review of an email
 *StorefrontApi* | [**search**](docs/Api/StorefrontApi.md#search) | **GET** /storefront/search | Searches for all matching values
 *StorefrontApi* | [**search2**](docs/Api/StorefrontApi.md#search2) | **POST** /storefront/search | Searches for all matching values (using POST)
@@ -1070,6 +1072,8 @@ Class | Method | HTTP request | Description
  - [EmailPostcardStat](docs/Model/EmailPostcardStat.md)
  - [EmailPostcardTracking](docs/Model/EmailPostcardTracking.md)
  - [EmailPostcardTrackingResponse](docs/Model/EmailPostcardTrackingResponse.md)
+ - [EmailRateLimiter](docs/Model/EmailRateLimiter.md)
+ - [EmailRateLimitersResponse](docs/Model/EmailRateLimitersResponse.md)
  - [EmailSegment](docs/Model/EmailSegment.md)
  - [EmailSegmentArchiveResponse](docs/Model/EmailSegmentArchiveResponse.md)
  - [EmailSegmentCustomer](docs/Model/EmailSegmentCustomer.md)
@@ -1578,6 +1582,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.207 | 05/29/2024 | added methods getEmailCommseqRateLimiters, resetEmailCommseqRateLimiters |
 | 3.10.206 | 05/28/2024 | added property to OrderQuery object to allow querying from cache |
 | 3.10.205 | 05/17/2024 | conv.pbx time based config - changed name from default to default_mapping |
 | 3.10.204 | 05/16/2024 | OrderPayment - constants for payment method Amazon Pay and Link |
