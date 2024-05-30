@@ -1582,6 +1582,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.208 | 05/30/2024 | add adult sig req. to the merchant item destination markup for items |
 | 3.10.207 | 05/29/2024 | added methods getEmailCommseqRateLimiters, resetEmailCommseqRateLimiters |
 | 3.10.206 | 05/28/2024 | added property to OrderQuery object to allow querying from cache |
 | 3.10.205 | 05/17/2024 | conv.pbx time based config - changed name from default to default_mapping |

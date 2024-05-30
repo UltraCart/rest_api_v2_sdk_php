@@ -57,6 +57,7 @@ class ItemShippingDestinationMarkup implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'adult_signature_required' => 'bool',
         'country_code' => 'string',
         'flat_fee' => 'float',
         'per_item' => 'float',
@@ -71,6 +72,7 @@ class ItemShippingDestinationMarkup implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'adult_signature_required' => null,
         'country_code' => null,
         'flat_fee' => null,
         'per_item' => null,
@@ -106,6 +108,7 @@ class ItemShippingDestinationMarkup implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'adult_signature_required' => 'adult_signature_required',
         'country_code' => 'country_code',
         'flat_fee' => 'flat_fee',
         'per_item' => 'per_item',
@@ -120,6 +123,7 @@ class ItemShippingDestinationMarkup implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'adult_signature_required' => 'setAdultSignatureRequired',
         'country_code' => 'setCountryCode',
         'flat_fee' => 'setFlatFee',
         'per_item' => 'setPerItem',
@@ -134,6 +138,7 @@ class ItemShippingDestinationMarkup implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'adult_signature_required' => 'getAdultSignatureRequired',
         'country_code' => 'getCountryCode',
         'flat_fee' => 'getFlatFee',
         'per_item' => 'getPerItem',
@@ -202,6 +207,7 @@ class ItemShippingDestinationMarkup implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['adult_signature_required'] = isset($data['adult_signature_required']) ? $data['adult_signature_required'] : null;
         $this->container['country_code'] = isset($data['country_code']) ? $data['country_code'] : null;
         $this->container['flat_fee'] = isset($data['flat_fee']) ? $data['flat_fee'] : null;
         $this->container['per_item'] = isset($data['per_item']) ? $data['per_item'] : null;
@@ -245,6 +251,30 @@ class ItemShippingDestinationMarkup implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets adult_signature_required
+     *
+     * @return bool
+     */
+    public function getAdultSignatureRequired()
+    {
+        return $this->container['adult_signature_required'];
+    }
+
+    /**
+     * Sets adult_signature_required
+     *
+     * @param bool $adult_signature_required Adult Signature Required (only updated if not-null value provided)
+     *
+     * @return $this
+     */
+    public function setAdultSignatureRequired($adult_signature_required)
+    {
+        $this->container['adult_signature_required'] = $adult_signature_required;
+
+        return $this;
+    }
 
     /**
      * Gets country_code
