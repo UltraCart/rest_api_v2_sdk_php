@@ -561,6 +561,9 @@ docs/Model/ItemIdentifiers.md
 docs/Model/ItemInstantPaymentNotification.md
 docs/Model/ItemInstantPaymentNotifications.md
 docs/Model/ItemInternal.md
+docs/Model/ItemInventorySnapshot.md
+docs/Model/ItemInventorySnapshotDistributionCenter.md
+docs/Model/ItemInventorySnapshotResponse.md
 docs/Model/ItemKitComponent.md
 docs/Model/ItemKitDefinition.md
 docs/Model/ItemOption.md
@@ -1437,6 +1440,9 @@ lib/models/ItemIdentifiers.php
 lib/models/ItemInstantPaymentNotification.php
 lib/models/ItemInstantPaymentNotifications.php
 lib/models/ItemInternal.php
+lib/models/ItemInventorySnapshot.php
+lib/models/ItemInventorySnapshotDistributionCenter.php
+lib/models/ItemInventorySnapshotResponse.php
 lib/models/ItemKitComponent.php
 lib/models/ItemKitDefinition.php
 lib/models/ItemOption.php
