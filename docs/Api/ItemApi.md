@@ -21,6 +21,7 @@ Method | HTTP request | Description
 [**insertItem**](ItemApi.md#insertItem) | **POST** /item/items | Create an item
 [**insertReview**](ItemApi.md#insertReview) | **POST** /item/items/{merchant_item_oid}/reviews | Insert a review
 [**insertUpdateItemContentAttribute**](ItemApi.md#insertUpdateItemContentAttribute) | **POST** /item/items/{merchant_item_oid}/content/attributes | Upsert an item content attribute
+[**restItemInventorySnapshotResponse**](ItemApi.md#restItemInventorySnapshotResponse) | **GET** /item/items/inventory_snapshot | Retrieve a list of item inventories
 [**updateDigitalItem**](ItemApi.md#updateDigitalItem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 [**updateItem**](ItemApi.md#updateItem) | **PUT** /item/items/{merchant_item_oid} | Update an item
 [**updateItems**](ItemApi.md#updateItems) | **PUT** /item/items/batch | Update multiple items
@@ -890,6 +891,50 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **restItemInventorySnapshotResponse**
+> \ultracart\v2\models\ItemInventorySnapshotResponse restItemInventorySnapshotResponse()
+
+Retrieve a list of item inventories
+
+Retrieves a list of item inventories.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\ItemApi::usingApiKey($simple_key);
+
+
+try {
+    $result = $apiInstance->restItemInventorySnapshotResponse();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemApi->restItemInventorySnapshotResponse: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\ultracart\v2\models\ItemInventorySnapshotResponse**](../Model/ItemInventorySnapshotResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
