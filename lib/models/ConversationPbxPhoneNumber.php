@@ -60,7 +60,7 @@ class ConversationPbxPhoneNumber implements ModelInterface, ArrayAccess, \JsonSe
     protected static $openAPITypes = [
         'action' => 'string',
         'action_target' => 'string',
-        'conversation_pbx_time_range_uuid' => 'string',
+        'conversation_pbx_phone_number_uuid' => 'string',
         'merchant_id' => 'string',
         'phone_number' => 'string'
     ];
@@ -75,7 +75,7 @@ class ConversationPbxPhoneNumber implements ModelInterface, ArrayAccess, \JsonSe
     protected static $openAPIFormats = [
         'action' => null,
         'action_target' => null,
-        'conversation_pbx_time_range_uuid' => null,
+        'conversation_pbx_phone_number_uuid' => null,
         'merchant_id' => null,
         'phone_number' => null
     ];
@@ -109,7 +109,7 @@ class ConversationPbxPhoneNumber implements ModelInterface, ArrayAccess, \JsonSe
     protected static $attributeMap = [
         'action' => 'action',
         'action_target' => 'action_target',
-        'conversation_pbx_time_range_uuid' => 'conversation_pbx_time_range_uuid',
+        'conversation_pbx_phone_number_uuid' => 'conversation_pbx_phone_number_uuid',
         'merchant_id' => 'merchant_id',
         'phone_number' => 'phone_number'
     ];
@@ -122,7 +122,7 @@ class ConversationPbxPhoneNumber implements ModelInterface, ArrayAccess, \JsonSe
     protected static $setters = [
         'action' => 'setAction',
         'action_target' => 'setActionTarget',
-        'conversation_pbx_time_range_uuid' => 'setConversationPbxTimeRangeUuid',
+        'conversation_pbx_phone_number_uuid' => 'setConversationPbxPhoneNumberUuid',
         'merchant_id' => 'setMerchantId',
         'phone_number' => 'setPhoneNumber'
     ];
@@ -135,7 +135,7 @@ class ConversationPbxPhoneNumber implements ModelInterface, ArrayAccess, \JsonSe
     protected static $getters = [
         'action' => 'getAction',
         'action_target' => 'getActionTarget',
-        'conversation_pbx_time_range_uuid' => 'getConversationPbxTimeRangeUuid',
+        'conversation_pbx_phone_number_uuid' => 'getConversationPbxPhoneNumberUuid',
         'merchant_id' => 'getMerchantId',
         'phone_number' => 'getPhoneNumber'
     ];
@@ -220,7 +220,7 @@ class ConversationPbxPhoneNumber implements ModelInterface, ArrayAccess, \JsonSe
     {
         $this->container['action'] = $data['action'] ?? null;
         $this->container['action_target'] = $data['action_target'] ?? null;
-        $this->container['conversation_pbx_time_range_uuid'] = $data['conversation_pbx_time_range_uuid'] ?? null;
+        $this->container['conversation_pbx_phone_number_uuid'] = $data['conversation_pbx_phone_number_uuid'] ?? null;
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
         $this->container['phone_number'] = $data['phone_number'] ?? null;
     }
@@ -251,8 +251,8 @@ class ConversationPbxPhoneNumber implements ModelInterface, ArrayAccess, \JsonSe
             $invalidProperties[] = "invalid value for 'action_target', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['conversation_pbx_time_range_uuid']) && (mb_strlen($this->container['conversation_pbx_time_range_uuid']) > 50)) {
-            $invalidProperties[] = "invalid value for 'conversation_pbx_time_range_uuid', the character length must be smaller than or equal to 50.";
+        if (!is_null($this->container['conversation_pbx_phone_number_uuid']) && (mb_strlen($this->container['conversation_pbx_phone_number_uuid']) > 50)) {
+            $invalidProperties[] = "invalid value for 'conversation_pbx_phone_number_uuid', the character length must be smaller than or equal to 50.";
         }
 
         if (!is_null($this->container['merchant_id']) && (mb_strlen($this->container['merchant_id']) > 5)) {
@@ -345,29 +345,29 @@ class ConversationPbxPhoneNumber implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Gets conversation_pbx_time_range_uuid
+     * Gets conversation_pbx_phone_number_uuid
      *
      * @return string|null
      */
-    public function getConversationPbxTimeRangeUuid()
+    public function getConversationPbxPhoneNumberUuid()
     {
-        return $this->container['conversation_pbx_time_range_uuid'];
+        return $this->container['conversation_pbx_phone_number_uuid'];
     }
 
     /**
-     * Sets conversation_pbx_time_range_uuid
+     * Sets conversation_pbx_phone_number_uuid
      *
-     * @param string|null $conversation_pbx_time_range_uuid Conversation Pbx Phone Number UUID
+     * @param string|null $conversation_pbx_phone_number_uuid Conversation Pbx Phone Number UUID
      *
      * @return self
      */
-    public function setConversationPbxTimeRangeUuid($conversation_pbx_time_range_uuid)
+    public function setConversationPbxPhoneNumberUuid($conversation_pbx_phone_number_uuid)
     {
-        if (!is_null($conversation_pbx_time_range_uuid) && (mb_strlen($conversation_pbx_time_range_uuid) > 50)) {
-            throw new \InvalidArgumentException('invalid length for $conversation_pbx_time_range_uuid when calling ConversationPbxPhoneNumber., must be smaller than or equal to 50.');
+        if (!is_null($conversation_pbx_phone_number_uuid) && (mb_strlen($conversation_pbx_phone_number_uuid) > 50)) {
+            throw new \InvalidArgumentException('invalid length for $conversation_pbx_phone_number_uuid when calling ConversationPbxPhoneNumber., must be smaller than or equal to 50.');
         }
 
-        $this->container['conversation_pbx_time_range_uuid'] = $conversation_pbx_time_range_uuid;
+        $this->container['conversation_pbx_phone_number_uuid'] = $conversation_pbx_phone_number_uuid;
 
         return $this;
     }

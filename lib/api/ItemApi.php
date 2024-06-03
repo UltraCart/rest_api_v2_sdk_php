@@ -7573,7 +7573,7 @@ class ItemApi
     /**
      * Operation restItemInventorySnapshotResponse
      *
-     * Retrieve a list of item inventories
+     * Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
      *
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
@@ -7589,7 +7589,7 @@ class ItemApi
     /**
      * Operation restItemInventorySnapshotResponseWithHttpInfo
      *
-     * Retrieve a list of item inventories
+     * Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
      *
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
@@ -7606,7 +7606,7 @@ class ItemApi
     /**
      * Operation restItemInventorySnapshotResponseWithHttpInfoRetry
      *
-     * Retrieve a list of item inventories
+     * Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
      *
      * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
      *
@@ -7841,7 +7841,7 @@ class ItemApi
     /**
      * Operation restItemInventorySnapshotResponseAsync
      *
-     * Retrieve a list of item inventories
+     * Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
      *
      *
      * @throws \InvalidArgumentException
@@ -7860,7 +7860,7 @@ class ItemApi
     /**
      * Operation restItemInventorySnapshotResponseAsyncWithHttpInfo
      *
-     * Retrieve a list of item inventories
+     * Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
      *
      *
      * @throws \InvalidArgumentException

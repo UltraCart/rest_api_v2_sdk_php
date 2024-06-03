@@ -21,7 +21,7 @@ Method | HTTP request | Description
 [**insertItem()**](ItemApi.md#insertItem) | **POST** /item/items | Create an item
 [**insertReview()**](ItemApi.md#insertReview) | **POST** /item/items/{merchant_item_oid}/reviews | Insert a review
 [**insertUpdateItemContentAttribute()**](ItemApi.md#insertUpdateItemContentAttribute) | **POST** /item/items/{merchant_item_oid}/content/attributes | Upsert an item content attribute
-[**restItemInventorySnapshotResponse()**](ItemApi.md#restItemInventorySnapshotResponse) | **GET** /item/items/inventory_snapshot | Retrieve a list of item inventories
+[**restItemInventorySnapshotResponse()**](ItemApi.md#restItemInventorySnapshotResponse) | **GET** /item/items/inventory_snapshot | Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
 [**updateDigitalItem()**](ItemApi.md#updateDigitalItem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 [**updateItem()**](ItemApi.md#updateItem) | **PUT** /item/items/{merchant_item_oid} | Update an item
 [**updateItems()**](ItemApi.md#updateItems) | **PUT** /item/items/batch | Update multiple items
@@ -1054,9 +1054,9 @@ void (empty response body)
 restItemInventorySnapshotResponse(): \ultracart\v2\models\ItemInventorySnapshotResponse
 ```
 
-Retrieve a list of item inventories
+Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
 
-Retrieves a list of item inventories.
+Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
 
 ### Example
 

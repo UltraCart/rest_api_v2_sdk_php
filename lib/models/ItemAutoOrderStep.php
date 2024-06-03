@@ -687,7 +687,7 @@ class ItemAutoOrderStep implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets subscribe_email_list_name
      *
-     * @param string|null $subscribe_email_list_name Email list name to subscribe the customer to when the rebill occurs
+     * @param string|null $subscribe_email_list_name Email list name to subscribe the customer to when the rebill occurs (decommissioned email engine)
      *
      * @return self
      */
@@ -711,7 +711,7 @@ class ItemAutoOrderStep implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets subscribe_email_list_oid
      *
-     * @param int|null $subscribe_email_list_oid Email list identifier to subscribe the customer to when this rebill occurs
+     * @param int|null $subscribe_email_list_oid Email list identifier to subscribe the customer to when this rebill occurs (decommissioned email engine)
      *
      * @return self
      */
