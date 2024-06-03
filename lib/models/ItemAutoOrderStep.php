@@ -686,7 +686,7 @@ class ItemAutoOrderStep implements ModelInterface, ArrayAccess
     /**
      * Sets subscribe_email_list_name
      *
-     * @param string $subscribe_email_list_name Email list name to subscribe the customer to when the rebill occurs
+     * @param string $subscribe_email_list_name Email list name to subscribe the customer to when the rebill occurs (decommissioned email engine)
      *
      * @return $this
      */
@@ -710,7 +710,7 @@ class ItemAutoOrderStep implements ModelInterface, ArrayAccess
     /**
      * Sets subscribe_email_list_oid
      *
-     * @param int $subscribe_email_list_oid Email list identifier to subscribe the customer to when this rebill occurs
+     * @param int $subscribe_email_list_oid Email list identifier to subscribe the customer to when this rebill occurs (decommissioned email engine)
      *
      * @return $this
      */
