@@ -247,7 +247,7 @@ class ItemReporting implements ModelInterface, ArrayAccess
     /**
      * Sets report_pickable_quantities
      *
-     * @param int[] $report_pickable_quantities Report pickable quantities
+     * @param int[] $report_pickable_quantities Report pickable quantities (deprecated)
      *
      * @return $this
      */

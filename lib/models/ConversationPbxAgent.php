@@ -59,13 +59,14 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'cellphone' => 'string',
         'conversation_pbx_agent_uuid' => 'string',
-        'conversation_pbx_voicemail_mailbox_uuid' => 'string',
         'extension' => 'int',
         'forward_calls_to_cellphone' => 'bool',
         'full_name' => 'string',
         'login' => 'string',
         'merchant_id' => 'string',
+        'personal_conversation_pbx_voicemail_mailbox_uuid' => 'string',
         'record_outgoing_automatically' => 'bool',
+        'shared_conversation_pbx_voicemail_mailbox_uuid' => 'string',
         'twilio_taskrouter_worker_id' => 'string',
         'unavailable_play_audio_uuid' => 'string',
         'unavailable_say' => 'string',
@@ -82,13 +83,14 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'cellphone' => null,
         'conversation_pbx_agent_uuid' => null,
-        'conversation_pbx_voicemail_mailbox_uuid' => null,
         'extension' => 'int32',
         'forward_calls_to_cellphone' => null,
         'full_name' => null,
         'login' => null,
         'merchant_id' => null,
+        'personal_conversation_pbx_voicemail_mailbox_uuid' => null,
         'record_outgoing_automatically' => null,
+        'shared_conversation_pbx_voicemail_mailbox_uuid' => null,
         'twilio_taskrouter_worker_id' => null,
         'unavailable_play_audio_uuid' => null,
         'unavailable_say' => null,
@@ -126,13 +128,14 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'cellphone' => 'cellphone',
         'conversation_pbx_agent_uuid' => 'conversation_pbx_agent_uuid',
-        'conversation_pbx_voicemail_mailbox_uuid' => 'conversation_pbx_voicemail_mailbox_uuid',
         'extension' => 'extension',
         'forward_calls_to_cellphone' => 'forward_calls_to_cellphone',
         'full_name' => 'full_name',
         'login' => 'login',
         'merchant_id' => 'merchant_id',
+        'personal_conversation_pbx_voicemail_mailbox_uuid' => 'personal_conversation_pbx_voicemail_mailbox_uuid',
         'record_outgoing_automatically' => 'record_outgoing_automatically',
+        'shared_conversation_pbx_voicemail_mailbox_uuid' => 'shared_conversation_pbx_voicemail_mailbox_uuid',
         'twilio_taskrouter_worker_id' => 'twilio_taskrouter_worker_id',
         'unavailable_play_audio_uuid' => 'unavailable_play_audio_uuid',
         'unavailable_say' => 'unavailable_say',
@@ -149,13 +152,14 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess
     protected static $setters = [
         'cellphone' => 'setCellphone',
         'conversation_pbx_agent_uuid' => 'setConversationPbxAgentUuid',
-        'conversation_pbx_voicemail_mailbox_uuid' => 'setConversationPbxVoicemailMailboxUuid',
         'extension' => 'setExtension',
         'forward_calls_to_cellphone' => 'setForwardCallsToCellphone',
         'full_name' => 'setFullName',
         'login' => 'setLogin',
         'merchant_id' => 'setMerchantId',
+        'personal_conversation_pbx_voicemail_mailbox_uuid' => 'setPersonalConversationPbxVoicemailMailboxUuid',
         'record_outgoing_automatically' => 'setRecordOutgoingAutomatically',
+        'shared_conversation_pbx_voicemail_mailbox_uuid' => 'setSharedConversationPbxVoicemailMailboxUuid',
         'twilio_taskrouter_worker_id' => 'setTwilioTaskrouterWorkerId',
         'unavailable_play_audio_uuid' => 'setUnavailablePlayAudioUuid',
         'unavailable_say' => 'setUnavailableSay',
@@ -172,13 +176,14 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess
     protected static $getters = [
         'cellphone' => 'getCellphone',
         'conversation_pbx_agent_uuid' => 'getConversationPbxAgentUuid',
-        'conversation_pbx_voicemail_mailbox_uuid' => 'getConversationPbxVoicemailMailboxUuid',
         'extension' => 'getExtension',
         'forward_calls_to_cellphone' => 'getForwardCallsToCellphone',
         'full_name' => 'getFullName',
         'login' => 'getLogin',
         'merchant_id' => 'getMerchantId',
+        'personal_conversation_pbx_voicemail_mailbox_uuid' => 'getPersonalConversationPbxVoicemailMailboxUuid',
         'record_outgoing_automatically' => 'getRecordOutgoingAutomatically',
+        'shared_conversation_pbx_voicemail_mailbox_uuid' => 'getSharedConversationPbxVoicemailMailboxUuid',
         'twilio_taskrouter_worker_id' => 'getTwilioTaskrouterWorkerId',
         'unavailable_play_audio_uuid' => 'getUnavailablePlayAudioUuid',
         'unavailable_say' => 'getUnavailableSay',
@@ -249,13 +254,14 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess
     {
         $this->container['cellphone'] = isset($data['cellphone']) ? $data['cellphone'] : null;
         $this->container['conversation_pbx_agent_uuid'] = isset($data['conversation_pbx_agent_uuid']) ? $data['conversation_pbx_agent_uuid'] : null;
-        $this->container['conversation_pbx_voicemail_mailbox_uuid'] = isset($data['conversation_pbx_voicemail_mailbox_uuid']) ? $data['conversation_pbx_voicemail_mailbox_uuid'] : null;
         $this->container['extension'] = isset($data['extension']) ? $data['extension'] : null;
         $this->container['forward_calls_to_cellphone'] = isset($data['forward_calls_to_cellphone']) ? $data['forward_calls_to_cellphone'] : null;
         $this->container['full_name'] = isset($data['full_name']) ? $data['full_name'] : null;
         $this->container['login'] = isset($data['login']) ? $data['login'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
+        $this->container['personal_conversation_pbx_voicemail_mailbox_uuid'] = isset($data['personal_conversation_pbx_voicemail_mailbox_uuid']) ? $data['personal_conversation_pbx_voicemail_mailbox_uuid'] : null;
         $this->container['record_outgoing_automatically'] = isset($data['record_outgoing_automatically']) ? $data['record_outgoing_automatically'] : null;
+        $this->container['shared_conversation_pbx_voicemail_mailbox_uuid'] = isset($data['shared_conversation_pbx_voicemail_mailbox_uuid']) ? $data['shared_conversation_pbx_voicemail_mailbox_uuid'] : null;
         $this->container['twilio_taskrouter_worker_id'] = isset($data['twilio_taskrouter_worker_id']) ? $data['twilio_taskrouter_worker_id'] : null;
         $this->container['unavailable_play_audio_uuid'] = isset($data['unavailable_play_audio_uuid']) ? $data['unavailable_play_audio_uuid'] : null;
         $this->container['unavailable_say'] = isset($data['unavailable_say']) ? $data['unavailable_say'] : null;
@@ -277,12 +283,16 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'cellphone', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['conversation_pbx_voicemail_mailbox_uuid']) && (mb_strlen($this->container['conversation_pbx_voicemail_mailbox_uuid']) > 50)) {
-            $invalidProperties[] = "invalid value for 'conversation_pbx_voicemail_mailbox_uuid', the character length must be smaller than or equal to 50.";
-        }
-
         if (!is_null($this->container['merchant_id']) && (mb_strlen($this->container['merchant_id']) > 5)) {
             $invalidProperties[] = "invalid value for 'merchant_id', the character length must be smaller than or equal to 5.";
+        }
+
+        if (!is_null($this->container['personal_conversation_pbx_voicemail_mailbox_uuid']) && (mb_strlen($this->container['personal_conversation_pbx_voicemail_mailbox_uuid']) > 50)) {
+            $invalidProperties[] = "invalid value for 'personal_conversation_pbx_voicemail_mailbox_uuid', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['shared_conversation_pbx_voicemail_mailbox_uuid']) && (mb_strlen($this->container['shared_conversation_pbx_voicemail_mailbox_uuid']) > 50)) {
+            $invalidProperties[] = "invalid value for 'shared_conversation_pbx_voicemail_mailbox_uuid', the character length must be smaller than or equal to 50.";
         }
 
         if (!is_null($this->container['twilio_taskrouter_worker_id']) && (mb_strlen($this->container['twilio_taskrouter_worker_id']) > 100)) {
@@ -360,34 +370,6 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess
     public function setConversationPbxAgentUuid($conversation_pbx_agent_uuid)
     {
         $this->container['conversation_pbx_agent_uuid'] = $conversation_pbx_agent_uuid;
-
-        return $this;
-    }
-
-    /**
-     * Gets conversation_pbx_voicemail_mailbox_uuid
-     *
-     * @return string
-     */
-    public function getConversationPbxVoicemailMailboxUuid()
-    {
-        return $this->container['conversation_pbx_voicemail_mailbox_uuid'];
-    }
-
-    /**
-     * Sets conversation_pbx_voicemail_mailbox_uuid
-     *
-     * @param string $conversation_pbx_voicemail_mailbox_uuid Conversation Pbx Voicemail Mailbox UUID
-     *
-     * @return $this
-     */
-    public function setConversationPbxVoicemailMailboxUuid($conversation_pbx_voicemail_mailbox_uuid)
-    {
-        if (!is_null($conversation_pbx_voicemail_mailbox_uuid) && (mb_strlen($conversation_pbx_voicemail_mailbox_uuid) > 50)) {
-            throw new \InvalidArgumentException('invalid length for $conversation_pbx_voicemail_mailbox_uuid when calling ConversationPbxAgent., must be smaller than or equal to 50.');
-        }
-
-        $this->container['conversation_pbx_voicemail_mailbox_uuid'] = $conversation_pbx_voicemail_mailbox_uuid;
 
         return $this;
     }
@@ -517,6 +499,34 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets personal_conversation_pbx_voicemail_mailbox_uuid
+     *
+     * @return string
+     */
+    public function getPersonalConversationPbxVoicemailMailboxUuid()
+    {
+        return $this->container['personal_conversation_pbx_voicemail_mailbox_uuid'];
+    }
+
+    /**
+     * Sets personal_conversation_pbx_voicemail_mailbox_uuid
+     *
+     * @param string $personal_conversation_pbx_voicemail_mailbox_uuid Personal Conversation Pbx Voicemail Mailbox UUID
+     *
+     * @return $this
+     */
+    public function setPersonalConversationPbxVoicemailMailboxUuid($personal_conversation_pbx_voicemail_mailbox_uuid)
+    {
+        if (!is_null($personal_conversation_pbx_voicemail_mailbox_uuid) && (mb_strlen($personal_conversation_pbx_voicemail_mailbox_uuid) > 50)) {
+            throw new \InvalidArgumentException('invalid length for $personal_conversation_pbx_voicemail_mailbox_uuid when calling ConversationPbxAgent., must be smaller than or equal to 50.');
+        }
+
+        $this->container['personal_conversation_pbx_voicemail_mailbox_uuid'] = $personal_conversation_pbx_voicemail_mailbox_uuid;
+
+        return $this;
+    }
+
+    /**
      * Gets record_outgoing_automatically
      *
      * @return bool
@@ -536,6 +546,34 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess
     public function setRecordOutgoingAutomatically($record_outgoing_automatically)
     {
         $this->container['record_outgoing_automatically'] = $record_outgoing_automatically;
+
+        return $this;
+    }
+
+    /**
+     * Gets shared_conversation_pbx_voicemail_mailbox_uuid
+     *
+     * @return string
+     */
+    public function getSharedConversationPbxVoicemailMailboxUuid()
+    {
+        return $this->container['shared_conversation_pbx_voicemail_mailbox_uuid'];
+    }
+
+    /**
+     * Sets shared_conversation_pbx_voicemail_mailbox_uuid
+     *
+     * @param string $shared_conversation_pbx_voicemail_mailbox_uuid Shared Conversation Pbx Voicemail Mailbox UUID
+     *
+     * @return $this
+     */
+    public function setSharedConversationPbxVoicemailMailboxUuid($shared_conversation_pbx_voicemail_mailbox_uuid)
+    {
+        if (!is_null($shared_conversation_pbx_voicemail_mailbox_uuid) && (mb_strlen($shared_conversation_pbx_voicemail_mailbox_uuid) > 50)) {
+            throw new \InvalidArgumentException('invalid length for $shared_conversation_pbx_voicemail_mailbox_uuid when calling ConversationPbxAgent., must be smaller than or equal to 50.');
+        }
+
+        $this->container['shared_conversation_pbx_voicemail_mailbox_uuid'] = $shared_conversation_pbx_voicemail_mailbox_uuid;
 
         return $this;
     }
