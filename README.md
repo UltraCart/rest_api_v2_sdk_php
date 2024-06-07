@@ -1527,6 +1527,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.228 | 06/07/2024 | conversation pbx - adjust agent voicemail box uuid fields |
 | 4.0.227 | 06/03/2024 | conversationPbxPhoneNumber - fix serialized name for phone number UUID |
 | 4.0.226 | 05/31/2024 | ItemApi.getInventorySnapshot method |
 | 4.0.225 | 05/30/2024 | add adult sig req. to the merchant item destination markup for items |

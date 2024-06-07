@@ -247,7 +247,7 @@ class ItemReporting implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets report_pickable_quantities
      *
-     * @param int[]|null $report_pickable_quantities Report pickable quantities
+     * @param int[]|null $report_pickable_quantities Report pickable quantities (deprecated)
      *
      * @return self
      */
