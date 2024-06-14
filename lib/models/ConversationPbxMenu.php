@@ -67,6 +67,7 @@ class ConversationPbxMenu implements ModelInterface, ArrayAccess, \JsonSerializa
         'name' => 'string',
         'play_audio_uuid' => 'string',
         'say' => 'string',
+        'say_voice' => 'string',
         'timeout' => 'int'
     ];
 
@@ -87,6 +88,7 @@ class ConversationPbxMenu implements ModelInterface, ArrayAccess, \JsonSerializa
         'name' => null,
         'play_audio_uuid' => null,
         'say' => null,
+        'say_voice' => null,
         'timeout' => 'int32'
     ];
 
@@ -126,6 +128,7 @@ class ConversationPbxMenu implements ModelInterface, ArrayAccess, \JsonSerializa
         'name' => 'name',
         'play_audio_uuid' => 'play_audio_uuid',
         'say' => 'say',
+        'say_voice' => 'say_voice',
         'timeout' => 'timeout'
     ];
 
@@ -144,6 +147,7 @@ class ConversationPbxMenu implements ModelInterface, ArrayAccess, \JsonSerializa
         'name' => 'setName',
         'play_audio_uuid' => 'setPlayAudioUuid',
         'say' => 'setSay',
+        'say_voice' => 'setSayVoice',
         'timeout' => 'setTimeout'
     ];
 
@@ -162,6 +166,7 @@ class ConversationPbxMenu implements ModelInterface, ArrayAccess, \JsonSerializa
         'name' => 'getName',
         'play_audio_uuid' => 'getPlayAudioUuid',
         'say' => 'getSay',
+        'say_voice' => 'getSayVoice',
         'timeout' => 'getTimeout'
     ];
 
@@ -206,6 +211,21 @@ class ConversationPbxMenu implements ModelInterface, ArrayAccess, \JsonSerializa
         return self::$openAPIModelName;
     }
 
+    public const SAY_VOICE_MAN = 'man';
+    public const SAY_VOICE_WOMAN = 'woman';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSayVoiceAllowableValues()
+    {
+        return [
+            self::SAY_VOICE_MAN,
+            self::SAY_VOICE_WOMAN,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -231,6 +251,7 @@ class ConversationPbxMenu implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['name'] = $data['name'] ?? null;
         $this->container['play_audio_uuid'] = $data['play_audio_uuid'] ?? null;
         $this->container['say'] = $data['say'] ?? null;
+        $this->container['say_voice'] = $data['say_voice'] ?? null;
         $this->container['timeout'] = $data['timeout'] ?? null;
     }
 
@@ -265,6 +286,19 @@ class ConversationPbxMenu implements ModelInterface, ArrayAccess, \JsonSerializa
 
         if (!is_null($this->container['play_audio_uuid']) && (mb_strlen($this->container['play_audio_uuid']) > 50)) {
             $invalidProperties[] = "invalid value for 'play_audio_uuid', the character length must be smaller than or equal to 50.";
+        }
+
+        $allowedValues = $this->getSayVoiceAllowableValues();
+        if (!is_null($this->container['say_voice']) && !in_array($this->container['say_voice'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'say_voice', must be one of '%s'",
+                $this->container['say_voice'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if (!is_null($this->container['say_voice']) && (mb_strlen($this->container['say_voice']) > 50)) {
+            $invalidProperties[] = "invalid value for 'say_voice', the character length must be smaller than or equal to 50.";
         }
 
         return $invalidProperties;
@@ -518,6 +552,44 @@ class ConversationPbxMenu implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setSay($say)
     {
         $this->container['say'] = $say;
+
+        return $this;
+    }
+
+    /**
+     * Gets say_voice
+     *
+     * @return string|null
+     */
+    public function getSayVoice()
+    {
+        return $this->container['say_voice'];
+    }
+
+    /**
+     * Sets say_voice
+     *
+     * @param string|null $say_voice say voice
+     *
+     * @return self
+     */
+    public function setSayVoice($say_voice)
+    {
+        $allowedValues = $this->getSayVoiceAllowableValues();
+        if (!is_null($say_voice) && !in_array($say_voice, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'say_voice', must be one of '%s'",
+                    $say_voice,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        if (!is_null($say_voice) && (mb_strlen($say_voice) > 50)) {
+            throw new \InvalidArgumentException('invalid length for $say_voice when calling ConversationPbxMenu., must be smaller than or equal to 50.');
+        }
+
+        $this->container['say_voice'] = $say_voice;
 
         return $this;
     }
