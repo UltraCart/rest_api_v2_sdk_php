@@ -1586,6 +1586,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.212 | 06/14/2024 | pbx menu - add say voice property |
 | 3.10.211 | 06/07/2024 | conversation pbx - adjust agent voicemail box uuid fields |
 | 3.10.210 | 06/03/2024 | conversationPbxPhoneNumber - fix serialized name for phone number UUID |
 | 3.10.209 | 05/31/2024 | ItemApi.getInventorySnapshot method |

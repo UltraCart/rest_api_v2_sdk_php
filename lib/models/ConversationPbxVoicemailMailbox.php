@@ -213,10 +213,27 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const VOICEMAIL_FOLLOWUP_SAY_VOICE_MAN = 'man';
+    const VOICEMAIL_FOLLOWUP_SAY_VOICE_WOMAN = 'woman';
     const VOICEMAIL_MAILBOX_TYPE_AGENT = 'agent';
     const VOICEMAIL_MAILBOX_TYPE_SHARED = 'shared';
+    const VOICEMAIL_PROMPT_SAY_VOICE_MAN = 'man';
+    const VOICEMAIL_PROMPT_SAY_VOICE_WOMAN = 'woman';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getVoicemailFollowupSayVoiceAllowableValues()
+    {
+        return [
+            self::VOICEMAIL_FOLLOWUP_SAY_VOICE_MAN,
+            self::VOICEMAIL_FOLLOWUP_SAY_VOICE_WOMAN,
+        ];
+    }
     
     /**
      * Gets allowable values of the enum
@@ -228,6 +245,19 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess
         return [
             self::VOICEMAIL_MAILBOX_TYPE_AGENT,
             self::VOICEMAIL_MAILBOX_TYPE_SHARED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getVoicemailPromptSayVoiceAllowableValues()
+    {
+        return [
+            self::VOICEMAIL_PROMPT_SAY_VOICE_MAN,
+            self::VOICEMAIL_PROMPT_SAY_VOICE_WOMAN,
         ];
     }
     
@@ -286,6 +316,14 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'voicemail_followup_play_audio_uuid', the character length must be smaller than or equal to 50.";
         }
 
+        $allowedValues = $this->getVoicemailFollowupSayVoiceAllowableValues();
+        if (!is_null($this->container['voicemail_followup_say_voice']) && !in_array($this->container['voicemail_followup_say_voice'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'voicemail_followup_say_voice', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if (!is_null($this->container['voicemail_followup_say_voice']) && (mb_strlen($this->container['voicemail_followup_say_voice']) > 50)) {
             $invalidProperties[] = "invalid value for 'voicemail_followup_say_voice', the character length must be smaller than or equal to 50.";
         }
@@ -308,6 +346,14 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess
 
         if (!is_null($this->container['voicemail_prompt_play_audio_uuid']) && (mb_strlen($this->container['voicemail_prompt_play_audio_uuid']) > 50)) {
             $invalidProperties[] = "invalid value for 'voicemail_prompt_play_audio_uuid', the character length must be smaller than or equal to 50.";
+        }
+
+        $allowedValues = $this->getVoicemailPromptSayVoiceAllowableValues();
+        if (!is_null($this->container['voicemail_prompt_say_voice']) && !in_array($this->container['voicemail_prompt_say_voice'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'voicemail_prompt_say_voice', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
 
         if (!is_null($this->container['voicemail_prompt_say_voice']) && (mb_strlen($this->container['voicemail_prompt_say_voice']) > 50)) {
@@ -508,6 +554,15 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess
      */
     public function setVoicemailFollowupSayVoice($voicemail_followup_say_voice)
     {
+        $allowedValues = $this->getVoicemailFollowupSayVoiceAllowableValues();
+        if (!is_null($voicemail_followup_say_voice) && !in_array($voicemail_followup_say_voice, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'voicemail_followup_say_voice', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         if (!is_null($voicemail_followup_say_voice) && (mb_strlen($voicemail_followup_say_voice) > 50)) {
             throw new \InvalidArgumentException('invalid length for $voicemail_followup_say_voice when calling ConversationPbxVoicemailMailbox., must be smaller than or equal to 50.');
         }
@@ -653,6 +708,15 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess
      */
     public function setVoicemailPromptSayVoice($voicemail_prompt_say_voice)
     {
+        $allowedValues = $this->getVoicemailPromptSayVoiceAllowableValues();
+        if (!is_null($voicemail_prompt_say_voice) && !in_array($voicemail_prompt_say_voice, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'voicemail_prompt_say_voice', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         if (!is_null($voicemail_prompt_say_voice) && (mb_strlen($voicemail_prompt_say_voice) > 50)) {
             throw new \InvalidArgumentException('invalid length for $voicemail_prompt_say_voice when calling ConversationPbxVoicemailMailbox., must be smaller than or equal to 50.');
         }
