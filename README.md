@@ -565,6 +565,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**sequenceTest**](docs/Api/StorefrontApi.md#sequencetest) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/test | Sequence test
 *StorefrontApi* | [**startEmailCampaign**](docs/Api/StorefrontApi.md#startemailcampaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/start | Start email campaign
 *StorefrontApi* | [**subscribeToEmailList**](docs/Api/StorefrontApi.md#subscribetoemaillist) | **POST** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/subscribe | Subscribe customers to email list
+*StorefrontApi* | [**sunsetEmailSegment**](docs/Api/StorefrontApi.md#sunsetemailsegment) | **PUT** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/sunset | Sunset email segment
 *StorefrontApi* | [**unfavoriteScreenRecording**](docs/Api/StorefrontApi.md#unfavoritescreenrecording) | **DELETE** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/favorite | Remove favorite flag on screen recording
 *StorefrontApi* | [**updateEmailCampaign**](docs/Api/StorefrontApi.md#updateemailcampaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid} | Update email campaign
 *StorefrontApi* | [**updateEmailCampaignFolder**](docs/Api/StorefrontApi.md#updateemailcampaignfolder) | **PUT** /storefront/{storefront_oid}/email/campaign_folders/{email_campaign_folder_uuid} | Update email campaign folder
@@ -1586,6 +1587,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.213 | 06/24/2024 | conversation object cleanup |
 | 3.10.212 | 06/14/2024 | pbx menu - add say voice property |
 | 3.10.211 | 06/07/2024 | conversation pbx - adjust agent voicemail box uuid fields |
 | 3.10.210 | 06/03/2024 | conversationPbxPhoneNumber - fix serialized name for phone number UUID |
