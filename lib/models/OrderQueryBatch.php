@@ -57,7 +57,8 @@ class OrderQueryBatch implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'order_ids' => 'string[]'
+        'order_ids' => 'string[]',
+        'query_target' => 'string'
     ];
 
     /**
@@ -66,7 +67,8 @@ class OrderQueryBatch implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'order_ids' => null
+        'order_ids' => null,
+        'query_target' => null
     ];
 
     /**
@@ -96,7 +98,8 @@ class OrderQueryBatch implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'order_ids' => 'order_ids'
+        'order_ids' => 'order_ids',
+        'query_target' => 'query_target'
     ];
 
     /**
@@ -105,7 +108,8 @@ class OrderQueryBatch implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'order_ids' => 'setOrderIds'
+        'order_ids' => 'setOrderIds',
+        'query_target' => 'setQueryTarget'
     ];
 
     /**
@@ -114,7 +118,8 @@ class OrderQueryBatch implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'order_ids' => 'getOrderIds'
+        'order_ids' => 'getOrderIds',
+        'query_target' => 'getQueryTarget'
     ];
 
     /**
@@ -158,8 +163,23 @@ class OrderQueryBatch implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const QUERY_TARGET_ORIGIN = 'origin';
+    const QUERY_TARGET_CACHE = 'cache';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getQueryTargetAllowableValues()
+    {
+        return [
+            self::QUERY_TARGET_ORIGIN,
+            self::QUERY_TARGET_CACHE,
+        ];
+    }
     
 
     /**
@@ -178,6 +198,7 @@ class OrderQueryBatch implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['order_ids'] = isset($data['order_ids']) ? $data['order_ids'] : null;
+        $this->container['query_target'] = isset($data['query_target']) ? $data['query_target'] : null;
     }
 
     /**
@@ -188,6 +209,14 @@ class OrderQueryBatch implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getQueryTargetAllowableValues();
+        if (!is_null($this->container['query_target']) && !in_array($this->container['query_target'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'query_target', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -224,6 +253,39 @@ class OrderQueryBatch implements ModelInterface, ArrayAccess
     public function setOrderIds($order_ids)
     {
         $this->container['order_ids'] = $order_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets query_target
+     *
+     * @return string
+     */
+    public function getQueryTarget()
+    {
+        return $this->container['query_target'];
+    }
+
+    /**
+     * Sets query_target
+     *
+     * @param string $query_target Query Target
+     *
+     * @return $this
+     */
+    public function setQueryTarget($query_target)
+    {
+        $allowedValues = $this->getQueryTargetAllowableValues();
+        if (!is_null($query_target) && !in_array($query_target, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'query_target', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['query_target'] = $query_target;
 
         return $this;
     }

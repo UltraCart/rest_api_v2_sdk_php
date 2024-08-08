@@ -7271,15 +7271,16 @@ class OrderApi
      * @param  bool $manual_refund Consider a manual refund done externally (optional, default to false)
      * @param  bool $reverse_affiliate_transactions Reverse affiliate transactions (optional, default to true)
      * @param  bool $issue_store_credit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
+     * @param  string $auto_order_cancel_reason Reason for auto orders cancellation (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ultracart\v2\models\OrderResponse
      */
-    public function refundOrder($order, $order_id, $reject_after_refund = 'false', $skip_customer_notification = 'false', $auto_order_cancel = 'false', $manual_refund = 'false', $reverse_affiliate_transactions = 'true', $issue_store_credit = 'false', $_expand = null)
+    public function refundOrder($order, $order_id, $reject_after_refund = 'false', $skip_customer_notification = 'false', $auto_order_cancel = 'false', $manual_refund = 'false', $reverse_affiliate_transactions = 'true', $issue_store_credit = 'false', $auto_order_cancel_reason = null, $_expand = null)
     {
-        list($response) = $this->refundOrderWithHttpInfo($order, $order_id, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $issue_store_credit, $_expand);
+        list($response) = $this->refundOrderWithHttpInfo($order, $order_id, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $issue_store_credit, $auto_order_cancel_reason, $_expand);
         return $response;
     }
 
@@ -7297,15 +7298,16 @@ class OrderApi
      * @param  bool $manual_refund Consider a manual refund done externally (optional, default to false)
      * @param  bool $reverse_affiliate_transactions Reverse affiliate transactions (optional, default to true)
      * @param  bool $issue_store_credit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
+     * @param  string $auto_order_cancel_reason Reason for auto orders cancellation (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\OrderResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function refundOrderWithHttpInfo($order, $order_id, $reject_after_refund = 'false', $skip_customer_notification = 'false', $auto_order_cancel = 'false', $manual_refund = 'false', $reverse_affiliate_transactions = 'true', $issue_store_credit = 'false', $_expand = null)
+    public function refundOrderWithHttpInfo($order, $order_id, $reject_after_refund = 'false', $skip_customer_notification = 'false', $auto_order_cancel = 'false', $manual_refund = 'false', $reverse_affiliate_transactions = 'true', $issue_store_credit = 'false', $auto_order_cancel_reason = null, $_expand = null)
     {
-        return $this->refundOrderWithHttpInfoRetry(true ,   $order,   $order_id,   $reject_after_refund,   $skip_customer_notification,   $auto_order_cancel,   $manual_refund,   $reverse_affiliate_transactions,   $issue_store_credit,   $_expand);
+        return $this->refundOrderWithHttpInfoRetry(true ,   $order,   $order_id,   $reject_after_refund,   $skip_customer_notification,   $auto_order_cancel,   $manual_refund,   $reverse_affiliate_transactions,   $issue_store_credit,   $auto_order_cancel_reason,   $_expand);
     }
 
 
@@ -7323,16 +7325,17 @@ class OrderApi
      * @param  bool $manual_refund Consider a manual refund done externally (optional, default to false)
      * @param  bool $reverse_affiliate_transactions Reverse affiliate transactions (optional, default to true)
      * @param  bool $issue_store_credit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
+     * @param  string $auto_order_cancel_reason Reason for auto orders cancellation (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\OrderResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function refundOrderWithHttpInfoRetry($retry ,  $order,  $order_id,  $reject_after_refund = 'false',  $skip_customer_notification = 'false',  $auto_order_cancel = 'false',  $manual_refund = 'false',  $reverse_affiliate_transactions = 'true',  $issue_store_credit = 'false',  $_expand = null)
+    public function refundOrderWithHttpInfoRetry($retry ,  $order,  $order_id,  $reject_after_refund = 'false',  $skip_customer_notification = 'false',  $auto_order_cancel = 'false',  $manual_refund = 'false',  $reverse_affiliate_transactions = 'true',  $issue_store_credit = 'false',  $auto_order_cancel_reason = null,  $_expand = null)
     {
         $returnType = '\ultracart\v2\models\OrderResponse';
-        $request = $this->refundOrderRequest($order, $order_id, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $issue_store_credit, $_expand);
+        $request = $this->refundOrderRequest($order, $order_id, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $issue_store_credit, $auto_order_cancel_reason, $_expand);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7351,7 +7354,7 @@ class OrderApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->refundOrderWithHttpInfoRetry(false ,   $order,   $order_id,   $reject_after_refund,   $skip_customer_notification,   $auto_order_cancel,   $manual_refund,   $reverse_affiliate_transactions,   $issue_store_credit,   $_expand);
+                        return $this->refundOrderWithHttpInfoRetry(false ,   $order,   $order_id,   $reject_after_refund,   $skip_customer_notification,   $auto_order_cancel,   $manual_refund,   $reverse_affiliate_transactions,   $issue_store_credit,   $auto_order_cancel_reason,   $_expand);
                     }
                 }
 
@@ -7447,14 +7450,15 @@ class OrderApi
      * @param  bool $manual_refund Consider a manual refund done externally (optional, default to false)
      * @param  bool $reverse_affiliate_transactions Reverse affiliate transactions (optional, default to true)
      * @param  bool $issue_store_credit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
+     * @param  string $auto_order_cancel_reason Reason for auto orders cancellation (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function refundOrderAsync($order, $order_id, $reject_after_refund = 'false', $skip_customer_notification = 'false', $auto_order_cancel = 'false', $manual_refund = 'false', $reverse_affiliate_transactions = 'true', $issue_store_credit = 'false', $_expand = null)
+    public function refundOrderAsync($order, $order_id, $reject_after_refund = 'false', $skip_customer_notification = 'false', $auto_order_cancel = 'false', $manual_refund = 'false', $reverse_affiliate_transactions = 'true', $issue_store_credit = 'false', $auto_order_cancel_reason = null, $_expand = null)
     {
-        return $this->refundOrderAsyncWithHttpInfo($order, $order_id, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $issue_store_credit, $_expand)
+        return $this->refundOrderAsyncWithHttpInfo($order, $order_id, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $issue_store_credit, $auto_order_cancel_reason, $_expand)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7475,15 +7479,16 @@ class OrderApi
      * @param  bool $manual_refund Consider a manual refund done externally (optional, default to false)
      * @param  bool $reverse_affiliate_transactions Reverse affiliate transactions (optional, default to true)
      * @param  bool $issue_store_credit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
+     * @param  string $auto_order_cancel_reason Reason for auto orders cancellation (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function refundOrderAsyncWithHttpInfo($order, $order_id, $reject_after_refund = 'false', $skip_customer_notification = 'false', $auto_order_cancel = 'false', $manual_refund = 'false', $reverse_affiliate_transactions = 'true', $issue_store_credit = 'false', $_expand = null)
+    public function refundOrderAsyncWithHttpInfo($order, $order_id, $reject_after_refund = 'false', $skip_customer_notification = 'false', $auto_order_cancel = 'false', $manual_refund = 'false', $reverse_affiliate_transactions = 'true', $issue_store_credit = 'false', $auto_order_cancel_reason = null, $_expand = null)
     {
         $returnType = '\ultracart\v2\models\OrderResponse';
-        $request = $this->refundOrderRequest($order, $order_id, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $issue_store_credit, $_expand);
+        $request = $this->refundOrderRequest($order, $order_id, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $issue_store_credit, $auto_order_cancel_reason, $_expand);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7533,12 +7538,13 @@ class OrderApi
      * @param  bool $manual_refund Consider a manual refund done externally (optional, default to false)
      * @param  bool $reverse_affiliate_transactions Reverse affiliate transactions (optional, default to true)
      * @param  bool $issue_store_credit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
+     * @param  string $auto_order_cancel_reason Reason for auto orders cancellation (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function refundOrderRequest($order, $order_id, $reject_after_refund = 'false', $skip_customer_notification = 'false', $auto_order_cancel = 'false', $manual_refund = 'false', $reverse_affiliate_transactions = 'true', $issue_store_credit = 'false', $_expand = null)
+    protected function refundOrderRequest($order, $order_id, $reject_after_refund = 'false', $skip_customer_notification = 'false', $auto_order_cancel = 'false', $manual_refund = 'false', $reverse_affiliate_transactions = 'true', $issue_store_credit = 'false', $auto_order_cancel_reason = null, $_expand = null)
     {
         // verify the required parameter 'order' is set
         if ($order === null || (is_array($order) && count($order) === 0)) {
@@ -7583,6 +7589,10 @@ class OrderApi
         // query params
         if ($issue_store_credit !== null) {
             $queryParams['issue_store_credit'] = ObjectSerializer::toQueryValue($issue_store_credit);
+        }
+        // query params
+        if ($auto_order_cancel_reason !== null) {
+            $queryParams['auto_order_cancel_reason'] = ObjectSerializer::toQueryValue($auto_order_cancel_reason);
         }
         // query params
         if ($_expand !== null) {

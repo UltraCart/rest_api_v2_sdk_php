@@ -1081,7 +1081,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **refundOrder**
-> \ultracart\v2\models\OrderResponse refundOrder($order, $order_id, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $issue_store_credit, $_expand)
+> \ultracart\v2\models\OrderResponse refundOrder($order, $order_id, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $issue_store_credit, $auto_order_cancel_reason, $_expand)
 
 Refund an order
 
@@ -1104,10 +1104,11 @@ $auto_order_cancel = false; // bool | Cancel associated auto orders
 $manual_refund = false; // bool | Consider a manual refund done externally
 $reverse_affiliate_transactions = true; // bool | Reverse affiliate transactions
 $issue_store_credit = false; // bool | Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account
+$auto_order_cancel_reason = "auto_order_cancel_reason_example"; // string | Reason for auto orders cancellation
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $apiInstance->refundOrder($order, $order_id, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $issue_store_credit, $_expand);
+    $result = $apiInstance->refundOrder($order, $order_id, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $issue_store_credit, $auto_order_cancel_reason, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrderApi->refundOrder: ', $e->getMessage(), PHP_EOL;
@@ -1127,6 +1128,7 @@ Name | Type | Description  | Notes
  **manual_refund** | **bool**| Consider a manual refund done externally | [optional] [default to false]
  **reverse_affiliate_transactions** | **bool**| Reverse affiliate transactions | [optional] [default to true]
  **issue_store_credit** | **bool**| Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account | [optional] [default to false]
+ **auto_order_cancel_reason** | **string**| Reason for auto orders cancellation | [optional]
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
