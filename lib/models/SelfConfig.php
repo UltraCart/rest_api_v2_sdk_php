@@ -58,6 +58,8 @@ class SelfConfig implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'exempt_from_colorado_retail_delivery_fee' => 'bool',
+        'exempt_from_minnesota_retail_delivery_fee' => 'bool',
         'tax_billing' => 'bool'
     ];
 
@@ -69,6 +71,8 @@ class SelfConfig implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'exempt_from_colorado_retail_delivery_fee' => null,
+        'exempt_from_minnesota_retail_delivery_fee' => null,
         'tax_billing' => null
     ];
 
@@ -99,6 +103,8 @@ class SelfConfig implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'exempt_from_colorado_retail_delivery_fee' => 'exempt_from_colorado_retail_delivery_fee',
+        'exempt_from_minnesota_retail_delivery_fee' => 'exempt_from_minnesota_retail_delivery_fee',
         'tax_billing' => 'tax_billing'
     ];
 
@@ -108,6 +114,8 @@ class SelfConfig implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'exempt_from_colorado_retail_delivery_fee' => 'setExemptFromColoradoRetailDeliveryFee',
+        'exempt_from_minnesota_retail_delivery_fee' => 'setExemptFromMinnesotaRetailDeliveryFee',
         'tax_billing' => 'setTaxBilling'
     ];
 
@@ -117,6 +125,8 @@ class SelfConfig implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'exempt_from_colorado_retail_delivery_fee' => 'getExemptFromColoradoRetailDeliveryFee',
+        'exempt_from_minnesota_retail_delivery_fee' => 'getExemptFromMinnesotaRetailDeliveryFee',
         'tax_billing' => 'getTaxBilling'
     ];
 
@@ -177,6 +187,8 @@ class SelfConfig implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->container['exempt_from_colorado_retail_delivery_fee'] = $data['exempt_from_colorado_retail_delivery_fee'] ?? null;
+        $this->container['exempt_from_minnesota_retail_delivery_fee'] = $data['exempt_from_minnesota_retail_delivery_fee'] ?? null;
         $this->container['tax_billing'] = $data['tax_billing'] ?? null;
     }
 
@@ -203,6 +215,54 @@ class SelfConfig implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets exempt_from_colorado_retail_delivery_fee
+     *
+     * @return bool|null
+     */
+    public function getExemptFromColoradoRetailDeliveryFee()
+    {
+        return $this->container['exempt_from_colorado_retail_delivery_fee'];
+    }
+
+    /**
+     * Sets exempt_from_colorado_retail_delivery_fee
+     *
+     * @param bool|null $exempt_from_colorado_retail_delivery_fee True if the Colorado Retail Delivery Fee should not be collected
+     *
+     * @return self
+     */
+    public function setExemptFromColoradoRetailDeliveryFee($exempt_from_colorado_retail_delivery_fee)
+    {
+        $this->container['exempt_from_colorado_retail_delivery_fee'] = $exempt_from_colorado_retail_delivery_fee;
+
+        return $this;
+    }
+
+    /**
+     * Gets exempt_from_minnesota_retail_delivery_fee
+     *
+     * @return bool|null
+     */
+    public function getExemptFromMinnesotaRetailDeliveryFee()
+    {
+        return $this->container['exempt_from_minnesota_retail_delivery_fee'];
+    }
+
+    /**
+     * Sets exempt_from_minnesota_retail_delivery_fee
+     *
+     * @param bool|null $exempt_from_minnesota_retail_delivery_fee True if the Minnesota Retail Delivery Fee should not be collected
+     *
+     * @return self
+     */
+    public function setExemptFromMinnesotaRetailDeliveryFee($exempt_from_minnesota_retail_delivery_fee)
+    {
+        $this->container['exempt_from_minnesota_retail_delivery_fee'] = $exempt_from_minnesota_retail_delivery_fee;
+
+        return $this;
+    }
 
     /**
      * Gets tax_billing
