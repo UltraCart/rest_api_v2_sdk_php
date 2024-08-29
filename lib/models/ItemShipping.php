@@ -81,6 +81,7 @@ class ItemShipping implements ModelInterface, ArrayAccess, \JsonSerializable
         'free_shipping' => 'bool',
         'freight_class' => 'string',
         'hazmat' => 'bool',
+        'hold_for_transmission' => 'bool',
         'made_to_order' => 'bool',
         'made_to_order_lead_time' => 'int',
         'max_days_time_in_transit' => 'int',
@@ -139,6 +140,7 @@ class ItemShipping implements ModelInterface, ArrayAccess, \JsonSerializable
         'free_shipping' => null,
         'freight_class' => null,
         'hazmat' => null,
+        'hold_for_transmission' => null,
         'made_to_order' => null,
         'made_to_order_lead_time' => 'int32',
         'max_days_time_in_transit' => 'int32',
@@ -216,6 +218,7 @@ class ItemShipping implements ModelInterface, ArrayAccess, \JsonSerializable
         'free_shipping' => 'free_shipping',
         'freight_class' => 'freight_class',
         'hazmat' => 'hazmat',
+        'hold_for_transmission' => 'hold_for_transmission',
         'made_to_order' => 'made_to_order',
         'made_to_order_lead_time' => 'made_to_order_lead_time',
         'max_days_time_in_transit' => 'max_days_time_in_transit',
@@ -272,6 +275,7 @@ class ItemShipping implements ModelInterface, ArrayAccess, \JsonSerializable
         'free_shipping' => 'setFreeShipping',
         'freight_class' => 'setFreightClass',
         'hazmat' => 'setHazmat',
+        'hold_for_transmission' => 'setHoldForTransmission',
         'made_to_order' => 'setMadeToOrder',
         'made_to_order_lead_time' => 'setMadeToOrderLeadTime',
         'max_days_time_in_transit' => 'setMaxDaysTimeInTransit',
@@ -328,6 +332,7 @@ class ItemShipping implements ModelInterface, ArrayAccess, \JsonSerializable
         'free_shipping' => 'getFreeShipping',
         'freight_class' => 'getFreightClass',
         'hazmat' => 'getHazmat',
+        'hold_for_transmission' => 'getHoldForTransmission',
         'made_to_order' => 'getMadeToOrder',
         'made_to_order_lead_time' => 'getMadeToOrderLeadTime',
         'max_days_time_in_transit' => 'getMaxDaysTimeInTransit',
@@ -435,6 +440,7 @@ class ItemShipping implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['free_shipping'] = $data['free_shipping'] ?? null;
         $this->container['freight_class'] = $data['freight_class'] ?? null;
         $this->container['hazmat'] = $data['hazmat'] ?? null;
+        $this->container['hold_for_transmission'] = $data['hold_for_transmission'] ?? null;
         $this->container['made_to_order'] = $data['made_to_order'] ?? null;
         $this->container['made_to_order_lead_time'] = $data['made_to_order_lead_time'] ?? null;
         $this->container['max_days_time_in_transit'] = $data['max_days_time_in_transit'] ?? null;
@@ -1042,6 +1048,30 @@ class ItemShipping implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setHazmat($hazmat)
     {
         $this->container['hazmat'] = $hazmat;
+
+        return $this;
+    }
+
+    /**
+     * Gets hold_for_transmission
+     *
+     * @return bool|null
+     */
+    public function getHoldForTransmission()
+    {
+        return $this->container['hold_for_transmission'];
+    }
+
+    /**
+     * Sets hold_for_transmission
+     *
+     * @param bool|null $hold_for_transmission Hold for transmission
+     *
+     * @return self
+     */
+    public function setHoldForTransmission($hold_for_transmission)
+    {
+        $this->container['hold_for_transmission'] = $hold_for_transmission;
 
         return $this;
     }

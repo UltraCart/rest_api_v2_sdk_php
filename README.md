@@ -1528,6 +1528,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.232 | 08/29/2024 | add hold_for_transmission to item shipping object |
 | 4.0.231 | 08/08/2024 | added query_target to OrderApi.getOrdersBatch to allow cache usage |
 | 4.0.230 | 06/24/2024 | conversation object cleanup |
 | 4.0.229 | 06/14/2024 | pbx menu - add say voice property |
