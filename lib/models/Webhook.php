@@ -251,6 +251,8 @@ class Webhook implements ModelInterface, ArrayAccess
     const API_VERSION__2017_03_01 = '2017-03-01';
     const AUTHENTICATION_TYPE_NONE = 'none';
     const AUTHENTICATION_TYPE_BASIC = 'basic';
+    const AUTHENTICATION_TYPE_API_USER = 'api user';
+    const AUTHENTICATION_TYPE_AWS_IAM = 'aws iam';
     
 
     
@@ -276,6 +278,8 @@ class Webhook implements ModelInterface, ArrayAccess
         return [
             self::AUTHENTICATION_TYPE_NONE,
             self::AUTHENTICATION_TYPE_BASIC,
+            self::AUTHENTICATION_TYPE_API_USER,
+            self::AUTHENTICATION_TYPE_AWS_IAM,
         ];
     }
     

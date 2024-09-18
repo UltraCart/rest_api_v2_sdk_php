@@ -1587,6 +1587,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.216 | 09/18/2024 | order payment constant for PayPal Fastlane |
 | 3.10.215 | 08/29/2024 | add hold_for_transmission to item shipping object |
 | 3.10.214 | 08/08/2024 | added query_target to OrderApi.getOrdersBatch to allow cache usage |
 | 3.10.213 | 06/24/2024 | conversation object cleanup |
