@@ -254,6 +254,8 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable
     public const API_VERSION__2017_03_01 = '2017-03-01';
     public const AUTHENTICATION_TYPE_NONE = 'none';
     public const AUTHENTICATION_TYPE_BASIC = 'basic';
+    public const AUTHENTICATION_TYPE_API_USER = 'api user';
+    public const AUTHENTICATION_TYPE_AWS_IAM = 'aws iam';
 
     /**
      * Gets allowable values of the enum
@@ -277,6 +279,8 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable
         return [
             self::AUTHENTICATION_TYPE_NONE,
             self::AUTHENTICATION_TYPE_BASIC,
+            self::AUTHENTICATION_TYPE_API_USER,
+            self::AUTHENTICATION_TYPE_AWS_IAM,
         ];
     }
 
