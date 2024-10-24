@@ -23,6 +23,8 @@ Name | Type | Description | Notes
 **itm_source** | **string** |  | [optional] 
 **itm_term** | **string** |  | [optional] 
 **msclkid** | **string** |  | [optional] 
+**short_code** | **string** |  | [optional] 
+**short_code_backup** | **bool** |  | [optional] 
 **ttclid** | **string** |  | [optional] 
 **uc_message_id** | **string** |  | [optional] 
 **utm_campaign** | **string** |  | [optional] 
