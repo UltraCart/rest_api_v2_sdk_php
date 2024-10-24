@@ -472,6 +472,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**insertEmailPostcard**](docs/Api/StorefrontApi.md#insertemailpostcard) | **POST** /storefront/{storefront_oid}/email/postcards | Insert email postcard
 *StorefrontApi* | [**insertEmailSegment**](docs/Api/StorefrontApi.md#insertemailsegment) | **POST** /storefront/{storefront_oid}/email/segments | Insert email segment
 *StorefrontApi* | [**insertScreenRecordingSegment**](docs/Api/StorefrontApi.md#insertscreenrecordingsegment) | **POST** /storefront/{storefront_oid}/screen_recordings/segments | Insert screen recording segment
+*StorefrontApi* | [**insertUpdatePageContentAttribute**](docs/Api/StorefrontApi.md#insertupdatepagecontentattribute) | **POST** /storefront/{storefront_oid}/pages/{page_oid}/content/attributes | Upsert a page content attribute
 *StorefrontApi* | [**prepareDownloadEmailSegment**](docs/Api/StorefrontApi.md#preparedownloademailsegment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/downloadPrepare | Prepare download of email segment
 *StorefrontApi* | [**publishLibraryItem**](docs/Api/StorefrontApi.md#publishlibraryitem) | **POST** /storefront/code_library/{library_item_oid}/publish | Publish library item.
 *StorefrontApi* | [**purchaseLibraryItem**](docs/Api/StorefrontApi.md#purchaselibraryitem) | **POST** /storefront/code_library/{library_item_oid}/purchase | Purchase public library item, which creates a copy of the item in your personal code library
@@ -1361,6 +1362,7 @@ Class | Method | HTTP request | Description
 - [StateProvince](docs/Model/StateProvince.md)
 - [StepWaiting](docs/Model/StepWaiting.md)
 - [StoreFront](docs/Model/StoreFront.md)
+- [StoreFrontPageContentAttribute](docs/Model/StoreFrontPageContentAttribute.md)
 - [StoreFrontsResponse](docs/Model/StoreFrontsResponse.md)
 - [TaxCity](docs/Model/TaxCity.md)
 - [TaxCountry](docs/Model/TaxCountry.md)
@@ -1528,6 +1530,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.234 | 10/24/2024 | storefront page attribute edit method |
 | 4.0.233 | 09/18/2024 | order payment constant for PayPal Fastlane |
 | 4.0.232 | 08/29/2024 | add hold_for_transmission to item shipping object |
 | 4.0.231 | 08/08/2024 | added query_target to OrderApi.getOrdersBatch to allow cache usage |

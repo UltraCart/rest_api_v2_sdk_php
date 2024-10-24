@@ -803,6 +803,7 @@ docs/Model/SovosConfig.md
 docs/Model/StateProvince.md
 docs/Model/StepWaiting.md
 docs/Model/StoreFront.md
+docs/Model/StoreFrontPageContentAttribute.md
 docs/Model/StoreFrontsResponse.md
 docs/Model/TaxCity.md
 docs/Model/TaxCountry.md
@@ -1683,6 +1684,7 @@ lib/models/SovosConfig.php
 lib/models/StateProvince.php
 lib/models/StepWaiting.php
 lib/models/StoreFront.php
+lib/models/StoreFrontPageContentAttribute.php
 lib/models/StoreFrontsResponse.php
 lib/models/TaxCity.php
 lib/models/TaxCountry.php

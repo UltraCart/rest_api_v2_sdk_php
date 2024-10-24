@@ -59219,6 +59219,359 @@ class StorefrontApi
     }
 
     /**
+     * Operation insertUpdatePageContentAttribute
+     *
+     * Upsert a page content attribute
+     *
+     * @param  int $storefront_oid storefront_oid (required)
+     * @param  int $page_oid The page oid to modify. (required)
+     * @param  \ultracart\v2\models\StoreFrontPageContentAttribute $page_attribute Page content attribute to upsert (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function insertUpdatePageContentAttribute($storefront_oid, $page_oid, $page_attribute)
+    {
+        $this->insertUpdatePageContentAttributeWithHttpInfo($storefront_oid, $page_oid, $page_attribute);
+    }
+
+    /**
+     * Operation insertUpdatePageContentAttributeWithHttpInfo
+     *
+     * Upsert a page content attribute
+     *
+     * @param  int $storefront_oid (required)
+     * @param  int $page_oid The page oid to modify. (required)
+     * @param  \ultracart\v2\models\StoreFrontPageContentAttribute $page_attribute Page content attribute to upsert (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertUpdatePageContentAttributeWithHttpInfo($storefront_oid, $page_oid, $page_attribute)
+    {
+        $this->insertUpdatePageContentAttributeWithHttpInfoRetry(true ,   $storefront_oid,   $page_oid,   $page_attribute);
+    }
+
+
+
+    /**
+     * Operation insertUpdatePageContentAttributeWithHttpInfoRetry
+     *
+     * Upsert a page content attribute
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  int $page_oid The page oid to modify. (required)
+     * @param  \ultracart\v2\models\StoreFrontPageContentAttribute $page_attribute Page content attribute to upsert (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertUpdatePageContentAttributeWithHttpInfoRetry($retry , $storefront_oid, $page_oid, $page_attribute)
+    {
+        $returnType = '';
+        $request = $this->insertUpdatePageContentAttributeRequest($storefront_oid, $page_oid, $page_attribute);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        $this->insertUpdatePageContentAttributeWithHttpInfoRetry(false ,   $storefront_oid,   $page_oid,   $page_attribute);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation insertUpdatePageContentAttributeAsync
+     *
+     * Upsert a page content attribute
+     *
+     * @param  int $storefront_oid (required)
+     * @param  int $page_oid The page oid to modify. (required)
+     * @param  \ultracart\v2\models\StoreFrontPageContentAttribute $page_attribute Page content attribute to upsert (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function insertUpdatePageContentAttributeAsync($storefront_oid, $page_oid, $page_attribute)
+    {
+        return $this->insertUpdatePageContentAttributeAsyncWithHttpInfo($storefront_oid, $page_oid, $page_attribute)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation insertUpdatePageContentAttributeAsyncWithHttpInfo
+     *
+     * Upsert a page content attribute
+     *
+     * @param  int $storefront_oid (required)
+     * @param  int $page_oid The page oid to modify. (required)
+     * @param  \ultracart\v2\models\StoreFrontPageContentAttribute $page_attribute Page content attribute to upsert (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function insertUpdatePageContentAttributeAsyncWithHttpInfo($storefront_oid, $page_oid, $page_attribute)
+    {
+        $returnType = '';
+        $request = $this->insertUpdatePageContentAttributeRequest($storefront_oid, $page_oid, $page_attribute);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'insertUpdatePageContentAttribute'
+     *
+     * @param  int $storefront_oid (required)
+     * @param  int $page_oid The page oid to modify. (required)
+     * @param  \ultracart\v2\models\StoreFrontPageContentAttribute $page_attribute Page content attribute to upsert (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function insertUpdatePageContentAttributeRequest($storefront_oid, $page_oid, $page_attribute)
+    {
+        // verify the required parameter 'storefront_oid' is set
+        if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $storefront_oid when calling insertUpdatePageContentAttribute'
+            );
+        }
+        // verify the required parameter 'page_oid' is set
+        if ($page_oid === null || (is_array($page_oid) && count($page_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $page_oid when calling insertUpdatePageContentAttribute'
+            );
+        }
+        // verify the required parameter 'page_attribute' is set
+        if ($page_attribute === null || (is_array($page_attribute) && count($page_attribute) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $page_attribute when calling insertUpdatePageContentAttribute'
+            );
+        }
+
+        $resourcePath = '/storefront/{storefront_oid}/pages/{page_oid}/content/attributes';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($storefront_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'storefront_oid' . '}',
+                ObjectSerializer::toPathValue($storefront_oid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($page_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'page_oid' . '}',
+                ObjectSerializer::toPathValue($page_oid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json; charset=UTF-8']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($page_attribute)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($page_attribute));
+            } else {
+                $httpBody = $page_attribute;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation prepareDownloadEmailSegment
      *
      * Prepare download of email segment

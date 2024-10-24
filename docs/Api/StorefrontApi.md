@@ -133,6 +133,7 @@ Method | HTTP request | Description
 [**insertEmailPostcard()**](StorefrontApi.md#insertEmailPostcard) | **POST** /storefront/{storefront_oid}/email/postcards | Insert email postcard
 [**insertEmailSegment()**](StorefrontApi.md#insertEmailSegment) | **POST** /storefront/{storefront_oid}/email/segments | Insert email segment
 [**insertScreenRecordingSegment()**](StorefrontApi.md#insertScreenRecordingSegment) | **POST** /storefront/{storefront_oid}/screen_recordings/segments | Insert screen recording segment
+[**insertUpdatePageContentAttribute()**](StorefrontApi.md#insertUpdatePageContentAttribute) | **POST** /storefront/{storefront_oid}/pages/{page_oid}/content/attributes | Upsert a page content attribute
 [**prepareDownloadEmailSegment()**](StorefrontApi.md#prepareDownloadEmailSegment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/downloadPrepare | Prepare download of email segment
 [**publishLibraryItem()**](StorefrontApi.md#publishLibraryItem) | **POST** /storefront/code_library/{library_item_oid}/publish | Publish library item.
 [**purchaseLibraryItem()**](StorefrontApi.md#purchaseLibraryItem) | **POST** /storefront/code_library/{library_item_oid}/purchase | Purchase public library item, which creates a copy of the item in your personal code library
@@ -7539,6 +7540,66 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `insertUpdatePageContentAttribute()`
+
+```php
+insertUpdatePageContentAttribute($storefront_oid, $page_oid, $page_attribute)
+```
+
+Upsert a page content attribute
+
+Update a page content attribute, creating it new if it does not yet exist.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+$storefront_oid = 56; // int
+$page_oid = 56; // int | The page oid to modify.
+$page_attribute = new \ultracart\v2\models\StoreFrontPageContentAttribute(); // \ultracart\v2\models\StoreFrontPageContentAttribute | Page content attribute to upsert
+
+try {
+    $apiInstance->insertUpdatePageContentAttribute($storefront_oid, $page_oid, $page_attribute);
+} catch (Exception $e) {
+    echo 'Exception when calling StorefrontApi->insertUpdatePageContentAttribute: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **page_oid** | **int**| The page oid to modify. |
+ **page_attribute** | [**\ultracart\v2\models\StoreFrontPageContentAttribute**](../Model/StoreFrontPageContentAttribute.md)| Page content attribute to upsert |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json; charset=UTF-8`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

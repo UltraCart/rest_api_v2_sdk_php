@@ -78,6 +78,8 @@ class OrderUtm implements ModelInterface, ArrayAccess, \JsonSerializable
         'itm_source' => 'string',
         'itm_term' => 'string',
         'msclkid' => 'string',
+        'short_code' => 'string',
+        'short_code_backup' => 'bool',
         'ttclid' => 'string',
         'uc_message_id' => 'string',
         'utm_campaign' => 'string',
@@ -118,6 +120,8 @@ class OrderUtm implements ModelInterface, ArrayAccess, \JsonSerializable
         'itm_source' => null,
         'itm_term' => null,
         'msclkid' => null,
+        'short_code' => null,
+        'short_code_backup' => null,
         'ttclid' => null,
         'uc_message_id' => null,
         'utm_campaign' => null,
@@ -177,6 +181,8 @@ class OrderUtm implements ModelInterface, ArrayAccess, \JsonSerializable
         'itm_source' => 'itm_source',
         'itm_term' => 'itm_term',
         'msclkid' => 'msclkid',
+        'short_code' => 'short_code',
+        'short_code_backup' => 'short_code_backup',
         'ttclid' => 'ttclid',
         'uc_message_id' => 'uc_message_id',
         'utm_campaign' => 'utm_campaign',
@@ -215,6 +221,8 @@ class OrderUtm implements ModelInterface, ArrayAccess, \JsonSerializable
         'itm_source' => 'setItmSource',
         'itm_term' => 'setItmTerm',
         'msclkid' => 'setMsclkid',
+        'short_code' => 'setShortCode',
+        'short_code_backup' => 'setShortCodeBackup',
         'ttclid' => 'setTtclid',
         'uc_message_id' => 'setUcMessageId',
         'utm_campaign' => 'setUtmCampaign',
@@ -253,6 +261,8 @@ class OrderUtm implements ModelInterface, ArrayAccess, \JsonSerializable
         'itm_source' => 'getItmSource',
         'itm_term' => 'getItmTerm',
         'msclkid' => 'getMsclkid',
+        'short_code' => 'getShortCode',
+        'short_code_backup' => 'getShortCodeBackup',
         'ttclid' => 'getTtclid',
         'uc_message_id' => 'getUcMessageId',
         'utm_campaign' => 'getUtmCampaign',
@@ -342,6 +352,8 @@ class OrderUtm implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['itm_source'] = $data['itm_source'] ?? null;
         $this->container['itm_term'] = $data['itm_term'] ?? null;
         $this->container['msclkid'] = $data['msclkid'] ?? null;
+        $this->container['short_code'] = $data['short_code'] ?? null;
+        $this->container['short_code_backup'] = $data['short_code_backup'] ?? null;
         $this->container['ttclid'] = $data['ttclid'] ?? null;
         $this->container['uc_message_id'] = $data['uc_message_id'] ?? null;
         $this->container['utm_campaign'] = $data['utm_campaign'] ?? null;
@@ -854,6 +866,54 @@ class OrderUtm implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setMsclkid($msclkid)
     {
         $this->container['msclkid'] = $msclkid;
+
+        return $this;
+    }
+
+    /**
+     * Gets short_code
+     *
+     * @return string|null
+     */
+    public function getShortCode()
+    {
+        return $this->container['short_code'];
+    }
+
+    /**
+     * Sets short_code
+     *
+     * @param string|null $short_code short_code
+     *
+     * @return self
+     */
+    public function setShortCode($short_code)
+    {
+        $this->container['short_code'] = $short_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets short_code_backup
+     *
+     * @return bool|null
+     */
+    public function getShortCodeBackup()
+    {
+        return $this->container['short_code_backup'];
+    }
+
+    /**
+     * Sets short_code_backup
+     *
+     * @param bool|null $short_code_backup short_code_backup
+     *
+     * @return self
+     */
+    public function setShortCodeBackup($short_code_backup)
+    {
+        $this->container['short_code_backup'] = $short_code_backup;
 
         return $this;
     }
