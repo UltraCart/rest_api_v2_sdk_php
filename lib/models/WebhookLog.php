@@ -68,7 +68,8 @@ class WebhookLog implements ModelInterface, ArrayAccess, \JsonSerializable
         'response_headers' => '\ultracart\v2\models\HTTPHeader[]',
         'status_code' => 'int',
         'success' => 'bool',
-        'uri' => 'string'
+        'uri' => 'string',
+        'webhook_oid' => 'int'
     ];
 
     /**
@@ -89,7 +90,8 @@ class WebhookLog implements ModelInterface, ArrayAccess, \JsonSerializable
         'response_headers' => null,
         'status_code' => 'int32',
         'success' => null,
-        'uri' => null
+        'uri' => null,
+        'webhook_oid' => 'int32'
     ];
 
     /**
@@ -129,7 +131,8 @@ class WebhookLog implements ModelInterface, ArrayAccess, \JsonSerializable
         'response_headers' => 'response_headers',
         'status_code' => 'status_code',
         'success' => 'success',
-        'uri' => 'uri'
+        'uri' => 'uri',
+        'webhook_oid' => 'webhook_oid'
     ];
 
     /**
@@ -148,7 +151,8 @@ class WebhookLog implements ModelInterface, ArrayAccess, \JsonSerializable
         'response_headers' => 'setResponseHeaders',
         'status_code' => 'setStatusCode',
         'success' => 'setSuccess',
-        'uri' => 'setUri'
+        'uri' => 'setUri',
+        'webhook_oid' => 'setWebhookOid'
     ];
 
     /**
@@ -167,7 +171,8 @@ class WebhookLog implements ModelInterface, ArrayAccess, \JsonSerializable
         'response_headers' => 'getResponseHeaders',
         'status_code' => 'getStatusCode',
         'success' => 'getSuccess',
-        'uri' => 'getUri'
+        'uri' => 'getUri',
+        'webhook_oid' => 'getWebhookOid'
     ];
 
     /**
@@ -238,6 +243,7 @@ class WebhookLog implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['status_code'] = $data['status_code'] ?? null;
         $this->container['success'] = $data['success'] ?? null;
         $this->container['uri'] = $data['uri'] ?? null;
+        $this->container['webhook_oid'] = $data['webhook_oid'] ?? null;
     }
 
     /**
@@ -524,6 +530,30 @@ class WebhookLog implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setUri($uri)
     {
         $this->container['uri'] = $uri;
+
+        return $this;
+    }
+
+    /**
+     * Gets webhook_oid
+     *
+     * @return int|null
+     */
+    public function getWebhookOid()
+    {
+        return $this->container['webhook_oid'];
+    }
+
+    /**
+     * Sets webhook_oid
+     *
+     * @param int|null $webhook_oid webhook oid
+     *
+     * @return self
+     */
+    public function setWebhookOid($webhook_oid)
+    {
+        $this->container['webhook_oid'] = $webhook_oid;
 
         return $this;
     }

@@ -201,6 +201,7 @@ class ChannelPartnerOrderItem implements ModelInterface, ArrayAccess, \JsonSeria
     public const AUTO_ORDER_SCHEDULE_EVERY_2_MONTHS = 'Every 2 Months';
     public const AUTO_ORDER_SCHEDULE_EVERY_3_MONTHS = 'Every 3 Months';
     public const AUTO_ORDER_SCHEDULE_EVERY_4_MONTHS = 'Every 4 Months';
+    public const AUTO_ORDER_SCHEDULE_EVERY_5_MONTHS = 'Every 5 Months';
     public const AUTO_ORDER_SCHEDULE_EVERY_6_MONTHS = 'Every 6 Months';
     public const AUTO_ORDER_SCHEDULE_YEARLY = 'Yearly';
     public const AUTO_ORDER_SCHEDULE_EVERY_4_WEEKS = 'Every 4 Weeks';
@@ -225,6 +226,7 @@ class ChannelPartnerOrderItem implements ModelInterface, ArrayAccess, \JsonSeria
             self::AUTO_ORDER_SCHEDULE_EVERY_2_MONTHS,
             self::AUTO_ORDER_SCHEDULE_EVERY_3_MONTHS,
             self::AUTO_ORDER_SCHEDULE_EVERY_4_MONTHS,
+            self::AUTO_ORDER_SCHEDULE_EVERY_5_MONTHS,
             self::AUTO_ORDER_SCHEDULE_EVERY_6_MONTHS,
             self::AUTO_ORDER_SCHEDULE_YEARLY,
             self::AUTO_ORDER_SCHEDULE_EVERY_4_WEEKS,

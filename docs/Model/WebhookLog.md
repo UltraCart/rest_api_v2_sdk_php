@@ -15,5 +15,6 @@ Name | Type | Description | Notes
 **status_code** | **int** | HTTP status code received from the server | [optional]
 **success** | **bool** | True if the delivery was successful | [optional]
 **uri** | **string** | URI of the webhook delivered to | [optional]
+**webhook_oid** | **int** | webhook oid | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

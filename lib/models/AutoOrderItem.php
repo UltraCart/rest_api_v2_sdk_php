@@ -307,6 +307,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     public const FREQUENCY_EVERY_2_MONTHS = 'Every 2 Months';
     public const FREQUENCY_EVERY_3_MONTHS = 'Every 3 Months';
     public const FREQUENCY_EVERY_4_MONTHS = 'Every 4 Months';
+    public const FREQUENCY_EVERY_5_MONTHS = 'Every 5 Months';
     public const FREQUENCY_EVERY_6_MONTHS = 'Every 6 Months';
     public const FREQUENCY_YEARLY = 'Yearly';
     public const FREQUENCY_EVERY_4_WEEKS = 'Every 4 Weeks';
@@ -332,6 +333,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
             self::FREQUENCY_EVERY_2_MONTHS,
             self::FREQUENCY_EVERY_3_MONTHS,
             self::FREQUENCY_EVERY_4_MONTHS,
+            self::FREQUENCY_EVERY_5_MONTHS,
             self::FREQUENCY_EVERY_6_MONTHS,
             self::FREQUENCY_YEARLY,
             self::FREQUENCY_EVERY_4_WEEKS,
