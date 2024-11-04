@@ -67,7 +67,8 @@ class WebhookLog implements ModelInterface, ArrayAccess
         'response_headers' => '\ultracart\v2\models\HTTPHeader[]',
         'status_code' => 'int',
         'success' => 'bool',
-        'uri' => 'string'
+        'uri' => 'string',
+        'webhook_oid' => 'int'
     ];
 
     /**
@@ -86,7 +87,8 @@ class WebhookLog implements ModelInterface, ArrayAccess
         'response_headers' => null,
         'status_code' => 'int32',
         'success' => null,
-        'uri' => null
+        'uri' => null,
+        'webhook_oid' => 'int32'
     ];
 
     /**
@@ -126,7 +128,8 @@ class WebhookLog implements ModelInterface, ArrayAccess
         'response_headers' => 'response_headers',
         'status_code' => 'status_code',
         'success' => 'success',
-        'uri' => 'uri'
+        'uri' => 'uri',
+        'webhook_oid' => 'webhook_oid'
     ];
 
     /**
@@ -145,7 +148,8 @@ class WebhookLog implements ModelInterface, ArrayAccess
         'response_headers' => 'setResponseHeaders',
         'status_code' => 'setStatusCode',
         'success' => 'setSuccess',
-        'uri' => 'setUri'
+        'uri' => 'setUri',
+        'webhook_oid' => 'setWebhookOid'
     ];
 
     /**
@@ -164,7 +168,8 @@ class WebhookLog implements ModelInterface, ArrayAccess
         'response_headers' => 'getResponseHeaders',
         'status_code' => 'getStatusCode',
         'success' => 'getSuccess',
-        'uri' => 'getUri'
+        'uri' => 'getUri',
+        'webhook_oid' => 'getWebhookOid'
     ];
 
     /**
@@ -238,6 +243,7 @@ class WebhookLog implements ModelInterface, ArrayAccess
         $this->container['status_code'] = isset($data['status_code']) ? $data['status_code'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
         $this->container['uri'] = isset($data['uri']) ? $data['uri'] : null;
+        $this->container['webhook_oid'] = isset($data['webhook_oid']) ? $data['webhook_oid'] : null;
     }
 
     /**
@@ -524,6 +530,30 @@ class WebhookLog implements ModelInterface, ArrayAccess
     public function setUri($uri)
     {
         $this->container['uri'] = $uri;
+
+        return $this;
+    }
+
+    /**
+     * Gets webhook_oid
+     *
+     * @return int
+     */
+    public function getWebhookOid()
+    {
+        return $this->container['webhook_oid'];
+    }
+
+    /**
+     * Sets webhook_oid
+     *
+     * @param int $webhook_oid webhook oid
+     *
+     * @return $this
+     */
+    public function setWebhookOid($webhook_oid)
+    {
+        $this->container['webhook_oid'] = $webhook_oid;
 
         return $this;
     }

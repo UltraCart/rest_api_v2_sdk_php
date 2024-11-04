@@ -179,6 +179,7 @@ class AutoOrderItemSimpleSchedule implements ModelInterface, ArrayAccess
     const FREQUENCY_EVERY_2_MONTHS = 'Every 2 Months';
     const FREQUENCY_EVERY_3_MONTHS = 'Every 3 Months';
     const FREQUENCY_EVERY_4_MONTHS = 'Every 4 Months';
+    const FREQUENCY_EVERY_5_MONTHS = 'Every 5 Months';
     const FREQUENCY_EVERY_6_MONTHS = 'Every 6 Months';
     const FREQUENCY_YEARLY = 'Yearly';
     const FREQUENCY_EVERY_4_WEEKS = 'Every 4 Weeks';
@@ -206,6 +207,7 @@ class AutoOrderItemSimpleSchedule implements ModelInterface, ArrayAccess
             self::FREQUENCY_EVERY_2_MONTHS,
             self::FREQUENCY_EVERY_3_MONTHS,
             self::FREQUENCY_EVERY_4_MONTHS,
+            self::FREQUENCY_EVERY_5_MONTHS,
             self::FREQUENCY_EVERY_6_MONTHS,
             self::FREQUENCY_YEARLY,
             self::FREQUENCY_EVERY_4_WEEKS,
