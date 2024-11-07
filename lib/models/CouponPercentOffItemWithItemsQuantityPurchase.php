@@ -59,9 +59,11 @@ class CouponPercentOffItemWithItemsQuantityPurchase implements ModelInterface, A
       */
     protected static $openAPITypes = [
         'discount_percent' => 'float',
+        'item_tags' => 'string[]',
         'items' => 'string[]',
         'limit' => 'int',
         'required_purchase_items' => 'string[]',
+        'required_purchase_items_tags' => 'string[]',
         'required_purchase_quantity' => 'int'
     ];
 
@@ -74,9 +76,11 @@ class CouponPercentOffItemWithItemsQuantityPurchase implements ModelInterface, A
       */
     protected static $openAPIFormats = [
         'discount_percent' => null,
+        'item_tags' => null,
         'items' => null,
         'limit' => 'int32',
         'required_purchase_items' => null,
+        'required_purchase_items_tags' => null,
         'required_purchase_quantity' => 'int32'
     ];
 
@@ -108,9 +112,11 @@ class CouponPercentOffItemWithItemsQuantityPurchase implements ModelInterface, A
      */
     protected static $attributeMap = [
         'discount_percent' => 'discount_percent',
+        'item_tags' => 'item_tags',
         'items' => 'items',
         'limit' => 'limit',
         'required_purchase_items' => 'required_purchase_items',
+        'required_purchase_items_tags' => 'required_purchase_items_tags',
         'required_purchase_quantity' => 'required_purchase_quantity'
     ];
 
@@ -121,9 +127,11 @@ class CouponPercentOffItemWithItemsQuantityPurchase implements ModelInterface, A
      */
     protected static $setters = [
         'discount_percent' => 'setDiscountPercent',
+        'item_tags' => 'setItemTags',
         'items' => 'setItems',
         'limit' => 'setLimit',
         'required_purchase_items' => 'setRequiredPurchaseItems',
+        'required_purchase_items_tags' => 'setRequiredPurchaseItemsTags',
         'required_purchase_quantity' => 'setRequiredPurchaseQuantity'
     ];
 
@@ -134,9 +142,11 @@ class CouponPercentOffItemWithItemsQuantityPurchase implements ModelInterface, A
      */
     protected static $getters = [
         'discount_percent' => 'getDiscountPercent',
+        'item_tags' => 'getItemTags',
         'items' => 'getItems',
         'limit' => 'getLimit',
         'required_purchase_items' => 'getRequiredPurchaseItems',
+        'required_purchase_items_tags' => 'getRequiredPurchaseItemsTags',
         'required_purchase_quantity' => 'getRequiredPurchaseQuantity'
     ];
 
@@ -198,9 +208,11 @@ class CouponPercentOffItemWithItemsQuantityPurchase implements ModelInterface, A
     public function __construct(array $data = null)
     {
         $this->container['discount_percent'] = $data['discount_percent'] ?? null;
+        $this->container['item_tags'] = $data['item_tags'] ?? null;
         $this->container['items'] = $data['items'] ?? null;
         $this->container['limit'] = $data['limit'] ?? null;
         $this->container['required_purchase_items'] = $data['required_purchase_items'] ?? null;
+        $this->container['required_purchase_items_tags'] = $data['required_purchase_items_tags'] ?? null;
         $this->container['required_purchase_quantity'] = $data['required_purchase_quantity'] ?? null;
     }
 
@@ -248,6 +260,30 @@ class CouponPercentOffItemWithItemsQuantityPurchase implements ModelInterface, A
     public function setDiscountPercent($discount_percent)
     {
         $this->container['discount_percent'] = $discount_percent;
+
+        return $this;
+    }
+
+    /**
+     * Gets item_tags
+     *
+     * @return string[]|null
+     */
+    public function getItemTags()
+    {
+        return $this->container['item_tags'];
+    }
+
+    /**
+     * Sets item_tags
+     *
+     * @param string[]|null $item_tags An optional list of item tags which will receive a discount if one of the required purchased items is purchased.
+     *
+     * @return self
+     */
+    public function setItemTags($item_tags)
+    {
+        $this->container['item_tags'] = $item_tags;
 
         return $this;
     }
@@ -320,6 +356,30 @@ class CouponPercentOffItemWithItemsQuantityPurchase implements ModelInterface, A
     public function setRequiredPurchaseItems($required_purchase_items)
     {
         $this->container['required_purchase_items'] = $required_purchase_items;
+
+        return $this;
+    }
+
+    /**
+     * Gets required_purchase_items_tags
+     *
+     * @return string[]|null
+     */
+    public function getRequiredPurchaseItemsTags()
+    {
+        return $this->container['required_purchase_items_tags'];
+    }
+
+    /**
+     * Sets required_purchase_items_tags
+     *
+     * @param string[]|null $required_purchase_items_tags Required item tags (at least one from the list) that must be purchase for coupon to be valid.
+     *
+     * @return self
+     */
+    public function setRequiredPurchaseItemsTags($required_purchase_items_tags)
+    {
+        $this->container['required_purchase_items_tags'] = $required_purchase_items_tags;
 
         return $this;
     }
