@@ -1589,6 +1589,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.220 | 11/11/2024 | added seo properties to item.content object |
 | 3.10.219 | 11/07/2024 | Coupon - PercentOffWithItemsQuantityPurchase - added support for tags |
 | 3.10.218 | 11/04/2024 | item - new constant for auto order schedule of every 5 months |
 | 3.10.217 | 10/24/2024 | storefront page attribute edit method |

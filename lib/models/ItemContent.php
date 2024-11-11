@@ -65,6 +65,9 @@ class ItemContent implements ModelInterface, ArrayAccess
         'exclude_from_top_sellers' => 'bool',
         'extended_description' => 'string',
         'extended_description_translated_text_instance_oid' => 'int',
+        'meta_description' => 'string',
+        'meta_keywords' => 'string',
+        'meta_title' => 'string',
         'multimedia' => '\ultracart\v2\models\ItemContentMultimedia[]',
         'new_item' => 'bool',
         'new_item_end' => 'string',
@@ -86,6 +89,9 @@ class ItemContent implements ModelInterface, ArrayAccess
         'exclude_from_top_sellers' => null,
         'extended_description' => null,
         'extended_description_translated_text_instance_oid' => 'int32',
+        'meta_description' => null,
+        'meta_keywords' => null,
+        'meta_title' => null,
         'multimedia' => null,
         'new_item' => null,
         'new_item_end' => 'dateTime',
@@ -128,6 +134,9 @@ class ItemContent implements ModelInterface, ArrayAccess
         'exclude_from_top_sellers' => 'exclude_from_top_sellers',
         'extended_description' => 'extended_description',
         'extended_description_translated_text_instance_oid' => 'extended_description_translated_text_instance_oid',
+        'meta_description' => 'meta_description',
+        'meta_keywords' => 'meta_keywords',
+        'meta_title' => 'meta_title',
         'multimedia' => 'multimedia',
         'new_item' => 'new_item',
         'new_item_end' => 'new_item_end',
@@ -149,6 +158,9 @@ class ItemContent implements ModelInterface, ArrayAccess
         'exclude_from_top_sellers' => 'setExcludeFromTopSellers',
         'extended_description' => 'setExtendedDescription',
         'extended_description_translated_text_instance_oid' => 'setExtendedDescriptionTranslatedTextInstanceOid',
+        'meta_description' => 'setMetaDescription',
+        'meta_keywords' => 'setMetaKeywords',
+        'meta_title' => 'setMetaTitle',
         'multimedia' => 'setMultimedia',
         'new_item' => 'setNewItem',
         'new_item_end' => 'setNewItemEnd',
@@ -170,6 +182,9 @@ class ItemContent implements ModelInterface, ArrayAccess
         'exclude_from_top_sellers' => 'getExcludeFromTopSellers',
         'extended_description' => 'getExtendedDescription',
         'extended_description_translated_text_instance_oid' => 'getExtendedDescriptionTranslatedTextInstanceOid',
+        'meta_description' => 'getMetaDescription',
+        'meta_keywords' => 'getMetaKeywords',
+        'meta_title' => 'getMetaTitle',
         'multimedia' => 'getMultimedia',
         'new_item' => 'getNewItem',
         'new_item_end' => 'getNewItemEnd',
@@ -245,6 +260,9 @@ class ItemContent implements ModelInterface, ArrayAccess
         $this->container['exclude_from_top_sellers'] = isset($data['exclude_from_top_sellers']) ? $data['exclude_from_top_sellers'] : null;
         $this->container['extended_description'] = isset($data['extended_description']) ? $data['extended_description'] : null;
         $this->container['extended_description_translated_text_instance_oid'] = isset($data['extended_description_translated_text_instance_oid']) ? $data['extended_description_translated_text_instance_oid'] : null;
+        $this->container['meta_description'] = isset($data['meta_description']) ? $data['meta_description'] : null;
+        $this->container['meta_keywords'] = isset($data['meta_keywords']) ? $data['meta_keywords'] : null;
+        $this->container['meta_title'] = isset($data['meta_title']) ? $data['meta_title'] : null;
         $this->container['multimedia'] = isset($data['multimedia']) ? $data['multimedia'] : null;
         $this->container['new_item'] = isset($data['new_item']) ? $data['new_item'] : null;
         $this->container['new_item_end'] = isset($data['new_item_end']) ? $data['new_item_end'] : null;
@@ -465,13 +483,85 @@ class ItemContent implements ModelInterface, ArrayAccess
     /**
      * Sets extended_description_translated_text_instance_oid
      *
-     * @param int $extended_description_translated_text_instance_oid Extneded description text translation instance identifier
+     * @param int $extended_description_translated_text_instance_oid Extended description text translation instance identifier
      *
      * @return $this
      */
     public function setExtendedDescriptionTranslatedTextInstanceOid($extended_description_translated_text_instance_oid)
     {
         $this->container['extended_description_translated_text_instance_oid'] = $extended_description_translated_text_instance_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets meta_description
+     *
+     * @return string
+     */
+    public function getMetaDescription()
+    {
+        return $this->container['meta_description'];
+    }
+
+    /**
+     * Sets meta_description
+     *
+     * @param string $meta_description SEO meta description used by Storefronts
+     *
+     * @return $this
+     */
+    public function setMetaDescription($meta_description)
+    {
+        $this->container['meta_description'] = $meta_description;
+
+        return $this;
+    }
+
+    /**
+     * Gets meta_keywords
+     *
+     * @return string
+     */
+    public function getMetaKeywords()
+    {
+        return $this->container['meta_keywords'];
+    }
+
+    /**
+     * Sets meta_keywords
+     *
+     * @param string $meta_keywords SEO meta keywords used by Storefronts
+     *
+     * @return $this
+     */
+    public function setMetaKeywords($meta_keywords)
+    {
+        $this->container['meta_keywords'] = $meta_keywords;
+
+        return $this;
+    }
+
+    /**
+     * Gets meta_title
+     *
+     * @return string
+     */
+    public function getMetaTitle()
+    {
+        return $this->container['meta_title'];
+    }
+
+    /**
+     * Sets meta_title
+     *
+     * @param string $meta_title SEO meta title used by Storefronts
+     *
+     * @return $this
+     */
+    public function setMetaTitle($meta_title)
+    {
+        $this->container['meta_title'] = $meta_title;
 
         return $this;
     }
