@@ -60,6 +60,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $openAPITypes = [
         'conversation_participant_arn' => 'string',
         'conversation_participant_name' => 'string',
+        'group_ids' => 'int[]',
         'jwt' => 'string',
         'merchant_id' => 'string',
         'pbx_admin' => 'bool',
@@ -70,6 +71,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
         'pbx_voice_token' => 'string',
         'pbx_worker_token' => 'string',
         'twilio_accounts' => '\ultracart\v2\models\ConversationTwilioAccount[]',
+        'user_id' => 'int',
         'websocket_url' => 'string'
     ];
 
@@ -83,6 +85,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $openAPIFormats = [
         'conversation_participant_arn' => null,
         'conversation_participant_name' => null,
+        'group_ids' => null,
         'jwt' => null,
         'merchant_id' => null,
         'pbx_admin' => null,
@@ -93,6 +96,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
         'pbx_voice_token' => null,
         'pbx_worker_token' => null,
         'twilio_accounts' => null,
+        'user_id' => 'int32',
         'websocket_url' => null
     ];
 
@@ -125,6 +129,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $attributeMap = [
         'conversation_participant_arn' => 'conversation_participant_arn',
         'conversation_participant_name' => 'conversation_participant_name',
+        'group_ids' => 'group_ids',
         'jwt' => 'jwt',
         'merchant_id' => 'merchant_id',
         'pbx_admin' => 'pbx_admin',
@@ -135,6 +140,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
         'pbx_voice_token' => 'pbx_voice_token',
         'pbx_worker_token' => 'pbx_worker_token',
         'twilio_accounts' => 'twilio_accounts',
+        'user_id' => 'user_id',
         'websocket_url' => 'websocket_url'
     ];
 
@@ -146,6 +152,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $setters = [
         'conversation_participant_arn' => 'setConversationParticipantArn',
         'conversation_participant_name' => 'setConversationParticipantName',
+        'group_ids' => 'setGroupIds',
         'jwt' => 'setJwt',
         'merchant_id' => 'setMerchantId',
         'pbx_admin' => 'setPbxAdmin',
@@ -156,6 +163,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
         'pbx_voice_token' => 'setPbxVoiceToken',
         'pbx_worker_token' => 'setPbxWorkerToken',
         'twilio_accounts' => 'setTwilioAccounts',
+        'user_id' => 'setUserId',
         'websocket_url' => 'setWebsocketUrl'
     ];
 
@@ -167,6 +175,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $getters = [
         'conversation_participant_arn' => 'getConversationParticipantArn',
         'conversation_participant_name' => 'getConversationParticipantName',
+        'group_ids' => 'getGroupIds',
         'jwt' => 'getJwt',
         'merchant_id' => 'getMerchantId',
         'pbx_admin' => 'getPbxAdmin',
@@ -177,6 +186,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
         'pbx_voice_token' => 'getPbxVoiceToken',
         'pbx_worker_token' => 'getPbxWorkerToken',
         'twilio_accounts' => 'getTwilioAccounts',
+        'user_id' => 'getUserId',
         'websocket_url' => 'getWebsocketUrl'
     ];
 
@@ -239,6 +249,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $this->container['conversation_participant_arn'] = $data['conversation_participant_arn'] ?? null;
         $this->container['conversation_participant_name'] = $data['conversation_participant_name'] ?? null;
+        $this->container['group_ids'] = $data['group_ids'] ?? null;
         $this->container['jwt'] = $data['jwt'] ?? null;
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
         $this->container['pbx_admin'] = $data['pbx_admin'] ?? null;
@@ -249,6 +260,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->container['pbx_voice_token'] = $data['pbx_voice_token'] ?? null;
         $this->container['pbx_worker_token'] = $data['pbx_worker_token'] ?? null;
         $this->container['twilio_accounts'] = $data['twilio_accounts'] ?? null;
+        $this->container['user_id'] = $data['user_id'] ?? null;
         $this->container['websocket_url'] = $data['websocket_url'] ?? null;
     }
 
@@ -320,6 +332,30 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setConversationParticipantName($conversation_participant_name)
     {
         $this->container['conversation_participant_name'] = $conversation_participant_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets group_ids
+     *
+     * @return int[]|null
+     */
+    public function getGroupIds()
+    {
+        return $this->container['group_ids'];
+    }
+
+    /**
+     * Sets group_ids
+     *
+     * @param int[]|null $group_ids UltraCart Groups this user belongs to
+     *
+     * @return self
+     */
+    public function setGroupIds($group_ids)
+    {
+        $this->container['group_ids'] = $group_ids;
 
         return $this;
     }
@@ -560,6 +596,30 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setTwilioAccounts($twilio_accounts)
     {
         $this->container['twilio_accounts'] = $twilio_accounts;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_id
+     *
+     * @return int|null
+     */
+    public function getUserId()
+    {
+        return $this->container['user_id'];
+    }
+
+    /**
+     * Sets user_id
+     *
+     * @param int|null $user_id UltraCart User ID
+     *
+     * @return self
+     */
+    public function setUserId($user_id)
+    {
+        $this->container['user_id'] = $user_id;
 
         return $this;
     }
