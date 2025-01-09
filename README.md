@@ -174,11 +174,14 @@ Class | Method | HTTP request | Description
 *ChannelPartnerApi* | [**deleteChannelPartnerShipToPreference**](docs/Api/ChannelPartnerApi.md#deletechannelpartnershiptopreference) | **DELETE** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid} | Delete a ship to preference record for the channel partner.
 *ChannelPartnerApi* | [**estimateShippingForChannelPartnerOrder**](docs/Api/ChannelPartnerApi.md#estimateshippingforchannelpartnerorder) | **POST** /channel_partner/estimate_shipping | Estimate shipping for channel partner order
 *ChannelPartnerApi* | [**estimateTaxForChannelPartnerOrder**](docs/Api/ChannelPartnerApi.md#estimatetaxforchannelpartnerorder) | **POST** /channel_partner/estimate_tax | Estimate tax for channel partner order
+*ChannelPartnerApi* | [**getChannelPartnerOrder**](docs/Api/ChannelPartnerApi.md#getchannelpartnerorder) | **GET** /channel_partner/orders/{order_id} | Retrieve a channel partner order
+*ChannelPartnerApi* | [**getChannelPartnerOrderByChannelPartnerOrderId**](docs/Api/ChannelPartnerApi.md#getchannelpartnerorderbychannelpartnerorderid) | **GET** /channel_partner/orders/by_channel_partner_order_id/{order_id} | Retrieve a channel partner order by the channel partner order id
 *ChannelPartnerApi* | [**getChannelPartnerShipToPreference**](docs/Api/ChannelPartnerApi.md#getchannelpartnershiptopreference) | **GET** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid} | Retrieve the ship to preference associated with the channel partner and the specific id.
 *ChannelPartnerApi* | [**getChannelPartnerShipToPreferences**](docs/Api/ChannelPartnerApi.md#getchannelpartnershiptopreferences) | **GET** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences | Retrieve the ship to preferences associated with the channel partner.
 *ChannelPartnerApi* | [**getChannelPartners**](docs/Api/ChannelPartnerApi.md#getchannelpartners) | **GET** /channel_partner/channel_partners | Retrieve the channel partners configured on the account.
 *ChannelPartnerApi* | [**importChannelPartnerOrder**](docs/Api/ChannelPartnerApi.md#importchannelpartnerorder) | **POST** /channel_partner/import | Insert channel partner order
 *ChannelPartnerApi* | [**insertChannelPartnerShipToPreference**](docs/Api/ChannelPartnerApi.md#insertchannelpartnershiptopreference) | **POST** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences | Insert a ship to preference record for the channel partner.
+*ChannelPartnerApi* | [**refundChannelPartnerOrder**](docs/Api/ChannelPartnerApi.md#refundchannelpartnerorder) | **PUT** /channel_partner/orders/{order_id}/refund | Refund a channel partner order
 *ChannelPartnerApi* | [**updateChannelPartnerShipToPreference**](docs/Api/ChannelPartnerApi.md#updatechannelpartnershiptopreference) | **PUT** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid} | Update a ship to preference record for the channel partner.
 *ChargebackApi* | [**deleteChargeback**](docs/Api/ChargebackApi.md#deletechargeback) | **DELETE** /chargeback/chargebacks/{chargeback_dispute_oid} | Delete a chargeback
 *ChargebackApi* | [**getChargebackDispute**](docs/Api/ChargebackApi.md#getchargebackdispute) | **GET** /chargeback/chargebacks/{chargeback_dispute_oid} | Retrieve a chargeback
@@ -1589,6 +1592,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.222 | 01/09/2025 | added emails parameter to customer queries, refundOrder added to Channel partner |
 | 3.10.221 | 12/13/2024 | added user and group ids to conversation agent auth object |
 | 3.10.220 | 11/11/2024 | added seo properties to item.content object |
 | 3.10.219 | 11/07/2024 | Coupon - PercentOffWithItemsQuantityPurchase - added support for tags |

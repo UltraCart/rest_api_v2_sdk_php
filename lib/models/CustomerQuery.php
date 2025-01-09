@@ -69,6 +69,7 @@ class CustomerQuery implements ModelInterface, ArrayAccess
         'billing_postal_code' => 'string',
         'billing_state' => 'string',
         'email' => 'string',
+        'emails' => 'string[]',
         'last_modified_dts_end' => 'string',
         'last_modified_dts_start' => 'string',
         'pricing_tier_name' => 'string',
@@ -106,6 +107,7 @@ class CustomerQuery implements ModelInterface, ArrayAccess
         'billing_postal_code' => null,
         'billing_state' => null,
         'email' => null,
+        'emails' => null,
         'last_modified_dts_end' => 'dateTime',
         'last_modified_dts_start' => 'dateTime',
         'pricing_tier_name' => null,
@@ -164,6 +166,7 @@ class CustomerQuery implements ModelInterface, ArrayAccess
         'billing_postal_code' => 'billing_postal_code',
         'billing_state' => 'billing_state',
         'email' => 'email',
+        'emails' => 'emails',
         'last_modified_dts_end' => 'last_modified_dts_end',
         'last_modified_dts_start' => 'last_modified_dts_start',
         'pricing_tier_name' => 'pricing_tier_name',
@@ -201,6 +204,7 @@ class CustomerQuery implements ModelInterface, ArrayAccess
         'billing_postal_code' => 'setBillingPostalCode',
         'billing_state' => 'setBillingState',
         'email' => 'setEmail',
+        'emails' => 'setEmails',
         'last_modified_dts_end' => 'setLastModifiedDtsEnd',
         'last_modified_dts_start' => 'setLastModifiedDtsStart',
         'pricing_tier_name' => 'setPricingTierName',
@@ -238,6 +242,7 @@ class CustomerQuery implements ModelInterface, ArrayAccess
         'billing_postal_code' => 'getBillingPostalCode',
         'billing_state' => 'getBillingState',
         'email' => 'getEmail',
+        'emails' => 'getEmails',
         'last_modified_dts_end' => 'getLastModifiedDtsEnd',
         'last_modified_dts_start' => 'getLastModifiedDtsStart',
         'pricing_tier_name' => 'getPricingTierName',
@@ -329,6 +334,7 @@ class CustomerQuery implements ModelInterface, ArrayAccess
         $this->container['billing_postal_code'] = isset($data['billing_postal_code']) ? $data['billing_postal_code'] : null;
         $this->container['billing_state'] = isset($data['billing_state']) ? $data['billing_state'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['emails'] = isset($data['emails']) ? $data['emails'] : null;
         $this->container['last_modified_dts_end'] = isset($data['last_modified_dts_end']) ? $data['last_modified_dts_end'] : null;
         $this->container['last_modified_dts_start'] = isset($data['last_modified_dts_start']) ? $data['last_modified_dts_start'] : null;
         $this->container['pricing_tier_name'] = isset($data['pricing_tier_name']) ? $data['pricing_tier_name'] : null;
@@ -768,6 +774,30 @@ class CustomerQuery implements ModelInterface, ArrayAccess
     public function setEmail($email)
     {
         $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets emails
+     *
+     * @return string[]
+     */
+    public function getEmails()
+    {
+        return $this->container['emails'];
+    }
+
+    /**
+     * Sets emails
+     *
+     * @param string[] $emails Emails allows for searching on multiple email addresses and work with our without the single email variable.  You may specify a single email address here or use the email property.
+     *
+     * @return $this
+     */
+    public function setEmails($emails)
+    {
+        $this->container['emails'] = $emails;
 
         return $this;
     }
