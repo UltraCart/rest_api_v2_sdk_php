@@ -3868,7 +3868,6 @@ class CustomerApi
      * @param  string $shipping_evening_phone Shipping evening phone (optional)
      * @param  int $pricing_tier_oid Pricing tier oid (optional)
      * @param  string $pricing_tier_name Pricing tier name (optional)
-     * @param  object $emails Emails (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_since Fetch customers that have been created/modified since this date/time. (optional)
@@ -3879,9 +3878,9 @@ class CustomerApi
      * @throws \InvalidArgumentException
      * @return \ultracart\v2\models\CustomersResponse
      */
-    public function getCustomers($email = null, $qb_class = null, $quickbooks_code = null, $last_modified_dts_start = null, $last_modified_dts_end = null, $signup_dts_start = null, $signup_dts_end = null, $billing_first_name = null, $billing_last_name = null, $billing_company = null, $billing_city = null, $billing_state = null, $billing_postal_code = null, $billing_country_code = null, $billing_day_phone = null, $billing_evening_phone = null, $shipping_first_name = null, $shipping_last_name = null, $shipping_company = null, $shipping_city = null, $shipping_state = null, $shipping_postal_code = null, $shipping_country_code = null, $shipping_day_phone = null, $shipping_evening_phone = null, $pricing_tier_oid = null, $pricing_tier_name = null, $emails = null, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null)
+    public function getCustomers($email = null, $qb_class = null, $quickbooks_code = null, $last_modified_dts_start = null, $last_modified_dts_end = null, $signup_dts_start = null, $signup_dts_end = null, $billing_first_name = null, $billing_last_name = null, $billing_company = null, $billing_city = null, $billing_state = null, $billing_postal_code = null, $billing_country_code = null, $billing_day_phone = null, $billing_evening_phone = null, $shipping_first_name = null, $shipping_last_name = null, $shipping_company = null, $shipping_city = null, $shipping_state = null, $shipping_postal_code = null, $shipping_country_code = null, $shipping_day_phone = null, $shipping_evening_phone = null, $pricing_tier_oid = null, $pricing_tier_name = null, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null)
     {
-        list($response) = $this->getCustomersWithHttpInfo($email, $qb_class, $quickbooks_code, $last_modified_dts_start, $last_modified_dts_end, $signup_dts_start, $signup_dts_end, $billing_first_name, $billing_last_name, $billing_company, $billing_city, $billing_state, $billing_postal_code, $billing_country_code, $billing_day_phone, $billing_evening_phone, $shipping_first_name, $shipping_last_name, $shipping_company, $shipping_city, $shipping_state, $shipping_postal_code, $shipping_country_code, $shipping_day_phone, $shipping_evening_phone, $pricing_tier_oid, $pricing_tier_name, $emails, $_limit, $_offset, $_since, $_sort, $_expand);
+        list($response) = $this->getCustomersWithHttpInfo($email, $qb_class, $quickbooks_code, $last_modified_dts_start, $last_modified_dts_end, $signup_dts_start, $signup_dts_end, $billing_first_name, $billing_last_name, $billing_company, $billing_city, $billing_state, $billing_postal_code, $billing_country_code, $billing_day_phone, $billing_evening_phone, $shipping_first_name, $shipping_last_name, $shipping_company, $shipping_city, $shipping_state, $shipping_postal_code, $shipping_country_code, $shipping_day_phone, $shipping_evening_phone, $pricing_tier_oid, $pricing_tier_name, $_limit, $_offset, $_since, $_sort, $_expand);
         return $response;
     }
 
@@ -3918,7 +3917,6 @@ class CustomerApi
      * @param  string $shipping_evening_phone Shipping evening phone (optional)
      * @param  int $pricing_tier_oid Pricing tier oid (optional)
      * @param  string $pricing_tier_name Pricing tier name (optional)
-     * @param  object $emails Emails (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_since Fetch customers that have been created/modified since this date/time. (optional)
@@ -3929,9 +3927,9 @@ class CustomerApi
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\CustomersResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCustomersWithHttpInfo($email = null, $qb_class = null, $quickbooks_code = null, $last_modified_dts_start = null, $last_modified_dts_end = null, $signup_dts_start = null, $signup_dts_end = null, $billing_first_name = null, $billing_last_name = null, $billing_company = null, $billing_city = null, $billing_state = null, $billing_postal_code = null, $billing_country_code = null, $billing_day_phone = null, $billing_evening_phone = null, $shipping_first_name = null, $shipping_last_name = null, $shipping_company = null, $shipping_city = null, $shipping_state = null, $shipping_postal_code = null, $shipping_country_code = null, $shipping_day_phone = null, $shipping_evening_phone = null, $pricing_tier_oid = null, $pricing_tier_name = null, $emails = null, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null)
+    public function getCustomersWithHttpInfo($email = null, $qb_class = null, $quickbooks_code = null, $last_modified_dts_start = null, $last_modified_dts_end = null, $signup_dts_start = null, $signup_dts_end = null, $billing_first_name = null, $billing_last_name = null, $billing_company = null, $billing_city = null, $billing_state = null, $billing_postal_code = null, $billing_country_code = null, $billing_day_phone = null, $billing_evening_phone = null, $shipping_first_name = null, $shipping_last_name = null, $shipping_company = null, $shipping_city = null, $shipping_state = null, $shipping_postal_code = null, $shipping_country_code = null, $shipping_day_phone = null, $shipping_evening_phone = null, $pricing_tier_oid = null, $pricing_tier_name = null, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null)
     {
-        return $this->getCustomersWithHttpInfoRetry(true ,   $email,   $qb_class,   $quickbooks_code,   $last_modified_dts_start,   $last_modified_dts_end,   $signup_dts_start,   $signup_dts_end,   $billing_first_name,   $billing_last_name,   $billing_company,   $billing_city,   $billing_state,   $billing_postal_code,   $billing_country_code,   $billing_day_phone,   $billing_evening_phone,   $shipping_first_name,   $shipping_last_name,   $shipping_company,   $shipping_city,   $shipping_state,   $shipping_postal_code,   $shipping_country_code,   $shipping_day_phone,   $shipping_evening_phone,   $pricing_tier_oid,   $pricing_tier_name,   $emails,   $_limit,   $_offset,   $_since,   $_sort,   $_expand);
+        return $this->getCustomersWithHttpInfoRetry(true ,   $email,   $qb_class,   $quickbooks_code,   $last_modified_dts_start,   $last_modified_dts_end,   $signup_dts_start,   $signup_dts_end,   $billing_first_name,   $billing_last_name,   $billing_company,   $billing_city,   $billing_state,   $billing_postal_code,   $billing_country_code,   $billing_day_phone,   $billing_evening_phone,   $shipping_first_name,   $shipping_last_name,   $shipping_company,   $shipping_city,   $shipping_state,   $shipping_postal_code,   $shipping_country_code,   $shipping_day_phone,   $shipping_evening_phone,   $pricing_tier_oid,   $pricing_tier_name,   $_limit,   $_offset,   $_since,   $_sort,   $_expand);
     }
 
 
@@ -3968,7 +3966,6 @@ class CustomerApi
      * @param  string $shipping_evening_phone Shipping evening phone (optional)
      * @param  int $pricing_tier_oid Pricing tier oid (optional)
      * @param  string $pricing_tier_name Pricing tier name (optional)
-     * @param  object $emails Emails (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_since Fetch customers that have been created/modified since this date/time. (optional)
@@ -3979,10 +3976,10 @@ class CustomerApi
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\CustomersResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCustomersWithHttpInfoRetry($retry ,  $email = null,  $qb_class = null,  $quickbooks_code = null,  $last_modified_dts_start = null,  $last_modified_dts_end = null,  $signup_dts_start = null,  $signup_dts_end = null,  $billing_first_name = null,  $billing_last_name = null,  $billing_company = null,  $billing_city = null,  $billing_state = null,  $billing_postal_code = null,  $billing_country_code = null,  $billing_day_phone = null,  $billing_evening_phone = null,  $shipping_first_name = null,  $shipping_last_name = null,  $shipping_company = null,  $shipping_city = null,  $shipping_state = null,  $shipping_postal_code = null,  $shipping_country_code = null,  $shipping_day_phone = null,  $shipping_evening_phone = null,  $pricing_tier_oid = null,  $pricing_tier_name = null,  $emails = null,  $_limit = '100',  $_offset = '0',  $_since = null,  $_sort = null,  $_expand = null)
+    public function getCustomersWithHttpInfoRetry($retry ,  $email = null,  $qb_class = null,  $quickbooks_code = null,  $last_modified_dts_start = null,  $last_modified_dts_end = null,  $signup_dts_start = null,  $signup_dts_end = null,  $billing_first_name = null,  $billing_last_name = null,  $billing_company = null,  $billing_city = null,  $billing_state = null,  $billing_postal_code = null,  $billing_country_code = null,  $billing_day_phone = null,  $billing_evening_phone = null,  $shipping_first_name = null,  $shipping_last_name = null,  $shipping_company = null,  $shipping_city = null,  $shipping_state = null,  $shipping_postal_code = null,  $shipping_country_code = null,  $shipping_day_phone = null,  $shipping_evening_phone = null,  $pricing_tier_oid = null,  $pricing_tier_name = null,  $_limit = '100',  $_offset = '0',  $_since = null,  $_sort = null,  $_expand = null)
     {
         $returnType = '\ultracart\v2\models\CustomersResponse';
-        $request = $this->getCustomersRequest($email, $qb_class, $quickbooks_code, $last_modified_dts_start, $last_modified_dts_end, $signup_dts_start, $signup_dts_end, $billing_first_name, $billing_last_name, $billing_company, $billing_city, $billing_state, $billing_postal_code, $billing_country_code, $billing_day_phone, $billing_evening_phone, $shipping_first_name, $shipping_last_name, $shipping_company, $shipping_city, $shipping_state, $shipping_postal_code, $shipping_country_code, $shipping_day_phone, $shipping_evening_phone, $pricing_tier_oid, $pricing_tier_name, $emails, $_limit, $_offset, $_since, $_sort, $_expand);
+        $request = $this->getCustomersRequest($email, $qb_class, $quickbooks_code, $last_modified_dts_start, $last_modified_dts_end, $signup_dts_start, $signup_dts_end, $billing_first_name, $billing_last_name, $billing_company, $billing_city, $billing_state, $billing_postal_code, $billing_country_code, $billing_day_phone, $billing_evening_phone, $shipping_first_name, $shipping_last_name, $shipping_company, $shipping_city, $shipping_state, $shipping_postal_code, $shipping_country_code, $shipping_day_phone, $shipping_evening_phone, $pricing_tier_oid, $pricing_tier_name, $_limit, $_offset, $_since, $_sort, $_expand);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4001,7 +3998,7 @@ class CustomerApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->getCustomersWithHttpInfoRetry(false ,   $email,   $qb_class,   $quickbooks_code,   $last_modified_dts_start,   $last_modified_dts_end,   $signup_dts_start,   $signup_dts_end,   $billing_first_name,   $billing_last_name,   $billing_company,   $billing_city,   $billing_state,   $billing_postal_code,   $billing_country_code,   $billing_day_phone,   $billing_evening_phone,   $shipping_first_name,   $shipping_last_name,   $shipping_company,   $shipping_city,   $shipping_state,   $shipping_postal_code,   $shipping_country_code,   $shipping_day_phone,   $shipping_evening_phone,   $pricing_tier_oid,   $pricing_tier_name,   $emails,   $_limit,   $_offset,   $_since,   $_sort,   $_expand);
+                        return $this->getCustomersWithHttpInfoRetry(false ,   $email,   $qb_class,   $quickbooks_code,   $last_modified_dts_start,   $last_modified_dts_end,   $signup_dts_start,   $signup_dts_end,   $billing_first_name,   $billing_last_name,   $billing_company,   $billing_city,   $billing_state,   $billing_postal_code,   $billing_country_code,   $billing_day_phone,   $billing_evening_phone,   $shipping_first_name,   $shipping_last_name,   $shipping_company,   $shipping_city,   $shipping_state,   $shipping_postal_code,   $shipping_country_code,   $shipping_day_phone,   $shipping_evening_phone,   $pricing_tier_oid,   $pricing_tier_name,   $_limit,   $_offset,   $_since,   $_sort,   $_expand);
                     }
                 }
 
@@ -4116,7 +4113,6 @@ class CustomerApi
      * @param  string $shipping_evening_phone Shipping evening phone (optional)
      * @param  int $pricing_tier_oid Pricing tier oid (optional)
      * @param  string $pricing_tier_name Pricing tier name (optional)
-     * @param  object $emails Emails (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_since Fetch customers that have been created/modified since this date/time. (optional)
@@ -4126,9 +4122,9 @@ class CustomerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomersAsync($email = null, $qb_class = null, $quickbooks_code = null, $last_modified_dts_start = null, $last_modified_dts_end = null, $signup_dts_start = null, $signup_dts_end = null, $billing_first_name = null, $billing_last_name = null, $billing_company = null, $billing_city = null, $billing_state = null, $billing_postal_code = null, $billing_country_code = null, $billing_day_phone = null, $billing_evening_phone = null, $shipping_first_name = null, $shipping_last_name = null, $shipping_company = null, $shipping_city = null, $shipping_state = null, $shipping_postal_code = null, $shipping_country_code = null, $shipping_day_phone = null, $shipping_evening_phone = null, $pricing_tier_oid = null, $pricing_tier_name = null, $emails = null, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null)
+    public function getCustomersAsync($email = null, $qb_class = null, $quickbooks_code = null, $last_modified_dts_start = null, $last_modified_dts_end = null, $signup_dts_start = null, $signup_dts_end = null, $billing_first_name = null, $billing_last_name = null, $billing_company = null, $billing_city = null, $billing_state = null, $billing_postal_code = null, $billing_country_code = null, $billing_day_phone = null, $billing_evening_phone = null, $shipping_first_name = null, $shipping_last_name = null, $shipping_company = null, $shipping_city = null, $shipping_state = null, $shipping_postal_code = null, $shipping_country_code = null, $shipping_day_phone = null, $shipping_evening_phone = null, $pricing_tier_oid = null, $pricing_tier_name = null, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null)
     {
-        return $this->getCustomersAsyncWithHttpInfo($email, $qb_class, $quickbooks_code, $last_modified_dts_start, $last_modified_dts_end, $signup_dts_start, $signup_dts_end, $billing_first_name, $billing_last_name, $billing_company, $billing_city, $billing_state, $billing_postal_code, $billing_country_code, $billing_day_phone, $billing_evening_phone, $shipping_first_name, $shipping_last_name, $shipping_company, $shipping_city, $shipping_state, $shipping_postal_code, $shipping_country_code, $shipping_day_phone, $shipping_evening_phone, $pricing_tier_oid, $pricing_tier_name, $emails, $_limit, $_offset, $_since, $_sort, $_expand)
+        return $this->getCustomersAsyncWithHttpInfo($email, $qb_class, $quickbooks_code, $last_modified_dts_start, $last_modified_dts_end, $signup_dts_start, $signup_dts_end, $billing_first_name, $billing_last_name, $billing_company, $billing_city, $billing_state, $billing_postal_code, $billing_country_code, $billing_day_phone, $billing_evening_phone, $shipping_first_name, $shipping_last_name, $shipping_company, $shipping_city, $shipping_state, $shipping_postal_code, $shipping_country_code, $shipping_day_phone, $shipping_evening_phone, $pricing_tier_oid, $pricing_tier_name, $_limit, $_offset, $_since, $_sort, $_expand)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4168,7 +4164,6 @@ class CustomerApi
      * @param  string $shipping_evening_phone Shipping evening phone (optional)
      * @param  int $pricing_tier_oid Pricing tier oid (optional)
      * @param  string $pricing_tier_name Pricing tier name (optional)
-     * @param  object $emails Emails (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_since Fetch customers that have been created/modified since this date/time. (optional)
@@ -4178,10 +4173,10 @@ class CustomerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomersAsyncWithHttpInfo($email = null, $qb_class = null, $quickbooks_code = null, $last_modified_dts_start = null, $last_modified_dts_end = null, $signup_dts_start = null, $signup_dts_end = null, $billing_first_name = null, $billing_last_name = null, $billing_company = null, $billing_city = null, $billing_state = null, $billing_postal_code = null, $billing_country_code = null, $billing_day_phone = null, $billing_evening_phone = null, $shipping_first_name = null, $shipping_last_name = null, $shipping_company = null, $shipping_city = null, $shipping_state = null, $shipping_postal_code = null, $shipping_country_code = null, $shipping_day_phone = null, $shipping_evening_phone = null, $pricing_tier_oid = null, $pricing_tier_name = null, $emails = null, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null)
+    public function getCustomersAsyncWithHttpInfo($email = null, $qb_class = null, $quickbooks_code = null, $last_modified_dts_start = null, $last_modified_dts_end = null, $signup_dts_start = null, $signup_dts_end = null, $billing_first_name = null, $billing_last_name = null, $billing_company = null, $billing_city = null, $billing_state = null, $billing_postal_code = null, $billing_country_code = null, $billing_day_phone = null, $billing_evening_phone = null, $shipping_first_name = null, $shipping_last_name = null, $shipping_company = null, $shipping_city = null, $shipping_state = null, $shipping_postal_code = null, $shipping_country_code = null, $shipping_day_phone = null, $shipping_evening_phone = null, $pricing_tier_oid = null, $pricing_tier_name = null, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null)
     {
         $returnType = '\ultracart\v2\models\CustomersResponse';
-        $request = $this->getCustomersRequest($email, $qb_class, $quickbooks_code, $last_modified_dts_start, $last_modified_dts_end, $signup_dts_start, $signup_dts_end, $billing_first_name, $billing_last_name, $billing_company, $billing_city, $billing_state, $billing_postal_code, $billing_country_code, $billing_day_phone, $billing_evening_phone, $shipping_first_name, $shipping_last_name, $shipping_company, $shipping_city, $shipping_state, $shipping_postal_code, $shipping_country_code, $shipping_day_phone, $shipping_evening_phone, $pricing_tier_oid, $pricing_tier_name, $emails, $_limit, $_offset, $_since, $_sort, $_expand);
+        $request = $this->getCustomersRequest($email, $qb_class, $quickbooks_code, $last_modified_dts_start, $last_modified_dts_end, $signup_dts_start, $signup_dts_end, $billing_first_name, $billing_last_name, $billing_company, $billing_city, $billing_state, $billing_postal_code, $billing_country_code, $billing_day_phone, $billing_evening_phone, $shipping_first_name, $shipping_last_name, $shipping_company, $shipping_city, $shipping_state, $shipping_postal_code, $shipping_country_code, $shipping_day_phone, $shipping_evening_phone, $pricing_tier_oid, $pricing_tier_name, $_limit, $_offset, $_since, $_sort, $_expand);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4250,7 +4245,6 @@ class CustomerApi
      * @param  string $shipping_evening_phone Shipping evening phone (optional)
      * @param  int $pricing_tier_oid Pricing tier oid (optional)
      * @param  string $pricing_tier_name Pricing tier name (optional)
-     * @param  object $emails Emails (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_since Fetch customers that have been created/modified since this date/time. (optional)
@@ -4260,7 +4254,7 @@ class CustomerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCustomersRequest($email = null, $qb_class = null, $quickbooks_code = null, $last_modified_dts_start = null, $last_modified_dts_end = null, $signup_dts_start = null, $signup_dts_end = null, $billing_first_name = null, $billing_last_name = null, $billing_company = null, $billing_city = null, $billing_state = null, $billing_postal_code = null, $billing_country_code = null, $billing_day_phone = null, $billing_evening_phone = null, $shipping_first_name = null, $shipping_last_name = null, $shipping_company = null, $shipping_city = null, $shipping_state = null, $shipping_postal_code = null, $shipping_country_code = null, $shipping_day_phone = null, $shipping_evening_phone = null, $pricing_tier_oid = null, $pricing_tier_name = null, $emails = null, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null)
+    protected function getCustomersRequest($email = null, $qb_class = null, $quickbooks_code = null, $last_modified_dts_start = null, $last_modified_dts_end = null, $signup_dts_start = null, $signup_dts_end = null, $billing_first_name = null, $billing_last_name = null, $billing_company = null, $billing_city = null, $billing_state = null, $billing_postal_code = null, $billing_country_code = null, $billing_day_phone = null, $billing_evening_phone = null, $shipping_first_name = null, $shipping_last_name = null, $shipping_company = null, $shipping_city = null, $shipping_state = null, $shipping_postal_code = null, $shipping_country_code = null, $shipping_day_phone = null, $shipping_evening_phone = null, $pricing_tier_oid = null, $pricing_tier_name = null, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null)
     {
 
         $resourcePath = '/customer/customers';
@@ -4377,10 +4371,6 @@ class CustomerApi
         // query params
         if ($pricing_tier_name !== null) {
             $queryParams['pricing_tier_name'] = ObjectSerializer::toQueryValue($pricing_tier_name);
-        }
-        // query params
-        if ($emails !== null) {
-            $queryParams['emails'] = ObjectSerializer::toQueryValue($emails);
         }
         // query params
         if ($_limit !== null) {

@@ -562,7 +562,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCustomers**
-> \ultracart\v2\models\CustomersResponse getCustomers($email, $qb_class, $quickbooks_code, $last_modified_dts_start, $last_modified_dts_end, $signup_dts_start, $signup_dts_end, $billing_first_name, $billing_last_name, $billing_company, $billing_city, $billing_state, $billing_postal_code, $billing_country_code, $billing_day_phone, $billing_evening_phone, $shipping_first_name, $shipping_last_name, $shipping_company, $shipping_city, $shipping_state, $shipping_postal_code, $shipping_country_code, $shipping_day_phone, $shipping_evening_phone, $pricing_tier_oid, $pricing_tier_name, $emails, $_limit, $_offset, $_since, $_sort, $_expand)
+> \ultracart\v2\models\CustomersResponse getCustomers($email, $qb_class, $quickbooks_code, $last_modified_dts_start, $last_modified_dts_end, $signup_dts_start, $signup_dts_end, $billing_first_name, $billing_last_name, $billing_company, $billing_city, $billing_state, $billing_postal_code, $billing_country_code, $billing_day_phone, $billing_evening_phone, $shipping_first_name, $shipping_last_name, $shipping_company, $shipping_city, $shipping_state, $shipping_postal_code, $shipping_country_code, $shipping_day_phone, $shipping_evening_phone, $pricing_tier_oid, $pricing_tier_name, $_limit, $_offset, $_since, $_sort, $_expand)
 
 Retrieve customers
 
@@ -604,7 +604,6 @@ $shipping_day_phone = "shipping_day_phone_example"; // string | Shipping day pho
 $shipping_evening_phone = "shipping_evening_phone_example"; // string | Shipping evening phone
 $pricing_tier_oid = 56; // int | Pricing tier oid
 $pricing_tier_name = "pricing_tier_name_example"; // string | Pricing tier name
-$emails = new \stdClass; // object | Emails
 $_limit = 100; // int | The maximum number of records to return on this one API call. (Max 200)
 $_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
 $_since = "_since_example"; // string | Fetch customers that have been created/modified since this date/time.
@@ -612,7 +611,7 @@ $_sort = "_sort_example"; // string | The sort order of the customers.  See Sort
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $apiInstance->getCustomers($email, $qb_class, $quickbooks_code, $last_modified_dts_start, $last_modified_dts_end, $signup_dts_start, $signup_dts_end, $billing_first_name, $billing_last_name, $billing_company, $billing_city, $billing_state, $billing_postal_code, $billing_country_code, $billing_day_phone, $billing_evening_phone, $shipping_first_name, $shipping_last_name, $shipping_company, $shipping_city, $shipping_state, $shipping_postal_code, $shipping_country_code, $shipping_day_phone, $shipping_evening_phone, $pricing_tier_oid, $pricing_tier_name, $emails, $_limit, $_offset, $_since, $_sort, $_expand);
+    $result = $apiInstance->getCustomers($email, $qb_class, $quickbooks_code, $last_modified_dts_start, $last_modified_dts_end, $signup_dts_start, $signup_dts_end, $billing_first_name, $billing_last_name, $billing_company, $billing_city, $billing_state, $billing_postal_code, $billing_country_code, $billing_day_phone, $billing_evening_phone, $shipping_first_name, $shipping_last_name, $shipping_company, $shipping_city, $shipping_state, $shipping_postal_code, $shipping_country_code, $shipping_day_phone, $shipping_evening_phone, $pricing_tier_oid, $pricing_tier_name, $_limit, $_offset, $_since, $_sort, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomerApi->getCustomers: ', $e->getMessage(), PHP_EOL;
@@ -651,7 +650,6 @@ Name | Type | Description  | Notes
  **shipping_evening_phone** | **string**| Shipping evening phone | [optional]
  **pricing_tier_oid** | **int**| Pricing tier oid | [optional]
  **pricing_tier_name** | **string**| Pricing tier name | [optional]
- **emails** | [**object**](../Model/.md)| Emails | [optional]
  **_limit** | **int**| The maximum number of records to return on this one API call. (Max 200) | [optional] [default to 100]
  **_offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
  **_since** | **string**| Fetch customers that have been created/modified since this date/time. | [optional]

@@ -1592,6 +1592,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.223 | 01/09/2025 | fix for broken 4.0.39 due to incorrect query sig on getCustomers |
 | 3.10.222 | 01/09/2025 | added emails parameter to customer queries, refundOrder added to Channel partner |
 | 3.10.221 | 12/13/2024 | added user and group ids to conversation agent auth object |
 | 3.10.220 | 11/11/2024 | added seo properties to item.content object |
