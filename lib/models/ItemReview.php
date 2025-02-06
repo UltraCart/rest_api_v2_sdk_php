@@ -61,6 +61,7 @@ class ItemReview implements ModelInterface, ArrayAccess
         'featured' => 'bool',
         'helperful_no_votes' => 'int',
         'helpful_yes_votes' => 'int',
+        'merchant_reply' => 'string',
         'order_id' => 'string',
         'overall' => 'float',
         'rating_name1' => 'string',
@@ -106,6 +107,7 @@ class ItemReview implements ModelInterface, ArrayAccess
         'featured' => null,
         'helperful_no_votes' => 'int32',
         'helpful_yes_votes' => 'int32',
+        'merchant_reply' => null,
         'order_id' => null,
         'overall' => null,
         'rating_name1' => null,
@@ -172,6 +174,7 @@ class ItemReview implements ModelInterface, ArrayAccess
         'featured' => 'featured',
         'helperful_no_votes' => 'helperful_no_votes',
         'helpful_yes_votes' => 'helpful_yes_votes',
+        'merchant_reply' => 'merchant_reply',
         'order_id' => 'order_id',
         'overall' => 'overall',
         'rating_name1' => 'rating_name1',
@@ -217,6 +220,7 @@ class ItemReview implements ModelInterface, ArrayAccess
         'featured' => 'setFeatured',
         'helperful_no_votes' => 'setHelperfulNoVotes',
         'helpful_yes_votes' => 'setHelpfulYesVotes',
+        'merchant_reply' => 'setMerchantReply',
         'order_id' => 'setOrderId',
         'overall' => 'setOverall',
         'rating_name1' => 'setRatingName1',
@@ -262,6 +266,7 @@ class ItemReview implements ModelInterface, ArrayAccess
         'featured' => 'getFeatured',
         'helperful_no_votes' => 'getHelperfulNoVotes',
         'helpful_yes_votes' => 'getHelpfulYesVotes',
+        'merchant_reply' => 'getMerchantReply',
         'order_id' => 'getOrderId',
         'overall' => 'getOverall',
         'rating_name1' => 'getRatingName1',
@@ -380,6 +385,7 @@ class ItemReview implements ModelInterface, ArrayAccess
         $this->container['featured'] = isset($data['featured']) ? $data['featured'] : null;
         $this->container['helperful_no_votes'] = isset($data['helperful_no_votes']) ? $data['helperful_no_votes'] : null;
         $this->container['helpful_yes_votes'] = isset($data['helpful_yes_votes']) ? $data['helpful_yes_votes'] : null;
+        $this->container['merchant_reply'] = isset($data['merchant_reply']) ? $data['merchant_reply'] : null;
         $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
         $this->container['overall'] = isset($data['overall']) ? $data['overall'] : null;
         $this->container['rating_name1'] = isset($data['rating_name1']) ? $data['rating_name1'] : null;
@@ -423,6 +429,10 @@ class ItemReview implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['merchant_reply']) && (mb_strlen($this->container['merchant_reply']) > 10000)) {
+            $invalidProperties[] = "invalid value for 'merchant_reply', the character length must be smaller than or equal to 10000.";
+        }
 
         if (!is_null($this->container['rating_name1']) && (mb_strlen($this->container['rating_name1']) > 100)) {
             $invalidProperties[] = "invalid value for 'rating_name1', the character length must be smaller than or equal to 100.";
@@ -603,6 +613,34 @@ class ItemReview implements ModelInterface, ArrayAccess
     public function setHelpfulYesVotes($helpful_yes_votes)
     {
         $this->container['helpful_yes_votes'] = $helpful_yes_votes;
+
+        return $this;
+    }
+
+    /**
+     * Gets merchant_reply
+     *
+     * @return string
+     */
+    public function getMerchantReply()
+    {
+        return $this->container['merchant_reply'];
+    }
+
+    /**
+     * Sets merchant_reply
+     *
+     * @param string $merchant_reply Merchant Reply (set to an empty string to remove)
+     *
+     * @return $this
+     */
+    public function setMerchantReply($merchant_reply)
+    {
+        if (!is_null($merchant_reply) && (mb_strlen($merchant_reply) > 10000)) {
+            throw new \InvalidArgumentException('invalid length for $merchant_reply when calling ItemReview., must be smaller than or equal to 10000.');
+        }
+
+        $this->container['merchant_reply'] = $merchant_reply;
 
         return $this;
     }

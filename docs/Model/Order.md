@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **creation_dts** | **string** | Date/time that the order was created | [optional] 
 **currency_code** | **string** | Currency code that the customer used if different than the merchant&#39;s base currency code | [optional] 
 **current_stage** | **string** | Current stage that the order is in. | [optional] 
+**current_stage_histories** | [**\ultracart\v2\models\OrderCurrentStageHistory[]**](OrderCurrentStageHistory.md) | History of the changes to the current_stage field | [optional] 
 **customer_profile** | [**\ultracart\v2\models\Customer**](Customer.md) |  | [optional] 
 **digital_order** | [**\ultracart\v2\models\OrderDigitalOrder**](OrderDigitalOrder.md) |  | [optional] 
 **edi** | [**\ultracart\v2\models\OrderEdi**](OrderEdi.md) |  | [optional] 

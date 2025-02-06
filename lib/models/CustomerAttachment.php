@@ -313,7 +313,7 @@ class CustomerAttachment implements ModelInterface, ArrayAccess
     /**
      * Sets mime_type
      *
-     * @param string $mime_type Mime typoe
+     * @param string $mime_type Mime type
      *
      * @return $this
      */

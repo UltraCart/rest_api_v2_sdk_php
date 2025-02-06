@@ -4,7 +4,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **actual_fulfillment** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional] 
+**actual_other_cost** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional] 
 **actual_payment_processing** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional] 
+**actual_profit** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional] 
+**actual_profit_analyzed** | **bool** | Actual profit has been analyzed | [optional] 
+**actual_profit_review** | **bool** | Actual profit needs review | [optional] 
 **actual_shipping** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional] 
 **arbitrary_shipping_handling_total** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional] 
 **health_benefit_card_amount** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional] 
