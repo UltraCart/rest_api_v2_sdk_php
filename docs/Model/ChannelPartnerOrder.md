@@ -91,6 +91,7 @@ Name | Type | Description | Notes
 **special_instructions** | **string** | Special instructions from the customer regarding shipping | [optional]
 **store_completed** | **bool** | If true the order bypasses shipping and is marked completed | [optional]
 **store_if_payment_declines** | **bool** | If true any failed payments are placed into Accounts Receivable.  If false any failed payments result in a rejected order resulting in errors thrown during the insert routine | [optional]
+**storefront_host_name** | **string** | StoreFront host name associated with the order | [optional]
 **tax_county** | **string** | The optional shipping county used to determine exact taxes | [optional]
 **tax_exempt** | **bool** | If true this order is marked as being tax exempt | [optional]
 **transaction** | [**\ultracart\v2\models\ChannelPartnerOrderTransaction**](ChannelPartnerOrderTransaction.md) |  | [optional]

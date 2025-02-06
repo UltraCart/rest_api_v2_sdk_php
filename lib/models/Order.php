@@ -68,6 +68,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         'creation_dts' => 'string',
         'currency_code' => 'string',
         'current_stage' => 'string',
+        'current_stage_histories' => '\ultracart\v2\models\OrderCurrentStageHistory[]',
         'customer_profile' => '\ultracart\v2\models\Customer',
         'digital_order' => '\ultracart\v2\models\OrderDigitalOrder',
         'edi' => '\ultracart\v2\models\OrderEdi',
@@ -116,6 +117,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         'creation_dts' => 'dateTime',
         'currency_code' => null,
         'current_stage' => null,
+        'current_stage_histories' => null,
         'customer_profile' => null,
         'digital_order' => null,
         'edi' => null,
@@ -183,6 +185,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         'creation_dts' => 'creation_dts',
         'currency_code' => 'currency_code',
         'current_stage' => 'current_stage',
+        'current_stage_histories' => 'current_stage_histories',
         'customer_profile' => 'customer_profile',
         'digital_order' => 'digital_order',
         'edi' => 'edi',
@@ -229,6 +232,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         'creation_dts' => 'setCreationDts',
         'currency_code' => 'setCurrencyCode',
         'current_stage' => 'setCurrentStage',
+        'current_stage_histories' => 'setCurrentStageHistories',
         'customer_profile' => 'setCustomerProfile',
         'digital_order' => 'setDigitalOrder',
         'edi' => 'setEdi',
@@ -275,6 +279,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         'creation_dts' => 'getCreationDts',
         'currency_code' => 'getCurrencyCode',
         'current_stage' => 'getCurrentStage',
+        'current_stage_histories' => 'getCurrentStageHistories',
         'customer_profile' => 'getCustomerProfile',
         'digital_order' => 'getDigitalOrder',
         'edi' => 'getEdi',
@@ -409,6 +414,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['creation_dts'] = $data['creation_dts'] ?? null;
         $this->container['currency_code'] = $data['currency_code'] ?? null;
         $this->container['current_stage'] = $data['current_stage'] ?? null;
+        $this->container['current_stage_histories'] = $data['current_stage_histories'] ?? null;
         $this->container['customer_profile'] = $data['customer_profile'] ?? null;
         $this->container['digital_order'] = $data['digital_order'] ?? null;
         $this->container['edi'] = $data['edi'] ?? null;
@@ -730,6 +736,30 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['current_stage'] = $current_stage;
+
+        return $this;
+    }
+
+    /**
+     * Gets current_stage_histories
+     *
+     * @return \ultracart\v2\models\OrderCurrentStageHistory[]|null
+     */
+    public function getCurrentStageHistories()
+    {
+        return $this->container['current_stage_histories'];
+    }
+
+    /**
+     * Sets current_stage_histories
+     *
+     * @param \ultracart\v2\models\OrderCurrentStageHistory[]|null $current_stage_histories History of the changes to the current_stage field
+     *
+     * @return self
+     */
+    public function setCurrentStageHistories($current_stage_histories)
+    {
+        $this->container['current_stage_histories'] = $current_stage_histories;
 
         return $this;
     }

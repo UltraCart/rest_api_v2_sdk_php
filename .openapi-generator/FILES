@@ -641,6 +641,7 @@ docs/Model/OrderByTokenQuery.md
 docs/Model/OrderChannelPartner.md
 docs/Model/OrderCheckout.md
 docs/Model/OrderCoupon.md
+docs/Model/OrderCurrentStageHistory.md
 docs/Model/OrderDigitalItem.md
 docs/Model/OrderDigitalOrder.md
 docs/Model/OrderEdi.md
@@ -1522,6 +1523,7 @@ lib/models/OrderByTokenQuery.php
 lib/models/OrderChannelPartner.php
 lib/models/OrderCheckout.php
 lib/models/OrderCoupon.php
+lib/models/OrderCurrentStageHistory.php
 lib/models/OrderDigitalItem.php
 lib/models/OrderDigitalOrder.php
 lib/models/OrderEdi.php

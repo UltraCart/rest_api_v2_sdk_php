@@ -60,6 +60,7 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'accounting_code' => 'string',
         'activation_codes' => 'string[]',
+        'actual_cogs' => '\ultracart\v2\models\Currency',
         'arbitrary_unit_cost' => '\ultracart\v2\models\Currency',
         'auto_order_last_rebill_dts' => 'string',
         'auto_order_schedule' => 'string',
@@ -135,6 +136,7 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'accounting_code' => null,
         'activation_codes' => null,
+        'actual_cogs' => null,
         'arbitrary_unit_cost' => null,
         'auto_order_last_rebill_dts' => 'dateTime',
         'auto_order_schedule' => null,
@@ -229,6 +231,7 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'accounting_code' => 'accounting_code',
         'activation_codes' => 'activation_codes',
+        'actual_cogs' => 'actual_cogs',
         'arbitrary_unit_cost' => 'arbitrary_unit_cost',
         'auto_order_last_rebill_dts' => 'auto_order_last_rebill_dts',
         'auto_order_schedule' => 'auto_order_schedule',
@@ -302,6 +305,7 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'accounting_code' => 'setAccountingCode',
         'activation_codes' => 'setActivationCodes',
+        'actual_cogs' => 'setActualCogs',
         'arbitrary_unit_cost' => 'setArbitraryUnitCost',
         'auto_order_last_rebill_dts' => 'setAutoOrderLastRebillDts',
         'auto_order_schedule' => 'setAutoOrderSchedule',
@@ -375,6 +379,7 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'accounting_code' => 'getAccountingCode',
         'activation_codes' => 'getActivationCodes',
+        'actual_cogs' => 'getActualCogs',
         'arbitrary_unit_cost' => 'getArbitraryUnitCost',
         'auto_order_last_rebill_dts' => 'getAutoOrderLastRebillDts',
         'auto_order_schedule' => 'getAutoOrderSchedule',
@@ -518,6 +523,7 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->container['accounting_code'] = $data['accounting_code'] ?? null;
         $this->container['activation_codes'] = $data['activation_codes'] ?? null;
+        $this->container['actual_cogs'] = $data['actual_cogs'] ?? null;
         $this->container['arbitrary_unit_cost'] = $data['arbitrary_unit_cost'] ?? null;
         $this->container['auto_order_last_rebill_dts'] = $data['auto_order_last_rebill_dts'] ?? null;
         $this->container['auto_order_schedule'] = $data['auto_order_schedule'] ?? null;
@@ -704,6 +710,30 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setActivationCodes($activation_codes)
     {
         $this->container['activation_codes'] = $activation_codes;
+
+        return $this;
+    }
+
+    /**
+     * Gets actual_cogs
+     *
+     * @return \ultracart\v2\models\Currency|null
+     */
+    public function getActualCogs()
+    {
+        return $this->container['actual_cogs'];
+    }
+
+    /**
+     * Sets actual_cogs
+     *
+     * @param \ultracart\v2\models\Currency|null $actual_cogs actual_cogs
+     *
+     * @return self
+     */
+    public function setActualCogs($actual_cogs)
+    {
+        $this->container['actual_cogs'] = $actual_cogs;
 
         return $this;
     }

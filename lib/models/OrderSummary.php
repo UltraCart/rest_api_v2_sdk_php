@@ -59,7 +59,11 @@ class OrderSummary implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'actual_fulfillment' => '\ultracart\v2\models\Currency',
+        'actual_other_cost' => '\ultracart\v2\models\Currency',
         'actual_payment_processing' => '\ultracart\v2\models\Currency',
+        'actual_profit' => '\ultracart\v2\models\Currency',
+        'actual_profit_analyzed' => 'bool',
+        'actual_profit_review' => 'bool',
         'actual_shipping' => '\ultracart\v2\models\Currency',
         'arbitrary_shipping_handling_total' => '\ultracart\v2\models\Currency',
         'health_benefit_card_amount' => '\ultracart\v2\models\Currency',
@@ -91,7 +95,11 @@ class OrderSummary implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'actual_fulfillment' => null,
+        'actual_other_cost' => null,
         'actual_payment_processing' => null,
+        'actual_profit' => null,
+        'actual_profit_analyzed' => null,
+        'actual_profit_review' => null,
         'actual_shipping' => null,
         'arbitrary_shipping_handling_total' => null,
         'health_benefit_card_amount' => null,
@@ -142,7 +150,11 @@ class OrderSummary implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'actual_fulfillment' => 'actual_fulfillment',
+        'actual_other_cost' => 'actual_other_cost',
         'actual_payment_processing' => 'actual_payment_processing',
+        'actual_profit' => 'actual_profit',
+        'actual_profit_analyzed' => 'actual_profit_analyzed',
+        'actual_profit_review' => 'actual_profit_review',
         'actual_shipping' => 'actual_shipping',
         'arbitrary_shipping_handling_total' => 'arbitrary_shipping_handling_total',
         'health_benefit_card_amount' => 'health_benefit_card_amount',
@@ -172,7 +184,11 @@ class OrderSummary implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'actual_fulfillment' => 'setActualFulfillment',
+        'actual_other_cost' => 'setActualOtherCost',
         'actual_payment_processing' => 'setActualPaymentProcessing',
+        'actual_profit' => 'setActualProfit',
+        'actual_profit_analyzed' => 'setActualProfitAnalyzed',
+        'actual_profit_review' => 'setActualProfitReview',
         'actual_shipping' => 'setActualShipping',
         'arbitrary_shipping_handling_total' => 'setArbitraryShippingHandlingTotal',
         'health_benefit_card_amount' => 'setHealthBenefitCardAmount',
@@ -202,7 +218,11 @@ class OrderSummary implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'actual_fulfillment' => 'getActualFulfillment',
+        'actual_other_cost' => 'getActualOtherCost',
         'actual_payment_processing' => 'getActualPaymentProcessing',
+        'actual_profit' => 'getActualProfit',
+        'actual_profit_analyzed' => 'getActualProfitAnalyzed',
+        'actual_profit_review' => 'getActualProfitReview',
         'actual_shipping' => 'getActualShipping',
         'arbitrary_shipping_handling_total' => 'getArbitraryShippingHandlingTotal',
         'health_benefit_card_amount' => 'getHealthBenefitCardAmount',
@@ -283,7 +303,11 @@ class OrderSummary implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->container['actual_fulfillment'] = $data['actual_fulfillment'] ?? null;
+        $this->container['actual_other_cost'] = $data['actual_other_cost'] ?? null;
         $this->container['actual_payment_processing'] = $data['actual_payment_processing'] ?? null;
+        $this->container['actual_profit'] = $data['actual_profit'] ?? null;
+        $this->container['actual_profit_analyzed'] = $data['actual_profit_analyzed'] ?? null;
+        $this->container['actual_profit_review'] = $data['actual_profit_review'] ?? null;
         $this->container['actual_shipping'] = $data['actual_shipping'] ?? null;
         $this->container['arbitrary_shipping_handling_total'] = $data['arbitrary_shipping_handling_total'] ?? null;
         $this->container['health_benefit_card_amount'] = $data['health_benefit_card_amount'] ?? null;
@@ -355,6 +379,30 @@ class OrderSummary implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets actual_other_cost
+     *
+     * @return \ultracart\v2\models\Currency|null
+     */
+    public function getActualOtherCost()
+    {
+        return $this->container['actual_other_cost'];
+    }
+
+    /**
+     * Sets actual_other_cost
+     *
+     * @param \ultracart\v2\models\Currency|null $actual_other_cost actual_other_cost
+     *
+     * @return self
+     */
+    public function setActualOtherCost($actual_other_cost)
+    {
+        $this->container['actual_other_cost'] = $actual_other_cost;
+
+        return $this;
+    }
+
+    /**
      * Gets actual_payment_processing
      *
      * @return \ultracart\v2\models\Currency|null
@@ -374,6 +422,78 @@ class OrderSummary implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setActualPaymentProcessing($actual_payment_processing)
     {
         $this->container['actual_payment_processing'] = $actual_payment_processing;
+
+        return $this;
+    }
+
+    /**
+     * Gets actual_profit
+     *
+     * @return \ultracart\v2\models\Currency|null
+     */
+    public function getActualProfit()
+    {
+        return $this->container['actual_profit'];
+    }
+
+    /**
+     * Sets actual_profit
+     *
+     * @param \ultracart\v2\models\Currency|null $actual_profit actual_profit
+     *
+     * @return self
+     */
+    public function setActualProfit($actual_profit)
+    {
+        $this->container['actual_profit'] = $actual_profit;
+
+        return $this;
+    }
+
+    /**
+     * Gets actual_profit_analyzed
+     *
+     * @return bool|null
+     */
+    public function getActualProfitAnalyzed()
+    {
+        return $this->container['actual_profit_analyzed'];
+    }
+
+    /**
+     * Sets actual_profit_analyzed
+     *
+     * @param bool|null $actual_profit_analyzed Actual profit has been analyzed
+     *
+     * @return self
+     */
+    public function setActualProfitAnalyzed($actual_profit_analyzed)
+    {
+        $this->container['actual_profit_analyzed'] = $actual_profit_analyzed;
+
+        return $this;
+    }
+
+    /**
+     * Gets actual_profit_review
+     *
+     * @return bool|null
+     */
+    public function getActualProfitReview()
+    {
+        return $this->container['actual_profit_review'];
+    }
+
+    /**
+     * Sets actual_profit_review
+     *
+     * @param bool|null $actual_profit_review Actual profit needs review
+     *
+     * @return self
+     */
+    public function setActualProfitReview($actual_profit_review)
+    {
+        $this->container['actual_profit_review'] = $actual_profit_review;
 
         return $this;
     }

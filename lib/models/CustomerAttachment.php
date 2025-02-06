@@ -313,7 +313,7 @@ class CustomerAttachment implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets mime_type
      *
-     * @param string|null $mime_type Mime typoe
+     * @param string|null $mime_type Mime type
      *
      * @return self
      */

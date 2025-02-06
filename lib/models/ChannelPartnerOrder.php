@@ -145,6 +145,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'special_instructions' => 'string',
         'store_completed' => 'bool',
         'store_if_payment_declines' => 'bool',
+        'storefront_host_name' => 'string',
         'tax_county' => 'string',
         'tax_exempt' => 'bool',
         'transaction' => '\ultracart\v2\models\ChannelPartnerOrderTransaction',
@@ -246,6 +247,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'special_instructions' => null,
         'store_completed' => null,
         'store_if_payment_declines' => null,
+        'storefront_host_name' => null,
         'tax_county' => null,
         'tax_exempt' => null,
         'transaction' => null,
@@ -366,6 +368,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'special_instructions' => 'special_instructions',
         'store_completed' => 'store_completed',
         'store_if_payment_declines' => 'store_if_payment_declines',
+        'storefront_host_name' => 'storefront_host_name',
         'tax_county' => 'tax_county',
         'tax_exempt' => 'tax_exempt',
         'transaction' => 'transaction',
@@ -465,6 +468,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'special_instructions' => 'setSpecialInstructions',
         'store_completed' => 'setStoreCompleted',
         'store_if_payment_declines' => 'setStoreIfPaymentDeclines',
+        'storefront_host_name' => 'setStorefrontHostName',
         'tax_county' => 'setTaxCounty',
         'tax_exempt' => 'setTaxExempt',
         'transaction' => 'setTransaction',
@@ -564,6 +568,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'special_instructions' => 'getSpecialInstructions',
         'store_completed' => 'getStoreCompleted',
         'store_if_payment_declines' => 'getStoreIfPaymentDeclines',
+        'storefront_host_name' => 'getStorefrontHostName',
         'tax_county' => 'getTaxCounty',
         'tax_exempt' => 'getTaxExempt',
         'transaction' => 'getTransaction',
@@ -779,6 +784,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['special_instructions'] = $data['special_instructions'] ?? null;
         $this->container['store_completed'] = $data['store_completed'] ?? null;
         $this->container['store_if_payment_declines'] = $data['store_if_payment_declines'] ?? null;
+        $this->container['storefront_host_name'] = $data['storefront_host_name'] ?? null;
         $this->container['tax_county'] = $data['tax_county'] ?? null;
         $this->container['tax_exempt'] = $data['tax_exempt'] ?? null;
         $this->container['transaction'] = $data['transaction'] ?? null;
@@ -3246,6 +3252,30 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setStoreIfPaymentDeclines($store_if_payment_declines)
     {
         $this->container['store_if_payment_declines'] = $store_if_payment_declines;
+
+        return $this;
+    }
+
+    /**
+     * Gets storefront_host_name
+     *
+     * @return string|null
+     */
+    public function getStorefrontHostName()
+    {
+        return $this->container['storefront_host_name'];
+    }
+
+    /**
+     * Sets storefront_host_name
+     *
+     * @param string|null $storefront_host_name StoreFront host name associated with the order
+     *
+     * @return self
+     */
+    public function setStorefrontHostName($storefront_host_name)
+    {
+        $this->container['storefront_host_name'] = $storefront_host_name;
 
         return $this;
     }

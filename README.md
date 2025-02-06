@@ -1203,6 +1203,7 @@ Class | Method | HTTP request | Description
 - [OrderChannelPartner](docs/Model/OrderChannelPartner.md)
 - [OrderCheckout](docs/Model/OrderCheckout.md)
 - [OrderCoupon](docs/Model/OrderCoupon.md)
+- [OrderCurrentStageHistory](docs/Model/OrderCurrentStageHistory.md)
 - [OrderDigitalItem](docs/Model/OrderDigitalItem.md)
 - [OrderDigitalOrder](docs/Model/OrderDigitalOrder.md)
 - [OrderEdi](docs/Model/OrderEdi.md)
@@ -1533,6 +1534,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.241 | 02/06/2025 | added storefront_host_name to channel partner order object |
 | 4.0.240 | 01/09/2025 | fix for broken 4.0.39 due to incorrect query sig on getCustomers |
 | 4.0.239 | 01/09/2025 | added emails parameter to customer queries, refundOrder added to Channel partner |
 | 4.0.238 | 12/13/2024 | added user and group ids to conversation agent auth object |
