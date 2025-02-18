@@ -431,7 +431,7 @@ class FulfillmentApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\OrdersResponse
+     * @return \ultracart\v2\models\OrderPackingSlipResponse
      */
     public function generatePackingSlip($distribution_center_code, $order_id)
     {
@@ -450,7 +450,7 @@ class FulfillmentApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\OrdersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\OrderPackingSlipResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function generatePackingSlipWithHttpInfo($distribution_center_code, $order_id)
     {
@@ -469,11 +469,11 @@ class FulfillmentApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\OrdersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\OrderPackingSlipResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function generatePackingSlipWithHttpInfoRetry($retry ,  $distribution_center_code,  $order_id)
     {
-        $returnType = '\ultracart\v2\models\OrdersResponse';
+        $returnType = '\ultracart\v2\models\OrderPackingSlipResponse';
         $request = $this->generatePackingSlipRequest($distribution_center_code, $order_id);
 
         try {
@@ -526,7 +526,7 @@ class FulfillmentApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\OrdersResponse',
+                        '\ultracart\v2\models\OrderPackingSlipResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -610,7 +610,7 @@ class FulfillmentApi
      */
     public function generatePackingSlipAsyncWithHttpInfo($distribution_center_code, $order_id)
     {
-        $returnType = '\ultracart\v2\models\OrdersResponse';
+        $returnType = '\ultracart\v2\models\OrderPackingSlipResponse';
         $request = $this->generatePackingSlipRequest($distribution_center_code, $order_id);
 
         return $this->client

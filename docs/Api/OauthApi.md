@@ -27,7 +27,7 @@ $api_instance = ultracart\v2\api\OauthApi::usingApiKey($simple_key);
 $client_id = "client_id_example"; // string | The OAuth application client_id.
 $grant_type = "grant_type_example"; // string | Type of grant
 $code = "code_example"; // string | Authorization code received back from the browser redirect
-$redirect_uri = "redirect_uri_example"; // string | The URI that you redirect the browser to to start the authorization process
+$redirect_uri = "redirect_uri_example"; // string | The URI that you redirect the browser to start the authorization process
 $refresh_token = "refresh_token_example"; // string | The refresh token received during the original grant_type=authorization_code that can be used to return a new access token
 
 try {
@@ -46,7 +46,7 @@ Name | Type | Description  | Notes
  **client_id** | **string**| The OAuth application client_id. |
  **grant_type** | **string**| Type of grant |
  **code** | **string**| Authorization code received back from the browser redirect | [optional]
- **redirect_uri** | **string**| The URI that you redirect the browser to to start the authorization process | [optional]
+ **redirect_uri** | **string**| The URI that you redirect the browser to start the authorization process | [optional]
  **refresh_token** | **string**| The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token | [optional]
 
 ### Return type

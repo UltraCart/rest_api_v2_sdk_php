@@ -2176,7 +2176,7 @@ class WebhookApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\WebhookSampleRequestResponse
+     * @return \ultracart\v2\models\WebhookReflowResponse
      */
     public function resendEvent($webhook_oid, $event_name)
     {
@@ -2195,7 +2195,7 @@ class WebhookApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\WebhookSampleRequestResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\WebhookReflowResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function resendEventWithHttpInfo($webhook_oid, $event_name)
     {
@@ -2214,11 +2214,11 @@ class WebhookApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\WebhookSampleRequestResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\WebhookReflowResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function resendEventWithHttpInfoRetry($retry ,  $webhook_oid,  $event_name)
     {
-        $returnType = '\ultracart\v2\models\WebhookSampleRequestResponse';
+        $returnType = '\ultracart\v2\models\WebhookReflowResponse';
         $request = $this->resendEventRequest($webhook_oid, $event_name);
 
         try {
@@ -2271,7 +2271,7 @@ class WebhookApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\WebhookSampleRequestResponse',
+                        '\ultracart\v2\models\WebhookReflowResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2355,7 +2355,7 @@ class WebhookApi
      */
     public function resendEventAsyncWithHttpInfo($webhook_oid, $event_name)
     {
-        $returnType = '\ultracart\v2\models\WebhookSampleRequestResponse';
+        $returnType = '\ultracart\v2\models\WebhookReflowResponse';
         $request = $this->resendEventRequest($webhook_oid, $event_name);
 
         return $this->client

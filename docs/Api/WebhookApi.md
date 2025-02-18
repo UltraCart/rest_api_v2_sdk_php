@@ -318,7 +318,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **resendEvent**
-> \ultracart\v2\models\WebhookSampleRequestResponse resendEvent($webhook_oid, $event_name)
+> \ultracart\v2\models\WebhookReflowResponse resendEvent($webhook_oid, $event_name)
 
 Resend events to the webhook endpoint.
 
@@ -354,7 +354,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\WebhookSampleRequestResponse**](../Model/WebhookSampleRequestResponse.md)
+[**\ultracart\v2\models\WebhookReflowResponse**](../Model/WebhookReflowResponse.md)
 
 ### Authorization
 

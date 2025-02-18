@@ -1,6 +1,6 @@
 <?php
 /**
- * WebhookSampleRequest
+ * WebhookReflow
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * WebhookSampleRequest Class Doc Comment
+ * WebhookReflow Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class WebhookSampleRequest implements ModelInterface, ArrayAccess
+class WebhookReflow implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class WebhookSampleRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'WebhookSampleRequest';
+    protected static $swaggerModelName = 'WebhookReflow';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,8 @@ class WebhookSampleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'request' => 'string',
-        'request_headers' => '\ultracart\v2\models\HTTPHeader[]',
-        'request_id' => 'string',
-        'uri' => 'string'
+        'event_name' => 'string',
+        'queued' => 'bool'
     ];
 
     /**
@@ -69,10 +67,8 @@ class WebhookSampleRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'request' => null,
-        'request_headers' => null,
-        'request_id' => null,
-        'uri' => null
+        'event_name' => null,
+        'queued' => null
     ];
 
     /**
@@ -102,10 +98,8 @@ class WebhookSampleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'request' => 'request',
-        'request_headers' => 'request_headers',
-        'request_id' => 'request_id',
-        'uri' => 'uri'
+        'event_name' => 'event_name',
+        'queued' => 'queued'
     ];
 
     /**
@@ -114,10 +108,8 @@ class WebhookSampleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'request' => 'setRequest',
-        'request_headers' => 'setRequestHeaders',
-        'request_id' => 'setRequestId',
-        'uri' => 'setUri'
+        'event_name' => 'setEventName',
+        'queued' => 'setQueued'
     ];
 
     /**
@@ -126,10 +118,8 @@ class WebhookSampleRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'request' => 'getRequest',
-        'request_headers' => 'getRequestHeaders',
-        'request_id' => 'getRequestId',
-        'uri' => 'getUri'
+        'event_name' => 'getEventName',
+        'queued' => 'getQueued'
     ];
 
     /**
@@ -192,10 +182,8 @@ class WebhookSampleRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['request'] = isset($data['request']) ? $data['request'] : null;
-        $this->container['request_headers'] = isset($data['request_headers']) ? $data['request_headers'] : null;
-        $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
-        $this->container['uri'] = isset($data['uri']) ? $data['uri'] : null;
+        $this->container['event_name'] = isset($data['event_name']) ? $data['event_name'] : null;
+        $this->container['queued'] = isset($data['queued']) ? $data['queued'] : null;
     }
 
     /**
@@ -223,97 +211,49 @@ class WebhookSampleRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets request
+     * Gets event_name
      *
      * @return string
      */
-    public function getRequest()
+    public function getEventName()
     {
-        return $this->container['request'];
+        return $this->container['event_name'];
     }
 
     /**
-     * Sets request
+     * Sets event_name
      *
-     * @param string $request Request
+     * @param string $event_name event_name
      *
      * @return $this
      */
-    public function setRequest($request)
+    public function setEventName($event_name)
     {
-        $this->container['request'] = $request;
+        $this->container['event_name'] = $event_name;
 
         return $this;
     }
 
     /**
-     * Gets request_headers
+     * Gets queued
      *
-     * @return \ultracart\v2\models\HTTPHeader[]
+     * @return bool
      */
-    public function getRequestHeaders()
+    public function getQueued()
     {
-        return $this->container['request_headers'];
+        return $this->container['queued'];
     }
 
     /**
-     * Sets request_headers
+     * Sets queued
      *
-     * @param \ultracart\v2\models\HTTPHeader[] $request_headers Request headers
+     * @param bool $queued queued
      *
      * @return $this
      */
-    public function setRequestHeaders($request_headers)
+    public function setQueued($queued)
     {
-        $this->container['request_headers'] = $request_headers;
-
-        return $this;
-    }
-
-    /**
-     * Gets request_id
-     *
-     * @return string
-     */
-    public function getRequestId()
-    {
-        return $this->container['request_id'];
-    }
-
-    /**
-     * Sets request_id
-     *
-     * @param string $request_id Request id
-     *
-     * @return $this
-     */
-    public function setRequestId($request_id)
-    {
-        $this->container['request_id'] = $request_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets uri
-     *
-     * @return string
-     */
-    public function getUri()
-    {
-        return $this->container['uri'];
-    }
-
-    /**
-     * Sets uri
-     *
-     * @param string $uri URI to send request to
-     *
-     * @return $this
-     */
-    public function setUri($uri)
-    {
-        $this->container['uri'] = $uri;
+        $this->container['queued'] = $queued;
 
         return $this;
     }

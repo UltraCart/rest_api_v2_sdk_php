@@ -1492,9 +1492,9 @@ Class | Method | HTTP request | Description
  - [WebhookLogResponse](docs/Model/WebhookLogResponse.md)
  - [WebhookLogSummariesResponse](docs/Model/WebhookLogSummariesResponse.md)
  - [WebhookLogSummary](docs/Model/WebhookLogSummary.md)
+ - [WebhookReflow](docs/Model/WebhookReflow.md)
+ - [WebhookReflowResponse](docs/Model/WebhookReflowResponse.md)
  - [WebhookResponse](docs/Model/WebhookResponse.md)
- - [WebhookSampleRequest](docs/Model/WebhookSampleRequest.md)
- - [WebhookSampleRequestResponse](docs/Model/WebhookSampleRequestResponse.md)
  - [WebhooksResponse](docs/Model/WebhooksResponse.md)
  - [Weight](docs/Model/Weight.md)
  - [WorkflowAgentAuth](docs/Model/WorkflowAgentAuth.md)
@@ -1593,6 +1593,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.225 | 02/18/2025 | small bug fixes for incorrect return types on several methods |
 | 3.10.224 | 02/06/2025 | added storefront_host_name to channel partner order object |
 | 3.10.223 | 01/09/2025 | fix for broken 4.0.39 due to incorrect query sig on getCustomers |
 | 3.10.222 | 01/09/2025 | added emails parameter to customer queries, refundOrder added to Channel partner |
