@@ -59,6 +59,7 @@ class ItemPaymentProcessing implements ModelInterface, ArrayAccess, \JsonSeriali
       */
     protected static $openAPITypes = [
         'block_prepaid' => 'bool',
+        'block_refunds' => 'bool',
         'credit_card_transaction_type' => 'string',
         'no_realtime_charge' => 'bool',
         'payment_method_validity' => 'string[]',
@@ -74,6 +75,7 @@ class ItemPaymentProcessing implements ModelInterface, ArrayAccess, \JsonSeriali
       */
     protected static $openAPIFormats = [
         'block_prepaid' => null,
+        'block_refunds' => null,
         'credit_card_transaction_type' => null,
         'no_realtime_charge' => null,
         'payment_method_validity' => null,
@@ -108,6 +110,7 @@ class ItemPaymentProcessing implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     protected static $attributeMap = [
         'block_prepaid' => 'block_prepaid',
+        'block_refunds' => 'block_refunds',
         'credit_card_transaction_type' => 'credit_card_transaction_type',
         'no_realtime_charge' => 'no_realtime_charge',
         'payment_method_validity' => 'payment_method_validity',
@@ -121,6 +124,7 @@ class ItemPaymentProcessing implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     protected static $setters = [
         'block_prepaid' => 'setBlockPrepaid',
+        'block_refunds' => 'setBlockRefunds',
         'credit_card_transaction_type' => 'setCreditCardTransactionType',
         'no_realtime_charge' => 'setNoRealtimeCharge',
         'payment_method_validity' => 'setPaymentMethodValidity',
@@ -134,6 +138,7 @@ class ItemPaymentProcessing implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     protected static $getters = [
         'block_prepaid' => 'getBlockPrepaid',
+        'block_refunds' => 'getBlockRefunds',
         'credit_card_transaction_type' => 'getCreditCardTransactionType',
         'no_realtime_charge' => 'getNoRealtimeCharge',
         'payment_method_validity' => 'getPaymentMethodValidity',
@@ -198,6 +203,7 @@ class ItemPaymentProcessing implements ModelInterface, ArrayAccess, \JsonSeriali
     public function __construct(array $data = null)
     {
         $this->container['block_prepaid'] = $data['block_prepaid'] ?? null;
+        $this->container['block_refunds'] = $data['block_refunds'] ?? null;
         $this->container['credit_card_transaction_type'] = $data['credit_card_transaction_type'] ?? null;
         $this->container['no_realtime_charge'] = $data['no_realtime_charge'] ?? null;
         $this->container['payment_method_validity'] = $data['payment_method_validity'] ?? null;
@@ -248,6 +254,30 @@ class ItemPaymentProcessing implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setBlockPrepaid($block_prepaid)
     {
         $this->container['block_prepaid'] = $block_prepaid;
+
+        return $this;
+    }
+
+    /**
+     * Gets block_refunds
+     *
+     * @return bool|null
+     */
+    public function getBlockRefunds()
+    {
+        return $this->container['block_refunds'];
+    }
+
+    /**
+     * Sets block_refunds
+     *
+     * @param bool|null $block_refunds True if this item should block any refund attempts
+     *
+     * @return self
+     */
+    public function setBlockRefunds($block_refunds)
+    {
+        $this->container['block_refunds'] = $block_refunds;
 
         return $this;
     }

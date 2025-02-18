@@ -2802,7 +2802,7 @@ class WebhookApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\WebhookSampleRequestResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     * @return \ultracart\v2\models\WebhookReflowResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
      */
     public function resendEvent($webhook_oid, $event_name)
     {
@@ -2820,7 +2820,7 @@ class WebhookApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\WebhookSampleRequestResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\WebhookReflowResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function resendEventWithHttpInfo($webhook_oid, $event_name)
     {
@@ -2840,11 +2840,11 @@ class WebhookApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\WebhookSampleRequestResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\WebhookReflowResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function resendEventWithHttpInfoRetry($retry , $webhook_oid, $event_name)
     {
-        $returnType = '\ultracart\v2\models\WebhookSampleRequestResponse';
+        $returnType = '\ultracart\v2\models\WebhookReflowResponse';
         $request = $this->resendEventRequest($webhook_oid, $event_name);
 
         try {
@@ -2901,17 +2901,17 @@ class WebhookApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\ultracart\v2\models\WebhookSampleRequestResponse' === '\SplFileObject') {
+                    if ('\ultracart\v2\models\WebhookReflowResponse' === '\SplFileObject') {
                         $content = $response->getBody()->getContents(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\ultracart\v2\models\WebhookSampleRequestResponse' !== 'string') {
+                        if ('\ultracart\v2\models\WebhookReflowResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\WebhookSampleRequestResponse', []),
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\WebhookReflowResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2992,7 +2992,7 @@ class WebhookApi
                     ];
             }
 
-            $returnType = '\ultracart\v2\models\WebhookSampleRequestResponse';
+            $returnType = '\ultracart\v2\models\WebhookReflowResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody()->getContents()(); //stream goes to serializer
             } else {
@@ -3013,7 +3013,7 @@ class WebhookApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\WebhookSampleRequestResponse',
+                        '\ultracart\v2\models\WebhookReflowResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3100,7 +3100,7 @@ class WebhookApi
      */
     public function resendEventAsyncWithHttpInfo($webhook_oid, $event_name)
     {
-        $returnType = '\ultracart\v2\models\WebhookSampleRequestResponse';
+        $returnType = '\ultracart\v2\models\WebhookReflowResponse';
         $request = $this->resendEventRequest($webhook_oid, $event_name);
 
         return $this->client

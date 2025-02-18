@@ -149,7 +149,7 @@ class OauthApi
      * @param  string $client_id The OAuth application client_id. (required)
      * @param  string $grant_type Type of grant (required)
      * @param  string $code Authorization code received back from the browser redirect (optional)
-     * @param  string $redirect_uri The URI that you redirect the browser to to start the authorization process (optional)
+     * @param  string $redirect_uri The URI that you redirect the browser to start the authorization process (optional)
      * @param  string $refresh_token The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
@@ -170,7 +170,7 @@ class OauthApi
      * @param  string $client_id The OAuth application client_id. (required)
      * @param  string $grant_type Type of grant (required)
      * @param  string $code Authorization code received back from the browser redirect (optional)
-     * @param  string $redirect_uri The URI that you redirect the browser to to start the authorization process (optional)
+     * @param  string $redirect_uri The URI that you redirect the browser to start the authorization process (optional)
      * @param  string $refresh_token The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
@@ -193,7 +193,7 @@ class OauthApi
      * @param  string $client_id The OAuth application client_id. (required)
      * @param  string $grant_type Type of grant (required)
      * @param  string $code Authorization code received back from the browser redirect (optional)
-     * @param  string $redirect_uri The URI that you redirect the browser to to start the authorization process (optional)
+     * @param  string $redirect_uri The URI that you redirect the browser to start the authorization process (optional)
      * @param  string $refresh_token The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
@@ -363,7 +363,7 @@ class OauthApi
      * @param  string $client_id The OAuth application client_id. (required)
      * @param  string $grant_type Type of grant (required)
      * @param  string $code Authorization code received back from the browser redirect (optional)
-     * @param  string $redirect_uri The URI that you redirect the browser to to start the authorization process (optional)
+     * @param  string $redirect_uri The URI that you redirect the browser to start the authorization process (optional)
      * @param  string $refresh_token The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)
      *
      * @throws \InvalidArgumentException
@@ -387,7 +387,7 @@ class OauthApi
      * @param  string $client_id The OAuth application client_id. (required)
      * @param  string $grant_type Type of grant (required)
      * @param  string $code Authorization code received back from the browser redirect (optional)
-     * @param  string $redirect_uri The URI that you redirect the browser to to start the authorization process (optional)
+     * @param  string $redirect_uri The URI that you redirect the browser to start the authorization process (optional)
      * @param  string $refresh_token The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)
      *
      * @throws \InvalidArgumentException
@@ -440,7 +440,7 @@ class OauthApi
      * @param  string $client_id The OAuth application client_id. (required)
      * @param  string $grant_type Type of grant (required)
      * @param  string $code Authorization code received back from the browser redirect (optional)
-     * @param  string $redirect_uri The URI that you redirect the browser to to start the authorization process (optional)
+     * @param  string $redirect_uri The URI that you redirect the browser to start the authorization process (optional)
      * @param  string $refresh_token The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)
      *
      * @throws \InvalidArgumentException

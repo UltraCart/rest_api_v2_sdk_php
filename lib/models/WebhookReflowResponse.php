@@ -1,6 +1,6 @@
 <?php
 /**
- * WebhookSampleRequestResponse
+ * WebhookReflowResponse
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * WebhookSampleRequestResponse Class Doc Comment
+ * WebhookReflowResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class WebhookSampleRequestResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class WebhookReflowResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class WebhookSampleRequestResponse implements ModelInterface, ArrayAccess, \Json
       *
       * @var string
       */
-    protected static $openAPIModelName = 'WebhookSampleRequestResponse';
+    protected static $openAPIModelName = 'WebhookReflowResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,9 +60,9 @@ class WebhookSampleRequestResponse implements ModelInterface, ArrayAccess, \Json
     protected static $openAPITypes = [
         'error' => '\ultracart\v2\models\Error',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'reflow' => '\ultracart\v2\models\WebhookReflow',
         'success' => 'bool',
-        'warning' => '\ultracart\v2\models\Warning',
-        'webhook_sample_request' => '\ultracart\v2\models\WebhookSampleRequest'
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -75,9 +75,9 @@ class WebhookSampleRequestResponse implements ModelInterface, ArrayAccess, \Json
     protected static $openAPIFormats = [
         'error' => null,
         'metadata' => null,
+        'reflow' => null,
         'success' => null,
-        'warning' => null,
-        'webhook_sample_request' => null
+        'warning' => null
     ];
 
     /**
@@ -109,9 +109,9 @@ class WebhookSampleRequestResponse implements ModelInterface, ArrayAccess, \Json
     protected static $attributeMap = [
         'error' => 'error',
         'metadata' => 'metadata',
+        'reflow' => 'reflow',
         'success' => 'success',
-        'warning' => 'warning',
-        'webhook_sample_request' => 'webhook_sample_request'
+        'warning' => 'warning'
     ];
 
     /**
@@ -122,9 +122,9 @@ class WebhookSampleRequestResponse implements ModelInterface, ArrayAccess, \Json
     protected static $setters = [
         'error' => 'setError',
         'metadata' => 'setMetadata',
+        'reflow' => 'setReflow',
         'success' => 'setSuccess',
-        'warning' => 'setWarning',
-        'webhook_sample_request' => 'setWebhookSampleRequest'
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -135,9 +135,9 @@ class WebhookSampleRequestResponse implements ModelInterface, ArrayAccess, \Json
     protected static $getters = [
         'error' => 'getError',
         'metadata' => 'getMetadata',
+        'reflow' => 'getReflow',
         'success' => 'getSuccess',
-        'warning' => 'getWarning',
-        'webhook_sample_request' => 'getWebhookSampleRequest'
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -199,9 +199,9 @@ class WebhookSampleRequestResponse implements ModelInterface, ArrayAccess, \Json
     {
         $this->container['error'] = $data['error'] ?? null;
         $this->container['metadata'] = $data['metadata'] ?? null;
+        $this->container['reflow'] = $data['reflow'] ?? null;
         $this->container['success'] = $data['success'] ?? null;
         $this->container['warning'] = $data['warning'] ?? null;
-        $this->container['webhook_sample_request'] = $data['webhook_sample_request'] ?? null;
     }
 
     /**
@@ -277,6 +277,30 @@ class WebhookSampleRequestResponse implements ModelInterface, ArrayAccess, \Json
     }
 
     /**
+     * Gets reflow
+     *
+     * @return \ultracart\v2\models\WebhookReflow|null
+     */
+    public function getReflow()
+    {
+        return $this->container['reflow'];
+    }
+
+    /**
+     * Sets reflow
+     *
+     * @param \ultracart\v2\models\WebhookReflow|null $reflow reflow
+     *
+     * @return self
+     */
+    public function setReflow($reflow)
+    {
+        $this->container['reflow'] = $reflow;
+
+        return $this;
+    }
+
+    /**
      * Gets success
      *
      * @return bool|null
@@ -320,30 +344,6 @@ class WebhookSampleRequestResponse implements ModelInterface, ArrayAccess, \Json
     public function setWarning($warning)
     {
         $this->container['warning'] = $warning;
-
-        return $this;
-    }
-
-    /**
-     * Gets webhook_sample_request
-     *
-     * @return \ultracart\v2\models\WebhookSampleRequest|null
-     */
-    public function getWebhookSampleRequest()
-    {
-        return $this->container['webhook_sample_request'];
-    }
-
-    /**
-     * Sets webhook_sample_request
-     *
-     * @param \ultracart\v2\models\WebhookSampleRequest|null $webhook_sample_request webhook_sample_request
-     *
-     * @return self
-     */
-    public function setWebhookSampleRequest($webhook_sample_request)
-    {
-        $this->container['webhook_sample_request'] = $webhook_sample_request;
 
         return $this;
     }

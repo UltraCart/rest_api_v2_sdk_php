@@ -374,7 +374,7 @@ Name | Type | Description  | Notes
 ## `resendEvent()`
 
 ```php
-resendEvent($webhook_oid, $event_name): \ultracart\v2\models\WebhookSampleRequestResponse
+resendEvent($webhook_oid, $event_name): \ultracart\v2\models\WebhookReflowResponse
 ```
 
 Resend events to the webhook endpoint.
@@ -415,7 +415,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\WebhookSampleRequestResponse**](../Model/WebhookSampleRequestResponse.md)
+[**\ultracart\v2\models\WebhookReflowResponse**](../Model/WebhookReflowResponse.md)
 
 ### Authorization
 

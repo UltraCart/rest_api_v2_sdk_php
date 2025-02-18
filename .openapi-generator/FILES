@@ -856,9 +856,9 @@ docs/Model/WebhookLog.md
 docs/Model/WebhookLogResponse.md
 docs/Model/WebhookLogSummariesResponse.md
 docs/Model/WebhookLogSummary.md
+docs/Model/WebhookReflow.md
+docs/Model/WebhookReflowResponse.md
 docs/Model/WebhookResponse.md
-docs/Model/WebhookSampleRequest.md
-docs/Model/WebhookSampleRequestResponse.md
 docs/Model/WebhooksResponse.md
 docs/Model/Weight.md
 docs/Model/WorkflowAgentAuth.md
@@ -1738,9 +1738,9 @@ lib/models/WebhookLog.php
 lib/models/WebhookLogResponse.php
 lib/models/WebhookLogSummariesResponse.php
 lib/models/WebhookLogSummary.php
+lib/models/WebhookReflow.php
+lib/models/WebhookReflowResponse.php
 lib/models/WebhookResponse.php
-lib/models/WebhookSampleRequest.php
-lib/models/WebhookSampleRequestResponse.php
 lib/models/WebhooksResponse.php
 lib/models/Weight.php
 lib/models/WorkflowAgentAuth.php

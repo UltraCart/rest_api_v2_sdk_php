@@ -1,6 +1,6 @@
 <?php
 /**
- * WebhookSampleRequest
+ * WebhookReflow
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * WebhookSampleRequest Class Doc Comment
+ * WebhookReflow Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class WebhookSampleRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class WebhookReflow implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class WebhookSampleRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       *
       * @var string
       */
-    protected static $openAPIModelName = 'WebhookSampleRequest';
+    protected static $openAPIModelName = 'WebhookReflow';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +58,8 @@ class WebhookSampleRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'request' => 'string',
-        'request_headers' => '\ultracart\v2\models\HTTPHeader[]',
-        'request_id' => 'string',
-        'uri' => 'string'
+        'event_name' => 'string',
+        'queued' => 'bool'
     ];
 
     /**
@@ -72,10 +70,8 @@ class WebhookSampleRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'request' => null,
-        'request_headers' => null,
-        'request_id' => null,
-        'uri' => null
+        'event_name' => null,
+        'queued' => null
     ];
 
     /**
@@ -105,10 +101,8 @@ class WebhookSampleRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'request' => 'request',
-        'request_headers' => 'request_headers',
-        'request_id' => 'request_id',
-        'uri' => 'uri'
+        'event_name' => 'event_name',
+        'queued' => 'queued'
     ];
 
     /**
@@ -117,10 +111,8 @@ class WebhookSampleRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'request' => 'setRequest',
-        'request_headers' => 'setRequestHeaders',
-        'request_id' => 'setRequestId',
-        'uri' => 'setUri'
+        'event_name' => 'setEventName',
+        'queued' => 'setQueued'
     ];
 
     /**
@@ -129,10 +121,8 @@ class WebhookSampleRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'request' => 'getRequest',
-        'request_headers' => 'getRequestHeaders',
-        'request_id' => 'getRequestId',
-        'uri' => 'getUri'
+        'event_name' => 'getEventName',
+        'queued' => 'getQueued'
     ];
 
     /**
@@ -192,10 +182,8 @@ class WebhookSampleRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
-        $this->container['request'] = $data['request'] ?? null;
-        $this->container['request_headers'] = $data['request_headers'] ?? null;
-        $this->container['request_id'] = $data['request_id'] ?? null;
-        $this->container['uri'] = $data['uri'] ?? null;
+        $this->container['event_name'] = $data['event_name'] ?? null;
+        $this->container['queued'] = $data['queued'] ?? null;
     }
 
     /**
@@ -223,97 +211,49 @@ class WebhookSampleRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
 
     /**
-     * Gets request
+     * Gets event_name
      *
      * @return string|null
      */
-    public function getRequest()
+    public function getEventName()
     {
-        return $this->container['request'];
+        return $this->container['event_name'];
     }
 
     /**
-     * Sets request
+     * Sets event_name
      *
-     * @param string|null $request Request
+     * @param string|null $event_name event_name
      *
      * @return self
      */
-    public function setRequest($request)
+    public function setEventName($event_name)
     {
-        $this->container['request'] = $request;
+        $this->container['event_name'] = $event_name;
 
         return $this;
     }
 
     /**
-     * Gets request_headers
+     * Gets queued
      *
-     * @return \ultracart\v2\models\HTTPHeader[]|null
+     * @return bool|null
      */
-    public function getRequestHeaders()
+    public function getQueued()
     {
-        return $this->container['request_headers'];
+        return $this->container['queued'];
     }
 
     /**
-     * Sets request_headers
+     * Sets queued
      *
-     * @param \ultracart\v2\models\HTTPHeader[]|null $request_headers Request headers
+     * @param bool|null $queued queued
      *
      * @return self
      */
-    public function setRequestHeaders($request_headers)
+    public function setQueued($queued)
     {
-        $this->container['request_headers'] = $request_headers;
-
-        return $this;
-    }
-
-    /**
-     * Gets request_id
-     *
-     * @return string|null
-     */
-    public function getRequestId()
-    {
-        return $this->container['request_id'];
-    }
-
-    /**
-     * Sets request_id
-     *
-     * @param string|null $request_id Request id
-     *
-     * @return self
-     */
-    public function setRequestId($request_id)
-    {
-        $this->container['request_id'] = $request_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets uri
-     *
-     * @return string|null
-     */
-    public function getUri()
-    {
-        return $this->container['uri'];
-    }
-
-    /**
-     * Sets uri
-     *
-     * @param string|null $uri URI to send request to
-     *
-     * @return self
-     */
-    public function setUri($uri)
-    {
-        $this->container['uri'] = $uri;
+        $this->container['queued'] = $queued;
 
         return $this;
     }
