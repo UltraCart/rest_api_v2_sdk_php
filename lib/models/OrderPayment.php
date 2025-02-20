@@ -69,6 +69,7 @@ class OrderPayment implements ModelInterface, ArrayAccess, \JsonSerializable
         'payment_method_accounting_code' => 'string',
         'payment_method_deposit_to_account' => 'string',
         'payment_status' => 'string',
+        'paypal' => '\ultracart\v2\models\OrderPaymentPayPal',
         'purchase_order' => '\ultracart\v2\models\OrderPaymentPurchaseOrder',
         'rotating_transaction_gateway_code' => 'string',
         'surcharge' => '\ultracart\v2\models\Currency',
@@ -98,6 +99,7 @@ class OrderPayment implements ModelInterface, ArrayAccess, \JsonSerializable
         'payment_method_accounting_code' => null,
         'payment_method_deposit_to_account' => null,
         'payment_status' => null,
+        'paypal' => null,
         'purchase_order' => null,
         'rotating_transaction_gateway_code' => null,
         'surcharge' => null,
@@ -146,6 +148,7 @@ class OrderPayment implements ModelInterface, ArrayAccess, \JsonSerializable
         'payment_method_accounting_code' => 'payment_method_accounting_code',
         'payment_method_deposit_to_account' => 'payment_method_deposit_to_account',
         'payment_status' => 'payment_status',
+        'paypal' => 'paypal',
         'purchase_order' => 'purchase_order',
         'rotating_transaction_gateway_code' => 'rotating_transaction_gateway_code',
         'surcharge' => 'surcharge',
@@ -173,6 +176,7 @@ class OrderPayment implements ModelInterface, ArrayAccess, \JsonSerializable
         'payment_method_accounting_code' => 'setPaymentMethodAccountingCode',
         'payment_method_deposit_to_account' => 'setPaymentMethodDepositToAccount',
         'payment_status' => 'setPaymentStatus',
+        'paypal' => 'setPaypal',
         'purchase_order' => 'setPurchaseOrder',
         'rotating_transaction_gateway_code' => 'setRotatingTransactionGatewayCode',
         'surcharge' => 'setSurcharge',
@@ -200,6 +204,7 @@ class OrderPayment implements ModelInterface, ArrayAccess, \JsonSerializable
         'payment_method_accounting_code' => 'getPaymentMethodAccountingCode',
         'payment_method_deposit_to_account' => 'getPaymentMethodDepositToAccount',
         'payment_status' => 'getPaymentStatus',
+        'paypal' => 'getPaypal',
         'purchase_order' => 'getPurchaseOrder',
         'rotating_transaction_gateway_code' => 'getRotatingTransactionGatewayCode',
         'surcharge' => 'getSurcharge',
@@ -370,6 +375,7 @@ class OrderPayment implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['payment_method_accounting_code'] = $data['payment_method_accounting_code'] ?? null;
         $this->container['payment_method_deposit_to_account'] = $data['payment_method_deposit_to_account'] ?? null;
         $this->container['payment_status'] = $data['payment_status'] ?? null;
+        $this->container['paypal'] = $data['paypal'] ?? null;
         $this->container['purchase_order'] = $data['purchase_order'] ?? null;
         $this->container['rotating_transaction_gateway_code'] = $data['rotating_transaction_gateway_code'] ?? null;
         $this->container['surcharge'] = $data['surcharge'] ?? null;
@@ -702,6 +708,30 @@ class OrderPayment implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['payment_status'] = $payment_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets paypal
+     *
+     * @return \ultracart\v2\models\OrderPaymentPayPal|null
+     */
+    public function getPaypal()
+    {
+        return $this->container['paypal'];
+    }
+
+    /**
+     * Sets paypal
+     *
+     * @param \ultracart\v2\models\OrderPaymentPayPal|null $paypal paypal
+     *
+     * @return self
+     */
+    public function setPaypal($paypal)
+    {
+        $this->container['paypal'] = $paypal;
 
         return $this;
     }

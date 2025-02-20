@@ -1235,6 +1235,7 @@ Class | Method | HTTP request | Description
 - [OrderPaymentECheck](docs/Model/OrderPaymentECheck.md)
 - [OrderPaymentHealthBenefitCard](docs/Model/OrderPaymentHealthBenefitCard.md)
 - [OrderPaymentInsurance](docs/Model/OrderPaymentInsurance.md)
+- [OrderPaymentPayPal](docs/Model/OrderPaymentPayPal.md)
 - [OrderPaymentPurchaseOrder](docs/Model/OrderPaymentPurchaseOrder.md)
 - [OrderPaymentTransaction](docs/Model/OrderPaymentTransaction.md)
 - [OrderPaymentTransactionDetail](docs/Model/OrderPaymentTransactionDetail.md)
@@ -1534,6 +1535,9 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.245 | 02/20/2025 | automation fix |
+| 4.0.244 | 02/20/2025 | no change, revving sdk to troubleshoot java deployment automation |
+| 4.0.243 | 02/20/2025 | no change, revving sdk to troubleshoot java deployment automation |
 | 4.0.242 | 02/18/2025 | small bug fixes for incorrect return types on several methods |
 | 4.0.241 | 02/06/2025 | added storefront_host_name to channel partner order object |
 | 4.0.240 | 01/09/2025 | fix for broken 4.0.39 due to incorrect query sig on getCustomers |

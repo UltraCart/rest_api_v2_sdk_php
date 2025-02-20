@@ -673,6 +673,7 @@ docs/Model/OrderPaymentCreditCardDualVaultedProperty.md
 docs/Model/OrderPaymentECheck.md
 docs/Model/OrderPaymentHealthBenefitCard.md
 docs/Model/OrderPaymentInsurance.md
+docs/Model/OrderPaymentPayPal.md
 docs/Model/OrderPaymentPurchaseOrder.md
 docs/Model/OrderPaymentTransaction.md
 docs/Model/OrderPaymentTransactionDetail.md
@@ -1555,6 +1556,7 @@ lib/models/OrderPaymentCreditCardDualVaultedProperty.php
 lib/models/OrderPaymentECheck.php
 lib/models/OrderPaymentHealthBenefitCard.php
 lib/models/OrderPaymentInsurance.php
+lib/models/OrderPaymentPayPal.php
 lib/models/OrderPaymentPurchaseOrder.php
 lib/models/OrderPaymentTransaction.php
 lib/models/OrderPaymentTransactionDetail.php
