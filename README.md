@@ -1593,6 +1593,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.226 | 02/20/2025 | no change, revving sdk to troubleshoot java deployment automation |
 | 3.10.225 | 02/18/2025 | small bug fixes for incorrect return types on several methods |
 | 3.10.224 | 02/06/2025 | added storefront_host_name to channel partner order object |
 | 3.10.223 | 01/09/2025 | fix for broken 4.0.39 due to incorrect query sig on getCustomers |
