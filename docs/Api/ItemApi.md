@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**getDigitalItem()**](ItemApi.md#getDigitalItem) | **GET** /item/digital_library/{digital_item_oid} | Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
 [**getDigitalItems()**](ItemApi.md#getDigitalItems) | **GET** /item/digital_library | Retrieve digital items from the digital library which are digital files that may be attached to normal items
 [**getDigitalItemsByExternalId()**](ItemApi.md#getDigitalItemsByExternalId) | **GET** /item/digital_library/by_external/{external_id} | Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id
+[**getInventorySnapshot()**](ItemApi.md#getInventorySnapshot) | **GET** /item/items/inventory_snapshot | Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
 [**getItem()**](ItemApi.md#getItem) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
 [**getItemByMerchantItemId()**](ItemApi.md#getItemByMerchantItemId) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
 [**getItems()**](ItemApi.md#getItems) | **GET** /item/items | Retrieve items
@@ -21,7 +22,6 @@ Method | HTTP request | Description
 [**insertItem()**](ItemApi.md#insertItem) | **POST** /item/items | Create an item
 [**insertReview()**](ItemApi.md#insertReview) | **POST** /item/items/{merchant_item_oid}/reviews | Insert a review
 [**insertUpdateItemContentAttribute()**](ItemApi.md#insertUpdateItemContentAttribute) | **POST** /item/items/{merchant_item_oid}/content/attributes | Upsert an item content attribute
-[**restItemInventorySnapshotResponse()**](ItemApi.md#restItemInventorySnapshotResponse) | **GET** /item/items/inventory_snapshot | Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
 [**updateDigitalItem()**](ItemApi.md#updateDigitalItem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 [**updateItem()**](ItemApi.md#updateItem) | **PUT** /item/items/{merchant_item_oid} | Update an item
 [**updateItems()**](ItemApi.md#updateItems) | **PUT** /item/items/batch | Update multiple items
@@ -366,6 +366,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\ItemDigitalItemsResponse**](../Model/ItemDigitalItemsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getInventorySnapshot()`
+
+```php
+getInventorySnapshot(): \ultracart\v2\models\ItemInventorySnapshotResponse
+```
+
+Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
+
+Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\ItemApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+
+try {
+    $result = $apiInstance->getInventorySnapshot();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemApi->getInventorySnapshot: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\ultracart\v2\models\ItemInventorySnapshotResponse**](../Model/ItemInventorySnapshotResponse.md)
 
 ### Authorization
 
@@ -1042,60 +1096,6 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: `application/json; charset=UTF-8`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `restItemInventorySnapshotResponse()`
-
-```php
-restItemInventorySnapshotResponse(): \ultracart\v2\models\ItemInventorySnapshotResponse
-```
-
-Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
-
-Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ItemApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->restItemInventorySnapshotResponse();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ItemApi->restItemInventorySnapshotResponse: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**\ultracart\v2\models\ItemInventorySnapshotResponse**](../Model/ItemInventorySnapshotResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

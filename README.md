@@ -296,6 +296,7 @@ Class | Method | HTTP request | Description
 *ItemApi* | [**getDigitalItem**](docs/Api/ItemApi.md#getdigitalitem) | **GET** /item/digital_library/{digital_item_oid} | Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
 *ItemApi* | [**getDigitalItems**](docs/Api/ItemApi.md#getdigitalitems) | **GET** /item/digital_library | Retrieve digital items from the digital library which are digital files that may be attached to normal items
 *ItemApi* | [**getDigitalItemsByExternalId**](docs/Api/ItemApi.md#getdigitalitemsbyexternalid) | **GET** /item/digital_library/by_external/{external_id} | Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id
+*ItemApi* | [**getInventorySnapshot**](docs/Api/ItemApi.md#getinventorysnapshot) | **GET** /item/items/inventory_snapshot | Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
 *ItemApi* | [**getItem**](docs/Api/ItemApi.md#getitem) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
 *ItemApi* | [**getItemByMerchantItemId**](docs/Api/ItemApi.md#getitembymerchantitemid) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
 *ItemApi* | [**getItems**](docs/Api/ItemApi.md#getitems) | **GET** /item/items | Retrieve items
@@ -307,7 +308,6 @@ Class | Method | HTTP request | Description
 *ItemApi* | [**insertItem**](docs/Api/ItemApi.md#insertitem) | **POST** /item/items | Create an item
 *ItemApi* | [**insertReview**](docs/Api/ItemApi.md#insertreview) | **POST** /item/items/{merchant_item_oid}/reviews | Insert a review
 *ItemApi* | [**insertUpdateItemContentAttribute**](docs/Api/ItemApi.md#insertupdateitemcontentattribute) | **POST** /item/items/{merchant_item_oid}/content/attributes | Upsert an item content attribute
-*ItemApi* | [**restItemInventorySnapshotResponse**](docs/Api/ItemApi.md#restiteminventorysnapshotresponse) | **GET** /item/items/inventory_snapshot | Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
 *ItemApi* | [**updateDigitalItem**](docs/Api/ItemApi.md#updatedigitalitem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 *ItemApi* | [**updateItem**](docs/Api/ItemApi.md#updateitem) | **PUT** /item/items/{merchant_item_oid} | Update an item
 *ItemApi* | [**updateItems**](docs/Api/ItemApi.md#updateitems) | **PUT** /item/items/batch | Update multiple items
@@ -1535,6 +1535,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.0 | 02/21/2025 | ItemApi.getInventorySnapshot had bad nickname causing bad sdk method name |
 | 4.0.245 | 02/20/2025 | automation fix |
 | 4.0.244 | 02/20/2025 | no change, revving sdk to troubleshoot java deployment automation |
 | 4.0.243 | 02/20/2025 | no change, revving sdk to troubleshoot java deployment automation |
