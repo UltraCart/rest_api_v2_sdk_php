@@ -271,7 +271,7 @@ class ItemPaymentProcessing implements ModelInterface, ArrayAccess
     /**
      * Sets block_refunds
      *
-     * @param bool $block_refunds True if this item should block any refund attempts
+     * @param bool $block_refunds True if this item should block any refund attempts, set to false otherwise, null value will not update the field
      *
      * @return $this
      */
