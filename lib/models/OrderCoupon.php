@@ -353,7 +353,7 @@ class OrderCoupon implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets hdie_from_customer
      *
-     * @param bool|null $hdie_from_customer True if this coupon is hidde from the customer
+     * @param bool|null $hdie_from_customer True if this coupon is hide from the customer
      *
      * @return self
      */
