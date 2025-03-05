@@ -95,6 +95,7 @@ Name | Type | Description | Notes
 **tax_exempt** | **bool** | If true this order is marked as being tax exempt | [optional] 
 **transaction** | [**\ultracart\v2\models\ChannelPartnerOrderTransaction**](ChannelPartnerOrderTransaction.md) |  | [optional] 
 **treat_warnings_as_errors** | **bool** | If true all warnings are considered errors, this is true by default | [optional] 
+**use_prior_payment_information_from_order_id** | **string** | An Order Id from a prior purchase of this customer which is used to retrieve vaulted payment information in order to pay for this current order. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
