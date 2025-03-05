@@ -149,7 +149,8 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'tax_county' => 'string',
         'tax_exempt' => 'bool',
         'transaction' => '\ultracart\v2\models\ChannelPartnerOrderTransaction',
-        'treat_warnings_as_errors' => 'bool'
+        'treat_warnings_as_errors' => 'bool',
+        'use_prior_payment_information_from_order_id' => 'string'
     ];
 
     /**
@@ -251,7 +252,8 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'tax_county' => null,
         'tax_exempt' => null,
         'transaction' => null,
-        'treat_warnings_as_errors' => null
+        'treat_warnings_as_errors' => null,
+        'use_prior_payment_information_from_order_id' => null
     ];
 
     /**
@@ -372,7 +374,8 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'tax_county' => 'tax_county',
         'tax_exempt' => 'tax_exempt',
         'transaction' => 'transaction',
-        'treat_warnings_as_errors' => 'treat_warnings_as_errors'
+        'treat_warnings_as_errors' => 'treat_warnings_as_errors',
+        'use_prior_payment_information_from_order_id' => 'use_prior_payment_information_from_order_id'
     ];
 
     /**
@@ -472,7 +475,8 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'tax_county' => 'setTaxCounty',
         'tax_exempt' => 'setTaxExempt',
         'transaction' => 'setTransaction',
-        'treat_warnings_as_errors' => 'setTreatWarningsAsErrors'
+        'treat_warnings_as_errors' => 'setTreatWarningsAsErrors',
+        'use_prior_payment_information_from_order_id' => 'setUsePriorPaymentInformationFromOrderId'
     ];
 
     /**
@@ -572,7 +576,8 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'tax_county' => 'getTaxCounty',
         'tax_exempt' => 'getTaxExempt',
         'transaction' => 'getTransaction',
-        'treat_warnings_as_errors' => 'getTreatWarningsAsErrors'
+        'treat_warnings_as_errors' => 'getTreatWarningsAsErrors',
+        'use_prior_payment_information_from_order_id' => 'getUsePriorPaymentInformationFromOrderId'
     ];
 
     /**
@@ -789,6 +794,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['tax_exempt'] = $data['tax_exempt'] ?? null;
         $this->container['transaction'] = $data['transaction'] ?? null;
         $this->container['treat_warnings_as_errors'] = $data['treat_warnings_as_errors'] ?? null;
+        $this->container['use_prior_payment_information_from_order_id'] = $data['use_prior_payment_information_from_order_id'] ?? null;
     }
 
     /**
@@ -3372,6 +3378,30 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setTreatWarningsAsErrors($treat_warnings_as_errors)
     {
         $this->container['treat_warnings_as_errors'] = $treat_warnings_as_errors;
+
+        return $this;
+    }
+
+    /**
+     * Gets use_prior_payment_information_from_order_id
+     *
+     * @return string|null
+     */
+    public function getUsePriorPaymentInformationFromOrderId()
+    {
+        return $this->container['use_prior_payment_information_from_order_id'];
+    }
+
+    /**
+     * Sets use_prior_payment_information_from_order_id
+     *
+     * @param string|null $use_prior_payment_information_from_order_id An Order Id from a prior purchase of this customer which is used to retrieve vaulted payment information in order to pay for this current order.
+     *
+     * @return self
+     */
+    public function setUsePriorPaymentInformationFromOrderId($use_prior_payment_information_from_order_id)
+    {
+        $this->container['use_prior_payment_information_from_order_id'] = $use_prior_payment_information_from_order_id;
 
         return $this;
     }

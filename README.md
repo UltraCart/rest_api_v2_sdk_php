@@ -2,7 +2,7 @@
 
 UltraCart REST API Version 2
 
-For more information, please visit [http://www.ultracart.com](http://www.ultracart.com).
+For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/).
 
 ## Installation & Usage
 
@@ -1536,6 +1536,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.2 | 03/05/2025 | added ChannelPartnerOrder.use_prior_payment_information_from_order_id |
 | 4.1.1 | 02/28/2025 | auto order pause method |
 | 4.1.0 | 02/21/2025 | ItemApi.getInventorySnapshot had bad nickname causing bad sdk method name |
 | 4.0.245 | 02/20/2025 | automation fix |
