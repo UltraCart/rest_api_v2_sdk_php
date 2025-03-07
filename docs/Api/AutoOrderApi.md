@@ -564,7 +564,7 @@ $apiInstance = ultracart\v2\Api\AutoOrderApi::usingApiKey(Constants::API_KEY, Co
             Constants::VERIFY_SSL, Constants::DEBUG);
 
 $auto_order_oid = 56; // int | The auto order oid to pause.
-$auto_order = new \ultracart\v2\models\AutoOrder(); // \ultracart\v2\models\AutoOrder | Auto orders to pause
+$auto_order = new \ultracart\v2\models\AutoOrder(); // \ultracart\v2\models\AutoOrder | Auto order to pause
 $_expand = '_expand_example'; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
@@ -580,7 +580,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **auto_order_oid** | **int**| The auto order oid to pause. |
- **auto_order** | [**\ultracart\v2\models\AutoOrder**](../Model/AutoOrder.md)| Auto orders to pause |
+ **auto_order** | [**\ultracart\v2\models\AutoOrder**](../Model/AutoOrder.md)| Auto order to pause |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type

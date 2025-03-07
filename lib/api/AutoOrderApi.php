@@ -4188,7 +4188,7 @@ class AutoOrderApi
      * Pause auto order
      *
      * @param  int $auto_order_oid The auto order oid to pause. (required)
-     * @param  \ultracart\v2\models\AutoOrder $auto_order Auto orders to pause (required)
+     * @param  \ultracart\v2\models\AutoOrder $auto_order Auto order to pause (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
@@ -4207,7 +4207,7 @@ class AutoOrderApi
      * Pause auto order
      *
      * @param  int $auto_order_oid The auto order oid to pause. (required)
-     * @param  \ultracart\v2\models\AutoOrder $auto_order Auto orders to pause (required)
+     * @param  \ultracart\v2\models\AutoOrder $auto_order Auto order to pause (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
@@ -4228,7 +4228,7 @@ class AutoOrderApi
      *
      * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
      * @param  int $auto_order_oid The auto order oid to pause. (required)
-     * @param  \ultracart\v2\models\AutoOrder $auto_order Auto orders to pause (required)
+     * @param  \ultracart\v2\models\AutoOrder $auto_order Auto order to pause (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
@@ -4465,7 +4465,7 @@ class AutoOrderApi
      * Pause auto order
      *
      * @param  int $auto_order_oid The auto order oid to pause. (required)
-     * @param  \ultracart\v2\models\AutoOrder $auto_order Auto orders to pause (required)
+     * @param  \ultracart\v2\models\AutoOrder $auto_order Auto order to pause (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
@@ -4487,7 +4487,7 @@ class AutoOrderApi
      * Pause auto order
      *
      * @param  int $auto_order_oid The auto order oid to pause. (required)
-     * @param  \ultracart\v2\models\AutoOrder $auto_order Auto orders to pause (required)
+     * @param  \ultracart\v2\models\AutoOrder $auto_order Auto order to pause (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
@@ -4538,7 +4538,7 @@ class AutoOrderApi
      * Create request for operation 'pauseAutoOrder'
      *
      * @param  int $auto_order_oid The auto order oid to pause. (required)
-     * @param  \ultracart\v2\models\AutoOrder $auto_order Auto orders to pause (required)
+     * @param  \ultracart\v2\models\AutoOrder $auto_order Auto order to pause (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException

@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.2"
+    "ultracart/rest_api_v2_sdk_php": "4.1.3"
   }
 }
 ```
@@ -1548,6 +1548,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.3 | 03/07/2025 | updated github readme.md files |
 | 4.1.2 | 03/05/2025 | added ChannelPartnerOrder.use_prior_payment_information_from_order_id |
 | 4.1.1 | 02/28/2025 | auto order pause method |
 | 4.1.0 | 02/21/2025 | ItemApi.getInventorySnapshot had bad nickname causing bad sdk method name |
