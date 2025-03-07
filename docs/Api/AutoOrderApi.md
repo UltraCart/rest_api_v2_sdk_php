@@ -483,7 +483,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
 $api_instance = ultracart\v2\api\AutoOrderApi::usingApiKey($simple_key);
 
-$auto_order = new \ultracart\v2\models\AutoOrder(); // \ultracart\v2\models\AutoOrder | Auto orders to pause
+$auto_order = new \ultracart\v2\models\AutoOrder(); // \ultracart\v2\models\AutoOrder | Auto order to pause
 $auto_order_oid = 56; // int | The auto order oid to pause.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -500,7 +500,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **auto_order** | [**\ultracart\v2\models\AutoOrder**](../Model/AutoOrder.md)| Auto orders to pause |
+ **auto_order** | [**\ultracart\v2\models\AutoOrder**](../Model/AutoOrder.md)| Auto order to pause |
  **auto_order_oid** | **int**| The auto order oid to pause. |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
