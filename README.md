@@ -3,6 +3,7 @@
 UltraCart REST API Version 2
 
 For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/).
+Every API method has a sample for every language SDK.  See https://github.com/UltraCart/sdk_samples
 
 ## Installation & Usage
 
@@ -17,14 +18,8 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 
 ```json
 {
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/ultracart/rest_api_v2_sdk_php.git"
-    }
-  ],
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "*@dev"
+    "ultracart/rest_api_v2_sdk_php": "4.1.2"
   }
 }
 ```
@@ -32,7 +27,6 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 Then run `composer install`
 
 ### Manual Installation
-
 Download the files and include `autoload.php`:
 
 ```php
@@ -41,42 +35,60 @@ require_once('/path/to/OpenAPIClient-php/vendor/autoload.php');
 ```
 
 ## Getting Started
+See https://github.com/UltraCart/sdk_samples
+This is just one sample.
 
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+
+ini_set('display_errors', 1);
+
+/*
+ * OrderApi.getOrder() retrieves a single order for a given order_id.
+ */
+
+use ultracart\v2\api\OrderApi;
+
+require_once '../vendor/autoload.php';
+require_once '../constants.php';
 
 
+$order_api = OrderApi::usingApiKey(Constants::API_KEY);
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// The expansion variable instructs UltraCart how much information to return.  The order object is large and
+// while it's easily manageable for a single order, when querying thousands of orders, is useful to reduce
+// payload size.
+// see www.ultracart.com/api/ for all the expansion fields available (this list below may become stale)
+/*
+Possible Order Expansions:
+affiliate           affiliate.ledger                    auto_order
+billing             channel_partner                     checkout
+coupon              customer_profile                    digital_order
+edi                 fraud_score                         gift
+gift_certificate    internal                            item
+linked_shipment     marketing                           payment
+payment.transaction quote                               salesforce
+shipping            shipping.tracking_number_details    summary
+taxes
+*/
+$expansion = "item,summary,billing,shipping,shipping.tracking_number_details";
 
-// Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+$order_id = 'DEMO-0009104390';
+$api_response = $order_api->getOrder($order_id, $expansion);
 
-
-$apiInstance = new ultracart\v2\Api\AffiliateApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$click_query = new \ultracart\v2\models\AffiliateClickQuery(); // \ultracart\v2\models\AffiliateClickQuery | Click query
-$_limit = 10000; // int | The maximum number of records to return on this one API call. (Maximum 10000)
-$_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
-$_expand = '_expand_example'; // string | The object expansion to perform on the result.  Only option is link.
-
-try {
-    $result = $apiInstance->getClicksByQuery($click_query, $_limit, $_offset, $_expand);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling AffiliateApi->getClicksByQuery: ', $e->getMessage(), PHP_EOL;
+if ($api_response->getError() != null) {
+    error_log($api_response->getError()->getDeveloperMessage());
+    error_log($api_response->getError()->getUserMessage());
+    exit();
 }
 
+$order = $api_response->getOrder();
+
+echo '<html lang="en"><body><pre>';
+var_dump($order);
+echo '</pre></body></html>';
 ```
 
 ## API Endpoints
