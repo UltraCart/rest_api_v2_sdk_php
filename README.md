@@ -1,16 +1,16 @@
-# OpenAPIClient-php
+# UltraCart PHP SDK
 
 UltraCart REST API Version 2
 
 For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/).
+
 Every API method has a sample for every language SDK.  See https://github.com/UltraCart/sdk_samples
 
 ## Installation & Usage
 
 ### Requirements
 
-PHP 7.4 and later.
-Should also work with PHP 8.0.
+PHP 7.4 and later.  Works with PHP 8.
 
 ### Composer
 
@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.3"
+    "ultracart/rest_api_v2_sdk_php": "4.1.4"
   }
 }
 ```
@@ -27,7 +27,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 Then run `composer install`
 
 ### Manual Installation
-Download the files and include `autoload.php`:
+Download the files from [Packagist](https://packagist.org/packages/ultracart/rest_api_v2_sdk_php) and include `autoload.php`:
 
 ```php
 <?php
@@ -1548,6 +1548,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.4 | 03/07/2025 | updated github readme.md |
 | 4.1.3 | 03/07/2025 | updated github readme.md files |
 | 4.1.2 | 03/05/2025 | added ChannelPartnerOrder.use_prior_payment_information_from_order_id |
 | 4.1.1 | 02/28/2025 | auto order pause method |
