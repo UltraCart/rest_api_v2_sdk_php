@@ -1595,6 +1595,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.5 | 03/28/2025 | added paypal fastlane constants for payments |
 | 3.11.4 | 03/07/2025 | updated github readme.md |
 | 3.11.3 | 03/07/2025 | updated github readme.md files |
 | 3.11.2 | 03/05/2025 | added ChannelPartnerOrder.use_prior_payment_information_from_order_id |

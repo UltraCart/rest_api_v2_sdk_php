@@ -396,6 +396,7 @@ class OrderQuery implements ModelInterface, ArrayAccess
     const PAYMENT_METHOD_VENMO = 'Venmo';
     const PAYMENT_METHOD_APPLE_PAY = 'Apple Pay';
     const PAYMENT_METHOD_GOOGLE_PAY = 'Google Pay';
+    const PAYMENT_METHOD_PAY_PAL_FASTLANE = 'PayPal Fastlane';
     const QUERY_TARGET_ORIGIN = 'origin';
     const QUERY_TARGET_CACHE = 'cache';
     
@@ -448,6 +449,7 @@ class OrderQuery implements ModelInterface, ArrayAccess
             self::PAYMENT_METHOD_VENMO,
             self::PAYMENT_METHOD_APPLE_PAY,
             self::PAYMENT_METHOD_GOOGLE_PAY,
+            self::PAYMENT_METHOD_PAY_PAL_FASTLANE,
         ];
     }
     

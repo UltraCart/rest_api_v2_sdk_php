@@ -634,6 +634,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess
     const PAYMENT_METHOD_PURCHASE_ORDER = 'Purchase Order';
     const PAYMENT_METHOD_QUOTE_REQUEST = 'Quote Request';
     const PAYMENT_METHOD_WIRE_TRANSFER = 'Wire Transfer';
+    const PAYMENT_METHOD_PAY_PAL_FASTLANE = 'PayPal Fastlane';
     
 
     
@@ -683,6 +684,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess
             self::PAYMENT_METHOD_PURCHASE_ORDER,
             self::PAYMENT_METHOD_QUOTE_REQUEST,
             self::PAYMENT_METHOD_WIRE_TRANSFER,
+            self::PAYMENT_METHOD_PAY_PAL_FASTLANE,
         ];
     }
     
