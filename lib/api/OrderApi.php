@@ -7692,6 +7692,434 @@ class OrderApi
     }
 
     /**
+     * Operation refundOrderCompletely
+     *
+     * Refund an order completely
+     *
+     * @param  string $order_id The order id to refund. (required)
+     * @param  bool $reject_after_refund Reject order after refund (optional, default to false)
+     * @param  bool $skip_customer_notification Skip customer email notification (optional, default to false)
+     * @param  bool $auto_order_cancel Cancel associated auto orders (optional, default to false)
+     * @param  bool $manual_refund Consider a manual refund done externally (optional, default to false)
+     * @param  bool $reverse_affiliate_transactions Reverse affiliate transactions (optional, default to true)
+     * @param  bool $issue_store_credit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
+     * @param  string $auto_order_cancel_reason Reason for auto orders cancellation (optional)
+     * @param  string $refund_reason Reason for refund (optional)
+     * @param  string $reject_reason Reason for reject (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\OrderResponse
+     */
+    public function refundOrderCompletely($order_id, $reject_after_refund = 'false', $skip_customer_notification = 'false', $auto_order_cancel = 'false', $manual_refund = 'false', $reverse_affiliate_transactions = 'true', $issue_store_credit = 'false', $auto_order_cancel_reason = null, $refund_reason = null, $reject_reason = null)
+    {
+        list($response) = $this->refundOrderCompletelyWithHttpInfo($order_id, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $issue_store_credit, $auto_order_cancel_reason, $refund_reason, $reject_reason);
+        return $response;
+    }
+
+
+    /**
+     * Operation refundOrderCompletelyWithHttpInfo
+     *
+     * Refund an order completely
+     *
+     * @param  string $order_id The order id to refund. (required)
+     * @param  bool $reject_after_refund Reject order after refund (optional, default to false)
+     * @param  bool $skip_customer_notification Skip customer email notification (optional, default to false)
+     * @param  bool $auto_order_cancel Cancel associated auto orders (optional, default to false)
+     * @param  bool $manual_refund Consider a manual refund done externally (optional, default to false)
+     * @param  bool $reverse_affiliate_transactions Reverse affiliate transactions (optional, default to true)
+     * @param  bool $issue_store_credit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
+     * @param  string $auto_order_cancel_reason Reason for auto orders cancellation (optional)
+     * @param  string $refund_reason Reason for refund (optional)
+     * @param  string $reject_reason Reason for reject (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\OrderResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function refundOrderCompletelyWithHttpInfo($order_id, $reject_after_refund = 'false', $skip_customer_notification = 'false', $auto_order_cancel = 'false', $manual_refund = 'false', $reverse_affiliate_transactions = 'true', $issue_store_credit = 'false', $auto_order_cancel_reason = null, $refund_reason = null, $reject_reason = null)
+    {
+        return $this->refundOrderCompletelyWithHttpInfoRetry(true ,   $order_id,   $reject_after_refund,   $skip_customer_notification,   $auto_order_cancel,   $manual_refund,   $reverse_affiliate_transactions,   $issue_store_credit,   $auto_order_cancel_reason,   $refund_reason,   $reject_reason);
+    }
+
+
+    /**
+     * Operation refundOrderCompletelyWithHttpInfoRetry
+     *
+     * Refund an order completely
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $order_id The order id to refund. (required)
+     * @param  bool $reject_after_refund Reject order after refund (optional, default to false)
+     * @param  bool $skip_customer_notification Skip customer email notification (optional, default to false)
+     * @param  bool $auto_order_cancel Cancel associated auto orders (optional, default to false)
+     * @param  bool $manual_refund Consider a manual refund done externally (optional, default to false)
+     * @param  bool $reverse_affiliate_transactions Reverse affiliate transactions (optional, default to true)
+     * @param  bool $issue_store_credit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
+     * @param  string $auto_order_cancel_reason Reason for auto orders cancellation (optional)
+     * @param  string $refund_reason Reason for refund (optional)
+     * @param  string $reject_reason Reason for reject (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\OrderResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function refundOrderCompletelyWithHttpInfoRetry($retry ,  $order_id,  $reject_after_refund = 'false',  $skip_customer_notification = 'false',  $auto_order_cancel = 'false',  $manual_refund = 'false',  $reverse_affiliate_transactions = 'true',  $issue_store_credit = 'false',  $auto_order_cancel_reason = null,  $refund_reason = null,  $reject_reason = null)
+    {
+        $returnType = '\ultracart\v2\models\OrderResponse';
+        $request = $this->refundOrderCompletelyRequest($order_id, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $issue_store_credit, $auto_order_cancel_reason, $refund_reason, $reject_reason);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->refundOrderCompletelyWithHttpInfoRetry(false ,   $order_id,   $reject_after_refund,   $skip_customer_notification,   $auto_order_cancel,   $manual_refund,   $reverse_affiliate_transactions,   $issue_store_credit,   $auto_order_cancel_reason,   $refund_reason,   $reject_reason);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\OrderResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation refundOrderCompletelyAsync
+     *
+     * Refund an order completely
+     *
+     * @param  string $order_id The order id to refund. (required)
+     * @param  bool $reject_after_refund Reject order after refund (optional, default to false)
+     * @param  bool $skip_customer_notification Skip customer email notification (optional, default to false)
+     * @param  bool $auto_order_cancel Cancel associated auto orders (optional, default to false)
+     * @param  bool $manual_refund Consider a manual refund done externally (optional, default to false)
+     * @param  bool $reverse_affiliate_transactions Reverse affiliate transactions (optional, default to true)
+     * @param  bool $issue_store_credit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
+     * @param  string $auto_order_cancel_reason Reason for auto orders cancellation (optional)
+     * @param  string $refund_reason Reason for refund (optional)
+     * @param  string $reject_reason Reason for reject (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function refundOrderCompletelyAsync($order_id, $reject_after_refund = 'false', $skip_customer_notification = 'false', $auto_order_cancel = 'false', $manual_refund = 'false', $reverse_affiliate_transactions = 'true', $issue_store_credit = 'false', $auto_order_cancel_reason = null, $refund_reason = null, $reject_reason = null)
+    {
+        return $this->refundOrderCompletelyAsyncWithHttpInfo($order_id, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $issue_store_credit, $auto_order_cancel_reason, $refund_reason, $reject_reason)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation refundOrderCompletelyAsyncWithHttpInfo
+     *
+     * Refund an order completely
+     *
+     * @param  string $order_id The order id to refund. (required)
+     * @param  bool $reject_after_refund Reject order after refund (optional, default to false)
+     * @param  bool $skip_customer_notification Skip customer email notification (optional, default to false)
+     * @param  bool $auto_order_cancel Cancel associated auto orders (optional, default to false)
+     * @param  bool $manual_refund Consider a manual refund done externally (optional, default to false)
+     * @param  bool $reverse_affiliate_transactions Reverse affiliate transactions (optional, default to true)
+     * @param  bool $issue_store_credit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
+     * @param  string $auto_order_cancel_reason Reason for auto orders cancellation (optional)
+     * @param  string $refund_reason Reason for refund (optional)
+     * @param  string $reject_reason Reason for reject (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function refundOrderCompletelyAsyncWithHttpInfo($order_id, $reject_after_refund = 'false', $skip_customer_notification = 'false', $auto_order_cancel = 'false', $manual_refund = 'false', $reverse_affiliate_transactions = 'true', $issue_store_credit = 'false', $auto_order_cancel_reason = null, $refund_reason = null, $reject_reason = null)
+    {
+        $returnType = '\ultracart\v2\models\OrderResponse';
+        $request = $this->refundOrderCompletelyRequest($order_id, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $issue_store_credit, $auto_order_cancel_reason, $refund_reason, $reject_reason);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'refundOrderCompletely'
+     *
+     * @param  string $order_id The order id to refund. (required)
+     * @param  bool $reject_after_refund Reject order after refund (optional, default to false)
+     * @param  bool $skip_customer_notification Skip customer email notification (optional, default to false)
+     * @param  bool $auto_order_cancel Cancel associated auto orders (optional, default to false)
+     * @param  bool $manual_refund Consider a manual refund done externally (optional, default to false)
+     * @param  bool $reverse_affiliate_transactions Reverse affiliate transactions (optional, default to true)
+     * @param  bool $issue_store_credit Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)
+     * @param  string $auto_order_cancel_reason Reason for auto orders cancellation (optional)
+     * @param  string $refund_reason Reason for refund (optional)
+     * @param  string $reject_reason Reason for reject (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function refundOrderCompletelyRequest($order_id, $reject_after_refund = 'false', $skip_customer_notification = 'false', $auto_order_cancel = 'false', $manual_refund = 'false', $reverse_affiliate_transactions = 'true', $issue_store_credit = 'false', $auto_order_cancel_reason = null, $refund_reason = null, $reject_reason = null)
+    {
+        // verify the required parameter 'order_id' is set
+        if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $order_id when calling refundOrderCompletely'
+            );
+        }
+
+        $resourcePath = '/order/orders/{order_id}/refund_completely';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($reject_after_refund !== null) {
+            $queryParams['reject_after_refund'] = ObjectSerializer::toQueryValue($reject_after_refund);
+        }
+        // query params
+        if ($skip_customer_notification !== null) {
+            $queryParams['skip_customer_notification'] = ObjectSerializer::toQueryValue($skip_customer_notification);
+        }
+        // query params
+        if ($auto_order_cancel !== null) {
+            $queryParams['auto_order_cancel'] = ObjectSerializer::toQueryValue($auto_order_cancel);
+        }
+        // query params
+        if ($manual_refund !== null) {
+            $queryParams['manual_refund'] = ObjectSerializer::toQueryValue($manual_refund);
+        }
+        // query params
+        if ($reverse_affiliate_transactions !== null) {
+            $queryParams['reverse_affiliate_transactions'] = ObjectSerializer::toQueryValue($reverse_affiliate_transactions);
+        }
+        // query params
+        if ($issue_store_credit !== null) {
+            $queryParams['issue_store_credit'] = ObjectSerializer::toQueryValue($issue_store_credit);
+        }
+        // query params
+        if ($auto_order_cancel_reason !== null) {
+            $queryParams['auto_order_cancel_reason'] = ObjectSerializer::toQueryValue($auto_order_cancel_reason);
+        }
+        // query params
+        if ($refund_reason !== null) {
+            $queryParams['refund_reason'] = ObjectSerializer::toQueryValue($refund_reason);
+        }
+        // query params
+        if ($reject_reason !== null) {
+            $queryParams['reject_reason'] = ObjectSerializer::toQueryValue($reject_reason);
+        }
+
+        // path params
+        if ($order_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'order_id' . '}',
+                ObjectSerializer::toPathValue($order_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json; charset=UTF-8']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation replacement
      *
      * Replacement order

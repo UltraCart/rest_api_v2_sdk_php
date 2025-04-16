@@ -62,6 +62,7 @@ class ChannelPartnerOrderItem implements ModelInterface, ArrayAccess
         'auto_order_schedule' => 'string',
         'merchant_item_id' => 'string',
         'options' => '\ultracart\v2\models\ChannelPartnerOrderItemOption[]',
+        'properties' => '\ultracart\v2\models\ChannelPartnerOrderItemProperty[]',
         'quantity' => 'float',
         'upsell' => 'bool'
     ];
@@ -77,6 +78,7 @@ class ChannelPartnerOrderItem implements ModelInterface, ArrayAccess
         'auto_order_schedule' => null,
         'merchant_item_id' => null,
         'options' => null,
+        'properties' => null,
         'quantity' => null,
         'upsell' => null
     ];
@@ -113,6 +115,7 @@ class ChannelPartnerOrderItem implements ModelInterface, ArrayAccess
         'auto_order_schedule' => 'auto_order_schedule',
         'merchant_item_id' => 'merchant_item_id',
         'options' => 'options',
+        'properties' => 'properties',
         'quantity' => 'quantity',
         'upsell' => 'upsell'
     ];
@@ -128,6 +131,7 @@ class ChannelPartnerOrderItem implements ModelInterface, ArrayAccess
         'auto_order_schedule' => 'setAutoOrderSchedule',
         'merchant_item_id' => 'setMerchantItemId',
         'options' => 'setOptions',
+        'properties' => 'setProperties',
         'quantity' => 'setQuantity',
         'upsell' => 'setUpsell'
     ];
@@ -143,6 +147,7 @@ class ChannelPartnerOrderItem implements ModelInterface, ArrayAccess
         'auto_order_schedule' => 'getAutoOrderSchedule',
         'merchant_item_id' => 'getMerchantItemId',
         'options' => 'getOptions',
+        'properties' => 'getProperties',
         'quantity' => 'getQuantity',
         'upsell' => 'getUpsell'
     ];
@@ -255,6 +260,7 @@ class ChannelPartnerOrderItem implements ModelInterface, ArrayAccess
         $this->container['auto_order_schedule'] = isset($data['auto_order_schedule']) ? $data['auto_order_schedule'] : null;
         $this->container['merchant_item_id'] = isset($data['merchant_item_id']) ? $data['merchant_item_id'] : null;
         $this->container['options'] = isset($data['options']) ? $data['options'] : null;
+        $this->container['properties'] = isset($data['properties']) ? $data['properties'] : null;
         $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
         $this->container['upsell'] = isset($data['upsell']) ? $data['upsell'] : null;
     }
@@ -424,6 +430,30 @@ class ChannelPartnerOrderItem implements ModelInterface, ArrayAccess
     public function setOptions($options)
     {
         $this->container['options'] = $options;
+
+        return $this;
+    }
+
+    /**
+     * Gets properties
+     *
+     * @return \ultracart\v2\models\ChannelPartnerOrderItemProperty[]
+     */
+    public function getProperties()
+    {
+        return $this->container['properties'];
+    }
+
+    /**
+     * Sets properties
+     *
+     * @param \ultracart\v2\models\ChannelPartnerOrderItemProperty[] $properties Properties
+     *
+     * @return $this
+     */
+    public function setProperties($properties)
+    {
+        $this->container['properties'] = $properties;
 
         return $this;
     }

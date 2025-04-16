@@ -409,6 +409,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**isRefundableOrder**](docs/Api/OrderApi.md#isrefundableorder) | **GET** /order/orders/{order_id}/refundable | Determine if an order can be refunded
 *OrderApi* | [**processPayment**](docs/Api/OrderApi.md#processpayment) | **POST** /order/orders/{order_id}/process_payment | Process payment
 *OrderApi* | [**refundOrder**](docs/Api/OrderApi.md#refundorder) | **PUT** /order/orders/{order_id}/refund | Refund an order
+*OrderApi* | [**refundOrderCompletely**](docs/Api/OrderApi.md#refundordercompletely) | **PUT** /order/orders/{order_id}/refund_completely | Refund an order completely
 *OrderApi* | [**replacement**](docs/Api/OrderApi.md#replacement) | **POST** /order/orders/{order_id}/replacement | Replacement order
 *OrderApi* | [**resendReceipt**](docs/Api/OrderApi.md#resendreceipt) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
 *OrderApi* | [**resendShipmentConfirmation**](docs/Api/OrderApi.md#resendshipmentconfirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
@@ -771,6 +772,7 @@ Class | Method | HTTP request | Description
  - [ChannelPartnerOrder](docs/Model/ChannelPartnerOrder.md)
  - [ChannelPartnerOrderItem](docs/Model/ChannelPartnerOrderItem.md)
  - [ChannelPartnerOrderItemOption](docs/Model/ChannelPartnerOrderItemOption.md)
+ - [ChannelPartnerOrderItemProperty](docs/Model/ChannelPartnerOrderItemProperty.md)
  - [ChannelPartnerOrderTransaction](docs/Model/ChannelPartnerOrderTransaction.md)
  - [ChannelPartnerOrderTransactionDetail](docs/Model/ChannelPartnerOrderTransactionDetail.md)
  - [ChannelPartnerShipToPreference](docs/Model/ChannelPartnerShipToPreference.md)
@@ -1595,6 +1597,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.6 | 04/16/2025 | added channel partner order item properties |
 | 3.11.5 | 03/28/2025 | added paypal fastlane constants for payments |
 | 3.11.4 | 03/07/2025 | updated github readme.md |
 | 3.11.3 | 03/07/2025 | updated github readme.md files |
