@@ -135,6 +135,7 @@ docs/Model/ChannelPartnerImportResponse.md
 docs/Model/ChannelPartnerOrder.md
 docs/Model/ChannelPartnerOrderItem.md
 docs/Model/ChannelPartnerOrderItemOption.md
+docs/Model/ChannelPartnerOrderItemProperty.md
 docs/Model/ChannelPartnerOrderTransaction.md
 docs/Model/ChannelPartnerOrderTransactionDetail.md
 docs/Model/ChannelPartnerShipToPreference.md
@@ -1017,6 +1018,7 @@ lib/models/ChannelPartnerImportResponse.php
 lib/models/ChannelPartnerOrder.php
 lib/models/ChannelPartnerOrderItem.php
 lib/models/ChannelPartnerOrderItemOption.php
+lib/models/ChannelPartnerOrderItemProperty.php
 lib/models/ChannelPartnerOrderTransaction.php
 lib/models/ChannelPartnerOrderTransactionDetail.php
 lib/models/ChannelPartnerShipToPreference.php

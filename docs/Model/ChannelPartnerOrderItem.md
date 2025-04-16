@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **auto_order_schedule** | **string** | The frequency schedule for this item if this item is part of an auto (recurring) order | [optional]
 **merchant_item_id** | **string** | Item ID | [optional]
 **options** | [**\ultracart\v2\models\ChannelPartnerOrderItemOption[]**](ChannelPartnerOrderItemOption.md) | Item options | [optional]
+**properties** | [**\ultracart\v2\models\ChannelPartnerOrderItemProperty[]**](ChannelPartnerOrderItemProperty.md) | Properties | [optional]
 **quantity** | **float** | Quantity | [optional]
 **upsell** | **bool** | True if this item was an upsell item. | [optional]
 
