@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.6"
+    "ultracart/rest_api_v2_sdk_php": "4.1.7"
   }
 }
 ```
@@ -1550,6 +1550,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.7 | 04/21/2025 | conversation agent additional fields |
 | 4.1.6 | 04/16/2025 | added channel partner order item properties |
 | 4.1.5 | 03/28/2025 | added paypal fastlane constants for payments |
 | 4.1.4 | 03/07/2025 | updated github readme.md |

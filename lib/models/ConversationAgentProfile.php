@@ -58,6 +58,10 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
+        'ai' => 'bool',
+        'ai_chat_instructions' => 'string',
+        'ai_persona' => 'string',
+        'ai_sms_instructions' => 'string',
         'chat_limit' => 'int',
         'default_language_iso_code' => 'string',
         'default_status' => 'string',
@@ -75,6 +79,10 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'ai' => null,
+        'ai_chat_instructions' => null,
+        'ai_persona' => null,
+        'ai_sms_instructions' => null,
         'chat_limit' => 'int32',
         'default_language_iso_code' => null,
         'default_status' => null,
@@ -111,6 +119,10 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
+        'ai' => 'ai',
+        'ai_chat_instructions' => 'ai_chat_instructions',
+        'ai_persona' => 'ai_persona',
+        'ai_sms_instructions' => 'ai_sms_instructions',
         'chat_limit' => 'chat_limit',
         'default_language_iso_code' => 'default_language_iso_code',
         'default_status' => 'default_status',
@@ -126,6 +138,10 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
+        'ai' => 'setAi',
+        'ai_chat_instructions' => 'setAiChatInstructions',
+        'ai_persona' => 'setAiPersona',
+        'ai_sms_instructions' => 'setAiSmsInstructions',
         'chat_limit' => 'setChatLimit',
         'default_language_iso_code' => 'setDefaultLanguageIsoCode',
         'default_status' => 'setDefaultStatus',
@@ -141,6 +157,10 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
+        'ai' => 'getAi',
+        'ai_chat_instructions' => 'getAiChatInstructions',
+        'ai_persona' => 'getAiPersona',
+        'ai_sms_instructions' => 'getAiSmsInstructions',
         'chat_limit' => 'getChatLimit',
         'default_language_iso_code' => 'getDefaultLanguageIsoCode',
         'default_status' => 'getDefaultStatus',
@@ -224,6 +244,10 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(array $data = null)
     {
+        $this->container['ai'] = $data['ai'] ?? null;
+        $this->container['ai_chat_instructions'] = $data['ai_chat_instructions'] ?? null;
+        $this->container['ai_persona'] = $data['ai_persona'] ?? null;
+        $this->container['ai_sms_instructions'] = $data['ai_sms_instructions'] ?? null;
         $this->container['chat_limit'] = $data['chat_limit'] ?? null;
         $this->container['default_language_iso_code'] = $data['default_language_iso_code'] ?? null;
         $this->container['default_status'] = $data['default_status'] ?? null;
@@ -265,6 +289,102 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess, \JsonSeri
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets ai
+     *
+     * @return bool|null
+     */
+    public function getAi()
+    {
+        return $this->container['ai'];
+    }
+
+    /**
+     * Sets ai
+     *
+     * @param bool|null $ai AI powered chat bot
+     *
+     * @return self
+     */
+    public function setAi($ai)
+    {
+        $this->container['ai'] = $ai;
+
+        return $this;
+    }
+
+    /**
+     * Gets ai_chat_instructions
+     *
+     * @return string|null
+     */
+    public function getAiChatInstructions()
+    {
+        return $this->container['ai_chat_instructions'];
+    }
+
+    /**
+     * Sets ai_chat_instructions
+     *
+     * @param string|null $ai_chat_instructions Additional instructions for this AI when handle web chats
+     *
+     * @return self
+     */
+    public function setAiChatInstructions($ai_chat_instructions)
+    {
+        $this->container['ai_chat_instructions'] = $ai_chat_instructions;
+
+        return $this;
+    }
+
+    /**
+     * Gets ai_persona
+     *
+     * @return string|null
+     */
+    public function getAiPersona()
+    {
+        return $this->container['ai_persona'];
+    }
+
+    /**
+     * Sets ai_persona
+     *
+     * @param string|null $ai_persona Persona of this AI agent
+     *
+     * @return self
+     */
+    public function setAiPersona($ai_persona)
+    {
+        $this->container['ai_persona'] = $ai_persona;
+
+        return $this;
+    }
+
+    /**
+     * Gets ai_sms_instructions
+     *
+     * @return string|null
+     */
+    public function getAiSmsInstructions()
+    {
+        return $this->container['ai_sms_instructions'];
+    }
+
+    /**
+     * Sets ai_sms_instructions
+     *
+     * @param string|null $ai_sms_instructions Additional instructions for this AI when handle SMS messages
+     *
+     * @return self
+     */
+    public function setAiSmsInstructions($ai_sms_instructions)
+    {
+        $this->container['ai_sms_instructions'] = $ai_sms_instructions;
+
+        return $this;
+    }
 
     /**
      * Gets chat_limit
