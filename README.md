@@ -1597,6 +1597,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.7 | 04/21/2025 | conversation agent additional fields |
 | 3.11.6 | 04/16/2025 | added channel partner order item properties |
 | 3.11.5 | 03/28/2025 | added paypal fastlane constants for payments |
 | 3.11.4 | 03/07/2025 | updated github readme.md |
