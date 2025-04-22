@@ -57,6 +57,8 @@ class OrderProperty implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'created_by' => 'string',
+        'created_dts' => 'string',
         'display' => 'bool',
         'expiration_dts' => 'string',
         'name' => 'string',
@@ -69,6 +71,8 @@ class OrderProperty implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'created_by' => null,
+        'created_dts' => 'dateTime',
         'display' => null,
         'expiration_dts' => 'dateTime',
         'name' => null,
@@ -102,6 +106,8 @@ class OrderProperty implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'created_by' => 'created_by',
+        'created_dts' => 'created_dts',
         'display' => 'display',
         'expiration_dts' => 'expiration_dts',
         'name' => 'name',
@@ -114,6 +120,8 @@ class OrderProperty implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'created_by' => 'setCreatedBy',
+        'created_dts' => 'setCreatedDts',
         'display' => 'setDisplay',
         'expiration_dts' => 'setExpirationDts',
         'name' => 'setName',
@@ -126,6 +134,8 @@ class OrderProperty implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'created_by' => 'getCreatedBy',
+        'created_dts' => 'getCreatedDts',
         'display' => 'getDisplay',
         'expiration_dts' => 'getExpirationDts',
         'name' => 'getName',
@@ -192,6 +202,8 @@ class OrderProperty implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['created_by'] = isset($data['created_by']) ? $data['created_by'] : null;
+        $this->container['created_dts'] = isset($data['created_dts']) ? $data['created_dts'] : null;
         $this->container['display'] = isset($data['display']) ? $data['display'] : null;
         $this->container['expiration_dts'] = isset($data['expiration_dts']) ? $data['expiration_dts'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
@@ -206,6 +218,10 @@ class OrderProperty implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['created_by']) && (mb_strlen($this->container['created_by']) > 20)) {
+            $invalidProperties[] = "invalid value for 'created_by', the character length must be smaller than or equal to 20.";
+        }
 
         if (!is_null($this->container['name']) && (mb_strlen($this->container['name']) > 100)) {
             $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 100.";
@@ -229,6 +245,58 @@ class OrderProperty implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets created_by
+     *
+     * @return string
+     */
+    public function getCreatedBy()
+    {
+        return $this->container['created_by'];
+    }
+
+    /**
+     * Sets created_by
+     *
+     * @param string $created_by Created by user
+     *
+     * @return $this
+     */
+    public function setCreatedBy($created_by)
+    {
+        if (!is_null($created_by) && (mb_strlen($created_by) > 20)) {
+            throw new \InvalidArgumentException('invalid length for $created_by when calling OrderProperty., must be smaller than or equal to 20.');
+        }
+
+        $this->container['created_by'] = $created_by;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_dts
+     *
+     * @return string
+     */
+    public function getCreatedDts()
+    {
+        return $this->container['created_dts'];
+    }
+
+    /**
+     * Sets created_dts
+     *
+     * @param string $created_dts The date/time that the property was created by the user
+     *
+     * @return $this
+     */
+    public function setCreatedDts($created_dts)
+    {
+        $this->container['created_dts'] = $created_dts;
+
+        return $this;
+    }
 
     /**
      * Gets display
