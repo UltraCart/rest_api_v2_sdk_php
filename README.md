@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.7"
+    "ultracart/rest_api_v2_sdk_php": "4.1.8"
   }
 }
 ```
@@ -117,6 +117,7 @@ Class | Method | HTTP request | Description
 *ChannelPartnerApi* | [**estimateTaxForChannelPartnerOrder**](docs/Api/ChannelPartnerApi.md#estimatetaxforchannelpartnerorder) | **POST** /channel_partner/estimate_tax | Estimate tax for channel partner order
 *ChannelPartnerApi* | [**getChannelPartnerOrder**](docs/Api/ChannelPartnerApi.md#getchannelpartnerorder) | **GET** /channel_partner/orders/{order_id} | Retrieve a channel partner order
 *ChannelPartnerApi* | [**getChannelPartnerOrderByChannelPartnerOrderId**](docs/Api/ChannelPartnerApi.md#getchannelpartnerorderbychannelpartnerorderid) | **GET** /channel_partner/orders/by_channel_partner_order_id/{order_id} | Retrieve a channel partner order by the channel partner order id
+*ChannelPartnerApi* | [**getChannelPartnerReasonCodes**](docs/Api/ChannelPartnerApi.md#getchannelpartnerreasoncodes) | **GET** /channel_partner/channel_partners/{channel_partner_oid}/reason_codes | Retrieve reject and refund reason codes.
 *ChannelPartnerApi* | [**getChannelPartnerShipToPreference**](docs/Api/ChannelPartnerApi.md#getchannelpartnershiptopreference) | **GET** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid} | Retrieve the ship to preference associated with the channel partner and the specific id.
 *ChannelPartnerApi* | [**getChannelPartnerShipToPreferences**](docs/Api/ChannelPartnerApi.md#getchannelpartnershiptopreferences) | **GET** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences | Retrieve the ship to preferences associated with the channel partner.
 *ChannelPartnerApi* | [**getChannelPartners**](docs/Api/ChannelPartnerApi.md#getchannelpartners) | **GET** /channel_partner/channel_partners | Retrieve the channel partners configured on the account.
@@ -703,6 +704,7 @@ Class | Method | HTTP request | Description
 - [CartUpsellAfter](docs/Model/CartUpsellAfter.md)
 - [CartValidationRequest](docs/Model/CartValidationRequest.md)
 - [CartValidationResponse](docs/Model/CartValidationResponse.md)
+- [ChanelPartnerReasonCodesResponse](docs/Model/ChanelPartnerReasonCodesResponse.md)
 - [ChannelPartner](docs/Model/ChannelPartner.md)
 - [ChannelPartnerCancelResponse](docs/Model/ChannelPartnerCancelResponse.md)
 - [ChannelPartnerEstimateShippingResponse](docs/Model/ChannelPartnerEstimateShippingResponse.md)
@@ -1550,6 +1552,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.8 | 04/22/2025 | order property fields for created_by and created_dts |
 | 4.1.7 | 04/21/2025 | conversation agent additional fields |
 | 4.1.6 | 04/16/2025 | added channel partner order item properties |
 | 4.1.5 | 03/28/2025 | added paypal fastlane constants for payments |

@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**estimateTaxForChannelPartnerOrder()**](ChannelPartnerApi.md#estimateTaxForChannelPartnerOrder) | **POST** /channel_partner/estimate_tax | Estimate tax for channel partner order
 [**getChannelPartnerOrder()**](ChannelPartnerApi.md#getChannelPartnerOrder) | **GET** /channel_partner/orders/{order_id} | Retrieve a channel partner order
 [**getChannelPartnerOrderByChannelPartnerOrderId()**](ChannelPartnerApi.md#getChannelPartnerOrderByChannelPartnerOrderId) | **GET** /channel_partner/orders/by_channel_partner_order_id/{order_id} | Retrieve a channel partner order by the channel partner order id
+[**getChannelPartnerReasonCodes()**](ChannelPartnerApi.md#getChannelPartnerReasonCodes) | **GET** /channel_partner/channel_partners/{channel_partner_oid}/reason_codes | Retrieve reject and refund reason codes.
 [**getChannelPartnerShipToPreference()**](ChannelPartnerApi.md#getChannelPartnerShipToPreference) | **GET** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid} | Retrieve the ship to preference associated with the channel partner and the specific id.
 [**getChannelPartnerShipToPreferences()**](ChannelPartnerApi.md#getChannelPartnerShipToPreferences) | **GET** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences | Retrieve the ship to preferences associated with the channel partner.
 [**getChannelPartners()**](ChannelPartnerApi.md#getChannelPartners) | **GET** /channel_partner/channel_partners | Retrieve the channel partners configured on the account.
@@ -410,6 +411,63 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\OrderResponse**](../Model/OrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getChannelPartnerReasonCodes()`
+
+```php
+getChannelPartnerReasonCodes($channel_partner_oid): \ultracart\v2\models\ChanelPartnerReasonCodesResponse
+```
+
+Retrieve reject and refund reason codes.
+
+Retrieve reject and refund reason codes.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\ChannelPartnerApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+$channel_partner_oid = 56; // int
+
+try {
+    $result = $apiInstance->getChannelPartnerReasonCodes($channel_partner_oid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ChannelPartnerApi->getChannelPartnerReasonCodes: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_partner_oid** | **int**|  |
+
+### Return type
+
+[**\ultracart\v2\models\ChanelPartnerReasonCodesResponse**](../Model/ChanelPartnerReasonCodesResponse.md)
 
 ### Authorization
 

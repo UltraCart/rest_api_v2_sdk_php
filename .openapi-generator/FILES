@@ -127,6 +127,7 @@ docs/Model/CartTaxes.md
 docs/Model/CartUpsellAfter.md
 docs/Model/CartValidationRequest.md
 docs/Model/CartValidationResponse.md
+docs/Model/ChanelPartnerReasonCodesResponse.md
 docs/Model/ChannelPartner.md
 docs/Model/ChannelPartnerCancelResponse.md
 docs/Model/ChannelPartnerEstimateShippingResponse.md
@@ -1010,6 +1011,7 @@ lib/models/CartTaxes.php
 lib/models/CartUpsellAfter.php
 lib/models/CartValidationRequest.php
 lib/models/CartValidationResponse.php
+lib/models/ChanelPartnerReasonCodesResponse.php
 lib/models/ChannelPartner.php
 lib/models/ChannelPartnerCancelResponse.php
 lib/models/ChannelPartnerEstimateShippingResponse.php
