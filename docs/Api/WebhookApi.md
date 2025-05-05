@@ -189,7 +189,7 @@ Name | Type | Description  | Notes
 ## `getWebhookLogSummaries()`
 
 ```php
-getWebhookLogSummaries($webhook_oid, $_limit, $_offset, $_since): \ultracart\v2\models\WebhookLogSummariesResponse
+getWebhookLogSummaries($webhook_oid, $request_id, $begin_date, $end_date, $status, $event, $order_id, $request, $duration, $_limit, $_offset, $_since): \ultracart\v2\models\WebhookLogSummariesResponse
 ```
 
 Retrieve the log summaries
@@ -211,12 +211,20 @@ $apiInstance = ultracart\v2\Api\WebhookApi::usingApiKey(Constants::API_KEY, Cons
             Constants::VERIFY_SSL, Constants::DEBUG);
 
 $webhook_oid = 56; // int | The webhook oid to retrieve log summaries for.
+$request_id = 'request_id_example'; // string
+$begin_date = 'begin_date_example'; // string
+$end_date = 'end_date_example'; // string
+$status = 'status_example'; // string
+$event = 'event_example'; // string
+$order_id = 'order_id_example'; // string
+$request = 'request_example'; // string
+$duration = 56; // int
 $_limit = 100; // int | The maximum number of records to return on this one API call.
 $_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
 $_since = '_since_example'; // string | Fetch log summaries that have been delivered since this date/time.
 
 try {
-    $result = $apiInstance->getWebhookLogSummaries($webhook_oid, $_limit, $_offset, $_since);
+    $result = $apiInstance->getWebhookLogSummaries($webhook_oid, $request_id, $begin_date, $end_date, $status, $event, $order_id, $request, $duration, $_limit, $_offset, $_since);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhookApi->getWebhookLogSummaries: ', $e->getMessage(), PHP_EOL;
@@ -228,6 +236,14 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **webhook_oid** | **int**| The webhook oid to retrieve log summaries for. |
+ **request_id** | **string**|  | [optional]
+ **begin_date** | **string**|  | [optional]
+ **end_date** | **string**|  | [optional]
+ **status** | **string**|  | [optional]
+ **event** | **string**|  | [optional]
+ **order_id** | **string**|  | [optional]
+ **request** | **string**|  | [optional]
+ **duration** | **int**|  | [optional]
  **_limit** | **int**| The maximum number of records to return on this one API call. | [optional] [default to 100]
  **_offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
  **_since** | **string**| Fetch log summaries that have been delivered since this date/time. | [optional]

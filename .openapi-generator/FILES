@@ -159,6 +159,7 @@ docs/Model/ConversationAgentAuth.md
 docs/Model/ConversationAgentAuthResponse.md
 docs/Model/ConversationAgentProfile.md
 docs/Model/ConversationAgentProfileResponse.md
+docs/Model/ConversationAgentProfilesResponse.md
 docs/Model/ConversationAutocompleteRequest.md
 docs/Model/ConversationAutocompleteResponse.md
 docs/Model/ConversationAutocompleteValue.md
@@ -1043,6 +1044,7 @@ lib/models/ConversationAgentAuth.php
 lib/models/ConversationAgentAuthResponse.php
 lib/models/ConversationAgentProfile.php
 lib/models/ConversationAgentProfileResponse.php
+lib/models/ConversationAgentProfilesResponse.php
 lib/models/ConversationAutocompleteRequest.php
 lib/models/ConversationAutocompleteResponse.php
 lib/models/ConversationAutocompleteValue.php

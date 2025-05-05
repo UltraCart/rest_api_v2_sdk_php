@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**deletePbxVoicemailMailbox()**](ConversationApi.md#deletePbxVoicemailMailbox) | **DELETE** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Delete pbx voicemailMailbox
 [**getAgentKeepAlive()**](ConversationApi.md#getAgentKeepAlive) | **GET** /conversation/agent/keepalive | Agent keep alive
 [**getAgentProfile()**](ConversationApi.md#getAgentProfile) | **GET** /conversation/agent/profile | Get agent profile
+[**getAgentProfiles()**](ConversationApi.md#getAgentProfiles) | **GET** /conversation/agent/profiles | Get agent profiles
 [**getAgentWebsocketAuthorization()**](ConversationApi.md#getAgentWebsocketAuthorization) | **PUT** /conversation/agent/auth | Get agent websocket authorization
 [**getConversation()**](ConversationApi.md#getConversation) | **GET** /conversation/conversations/{conversation_uuid} | Retrieve a conversation
 [**getConversationCannedMessages()**](ConversationApi.md#getConversationCannedMessages) | **GET** /conversation/canned_messages | Retrieve a list of canned messages ordered by short_code
@@ -806,6 +807,60 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**\ultracart\v2\models\ConversationAgentProfileResponse**](../Model/ConversationAgentProfileResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getAgentProfiles()`
+
+```php
+getAgentProfiles(): \ultracart\v2\models\ConversationAgentProfilesResponse
+```
+
+Get agent profiles
+
+Retrieve the agents profile
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+
+try {
+    $result = $apiInstance->getAgentProfiles();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ConversationApi->getAgentProfiles: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\ultracart\v2\models\ConversationAgentProfilesResponse**](../Model/ConversationAgentProfilesResponse.md)
 
 ### Authorization
 

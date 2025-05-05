@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.8"
+    "ultracart/rest_api_v2_sdk_php": "4.1.9"
   }
 }
 ```
@@ -162,6 +162,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**deletePbxVoicemailMailbox**](docs/Api/ConversationApi.md#deletepbxvoicemailmailbox) | **DELETE** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Delete pbx voicemailMailbox
 *ConversationApi* | [**getAgentKeepAlive**](docs/Api/ConversationApi.md#getagentkeepalive) | **GET** /conversation/agent/keepalive | Agent keep alive
 *ConversationApi* | [**getAgentProfile**](docs/Api/ConversationApi.md#getagentprofile) | **GET** /conversation/agent/profile | Get agent profile
+*ConversationApi* | [**getAgentProfiles**](docs/Api/ConversationApi.md#getagentprofiles) | **GET** /conversation/agent/profiles | Get agent profiles
 *ConversationApi* | [**getAgentWebsocketAuthorization**](docs/Api/ConversationApi.md#getagentwebsocketauthorization) | **PUT** /conversation/agent/auth | Get agent websocket authorization
 *ConversationApi* | [**getConversation**](docs/Api/ConversationApi.md#getconversation) | **GET** /conversation/conversations/{conversation_uuid} | Retrieve a conversation
 *ConversationApi* | [**getConversationCannedMessages**](docs/Api/ConversationApi.md#getconversationcannedmessages) | **GET** /conversation/canned_messages | Retrieve a list of canned messages ordered by short_code
@@ -736,6 +737,7 @@ Class | Method | HTTP request | Description
 - [ConversationAgentAuthResponse](docs/Model/ConversationAgentAuthResponse.md)
 - [ConversationAgentProfile](docs/Model/ConversationAgentProfile.md)
 - [ConversationAgentProfileResponse](docs/Model/ConversationAgentProfileResponse.md)
+- [ConversationAgentProfilesResponse](docs/Model/ConversationAgentProfilesResponse.md)
 - [ConversationAutocompleteRequest](docs/Model/ConversationAutocompleteRequest.md)
 - [ConversationAutocompleteResponse](docs/Model/ConversationAutocompleteResponse.md)
 - [ConversationAutocompleteValue](docs/Model/ConversationAutocompleteValue.md)
@@ -1552,6 +1554,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.9 | 05/05/2025 | conversations - method to fetch all agent profiles for admin screens |
 | 4.1.8 | 04/22/2025 | order property fields for created_by and created_dts |
 | 4.1.7 | 04/21/2025 | conversation agent additional fields |
 | 4.1.6 | 04/16/2025 | added channel partner order item properties |
