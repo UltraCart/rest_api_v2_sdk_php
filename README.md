@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.9"
+    "ultracart/rest_api_v2_sdk_php": "4.1.10"
   }
 }
 ```
@@ -1554,6 +1554,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.10 | 05/06/2025 | conversation - ConversationAgentProfile.user_id added for agent profiles call |
 | 4.1.9 | 05/05/2025 | conversations - method to fetch all agent profiles for admin screens |
 | 4.1.8 | 04/22/2025 | order property fields for created_by and created_dts |
 | 4.1.7 | 04/21/2025 | conversation agent additional fields |
