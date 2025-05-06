@@ -67,7 +67,8 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
         'display_name' => 'string',
         'name' => 'string',
         'profile_image_upload_key' => 'string',
-        'profile_image_url' => 'string'
+        'profile_image_url' => 'string',
+        'user_id' => 'int'
     ];
 
     /**
@@ -86,7 +87,8 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
         'display_name' => null,
         'name' => null,
         'profile_image_upload_key' => null,
-        'profile_image_url' => null
+        'profile_image_url' => null,
+        'user_id' => 'int32'
     ];
 
     /**
@@ -126,7 +128,8 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
         'display_name' => 'display_name',
         'name' => 'name',
         'profile_image_upload_key' => 'profile_image_upload_key',
-        'profile_image_url' => 'profile_image_url'
+        'profile_image_url' => 'profile_image_url',
+        'user_id' => 'user_id'
     ];
 
     /**
@@ -145,7 +148,8 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
         'display_name' => 'setDisplayName',
         'name' => 'setName',
         'profile_image_upload_key' => 'setProfileImageUploadKey',
-        'profile_image_url' => 'setProfileImageUrl'
+        'profile_image_url' => 'setProfileImageUrl',
+        'user_id' => 'setUserId'
     ];
 
     /**
@@ -164,7 +168,8 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
         'display_name' => 'getDisplayName',
         'name' => 'getName',
         'profile_image_upload_key' => 'getProfileImageUploadKey',
-        'profile_image_url' => 'getProfileImageUrl'
+        'profile_image_url' => 'getProfileImageUrl',
+        'user_id' => 'getUserId'
     ];
 
     /**
@@ -255,6 +260,7 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['profile_image_upload_key'] = isset($data['profile_image_upload_key']) ? $data['profile_image_upload_key'] : null;
         $this->container['profile_image_url'] = isset($data['profile_image_url']) ? $data['profile_image_url'] : null;
+        $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
     }
 
     /**
@@ -558,6 +564,30 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
     public function setProfileImageUrl($profile_image_url)
     {
         $this->container['profile_image_url'] = $profile_image_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_id
+     *
+     * @return int
+     */
+    public function getUserId()
+    {
+        return $this->container['user_id'];
+    }
+
+    /**
+     * Sets user_id
+     *
+     * @param int $user_id User ID associated with the agent.  Populated by getAgentProfiles call only.
+     *
+     * @return $this
+     */
+    public function setUserId($user_id)
+    {
+        $this->container['user_id'] = $user_id;
 
         return $this;
     }
