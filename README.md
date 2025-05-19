@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.10"
+    "ultracart/rest_api_v2_sdk_php": "4.1.11"
   }
 }
 ```
@@ -202,6 +202,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getPbxTimeRanges**](docs/Api/ConversationApi.md#getpbxtimeranges) | **GET** /conversation/pbx/time_range | Get pbx timeRanges
 *ConversationApi* | [**getPbxVoicemailMailbox**](docs/Api/ConversationApi.md#getpbxvoicemailmailbox) | **GET** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Get pbx voicemailMailbox
 *ConversationApi* | [**getPbxVoicemailMailboxes**](docs/Api/ConversationApi.md#getpbxvoicemailmailboxes) | **GET** /conversation/pbx/voicemail_mailbox | Get pbx voicemailMailboxes
+*ConversationApi* | [**getVirtualAgentBudget**](docs/Api/ConversationApi.md#getvirtualagentbudget) | **GET** /conversation/virtualagent/budget | Get virtual agent budget
 *ConversationApi* | [**insertConversationCannedMessage**](docs/Api/ConversationApi.md#insertconversationcannedmessage) | **POST** /conversation/canned_messages | Insert a canned message
 *ConversationApi* | [**insertConversationDepartment**](docs/Api/ConversationApi.md#insertconversationdepartment) | **POST** /conversation/departments | Insert a department
 *ConversationApi* | [**insertConversationEngagement**](docs/Api/ConversationApi.md#insertconversationengagement) | **POST** /conversation/engagements | Insert a engagement
@@ -233,6 +234,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**updatePbxTimeBased**](docs/Api/ConversationApi.md#updatepbxtimebased) | **PUT** /conversation/pbx/time_based/{conversationPbxTimeBasedUuid} | Update pbx timeBased
 *ConversationApi* | [**updatePbxTimeRange**](docs/Api/ConversationApi.md#updatepbxtimerange) | **PUT** /conversation/pbx/time_range/{conversationPbxTimeRangeUuid} | Update pbx timeRange
 *ConversationApi* | [**updatePbxVoicemailMailbox**](docs/Api/ConversationApi.md#updatepbxvoicemailmailbox) | **PUT** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Update pbx voicemailMailbox
+*ConversationApi* | [**updateVirtualAgentBudget**](docs/Api/ConversationApi.md#updatevirtualagentbudget) | **PUT** /conversation/virtualagent/budget | Update virtual agent budget
 *CouponApi* | [**deleteCoupon**](docs/Api/CouponApi.md#deletecoupon) | **DELETE** /coupon/coupons/{coupon_oid} | Delete a coupon
 *CouponApi* | [**deleteCouponsByCode**](docs/Api/CouponApi.md#deletecouponsbycode) | **DELETE** /coupon/coupons/by_code | Deletes multiple coupons
 *CouponApi* | [**deleteCouponsByOid**](docs/Api/CouponApi.md#deletecouponsbyoid) | **DELETE** /coupon/coupons/by_oid | Deletes multiple coupons
@@ -822,6 +824,8 @@ Class | Method | HTTP request | Description
 - [ConversationStartResponse](docs/Model/ConversationStartResponse.md)
 - [ConversationSummary](docs/Model/ConversationSummary.md)
 - [ConversationTwilioAccount](docs/Model/ConversationTwilioAccount.md)
+- [ConversationVirtualAgentBudget](docs/Model/ConversationVirtualAgentBudget.md)
+- [ConversationVirtualAgentBudgetResponse](docs/Model/ConversationVirtualAgentBudgetResponse.md)
 - [ConversationWebchatContext](docs/Model/ConversationWebchatContext.md)
 - [ConversationWebchatQueueStatus](docs/Model/ConversationWebchatQueueStatus.md)
 - [ConversationWebchatQueueStatusAgent](docs/Model/ConversationWebchatQueueStatusAgent.md)
@@ -1554,6 +1558,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.11 | 05/19/2025 | conversations - virtual AI budgets |
 | 4.1.10 | 05/06/2025 | conversation - ConversationAgentProfile.user_id added for agent profiles call |
 | 4.1.9 | 05/05/2025 | conversations - method to fetch all agent profiles for admin screens |
 | 4.1.8 | 04/22/2025 | order property fields for created_by and created_dts |
