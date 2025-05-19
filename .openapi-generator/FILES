@@ -246,6 +246,8 @@ docs/Model/ConversationSummary.md
 docs/Model/ConversationTwilioAccount.md
 docs/Model/ConversationVirtualAgentBudget.md
 docs/Model/ConversationVirtualAgentBudgetResponse.md
+docs/Model/ConversationVirtualAgentCapabilities.md
+docs/Model/ConversationVirtualAgentCapabilitiesResponse.md
 docs/Model/ConversationWebchatContext.md
 docs/Model/ConversationWebchatQueueStatus.md
 docs/Model/ConversationWebchatQueueStatusAgent.md
@@ -1133,6 +1135,8 @@ lib/models/ConversationSummary.php
 lib/models/ConversationTwilioAccount.php
 lib/models/ConversationVirtualAgentBudget.php
 lib/models/ConversationVirtualAgentBudgetResponse.php
+lib/models/ConversationVirtualAgentCapabilities.php
+lib/models/ConversationVirtualAgentCapabilitiesResponse.php
 lib/models/ConversationWebchatContext.php
 lib/models/ConversationWebchatQueueStatus.php
 lib/models/ConversationWebchatQueueStatusAgent.php
