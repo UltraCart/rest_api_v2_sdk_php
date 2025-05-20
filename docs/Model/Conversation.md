@@ -22,6 +22,8 @@ Name | Type | Description | Notes
 **sentiment** | [**\ultracart\v2\models\ConversationSentiment**](ConversationSentiment.md) |  | [optional]
 **start_dts** | **string** | Start of the conversation date/time | [optional]
 **unread_messages** | **bool** |  | [optional]
+**virtual_agent** | **bool** | True if a virtual agent answered the conversation | [optional]
+**virtual_agent_cost** | **float** | The cost of this conversation performed by the virtual agent | [optional]
 **visible** | **bool** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

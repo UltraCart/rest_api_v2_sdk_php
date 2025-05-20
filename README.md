@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.12"
+    "ultracart/rest_api_v2_sdk_php": "4.1.13"
   }
 }
 ```
@@ -1562,6 +1562,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.13 | 05/20/2025 | conversation - virtual agent flag and virtual agent cost |
 | 4.1.12 | 05/19/2025 | conversations - AI agent capabilities method |
 | 4.1.11 | 05/19/2025 | conversations - virtual AI budgets |
 | 4.1.10 | 05/06/2025 | conversation - ConversationAgentProfile.user_id added for agent profiles call |

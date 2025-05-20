@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **exclude_coupon** | **bool** | Exclude coupons | [optional]
 **exclude_from_free_promotion** | **bool** | Exclude from free promotion | [optional]
+**exclude_from_loyalty** | **bool** | Exclude from loyalty.  Must be set to true or false to save.  Null is ignored for backwards SDK compatibility | [optional]
 **items** | [**\ultracart\v2\models\ItemRestrictionItem[]**](ItemRestrictionItem.md) | Items | [optional]
 **maximum_quantity** | **int** | Maximum quantity | [optional]
 **minimum_quantity** | **int** | Minimum quantity (defaults to 1) | [optional]
