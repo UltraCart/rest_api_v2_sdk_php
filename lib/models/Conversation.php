@@ -75,6 +75,8 @@ class Conversation implements ModelInterface, ArrayAccess
         'sentiment' => '\ultracart\v2\models\ConversationSentiment',
         'start_dts' => 'string',
         'unread_messages' => 'bool',
+        'virtual_agent' => 'bool',
+        'virtual_agent_cost' => 'float',
         'visible' => 'bool'
     ];
 
@@ -102,6 +104,8 @@ class Conversation implements ModelInterface, ArrayAccess
         'sentiment' => null,
         'start_dts' => 'dateTime',
         'unread_messages' => null,
+        'virtual_agent' => null,
+        'virtual_agent_cost' => null,
         'visible' => null
     ];
 
@@ -150,6 +154,8 @@ class Conversation implements ModelInterface, ArrayAccess
         'sentiment' => 'sentiment',
         'start_dts' => 'start_dts',
         'unread_messages' => 'unread_messages',
+        'virtual_agent' => 'virtual_agent',
+        'virtual_agent_cost' => 'virtual_agent_cost',
         'visible' => 'visible'
     ];
 
@@ -177,6 +183,8 @@ class Conversation implements ModelInterface, ArrayAccess
         'sentiment' => 'setSentiment',
         'start_dts' => 'setStartDts',
         'unread_messages' => 'setUnreadMessages',
+        'virtual_agent' => 'setVirtualAgent',
+        'virtual_agent_cost' => 'setVirtualAgentCost',
         'visible' => 'setVisible'
     ];
 
@@ -204,6 +212,8 @@ class Conversation implements ModelInterface, ArrayAccess
         'sentiment' => 'getSentiment',
         'start_dts' => 'getStartDts',
         'unread_messages' => 'getUnreadMessages',
+        'virtual_agent' => 'getVirtualAgent',
+        'virtual_agent_cost' => 'getVirtualAgentCost',
         'visible' => 'getVisible'
     ];
 
@@ -300,6 +310,8 @@ class Conversation implements ModelInterface, ArrayAccess
         $this->container['sentiment'] = isset($data['sentiment']) ? $data['sentiment'] : null;
         $this->container['start_dts'] = isset($data['start_dts']) ? $data['start_dts'] : null;
         $this->container['unread_messages'] = isset($data['unread_messages']) ? $data['unread_messages'] : null;
+        $this->container['virtual_agent'] = isset($data['virtual_agent']) ? $data['virtual_agent'] : null;
+        $this->container['virtual_agent_cost'] = isset($data['virtual_agent_cost']) ? $data['virtual_agent_cost'] : null;
         $this->container['visible'] = isset($data['visible']) ? $data['visible'] : null;
     }
 
@@ -772,6 +784,54 @@ class Conversation implements ModelInterface, ArrayAccess
     public function setUnreadMessages($unread_messages)
     {
         $this->container['unread_messages'] = $unread_messages;
+
+        return $this;
+    }
+
+    /**
+     * Gets virtual_agent
+     *
+     * @return bool
+     */
+    public function getVirtualAgent()
+    {
+        return $this->container['virtual_agent'];
+    }
+
+    /**
+     * Sets virtual_agent
+     *
+     * @param bool $virtual_agent True if a virtual agent answered the conversation
+     *
+     * @return $this
+     */
+    public function setVirtualAgent($virtual_agent)
+    {
+        $this->container['virtual_agent'] = $virtual_agent;
+
+        return $this;
+    }
+
+    /**
+     * Gets virtual_agent_cost
+     *
+     * @return float
+     */
+    public function getVirtualAgentCost()
+    {
+        return $this->container['virtual_agent_cost'];
+    }
+
+    /**
+     * Sets virtual_agent_cost
+     *
+     * @param float $virtual_agent_cost The cost of this conversation performed by the virtual agent
+     *
+     * @return $this
+     */
+    public function setVirtualAgentCost($virtual_agent_cost)
+    {
+        $this->container['virtual_agent_cost'] = $virtual_agent_cost;
 
         return $this;
     }

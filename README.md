@@ -1609,6 +1609,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.13 | 05/20/2025 | conversation - virtual agent flag and virtual agent cost |
 | 3.11.12 | 05/19/2025 | conversations - AI agent capabilities method |
 | 3.11.11 | 05/19/2025 | conversations - virtual AI budgets |
 | 3.11.10 | 05/06/2025 | conversation - ConversationAgentProfile.user_id added for agent profiles call |

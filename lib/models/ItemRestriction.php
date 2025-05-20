@@ -59,6 +59,7 @@ class ItemRestriction implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'exclude_coupon' => 'bool',
         'exclude_from_free_promotion' => 'bool',
+        'exclude_from_loyalty' => 'bool',
         'items' => '\ultracart\v2\models\ItemRestrictionItem[]',
         'maximum_quantity' => 'int',
         'minimum_quantity' => 'int',
@@ -75,6 +76,7 @@ class ItemRestriction implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'exclude_coupon' => null,
         'exclude_from_free_promotion' => null,
+        'exclude_from_loyalty' => null,
         'items' => null,
         'maximum_quantity' => 'int32',
         'minimum_quantity' => 'int32',
@@ -112,6 +114,7 @@ class ItemRestriction implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'exclude_coupon' => 'exclude_coupon',
         'exclude_from_free_promotion' => 'exclude_from_free_promotion',
+        'exclude_from_loyalty' => 'exclude_from_loyalty',
         'items' => 'items',
         'maximum_quantity' => 'maximum_quantity',
         'minimum_quantity' => 'minimum_quantity',
@@ -128,6 +131,7 @@ class ItemRestriction implements ModelInterface, ArrayAccess
     protected static $setters = [
         'exclude_coupon' => 'setExcludeCoupon',
         'exclude_from_free_promotion' => 'setExcludeFromFreePromotion',
+        'exclude_from_loyalty' => 'setExcludeFromLoyalty',
         'items' => 'setItems',
         'maximum_quantity' => 'setMaximumQuantity',
         'minimum_quantity' => 'setMinimumQuantity',
@@ -144,6 +148,7 @@ class ItemRestriction implements ModelInterface, ArrayAccess
     protected static $getters = [
         'exclude_coupon' => 'getExcludeCoupon',
         'exclude_from_free_promotion' => 'getExcludeFromFreePromotion',
+        'exclude_from_loyalty' => 'getExcludeFromLoyalty',
         'items' => 'getItems',
         'maximum_quantity' => 'getMaximumQuantity',
         'minimum_quantity' => 'getMinimumQuantity',
@@ -214,6 +219,7 @@ class ItemRestriction implements ModelInterface, ArrayAccess
     {
         $this->container['exclude_coupon'] = isset($data['exclude_coupon']) ? $data['exclude_coupon'] : null;
         $this->container['exclude_from_free_promotion'] = isset($data['exclude_from_free_promotion']) ? $data['exclude_from_free_promotion'] : null;
+        $this->container['exclude_from_loyalty'] = isset($data['exclude_from_loyalty']) ? $data['exclude_from_loyalty'] : null;
         $this->container['items'] = isset($data['items']) ? $data['items'] : null;
         $this->container['maximum_quantity'] = isset($data['maximum_quantity']) ? $data['maximum_quantity'] : null;
         $this->container['minimum_quantity'] = isset($data['minimum_quantity']) ? $data['minimum_quantity'] : null;
@@ -290,6 +296,30 @@ class ItemRestriction implements ModelInterface, ArrayAccess
     public function setExcludeFromFreePromotion($exclude_from_free_promotion)
     {
         $this->container['exclude_from_free_promotion'] = $exclude_from_free_promotion;
+
+        return $this;
+    }
+
+    /**
+     * Gets exclude_from_loyalty
+     *
+     * @return bool
+     */
+    public function getExcludeFromLoyalty()
+    {
+        return $this->container['exclude_from_loyalty'];
+    }
+
+    /**
+     * Sets exclude_from_loyalty
+     *
+     * @param bool $exclude_from_loyalty Exclude from loyalty.  Must be set to true or false to save.  Null is ignored for backwards SDK compatibility
+     *
+     * @return $this
+     */
+    public function setExcludeFromLoyalty($exclude_from_loyalty)
+    {
+        $this->container['exclude_from_loyalty'] = $exclude_from_loyalty;
 
         return $this;
     }
