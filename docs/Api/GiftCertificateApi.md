@@ -24,30 +24,43 @@ Add a gift certificate ledger entry
 
 Adds a ledger entry for this gift certificate.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+use ultracart\v2\models\GiftCertificateCreateRequest;
 
-$apiInstance = ultracart\v2\Api\GiftCertificateApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
+require_once '../vendor/autoload.php';
+require_once '../samples.php';
 
-$gift_certificate_oid = 56; // int
-$gift_certificate_ledger_entry = new \ultracart\v2\models\GiftCertificateLedgerEntry(); // \ultracart\v2\models\GiftCertificateLedgerEntry | Gift certificate ledger entry
+$gift_certificate_api = Samples::getGiftCertificateApi();
 
-try {
-    $result = $apiInstance->addGiftCertificateLedgerEntry($gift_certificate_oid, $gift_certificate_ledger_entry);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling GiftCertificateApi->addGiftCertificateLedgerEntry: ', $e->getMessage(), PHP_EOL;
-}
+$gift_certificate_oid = 676813;
+
+$entry_dts = new DateTime('now');
+
+$ledger_entry = new \ultracart\v2\models\GiftCertificateLedgerEntry();
+$ledger_entry->setAmount(-10.15); // this is the change amount in the gift certificate.  this is not a balance.  it will be subtracted from it.
+$ledger_entry->setDescription("Customer bought something over the counter");
+$ledger_entry->setReferenceOrderId('BLAH-12345'); // if this ledger entry is related to an order, add it here, else use null.
+$ledger_entry->setEntryDts($entry_dts->format('c')); // Must be ISO8601 format
+$ledger_entry->setGiftCertificateLedgerOid(0);  // the system will assign an oid.  do not assign one here.
+$ledger_entry->setGiftCertificateOid($gift_certificate_oid);  // this is an existing gift certificate oid.  I created it using createGiftCertificate.ts
+
+
+// ledger entry does not take an expansion variable.  it will return the entire object by default.
+$api_response = $gift_certificate_api->addGiftCertificateLedgerEntry($gift_certificate_oid, $ledger_entry);
+
+echo '<html lang="en"><body><pre>';
+var_dump($api_response);
+var_dump($api_response->getGiftCertificate());
+echo '</pre></body></html>';
+
+
 ```
+
 
 ### Parameters
 
@@ -83,29 +96,43 @@ Create a gift certificate
 
 Creates a gift certificate for this merchant account.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+use ultracart\v2\models\GiftCertificateCreateRequest;
 
-$apiInstance = ultracart\v2\Api\GiftCertificateApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
+require_once '../vendor/autoload.php';
+require_once '../samples.php';
 
-$gift_certificate_create_request = new \ultracart\v2\models\GiftCertificateCreateRequest(); // \ultracart\v2\models\GiftCertificateCreateRequest | Gift certificate create request
+$gift_certificate_api = Samples::getGiftCertificateApi();
 
-try {
-    $result = $apiInstance->createGiftCertificate($gift_certificate_create_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling GiftCertificateApi->createGiftCertificate: ', $e->getMessage(), PHP_EOL;
-}
+$expiration_dts = new DateTime('now');
+$expiration_dts->modify('+3 month'); // or you can use '-90 day' for deduct
+
+
+$gc_create_request = new GiftCertificateCreateRequest();
+$gc_create_request->setAmount(150.75);
+$gc_create_request->setInitialLedgerDescription("Issued instead of refund");
+$gc_create_request->setMerchantNote('Problem Order: blah-12345\nIssued gift certificate due to stale product.\nIssued By: Customer Service Rep Joe Smith');
+$gc_create_request->setEmail('support@ultracart.com');
+$gc_create_request->setExpirationDts($expiration_dts->format('c'));
+$gc_create_request->setMerchantNote("This is my merchant note.");
+
+
+// create does not take an expansion variable.  it will return the entire object by default.
+$api_response = $gift_certificate_api->createGiftCertificate($gc_create_request);
+
+echo '<html lang="en"><body><pre>';
+var_dump($api_response);
+var_dump($api_response->getGiftCertificate());
+echo '</pre></body></html>';
+
+
 ```
+
 
 ### Parameters
 
@@ -140,28 +167,35 @@ Delete a gift certificate
 
 Deletes a gift certificate for this merchant account.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+require_once '../vendor/autoload.php';
+require_once '../samples.php';
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+$gift_certificate_api = Samples::getGiftCertificateApi();
 
-$apiInstance = ultracart\v2\Api\GiftCertificateApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
+$gift_certificate_oid = 676713;
 
-$gift_certificate_oid = 56; // int
+// by_oid does not take an expansion variable.  it will return the entire object by default.
+$api_response = $gift_certificate_api->deleteGiftCertificate($gift_certificate_oid);
 
-try {
-    $apiInstance->deleteGiftCertificate($gift_certificate_oid);
-} catch (Exception $e) {
-    echo 'Exception when calling GiftCertificateApi->deleteGiftCertificate: ', $e->getMessage(), PHP_EOL;
-}
+
+// if we re-query the gift certificate, an object will still return.  however, the deleted property will be true
+// by_oid does not take an expansion variable.  it will return the entire object by default.
+$api_response = $gift_certificate_api->getGiftCertificateByOid($gift_certificate_oid);
+
+
+echo '<html lang="en"><body><pre>';
+var_dump($api_response);
+var_dump($api_response->getGiftCertificate());
+echo '</pre></body></html>';
+
+
 ```
+
 
 ### Parameters
 
@@ -196,29 +230,29 @@ Retrieve gift certificate by code
 
 Retrieves a gift certificate from the account based on the code (the value the customer enters at checkout time).
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+require_once '../vendor/autoload.php';
+require_once '../samples.php';
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+$gift_certificate_api = Samples::getGiftCertificateApi();
+/** @noinspection SpellCheckingInspection */ $code = "93KHHXD6VH";
 
-$apiInstance = ultracart\v2\Api\GiftCertificateApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
+// by_code does not take an expansion variable.  it will return the entire object by default.
+$api_response = $gift_certificate_api->getGiftCertificateByCode($code);
 
-$code = 'code_example'; // string
 
-try {
-    $result = $apiInstance->getGiftCertificateByCode($code);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling GiftCertificateApi->getGiftCertificateByCode: ', $e->getMessage(), PHP_EOL;
-}
+echo '<html lang="en"><body><pre>';
+var_dump($api_response);
+var_dump($api_response->getGiftCertificate());
+echo '</pre></body></html>';
+
+
 ```
+
 
 ### Parameters
 
@@ -253,29 +287,30 @@ Retrieve gift certificate by oid
 
 Retrieves a gift certificate from the account based on the internal primary key.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+require_once '../vendor/autoload.php';
+require_once '../samples.php';
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+$gift_certificate_api = Samples::getGiftCertificateApi();
 
-$apiInstance = ultracart\v2\Api\GiftCertificateApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
+$gift_certificate_oid = 676713;
 
-$gift_certificate_oid = 56; // int
+// by_oid does not take an expansion variable.  it will return the entire object by default.
+$api_response = $gift_certificate_api->getGiftCertificateByOid($gift_certificate_oid);
 
-try {
-    $result = $apiInstance->getGiftCertificateByOid($gift_certificate_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling GiftCertificateApi->getGiftCertificateByOid: ', $e->getMessage(), PHP_EOL;
-}
+
+echo '<html lang="en"><body><pre>';
+var_dump($api_response);
+var_dump($api_response->getGiftCertificate());
+echo '</pre></body></html>';
+
+
 ```
+
 
 ### Parameters
 
@@ -310,29 +345,30 @@ Retrieve gift certificate by email
 
 Retrieves all gift certificates from the account based on customer email.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+require_once '../vendor/autoload.php';
+require_once '../samples.php';
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+$gift_certificate_api = Samples::getGiftCertificateApi();
 
-$apiInstance = ultracart\v2\Api\GiftCertificateApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
+$email = "support@ultracart.com";
 
-$email = 'email_example'; // string
+// by_email does not take an expansion variable.  it will return the entire object by default.
+$api_response = $gift_certificate_api->getGiftCertificatesByEmail($email);
 
-try {
-    $result = $apiInstance->getGiftCertificatesByEmail($email);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling GiftCertificateApi->getGiftCertificatesByEmail: ', $e->getMessage(), PHP_EOL;
-}
+
+echo '<html lang="en"><body><pre>';
+var_dump($api_response);
+var_dump($api_response->getGiftCertificates());
+echo '</pre></body></html>';
+
+
 ```
+
 
 ### Parameters
 
@@ -367,34 +403,56 @@ Retrieve gift certificates by query
 
 Retrieves gift certificates from the account.  If no parameters are specified, all gift certificates will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+use ultracart\v2\api\GiftCertificateApi;
+use ultracart\v2\models\GiftCertificateQuery;
 
-$apiInstance = ultracart\v2\Api\GiftCertificateApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
+require_once '../vendor/autoload.php';
+require_once '../samples.php';
 
-$gift_certificate_query = new \ultracart\v2\models\GiftCertificateQuery(); // \ultracart\v2\models\GiftCertificateQuery | Gift certificates query
-$_limit = 100; // int | The maximum number of records to return on this one API call. (Max 200)
-$_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
-$_since = '_since_example'; // string | Fetch customers that have been created/modified since this date/time.
-$_sort = '_sort_example'; // string | The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-$_expand = '_expand_example'; // string | The object expansion to perform on the result.  See documentation for examples
+$gift_certificate_api = Samples::getGiftCertificateApi();
 
-try {
-    $result = $apiInstance->getGiftCertificatesByQuery($gift_certificate_query, $_limit, $_offset, $_since, $_sort, $_expand);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling GiftCertificateApi->getGiftCertificatesByQuery: ', $e->getMessage(), PHP_EOL;
+
+function getGiftCertificateChunk(GiftCertificateApi $gift_certificate_api, int $offset, int $limit): array
+{
+    $expansion = "ledger";
+    $query = new GiftCertificateQuery();  // leave this empty to retrieve all records.
+    $api_response = $gift_certificate_api->getGiftCertificatesByQuery($query, $limit, $offset, null, null, $expansion);
+    if($api_response->getGiftCertificates() != null){
+        return $api_response->getGiftCertificates();
+    }
+    return [];
 }
+
+$gift_certificates = [];
+
+$iteration = 1;
+$offset = 0;
+$limit = 200;
+$more_records_to_fetch = true;
+
+while( $more_records_to_fetch ){
+
+    echo "executing iteration " . $iteration . '<br>';
+    $chunk_of_certificates = getGiftCertificateChunk($gift_certificate_api, $offset, $limit);
+    $gift_certificates = array_merge($gift_certificates, $chunk_of_certificates);
+    $offset = $offset + $limit;
+    $more_records_to_fetch = count($chunk_of_certificates) == $limit;
+    $iteration++;
+
+}
+
+echo '<html lang="en"><body><pre>';
+var_dump($gift_certificates);
+echo '</pre></body></html>';
+
 ```
+
 
 ### Parameters
 
@@ -434,30 +492,33 @@ Update a gift certificate
 
 Update a gift certificate for this merchant account.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+require_once '../vendor/autoload.php';
+require_once '../samples.php';
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+$gift_certificate_api = Samples::getGiftCertificateApi();
 
-$apiInstance = ultracart\v2\Api\GiftCertificateApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
+$gift_certificate_oid = 676713;
 
-$gift_certificate_oid = 56; // int
-$gift_certificate = new \ultracart\v2\models\GiftCertificate(); // \ultracart\v2\models\GiftCertificate | Gift certificate
+// by_oid does not take an expansion variable.  it will return the entire object by default.
+$api_response = $gift_certificate_api->getGiftCertificateByOid($gift_certificate_oid);
+$gift_certificate = $api_response->getGiftCertificate();
 
-try {
-    $result = $apiInstance->updateGiftCertificate($gift_certificate_oid, $gift_certificate);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling GiftCertificateApi->updateGiftCertificate: ', $e->getMessage(), PHP_EOL;
-}
+$gift_certificate->setEmail("perry@ultracart.com");
+$api_response = $gift_certificate_api->updateGiftCertificate($gift_certificate_oid, $gift_certificate);
+
+echo '<html lang="en"><body><pre>';
+var_dump($api_response);
+var_dump($api_response->getGiftCertificate());
+echo '</pre></body></html>';
+
+
 ```
+
 
 ### Parameters
 

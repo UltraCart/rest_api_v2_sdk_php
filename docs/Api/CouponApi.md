@@ -35,28 +35,22 @@ Delete a coupon
 
 Delete a coupon on the UltraCart account.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+use ultracart\v2\api\CouponApi;
 
-$apiInstance = ultracart\v2\Api\CouponApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
+require_once '../vendor/autoload.php';
 
-$coupon_oid = 56; // int | The coupon_oid to delete.
+$coupon_api = CouponApi::usingApiKey(Constants::API_KEY);
+$coupon_oid = 123456789;
 
-try {
-    $apiInstance->deleteCoupon($coupon_oid);
-} catch (Exception $e) {
-    echo 'Exception when calling CouponApi->deleteCoupon: ', $e->getMessage(), PHP_EOL;
-}
+$coupon_api->deleteCoupon($coupon_oid);
 ```
+
 
 ### Parameters
 
@@ -91,28 +85,25 @@ Deletes multiple coupons
 
 Delete coupons on the UltraCart account.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+use ultracart\v2\api\CouponApi;
+use ultracart\v2\models\CouponDeletesRequest;
 
-$apiInstance = ultracart\v2\Api\CouponApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
+require_once '../vendor/autoload.php';
 
-$coupon_delete_request = new \ultracart\v2\models\CouponDeletesRequest(); // \ultracart\v2\models\CouponDeletesRequest | Coupon oids to delete
+$coupon_api = CouponApi::usingApiKey(Constants::API_KEY);
+$merchant_code = '10OFF';
+$deleteRequest = new CouponDeletesRequest();
+$deleteRequest->setCouponCodes([$merchant_code]);
 
-try {
-    $apiInstance->deleteCouponsByCode($coupon_delete_request);
-} catch (Exception $e) {
-    echo 'Exception when calling CouponApi->deleteCouponsByCode: ', $e->getMessage(), PHP_EOL;
-}
+$coupon_api->deleteCouponsByCode($deleteRequest);
 ```
+
 
 ### Parameters
 
@@ -147,28 +138,27 @@ Deletes multiple coupons
 
 Delete coupons on the UltraCart account.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+use ultracart\v2\api\CouponApi;
+use ultracart\v2\models\CouponDeletesRequest;
 
-$apiInstance = ultracart\v2\Api\CouponApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
+require_once '../vendor/autoload.php';
 
-$coupon_delete_request = new \ultracart\v2\models\CouponDeletesRequest(); // \ultracart\v2\models\CouponDeletesRequest | Coupon oids to delete
+// This method is useful if you have the coupons stored in your own system along with their coupon_oids.  If not,
+// just use deleteCouponsByCode()
 
-try {
-    $apiInstance->deleteCouponsByOid($coupon_delete_request);
-} catch (Exception $e) {
-    echo 'Exception when calling CouponApi->deleteCouponsByOid: ', $e->getMessage(), PHP_EOL;
-}
+$coupon_api = CouponApi::usingApiKey(Constants::API_KEY);
+$deleteRequest = new CouponDeletesRequest();
+$deleteRequest->setCouponOids([1234567, 2345678, 3456789]);
+
+$coupon_api->deleteCouponsByOid($deleteRequest);
 ```
+
 
 ### Parameters
 
@@ -203,29 +193,29 @@ Determines if a coupon merchant code already exists
 
 Determines if a coupon merchant code already exists.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+use ultracart\v2\api\CouponApi;
 
-$apiInstance = ultracart\v2\Api\CouponApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
+require_once '../vendor/autoload.php';
 
-$merchant_code = 'merchant_code_example'; // string | The coupon merchant code to examine.
+$coupon_api = CouponApi::usingApiKey(Constants::API_KEY);
+$merchant_code = '10OFF';
 
-try {
-    $result = $apiInstance->doesCouponCodeExist($merchant_code);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CouponApi->doesCouponCodeExist: ', $e->getMessage(), PHP_EOL;
-}
+$api_response = $coupon_api->doesCouponCodeExist($merchant_code);
+$coupon_exists = $api_response->getExists();
+
+echo '<html lang="en"><body><pre>';
+var_dump($api_response);
+echo '</pre></body></html>';
+
+
 ```
+
 
 ### Parameters
 
@@ -260,30 +250,30 @@ Generates one time codes for a coupon
 
 Generate one time codes for a coupon
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+use ultracart\v2\api\CouponApi;
+use ultracart\v2\models\CouponCodesRequest;
 
-$apiInstance = ultracart\v2\Api\CouponApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
+require_once '../vendor/autoload.php';
 
-$coupon_oid = 56; // int | The coupon oid to generate codes.
-$coupon_codes_request = new \ultracart\v2\models\CouponCodesRequest(); // \ultracart\v2\models\CouponCodesRequest | Coupon code generation parameters
+$coupon_api = CouponApi::usingApiKey(Constants::API_KEY);
+$coupon_oid = 12345678;  // if you don't know your coupon_oid, use generateOneTimeCodesByMerchantCode.  same results
 
-try {
-    $result = $apiInstance->generateCouponCodes($coupon_oid, $coupon_codes_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CouponApi->generateCouponCodes: ', $e->getMessage(), PHP_EOL;
-}
+$codesRequest = new CouponCodesRequest();
+$codesRequest->setQuantity(100); // give me 100 codes.
+$codesRequest->setExpirationDts(date('Y-m-d', strtotime('90 days')) . "T00:00:00+00:00"); // do you want the codes to expire?
+// $codesRequest->setExpirationSeconds(); // also an option for short-lived coupons
+
+$api_response =  $coupon_api->generateCouponCodes($coupon_oid, $codesRequest);
+$coupon_codes = $api_response->getCouponCodes();
+
 ```
+
 
 ### Parameters
 
@@ -319,30 +309,30 @@ Generates one time codes by merchant code
 
 Generate one time codes by merchant code
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+use ultracart\v2\api\CouponApi;
+use ultracart\v2\models\CouponCodesRequest;
 
-$apiInstance = ultracart\v2\Api\CouponApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
+require_once '../vendor/autoload.php';
 
-$merchant_code = 'merchant_code_example'; // string | The merchant code to generate one time codes.
-$coupon_codes_request = new \ultracart\v2\models\CouponCodesRequest(); // \ultracart\v2\models\CouponCodesRequest | Coupon code generation parameters
+$coupon_api = CouponApi::usingApiKey(Constants::API_KEY);
+$merchant_code = '10OFF';
 
-try {
-    $result = $apiInstance->generateOneTimeCodesByMerchantCode($merchant_code, $coupon_codes_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CouponApi->generateOneTimeCodesByMerchantCode: ', $e->getMessage(), PHP_EOL;
-}
+$codesRequest = new CouponCodesRequest();
+$codesRequest->setQuantity(100); // give me 100 codes.
+$codesRequest->setExpirationDts(date('Y-m-d', strtotime('90 days')) . "T00:00:00+00:00"); // do you want the codes to expire?
+// $codesRequest->setExpirationSeconds(); // also an option for short-lived coupons
+
+$api_response =  $coupon_api->generateOneTimeCodesByMerchantCode($merchant_code, $codesRequest);
+$coupon_codes = $api_response->getCouponCodes();
+
 ```
+
 
 ### Parameters
 
@@ -378,28 +368,39 @@ Retrieve auto apply rules and conditions
 
 Retrieve auto apply rules and conditions
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+/*
+    getAutoApply returns back the items and subtotals that trigger "auto coupons", i.e. coupons that are automatically
+    added to a shopping cart.  The manual configuration of auto coupons is at the bottom of the main coupons screen.
+    See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/1376525/Coupons#Coupons-Navigation
 
-$apiInstance = ultracart\v2\Api\CouponApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
+ */
 
+use ultracart\v2\api\CouponApi;
 
-try {
-    $result = $apiInstance->getAutoApply();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CouponApi->getAutoApply: ', $e->getMessage(), PHP_EOL;
+require_once '../vendor/autoload.php';
+
+$coupon_api = CouponApi::usingApiKey(Constants::API_KEY);
+$api_response =  $coupon_api->getAutoApply();
+echo 'These are the subtotal levels:<br>';
+foreach ($api_response->getSubtotalLevels() as $subtotalLevel) {
+    var_dump($subtotalLevel);
+    echo '<br>';
 }
+echo 'These are the item triggers:<br>';
+foreach ($api_response->getRequiredItems() as $requiredItem) {
+    var_dump($requiredItem);
+    echo '<br>';
+}
+
+
 ```
+
 
 ### Parameters
 
@@ -432,30 +433,29 @@ Retrieve a coupon
 
 Retrieves a single coupon using the specified coupon profile oid.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+use ultracart\v2\api\CouponApi;
 
-$apiInstance = ultracart\v2\Api\CouponApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
+require_once '../vendor/autoload.php';
 
-$coupon_oid = 56; // int | The coupon oid to retrieve.
-$_expand = '_expand_example'; // string | The object expansion to perform on the result.  See documentation for examples
+$coupon_api = CouponApi::usingApiKey(Constants::API_KEY);
+$coupon_oid = 123456789;
 
-try {
-    $result = $apiInstance->getCoupon($coupon_oid, $_expand);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CouponApi->getCoupon: ', $e->getMessage(), PHP_EOL;
-}
+$_expand = null; // coupons do not have expansions
+$api_response = $coupon_api->getCoupon($coupon_oid, $_expand);
+
+echo '<html lang="en"><body><pre>';
+var_dump($api_response);
+echo '</pre></body></html>';
+
+
 ```
+
 
 ### Parameters
 
@@ -491,30 +491,26 @@ Retrieve a coupon by merchant code
 
 Retrieves a single coupon using the specified merchant code.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+use ultracart\v2\api\CouponApi;
 
-$apiInstance = ultracart\v2\Api\CouponApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
+require_once '../vendor/autoload.php';
 
-$merchant_code = 'merchant_code_example'; // string | The coupon merchant code to retrieve.
-$_expand = '_expand_example'; // string | The object expansion to perform on the result.  See documentation for examples
+$coupon_api = CouponApi::usingApiKey(Constants::API_KEY);
+$api_response = $coupon_api->getCouponByMerchantCode('10OFF');
 
-try {
-    $result = $apiInstance->getCouponByMerchantCode($merchant_code, $_expand);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CouponApi->getCouponByMerchantCode: ', $e->getMessage(), PHP_EOL;
-}
+echo '<html lang="en"><body><pre>';
+var_dump($api_response);
+echo '</pre></body></html>';
+
+
 ```
+
 
 ### Parameters
 
@@ -550,41 +546,102 @@ Retrieve coupons
 
 Retrieves coupons for this account.  If no parameters are specified, all coupons will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+// Error help: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/39077885/Troubleshooting+API+Errors
+// Additional Docs: https://www.ultracart.com/api/#introduction.html
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+// This is an old example.  Please see getCouponsByQuery as they do essentially the same thing, but 
+// getCouponsByQuery is easier to use.
 
-$apiInstance = ultracart\v2\Api\CouponApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
+use ultracart\v2\api\CouponApi;
+use ultracart\v2\ApiException;
+use ultracart\v2\models\Coupon;
 
-$merchant_code = 'merchant_code_example'; // string | Merchant code
-$description = 'description_example'; // string | Description
-$coupon_type = 'coupon_type_example'; // string | Coupon type
-$start_date_begin = 'start_date_begin_example'; // string | Start date begin
-$start_date_end = 'start_date_end_example'; // string | Start date end
-$expiration_date_begin = 'expiration_date_begin_example'; // string | Expiration date begin
-$expiration_date_end = 'expiration_date_end_example'; // string | Expiration date end
-$affiliate_oid = 56; // int | Affiliate oid
-$exclude_expired = True; // bool | Exclude expired
-$_limit = 100; // int | The maximum number of records to return on this one API call. (Max 200)
-$_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
-$_sort = '_sort_example'; // string | The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-$_expand = '_expand_example'; // string | The object expansion to perform on the result.  See documentation for examples
+require_once '../vendor/autoload.php';
+$coupon_api = ultracart\v2\api\CouponApi::usingApiKey(Constants::API_KEY);
+?>
 
+<?php
+/**
+ * returns a block of customers
+ * @param CouponApi $coupon_api
+ * @param int $offset pagination variable
+ * @param int $limit pagination variable.  max server will allow is 200
+ * @return array|Coupon[]
+ * @throws ApiException
+ */
+function get_coupons_chunk(CouponApi $coupon_api, int $offset = 0, int $limit = 200) {
+    
+    // TODO: consider using getCouponsByQuery() as it does not require all search parameters
+    $merchant_code = null;
+    $description = null;
+    $coupon_type = null;
+    $start_date_begin = null;
+    $start_date_end = null;
+    $expiration_date_begin = null;
+    $expiration_date_end = null;
+    $affiliate_oid = null;
+    $exclude_expired = null;
+    
+    $_limit = $limit;
+    $_offset = $offset;
+    $_sort = null;
+    $_expand = null; // getCoupons doesn't have any expansions.  full record is always returned.
+
+    $get_response = $coupon_api->getCoupons($merchant_code, $description, $coupon_type, $start_date_begin, $start_date_end, $expiration_date_begin, $expiration_date_end, $affiliate_oid, $exclude_expired, $_limit, $_offset, $_sort, $_expand);
+    if($get_response->getSuccess()){
+        return $get_response->getCoupons();
+    }
+
+    return array();
+}
+?>
+
+<html>
+<body>
+
+<?php
+$coupons = array();
 try {
-    $result = $apiInstance->getCoupons($merchant_code, $description, $coupon_type, $start_date_begin, $start_date_end, $expiration_date_begin, $expiration_date_end, $affiliate_oid, $exclude_expired, $_limit, $_offset, $_sort, $_expand);
-    print_r($result);
+
+    $iteration = 1;
+    $offset = 0;
+    $limit = 200;  
+    $need_more_records = true;
+    while($need_more_records){
+
+        echo "executing iteration #" . $iteration++ . "<br>";
+        $block_of_customers = get_coupons_chunk($coupon_api, $offset, $limit);
+        foreach($block_of_customers as $coupon){
+            $coupons[] = $coupon;
+        }
+
+        $offset += $limit;
+        $need_more_records = count($block_of_customers) == $limit;
+        // sleep(1);  // I'm testing rate limiter headers.  this should probably be uncommented.  maybe.
+    }
+
+} catch (ApiException $e) {
+    echo 'API Exception when calling CouponApi->getCoupons: ', $e->getMessage(), PHP_EOL;
+    echo print_r($e->getResponseBody()), PHP_EOL;
 } catch (Exception $e) {
     echo 'Exception when calling CouponApi->getCoupons: ', $e->getMessage(), PHP_EOL;
 }
+
+echo '<pre>';
+var_dump($coupons);
+echo '</pre>';
+
+?>
+</body>
+</html>
 ```
+
 
 ### Parameters
 
@@ -631,33 +688,128 @@ Retrieve coupons by query
 
 Retrieves coupons from the account.  If no parameters are specified, all coupons will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+set_time_limit(3000); // pull all orders could take a long time.
+ini_set('max_execution_time', 3000);
+ini_set('display_errors', 1);
 
-$apiInstance = ultracart\v2\Api\CouponApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
+/*
+retrieves coupons by query.  Can filter on specific coupons or return back all coupons.  Support pagination.
+A note about the coupon type below.  Those are string literals representing coupons.  This method is used UltraCart's
+backend, and it uses a dropdown box for that value showing friendly descriptions of them.
 
-$coupon_query = new \ultracart\v2\models\CouponQuery(); // \ultracart\v2\models\CouponQuery | Coupon query
-$_limit = 100; // int | The maximum number of records to return on this one API call. (Max 200)
-$_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
-$_sort = '_sort_example'; // string | The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-$_expand = '_expand_example'; // string | The object expansion to perform on the result.  See documentation for examples
+It's not anticipated a merchant would need to query by coupon type, but in the event you do, here's the list of constants:
+"BOGO limit L"
+"Free shipping method Y"
+"Free shipping method Y with purchase of items Z"
+"Free shipping method Y with subtotal Z"
+"Free shipping on item Z"
+"Free X with purchase of Y dollars limit L"
+"Free X with purchase of Y dollars limit L and shipping Z"
+"Free X with purchase of Y limit L"
+"Free X with purchase of Y limit L and free shipping"
+"I Free X with every J purchase of Y limit L"
+"I Free X with every J purchase of Y mix and match group limit L"
+"Item X for Y with purchase of Z limit L"
+"multiple X $ off item Z limit L"
+"No discount"
+"Tiered Dollar Off Subtotal"
+"Tiered % off items Z limit L"
+"Tiered $ off item Z limit L"
+"Tiered Percent off shipping methods Y with subtotal Z"
+"Tiered Percent Off Subtotal"
+"X dollars off shipping method Y with purchase of items Z"
+"X dollars off subtotal with purchase Y items"
+"X $ for item Z limit L"
+"X more loyalty cashback"
+"X more loyalty points"
+"X % off item Z and free shipping"
+"X $ off item Z limit L"
+"X % off item Z limit L"
+"X % off msrp item Z limit L"
+"X % off retail item Z limit L"
+"X $ off shipping method Y"
+"X % off shipping method Y"
+"X $ off subtotal"
+"X % off subtotal"
+"X $ off subtotal and shipping"
+"X % off subtotal free shipping method Y"
+"X % off subtotal limit L"
+"X off subtotal with purchase block of L item Y"
+"X % off subtotal with purchase of item Y"
+"X % off subtotal with purchase of Y"
+"X $ off subtotal with Y $ purchase"
+"X $ off subtotal with Y $ purchase and free shipping"
+"X % off Y with purchase Z limit L"
+"X % off Y with T purchase Z limit L"
+"X percent more loyalty points"
+"X $ shipping method Y with subtotal Z"
+"X ? subtotal"
+ */
 
-try {
-    $result = $apiInstance->getCouponsByQuery($coupon_query, $_limit, $_offset, $_sort, $_expand);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CouponApi->getCouponsByQuery: ', $e->getMessage(), PHP_EOL;
+use ultracart\v2\api\CouponApi;
+use ultracart\v2\models\CouponQuery;
+
+require_once '../vendor/autoload.php';
+require_once '../constants.php';
+
+
+$coupon_api = CouponApi::usingApiKey(Constants::API_KEY);
+
+
+function getCouponChunk(CouponApi $coupon_api, int $offset, int $limit): array
+{
+
+    $query = new CouponQuery();
+    $query->setMerchantCode('10OFF'); // supports partial matching
+    $query->setDescription('Saturday'); // supports partial matching
+    // $query->setCouponType(null); // see the note at the top of this sample.
+    // $query->setStartDtsBegin(date('Y-m-d', strtotime('-2000 days')) . "T00:00:00+00:00"); // yes, that 2,000 days.
+    // $query->setStartDtsEnd(date('Y-m-d', time()) . "T00:00:00+00:00");
+    // $query->setExpirationDtsBegin(null);
+    // $query->setExpirationDtsEnd(null);
+    // $query->setAffiliateOid(0); // this requires an affiliate_oid.  If you need help finding an affiliate's oid, contact support.
+    $query->setExcludeExpired(true);
+
+    $_expand = null; // coupons do not have expansions
+    $_sort = "merchant_code"; // Possible sorts: "coupon_type", "merchant_code", "description", "start_dts", "expiration_dts", "quickbooks_code"
+
+    $api_response = $coupon_api->getCouponsByQuery($query, $limit, $offset, $_sort, $_expand);
+    if($api_response->getCoupons() != null){
+        return $api_response->getCoupons();
+    }
+    return [];
 }
+
+$coupons = [];
+
+$iteration = 1;
+$offset = 0;
+$limit = 200;
+$more_records_to_fetch = true;
+
+while( $more_records_to_fetch ){
+
+    echo "executing iteration " . $iteration . '<br>';
+    $chunk_of_coupons = getCouponChunk($coupon_api, $offset, $limit);
+    $coupons = array_merge($coupons, $chunk_of_coupons);
+    $offset = $offset + $limit;
+    $more_records_to_fetch = count($chunk_of_coupons) == $limit;
+    $iteration++;
+
+}
+
+// this could get verbose...
+echo '<html lang="en"><body><pre>';
+var_dump($coupons);
+echo '</pre></body></html>';
 ```
+
 
 ### Parameters
 
@@ -696,28 +848,16 @@ Retrieve values needed for a coupon editor
 
 Retrieve values needed for a coupon editor
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\CouponApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getEditorValues();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CouponApi->getEditorValues: ', $e->getMessage(), PHP_EOL;
-}
+// This is an internal method used by our Coupon management screen.  It returns back all the static data needed
+// for our dropdown lists, such as coupon constants.  You can call it if you like, but the data won't be
+// of much use.
 ```
+
 
 ### Parameters
 
@@ -750,30 +890,89 @@ Insert a coupon
 
 Insert a coupon on the UltraCart account.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+use ultracart\v2\api\CouponApi;
+use ultracart\v2\models\Coupon;
+use ultracart\v2\models\CouponAmountOffSubtotal;
 
-$apiInstance = ultracart\v2\Api\CouponApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
+require_once '../vendor/autoload.php';
 
-$coupon = new \ultracart\v2\models\Coupon(); // \ultracart\v2\models\Coupon | Coupon to insert
-$_expand = '_expand_example'; // string | The object expansion to perform on the result.  See documentation for examples
+$coupon_api = CouponApi::usingApiKey(Constants::API_KEY);
 
-try {
-    $result = $apiInstance->insertCoupon($coupon, $_expand);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CouponApi->insertCoupon: ', $e->getMessage(), PHP_EOL;
-}
+$coupon = new Coupon();
+$coupon->setMerchantCode('11OFF');
+$coupon->setDescription("Eleven dollars off subtotal");
+
+// each coupon must have a 'type' defined by creating a child object directly beneath the main Coupon object.
+// this is complex and there are a LOT of coupon types.  See the backend (secure.ultracart.com) coupon screens
+// to get an idea of what functionality each coupon possesses.  If you're not sure, contact UltraCart support.
+$coupon->setAmountOffSubtotal(new CouponAmountOffSubtotal());
+$coupon->getAmountOffSubtotal()->setDiscountAmount(11);
+
+// Here are the different coupon types, but beware that new coupons are added frequently.
+//CouponAmountOffItems
+//CouponAmountOffShipping
+//CouponAmountOffShippingWithItemsPurchase
+//CouponAmountOffSubtotal
+//CouponAmountOffSubtotalAndShipping
+//CouponAmountOffSubtotalFreeShippingWithPurchase
+//CouponAmountOffSubtotalWithBlockPurchase
+//CouponAmountOffSubtotalWithItemsPurchase
+//CouponAmountOffSubtotalWithPurchase
+//CouponAmountShippingWithSubtotal
+//CouponDiscountItems
+//CouponDiscountItemWithItemPurchase
+//CouponFreeItemAndShippingWithSubtotal
+//CouponFreeItemsWithItemPurchase
+//CouponFreeItemsWithMixMatchPurchase
+//CouponFreeItemWithItemPurchase
+//CouponFreeItemWithItemPurchaseAndFreeShipping
+//CouponFreeItemWithSubtotal
+//CouponFreeShipping
+//CouponFreeShippingSpecificItems
+//CouponFreeShippingWithItemsPurchase
+//CouponFreeShippingWithSubtotal
+//CouponMoreLoyaltyCashback
+//CouponMoreLoyaltyPoints
+//CouponMultipleAmountsOffItems
+//CouponNoDiscount
+//CouponPercentMoreLoyaltyCashback
+//CouponPercentMoreLoyaltyPoints
+//CouponPercentOffItems
+//CouponPercentOffItemsAndFreeShipping
+//CouponPercentOffItemsWithItemsPurchase
+//CouponPercentOffItemWithItemsQuantityPurchase
+//CouponPercentOffMsrpItems
+//CouponPercentOffRetailPriceItems
+//CouponPercentOffShipping
+//CouponPercentOffSubtotal
+//CouponPercentOffSubtotalAndFreeShipping
+//CouponPercentOffSubtotalLimit
+//CouponPercentOffSubtotalWithItemsPurchase
+//CouponPercentOffSubtotalWithSubtotal
+//CouponTieredAmountOffItems
+//CouponTieredAmountOffSubtotal
+//CouponTieredPercentOffItems
+//CouponTieredPercentOffShipping
+//CouponTieredPercentOffSubtotal
+//CouponTieredPercentOffSubtotalBasedOnMSRP
+//CouponTierItemDiscount
+//CouponTierPercent
+//CouponTierQuantityAmount
+//CouponTierQuantityPercent
+
+$_expand = null; // coupons do not have expansions
+$api_response = $coupon_api->insertCoupon($coupon, $_expand);
+echo '<html lang="en"><body><pre>';
+var_dump($api_response);
+echo '</pre></body></html>';
 ```
+
 
 ### Parameters
 
@@ -809,31 +1008,38 @@ Insert multiple coupons
 
 Insert multiple coupon on the UltraCart account.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+/*
+    Similar to insertCoupon except this method takes a request object containing up to 50 coupons.  Please see
+    insertCoupon for a detailed example on creating a coupon.  It is not repeated here.
+ */
 
-$apiInstance = ultracart\v2\Api\CouponApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
+use ultracart\v2\api\CouponApi;
+use ultracart\v2\models\Coupon;
+use ultracart\v2\models\CouponsRequest;
 
-$coupons_request = new \ultracart\v2\models\CouponsRequest(); // \ultracart\v2\models\CouponsRequest | Coupons to insert (maximum 50)
-$_expand = '_expand_example'; // string | The object expansion to perform on the result.  See documentation for examples
-$_placeholders = True; // bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
+require_once '../vendor/autoload.php';
 
-try {
-    $result = $apiInstance->insertCoupons($coupons_request, $_expand, $_placeholders);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CouponApi->insertCoupons: ', $e->getMessage(), PHP_EOL;
-}
+$coupon_api = CouponApi::usingApiKey(Constants::API_KEY);
+
+$couponsRequest = new CouponsRequest();
+$coupons = [];
+// TODO: add Coupons() to this array (see insertCoupon sample for help)
+$couponsRequest->setCoupons($coupons);
+$_expand = null; // coupons do not have expansions
+$_placeholders = null; // coupons do not have placeholders.
+
+$api_response = $coupon_api->insertCoupons($couponsRequest, $_expand, $_placeholders);
+echo '<html lang="en"><body><pre>';
+var_dump($api_response);
+echo '</pre></body></html>';
 ```
+
 
 ### Parameters
 
@@ -870,30 +1076,16 @@ Searches for items to display within a coupon editor and assign to coupons
 
 Searches for items to display within a coupon editor and assign to coupons
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\CouponApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$s = 's_example'; // string
-$m = 56; // int
-
-try {
-    $result = $apiInstance->searchItems($s, $m);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CouponApi->searchItems: ', $e->getMessage(), PHP_EOL;
-}
+// This is an internal method used by our Coupon management screen.  It searches merchant items to display in
+// some of the coupon editor dropdowns.  See ItemApi.getItemsByQuery if you need to search items.  This method
+// is inflexible and geared toward our UI.
 ```
+
 
 ### Parameters
 
@@ -929,28 +1121,49 @@ Update auto apply rules and conditions
 
 Update auto apply rules and conditions
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+/*
+    updateAutoApply updates the items and subtotals conditions that trigger "auto coupons", i.e. coupons that are automatically
+    added to a shopping cart.  The manual configuration of auto coupons is at the bottom of the main coupons screen.
+    See: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/1376525/Coupons#Coupons-Navigation
 
-$apiInstance = ultracart\v2\Api\CouponApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
+    // Success is 200 (There is no content.  Yes, this should return a 204, but it returns a 200 with no content)
+ */
 
-$conditions = new \ultracart\v2\models\CouponAutoApplyConditions(); // \ultracart\v2\models\CouponAutoApplyConditions | Conditions
+use ultracart\v2\api\CouponApi;
+use ultracart\v2\models\CouponAutoApplyCondition;
+use ultracart\v2\models\CouponAutoApplyConditions;
 
-try {
-    $apiInstance->updateAutoApply($conditions);
-} catch (Exception $e) {
-    echo 'Exception when calling CouponApi->updateAutoApply: ', $e->getMessage(), PHP_EOL;
-}
+require_once '../vendor/autoload.php';
+
+$coupon_api = CouponApi::usingApiKey(Constants::API_KEY);
+
+
+$autoApply = new CouponAutoApplyConditions();
+
+$itemCondition = new CouponAutoApplyCondition();
+$itemCondition->setRequiredItemId('ITEM_ABC');
+$itemCondition->setCouponCode('10OFF');
+$itemConditions = [$itemCondition];
+
+$subtotalCondition = new CouponAutoApplyCondition();
+$subtotalCondition->setMinimumSubtotal(50); // must spend fifty dollars
+$itemCondition->setCouponCode('5OFF');
+$subtotalConditions = [$subtotalCondition];
+
+$autoApply->setRequiredItems($itemConditions);
+$autoApply->setSubtotalLevels($subtotalConditions);
+
+
+$coupon_api->updateAutoApply($autoApply);
+
 ```
+
 
 ### Parameters
 
@@ -985,31 +1198,34 @@ Update a coupon
 
 Update a coupon on the UltraCart account.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+use ultracart\v2\api\CouponApi;
 
-$apiInstance = ultracart\v2\Api\CouponApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
+require_once '../vendor/autoload.php';
 
-$coupon_oid = 56; // int | The coupon_oid to update.
-$coupon = new \ultracart\v2\models\Coupon(); // \ultracart\v2\models\Coupon | Coupon to update
-$_expand = '_expand_example'; // string | The object expansion to perform on the result.  See documentation for examples
+$coupon_api = CouponApi::usingApiKey(Constants::API_KEY);
+$coupon_oid = 123456789;
 
-try {
-    $result = $apiInstance->updateCoupon($coupon_oid, $coupon, $_expand);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CouponApi->updateCoupon: ', $e->getMessage(), PHP_EOL;
-}
+$_expand = null; // coupons do not have expansions
+$api_response = $coupon_api->getCoupon($coupon_oid, $_expand);
+$coupon = $api_response->getCoupon();
+
+// update the coupon.  this can be difficult given the complexity of coupons.  see insertCoupon sample for details.
+$coupon->setExpirationDts(date('Y-m-d', strtotime('90 days')) . "T00:00:00+00:00");
+
+$api_response = $coupon_api->updateCoupon($coupon_oid, $coupon, $_expand);
+$updated_coupon = $api_response->getCoupon();
+
+echo '<html lang="en"><body><pre>';
+var_dump($updated_coupon);
+echo '</pre></body></html>';
 ```
+
 
 ### Parameters
 
@@ -1046,32 +1262,41 @@ Update multiple coupons
 
 Update multiple coupon on the UltraCart account.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+use ultracart\v2\api\CouponApi;
+use ultracart\v2\models\CouponsRequest;
 
-$apiInstance = ultracart\v2\Api\CouponApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
+require_once '../vendor/autoload.php';
 
-$coupons_request = new \ultracart\v2\models\CouponsRequest(); // \ultracart\v2\models\CouponsRequest | Coupons to update (synchronous maximum 50 / asynchronous maximum 100)
-$_expand = '_expand_example'; // string | The object expansion to perform on the result.  See documentation for examples
-$_placeholders = True; // bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
-$_async = True; // bool | True if the operation should be run async.  No result returned
+$coupon_api = CouponApi::usingApiKey(Constants::API_KEY);
+$coupon_oid = 123456789;
 
-try {
-    $result = $apiInstance->updateCoupons($coupons_request, $_expand, $_placeholders, $_async);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CouponApi->updateCoupons: ', $e->getMessage(), PHP_EOL;
-}
+$_expand = null; // coupons do not have expansions
+$_placeholders = null; // coupons do not use placeholders
+
+$api_response = $coupon_api->getCoupon($coupon_oid, $_expand);
+$coupon = $api_response->getCoupon();
+
+// update the coupon.  this can be difficult given the complexity of coupons.  see insertCoupon sample for details.
+$coupon->setExpirationDts(date('Y-m-d', strtotime('90 days')) . "T00:00:00+00:00");
+
+// This example only has one coupon.  But it's a trivial matter to add more coupons
+$coupons_request = new CouponsRequest();
+$coupons_request->setCoupons([$coupon]);
+
+$api_response = $coupon_api->updateCoupons($coupons_request, $_expand, $_placeholders);
+$updated_coupons = $api_response->getCoupons();
+
+echo '<html lang="en"><body><pre>';
+var_dump($updated_coupons);
+echo '</pre></body></html>';
 ```
+
 
 ### Parameters
 
@@ -1109,30 +1334,42 @@ Upload one-time codes for a coupon
 
 Upload one-time codes for a coupon
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+/*
 
-$apiInstance = ultracart\v2\Api\CouponApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
+uploadCouponCodes allows a merchant to upload one-time use codes and associate them with a merchant code (i.e. a coupon).
+UltraCart has methods for generating one-time codes, and they work well, but this method exists when the merchant generates
+them themselves.  This frequently occurs when a merchant sends out a mailer with unique coupon codes on the mailer.  The
+merchant can then upload those codes with this method.
 
-$coupon_oid = 56; // int | The coupon oid to associate with the provided one-time codes.
-$upload_coupon_codes_request = new \ultracart\v2\models\UploadCouponCodesRequest(); // \ultracart\v2\models\UploadCouponCodesRequest | One-time coupon codes
+ */
 
-try {
-    $result = $apiInstance->uploadCouponCodes($coupon_oid, $upload_coupon_codes_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CouponApi->uploadCouponCodes: ', $e->getMessage(), PHP_EOL;
-}
+use ultracart\v2\api\CouponApi;
+use ultracart\v2\models\UploadCouponCodesRequest;
+
+
+require_once '../vendor/autoload.php';
+
+$coupon_api = CouponApi::usingApiKey(Constants::API_KEY);
+$coupon_oid = 12345678;  // if you don't know your coupon_oid, use generateOneTimeCodesByMerchantCode.  same results
+
+$codesRequest = new UploadCouponCodesRequest();
+$codesRequest->setCouponCodes(['code1', 'code2', 'code3']);
+
+$api_response =  $coupon_api->uploadCouponCodes($coupon_oid, $codesRequest);
+echo 'Uploaded codes:<br>';
+var_dump($api_response->getUploadedCodes());
+echo 'Duplicated codes:<br>';
+var_dump($api_response->getDuplicateCodes());
+echo 'Rejected codes:<br>';
+var_dump($api_response->getRejectedCodes());
 ```
+
 
 ### Parameters
 

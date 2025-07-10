@@ -21,30 +21,13 @@ Retrieve an integration log
 
 Retrieve an integration logs from the account based identifiers
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\IntegrationLogApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$pk = 'pk_example'; // string
-$sk = 'sk_example'; // string
-
-try {
-    $result = $apiInstance->getIntegrationLog($pk, $sk);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling IntegrationLogApi->getIntegrationLog: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -80,31 +63,13 @@ Retrieve an integration log file
 
 Retrieve an integration log file from the account based identifiers
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\IntegrationLogApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$pk = 'pk_example'; // string
-$sk = 'sk_example'; // string
-$uuid = 'uuid_example'; // string
-
-try {
-    $result = $apiInstance->getIntegrationLogFile($pk, $sk, $uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling IntegrationLogApi->getIntegrationLogFile: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -141,31 +106,13 @@ Retrieve an integration log file converted to PDF
 
 Retrieve an integration log file from the account based identifiers
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\IntegrationLogApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$pk = 'pk_example'; // string
-$sk = 'sk_example'; // string
-$uuid = 'uuid_example'; // string
-
-try {
-    $result = $apiInstance->getIntegrationLogFilePdf($pk, $sk, $uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling IntegrationLogApi->getIntegrationLogFilePdf: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -202,29 +149,13 @@ Retrieve integration log summaries
 
 Retrieves a set of integration log summaries from the account based on a query object.
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\IntegrationLogApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$integration_log_summaries_query = new \ultracart\v2\models\IntegrationLogSummaryQueryRequest(); // \ultracart\v2\models\IntegrationLogSummaryQueryRequest | Integration log summaries query
-
-try {
-    $result = $apiInstance->getIntegrationLogSummariesQuery($integration_log_summaries_query);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling IntegrationLogApi->getIntegrationLogSummariesQuery: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -259,32 +190,13 @@ Retrieve integration logs
 
 Retrieves a set of integration logs from the account based on a query object.
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\IntegrationLogApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$integration_log_query = new \ultracart\v2\models\IntegrationLogQueryRequest(); // \ultracart\v2\models\IntegrationLogQueryRequest | Integration log query
-$_limit = 100; // int | The maximum number of records to return on this one API call. (Default 100, Max 500)
-$_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
-$_sort = '_sort_example'; // string | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-
-try {
-    $result = $apiInstance->getIntegrationLogsQuery($integration_log_query, $_limit, $_offset, $_sort);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling IntegrationLogApi->getIntegrationLogsQuery: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 

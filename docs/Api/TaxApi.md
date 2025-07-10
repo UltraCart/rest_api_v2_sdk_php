@@ -44,29 +44,19 @@ Deletes a Self tax provider city
 
 Deletes a Self tax provider city.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\TaxApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$city = 'city_example'; // string | The city being deleted.
-$tax_city = new \ultracart\v2\models\TaxCity(); // \ultracart\v2\models\TaxCity | tax city to be deleted
-
-try {
-    $apiInstance->deleteTaxProviderSelfCity($city, $tax_city);
-} catch (Exception $e) {
-    echo 'Exception when calling TaxApi->deleteTaxProviderSelfCity: ', $e->getMessage(), PHP_EOL;
-}
+// The TaxRestApi is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the Tax Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -102,29 +92,19 @@ Deletes a Self tax provider country
 
 Deletes a Self tax provider country.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\TaxApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$country_code = 'country_code_example'; // string | The country code being deleted.
-$tax_country = new \ultracart\v2\models\TaxCountry(); // \ultracart\v2\models\TaxCountry | tax country to be deleted
-
-try {
-    $apiInstance->deleteTaxProviderSelfCountry($country_code, $tax_country);
-} catch (Exception $e) {
-    echo 'Exception when calling TaxApi->deleteTaxProviderSelfCountry: ', $e->getMessage(), PHP_EOL;
-}
+// The TaxRestApi is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the Tax Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -160,29 +140,19 @@ Deletes a Self tax provider county
 
 Deletes a Self tax provider county.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\TaxApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$county = 'county_example'; // string | The county being deleted.
-$tax_county = new \ultracart\v2\models\TaxCounty(); // \ultracart\v2\models\TaxCounty | tax county to be deleted
-
-try {
-    $apiInstance->deleteTaxProviderSelfCounty($county, $tax_county);
-} catch (Exception $e) {
-    echo 'Exception when calling TaxApi->deleteTaxProviderSelfCounty: ', $e->getMessage(), PHP_EOL;
-}
+// The TaxRestApi is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the Tax Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -218,29 +188,19 @@ Deletes a Self tax provider postalCode
 
 Deletes a Self tax provider postalCode.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\TaxApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$postal_code = 'postal_code_example'; // string | The postal code being deleted.
-$tax_postal_code = new \ultracart\v2\models\TaxPostalCode(); // \ultracart\v2\models\TaxPostalCode | tax postal code to be deleted
-
-try {
-    $apiInstance->deleteTaxProviderSelfPostalCode($postal_code, $tax_postal_code);
-} catch (Exception $e) {
-    echo 'Exception when calling TaxApi->deleteTaxProviderSelfPostalCode: ', $e->getMessage(), PHP_EOL;
-}
+// The TaxRestApi is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the Tax Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -276,29 +236,19 @@ Deletes a Self tax provider state
 
 Deletes a Self tax provider state.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\TaxApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$state_code = 'state_code_example'; // string | The state code being deleted.
-$tax_state = new \ultracart\v2\models\TaxState(); // \ultracart\v2\models\TaxState | tax state to be deleted
-
-try {
-    $apiInstance->deleteTaxProviderSelfState($state_code, $tax_state);
-} catch (Exception $e) {
-    echo 'Exception when calling TaxApi->deleteTaxProviderSelfState: ', $e->getMessage(), PHP_EOL;
-}
+// The TaxRestApi is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the Tax Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -334,28 +284,19 @@ Retrieve the Avalara tax provider
 
 Retrieves the Avalara tax provider.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\TaxApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getTaxProviderAvalara();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TaxApi->getTaxProviderAvalara: ', $e->getMessage(), PHP_EOL;
-}
+// The TaxRestApi is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the Tax Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -388,29 +329,19 @@ Returns Avalara Tax companies configured by the merchant
 
 Returns Avalara Tax companies configured by the merchant
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\TaxApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$tax_provider_avalara = new \ultracart\v2\models\TaxProviderAvalara(); // \ultracart\v2\models\TaxProviderAvalara | TaxProviderAvalara object
-
-try {
-    $result = $apiInstance->getTaxProviderAvalaraCompanies($tax_provider_avalara);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TaxApi->getTaxProviderAvalaraCompanies: ', $e->getMessage(), PHP_EOL;
-}
+// The TaxRestApi is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the Tax Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -445,28 +376,19 @@ Attempts to connect to Avalara and returns back the response
 
 Attempts to connect to Avalara and returns back the response.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\TaxApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getTaxProviderAvalaraTest();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TaxApi->getTaxProviderAvalaraTest: ', $e->getMessage(), PHP_EOL;
-}
+// The TaxRestApi is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the Tax Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -499,28 +421,19 @@ Retrieve the Self tax provider
 
 Retrieves the Self tax provider.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\TaxApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getTaxProviderSelf();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TaxApi->getTaxProviderSelf: ', $e->getMessage(), PHP_EOL;
-}
+// The TaxRestApi is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the Tax Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -553,28 +466,19 @@ Retrieve the Self tax provider countries
 
 Retrieves the Self tax provider countries.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\TaxApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getTaxProviderSelfCountries();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TaxApi->getTaxProviderSelfCountries: ', $e->getMessage(), PHP_EOL;
-}
+// The TaxRestApi is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the Tax Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -607,29 +511,19 @@ Retrieve the Self tax provider regions for a given country code
 
 Retrieves the Self tax provider regions for a given country code.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\TaxApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$country_code = 'country_code_example'; // string | The country code regions desired.
-
-try {
-    $result = $apiInstance->getTaxProviderSelfRegionsByCountryCode($country_code);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TaxApi->getTaxProviderSelfRegionsByCountryCode: ', $e->getMessage(), PHP_EOL;
-}
+// The TaxRestApi is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the Tax Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -664,28 +558,19 @@ Retrieve the Sovos tax provider
 
 Retrieves the Sovos tax provider.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\TaxApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getTaxProviderSovos();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TaxApi->getTaxProviderSovos: ', $e->getMessage(), PHP_EOL;
-}
+// The TaxRestApi is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the Tax Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -718,28 +603,19 @@ Attempts to connect to Sovos and returns back the response
 
 Attempts to connect to Sovos and returns back the response.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\TaxApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getTaxProviderSovosTest();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TaxApi->getTaxProviderSovosTest: ', $e->getMessage(), PHP_EOL;
-}
+// The TaxRestApi is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the Tax Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -772,28 +648,19 @@ Retrieve the TaxJar tax provider
 
 Retrieves the TaxJar tax provider.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\TaxApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getTaxProviderTaxJar();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TaxApi->getTaxProviderTaxJar: ', $e->getMessage(), PHP_EOL;
-}
+// The TaxRestApi is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the Tax Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -826,28 +693,19 @@ Attempts to connect to TaxJar and returns back the response
 
 Attempts to connect to TaxJar and returns back the response.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\TaxApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getTaxProviderTaxJarTest();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TaxApi->getTaxProviderTaxJarTest: ', $e->getMessage(), PHP_EOL;
-}
+// The TaxRestApi is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the Tax Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -880,28 +738,19 @@ Retrieve the UltraCart tax provider
 
 Retrieves the UltraCart tax provider.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\TaxApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getTaxProviderUltraCart();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TaxApi->getTaxProviderUltraCart: ', $e->getMessage(), PHP_EOL;
-}
+// The TaxRestApi is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the Tax Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -934,31 +783,19 @@ Retrieve tax methods
 
 Retrieves tax methods for this account.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\TaxApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$_limit = 100; // int | The maximum number of records to return on this one API call. (Max 200)
-$_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
-$_expand = '_expand_example'; // string | The object expansion to perform on the result.  See documentation for examples
-
-try {
-    $result = $apiInstance->getTaxProviders($_limit, $_offset, $_expand);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TaxApi->getTaxProviders: ', $e->getMessage(), PHP_EOL;
-}
+// The TaxRestApi is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the Tax Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -995,29 +832,19 @@ Toggle a tax provider to active
 
 Toggle a tax provider to active.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\TaxApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$provider_name = 'provider_name_example'; // string | The tax provider to set active.
-
-try {
-    $result = $apiInstance->setActiveTaxProvider($provider_name);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TaxApi->setActiveTaxProvider: ', $e->getMessage(), PHP_EOL;
-}
+// The TaxRestApi is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the Tax Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -1052,29 +879,19 @@ Update the Avalara tax provider
 
 Update the Avalara tax provider.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\TaxApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$tax_provider_avalara = new \ultracart\v2\models\TaxProviderAvalara(); // \ultracart\v2\models\TaxProviderAvalara | TaxProviderAvalara object
-
-try {
-    $result = $apiInstance->updateTaxProviderAvalara($tax_provider_avalara);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TaxApi->updateTaxProviderAvalara: ', $e->getMessage(), PHP_EOL;
-}
+// The TaxRestApi is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the Tax Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -1109,29 +926,19 @@ Update the Self tax provider
 
 Update the Self tax provider.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\TaxApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$tax_provider_self = new \ultracart\v2\models\TaxProviderSelf(); // \ultracart\v2\models\TaxProviderSelf | TaxProviderSelf object
-
-try {
-    $result = $apiInstance->updateTaxProviderSelf($tax_provider_self);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TaxApi->updateTaxProviderSelf: ', $e->getMessage(), PHP_EOL;
-}
+// The TaxRestApi is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the Tax Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -1166,30 +973,19 @@ Updates a Self tax provider city
 
 Updates a Self tax provider city.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\TaxApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$city = 'city_example'; // string | The city being updated.
-$tax_city = new \ultracart\v2\models\TaxCity(); // \ultracart\v2\models\TaxCity | tax city to be updated
-
-try {
-    $result = $apiInstance->updateTaxProviderSelfCity($city, $tax_city);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TaxApi->updateTaxProviderSelfCity: ', $e->getMessage(), PHP_EOL;
-}
+// The TaxRestApi is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the Tax Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -1225,30 +1021,19 @@ Updates a Self tax provider country
 
 Updates a Self tax provider country.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\TaxApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$country_code = 'country_code_example'; // string | The country code being updated.
-$tax_country = new \ultracart\v2\models\TaxCountry(); // \ultracart\v2\models\TaxCountry | tax country to be updated
-
-try {
-    $result = $apiInstance->updateTaxProviderSelfCountry($country_code, $tax_country);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TaxApi->updateTaxProviderSelfCountry: ', $e->getMessage(), PHP_EOL;
-}
+// The TaxRestApi is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the Tax Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -1284,30 +1069,19 @@ Updates a Self tax provider county
 
 Updates a Self tax provider county.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\TaxApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$county = 'county_example'; // string | The county being updated.
-$tax_county = new \ultracart\v2\models\TaxCounty(); // \ultracart\v2\models\TaxCounty | tax county to be updated
-
-try {
-    $result = $apiInstance->updateTaxProviderSelfCounty($county, $tax_county);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TaxApi->updateTaxProviderSelfCounty: ', $e->getMessage(), PHP_EOL;
-}
+// The TaxRestApi is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the Tax Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -1343,30 +1117,19 @@ Updates a Self tax provider postalCode
 
 Updates a Self tax provider postalCode.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\TaxApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$postal_code = 'postal_code_example'; // string | The postal code being updated.
-$tax_postal_code = new \ultracart\v2\models\TaxPostalCode(); // \ultracart\v2\models\TaxPostalCode | tax postal code to be updated
-
-try {
-    $result = $apiInstance->updateTaxProviderSelfPostalCode($postal_code, $tax_postal_code);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TaxApi->updateTaxProviderSelfPostalCode: ', $e->getMessage(), PHP_EOL;
-}
+// The TaxRestApi is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the Tax Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -1402,30 +1165,19 @@ Updates a Self tax provider state
 
 Updates a Self tax provider state.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\TaxApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$state_code = 'state_code_example'; // string | The state code being updated.
-$tax_state = new \ultracart\v2\models\TaxState(); // \ultracart\v2\models\TaxState | tax state to be updated
-
-try {
-    $result = $apiInstance->updateTaxProviderSelfState($state_code, $tax_state);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TaxApi->updateTaxProviderSelfState: ', $e->getMessage(), PHP_EOL;
-}
+// The TaxRestApi is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the Tax Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -1461,29 +1213,19 @@ Update the Sovos tax provider
 
 Update the Sovos tax provider.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\TaxApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$tax_provider_sovos = new \ultracart\v2\models\TaxProviderSovos(); // \ultracart\v2\models\TaxProviderSovos | TaxProviderSovos object
-
-try {
-    $result = $apiInstance->updateTaxProviderSovos($tax_provider_sovos);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TaxApi->updateTaxProviderSovos: ', $e->getMessage(), PHP_EOL;
-}
+// The TaxRestApi is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the Tax Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -1518,29 +1260,19 @@ Update the TaxJar tax provider
 
 Update the TaxJar tax provider.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\TaxApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$tax_provider_tax_jar = new \ultracart\v2\models\TaxProviderTaxJar(); // \ultracart\v2\models\TaxProviderTaxJar | TaxProviderTaxJar object
-
-try {
-    $result = $apiInstance->updateTaxProviderTaxJar($tax_provider_tax_jar);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TaxApi->updateTaxProviderTaxJar: ', $e->getMessage(), PHP_EOL;
-}
+// The TaxRestApi is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the Tax Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -1575,29 +1307,19 @@ Update the UltraCart tax provider
 
 Update the UltraCart tax provider.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\TaxApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$tax_provider_ultracart = new \ultracart\v2\models\TaxProviderUltraCart(); // \ultracart\v2\models\TaxProviderUltraCart | TaxProviderUltraCart object
-
-try {
-    $result = $apiInstance->updateTaxProviderUltraCart($tax_provider_ultracart);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TaxApi->updateTaxProviderUltraCart: ', $e->getMessage(), PHP_EOL;
-}
+// The TaxRestApi is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the Tax Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 

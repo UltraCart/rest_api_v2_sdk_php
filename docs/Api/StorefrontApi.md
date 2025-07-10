@@ -192,29 +192,13 @@ addToLibrary($add_library_request): \ultracart\v2\models\LibraryItemResponse
 
 Add to library
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$add_library_request = new \ultracart\v2\models\AddLibraryItemRequest(); // \ultracart\v2\models\AddLibraryItemRequest | New library item request
-
-try {
-    $result = $apiInstance->addToLibrary($add_library_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->addToLibrary: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -247,29 +231,13 @@ applyToStoreFront($apply_library_request): \ultracart\v2\models\ApplyLibraryItem
 
 Apply library item to storefront.
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$apply_library_request = new \ultracart\v2\models\ApplyLibraryItemRequest(); // \ultracart\v2\models\ApplyLibraryItemRequest | New library item
-
-try {
-    $result = $apiInstance->applyToStoreFront($apply_library_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->applyToStoreFront: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -302,30 +270,13 @@ archiveEmailList($storefront_oid, $email_list_uuid): \ultracart\v2\models\EmailL
 
 Archive email list
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_list_uuid = 'email_list_uuid_example'; // string
-
-try {
-    $result = $apiInstance->archiveEmailList($storefront_oid, $email_list_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->archiveEmailList: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -359,30 +310,13 @@ archiveEmailSegment($storefront_oid, $email_segment_uuid): \ultracart\v2\models\
 
 Archive email segment
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_segment_uuid = 'email_segment_uuid_example'; // string
-
-try {
-    $result = $apiInstance->archiveEmailSegment($storefront_oid, $email_segment_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->archiveEmailSegment: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -416,31 +350,13 @@ backPopulateEmailFlow($storefront_oid, $email_flow_uuid, $back_populate_request)
 
 Back populate email flow
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_flow_uuid = 'email_flow_uuid_example'; // string
-$back_populate_request = new \ultracart\v2\models\EmailFlowBackPopulateRequest(); // \ultracart\v2\models\EmailFlowBackPopulateRequest | The request to back populate
-
-try {
-    $result = $apiInstance->backPopulateEmailFlow($storefront_oid, $email_flow_uuid, $back_populate_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->backPopulateEmailFlow: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -475,31 +391,13 @@ checkDownloadEmailSegment($storefront_oid, $email_segment_uuid, $email_segment_r
 
 Check download of email segment
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_segment_uuid = 'email_segment_uuid_example'; // string
-$email_segment_rebuild_uuid = 'email_segment_rebuild_uuid_example'; // string
-
-try {
-    $result = $apiInstance->checkDownloadEmailSegment($storefront_oid, $email_segment_uuid, $email_segment_rebuild_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->checkDownloadEmailSegment: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -534,31 +432,13 @@ cloneEmailCampaign($storefront_oid, $email_campaign_uuid, $target_storefront_oid
 
 Clone email campaign
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_campaign_uuid = 'email_campaign_uuid_example'; // string
-$target_storefront_oid = 56; // int
-
-try {
-    $result = $apiInstance->cloneEmailCampaign($storefront_oid, $email_campaign_uuid, $target_storefront_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->cloneEmailCampaign: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -593,31 +473,13 @@ cloneEmailFlow($storefront_oid, $email_flow_uuid, $target_storefront_oid): \ultr
 
 Clone email flow
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_flow_uuid = 'email_flow_uuid_example'; // string
-$target_storefront_oid = 56; // int
-
-try {
-    $result = $apiInstance->cloneEmailFlow($storefront_oid, $email_flow_uuid, $target_storefront_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->cloneEmailFlow: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -652,29 +514,13 @@ createEmailSendingDomain($domain): \ultracart\v2\models\EmailSendingDomainRespon
 
 Create email campaign
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$domain = 'domain_example'; // string
-
-try {
-    $result = $apiInstance->createEmailSendingDomain($domain);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->createEmailSendingDomain: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -707,29 +553,12 @@ createEmailSendingDomain2($email_domain): \ultracart\v2\models\EmailSendingDomai
 
 Create email sending domain for various providers
 
+
 ### Example
 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+(No example for this operation).
 
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$email_domain = new \ultracart\v2\models\EmailDomain(); // \ultracart\v2\models\EmailDomain | EmailDomain
-
-try {
-    $result = $apiInstance->createEmailSendingDomain2($email_domain);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->createEmailSendingDomain2: ', $e->getMessage(), PHP_EOL;
-}
-```
 
 ### Parameters
 
@@ -762,31 +591,12 @@ createFsDirectory($id, $name, $parent_storefront_fs_directory_oid): \ultracart\v
 
 Create file manager directory
 
+
 ### Example
 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+(No example for this operation).
 
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$id = 56; // int
-$name = 'name_example'; // string
-$parent_storefront_fs_directory_oid = 56; // int
-
-try {
-    $result = $apiInstance->createFsDirectory($id, $name, $parent_storefront_fs_directory_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->createFsDirectory: ', $e->getMessage(), PHP_EOL;
-}
-```
 
 ### Parameters
 
@@ -821,29 +631,13 @@ createTwilioAccount($twilio): \ultracart\v2\models\TwilioResponse
 
 Create Twilio account
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$twilio = new \ultracart\v2\models\Twilio(); // \ultracart\v2\models\Twilio | Twilio
-
-try {
-    $result = $apiInstance->createTwilioAccount($twilio);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->createTwilioAccount: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -876,30 +670,13 @@ deleteEmailCampaignFolder($storefront_oid, $email_campaign_folder_uuid): \ultrac
 
 Delete email campaignFolder
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_campaign_folder_uuid = 'email_campaign_folder_uuid_example'; // string
-
-try {
-    $result = $apiInstance->deleteEmailCampaignFolder($storefront_oid, $email_campaign_folder_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->deleteEmailCampaignFolder: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -933,29 +710,13 @@ deleteEmailCommseqStat($storefront_oid, $commseq_uuid)
 
 Delete communication sequence stats
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$commseq_uuid = 'commseq_uuid_example'; // string
-
-try {
-    $apiInstance->deleteEmailCommseqStat($storefront_oid, $commseq_uuid);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->deleteEmailCommseqStat: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -989,30 +750,13 @@ deleteEmailEmail($storefront_oid, $commseq_email_uuid): \ultracart\v2\models\Bas
 
 Delete email email
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$commseq_email_uuid = 'commseq_email_uuid_example'; // string
-
-try {
-    $result = $apiInstance->deleteEmailEmail($storefront_oid, $commseq_email_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->deleteEmailEmail: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -1046,30 +790,13 @@ deleteEmailFlowFolder($storefront_oid, $email_flow_folder_uuid): \ultracart\v2\m
 
 Delete email flowFolder
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_flow_folder_uuid = 'email_flow_folder_uuid_example'; // string
-
-try {
-    $result = $apiInstance->deleteEmailFlowFolder($storefront_oid, $email_flow_folder_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->deleteEmailFlowFolder: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -1103,31 +830,13 @@ deleteEmailListCustomer($storefront_oid, $email_list_uuid, $email_customer_uuid)
 
 Delete email list customer
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_list_uuid = 'email_list_uuid_example'; // string
-$email_customer_uuid = 'email_customer_uuid_example'; // string
-
-try {
-    $result = $apiInstance->deleteEmailListCustomer($storefront_oid, $email_list_uuid, $email_customer_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->deleteEmailListCustomer: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -1162,30 +871,13 @@ deleteEmailListSegmentFolder($storefront_oid, $email_list_segment_folder_uuid): 
 
 Delete email ListSegmentFolder
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_list_segment_folder_uuid = 'email_list_segment_folder_uuid_example'; // string
-
-try {
-    $result = $apiInstance->deleteEmailListSegmentFolder($storefront_oid, $email_list_segment_folder_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->deleteEmailListSegmentFolder: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -1219,30 +911,13 @@ deleteEmailPostcard($storefront_oid, $commseq_postcard_uuid): \ultracart\v2\mode
 
 Delete email postcard
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$commseq_postcard_uuid = 'commseq_postcard_uuid_example'; // string
-
-try {
-    $result = $apiInstance->deleteEmailPostcard($storefront_oid, $commseq_postcard_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->deleteEmailPostcard: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -1276,29 +951,13 @@ deleteEmailSendingDomain($domain): \ultracart\v2\models\BaseResponse
 
 delete email campaign
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$domain = 'domain_example'; // string
-
-try {
-    $result = $apiInstance->deleteEmailSendingDomain($domain);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->deleteEmailSendingDomain: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -1331,29 +990,13 @@ deleteExperiment($storefront_oid, $storefront_experiment_oid)
 
 Delete experiment
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$storefront_experiment_oid = 56; // int
-
-try {
-    $apiInstance->deleteExperiment($storefront_oid, $storefront_experiment_oid);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->deleteExperiment: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -1387,31 +1030,13 @@ deleteFsFile($id, $parent_storefront_fs_directory_oid, $storefront_fs_file_oid):
 
 Delete file manager directory
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$id = 56; // int
-$parent_storefront_fs_directory_oid = 56; // int
-$storefront_fs_file_oid = 56; // int
-
-try {
-    $result = $apiInstance->deleteFsFile($id, $parent_storefront_fs_directory_oid, $storefront_fs_file_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->deleteFsFile: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -1448,29 +1073,13 @@ Delete screen recording heatmap
 
 Delete screen recording heatmap
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$query = new \ultracart\v2\models\ScreenRecordingHeatmapReset(); // \ultracart\v2\models\ScreenRecordingHeatmapReset | Query
-
-try {
-    $apiInstance->deleteHeatmap($storefront_oid, $query);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->deleteHeatmap: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -1504,28 +1113,13 @@ deleteLibraryItem($library_item_oid)
 
 Delete library item
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$library_item_oid = 56; // int
-
-try {
-    $apiInstance->deleteLibraryItem($library_item_oid);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->deleteLibraryItem: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -1558,28 +1152,13 @@ deleteLibraryItemPublishedVersions($library_item_oid)
 
 Delete all published versions for a library item, including anything in review.
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$library_item_oid = 56; // int
-
-try {
-    $apiInstance->deleteLibraryItemPublishedVersions($library_item_oid);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->deleteLibraryItemPublishedVersions: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -1612,29 +1191,13 @@ deleteScreenRecordingSegment($storefront_oid, $screen_recording_segment_oid)
 
 Delete screen recording segment
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$screen_recording_segment_oid = 56; // int
-
-try {
-    $apiInstance->deleteScreenRecordingSegment($storefront_oid, $screen_recording_segment_oid);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->deleteScreenRecordingSegment: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -1668,29 +1231,13 @@ deleteTwilioAccount($esp_twilio_uuid): \ultracart\v2\models\BaseResponse
 
 delete Twilio account
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$esp_twilio_uuid = 'esp_twilio_uuid_example'; // string
-
-try {
-    $result = $apiInstance->deleteTwilioAccount($esp_twilio_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->deleteTwilioAccount: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -1723,29 +1270,13 @@ duplicateLibraryItem($library_item_oid): \ultracart\v2\models\LibraryItemRespons
 
 Duplicate library item.
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$library_item_oid = 56; // int
-
-try {
-    $result = $apiInstance->duplicateLibraryItem($library_item_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->duplicateLibraryItem: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -1780,29 +1311,13 @@ Update favorite flag on screen recording
 
 Update favorite flag on screen recording
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$screen_recording_uuid = 'screen_recording_uuid_example'; // string
-
-try {
-    $apiInstance->favoriteScreenRecording($storefront_oid, $screen_recording_uuid);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->favoriteScreenRecording: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -1836,30 +1351,13 @@ geocodeAddress($storefront_oid, $geocode_request): \ultracart\v2\models\GeocodeR
 
 Obtain lat/long for an address
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$geocode_request = new \ultracart\v2\models\GeocodeRequest(); // \ultracart\v2\models\GeocodeRequest | geocode request
-
-try {
-    $result = $apiInstance->geocodeAddress($storefront_oid, $geocode_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->geocodeAddress: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -1895,29 +1393,13 @@ Get countries
 
 Obtain a list of all the countries
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-
-try {
-    $result = $apiInstance->getCountries($storefront_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getCountries: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -1952,29 +1434,13 @@ Gets editor token
 
 Fetches a temporary authentication token for the editor
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-
-try {
-    $result = $apiInstance->getEditorToken($storefront_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEditorToken: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -2007,29 +1473,13 @@ getEmailBaseTemplates($storefront_oid): \ultracart\v2\models\EmailBaseTemplateLi
 
 Get email communication base templates
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-
-try {
-    $result = $apiInstance->getEmailBaseTemplates($storefront_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailBaseTemplates: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -2062,30 +1512,13 @@ getEmailCampaign($storefront_oid, $email_campaign_uuid): \ultracart\v2\models\Em
 
 Get email campaign
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_campaign_uuid = 'email_campaign_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getEmailCampaign($storefront_oid, $email_campaign_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailCampaign: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -2119,30 +1552,13 @@ getEmailCampaignFolder($storefront_oid, $email_campaign_folder_uuid): \ultracart
 
 Get email campaign folder
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_campaign_folder_uuid = 'email_campaign_folder_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getEmailCampaignFolder($storefront_oid, $email_campaign_folder_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailCampaignFolder: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -2176,29 +1592,13 @@ getEmailCampaignFolders($storefront_oid): \ultracart\v2\models\EmailCampaignFold
 
 Get email campaign folders
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-
-try {
-    $result = $apiInstance->getEmailCampaignFolders($storefront_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailCampaignFolders: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -2231,30 +1631,13 @@ getEmailCampaignScreenshots($storefront_oid, $email_campaign_uuid): \ultracart\v
 
 Get email campaign screenshots
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_campaign_uuid = 'email_campaign_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getEmailCampaignScreenshots($storefront_oid, $email_campaign_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailCampaignScreenshots: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -2288,29 +1671,13 @@ getEmailCampaigns($storefront_oid): \ultracart\v2\models\EmailCampaignsResponse
 
 Get email campaigns
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-
-try {
-    $result = $apiInstance->getEmailCampaigns($storefront_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailCampaigns: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -2343,30 +1710,13 @@ getEmailCampaignsWithStats($storefront_oid, $stat_days): \ultracart\v2\models\Em
 
 Get email campaigns with stats
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$stat_days = 'stat_days_example'; // string
-
-try {
-    $result = $apiInstance->getEmailCampaignsWithStats($storefront_oid, $stat_days);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailCampaignsWithStats: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -2400,30 +1750,13 @@ getEmailCommseq($storefront_oid, $commseq_uuid): \ultracart\v2\models\EmailComms
 
 Get email commseq
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$commseq_uuid = 'commseq_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getEmailCommseq($storefront_oid, $commseq_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailCommseq: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -2457,31 +1790,13 @@ getEmailCommseqEmailStats($storefront_oid, $commseq_uuid, $stats_request): \ultr
 
 Get email communication sequence emails stats
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$commseq_uuid = 'commseq_uuid_example'; // string
-$stats_request = new \ultracart\v2\models\EmailStatSummaryRequest(); // \ultracart\v2\models\EmailStatSummaryRequest | StatsRequest
-
-try {
-    $result = $apiInstance->getEmailCommseqEmailStats($storefront_oid, $commseq_uuid, $stats_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailCommseqEmailStats: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -2516,31 +1831,13 @@ getEmailCommseqPostcardStats($storefront_oid, $commseq_uuid, $stats_request): \u
 
 Get email communication sequence postcard stats
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$commseq_uuid = 'commseq_uuid_example'; // string
-$stats_request = new \ultracart\v2\models\EmailStatPostcardSummaryRequest(); // \ultracart\v2\models\EmailStatPostcardSummaryRequest | StatsRequest
-
-try {
-    $result = $apiInstance->getEmailCommseqPostcardStats($storefront_oid, $commseq_uuid, $stats_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailCommseqPostcardStats: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -2575,30 +1872,13 @@ getEmailCommseqPostcardTracking($storefront_oid, $commseq_postcard_uuid): \ultra
 
 Get email communication postcard tracking
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$commseq_postcard_uuid = 'commseq_postcard_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getEmailCommseqPostcardTracking($storefront_oid, $commseq_postcard_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailCommseqPostcardTracking: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -2632,30 +1912,13 @@ getEmailCommseqRateLimiters($storefront_oid, $commseq_uuid): \ultracart\v2\model
 
 Get email commseq rate limiters
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$commseq_uuid = 'commseq_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getEmailCommseqRateLimiters($storefront_oid, $commseq_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailCommseqRateLimiters: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -2689,31 +1952,13 @@ getEmailCommseqSmsStats($storefront_oid, $commseq_uuid, $stats_request): \ultrac
 
 Get email communication sequence sms stats
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$commseq_uuid = 'commseq_uuid_example'; // string
-$stats_request = new \ultracart\v2\models\EmailStatSmsSummaryRequest(); // \ultracart\v2\models\EmailStatSmsSummaryRequest | StatsRequest
-
-try {
-    $result = $apiInstance->getEmailCommseqSmsStats($storefront_oid, $commseq_uuid, $stats_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailCommseqSmsStats: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -2748,30 +1993,13 @@ getEmailCommseqStatOverall($storefront_oid, $commseq_uuid): \ultracart\v2\models
 
 Get communication sequence stats overall
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$commseq_uuid = 'commseq_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getEmailCommseqStatOverall($storefront_oid, $commseq_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailCommseqStatOverall: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -2805,31 +2033,13 @@ getEmailCommseqStepStats($storefront_oid, $commseq_uuid, $stats_request): \ultra
 
 Get email communication sequence step stats
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$commseq_uuid = 'commseq_uuid_example'; // string
-$stats_request = new \ultracart\v2\models\EmailStepStatRequest(); // \ultracart\v2\models\EmailStepStatRequest | StatsRequest
-
-try {
-    $result = $apiInstance->getEmailCommseqStepStats($storefront_oid, $commseq_uuid, $stats_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailCommseqStepStats: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -2864,31 +2074,13 @@ getEmailCommseqStepWaiting($storefront_oid, $commseq_uuid, $waiting_request): \u
 
 Get email communication sequence customers waiting at each requested step
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$commseq_uuid = 'commseq_uuid_example'; // string
-$waiting_request = new \ultracart\v2\models\EmailStepWaitingRequest(); // \ultracart\v2\models\EmailStepWaitingRequest | WaitingRequest
-
-try {
-    $result = $apiInstance->getEmailCommseqStepWaiting($storefront_oid, $commseq_uuid, $waiting_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailCommseqStepWaiting: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -2923,30 +2115,13 @@ getEmailCommseqWebhookEditorValues($storefront_oid, $commseq_uuid): \ultracart\v
 
 Get email webhook editor values
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$commseq_uuid = 'commseq_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getEmailCommseqWebhookEditorValues($storefront_oid, $commseq_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailCommseqWebhookEditorValues: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -2980,29 +2155,13 @@ getEmailCommseqs($storefront_oid): \ultracart\v2\models\EmailCommseqsResponse
 
 Get email commseqs
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-
-try {
-    $result = $apiInstance->getEmailCommseqs($storefront_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailCommseqs: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -3035,30 +2194,13 @@ getEmailCustomerEditorUrl($storefront_oid, $email_customer_uuid): \ultracart\v2\
 
 Get customers editor URL
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_customer_uuid = 'email_customer_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getEmailCustomerEditorUrl($storefront_oid, $email_customer_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailCustomerEditorUrl: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -3092,32 +2234,13 @@ getEmailCustomers($storefront_oid, $page_number, $page_size, $search_email_prefi
 
 Get email customers
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$page_number = 56; // int
-$page_size = 56; // int
-$search_email_prefix = 'search_email_prefix_example'; // string
-
-try {
-    $result = $apiInstance->getEmailCustomers($storefront_oid, $page_number, $page_size, $search_email_prefix);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailCustomers: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -3153,30 +2276,13 @@ getEmailDashboardActivity($storefront_oid, $last_records): \ultracart\v2\models\
 
 Get email dashboard activity
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$last_records = 56; // int
-
-try {
-    $result = $apiInstance->getEmailDashboardActivity($storefront_oid, $last_records);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailDashboardActivity: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -3210,30 +2316,13 @@ getEmailDashboardStats($storefront_oid, $days): \ultracart\v2\models\EmailDashbo
 
 Get dashboard stats
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$days = 56; // int
-
-try {
-    $result = $apiInstance->getEmailDashboardStats($storefront_oid, $days);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailDashboardStats: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -3267,31 +2356,13 @@ getEmailDispatchLogs($storefront_oid, $commseq_uuid, $commseq_step_uuid): \ultra
 
 Get email dispatch logs
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$commseq_uuid = 'commseq_uuid_example'; // string
-$commseq_step_uuid = 'commseq_step_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getEmailDispatchLogs($storefront_oid, $commseq_uuid, $commseq_step_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailDispatchLogs: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -3326,30 +2397,13 @@ getEmailEmail($storefront_oid, $commseq_email_uuid): \ultracart\v2\models\EmailC
 
 Get email email
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$commseq_email_uuid = 'commseq_email_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getEmailEmail($storefront_oid, $commseq_email_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailEmail: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -3383,33 +2437,13 @@ getEmailEmailClicks($storefront_oid, $commseq_uuid, $commseq_step_uuid, $commseq
 
 Get email email clicks
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$commseq_uuid = 'commseq_uuid_example'; // string
-$commseq_step_uuid = 'commseq_step_uuid_example'; // string
-$commseq_email_uuid = 'commseq_email_uuid_example'; // string
-$days = 56; // int
-
-try {
-    $result = $apiInstance->getEmailEmailClicks($storefront_oid, $commseq_uuid, $commseq_step_uuid, $commseq_email_uuid, $days);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailEmailClicks: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -3446,31 +2480,13 @@ getEmailEmailCustomerEditorUrl($storefront_oid, $commseq_email_uuid, $order_id):
 
 Get email order customer editor url
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$commseq_email_uuid = 'commseq_email_uuid_example'; // string
-$order_id = 'order_id_example'; // string
-
-try {
-    $result = $apiInstance->getEmailEmailCustomerEditorUrl($storefront_oid, $commseq_email_uuid, $order_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailEmailCustomerEditorUrl: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -3505,33 +2521,13 @@ getEmailEmailOrders($storefront_oid, $commseq_uuid, $commseq_step_uuid, $commseq
 
 Get email email orders
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$commseq_uuid = 'commseq_uuid_example'; // string
-$commseq_step_uuid = 'commseq_step_uuid_example'; // string
-$commseq_email_uuid = 'commseq_email_uuid_example'; // string
-$days = 56; // int
-
-try {
-    $result = $apiInstance->getEmailEmailOrders($storefront_oid, $commseq_uuid, $commseq_step_uuid, $commseq_email_uuid, $days);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailEmailOrders: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -3568,29 +2564,13 @@ getEmailEmails($storefront_oid): \ultracart\v2\models\EmailCommseqEmailsResponse
 
 Get email emails
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-
-try {
-    $result = $apiInstance->getEmailEmails($storefront_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailEmails: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -3623,30 +2603,13 @@ getEmailEmailsMultiple($storefront_oid, $email_commseq_emails_request): \ultraca
 
 Get email emails multiple
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_commseq_emails_request = new \ultracart\v2\models\EmailCommseqEmailsRequest(); // \ultracart\v2\models\EmailCommseqEmailsRequest | Request of email uuids
-
-try {
-    $result = $apiInstance->getEmailEmailsMultiple($storefront_oid, $email_commseq_emails_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailEmailsMultiple: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -3680,30 +2643,13 @@ getEmailFlow($storefront_oid, $email_flow_uuid): \ultracart\v2\models\EmailFlowR
 
 Get email flow
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_flow_uuid = 'email_flow_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getEmailFlow($storefront_oid, $email_flow_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailFlow: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -3737,30 +2683,13 @@ getEmailFlowFolder($storefront_oid, $email_flow_folder_uuid): \ultracart\v2\mode
 
 Get email flow folder
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_flow_folder_uuid = 'email_flow_folder_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getEmailFlowFolder($storefront_oid, $email_flow_folder_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailFlowFolder: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -3794,29 +2723,13 @@ getEmailFlowFolders($storefront_oid): \ultracart\v2\models\EmailFlowFoldersRespo
 
 Get email flow folders
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-
-try {
-    $result = $apiInstance->getEmailFlowFolders($storefront_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailFlowFolders: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -3849,30 +2762,13 @@ getEmailFlowScreenshots($storefront_oid, $email_flow_uuid): \ultracart\v2\models
 
 Get email flow screenshots
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_flow_uuid = 'email_flow_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getEmailFlowScreenshots($storefront_oid, $email_flow_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailFlowScreenshots: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -3906,29 +2802,13 @@ getEmailFlows($storefront_oid): \ultracart\v2\models\EmailFlowsResponse
 
 Get email flows
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-
-try {
-    $result = $apiInstance->getEmailFlows($storefront_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailFlows: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -3961,28 +2841,13 @@ getEmailGlobalSettings(): \ultracart\v2\models\EmailGlobalSettingsResponse
 
 Get email globalsettings
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getEmailGlobalSettings();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailGlobalSettings: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -4013,30 +2878,13 @@ getEmailList($storefront_oid, $email_list_uuid): \ultracart\v2\models\EmailListR
 
 Get email list
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_list_uuid = 'email_list_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getEmailList($storefront_oid, $email_list_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailList: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -4070,31 +2918,13 @@ getEmailListCustomerEditorUrl($storefront_oid, $email_list_uuid, $email_customer
 
 Get email list customer editor url
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_list_uuid = 'email_list_uuid_example'; // string
-$email_customer_uuid = 'email_customer_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getEmailListCustomerEditorUrl($storefront_oid, $email_list_uuid, $email_customer_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailListCustomerEditorUrl: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -4129,32 +2959,13 @@ getEmailListCustomers($storefront_oid, $email_list_uuid, $page_number, $page_siz
 
 Get email list customers
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_list_uuid = 'email_list_uuid_example'; // string
-$page_number = 56; // int
-$page_size = 56; // int
-
-try {
-    $result = $apiInstance->getEmailListCustomers($storefront_oid, $email_list_uuid, $page_number, $page_size);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailListCustomers: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -4190,30 +3001,13 @@ getEmailListSegmentFolder($storefront_oid, $email_list_segment_folder_uuid): \ul
 
 Get email campaign folder
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_list_segment_folder_uuid = 'email_list_segment_folder_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getEmailListSegmentFolder($storefront_oid, $email_list_segment_folder_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailListSegmentFolder: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -4247,29 +3041,13 @@ getEmailListSegmentFolders($storefront_oid): \ultracart\v2\models\EmailListSegme
 
 Get email campaign folders
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-
-try {
-    $result = $apiInstance->getEmailListSegmentFolders($storefront_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailListSegmentFolders: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -4302,29 +3080,13 @@ getEmailLists($storefront_oid): \ultracart\v2\models\EmailListsResponse
 
 Get email lists
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-
-try {
-    $result = $apiInstance->getEmailLists($storefront_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailLists: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -4357,29 +3119,13 @@ getEmailPerformance($storefront_oid): \ultracart\v2\models\EmailPerformanceRespo
 
 Get email performance
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-
-try {
-    $result = $apiInstance->getEmailPerformance($storefront_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailPerformance: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -4412,29 +3158,13 @@ getEmailPlan($storefront_oid): \ultracart\v2\models\EmailPlanResponse
 
 Get email plan
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-
-try {
-    $result = $apiInstance->getEmailPlan($storefront_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailPlan: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -4467,30 +3197,13 @@ getEmailPostcard($storefront_oid, $commseq_postcard_uuid): \ultracart\v2\models\
 
 Get email postcard
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$commseq_postcard_uuid = 'commseq_postcard_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getEmailPostcard($storefront_oid, $commseq_postcard_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailPostcard: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -4524,29 +3237,13 @@ getEmailPostcards($storefront_oid): \ultracart\v2\models\EmailCommseqPostcardsRe
 
 Get email postcards
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-
-try {
-    $result = $apiInstance->getEmailPostcards($storefront_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailPostcards: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -4579,30 +3276,13 @@ getEmailPostcardsMultiple($storefront_oid, $email_commseq_postcards_request): \u
 
 Get email postcards multiple
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_commseq_postcards_request = new \ultracart\v2\models\EmailCommseqPostcardsRequest(); // \ultracart\v2\models\EmailCommseqPostcardsRequest | Request of postcard uuids
-
-try {
-    $result = $apiInstance->getEmailPostcardsMultiple($storefront_oid, $email_commseq_postcards_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailPostcardsMultiple: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -4636,30 +3316,13 @@ getEmailSegment($storefront_oid, $email_segment_uuid): \ultracart\v2\models\Emai
 
 Get email segment
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_segment_uuid = 'email_segment_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getEmailSegment($storefront_oid, $email_segment_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailSegment: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -4693,31 +3356,13 @@ getEmailSegmentCustomerEditorUrl($storefront_oid, $email_segment_uuid, $email_cu
 
 Get email segment customers editor URL
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_segment_uuid = 'email_segment_uuid_example'; // string
-$email_customer_uuid = 'email_customer_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getEmailSegmentCustomerEditorUrl($storefront_oid, $email_segment_uuid, $email_customer_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailSegmentCustomerEditorUrl: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -4752,32 +3397,13 @@ getEmailSegmentCustomers($storefront_oid, $email_segment_uuid, $page_number, $pa
 
 Get email segment customers
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_segment_uuid = 'email_segment_uuid_example'; // string
-$page_number = 56; // int
-$page_size = 56; // int
-
-try {
-    $result = $apiInstance->getEmailSegmentCustomers($storefront_oid, $email_segment_uuid, $page_number, $page_size);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailSegmentCustomers: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -4813,29 +3439,13 @@ getEmailSegments($storefront_oid): \ultracart\v2\models\EmailSegmentsResponse
 
 Get email segments
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-
-try {
-    $result = $apiInstance->getEmailSegments($storefront_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailSegments: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -4868,29 +3478,13 @@ getEmailSendingDomain($domain): \ultracart\v2\models\EmailSendingDomainResponse
 
 Get email sending domain
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$domain = 'domain_example'; // string
-
-try {
-    $result = $apiInstance->getEmailSendingDomain($domain);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailSendingDomain: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -4923,29 +3517,13 @@ getEmailSendingDomainStatus($domain): \ultracart\v2\models\EmailSendingDomainRes
 
 Get email sending domain status
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$domain = 'domain_example'; // string
-
-try {
-    $result = $apiInstance->getEmailSendingDomainStatus($domain);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailSendingDomainStatus: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -4978,28 +3556,13 @@ getEmailSendingDomains(): \ultracart\v2\models\EmailSendingDomainsResponse
 
 Get email sending domains
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getEmailSendingDomains();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailSendingDomains: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -5030,29 +3593,13 @@ getEmailSettings($storefront_oid): \ultracart\v2\models\EmailSettingsResponse
 
 Get email settings
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-
-try {
-    $result = $apiInstance->getEmailSettings($storefront_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailSettings: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -5085,32 +3632,13 @@ getEmailSmsOrders($storefront_oid, $commseq_uuid, $commseq_step_uuid, $days): \u
 
 Get email sms orders
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$commseq_uuid = 'commseq_uuid_example'; // string
-$commseq_step_uuid = 'commseq_step_uuid_example'; // string
-$days = 56; // int
-
-try {
-    $result = $apiInstance->getEmailSmsOrders($storefront_oid, $commseq_uuid, $commseq_step_uuid, $days);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailSmsOrders: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -5146,30 +3674,13 @@ getEmailTemplate($storefront_oid, $email_template_oid): \ultracart\v2\models\Ema
 
 Get email template
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_template_oid = 56; // int
-
-try {
-    $result = $apiInstance->getEmailTemplate($storefront_oid, $email_template_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailTemplate: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -5203,30 +3714,13 @@ getEmailTemplates($storefront_oid, $trigger_type): \ultracart\v2\models\EmailTem
 
 Get email templates
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$trigger_type = 'trigger_type_example'; // string
-
-try {
-    $result = $apiInstance->getEmailTemplates($storefront_oid, $trigger_type);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailTemplates: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -5260,29 +3754,13 @@ getEmailThirdPartyProviders($storefront_oid): \ultracart\v2\models\EmailThirdPar
 
 Get a list of third party email providers
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-
-try {
-    $result = $apiInstance->getEmailThirdPartyProviders($storefront_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailThirdPartyProviders: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -5315,29 +3793,13 @@ getExperiments($storefront_oid): \ultracart\v2\models\ExperimentsResponse
 
 Get experiments
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-
-try {
-    $result = $apiInstance->getExperiments($storefront_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getExperiments: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -5370,32 +3832,13 @@ getFsDirectory($id, $path, $storefront_fs_directory_oid, $storefront_theme_oid):
 
 Get file manager directory
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$id = 56; // int
-$path = 'path_example'; // string
-$storefront_fs_directory_oid = 56; // int
-$storefront_theme_oid = 56; // int
-
-try {
-    $result = $apiInstance->getFsDirectory($id, $path, $storefront_fs_directory_oid, $storefront_theme_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getFsDirectory: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -5433,30 +3876,13 @@ Get screen recording heatmap
 
 Get screen recording heatmap
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$query = new \ultracart\v2\models\ScreenRecordingHeatmapRequest(); // \ultracart\v2\models\ScreenRecordingHeatmapRequest | Query
-
-try {
-    $result = $apiInstance->getHeatmap($storefront_oid, $query);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getHeatmap: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -5492,33 +3918,13 @@ Get screen recording heatmap index
 
 Get screen recording heatmap index
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$query = new \ultracart\v2\models\ScreenRecordingHeatmapIndexRequest(); // \ultracart\v2\models\ScreenRecordingHeatmapIndexRequest | Query
-$_limit = 100; // int | The maximum number of records to return on this one API call. (Default 100, Max 500)
-$_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
-$_sort = '_sort_example'; // string | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-
-try {
-    $result = $apiInstance->getHeatmapIndex($storefront_oid, $query, $_limit, $_offset, $_sort);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getHeatmapIndex: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -5557,30 +3963,13 @@ Get histogram property names
 
 Obtain a list of property names for a given property type
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$property_type = 'property_type_example'; // string
-
-try {
-    $result = $apiInstance->getHistogramPropertyNames($storefront_oid, $property_type);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getHistogramPropertyNames: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -5616,32 +4005,13 @@ Get histogram property values
 
 Obtain a list of property values for a given property name and type
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$property_name = 'property_name_example'; // string
-$property_type = 'property_type_example'; // string
-$limit = 56; // int
-
-try {
-    $result = $apiInstance->getHistogramPropertyValues($storefront_oid, $property_name, $property_type, $limit);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getHistogramPropertyValues: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -5677,28 +4047,13 @@ getLibraryFilterValues(): \ultracart\v2\models\LibraryFilterValuesResponse
 
 Get library values used to populate drop down boxes for filtering.
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getLibraryFilterValues();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getLibraryFilterValues: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -5729,29 +4084,13 @@ getLibraryItem($library_item_oid): \ultracart\v2\models\LibraryItemResponse
 
 Get library item.
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$library_item_oid = 56; // int
-
-try {
-    $result = $apiInstance->getLibraryItem($library_item_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getLibraryItem: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -5784,29 +4123,13 @@ getLibraryItemPublishedVersions($library_item_oid): \ultracart\v2\models\Library
 
 Get all published versions for a library item.
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$library_item_oid = 56; // int
-
-try {
-    $result = $apiInstance->getLibraryItemPublishedVersions($library_item_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getLibraryItemPublishedVersions: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -5841,30 +4164,13 @@ Get screen recording
 
 Get screen recording
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$screen_recording_uuid = 'screen_recording_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getScreenRecording($storefront_oid, $screen_recording_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getScreenRecording: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -5900,31 +4206,13 @@ Get screen recording page view data
 
 Get screen recording page view data
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$screen_recording_uuid = 'screen_recording_uuid_example'; // string
-$screen_recording_page_view_uuid = 'screen_recording_page_view_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getScreenRecordingPageViewData($storefront_oid, $screen_recording_uuid, $screen_recording_page_view_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getScreenRecordingPageViewData: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -5959,30 +4247,13 @@ getScreenRecordingSegment($storefront_oid, $screen_recording_segment_oid): \ultr
 
 Get screen recording segment
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$screen_recording_segment_oid = 56; // int
-
-try {
-    $result = $apiInstance->getScreenRecordingSegment($storefront_oid, $screen_recording_segment_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getScreenRecordingSegment: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -6016,29 +4287,13 @@ getScreenRecordingSegments($storefront_oid): \ultracart\v2\models\ScreenRecordin
 
 Get screen recording segments
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-
-try {
-    $result = $apiInstance->getScreenRecordingSegments($storefront_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getScreenRecordingSegments: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -6071,29 +4326,13 @@ getScreenRecordingSettings($storefront_oid): \ultracart\v2\models\ScreenRecordin
 
 Get screen recording settings
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-
-try {
-    $result = $apiInstance->getScreenRecordingSettings($storefront_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getScreenRecordingSettings: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -6128,29 +4367,13 @@ Get tags used by screen recording
 
 Get tags used by screen recording
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-
-try {
-    $result = $apiInstance->getScreenRecordingTags($storefront_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getScreenRecordingTags: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -6185,33 +4408,13 @@ Query screen recordings
 
 Query screen recordings
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$query = new \ultracart\v2\models\ScreenRecordingQueryRequest(); // \ultracart\v2\models\ScreenRecordingQueryRequest | Query
-$_limit = 100; // int | The maximum number of records to return on this one API call. (Default 100, Max 500)
-$_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
-$_sort = '_sort_example'; // string | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-
-try {
-    $result = $apiInstance->getScreenRecordingsByQuery($storefront_oid, $query, $_limit, $_offset, $_sort);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getScreenRecordingsByQuery: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -6250,33 +4453,13 @@ Get screen recordings by segment
 
 Get screen recordings by segment
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$screen_recording_segment_oid = 56; // int
-$_limit = 100; // int | The maximum number of records to return on this one API call. (Default 100, Max 500)
-$_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
-$_sort = '_sort_example'; // string | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-
-try {
-    $result = $apiInstance->getScreenRecordingsBySegment($storefront_oid, $screen_recording_segment_oid, $_limit, $_offset, $_sort);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getScreenRecordingsBySegment: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -6315,29 +4498,13 @@ Retrieve pricing tiers
 
 Retrieves the pricing tiers
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$_expand = '_expand_example'; // string | The object expansion to perform on the result.  See documentation for examples
-
-try {
-    $result = $apiInstance->getStoreFrontPricingTiers($_expand);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getStoreFrontPricingTiers: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -6370,28 +4537,13 @@ getStoreFronts(): \ultracart\v2\models\StoreFrontsResponse
 
 Get storefronts (internal use only for security reasons)
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getStoreFronts();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getStoreFronts: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -6422,29 +4574,13 @@ getThumbnailParameters($thumbnail_parameters): \ultracart\v2\models\ThumbnailPar
 
 Get thumbnail parameters
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$thumbnail_parameters = new \ultracart\v2\models\ThumbnailParametersRequest(); // \ultracart\v2\models\ThumbnailParametersRequest | Thumbnail Parameters
-
-try {
-    $result = $apiInstance->getThumbnailParameters($thumbnail_parameters);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getThumbnailParameters: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -6479,30 +4615,13 @@ Gets a transaction email object
 
 Fetch a transactional email
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_id = 'email_id_example'; // string
-
-try {
-    $result = $apiInstance->getTransactionEmail($storefront_oid, $email_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getTransactionEmail: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -6538,29 +4657,13 @@ Gets a list of transaction email names
 
 Obtain a list of all transactional emails and return back just their names
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-
-try {
-    $result = $apiInstance->getTransactionEmailList($storefront_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getTransactionEmailList: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -6593,30 +4696,13 @@ getTransactionEmailScreenshots($storefront_oid, $email_id): \ultracart\v2\models
 
 Get transactional email screenshots
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_id = 'email_id_example'; // string
-
-try {
-    $result = $apiInstance->getTransactionEmailScreenshots($storefront_oid, $email_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getTransactionEmailScreenshots: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -6650,29 +4736,13 @@ getTwilioAccount($esp_twilio_uuid): \ultracart\v2\models\TwilioResponse
 
 Get Twilio account
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$esp_twilio_uuid = 'esp_twilio_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getTwilioAccount($esp_twilio_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getTwilioAccount: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -6705,28 +4775,13 @@ getTwilioAccounts(): \ultracart\v2\models\TwiliosResponse
 
 Get all Twilio accounts
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getTwilioAccounts();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getTwilioAccounts: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -6757,30 +4812,13 @@ getUploadFsFileUrl($id, $extension): \ultracart\v2\models\FileManagerUploadUrlRe
 
 Retrieves a S3 url where a file may be uploaded. Once uploaded, use uploadFsFile to trigger the server into reading the S3 bucket and retrieving the file.
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$id = 56; // int
-$extension = 'extension_example'; // string
-
-try {
-    $result = $apiInstance->getUploadFsFileUrl($id, $extension);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getUploadFsFileUrl: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -6814,30 +4852,13 @@ globalUnsubscribe($storefront_oid, $unsubscribe): \ultracart\v2\models\EmailGlob
 
 Globally unsubscribe a customer
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$unsubscribe = new \ultracart\v2\models\EmailGlobalUnsubscribeRequest(); // \ultracart\v2\models\EmailGlobalUnsubscribeRequest | Unsubscribe
-
-try {
-    $result = $apiInstance->globalUnsubscribe($storefront_oid, $unsubscribe);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->globalUnsubscribe: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -6871,29 +4892,13 @@ importEmailThirdPartyProviderList($storefront_oid, $import_request)
 
 Import a third party provider list
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$import_request = new \ultracart\v2\models\EmailThirdPartyListImportRequest(); // \ultracart\v2\models\EmailThirdPartyListImportRequest | lists to import
-
-try {
-    $apiInstance->importEmailThirdPartyProviderList($storefront_oid, $import_request);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->importEmailThirdPartyProviderList: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -6927,30 +4932,13 @@ insertEmailCampaign($storefront_oid, $email_campaign): \ultracart\v2\models\Emai
 
 Insert email campaign
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_campaign = new \ultracart\v2\models\EmailCampaign(); // \ultracart\v2\models\EmailCampaign | Email campaign
-
-try {
-    $result = $apiInstance->insertEmailCampaign($storefront_oid, $email_campaign);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->insertEmailCampaign: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -6984,30 +4972,13 @@ insertEmailCampaignFolder($storefront_oid, $email_campaign_folder): \ultracart\v
 
 Insert email campaign folder
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_campaign_folder = new \ultracart\v2\models\EmailCampaignFolder(); // \ultracart\v2\models\EmailCampaignFolder | Email campaign folder
-
-try {
-    $result = $apiInstance->insertEmailCampaignFolder($storefront_oid, $email_campaign_folder);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->insertEmailCampaignFolder: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -7041,30 +5012,13 @@ insertEmailCommseq($storefront_oid, $email_commseq): \ultracart\v2\models\EmailC
 
 Insert email commseq
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_commseq = new \ultracart\v2\models\EmailCommseq(); // \ultracart\v2\models\EmailCommseq | Email commseq
-
-try {
-    $result = $apiInstance->insertEmailCommseq($storefront_oid, $email_commseq);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->insertEmailCommseq: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -7098,30 +5052,13 @@ insertEmailEmail($storefront_oid, $email_commseq_email): \ultracart\v2\models\Em
 
 Insert email email
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_commseq_email = new \ultracart\v2\models\EmailCommseqEmail(); // \ultracart\v2\models\EmailCommseqEmail | Email email
-
-try {
-    $result = $apiInstance->insertEmailEmail($storefront_oid, $email_commseq_email);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->insertEmailEmail: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -7155,30 +5092,13 @@ insertEmailFlow($storefront_oid, $email_flow): \ultracart\v2\models\EmailFlowRes
 
 Insert email flow
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_flow = new \ultracart\v2\models\EmailFlow(); // \ultracart\v2\models\EmailFlow | Email flow
-
-try {
-    $result = $apiInstance->insertEmailFlow($storefront_oid, $email_flow);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->insertEmailFlow: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -7212,30 +5132,13 @@ insertEmailFlowFolder($storefront_oid, $email_flow_folder): \ultracart\v2\models
 
 Insert email flow folder
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_flow_folder = new \ultracart\v2\models\EmailFlowFolder(); // \ultracart\v2\models\EmailFlowFolder | Email flow folder
-
-try {
-    $result = $apiInstance->insertEmailFlowFolder($storefront_oid, $email_flow_folder);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->insertEmailFlowFolder: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -7269,30 +5172,13 @@ insertEmailList($storefront_oid, $email_list): \ultracart\v2\models\EmailListRes
 
 Insert email list
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_list = new \ultracart\v2\models\EmailList(); // \ultracart\v2\models\EmailList | Email list
-
-try {
-    $result = $apiInstance->insertEmailList($storefront_oid, $email_list);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->insertEmailList: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -7326,30 +5212,13 @@ insertEmailListSegmentFolder($storefront_oid, $email_list_segment_folder): \ultr
 
 Insert email campaign folder
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_list_segment_folder = new \ultracart\v2\models\EmailListSegmentFolder(); // \ultracart\v2\models\EmailListSegmentFolder | Email campaign folder
-
-try {
-    $result = $apiInstance->insertEmailListSegmentFolder($storefront_oid, $email_list_segment_folder);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->insertEmailListSegmentFolder: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -7383,30 +5252,13 @@ insertEmailPostcard($storefront_oid, $email_commseq_postcard): \ultracart\v2\mod
 
 Insert email postcard
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_commseq_postcard = new \ultracart\v2\models\EmailCommseqPostcard(); // \ultracart\v2\models\EmailCommseqPostcard | Email postcard
-
-try {
-    $result = $apiInstance->insertEmailPostcard($storefront_oid, $email_commseq_postcard);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->insertEmailPostcard: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -7440,30 +5292,13 @@ insertEmailSegment($storefront_oid, $email_segment): \ultracart\v2\models\EmailS
 
 Insert email segment
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_segment = new \ultracart\v2\models\EmailSegment(); // \ultracart\v2\models\EmailSegment | Email segment
-
-try {
-    $result = $apiInstance->insertEmailSegment($storefront_oid, $email_segment);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->insertEmailSegment: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -7497,30 +5332,13 @@ insertScreenRecordingSegment($storefront_oid, $segment): \ultracart\v2\models\Sc
 
 Insert screen recording segment
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$segment = new \ultracart\v2\models\ScreenRecordingSegment(); // \ultracart\v2\models\ScreenRecordingSegment | Segment
-
-try {
-    $result = $apiInstance->insertScreenRecordingSegment($storefront_oid, $segment);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->insertScreenRecordingSegment: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -7556,30 +5374,13 @@ Upsert a page content attribute
 
 Update a page content attribute, creating it new if it does not yet exist.
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$page_oid = 56; // int | The page oid to modify.
-$page_attribute = new \ultracart\v2\models\StoreFrontPageContentAttribute(); // \ultracart\v2\models\StoreFrontPageContentAttribute | Page content attribute to upsert
-
-try {
-    $apiInstance->insertUpdatePageContentAttribute($storefront_oid, $page_oid, $page_attribute);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->insertUpdatePageContentAttribute: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -7614,30 +5415,13 @@ prepareDownloadEmailSegment($storefront_oid, $email_segment_uuid): \ultracart\v2
 
 Prepare download of email segment
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_segment_uuid = 'email_segment_uuid_example'; // string
-
-try {
-    $result = $apiInstance->prepareDownloadEmailSegment($storefront_oid, $email_segment_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->prepareDownloadEmailSegment: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -7671,30 +5455,13 @@ publishLibraryItem($library_item_oid, $publish_library_request): \ultracart\v2\m
 
 Publish library item.
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$library_item_oid = 56; // int
-$publish_library_request = new \ultracart\v2\models\PublishLibraryItemRequest(); // \ultracart\v2\models\PublishLibraryItemRequest | Publish library item request
-
-try {
-    $result = $apiInstance->publishLibraryItem($library_item_oid, $publish_library_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->publishLibraryItem: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -7728,30 +5495,13 @@ purchaseLibraryItem($library_item_oid, $storefront_oid): \ultracart\v2\models\Li
 
 Purchase public library item, which creates a copy of the item in your personal code library
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$library_item_oid = 56; // int
-$storefront_oid = 56; // int
-
-try {
-    $result = $apiInstance->purchaseLibraryItem($library_item_oid, $storefront_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->purchaseLibraryItem: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -7785,30 +5535,13 @@ releaseEmailCommseqStepWaiting($storefront_oid, $commseq_uuid, $commseq_step_uui
 
 Release email communication sequence customers waiting at the specified step
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$commseq_uuid = 'commseq_uuid_example'; // string
-$commseq_step_uuid = 'commseq_step_uuid_example'; // string
-
-try {
-    $apiInstance->releaseEmailCommseqStepWaiting($storefront_oid, $commseq_uuid, $commseq_step_uuid);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->releaseEmailCommseqStepWaiting: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -7843,29 +5576,13 @@ resetEmailCommseqRateLimiters($storefront_oid, $commseq_uuid)
 
 Reset email commseq rate limiters (only callable by UltraCart Support)
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$commseq_uuid = 'commseq_uuid_example'; // string
-
-try {
-    $apiInstance->resetEmailCommseqRateLimiters($storefront_oid, $commseq_uuid);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->resetEmailCommseqRateLimiters: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -7899,31 +5616,13 @@ review($storefront_oid, $commseq_email_uuid, $email_commseq_email_review_request
 
 Request a review of an email
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$commseq_email_uuid = 'commseq_email_uuid_example'; // string
-$email_commseq_email_review_request = new \ultracart\v2\models\EmailCommseqEmailSendTestRequest(); // \ultracart\v2\models\EmailCommseqEmailSendTestRequest | Email commseq email review request
-
-try {
-    $result = $apiInstance->review($storefront_oid, $commseq_email_uuid, $email_commseq_email_review_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->review: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -7958,33 +5657,13 @@ search($category, $matches, $storefront_oid, $max_hits, $subcategory): \ultracar
 
 Searches for all matching values
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$category = 'category_example'; // string
-$matches = 'matches_example'; // string
-$storefront_oid = 'storefront_oid_example'; // string
-$max_hits = 56; // int
-$subcategory = 'subcategory_example'; // string
-
-try {
-    $result = $apiInstance->search($category, $matches, $storefront_oid, $max_hits, $subcategory);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->search: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -8021,29 +5700,13 @@ search2($lookup_request): \ultracart\v2\models\LookupResponse
 
 Searches for all matching values (using POST)
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$lookup_request = new \ultracart\v2\models\LookupRequest(); // \ultracart\v2\models\LookupRequest | LookupRequest
-
-try {
-    $result = $apiInstance->search2($lookup_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->search2: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -8076,31 +5739,13 @@ searchEmailListCustomers($storefront_oid, $email_list_uuid, $starts_with): \ultr
 
 Search email list customers
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_list_uuid = 'email_list_uuid_example'; // string
-$starts_with = 'starts_with_example'; // string
-
-try {
-    $result = $apiInstance->searchEmailListCustomers($storefront_oid, $email_list_uuid, $starts_with);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->searchEmailListCustomers: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -8135,31 +5780,13 @@ searchEmailSegmentCustomers($storefront_oid, $email_segment_uuid, $starts_with):
 
 Search email segment customers
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_segment_uuid = 'email_segment_uuid_example'; // string
-$starts_with = 'starts_with_example'; // string
-
-try {
-    $result = $apiInstance->searchEmailSegmentCustomers($storefront_oid, $email_segment_uuid, $starts_with);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->searchEmailSegmentCustomers: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -8196,32 +5823,13 @@ Retrieve library items
 
 Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$item_query = new \ultracart\v2\models\LibraryItemQuery(); // \ultracart\v2\models\LibraryItemQuery | Item query
-$_limit = 10000; // int | The maximum number of records to return on this one API call. (Maximum 10000)
-$_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
-$_sort = '_sort_example'; // string | The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-
-try {
-    $result = $apiInstance->searchLibraryItems($item_query, $_limit, $_offset, $_sort);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->searchLibraryItems: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -8259,32 +5867,13 @@ Retrieve library items
 
 Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$item_query = new \ultracart\v2\models\LibraryItemQuery(); // \ultracart\v2\models\LibraryItemQuery | Item query
-$_limit = 10000; // int | The maximum number of records to return on this one API call. (Maximum 10000)
-$_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
-$_sort = '_sort_example'; // string | The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-
-try {
-    $result = $apiInstance->searchPublishedItems($item_query, $_limit, $_offset, $_sort);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->searchPublishedItems: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -8322,32 +5911,13 @@ Retrieve library items needing review or rejected
 
 Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$item_query = new \ultracart\v2\models\LibraryItemQuery(); // \ultracart\v2\models\LibraryItemQuery | Item query
-$_limit = 10000; // int | The maximum number of records to return on this one API call. (Maximum 10000)
-$_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
-$_sort = '_sort_example'; // string | The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-
-try {
-    $result = $apiInstance->searchReviewItems($item_query, $_limit, $_offset, $_sort);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->searchReviewItems: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -8385,32 +5955,13 @@ Retrieve library items
 
 Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$item_query = new \ultracart\v2\models\LibraryItemQuery(); // \ultracart\v2\models\LibraryItemQuery | Item query
-$_limit = 10000; // int | The maximum number of records to return on this one API call. (Maximum 10000)
-$_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
-$_sort = '_sort_example'; // string | The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-
-try {
-    $result = $apiInstance->searchSharedItems($item_query, $_limit, $_offset, $_sort);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->searchSharedItems: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -8446,31 +5997,13 @@ sendEmailTest($storefront_oid, $commseq_email_uuid, $email_commseq_email_test_re
 
 Send email test
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$commseq_email_uuid = 'commseq_email_uuid_example'; // string
-$email_commseq_email_test_request = new \ultracart\v2\models\EmailCommseqEmailSendTestRequest(); // \ultracart\v2\models\EmailCommseqEmailSendTestRequest | Email commseq email test request
-
-try {
-    $result = $apiInstance->sendEmailTest($storefront_oid, $commseq_email_uuid, $email_commseq_email_test_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->sendEmailTest: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -8505,31 +6038,13 @@ sendPostcardTest($storefront_oid, $commseq_postcard_uuid, $email_commseq_postcar
 
 Send postcard test
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$commseq_postcard_uuid = 'commseq_postcard_uuid_example'; // string
-$email_commseq_postcard_test_request = new \ultracart\v2\models\EmailCommseqPostcardSendTestRequest(); // \ultracart\v2\models\EmailCommseqPostcardSendTestRequest | Email commseq email test request
-
-try {
-    $result = $apiInstance->sendPostcardTest($storefront_oid, $commseq_postcard_uuid, $email_commseq_postcard_test_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->sendPostcardTest: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -8564,32 +6079,13 @@ sendSmsTest($storefront_oid, $commseq_uuid, $commseq_step_uuid, $email_commseq_s
 
 Send SMS test
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$commseq_uuid = 'commseq_uuid_example'; // string
-$commseq_step_uuid = 'commseq_step_uuid_example'; // string
-$email_commseq_sms_test_request = new \ultracart\v2\models\EmailCommseqSmsSendTestRequest(); // \ultracart\v2\models\EmailCommseqSmsSendTestRequest | Email commseq sms test request
-
-try {
-    $result = $apiInstance->sendSmsTest($storefront_oid, $commseq_uuid, $commseq_step_uuid, $email_commseq_sms_test_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->sendSmsTest: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -8625,30 +6121,13 @@ sendWebhookTest($storefront_oid, $email_commseq_webhook_test_request): \ultracar
 
 Send webhook test
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_commseq_webhook_test_request = new \ultracart\v2\models\EmailCommseqWebhookSendTestRequest(); // \ultracart\v2\models\EmailCommseqWebhookSendTestRequest | Email commseq webhook test request
-
-try {
-    $result = $apiInstance->sendWebhookTest($storefront_oid, $email_commseq_webhook_test_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->sendWebhookTest: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -8682,31 +6161,12 @@ sequenceTest($storefront_oid, $commseq_uuid, $email_commseq_sequence_test_reques
 
 Sequence test
 
+
 ### Example
 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+(No example for this operation).
 
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$commseq_uuid = 'commseq_uuid_example'; // string
-$email_commseq_sequence_test_request = new \ultracart\v2\models\EmailCommseqSequenceTestRequest(); // \ultracart\v2\models\EmailCommseqSequenceTestRequest | Commseq test request
-
-try {
-    $result = $apiInstance->sequenceTest($storefront_oid, $commseq_uuid, $email_commseq_sequence_test_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->sequenceTest: ', $e->getMessage(), PHP_EOL;
-}
-```
 
 ### Parameters
 
@@ -8741,30 +6201,13 @@ startEmailCampaign($storefront_oid, $email_campaign_uuid): \ultracart\v2\models\
 
 Start email campaign
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_campaign_uuid = 'email_campaign_uuid_example'; // string
-
-try {
-    $result = $apiInstance->startEmailCampaign($storefront_oid, $email_campaign_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->startEmailCampaign: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -8798,31 +6241,13 @@ subscribeToEmailList($storefront_oid, $email_list_uuid, $customers): \ultracart\
 
 Subscribe customers to email list
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_list_uuid = 'email_list_uuid_example'; // string
-$customers = array(new \ultracart\v2\models\EmailCustomer()); // \ultracart\v2\models\EmailCustomer[] | Customers
-
-try {
-    $result = $apiInstance->subscribeToEmailList($storefront_oid, $email_list_uuid, $customers);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->subscribeToEmailList: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -8857,29 +6282,13 @@ sunsetEmailSegment($storefront_oid, $email_segment_uuid)
 
 Sunset email segment
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_segment_uuid = 'email_segment_uuid_example'; // string
-
-try {
-    $apiInstance->sunsetEmailSegment($storefront_oid, $email_segment_uuid);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->sunsetEmailSegment: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -8915,29 +6324,13 @@ Remove favorite flag on screen recording
 
 Remove favorite flag on screen recording
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$screen_recording_uuid = 'screen_recording_uuid_example'; // string
-
-try {
-    $apiInstance->unfavoriteScreenRecording($storefront_oid, $screen_recording_uuid);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->unfavoriteScreenRecording: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -8971,31 +6364,13 @@ updateEmailCampaign($storefront_oid, $email_campaign_uuid, $email_campaign): \ul
 
 Update email campaign
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_campaign_uuid = 'email_campaign_uuid_example'; // string
-$email_campaign = new \ultracart\v2\models\EmailCampaign(); // \ultracart\v2\models\EmailCampaign | Email campaign
-
-try {
-    $result = $apiInstance->updateEmailCampaign($storefront_oid, $email_campaign_uuid, $email_campaign);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->updateEmailCampaign: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -9030,31 +6405,13 @@ updateEmailCampaignFolder($storefront_oid, $email_campaign_folder_uuid, $email_c
 
 Update email campaign folder
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_campaign_folder_uuid = 'email_campaign_folder_uuid_example'; // string
-$email_campaign_folder = new \ultracart\v2\models\EmailCampaignFolder(); // \ultracart\v2\models\EmailCampaignFolder | Email campaign folder
-
-try {
-    $result = $apiInstance->updateEmailCampaignFolder($storefront_oid, $email_campaign_folder_uuid, $email_campaign_folder);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->updateEmailCampaignFolder: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -9089,31 +6446,13 @@ updateEmailCommseq($storefront_oid, $commseq_uuid, $email_commseq): \ultracart\v
 
 Update email commseq
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$commseq_uuid = 'commseq_uuid_example'; // string
-$email_commseq = new \ultracart\v2\models\EmailCommseq(); // \ultracart\v2\models\EmailCommseq | Email commseq
-
-try {
-    $result = $apiInstance->updateEmailCommseq($storefront_oid, $commseq_uuid, $email_commseq);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->updateEmailCommseq: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -9148,30 +6487,13 @@ updateEmailCustomer($storefront_oid, $email_customer_uuid, $email_customer)
 
 Update email customer
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_customer_uuid = 'email_customer_uuid_example'; // string
-$email_customer = new \ultracart\v2\models\EmailCustomer(); // \ultracart\v2\models\EmailCustomer | Email customer
-
-try {
-    $apiInstance->updateEmailCustomer($storefront_oid, $email_customer_uuid, $email_customer);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->updateEmailCustomer: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -9206,31 +6528,13 @@ updateEmailEmail($storefront_oid, $commseq_email_uuid, $email_commseq_email): \u
 
 Update email email
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$commseq_email_uuid = 'commseq_email_uuid_example'; // string
-$email_commseq_email = new \ultracart\v2\models\EmailCommseqEmail(); // \ultracart\v2\models\EmailCommseqEmail | Email commseq email
-
-try {
-    $result = $apiInstance->updateEmailEmail($storefront_oid, $commseq_email_uuid, $email_commseq_email);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->updateEmailEmail: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -9265,31 +6569,13 @@ updateEmailFlow($storefront_oid, $email_flow_uuid, $email_flow): \ultracart\v2\m
 
 Update email flow
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_flow_uuid = 'email_flow_uuid_example'; // string
-$email_flow = new \ultracart\v2\models\EmailFlow(); // \ultracart\v2\models\EmailFlow | Email flow
-
-try {
-    $result = $apiInstance->updateEmailFlow($storefront_oid, $email_flow_uuid, $email_flow);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->updateEmailFlow: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -9324,31 +6610,13 @@ updateEmailFlowFolder($storefront_oid, $email_flow_folder_uuid, $email_flow_fold
 
 Update email flow folder
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_flow_folder_uuid = 'email_flow_folder_uuid_example'; // string
-$email_flow_folder = new \ultracart\v2\models\EmailFlowFolder(); // \ultracart\v2\models\EmailFlowFolder | Email flow folder
-
-try {
-    $result = $apiInstance->updateEmailFlowFolder($storefront_oid, $email_flow_folder_uuid, $email_flow_folder);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->updateEmailFlowFolder: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -9383,29 +6651,13 @@ updateEmailGlobalSettings($global_settings): \ultracart\v2\models\EmailGlobalSet
 
 Update email global settings
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$global_settings = new \ultracart\v2\models\EmailGlobalSettings(); // \ultracart\v2\models\EmailGlobalSettings | global settings request
-
-try {
-    $result = $apiInstance->updateEmailGlobalSettings($global_settings);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->updateEmailGlobalSettings: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -9438,31 +6690,13 @@ updateEmailList($storefront_oid, $email_list_uuid, $email_list): \ultracart\v2\m
 
 Update email list
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_list_uuid = 'email_list_uuid_example'; // string
-$email_list = new \ultracart\v2\models\EmailList(); // \ultracart\v2\models\EmailList | Email list
-
-try {
-    $result = $apiInstance->updateEmailList($storefront_oid, $email_list_uuid, $email_list);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->updateEmailList: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -9497,31 +6731,13 @@ updateEmailListSegmentFolder($storefront_oid, $email_list_segment_folder_uuid, $
 
 Update email campaign folder
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_list_segment_folder_uuid = 'email_list_segment_folder_uuid_example'; // string
-$email_list_segment_folder = new \ultracart\v2\models\EmailListSegmentFolder(); // \ultracart\v2\models\EmailListSegmentFolder | Email campaign folder
-
-try {
-    $result = $apiInstance->updateEmailListSegmentFolder($storefront_oid, $email_list_segment_folder_uuid, $email_list_segment_folder);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->updateEmailListSegmentFolder: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -9556,30 +6772,13 @@ updateEmailPlan($storefront_oid, $settings): \ultracart\v2\models\EmailPlanRespo
 
 Update email plan
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$settings = new \ultracart\v2\models\EmailPlan(); // \ultracart\v2\models\EmailPlan | plan request
-
-try {
-    $result = $apiInstance->updateEmailPlan($storefront_oid, $settings);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->updateEmailPlan: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -9613,31 +6812,13 @@ updateEmailPostcard($storefront_oid, $commseq_postcard_uuid, $email_commseq_post
 
 Update email postcard
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$commseq_postcard_uuid = 'commseq_postcard_uuid_example'; // string
-$email_commseq_postcard = new \ultracart\v2\models\EmailCommseqPostcard(); // \ultracart\v2\models\EmailCommseqPostcard | Email commseq postcard
-
-try {
-    $result = $apiInstance->updateEmailPostcard($storefront_oid, $commseq_postcard_uuid, $email_commseq_postcard);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->updateEmailPostcard: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -9672,31 +6853,13 @@ updateEmailSegment($storefront_oid, $email_segment_uuid, $email_segment): \ultra
 
 Update email segment
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_segment_uuid = 'email_segment_uuid_example'; // string
-$email_segment = new \ultracart\v2\models\EmailSegment(); // \ultracart\v2\models\EmailSegment | Email segment
-
-try {
-    $result = $apiInstance->updateEmailSegment($storefront_oid, $email_segment_uuid, $email_segment);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->updateEmailSegment: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -9731,30 +6894,13 @@ updateEmailSendingDomain($domain, $email_domain): \ultracart\v2\models\EmailSend
 
 Update email sending domain
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$domain = 'domain_example'; // string
-$email_domain = new \ultracart\v2\models\EmailDomain(); // \ultracart\v2\models\EmailDomain | EmailDomain
-
-try {
-    $result = $apiInstance->updateEmailSendingDomain($domain, $email_domain);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->updateEmailSendingDomain: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -9788,30 +6934,13 @@ updateEmailSettings($storefront_oid, $settings): \ultracart\v2\models\EmailSetti
 
 Update email settings
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$settings = new \ultracart\v2\models\EmailSettings(); // \ultracart\v2\models\EmailSettings | settings request
-
-try {
-    $result = $apiInstance->updateEmailSettings($storefront_oid, $settings);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->updateEmailSettings: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -9845,31 +6974,13 @@ updateExperiment($storefront_oid, $storefront_experiment_oid, $experiment): \ult
 
 Update experiment
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$storefront_experiment_oid = 56; // int
-$experiment = new \ultracart\v2\models\Experiment(); // \ultracart\v2\models\Experiment | Experiment
-
-try {
-    $result = $apiInstance->updateExperiment($storefront_oid, $storefront_experiment_oid, $experiment);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->updateExperiment: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -9904,30 +7015,13 @@ updateLibraryItem($library_item_oid, $library_item): \ultracart\v2\models\Librar
 
 Update library item. Note that only certain fields may be updated via this method.
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$library_item_oid = 56; // int
-$library_item = new \ultracart\v2\models\LibraryItem(); // \ultracart\v2\models\LibraryItem | Library item
-
-try {
-    $result = $apiInstance->updateLibraryItem($library_item_oid, $library_item);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->updateLibraryItem: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -9963,30 +7057,13 @@ Update merchant notes on a screen recording
 
 Update merchant notes on a screen recording
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$screen_recording_uuid = 'screen_recording_uuid_example'; // string
-$merchant_notes_request = new \ultracart\v2\models\ScreenRecordingMerchantNotesRequest(); // \ultracart\v2\models\ScreenRecordingMerchantNotesRequest | Merchant Notes
-
-try {
-    $apiInstance->updateScreenRecordingMerchantNotes($storefront_oid, $screen_recording_uuid, $merchant_notes_request);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->updateScreenRecordingMerchantNotes: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -10021,31 +7098,13 @@ updateScreenRecordingSegment($storefront_oid, $screen_recording_segment_oid, $se
 
 Update screen recording segment
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$screen_recording_segment_oid = 56; // int
-$segment = new \ultracart\v2\models\ScreenRecordingSegment(); // \ultracart\v2\models\ScreenRecordingSegment | Segment
-
-try {
-    $result = $apiInstance->updateScreenRecordingSegment($storefront_oid, $screen_recording_segment_oid, $segment);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->updateScreenRecordingSegment: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -10080,30 +7139,13 @@ updateScreenRecordingSettings($storefront_oid, $settings): \ultracart\v2\models\
 
 Update screen recording settings
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$settings = new \ultracart\v2\models\ScreenRecordingSettings(); // \ultracart\v2\models\ScreenRecordingSettings | Settings
-
-try {
-    $result = $apiInstance->updateScreenRecordingSettings($storefront_oid, $settings);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->updateScreenRecordingSettings: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -10139,30 +7181,13 @@ Update tags on a screen recording
 
 Update tags on a screen recording
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$screen_recording_uuid = 'screen_recording_uuid_example'; // string
-$tags = new \ultracart\v2\models\ScreenRecordingTagsRequest(); // \ultracart\v2\models\ScreenRecordingTagsRequest | Tags
-
-try {
-    $apiInstance->updateScreenRecordingTags($storefront_oid, $screen_recording_uuid, $tags);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->updateScreenRecordingTags: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -10199,31 +7224,13 @@ Updates a transaction email object
 
 Updates a transactional email
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$storefront_oid = 56; // int
-$email_id = 'email_id_example'; // string
-$transaction_email = new \ultracart\v2\models\TransactionEmail(); // \ultracart\v2\models\TransactionEmail | TransactionEmail
-
-try {
-    $result = $apiInstance->updateTransactionEmail($storefront_oid, $email_id, $transaction_email);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->updateTransactionEmail: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -10258,30 +7265,13 @@ updateTwilioAccount($esp_twilio_uuid, $twilio): \ultracart\v2\models\TwilioRespo
 
 Update Twilio account
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$esp_twilio_uuid = 'esp_twilio_uuid_example'; // string
-$twilio = new \ultracart\v2\models\Twilio(); // \ultracart\v2\models\Twilio | Twilio
-
-try {
-    $result = $apiInstance->updateTwilioAccount($esp_twilio_uuid, $twilio);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->updateTwilioAccount: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -10315,29 +7305,13 @@ uploadFsFile($id, $upload_request)
 
 This is the last step in uploading a file after 1) calling getUploadFsFileUrl and 2) uploading a file to the provided url, then finally 3) calling this method and providing the key to trigger the server into reading the S3 bucket and retrieving the file.
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$id = 56; // int
-$upload_request = new \ultracart\v2\models\FileManagerUploadRequest(); // \ultracart\v2\models\FileManagerUploadRequest | UploadRequest
-
-try {
-    $apiInstance->uploadFsFile($id, $upload_request);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->uploadFsFile: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 
@@ -10371,29 +7345,13 @@ validateRuler($ruler_validate_request): \ultracart\v2\models\RulerValidationResp
 
 Validate AWS Event Ruler
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$ruler_validate_request = new \ultracart\v2\models\RulerValidationRequest(); // \ultracart\v2\models\RulerValidationRequest | Ruler Validate Request
-
-try {
-    $result = $apiInstance->validateRuler($ruler_validate_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->validateRuler: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation about StoreFrontApi samples.
 ```
+
 
 ### Parameters
 

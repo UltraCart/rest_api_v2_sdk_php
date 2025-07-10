@@ -104,28 +104,13 @@ Delete a conversation canned message
 
 Delete a conversation canned message
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_canned_message_oid = 56; // int
-
-try {
-    $apiInstance->deleteConversationCannedMessage($conversation_canned_message_oid);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->deleteConversationCannedMessage: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -160,28 +145,13 @@ Delete a conversation department
 
 Delete a conversation department
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_department_oid = 56; // int
-
-try {
-    $apiInstance->deleteDepartment($conversation_department_oid);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->deleteDepartment: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -216,28 +186,13 @@ Delete a conversation engagement
 
 Delete a conversation engagement
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_engagement_oid = 56; // int
-
-try {
-    $apiInstance->deleteEngagement($conversation_engagement_oid);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->deleteEngagement: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -272,28 +227,13 @@ Delete Agent Voicemail
 
 Delete pbx agent Voicemail
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$recording_sid = 'recording_sid_example'; // string
-
-try {
-    $apiInstance->deletePbxAgentVoicemail($recording_sid);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->deletePbxAgentVoicemail: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -328,29 +268,13 @@ Delete pbx audio
 
 Delete a pbx audio
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_pbx_audio_uuid = 'conversation_pbx_audio_uuid_example'; // string
-
-try {
-    $result = $apiInstance->deletePbxAudio($conversation_pbx_audio_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->deletePbxAudio: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -385,29 +309,13 @@ Delete pbx menu
 
 Delete a pbx menu
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_pbx_menu_uuid = 'conversation_pbx_menu_uuid_example'; // string
-
-try {
-    $result = $apiInstance->deletePbxMenu($conversation_pbx_menu_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->deletePbxMenu: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -442,29 +350,13 @@ Delete pbx queue
 
 Delete a pbx queue
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_pbx_queue_uuid = 'conversation_pbx_queue_uuid_example'; // string
-
-try {
-    $result = $apiInstance->deletePbxQueue($conversation_pbx_queue_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->deletePbxQueue: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -499,29 +391,13 @@ Delete Queue Voicemail
 
 Delete pbx queue Voicemail
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$queue_uuid = 'queue_uuid_example'; // string
-$recording_sid = 'recording_sid_example'; // string
-
-try {
-    $apiInstance->deletePbxQueueVoicemail($queue_uuid, $recording_sid);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->deletePbxQueueVoicemail: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -557,29 +433,13 @@ Delete pbx timeBased
 
 Delete a pbx timeBased
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_pbx_time_based_uuid = 'conversation_pbx_time_based_uuid_example'; // string
-
-try {
-    $result = $apiInstance->deletePbxTimeBased($conversation_pbx_time_based_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->deletePbxTimeBased: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -614,29 +474,13 @@ Delete pbx timeRange
 
 Delete a pbx timeRange
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_pbx_time_range_uuid = 'conversation_pbx_time_range_uuid_example'; // string
-
-try {
-    $result = $apiInstance->deletePbxTimeRange($conversation_pbx_time_range_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->deletePbxTimeRange: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -671,29 +515,13 @@ Delete pbx voicemailMailbox
 
 Delete a pbx voicemailMailbox
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_pbx_voicemail_mailbox_uuid = 'conversation_pbx_voicemail_mailbox_uuid_example'; // string
-
-try {
-    $result = $apiInstance->deletePbxVoicemailMailbox($conversation_pbx_voicemail_mailbox_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->deletePbxVoicemailMailbox: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -728,27 +556,13 @@ Agent keep alive
 
 Called periodically by the conversation API to keep the session alive.
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $apiInstance->getAgentKeepAlive();
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getAgentKeepAlive: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -781,28 +595,13 @@ Get agent profile
 
 Retrieve the agents profile
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getAgentProfile();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getAgentProfile: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -835,28 +634,12 @@ Get agent profiles
 
 Retrieve the agents profile
 
+
 ### Example
 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+(No example for this operation).
 
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getAgentProfiles();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getAgentProfiles: ', $e->getMessage(), PHP_EOL;
-}
-```
 
 ### Parameters
 
@@ -889,28 +672,13 @@ Get agent websocket authorization
 
 Retrieve a JWT to authorize an agent to make a websocket connection.
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getAgentWebsocketAuthorization();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getAgentWebsocketAuthorization: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -943,30 +711,13 @@ Retrieve a conversation
 
 Retrieve a conversation including the participants and messages
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_uuid = 'conversation_uuid_example'; // string
-$limit = 56; // int
-
-try {
-    $result = $apiInstance->getConversation($conversation_uuid, $limit);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getConversation: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -1002,28 +753,13 @@ Retrieve a list of canned messages ordered by short_code
 
 Retrieve a list of canned messages ordered by short_code
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getConversationCannedMessages();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getConversationCannedMessages: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -1056,29 +792,13 @@ Get a webchat conversation context
 
 Get a webchat conversation context
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_uuid = 'conversation_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getConversationContext($conversation_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getConversationContext: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -1113,28 +833,13 @@ Retrieve a list of possible department members
 
 Retrieve a list of possible department members
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getConversationDepartmentMemberList();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getConversationDepartmentMemberList: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -1167,28 +872,13 @@ Retrieve a list of departments ordered by name
 
 Retrieve a list of departments ordered by name
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getConversationDepartments();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getConversationDepartments: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -1221,29 +911,13 @@ Retrieve an engagement
 
 Retrieve an engagement
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_engagement_oid = 56; // int
-
-try {
-    $result = $apiInstance->getConversationEngagement($conversation_engagement_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getConversationEngagement: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -1278,28 +952,13 @@ Retrieve a list of engagements ordered by name
 
 Retrieve a list of engagements ordered by name
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getConversationEngagements();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getConversationEngagements: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -1332,31 +991,13 @@ Retrieve conversation messages
 
 Retrieve conversation messages since a particular time
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_uuid = 'conversation_uuid_example'; // string
-$since = 56; // int
-$limit = 56; // int
-
-try {
-    $result = $apiInstance->getConversationMessages($conversation_uuid, $since, $limit);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getConversationMessages: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -1393,29 +1034,13 @@ Get a presigned conversation multimedia upload URL
 
 Get a presigned conversation multimedia upload URL
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$extension = 'extension_example'; // string
-
-try {
-    $result = $apiInstance->getConversationMultimediaUploadUrl($extension);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getConversationMultimediaUploadUrl: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -1450,29 +1075,13 @@ Get a pre-signed conversation multimedia upload URL
 
 Get a pre-signed conversation multimedia upload URL
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$extension = 'extension_example'; // string
-
-try {
-    $result = $apiInstance->getConversationPbxAudioUploadUrl($extension);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getConversationPbxAudioUploadUrl: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -1507,29 +1116,13 @@ Get orders and customer information for a phone number
 
 Retrieves all the orders, auto orders, and customer profile for a given phone number
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$pbx_customer_snapshot_request = new \ultracart\v2\models\ConversationPbxCustomerSnapshotRequest(); // \ultracart\v2\models\ConversationPbxCustomerSnapshotRequest | Conversation pbx customer snapshot request
-
-try {
-    $result = $apiInstance->getConversationPbxCustomerSnapshot($pbx_customer_snapshot_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getConversationPbxCustomerSnapshot: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -1564,28 +1157,13 @@ Retrieve conversation permissions
 
 Retrieve conversation permissions
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getConversationPermissions();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getConversationPermissions: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -1618,28 +1196,13 @@ Retrieve a conversation webchat queue statuses
 
 Retrieve a conversation webchat queue statuses including agent status and queue entries
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getConversationWebchatQueueStatuses();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getConversationWebchatQueueStatuses: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -1672,32 +1235,13 @@ Retrieve a list of conversation summaries newest to oldest
 
 Retrieve a list of conversation summaries that are ordered newest to oldest, include the most recent message and whether its been read.
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$medium = 'medium_example'; // string
-$before = 'before_example'; // string
-$_limit = 100; // int | The maximum number of records to return on this one API call. (Max 200)
-$_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
-
-try {
-    $result = $apiInstance->getConversations($medium, $before, $_limit, $_offset);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getConversations: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -1735,29 +1279,13 @@ Retrieve a list of matching terms for a search field
 
 Retrieve a list of matching terms for a search field
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$autocomplete_request = new \ultracart\v2\models\ConversationAutocompleteRequest(); // \ultracart\v2\models\ConversationAutocompleteRequest | Autocomplete Request
-
-try {
-    $result = $apiInstance->getConversationsAutocomplete($autocomplete_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getConversationsAutocomplete: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -1792,29 +1320,13 @@ Search conversations
 
 Search conversations
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$search_request = new \ultracart\v2\models\ConversationSearchRequest(); // \ultracart\v2\models\ConversationSearchRequest | Search Request
-
-try {
-    $result = $apiInstance->getConversationsSearch($search_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getConversationsSearch: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -1849,28 +1361,13 @@ Get location data for engagement configuration
 
 Get location data for engagement configuration
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getLocationsForEngagement();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getLocationsForEngagement: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -1903,29 +1400,13 @@ Get pbx agent
 
 Retrieve a pbx agent
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_pbx_agent_uuid = 'conversation_pbx_agent_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getPbxAgent($conversation_pbx_agent_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getPbxAgent: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -1960,29 +1441,13 @@ Get Agent Voicemail
 
 Retrieve pbx agent Voicemail
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$recording_sid = 'recording_sid_example'; // string
-
-try {
-    $result = $apiInstance->getPbxAgentVoicemail($recording_sid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getPbxAgentVoicemail: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -2017,28 +1482,13 @@ Get Agent Voicemails
 
 Retrieve pbx agent Voicemails
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getPbxAgentVoicemails();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getPbxAgentVoicemails: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -2071,28 +1521,13 @@ Get pbx agents
 
 Retrieve pbx agents
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getPbxAgents();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getPbxAgents: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -2125,29 +1560,13 @@ Get pbx audio
 
 Retrieve a pbx audio
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_pbx_audio_uuid = 'conversation_pbx_audio_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getPbxAudio($conversation_pbx_audio_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getPbxAudio: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -2182,29 +1601,13 @@ Get pbx audio usage
 
 Retrieve a pbx audio usage
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_pbx_audio_uuid = 'conversation_pbx_audio_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getPbxAudioUsage($conversation_pbx_audio_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getPbxAudioUsage: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -2239,28 +1642,13 @@ Get pbx audios
 
 Retrieve pbx audios
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getPbxAudios();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getPbxAudios: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -2293,29 +1681,13 @@ Get pbx menu
 
 Retrieve a pbx menu
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_pbx_menu_uuid = 'conversation_pbx_menu_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getPbxMenu($conversation_pbx_menu_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getPbxMenu: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -2350,28 +1722,13 @@ Get pbx menus
 
 Retrieve pbx menus
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getPbxMenus();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getPbxMenus: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -2404,29 +1761,13 @@ Get pbx phoneNumber
 
 Retrieve a pbx phoneNumber
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_pbx_phone_number_uuid = 'conversation_pbx_phone_number_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getPbxPhoneNumber($conversation_pbx_phone_number_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getPbxPhoneNumber: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -2461,28 +1802,13 @@ Get pbx phoneNumbers
 
 Retrieve pbx phoneNumbers
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getPbxPhoneNumbers();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getPbxPhoneNumbers: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -2515,29 +1841,13 @@ Get pbx queue
 
 Retrieve a pbx queue
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_pbx_queue_uuid = 'conversation_pbx_queue_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getPbxQueue($conversation_pbx_queue_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getPbxQueue: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -2572,30 +1882,13 @@ Get Queue Voicemail
 
 Retrieve pbx queue Voicemail
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$queue_uuid = 'queue_uuid_example'; // string
-$recording_sid = 'recording_sid_example'; // string
-
-try {
-    $result = $apiInstance->getPbxQueueVoicemail($queue_uuid, $recording_sid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getPbxQueueVoicemail: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -2631,29 +1924,13 @@ Get Queue Voicemails
 
 Retrieve pbx queue voicemails
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$queue_uuid = 'queue_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getPbxQueueVoicemails($queue_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getPbxQueueVoicemails: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -2688,28 +1965,13 @@ Get pbx queues
 
 Retrieve pbx queues
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getPbxQueues();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getPbxQueues: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -2742,29 +2004,13 @@ Get pbx timeBased
 
 Retrieve a pbx timeBased
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_pbx_time_based_uuid = 'conversation_pbx_time_based_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getPbxTimeBased($conversation_pbx_time_based_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getPbxTimeBased: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -2799,28 +2045,13 @@ Get pbx timeBaseds
 
 Retrieve pbx timeBaseds
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getPbxTimeBaseds();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getPbxTimeBaseds: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -2853,29 +2084,13 @@ Get pbx timeRange
 
 Retrieve a pbx timeRange
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_pbx_time_range_uuid = 'conversation_pbx_time_range_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getPbxTimeRange($conversation_pbx_time_range_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getPbxTimeRange: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -2910,28 +2125,13 @@ Get pbx timeRanges
 
 Retrieve pbx timeRanges
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getPbxTimeRanges();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getPbxTimeRanges: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -2964,29 +2164,13 @@ Get pbx voicemailMailbox
 
 Retrieve a pbx voicemailMailbox
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_pbx_voicemail_mailbox_uuid = 'conversation_pbx_voicemail_mailbox_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getPbxVoicemailMailbox($conversation_pbx_voicemail_mailbox_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getPbxVoicemailMailbox: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -3021,28 +2205,13 @@ Get pbx voicemailMailboxes
 
 Retrieve pbx voicemailMailboxes
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getPbxVoicemailMailboxes();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getPbxVoicemailMailboxes: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -3075,28 +2244,12 @@ Get virtual agent budget
 
 Retrieve virtual agent budget
 
+
 ### Example
 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+(No example for this operation).
 
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getVirtualAgentBudget();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getVirtualAgentBudget: ', $e->getMessage(), PHP_EOL;
-}
-```
 
 ### Parameters
 
@@ -3129,28 +2282,12 @@ Get virtual agent capabilities
 
 Retrieve virtual agent capabilities
 
+
 ### Example
 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+(No example for this operation).
 
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getVirtualAgentCapabilities();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->getVirtualAgentCapabilities: ', $e->getMessage(), PHP_EOL;
-}
-```
 
 ### Parameters
 
@@ -3183,29 +2320,13 @@ Insert a canned message
 
 Insert a canned message
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$canned_message = new \ultracart\v2\models\ConversationCannedMessage(); // \ultracart\v2\models\ConversationCannedMessage | Canned message
-
-try {
-    $result = $apiInstance->insertConversationCannedMessage($canned_message);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->insertConversationCannedMessage: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -3240,29 +2361,13 @@ Insert a department
 
 Insert a department
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$department = new \ultracart\v2\models\ConversationDepartment(); // \ultracart\v2\models\ConversationDepartment | Department
-
-try {
-    $result = $apiInstance->insertConversationDepartment($department);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->insertConversationDepartment: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -3297,29 +2402,13 @@ Insert a engagement
 
 Insert a engagement
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$engagement = new \ultracart\v2\models\ConversationEngagement(); // \ultracart\v2\models\ConversationEngagement | Engagement
-
-try {
-    $result = $apiInstance->insertConversationEngagement($engagement);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->insertConversationEngagement: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -3354,29 +2443,13 @@ Insert pbx audio
 
 Insert a pbx audio
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$pbx_audio = new \ultracart\v2\models\ConversationPbxAudio(); // \ultracart\v2\models\ConversationPbxAudio | Pbx Audio
-
-try {
-    $result = $apiInstance->insertPbxAudio($pbx_audio);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->insertPbxAudio: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -3411,29 +2484,13 @@ Insert pbx menu
 
 Insert a pbx menu
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$pbx_menu = new \ultracart\v2\models\ConversationPbxMenu(); // \ultracart\v2\models\ConversationPbxMenu | Pbx Menu
-
-try {
-    $result = $apiInstance->insertPbxMenu($pbx_menu);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->insertPbxMenu: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -3468,29 +2525,13 @@ Insert pbx queue
 
 Insert a pbx queue
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$pbx_queue = new \ultracart\v2\models\ConversationPbxQueue(); // \ultracart\v2\models\ConversationPbxQueue | Pbx Queue
-
-try {
-    $result = $apiInstance->insertPbxQueue($pbx_queue);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->insertPbxQueue: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -3525,29 +2566,13 @@ Insert pbx timeBased
 
 Insert a pbx timeBased
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$pbx_time_based = new \ultracart\v2\models\ConversationPbxTimeBased(); // \ultracart\v2\models\ConversationPbxTimeBased | Pbx TimeBased
-
-try {
-    $result = $apiInstance->insertPbxTimeBased($pbx_time_based);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->insertPbxTimeBased: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -3582,29 +2607,13 @@ Insert pbx timeRange
 
 Insert a pbx timeRange
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$pbx_time_range = new \ultracart\v2\models\ConversationPbxTimeRange(); // \ultracart\v2\models\ConversationPbxTimeRange | Pbx TimeRange
-
-try {
-    $result = $apiInstance->insertPbxTimeRange($pbx_time_range);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->insertPbxTimeRange: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -3639,29 +2648,13 @@ Insert pbx voicemailMailbox
 
 Insert a pbx voicemailMailbox
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$pbx_voicemail_mailbox = new \ultracart\v2\models\ConversationPbxVoicemailMailbox(); // \ultracart\v2\models\ConversationPbxVoicemailMailbox | Pbx VoicemailMailbox
-
-try {
-    $result = $apiInstance->insertPbxVoicemailMailbox($pbx_voicemail_mailbox);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->insertPbxVoicemailMailbox: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -3696,29 +2689,13 @@ Join a conversation
 
 Join a conversation
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_uuid = 'conversation_uuid_example'; // string
-$join_request = new \ultracart\v2\models\ConversationJoinRequest(); // \ultracart\v2\models\ConversationJoinRequest | Join request
-
-try {
-    $apiInstance->joinConversation($conversation_uuid, $join_request);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->joinConversation: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -3754,28 +2731,13 @@ Leave a conversation
 
 Leave a conversation
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_uuid = 'conversation_uuid_example'; // string
-
-try {
-    $apiInstance->leaveConversation($conversation_uuid);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->leaveConversation: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -3810,28 +2772,13 @@ Listened Agent Voicemail
 
 Listened pbx agent Voicemail
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$recording_sid = 'recording_sid_example'; // string
-
-try {
-    $apiInstance->listenedPbxAgentVoicemail($recording_sid);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->listenedPbxAgentVoicemail: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -3866,29 +2813,13 @@ Listened Queue Voicemail
 
 Listened pbx queue Voicemail
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$queue_uuid = 'queue_uuid_example'; // string
-$recording_sid = 'recording_sid_example'; // string
-
-try {
-    $apiInstance->listenedPbxQueueVoicemail($queue_uuid, $recording_sid);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->listenedPbxQueueVoicemail: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -3924,28 +2855,13 @@ Mark a conversation as read
 
 Mark a conversation as read
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_uuid = 'conversation_uuid_example'; // string
-
-try {
-    $apiInstance->markReadConversation($conversation_uuid);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->markReadConversation: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -3980,28 +2896,13 @@ reset statistics within the queue
 
 reset statistics within the queue
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$queue_uuid = 'queue_uuid_example'; // string
-
-try {
-    $apiInstance->resetConversationPbxQueueStatistics($queue_uuid);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->resetConversationPbxQueueStatistics: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -4036,29 +2937,13 @@ Search for canned messages by short_code
 
 Search for canned messages by short_code
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$search_request = new \ultracart\v2\models\ConversationCannedMessagesSearch(); // \ultracart\v2\models\ConversationCannedMessagesSearch | Search request
-
-try {
-    $result = $apiInstance->searchConversationCannedMessages($search_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->searchConversationCannedMessages: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -4093,28 +2978,13 @@ Unsubscribe any SMS participants in this conversation
 
 Unsubscribe any SMS participants in this conversation
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_uuid = 'conversation_uuid_example'; // string
-
-try {
-    $apiInstance->smsUnsubscribeConversation($conversation_uuid);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->smsUnsubscribeConversation: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -4149,29 +3019,13 @@ Start a conversation
 
 Start a new conversation
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$start_request = new \ultracart\v2\models\ConversationStartRequest(); // \ultracart\v2\models\ConversationStartRequest | Start request
-
-try {
-    $result = $apiInstance->startConversation($start_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->startConversation: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -4206,29 +3060,13 @@ Update agent profile
 
 Update agent profile
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$profile_request = new \ultracart\v2\models\ConversationAgentProfile(); // \ultracart\v2\models\ConversationAgentProfile | Profile request
-
-try {
-    $result = $apiInstance->updateAgentProfile($profile_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->updateAgentProfile: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -4263,30 +3101,13 @@ Update a canned message
 
 Update a canned message
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_canned_message_oid = 56; // int
-$canned_message = new \ultracart\v2\models\ConversationCannedMessage(); // \ultracart\v2\models\ConversationCannedMessage | Canned message
-
-try {
-    $result = $apiInstance->updateConversationCannedMessage($conversation_canned_message_oid, $canned_message);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->updateConversationCannedMessage: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -4322,30 +3143,13 @@ Update a department
 
 Update a department
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_department_oid = 56; // int
-$department = new \ultracart\v2\models\ConversationDepartment(); // \ultracart\v2\models\ConversationDepartment | Department
-
-try {
-    $result = $apiInstance->updateConversationDepartment($conversation_department_oid, $department);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->updateConversationDepartment: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -4381,30 +3185,13 @@ Update a engagement
 
 Update a engagement
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_engagement_oid = 56; // int
-$engagement = new \ultracart\v2\models\ConversationEngagement(); // \ultracart\v2\models\ConversationEngagement | Engagement
-
-try {
-    $result = $apiInstance->updateConversationEngagement($conversation_engagement_oid, $engagement);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->updateConversationEngagement: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -4440,29 +3227,13 @@ Update status within the queue
 
 Update status within the queue
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$queue_name = 'queue_name_example'; // string
-$status_request = new \ultracart\v2\models\ConversationWebchatQueueStatusUpdateRequest(); // \ultracart\v2\models\ConversationWebchatQueueStatusUpdateRequest | Status request
-
-try {
-    $apiInstance->updateConversationWebchatQueueStatus($queue_name, $status_request);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->updateConversationWebchatQueueStatus: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -4498,30 +3269,13 @@ Update pbx agent
 
 Update a pbx agent
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_pbx_agent_uuid = 'conversation_pbx_agent_uuid_example'; // string
-$pbx_agent = new \ultracart\v2\models\ConversationPbxAgent(); // \ultracart\v2\models\ConversationPbxAgent | Pbx Agent
-
-try {
-    $result = $apiInstance->updatePbxAgent($conversation_pbx_agent_uuid, $pbx_agent);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->updatePbxAgent: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -4557,30 +3311,13 @@ Update pbx audio
 
 Update a pbx audio
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_pbx_audio_uuid = 'conversation_pbx_audio_uuid_example'; // string
-$pbx_audio = new \ultracart\v2\models\ConversationPbxAudio(); // \ultracart\v2\models\ConversationPbxAudio | Pbx Audio
-
-try {
-    $result = $apiInstance->updatePbxAudio($conversation_pbx_audio_uuid, $pbx_audio);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->updatePbxAudio: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -4616,30 +3353,13 @@ Update pbx menu
 
 Update a pbx menu
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_pbx_menu_uuid = 'conversation_pbx_menu_uuid_example'; // string
-$pbx_menu = new \ultracart\v2\models\ConversationPbxMenu(); // \ultracart\v2\models\ConversationPbxMenu | Pbx Menu
-
-try {
-    $result = $apiInstance->updatePbxMenu($conversation_pbx_menu_uuid, $pbx_menu);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->updatePbxMenu: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -4675,30 +3395,13 @@ Update pbx phoneNumber
 
 Update a pbx phoneNumber
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_pbx_phone_number_uuid = 'conversation_pbx_phone_number_uuid_example'; // string
-$pbx_phone_number = new \ultracart\v2\models\ConversationPbxPhoneNumber(); // \ultracart\v2\models\ConversationPbxPhoneNumber | Pbx PhoneNumber
-
-try {
-    $result = $apiInstance->updatePbxPhoneNumber($conversation_pbx_phone_number_uuid, $pbx_phone_number);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->updatePbxPhoneNumber: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -4734,30 +3437,13 @@ Update pbx queue
 
 Update a pbx queue
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_pbx_queue_uuid = 'conversation_pbx_queue_uuid_example'; // string
-$pbx_queue = new \ultracart\v2\models\ConversationPbxQueue(); // \ultracart\v2\models\ConversationPbxQueue | Pbx Queue
-
-try {
-    $result = $apiInstance->updatePbxQueue($conversation_pbx_queue_uuid, $pbx_queue);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->updatePbxQueue: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -4793,30 +3479,13 @@ Update pbx timeBased
 
 Update a pbx timeBased
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_pbx_time_based_uuid = 'conversation_pbx_time_based_uuid_example'; // string
-$pbx_time_based = new \ultracart\v2\models\ConversationPbxTimeBased(); // \ultracart\v2\models\ConversationPbxTimeBased | Pbx TimeBased
-
-try {
-    $result = $apiInstance->updatePbxTimeBased($conversation_pbx_time_based_uuid, $pbx_time_based);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->updatePbxTimeBased: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -4852,30 +3521,13 @@ Update pbx timeRange
 
 Update a pbx timeRange
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_pbx_time_range_uuid = 'conversation_pbx_time_range_uuid_example'; // string
-$pbx_time_range = new \ultracart\v2\models\ConversationPbxTimeRange(); // \ultracart\v2\models\ConversationPbxTimeRange | Pbx TimeRange
-
-try {
-    $result = $apiInstance->updatePbxTimeRange($conversation_pbx_time_range_uuid, $pbx_time_range);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->updatePbxTimeRange: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -4911,30 +3563,13 @@ Update pbx voicemailMailbox
 
 Update a pbx voicemailMailbox
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$conversation_pbx_voicemail_mailbox_uuid = 'conversation_pbx_voicemail_mailbox_uuid_example'; // string
-$pbx_voicemail_mailbox = new \ultracart\v2\models\ConversationPbxVoicemailMailbox(); // \ultracart\v2\models\ConversationPbxVoicemailMailbox | Pbx VoicemailMailbox
-
-try {
-    $result = $apiInstance->updatePbxVoicemailMailbox($conversation_pbx_voicemail_mailbox_uuid, $pbx_voicemail_mailbox);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->updatePbxVoicemailMailbox: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -4970,29 +3605,12 @@ Update virtual agent budget
 
 Update virtual agent budget
 
+
 ### Example
 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+(No example for this operation).
 
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$virtual_agent_budget = new \ultracart\v2\models\ConversationVirtualAgentBudget(); // \ultracart\v2\models\ConversationVirtualAgentBudget | Virtual Agent Budget
-
-try {
-    $result = $apiInstance->updateVirtualAgentBudget($virtual_agent_budget);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->updateVirtualAgentBudget: ', $e->getMessage(), PHP_EOL;
-}
-```
 
 ### Parameters
 
@@ -5027,29 +3645,12 @@ Update virtual agent capabilities
 
 Update virtual agent capabilities
 
+
 ### Example
 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
 
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
+(No example for this operation).
 
-$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$virtual_agent_capabilities = new \ultracart\v2\models\ConversationVirtualAgentCapabilities(); // \ultracart\v2\models\ConversationVirtualAgentCapabilities | Virtual Agent Capabilities
-
-try {
-    $result = $apiInstance->updateVirtualAgentCapabilities($virtual_agent_capabilities);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ConversationApi->updateVirtualAgentCapabilities: ', $e->getMessage(), PHP_EOL;
-}
-```
 
 ### Parameters
 

@@ -27,28 +27,19 @@ Delete a group
 
 Delete a group on the UltraCart account.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\UserApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$group_oid = 56; // int | The group_oid to delete.
-
-try {
-    $apiInstance->deleteGroup($group_oid);
-} catch (Exception $e) {
-    echo 'Exception when calling UserApi->deleteGroup: ', $e->getMessage(), PHP_EOL;
-}
+// The UserRestAPI is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the User Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -83,28 +74,19 @@ Delete a user
 
 Delete a user on the UltraCart account.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\UserApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$user_id = 56; // int | The user_id to delete.
-
-try {
-    $apiInstance->deleteUser($user_id);
-} catch (Exception $e) {
-    echo 'Exception when calling UserApi->deleteUser: ', $e->getMessage(), PHP_EOL;
-}
+// The UserRestAPI is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the User Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -139,28 +121,19 @@ Retrieve a group
 
 Retrieves a single group using the specified group id.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\UserApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$group_oid = 56; // int | The group id to retrieve.
-
-try {
-    $apiInstance->getGroup($group_oid);
-} catch (Exception $e) {
-    echo 'Exception when calling UserApi->getGroup: ', $e->getMessage(), PHP_EOL;
-}
+// The UserRestAPI is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the User Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -193,28 +166,19 @@ getGroups(): \ultracart\v2\models\GroupsResponse
 
 Get groups
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\UserApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getGroups();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling UserApi->getGroups: ', $e->getMessage(), PHP_EOL;
-}
+// The UserRestAPI is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the User Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -247,29 +211,19 @@ Retrieve a user
 
 Retrieves a single user using the specified user id.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\UserApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$user_id = 56; // int | The user id to retrieve.
-
-try {
-    $result = $apiInstance->getUser($user_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling UserApi->getUser: ', $e->getMessage(), PHP_EOL;
-}
+// The UserRestAPI is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the User Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -304,29 +258,19 @@ Retrieve a user's login history
 
 Retrieves logins for a single user using the specified user id.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\UserApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$user_id = 56; // int | The user id to retrieve.
-
-try {
-    $result = $apiInstance->getUserLogins($user_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling UserApi->getUserLogins: ', $e->getMessage(), PHP_EOL;
-}
+// The UserRestAPI is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the User Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -359,28 +303,19 @@ getUsers(): \ultracart\v2\models\UsersResponse
 
 Get users
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\UserApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getUsers();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling UserApi->getUsers: ', $e->getMessage(), PHP_EOL;
-}
+// The UserRestAPI is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the User Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -413,29 +348,19 @@ Insert a group
 
 Insert a group on the UltraCart account.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\UserApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$group = new \ultracart\v2\models\Group(); // \ultracart\v2\models\Group | Group to insert
-
-try {
-    $result = $apiInstance->insertGroup($group);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling UserApi->insertGroup: ', $e->getMessage(), PHP_EOL;
-}
+// The UserRestAPI is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the User Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -470,29 +395,19 @@ Insert a user
 
 Insert a user on the UltraCart account.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\UserApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$user = new \ultracart\v2\models\User(); // \ultracart\v2\models\User | User to insert
-
-try {
-    $result = $apiInstance->insertUser($user);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling UserApi->insertUser: ', $e->getMessage(), PHP_EOL;
-}
+// The UserRestAPI is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the User Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -527,30 +442,19 @@ Update a group
 
 Update a group on the UltraCart account.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\UserApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$group_oid = 56; // int | The group_oid to update.
-$group = new \ultracart\v2\models\Group(); // \ultracart\v2\models\Group | Group to update
-
-try {
-    $result = $apiInstance->updateGroup($group_oid, $group);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling UserApi->updateGroup: ', $e->getMessage(), PHP_EOL;
-}
+// The UserRestAPI is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the User Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -586,30 +490,19 @@ Update a user
 
 Update a user on the UltraCart account.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\UserApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$user_id = 56; // int | The user_id to update.
-$user = new \ultracart\v2\models\User(); // \ultracart\v2\models\User | User to update
-
-try {
-    $result = $apiInstance->updateUser($user_id, $user);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling UserApi->updateUser: ', $e->getMessage(), PHP_EOL;
-}
+// The UserRestAPI is used internally by UltraCart for our own UI.
+// We don't know of a use-case for merchants to use this API in their own automation,
+// but it's a public part of our REST API.
+//
+// We're not including any examples for using the User Api, but if you find yourself needing it for some reason,
+// contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 

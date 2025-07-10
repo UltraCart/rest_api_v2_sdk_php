@@ -20,28 +20,13 @@ Get single sign on session user
 
 This is the equivalent of logging out of the single sign on session
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\SsoApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getSsoSessionUser();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling SsoApi->getSsoSessionUser: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -74,29 +59,13 @@ Authorize a single sign on session
 
 Starts the process of authorizing a single sign on session.
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\SsoApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$authorization_request = new \ultracart\v2\models\SingleSignOnAuthorizeRequest(); // \ultracart\v2\models\SingleSignOnAuthorizeRequest | Authorization request
-
-try {
-    $result = $apiInstance->ssoAuthorize($authorization_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling SsoApi->ssoAuthorize: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -131,27 +100,13 @@ Revoke single sign on session
 
 This is the equivalent of logging out of the single sign on session
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\SsoApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $apiInstance->ssoSessionRevoke();
-} catch (Exception $e) {
-    echo 'Exception when calling SsoApi->ssoSessionRevoke: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 
@@ -184,29 +139,13 @@ Exchange a single sign on code for a simple key token
 
 Called by your application after receiving the code back on the redirect URI to obtain a simple key token to make API calls with
 
+
 ### Example
 
 ```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\SsoApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$token_request = new \ultracart\v2\models\SingleSignOnTokenRequest(); // \ultracart\v2\models\SingleSignOnTokenRequest | Token request
-
-try {
-    $result = $apiInstance->ssoToken($token_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling SsoApi->ssoToken: ', $e->getMessage(), PHP_EOL;
-}
+<?php // Please see the README.md in this directory for an explanation on why there are no samples here.
 ```
+
 
 ### Parameters
 

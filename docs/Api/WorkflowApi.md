@@ -28,28 +28,15 @@ Get agent websocket authorization
 
 Retrieve a JWT to authorize an agent to make a websocket connection.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\WorkflowApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getWorkflowAgentWebsocketAuthorization();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling WorkflowApi->getWorkflowAgentWebsocketAuthorization: ', $e->getMessage(), PHP_EOL;
-}
+// The Workflow REST is used internally by UltraCart for our own UI.
+// We're not including any examples for using the Workflow Api. We doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -82,30 +69,15 @@ Retrieve a list of groups that workflow tasks can be assigned to
 
 Retrieve a list of groups that workflow tasks can be assigned to
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\WorkflowApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$_limit = 100; // int | The maximum number of records to return on this one API call. (Max 200)
-$_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
-
-try {
-    $result = $apiInstance->getWorkflowAssignmentGroups($_limit, $_offset);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling WorkflowApi->getWorkflowAssignmentGroups: ', $e->getMessage(), PHP_EOL;
-}
+// The Workflow REST is used internally by UltraCart for our own UI.
+// We're not including any examples for using the Workflow Api. We doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -141,30 +113,15 @@ Retrieve a list of users that workflow tasks can be assigned to
 
 Retrieve a list of users that workflow tasks can be assigned to
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\WorkflowApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$_limit = 100; // int | The maximum number of records to return on this one API call. (Max 200)
-$_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
-
-try {
-    $result = $apiInstance->getWorkflowAssignmentUsers($_limit, $_offset);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling WorkflowApi->getWorkflowAssignmentUsers: ', $e->getMessage(), PHP_EOL;
-}
+// The Workflow REST is used internally by UltraCart for our own UI.
+// We're not including any examples for using the Workflow Api. We doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -200,28 +157,15 @@ Retrieve a user object for myself
 
 Retrieve a user object for myself
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\WorkflowApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getWorkflowMe();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling WorkflowApi->getWorkflowMe: ', $e->getMessage(), PHP_EOL;
-}
+// The Workflow REST is used internally by UltraCart for our own UI.
+// We're not including any examples for using the Workflow Api. We doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -254,29 +198,15 @@ Retrieve a workflow task
 
 Retrieve a workflow task
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\WorkflowApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$task_uuid = 'task_uuid_example'; // string
-
-try {
-    $result = $apiInstance->getWorkflowTask($task_uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling WorkflowApi->getWorkflowTask: ', $e->getMessage(), PHP_EOL;
-}
+// The Workflow REST is used internally by UltraCart for our own UI.
+// We're not including any examples for using the Workflow Api. We doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -311,29 +241,15 @@ Get a presigned workflow task attachment upload URL
 
 Get a presigned workflow task attachment upload URL
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\WorkflowApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$extension = 'extension_example'; // string
-
-try {
-    $result = $apiInstance->getWorkflowTaskAttachmentUploadUrl($extension);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling WorkflowApi->getWorkflowTaskAttachmentUploadUrl: ', $e->getMessage(), PHP_EOL;
-}
+// The Workflow REST is used internally by UltraCart for our own UI.
+// We're not including any examples for using the Workflow Api. We doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -368,30 +284,15 @@ Retrieve a workflow task by object type and id
 
 Retrieve a workflow task by object type and id
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\WorkflowApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$object_type = 'object_type_example'; // string
-$object_id = 'object_id_example'; // string
-
-try {
-    $result = $apiInstance->getWorkflowTaskByObjectType($object_type, $object_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling WorkflowApi->getWorkflowTaskByObjectType: ', $e->getMessage(), PHP_EOL;
-}
+// The Workflow REST is used internally by UltraCart for our own UI.
+// We're not including any examples for using the Workflow Api. We doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -427,28 +328,15 @@ Retrieve workflow task open count
 
 Retrieve workflow task open count
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\WorkflowApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getWorkflowTaskOpenCount();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling WorkflowApi->getWorkflowTaskOpenCount: ', $e->getMessage(), PHP_EOL;
-}
+// The Workflow REST is used internally by UltraCart for our own UI.
+// We're not including any examples for using the Workflow Api. We doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -481,28 +369,15 @@ Get a list of existing workflow task tags
 
 Retrieves a unique list of all the existing workflow task tags.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\WorkflowApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-
-try {
-    $result = $apiInstance->getWorkflowTaskTags();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling WorkflowApi->getWorkflowTaskTags: ', $e->getMessage(), PHP_EOL;
-}
+// The Workflow REST is used internally by UltraCart for our own UI.
+// We're not including any examples for using the Workflow Api. We doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -535,32 +410,15 @@ Search workflow tasks
 
 Retrieves a set of workflow tasks from the account based on a query object.
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\WorkflowApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$workflow_tasks_query = new \ultracart\v2\models\WorkflowTasksRequest(); // \ultracart\v2\models\WorkflowTasksRequest | Workflow tasks query
-$_limit = 100; // int | The maximum number of records to return on this one API call. (Default 100, Max 500)
-$_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
-$_sort = '_sort_example'; // string | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-
-try {
-    $result = $apiInstance->getWorkflowTasks($workflow_tasks_query, $_limit, $_offset, $_sort);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling WorkflowApi->getWorkflowTasks: ', $e->getMessage(), PHP_EOL;
-}
+// The Workflow REST is used internally by UltraCart for our own UI.
+// We're not including any examples for using the Workflow Api. We doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -598,29 +456,15 @@ Insert a workflow task
 
 Insert a workflow task
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\WorkflowApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$workflow_task = new \ultracart\v2\models\WorkflowTask(); // \ultracart\v2\models\WorkflowTask | workflow task
-
-try {
-    $result = $apiInstance->insertWorkflowTask($workflow_task);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling WorkflowApi->insertWorkflowTask: ', $e->getMessage(), PHP_EOL;
-}
+// The Workflow REST is used internally by UltraCart for our own UI.
+// We're not including any examples for using the Workflow Api. We doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
@@ -655,30 +499,15 @@ Update a workflow task
 
 Update a workflow task
 
+
 ### Example
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\WorkflowApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$task_uuid = 'task_uuid_example'; // string
-$workflow_task = new \ultracart\v2\models\WorkflowTask(); // \ultracart\v2\models\WorkflowTask | Workflow task
-
-try {
-    $result = $apiInstance->updateWorkflowTask($task_uuid, $workflow_task);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling WorkflowApi->updateWorkflowTask: ', $e->getMessage(), PHP_EOL;
-}
+// The Workflow REST is used internally by UltraCart for our own UI.
+// We're not including any examples for using the Workflow Api. We doubt merchants will ever have a need for this API.
 ```
+
 
 ### Parameters
 
