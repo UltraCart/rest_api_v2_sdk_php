@@ -1285,7 +1285,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets parent_category_path
      *
-     * @param string|null $parent_category_path Parent category path.  / indicates the root folder.
+     * @param string|null $parent_category_path Parent category path.  / indicates the root folder.  This is the folder structure within item management.
      *
      * @return self
      */

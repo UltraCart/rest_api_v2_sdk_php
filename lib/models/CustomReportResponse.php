@@ -1,6 +1,6 @@
 <?php
 /**
- * CartUpsellAfter
+ * CustomReportResponse
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * CartUpsellAfter Class Doc Comment
+ * CustomReportResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CartUpsellAfter implements ModelInterface, ArrayAccess, \JsonSerializable
+class CustomReportResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CartUpsellAfter';
+    protected static $openAPIModelName = 'CustomReportResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,11 +58,11 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'finalize_after_dts' => 'string',
-        'finalize_after_minutes' => 'int',
-        'upsell_path_code' => 'string',
-        'upsell_path_name' => 'string',
-        'upsell_path_variation' => 'string'
+        'error' => '\ultracart\v2\models\Error',
+        'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'report' => '\ultracart\v2\models\CustomReport',
+        'success' => 'bool',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -73,11 +73,11 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'finalize_after_dts' => 'dateTime',
-        'finalize_after_minutes' => 'int32',
-        'upsell_path_code' => null,
-        'upsell_path_name' => null,
-        'upsell_path_variation' => null
+        'error' => null,
+        'metadata' => null,
+        'report' => null,
+        'success' => null,
+        'warning' => null
     ];
 
     /**
@@ -107,11 +107,11 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'finalize_after_dts' => 'finalize_after_dts',
-        'finalize_after_minutes' => 'finalize_after_minutes',
-        'upsell_path_code' => 'upsell_path_code',
-        'upsell_path_name' => 'upsell_path_name',
-        'upsell_path_variation' => 'upsell_path_variation'
+        'error' => 'error',
+        'metadata' => 'metadata',
+        'report' => 'report',
+        'success' => 'success',
+        'warning' => 'warning'
     ];
 
     /**
@@ -120,11 +120,11 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'finalize_after_dts' => 'setFinalizeAfterDts',
-        'finalize_after_minutes' => 'setFinalizeAfterMinutes',
-        'upsell_path_code' => 'setUpsellPathCode',
-        'upsell_path_name' => 'setUpsellPathName',
-        'upsell_path_variation' => 'setUpsellPathVariation'
+        'error' => 'setError',
+        'metadata' => 'setMetadata',
+        'report' => 'setReport',
+        'success' => 'setSuccess',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -133,11 +133,11 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'finalize_after_dts' => 'getFinalizeAfterDts',
-        'finalize_after_minutes' => 'getFinalizeAfterMinutes',
-        'upsell_path_code' => 'getUpsellPathCode',
-        'upsell_path_name' => 'getUpsellPathName',
-        'upsell_path_variation' => 'getUpsellPathVariation'
+        'error' => 'getError',
+        'metadata' => 'getMetadata',
+        'report' => 'getReport',
+        'success' => 'getSuccess',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -197,11 +197,11 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['finalize_after_dts'] = $data['finalize_after_dts'] ?? null;
-        $this->container['finalize_after_minutes'] = $data['finalize_after_minutes'] ?? null;
-        $this->container['upsell_path_code'] = $data['upsell_path_code'] ?? null;
-        $this->container['upsell_path_name'] = $data['upsell_path_name'] ?? null;
-        $this->container['upsell_path_variation'] = $data['upsell_path_variation'] ?? null;
+        $this->container['error'] = $data['error'] ?? null;
+        $this->container['metadata'] = $data['metadata'] ?? null;
+        $this->container['report'] = $data['report'] ?? null;
+        $this->container['success'] = $data['success'] ?? null;
+        $this->container['warning'] = $data['warning'] ?? null;
     }
 
     /**
@@ -212,10 +212,6 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        if (!is_null($this->container['upsell_path_code']) && (mb_strlen($this->container['upsell_path_code']) > 5)) {
-            $invalidProperties[] = "invalid value for 'upsell_path_code', the character length must be smaller than or equal to 5.";
-        }
 
         return $invalidProperties;
     }
@@ -233,125 +229,121 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets finalize_after_dts
+     * Gets error
      *
-     * @return string|null
+     * @return \ultracart\v2\models\Error|null
      */
-    public function getFinalizeAfterDts()
+    public function getError()
     {
-        return $this->container['finalize_after_dts'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets finalize_after_dts
+     * Sets error
      *
-     * @param string|null $finalize_after_dts The date/time after which the cart will finalize into an order.
+     * @param \ultracart\v2\models\Error|null $error error
      *
      * @return self
      */
-    public function setFinalizeAfterDts($finalize_after_dts)
+    public function setError($error)
     {
-        $this->container['finalize_after_dts'] = $finalize_after_dts;
+        $this->container['error'] = $error;
 
         return $this;
     }
 
     /**
-     * Gets finalize_after_minutes
+     * Gets metadata
      *
-     * @return int|null
+     * @return \ultracart\v2\models\ResponseMetadata|null
      */
-    public function getFinalizeAfterMinutes()
+    public function getMetadata()
     {
-        return $this->container['finalize_after_minutes'];
+        return $this->container['metadata'];
     }
 
     /**
-     * Sets finalize_after_minutes
+     * Sets metadata
      *
-     * @param int|null $finalize_after_minutes The amount of inactivity in minutes after which the cart should be finalized into an order.  This will calculate the finalize_after_dts field.
+     * @param \ultracart\v2\models\ResponseMetadata|null $metadata metadata
      *
      * @return self
      */
-    public function setFinalizeAfterMinutes($finalize_after_minutes)
+    public function setMetadata($metadata)
     {
-        $this->container['finalize_after_minutes'] = $finalize_after_minutes;
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }
 
     /**
-     * Gets upsell_path_code
+     * Gets report
      *
-     * @return string|null
+     * @return \ultracart\v2\models\CustomReport|null
      */
-    public function getUpsellPathCode()
+    public function getReport()
     {
-        return $this->container['upsell_path_code'];
+        return $this->container['report'];
     }
 
     /**
-     * Sets upsell_path_code
+     * Sets report
      *
-     * @param string|null $upsell_path_code Upsell path code (this is for legacy upsells only)
+     * @param \ultracart\v2\models\CustomReport|null $report report
      *
      * @return self
      */
-    public function setUpsellPathCode($upsell_path_code)
+    public function setReport($report)
     {
-        if (!is_null($upsell_path_code) && (mb_strlen($upsell_path_code) > 5)) {
-            throw new \InvalidArgumentException('invalid length for $upsell_path_code when calling CartUpsellAfter., must be smaller than or equal to 5.');
-        }
-
-        $this->container['upsell_path_code'] = $upsell_path_code;
+        $this->container['report'] = $report;
 
         return $this;
     }
 
     /**
-     * Gets upsell_path_name
+     * Gets success
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getUpsellPathName()
+    public function getSuccess()
     {
-        return $this->container['upsell_path_name'];
+        return $this->container['success'];
     }
 
     /**
-     * Sets upsell_path_name
+     * Sets success
      *
-     * @param string|null $upsell_path_name Upsell path name to start on (StoreFront Upsells).  Will only be respected on a handoff API call.
+     * @param bool|null $success Indicates if API call was successful
      *
      * @return self
      */
-    public function setUpsellPathName($upsell_path_name)
+    public function setSuccess($success)
     {
-        $this->container['upsell_path_name'] = $upsell_path_name;
+        $this->container['success'] = $success;
 
         return $this;
     }
 
     /**
-     * Gets upsell_path_variation
+     * Gets warning
      *
-     * @return string|null
+     * @return \ultracart\v2\models\Warning|null
      */
-    public function getUpsellPathVariation()
+    public function getWarning()
     {
-        return $this->container['upsell_path_variation'];
+        return $this->container['warning'];
     }
 
     /**
-     * Sets upsell_path_variation
+     * Sets warning
      *
-     * @param string|null $upsell_path_variation Upsell path variation to start on (StoreFront Upsells).   Will only be respected on a handoff API call.
+     * @param \ultracart\v2\models\Warning|null $warning warning
      *
      * @return self
      */
-    public function setUpsellPathVariation($upsell_path_variation)
+    public function setWarning($warning)
     {
-        $this->container['upsell_path_variation'] = $upsell_path_variation;
+        $this->container['warning'] = $warning;
 
         return $this;
     }
