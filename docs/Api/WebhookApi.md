@@ -231,7 +231,7 @@ Name | Type | Description  | Notes
 ## `getWebhookLogSummaries()`
 
 ```php
-getWebhookLogSummaries($webhook_oid, $request_id, $begin_date, $end_date, $status, $event, $order_id, $request, $duration, $_limit, $_offset, $_since): \ultracart\v2\models\WebhookLogSummariesResponse
+getWebhookLogSummaries($webhook_oid, $_limit, $_offset, $_since): \ultracart\v2\models\WebhookLogSummariesResponse
 ```
 
 Retrieve the log summaries
@@ -313,14 +313,6 @@ var_dump($summaries);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **webhook_oid** | **int**| The webhook oid to retrieve log summaries for. |
- **request_id** | **string**|  | [optional]
- **begin_date** | **string**|  | [optional]
- **end_date** | **string**|  | [optional]
- **status** | **string**|  | [optional]
- **event** | **string**|  | [optional]
- **order_id** | **string**|  | [optional]
- **request** | **string**|  | [optional]
- **duration** | **int**|  | [optional]
  **_limit** | **int**| The maximum number of records to return on this one API call. | [optional] [default to 100]
  **_offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
  **_since** | **string**| Fetch log summaries that have been delivered since this date/time. | [optional]

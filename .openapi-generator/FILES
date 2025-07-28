@@ -338,6 +338,7 @@ docs/Model/CustomReportParameterOption.md
 docs/Model/CustomReportQuery.md
 docs/Model/CustomReportResponse.md
 docs/Model/CustomReportTooltip.md
+docs/Model/CustomReportsResponse.md
 docs/Model/Customer.md
 docs/Model/CustomerActivity.md
 docs/Model/CustomerAffiliate.md
@@ -1237,6 +1238,7 @@ lib/models/CustomReportParameterOption.php
 lib/models/CustomReportQuery.php
 lib/models/CustomReportResponse.php
 lib/models/CustomReportTooltip.php
+lib/models/CustomReportsResponse.php
 lib/models/Customer.php
 lib/models/CustomerActivity.php
 lib/models/CustomerAffiliate.php
