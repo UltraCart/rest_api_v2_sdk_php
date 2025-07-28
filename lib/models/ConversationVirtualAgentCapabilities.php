@@ -62,6 +62,8 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
         'lookup_order_information' => 'bool',
         'lookup_subscription_information' => 'bool',
         'open_support_ticket' => 'bool',
+        'open_support_ticket_channel' => 'string',
+        'open_support_ticket_channel_email' => 'string',
         'pause_subscription' => 'bool',
         'resume_subscription' => 'bool',
         'transfer_chat_to_live_agent' => 'bool',
@@ -79,6 +81,8 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
         'lookup_order_information' => null,
         'lookup_subscription_information' => null,
         'open_support_ticket' => null,
+        'open_support_ticket_channel' => null,
+        'open_support_ticket_channel_email' => null,
         'pause_subscription' => null,
         'resume_subscription' => null,
         'transfer_chat_to_live_agent' => null,
@@ -117,6 +121,8 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
         'lookup_order_information' => 'lookup_order_information',
         'lookup_subscription_information' => 'lookup_subscription_information',
         'open_support_ticket' => 'open_support_ticket',
+        'open_support_ticket_channel' => 'open_support_ticket_channel',
+        'open_support_ticket_channel_email' => 'open_support_ticket_channel_email',
         'pause_subscription' => 'pause_subscription',
         'resume_subscription' => 'resume_subscription',
         'transfer_chat_to_live_agent' => 'transfer_chat_to_live_agent',
@@ -134,6 +140,8 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
         'lookup_order_information' => 'setLookupOrderInformation',
         'lookup_subscription_information' => 'setLookupSubscriptionInformation',
         'open_support_ticket' => 'setOpenSupportTicket',
+        'open_support_ticket_channel' => 'setOpenSupportTicketChannel',
+        'open_support_ticket_channel_email' => 'setOpenSupportTicketChannelEmail',
         'pause_subscription' => 'setPauseSubscription',
         'resume_subscription' => 'setResumeSubscription',
         'transfer_chat_to_live_agent' => 'setTransferChatToLiveAgent',
@@ -151,6 +159,8 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
         'lookup_order_information' => 'getLookupOrderInformation',
         'lookup_subscription_information' => 'getLookupSubscriptionInformation',
         'open_support_ticket' => 'getOpenSupportTicket',
+        'open_support_ticket_channel' => 'getOpenSupportTicketChannel',
+        'open_support_ticket_channel_email' => 'getOpenSupportTicketChannelEmail',
         'pause_subscription' => 'getPauseSubscription',
         'resume_subscription' => 'getResumeSubscription',
         'transfer_chat_to_live_agent' => 'getTransferChatToLiveAgent',
@@ -198,8 +208,27 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
         return self::$swaggerModelName;
     }
 
+    const OPEN_SUPPORT_TICKET_CHANNEL_NONE = 'none';
+    const OPEN_SUPPORT_TICKET_CHANNEL_EMAIL = 'email';
+    const OPEN_SUPPORT_TICKET_CHANNEL_ULTRA_CART_TASK = 'UltraCart Task';
+    const OPEN_SUPPORT_TICKET_CHANNEL_ZOHO_DESK_TICKET = 'Zoho Desk Ticket';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getOpenSupportTicketChannelAllowableValues()
+    {
+        return [
+            self::OPEN_SUPPORT_TICKET_CHANNEL_NONE,
+            self::OPEN_SUPPORT_TICKET_CHANNEL_EMAIL,
+            self::OPEN_SUPPORT_TICKET_CHANNEL_ULTRA_CART_TASK,
+            self::OPEN_SUPPORT_TICKET_CHANNEL_ZOHO_DESK_TICKET,
+        ];
+    }
     
 
     /**
@@ -222,6 +251,8 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
         $this->container['lookup_order_information'] = isset($data['lookup_order_information']) ? $data['lookup_order_information'] : null;
         $this->container['lookup_subscription_information'] = isset($data['lookup_subscription_information']) ? $data['lookup_subscription_information'] : null;
         $this->container['open_support_ticket'] = isset($data['open_support_ticket']) ? $data['open_support_ticket'] : null;
+        $this->container['open_support_ticket_channel'] = isset($data['open_support_ticket_channel']) ? $data['open_support_ticket_channel'] : null;
+        $this->container['open_support_ticket_channel_email'] = isset($data['open_support_ticket_channel_email']) ? $data['open_support_ticket_channel_email'] : null;
         $this->container['pause_subscription'] = isset($data['pause_subscription']) ? $data['pause_subscription'] : null;
         $this->container['resume_subscription'] = isset($data['resume_subscription']) ? $data['resume_subscription'] : null;
         $this->container['transfer_chat_to_live_agent'] = isset($data['transfer_chat_to_live_agent']) ? $data['transfer_chat_to_live_agent'] : null;
@@ -236,6 +267,14 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getOpenSupportTicketChannelAllowableValues();
+        if (!is_null($this->container['open_support_ticket_channel']) && !in_array($this->container['open_support_ticket_channel'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'open_support_ticket_channel', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -368,6 +407,63 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
     public function setOpenSupportTicket($open_support_ticket)
     {
         $this->container['open_support_ticket'] = $open_support_ticket;
+
+        return $this;
+    }
+
+    /**
+     * Gets open_support_ticket_channel
+     *
+     * @return string
+     */
+    public function getOpenSupportTicketChannel()
+    {
+        return $this->container['open_support_ticket_channel'];
+    }
+
+    /**
+     * Sets open_support_ticket_channel
+     *
+     * @param string $open_support_ticket_channel Channel to use to open the support ticket
+     *
+     * @return $this
+     */
+    public function setOpenSupportTicketChannel($open_support_ticket_channel)
+    {
+        $allowedValues = $this->getOpenSupportTicketChannelAllowableValues();
+        if (!is_null($open_support_ticket_channel) && !in_array($open_support_ticket_channel, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'open_support_ticket_channel', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['open_support_ticket_channel'] = $open_support_ticket_channel;
+
+        return $this;
+    }
+
+    /**
+     * Gets open_support_ticket_channel_email
+     *
+     * @return string
+     */
+    public function getOpenSupportTicketChannelEmail()
+    {
+        return $this->container['open_support_ticket_channel_email'];
+    }
+
+    /**
+     * Sets open_support_ticket_channel_email
+     *
+     * @param string $open_support_ticket_channel_email Email to send support ticket to
+     *
+     * @return $this
+     */
+    public function setOpenSupportTicketChannelEmail($open_support_ticket_channel_email)
+    {
+        $this->container['open_support_ticket_channel_email'] = $open_support_ticket_channel_email;
 
         return $this;
     }

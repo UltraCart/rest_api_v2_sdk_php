@@ -1,6 +1,6 @@
 <?php
 /**
- * CartUpsellAfter
+ * CustomReportAccountConfig
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * CartUpsellAfter Class Doc Comment
+ * CustomReportAccountConfig Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CartUpsellAfter implements ModelInterface, ArrayAccess
+class CustomReportAccountConfig implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CartUpsellAfter';
+    protected static $swaggerModelName = 'CustomReportAccountConfig';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,15 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'finalize_after_dts' => 'string',
-        'finalize_after_minutes' => 'int',
-        'upsell_path_code' => 'string',
-        'upsell_path_name' => 'string',
-        'upsell_path_variation' => 'string'
+        'ai_budget' => 'float',
+        'ai_usage' => 'float',
+        'merchant_id' => 'string',
+        'novice_sql_comments' => 'bool',
+        'opt_in' => 'bool',
+        'opt_in_by_user' => 'string',
+        'opt_in_date' => 'string',
+        'sql_budget' => 'float',
+        'sql_usage' => 'float'
     ];
 
     /**
@@ -70,11 +74,15 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'finalize_after_dts' => 'dateTime',
-        'finalize_after_minutes' => 'int32',
-        'upsell_path_code' => null,
-        'upsell_path_name' => null,
-        'upsell_path_variation' => null
+        'ai_budget' => null,
+        'ai_usage' => null,
+        'merchant_id' => null,
+        'novice_sql_comments' => null,
+        'opt_in' => null,
+        'opt_in_by_user' => null,
+        'opt_in_date' => 'dateTime',
+        'sql_budget' => null,
+        'sql_usage' => null
     ];
 
     /**
@@ -104,11 +112,15 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'finalize_after_dts' => 'finalize_after_dts',
-        'finalize_after_minutes' => 'finalize_after_minutes',
-        'upsell_path_code' => 'upsell_path_code',
-        'upsell_path_name' => 'upsell_path_name',
-        'upsell_path_variation' => 'upsell_path_variation'
+        'ai_budget' => 'ai_budget',
+        'ai_usage' => 'ai_usage',
+        'merchant_id' => 'merchant_id',
+        'novice_sql_comments' => 'novice_sql_comments',
+        'opt_in' => 'opt_in',
+        'opt_in_by_user' => 'opt_in_by_user',
+        'opt_in_date' => 'opt_in_date',
+        'sql_budget' => 'sql_budget',
+        'sql_usage' => 'sql_usage'
     ];
 
     /**
@@ -117,11 +129,15 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'finalize_after_dts' => 'setFinalizeAfterDts',
-        'finalize_after_minutes' => 'setFinalizeAfterMinutes',
-        'upsell_path_code' => 'setUpsellPathCode',
-        'upsell_path_name' => 'setUpsellPathName',
-        'upsell_path_variation' => 'setUpsellPathVariation'
+        'ai_budget' => 'setAiBudget',
+        'ai_usage' => 'setAiUsage',
+        'merchant_id' => 'setMerchantId',
+        'novice_sql_comments' => 'setNoviceSqlComments',
+        'opt_in' => 'setOptIn',
+        'opt_in_by_user' => 'setOptInByUser',
+        'opt_in_date' => 'setOptInDate',
+        'sql_budget' => 'setSqlBudget',
+        'sql_usage' => 'setSqlUsage'
     ];
 
     /**
@@ -130,11 +146,15 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'finalize_after_dts' => 'getFinalizeAfterDts',
-        'finalize_after_minutes' => 'getFinalizeAfterMinutes',
-        'upsell_path_code' => 'getUpsellPathCode',
-        'upsell_path_name' => 'getUpsellPathName',
-        'upsell_path_variation' => 'getUpsellPathVariation'
+        'ai_budget' => 'getAiBudget',
+        'ai_usage' => 'getAiUsage',
+        'merchant_id' => 'getMerchantId',
+        'novice_sql_comments' => 'getNoviceSqlComments',
+        'opt_in' => 'getOptIn',
+        'opt_in_by_user' => 'getOptInByUser',
+        'opt_in_date' => 'getOptInDate',
+        'sql_budget' => 'getSqlBudget',
+        'sql_usage' => 'getSqlUsage'
     ];
 
     /**
@@ -197,11 +217,15 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['finalize_after_dts'] = isset($data['finalize_after_dts']) ? $data['finalize_after_dts'] : null;
-        $this->container['finalize_after_minutes'] = isset($data['finalize_after_minutes']) ? $data['finalize_after_minutes'] : null;
-        $this->container['upsell_path_code'] = isset($data['upsell_path_code']) ? $data['upsell_path_code'] : null;
-        $this->container['upsell_path_name'] = isset($data['upsell_path_name']) ? $data['upsell_path_name'] : null;
-        $this->container['upsell_path_variation'] = isset($data['upsell_path_variation']) ? $data['upsell_path_variation'] : null;
+        $this->container['ai_budget'] = isset($data['ai_budget']) ? $data['ai_budget'] : null;
+        $this->container['ai_usage'] = isset($data['ai_usage']) ? $data['ai_usage'] : null;
+        $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
+        $this->container['novice_sql_comments'] = isset($data['novice_sql_comments']) ? $data['novice_sql_comments'] : null;
+        $this->container['opt_in'] = isset($data['opt_in']) ? $data['opt_in'] : null;
+        $this->container['opt_in_by_user'] = isset($data['opt_in_by_user']) ? $data['opt_in_by_user'] : null;
+        $this->container['opt_in_date'] = isset($data['opt_in_date']) ? $data['opt_in_date'] : null;
+        $this->container['sql_budget'] = isset($data['sql_budget']) ? $data['sql_budget'] : null;
+        $this->container['sql_usage'] = isset($data['sql_usage']) ? $data['sql_usage'] : null;
     }
 
     /**
@@ -212,10 +236,6 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        if (!is_null($this->container['upsell_path_code']) && (mb_strlen($this->container['upsell_path_code']) > 5)) {
-            $invalidProperties[] = "invalid value for 'upsell_path_code', the character length must be smaller than or equal to 5.";
-        }
 
         return $invalidProperties;
     }
@@ -233,125 +253,217 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets finalize_after_dts
+     * Gets ai_budget
      *
-     * @return string
+     * @return float
      */
-    public function getFinalizeAfterDts()
+    public function getAiBudget()
     {
-        return $this->container['finalize_after_dts'];
+        return $this->container['ai_budget'];
     }
 
     /**
-     * Sets finalize_after_dts
+     * Sets ai_budget
      *
-     * @param string $finalize_after_dts The date/time after which the cart will finalize into an order.
+     * @param float $ai_budget ai_budget
      *
      * @return $this
      */
-    public function setFinalizeAfterDts($finalize_after_dts)
+    public function setAiBudget($ai_budget)
     {
-        $this->container['finalize_after_dts'] = $finalize_after_dts;
+        $this->container['ai_budget'] = $ai_budget;
 
         return $this;
     }
 
     /**
-     * Gets finalize_after_minutes
+     * Gets ai_usage
      *
-     * @return int
+     * @return float
      */
-    public function getFinalizeAfterMinutes()
+    public function getAiUsage()
     {
-        return $this->container['finalize_after_minutes'];
+        return $this->container['ai_usage'];
     }
 
     /**
-     * Sets finalize_after_minutes
+     * Sets ai_usage
      *
-     * @param int $finalize_after_minutes The amount of inactivity in minutes after which the cart should be finalized into an order.  This will calculate the finalize_after_dts field.
+     * @param float $ai_usage Current AI usage creating reports
      *
      * @return $this
      */
-    public function setFinalizeAfterMinutes($finalize_after_minutes)
+    public function setAiUsage($ai_usage)
     {
-        $this->container['finalize_after_minutes'] = $finalize_after_minutes;
+        $this->container['ai_usage'] = $ai_usage;
 
         return $this;
     }
 
     /**
-     * Gets upsell_path_code
+     * Gets merchant_id
      *
      * @return string
      */
-    public function getUpsellPathCode()
+    public function getMerchantId()
     {
-        return $this->container['upsell_path_code'];
+        return $this->container['merchant_id'];
     }
 
     /**
-     * Sets upsell_path_code
+     * Sets merchant_id
      *
-     * @param string $upsell_path_code Upsell path code (this is for legacy upsells only)
+     * @param string $merchant_id Current BigQuery SQL usage running reports
      *
      * @return $this
      */
-    public function setUpsellPathCode($upsell_path_code)
+    public function setMerchantId($merchant_id)
     {
-        if (!is_null($upsell_path_code) && (mb_strlen($upsell_path_code) > 5)) {
-            throw new \InvalidArgumentException('invalid length for $upsell_path_code when calling CartUpsellAfter., must be smaller than or equal to 5.');
-        }
-
-        $this->container['upsell_path_code'] = $upsell_path_code;
+        $this->container['merchant_id'] = $merchant_id;
 
         return $this;
     }
 
     /**
-     * Gets upsell_path_name
+     * Gets novice_sql_comments
      *
-     * @return string
+     * @return bool
      */
-    public function getUpsellPathName()
+    public function getNoviceSqlComments()
     {
-        return $this->container['upsell_path_name'];
+        return $this->container['novice_sql_comments'];
     }
 
     /**
-     * Sets upsell_path_name
+     * Sets novice_sql_comments
      *
-     * @param string $upsell_path_name Upsell path name to start on (StoreFront Upsells).  Will only be respected on a handoff API call.
+     * @param bool $novice_sql_comments novice_sql_comments
      *
      * @return $this
      */
-    public function setUpsellPathName($upsell_path_name)
+    public function setNoviceSqlComments($novice_sql_comments)
     {
-        $this->container['upsell_path_name'] = $upsell_path_name;
+        $this->container['novice_sql_comments'] = $novice_sql_comments;
 
         return $this;
     }
 
     /**
-     * Gets upsell_path_variation
+     * Gets opt_in
      *
-     * @return string
+     * @return bool
      */
-    public function getUpsellPathVariation()
+    public function getOptIn()
     {
-        return $this->container['upsell_path_variation'];
+        return $this->container['opt_in'];
     }
 
     /**
-     * Sets upsell_path_variation
+     * Sets opt_in
      *
-     * @param string $upsell_path_variation Upsell path variation to start on (StoreFront Upsells).   Will only be respected on a handoff API call.
+     * @param bool $opt_in True if they have opted into custom reports
      *
      * @return $this
      */
-    public function setUpsellPathVariation($upsell_path_variation)
+    public function setOptIn($opt_in)
     {
-        $this->container['upsell_path_variation'] = $upsell_path_variation;
+        $this->container['opt_in'] = $opt_in;
+
+        return $this;
+    }
+
+    /**
+     * Gets opt_in_by_user
+     *
+     * @return string
+     */
+    public function getOptInByUser()
+    {
+        return $this->container['opt_in_by_user'];
+    }
+
+    /**
+     * Sets opt_in_by_user
+     *
+     * @param string $opt_in_by_user User that opted into custom reporting
+     *
+     * @return $this
+     */
+    public function setOptInByUser($opt_in_by_user)
+    {
+        $this->container['opt_in_by_user'] = $opt_in_by_user;
+
+        return $this;
+    }
+
+    /**
+     * Gets opt_in_date
+     *
+     * @return string
+     */
+    public function getOptInDate()
+    {
+        return $this->container['opt_in_date'];
+    }
+
+    /**
+     * Sets opt_in_date
+     *
+     * @param string $opt_in_date Date/time that custom reporting was opted in to
+     *
+     * @return $this
+     */
+    public function setOptInDate($opt_in_date)
+    {
+        $this->container['opt_in_date'] = $opt_in_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets sql_budget
+     *
+     * @return float
+     */
+    public function getSqlBudget()
+    {
+        return $this->container['sql_budget'];
+    }
+
+    /**
+     * Sets sql_budget
+     *
+     * @param float $sql_budget sql_budget
+     *
+     * @return $this
+     */
+    public function setSqlBudget($sql_budget)
+    {
+        $this->container['sql_budget'] = $sql_budget;
+
+        return $this;
+    }
+
+    /**
+     * Gets sql_usage
+     *
+     * @return float
+     */
+    public function getSqlUsage()
+    {
+        return $this->container['sql_usage'];
+    }
+
+    /**
+     * Sets sql_usage
+     *
+     * @param float $sql_usage sql_usage
+     *
+     * @return $this
+     */
+    public function setSqlUsage($sql_usage)
+    {
+        $this->container['sql_usage'] = $sql_usage;
 
         return $this;
     }

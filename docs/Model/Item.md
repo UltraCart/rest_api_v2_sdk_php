@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 **merchant_item_oid** | **int** | Unique object identifier for this item | [optional] 
 **options** | [**\ultracart\v2\models\ItemOption[]**](ItemOption.md) | Options | [optional] 
 **parent_category_id** | **int** | Parent category of the item.  Zero indicates the root folder. | [optional] 
-**parent_category_path** | **string** | Parent category path.  / indicates the root folder. | [optional] 
+**parent_category_path** | **string** | Parent category path.  / indicates the root folder.  This is the folder structure within item management. | [optional] 
 **payment_processing** | [**\ultracart\v2\models\ItemPaymentProcessing**](ItemPaymentProcessing.md) |  | [optional] 
 **physical** | [**\ultracart\v2\models\ItemPhysical**](ItemPhysical.md) |  | [optional] 
 **pricing** | [**\ultracart\v2\models\ItemPricing**](ItemPricing.md) |  | [optional] 

@@ -1,6 +1,6 @@
 <?php
 /**
- * CartUpsellAfter
+ * CustomReportExecutionParameter
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * CartUpsellAfter Class Doc Comment
+ * CustomReportExecutionParameter Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CartUpsellAfter implements ModelInterface, ArrayAccess
+class CustomReportExecutionParameter implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CartUpsellAfter';
+    protected static $swaggerModelName = 'CustomReportExecutionParameter';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,9 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'finalize_after_dts' => 'string',
-        'finalize_after_minutes' => 'int',
-        'upsell_path_code' => 'string',
-        'upsell_path_name' => 'string',
-        'upsell_path_variation' => 'string'
+        'name' => 'string',
+        'type' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -70,11 +68,9 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'finalize_after_dts' => 'dateTime',
-        'finalize_after_minutes' => 'int32',
-        'upsell_path_code' => null,
-        'upsell_path_name' => null,
-        'upsell_path_variation' => null
+        'name' => null,
+        'type' => null,
+        'value' => null
     ];
 
     /**
@@ -104,11 +100,9 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'finalize_after_dts' => 'finalize_after_dts',
-        'finalize_after_minutes' => 'finalize_after_minutes',
-        'upsell_path_code' => 'upsell_path_code',
-        'upsell_path_name' => 'upsell_path_name',
-        'upsell_path_variation' => 'upsell_path_variation'
+        'name' => 'name',
+        'type' => 'type',
+        'value' => 'value'
     ];
 
     /**
@@ -117,11 +111,9 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'finalize_after_dts' => 'setFinalizeAfterDts',
-        'finalize_after_minutes' => 'setFinalizeAfterMinutes',
-        'upsell_path_code' => 'setUpsellPathCode',
-        'upsell_path_name' => 'setUpsellPathName',
-        'upsell_path_variation' => 'setUpsellPathVariation'
+        'name' => 'setName',
+        'type' => 'setType',
+        'value' => 'setValue'
     ];
 
     /**
@@ -130,11 +122,9 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'finalize_after_dts' => 'getFinalizeAfterDts',
-        'finalize_after_minutes' => 'getFinalizeAfterMinutes',
-        'upsell_path_code' => 'getUpsellPathCode',
-        'upsell_path_name' => 'getUpsellPathName',
-        'upsell_path_variation' => 'getUpsellPathVariation'
+        'name' => 'getName',
+        'type' => 'getType',
+        'value' => 'getValue'
     ];
 
     /**
@@ -197,11 +187,9 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['finalize_after_dts'] = isset($data['finalize_after_dts']) ? $data['finalize_after_dts'] : null;
-        $this->container['finalize_after_minutes'] = isset($data['finalize_after_minutes']) ? $data['finalize_after_minutes'] : null;
-        $this->container['upsell_path_code'] = isset($data['upsell_path_code']) ? $data['upsell_path_code'] : null;
-        $this->container['upsell_path_name'] = isset($data['upsell_path_name']) ? $data['upsell_path_name'] : null;
-        $this->container['upsell_path_variation'] = isset($data['upsell_path_variation']) ? $data['upsell_path_variation'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -212,10 +200,6 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        if (!is_null($this->container['upsell_path_code']) && (mb_strlen($this->container['upsell_path_code']) > 5)) {
-            $invalidProperties[] = "invalid value for 'upsell_path_code', the character length must be smaller than or equal to 5.";
-        }
 
         return $invalidProperties;
     }
@@ -233,125 +217,73 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets finalize_after_dts
+     * Gets name
      *
      * @return string
      */
-    public function getFinalizeAfterDts()
+    public function getName()
     {
-        return $this->container['finalize_after_dts'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets finalize_after_dts
+     * Sets name
      *
-     * @param string $finalize_after_dts The date/time after which the cart will finalize into an order.
+     * @param string $name name
      *
      * @return $this
      */
-    public function setFinalizeAfterDts($finalize_after_dts)
+    public function setName($name)
     {
-        $this->container['finalize_after_dts'] = $finalize_after_dts;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets finalize_after_minutes
+     * Gets type
      *
-     * @return int
+     * @return string
      */
-    public function getFinalizeAfterMinutes()
+    public function getType()
     {
-        return $this->container['finalize_after_minutes'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets finalize_after_minutes
+     * Sets type
      *
-     * @param int $finalize_after_minutes The amount of inactivity in minutes after which the cart should be finalized into an order.  This will calculate the finalize_after_dts field.
+     * @param string $type type
      *
      * @return $this
      */
-    public function setFinalizeAfterMinutes($finalize_after_minutes)
+    public function setType($type)
     {
-        $this->container['finalize_after_minutes'] = $finalize_after_minutes;
+        $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets upsell_path_code
+     * Gets value
      *
      * @return string
      */
-    public function getUpsellPathCode()
+    public function getValue()
     {
-        return $this->container['upsell_path_code'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets upsell_path_code
+     * Sets value
      *
-     * @param string $upsell_path_code Upsell path code (this is for legacy upsells only)
+     * @param string $value value
      *
      * @return $this
      */
-    public function setUpsellPathCode($upsell_path_code)
+    public function setValue($value)
     {
-        if (!is_null($upsell_path_code) && (mb_strlen($upsell_path_code) > 5)) {
-            throw new \InvalidArgumentException('invalid length for $upsell_path_code when calling CartUpsellAfter., must be smaller than or equal to 5.');
-        }
-
-        $this->container['upsell_path_code'] = $upsell_path_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets upsell_path_name
-     *
-     * @return string
-     */
-    public function getUpsellPathName()
-    {
-        return $this->container['upsell_path_name'];
-    }
-
-    /**
-     * Sets upsell_path_name
-     *
-     * @param string $upsell_path_name Upsell path name to start on (StoreFront Upsells).  Will only be respected on a handoff API call.
-     *
-     * @return $this
-     */
-    public function setUpsellPathName($upsell_path_name)
-    {
-        $this->container['upsell_path_name'] = $upsell_path_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets upsell_path_variation
-     *
-     * @return string
-     */
-    public function getUpsellPathVariation()
-    {
-        return $this->container['upsell_path_variation'];
-    }
-
-    /**
-     * Sets upsell_path_variation
-     *
-     * @param string $upsell_path_variation Upsell path variation to start on (StoreFront Upsells).   Will only be respected on a handoff API call.
-     *
-     * @return $this
-     */
-    public function setUpsellPathVariation($upsell_path_variation)
-    {
-        $this->container['upsell_path_variation'] = $upsell_path_variation;
+        $this->container['value'] = $value;
 
         return $this;
     }

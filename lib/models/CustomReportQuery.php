@@ -1,6 +1,6 @@
 <?php
 /**
- * CartUpsellAfter
+ * CustomReportQuery
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * CartUpsellAfter Class Doc Comment
+ * CustomReportQuery Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CartUpsellAfter implements ModelInterface, ArrayAccess
+class CustomReportQuery implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CartUpsellAfter';
+    protected static $swaggerModelName = 'CustomReportQuery';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,12 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'finalize_after_dts' => 'string',
-        'finalize_after_minutes' => 'int',
-        'upsell_path_code' => 'string',
-        'upsell_path_name' => 'string',
-        'upsell_path_variation' => 'string'
+        'conditional_formatting_start_column' => 'int',
+        'freeze_columns' => 'int',
+        'pii_columns' => 'string[]',
+        'query' => 'string',
+        'sheet_name' => 'string',
+        'title' => 'string'
     ];
 
     /**
@@ -70,11 +71,12 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'finalize_after_dts' => 'dateTime',
-        'finalize_after_minutes' => 'int32',
-        'upsell_path_code' => null,
-        'upsell_path_name' => null,
-        'upsell_path_variation' => null
+        'conditional_formatting_start_column' => 'int32',
+        'freeze_columns' => 'int32',
+        'pii_columns' => null,
+        'query' => null,
+        'sheet_name' => null,
+        'title' => null
     ];
 
     /**
@@ -104,11 +106,12 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'finalize_after_dts' => 'finalize_after_dts',
-        'finalize_after_minutes' => 'finalize_after_minutes',
-        'upsell_path_code' => 'upsell_path_code',
-        'upsell_path_name' => 'upsell_path_name',
-        'upsell_path_variation' => 'upsell_path_variation'
+        'conditional_formatting_start_column' => 'conditional_formatting_start_column',
+        'freeze_columns' => 'freeze_columns',
+        'pii_columns' => 'pii_columns',
+        'query' => 'query',
+        'sheet_name' => 'sheet_name',
+        'title' => 'title'
     ];
 
     /**
@@ -117,11 +120,12 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'finalize_after_dts' => 'setFinalizeAfterDts',
-        'finalize_after_minutes' => 'setFinalizeAfterMinutes',
-        'upsell_path_code' => 'setUpsellPathCode',
-        'upsell_path_name' => 'setUpsellPathName',
-        'upsell_path_variation' => 'setUpsellPathVariation'
+        'conditional_formatting_start_column' => 'setConditionalFormattingStartColumn',
+        'freeze_columns' => 'setFreezeColumns',
+        'pii_columns' => 'setPiiColumns',
+        'query' => 'setQuery',
+        'sheet_name' => 'setSheetName',
+        'title' => 'setTitle'
     ];
 
     /**
@@ -130,11 +134,12 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'finalize_after_dts' => 'getFinalizeAfterDts',
-        'finalize_after_minutes' => 'getFinalizeAfterMinutes',
-        'upsell_path_code' => 'getUpsellPathCode',
-        'upsell_path_name' => 'getUpsellPathName',
-        'upsell_path_variation' => 'getUpsellPathVariation'
+        'conditional_formatting_start_column' => 'getConditionalFormattingStartColumn',
+        'freeze_columns' => 'getFreezeColumns',
+        'pii_columns' => 'getPiiColumns',
+        'query' => 'getQuery',
+        'sheet_name' => 'getSheetName',
+        'title' => 'getTitle'
     ];
 
     /**
@@ -197,11 +202,12 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['finalize_after_dts'] = isset($data['finalize_after_dts']) ? $data['finalize_after_dts'] : null;
-        $this->container['finalize_after_minutes'] = isset($data['finalize_after_minutes']) ? $data['finalize_after_minutes'] : null;
-        $this->container['upsell_path_code'] = isset($data['upsell_path_code']) ? $data['upsell_path_code'] : null;
-        $this->container['upsell_path_name'] = isset($data['upsell_path_name']) ? $data['upsell_path_name'] : null;
-        $this->container['upsell_path_variation'] = isset($data['upsell_path_variation']) ? $data['upsell_path_variation'] : null;
+        $this->container['conditional_formatting_start_column'] = isset($data['conditional_formatting_start_column']) ? $data['conditional_formatting_start_column'] : null;
+        $this->container['freeze_columns'] = isset($data['freeze_columns']) ? $data['freeze_columns'] : null;
+        $this->container['pii_columns'] = isset($data['pii_columns']) ? $data['pii_columns'] : null;
+        $this->container['query'] = isset($data['query']) ? $data['query'] : null;
+        $this->container['sheet_name'] = isset($data['sheet_name']) ? $data['sheet_name'] : null;
+        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
     }
 
     /**
@@ -212,10 +218,6 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        if (!is_null($this->container['upsell_path_code']) && (mb_strlen($this->container['upsell_path_code']) > 5)) {
-            $invalidProperties[] = "invalid value for 'upsell_path_code', the character length must be smaller than or equal to 5.";
-        }
 
         return $invalidProperties;
     }
@@ -233,125 +235,145 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets finalize_after_dts
-     *
-     * @return string
-     */
-    public function getFinalizeAfterDts()
-    {
-        return $this->container['finalize_after_dts'];
-    }
-
-    /**
-     * Sets finalize_after_dts
-     *
-     * @param string $finalize_after_dts The date/time after which the cart will finalize into an order.
-     *
-     * @return $this
-     */
-    public function setFinalizeAfterDts($finalize_after_dts)
-    {
-        $this->container['finalize_after_dts'] = $finalize_after_dts;
-
-        return $this;
-    }
-
-    /**
-     * Gets finalize_after_minutes
+     * Gets conditional_formatting_start_column
      *
      * @return int
      */
-    public function getFinalizeAfterMinutes()
+    public function getConditionalFormattingStartColumn()
     {
-        return $this->container['finalize_after_minutes'];
+        return $this->container['conditional_formatting_start_column'];
     }
 
     /**
-     * Sets finalize_after_minutes
+     * Sets conditional_formatting_start_column
      *
-     * @param int $finalize_after_minutes The amount of inactivity in minutes after which the cart should be finalized into an order.  This will calculate the finalize_after_dts field.
+     * @param int $conditional_formatting_start_column conditional_formatting_start_column
      *
      * @return $this
      */
-    public function setFinalizeAfterMinutes($finalize_after_minutes)
+    public function setConditionalFormattingStartColumn($conditional_formatting_start_column)
     {
-        $this->container['finalize_after_minutes'] = $finalize_after_minutes;
+        $this->container['conditional_formatting_start_column'] = $conditional_formatting_start_column;
 
         return $this;
     }
 
     /**
-     * Gets upsell_path_code
+     * Gets freeze_columns
      *
-     * @return string
+     * @return int
      */
-    public function getUpsellPathCode()
+    public function getFreezeColumns()
     {
-        return $this->container['upsell_path_code'];
+        return $this->container['freeze_columns'];
     }
 
     /**
-     * Sets upsell_path_code
+     * Sets freeze_columns
      *
-     * @param string $upsell_path_code Upsell path code (this is for legacy upsells only)
+     * @param int $freeze_columns freeze_columns
      *
      * @return $this
      */
-    public function setUpsellPathCode($upsell_path_code)
+    public function setFreezeColumns($freeze_columns)
     {
-        if (!is_null($upsell_path_code) && (mb_strlen($upsell_path_code) > 5)) {
-            throw new \InvalidArgumentException('invalid length for $upsell_path_code when calling CartUpsellAfter., must be smaller than or equal to 5.');
-        }
-
-        $this->container['upsell_path_code'] = $upsell_path_code;
+        $this->container['freeze_columns'] = $freeze_columns;
 
         return $this;
     }
 
     /**
-     * Gets upsell_path_name
+     * Gets pii_columns
      *
-     * @return string
+     * @return string[]
      */
-    public function getUpsellPathName()
+    public function getPiiColumns()
     {
-        return $this->container['upsell_path_name'];
+        return $this->container['pii_columns'];
     }
 
     /**
-     * Sets upsell_path_name
+     * Sets pii_columns
      *
-     * @param string $upsell_path_name Upsell path name to start on (StoreFront Upsells).  Will only be respected on a handoff API call.
+     * @param string[] $pii_columns pii_columns
      *
      * @return $this
      */
-    public function setUpsellPathName($upsell_path_name)
+    public function setPiiColumns($pii_columns)
     {
-        $this->container['upsell_path_name'] = $upsell_path_name;
+        $this->container['pii_columns'] = $pii_columns;
 
         return $this;
     }
 
     /**
-     * Gets upsell_path_variation
+     * Gets query
      *
      * @return string
      */
-    public function getUpsellPathVariation()
+    public function getQuery()
     {
-        return $this->container['upsell_path_variation'];
+        return $this->container['query'];
     }
 
     /**
-     * Sets upsell_path_variation
+     * Sets query
      *
-     * @param string $upsell_path_variation Upsell path variation to start on (StoreFront Upsells).   Will only be respected on a handoff API call.
+     * @param string $query query
      *
      * @return $this
      */
-    public function setUpsellPathVariation($upsell_path_variation)
+    public function setQuery($query)
     {
-        $this->container['upsell_path_variation'] = $upsell_path_variation;
+        $this->container['query'] = $query;
+
+        return $this;
+    }
+
+    /**
+     * Gets sheet_name
+     *
+     * @return string
+     */
+    public function getSheetName()
+    {
+        return $this->container['sheet_name'];
+    }
+
+    /**
+     * Sets sheet_name
+     *
+     * @param string $sheet_name sheet_name
+     *
+     * @return $this
+     */
+    public function setSheetName($sheet_name)
+    {
+        $this->container['sheet_name'] = $sheet_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->container['title'];
+    }
+
+    /**
+     * Sets title
+     *
+     * @param string $title title
+     *
+     * @return $this
+     */
+    public function setTitle($title)
+    {
+        $this->container['title'] = $title;
 
         return $this;
     }

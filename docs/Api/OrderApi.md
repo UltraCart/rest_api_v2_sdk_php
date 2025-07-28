@@ -5,6 +5,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**adjustOrderTotal**](OrderApi.md#adjustOrderTotal) | **POST** /order/orders/{order_id}/adjust_order_total/{desired_total} | Adjusts an order total
+[**blockRefundOnOrder**](OrderApi.md#blockRefundOnOrder) | **POST** /order/orders/{order_id}/refund_block | Set a refund block on an order
 [**cancelOrder**](OrderApi.md#cancelOrder) | **POST** /order/orders/{order_id}/cancel | Cancel an order
 [**deleteOrder**](OrderApi.md#deleteOrder) | **DELETE** /order/orders/{order_id} | Delete an order
 [**duplicateOrder**](OrderApi.md#duplicateOrder) | **POST** /order/orders/{order_id}/duplicate | Duplicate an order
@@ -29,6 +30,7 @@ Method | HTTP request | Description
 [**replacement**](OrderApi.md#replacement) | **POST** /order/orders/{order_id}/replacement | Replacement order
 [**resendReceipt**](OrderApi.md#resendReceipt) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
 [**resendShipmentConfirmation**](OrderApi.md#resendShipmentConfirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
+[**unblockRefundOnOrder**](OrderApi.md#unblockRefundOnOrder) | **POST** /order/orders/{order_id}/refund_unblock | Remove a refund block on an order
 [**updateAccountsReceivableRetryConfig**](OrderApi.md#updateAccountsReceivableRetryConfig) | **POST** /order/accountsReceivableRetryConfig | Update A/R Retry Configuration
 [**updateOrder**](OrderApi.md#updateOrder) | **PUT** /order/orders/{order_id} | Update an order
 [**validateOrder**](OrderApi.md#validateOrder) | **POST** /order/validate | Validate
@@ -80,6 +82,55 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **blockRefundOnOrder**
+> blockRefundOnOrder($order_id, $block_reason)
+
+Set a refund block on an order
+
+Sets a refund block on an order to prevent a user from performing a refund.  Commonly used when a chargeback has been received.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\OrderApi::usingApiKey($simple_key);
+
+$order_id = "order_id_example"; // string | The order id to block a refund on.
+$block_reason = "block_reason_example"; // string | Block reason code (optional)
+
+try {
+    $apiInstance->blockRefundOnOrder($order_id, $block_reason);
+} catch (Exception $e) {
+    echo 'Exception when calling OrderApi->blockRefundOnOrder: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **string**| The order id to block a refund on. |
+ **block_reason** | **string**| Block reason code (optional) | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -1355,6 +1406,53 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **unblockRefundOnOrder**
+> unblockRefundOnOrder($order_id)
+
+Remove a refund block on an order
+
+Removes a refund block on an order to prevent a user from performing a refund.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\OrderApi::usingApiKey($simple_key);
+
+$order_id = "order_id_example"; // string | The order id to unblock a refund on.
+
+try {
+    $apiInstance->unblockRefundOnOrder($order_id);
+} catch (Exception $e) {
+    echo 'Exception when calling OrderApi->unblockRefundOnOrder: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **string**| The order id to unblock a refund on. |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

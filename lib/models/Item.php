@@ -1285,7 +1285,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets parent_category_path
      *
-     * @param string $parent_category_path Parent category path.  / indicates the root folder.
+     * @param string $parent_category_path Parent category path.  / indicates the root folder.  This is the folder structure within item management.
      *
      * @return $this
      */

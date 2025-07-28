@@ -106,6 +106,307 @@ class DatawarehouseApi
     }
 
     /**
+     * Operation deleteCustomReport
+     *
+     * Delete a custom report
+     *
+     * @param  int $custom_report_oid The report oid to delete. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteCustomReport($custom_report_oid)
+    {
+        $this->deleteCustomReportWithHttpInfo($custom_report_oid);
+    }
+
+
+    /**
+     * Operation deleteCustomReportWithHttpInfo
+     *
+     * Delete a custom report
+     *
+     * @param  int $custom_report_oid The report oid to delete. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteCustomReportWithHttpInfo($custom_report_oid)
+    {
+        $this->deleteCustomReportWithHttpInfoRetry(true ,   $custom_report_oid);
+    }
+
+
+    /**
+     * Operation deleteCustomReportWithHttpInfoRetry
+     *
+     * Delete a custom report
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $custom_report_oid The report oid to delete. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteCustomReportWithHttpInfoRetry($retry ,  $custom_report_oid)
+    {
+        $returnType = '';
+        $request = $this->deleteCustomReportRequest($custom_report_oid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        $this->deleteCustomReportWithHttpInfoRetry(false ,   $custom_report_oid);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            return [null, $response->getStatusCode(), $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteCustomReportAsync
+     *
+     * Delete a custom report
+     *
+     * @param  int $custom_report_oid The report oid to delete. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteCustomReportAsync($custom_report_oid)
+    {
+        return $this->deleteCustomReportAsyncWithHttpInfo($custom_report_oid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteCustomReportAsyncWithHttpInfo
+     *
+     * Delete a custom report
+     *
+     * @param  int $custom_report_oid The report oid to delete. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteCustomReportAsyncWithHttpInfo($custom_report_oid)
+    {
+        $returnType = '';
+        $request = $this->deleteCustomReportRequest($custom_report_oid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteCustomReport'
+     *
+     * @param  int $custom_report_oid The report oid to delete. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deleteCustomReportRequest($custom_report_oid)
+    {
+        // verify the required parameter 'custom_report_oid' is set
+        if ($custom_report_oid === null || (is_array($custom_report_oid) && count($custom_report_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $custom_report_oid when calling deleteCustomReport'
+            );
+        }
+
+        $resourcePath = '/datawarehouse/custom_reports/{custom_report_oid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($custom_report_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'custom_report_oid' . '}',
+                ObjectSerializer::toPathValue($custom_report_oid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation deleteReport
      *
      * Delete a report
@@ -740,6 +1041,359 @@ class DatawarehouseApi
     }
 
     /**
+     * Operation executeCustomReport
+     *
+     * Execute a custom report
+     *
+     * @param  \ultracart\v2\models\CustomReportExecutionRequest $execution_request Request to execute custom report (required)
+     * @param  int $custom_report_oid The report oid to execute. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\CustomReportResponse
+     */
+    public function executeCustomReport($execution_request, $custom_report_oid)
+    {
+        list($response) = $this->executeCustomReportWithHttpInfo($execution_request, $custom_report_oid);
+        return $response;
+    }
+
+
+    /**
+     * Operation executeCustomReportWithHttpInfo
+     *
+     * Execute a custom report
+     *
+     * @param  \ultracart\v2\models\CustomReportExecutionRequest $execution_request Request to execute custom report (required)
+     * @param  int $custom_report_oid The report oid to execute. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CustomReportResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function executeCustomReportWithHttpInfo($execution_request, $custom_report_oid)
+    {
+        return $this->executeCustomReportWithHttpInfoRetry(true ,   $execution_request,   $custom_report_oid);
+    }
+
+
+    /**
+     * Operation executeCustomReportWithHttpInfoRetry
+     *
+     * Execute a custom report
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\CustomReportExecutionRequest $execution_request Request to execute custom report (required)
+     * @param  int $custom_report_oid The report oid to execute. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CustomReportResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function executeCustomReportWithHttpInfoRetry($retry ,  $execution_request,  $custom_report_oid)
+    {
+        $returnType = '\ultracart\v2\models\CustomReportResponse';
+        $request = $this->executeCustomReportRequest($execution_request, $custom_report_oid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->executeCustomReportWithHttpInfoRetry(false ,   $execution_request,   $custom_report_oid);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\CustomReportResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation executeCustomReportAsync
+     *
+     * Execute a custom report
+     *
+     * @param  \ultracart\v2\models\CustomReportExecutionRequest $execution_request Request to execute custom report (required)
+     * @param  int $custom_report_oid The report oid to execute. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function executeCustomReportAsync($execution_request, $custom_report_oid)
+    {
+        return $this->executeCustomReportAsyncWithHttpInfo($execution_request, $custom_report_oid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation executeCustomReportAsyncWithHttpInfo
+     *
+     * Execute a custom report
+     *
+     * @param  \ultracart\v2\models\CustomReportExecutionRequest $execution_request Request to execute custom report (required)
+     * @param  int $custom_report_oid The report oid to execute. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function executeCustomReportAsyncWithHttpInfo($execution_request, $custom_report_oid)
+    {
+        $returnType = '\ultracart\v2\models\CustomReportResponse';
+        $request = $this->executeCustomReportRequest($execution_request, $custom_report_oid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'executeCustomReport'
+     *
+     * @param  \ultracart\v2\models\CustomReportExecutionRequest $execution_request Request to execute custom report (required)
+     * @param  int $custom_report_oid The report oid to execute. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function executeCustomReportRequest($execution_request, $custom_report_oid)
+    {
+        // verify the required parameter 'execution_request' is set
+        if ($execution_request === null || (is_array($execution_request) && count($execution_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $execution_request when calling executeCustomReport'
+            );
+        }
+        // verify the required parameter 'custom_report_oid' is set
+        if ($custom_report_oid === null || (is_array($custom_report_oid) && count($custom_report_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $custom_report_oid when calling executeCustomReport'
+            );
+        }
+
+        $resourcePath = '/datawarehouse/custom_reports/{custom_report_oid}/execute';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($custom_report_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'custom_report_oid' . '}',
+                ObjectSerializer::toPathValue($custom_report_oid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($execution_request)) {
+            $_tempBody = $execution_request;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json; charset=UTF-8']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation executeReportQueries
      *
      * Execute the report queries
@@ -1029,6 +1683,662 @@ class DatawarehouseApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getCustomReport
+     *
+     * Get a custom report
+     *
+     * @param  int $custom_report_oid custom_report_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\CustomReportResponse
+     */
+    public function getCustomReport($custom_report_oid)
+    {
+        list($response) = $this->getCustomReportWithHttpInfo($custom_report_oid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getCustomReportWithHttpInfo
+     *
+     * Get a custom report
+     *
+     * @param  int $custom_report_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CustomReportResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCustomReportWithHttpInfo($custom_report_oid)
+    {
+        return $this->getCustomReportWithHttpInfoRetry(true ,   $custom_report_oid);
+    }
+
+
+    /**
+     * Operation getCustomReportWithHttpInfoRetry
+     *
+     * Get a custom report
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $custom_report_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CustomReportResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCustomReportWithHttpInfoRetry($retry ,  $custom_report_oid)
+    {
+        $returnType = '\ultracart\v2\models\CustomReportResponse';
+        $request = $this->getCustomReportRequest($custom_report_oid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getCustomReportWithHttpInfoRetry(false ,   $custom_report_oid);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\CustomReportResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getCustomReportAsync
+     *
+     * Get a custom report
+     *
+     * @param  int $custom_report_oid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCustomReportAsync($custom_report_oid)
+    {
+        return $this->getCustomReportAsyncWithHttpInfo($custom_report_oid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getCustomReportAsyncWithHttpInfo
+     *
+     * Get a custom report
+     *
+     * @param  int $custom_report_oid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCustomReportAsyncWithHttpInfo($custom_report_oid)
+    {
+        $returnType = '\ultracart\v2\models\CustomReportResponse';
+        $request = $this->getCustomReportRequest($custom_report_oid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getCustomReport'
+     *
+     * @param  int $custom_report_oid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getCustomReportRequest($custom_report_oid)
+    {
+        // verify the required parameter 'custom_report_oid' is set
+        if ($custom_report_oid === null || (is_array($custom_report_oid) && count($custom_report_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $custom_report_oid when calling getCustomReport'
+            );
+        }
+
+        $resourcePath = '/datawarehouse/custom_reports/{custom_report_oid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($custom_report_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'custom_report_oid' . '}',
+                ObjectSerializer::toPathValue($custom_report_oid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getCustomReportAccountConfig
+     *
+     * Get custom report account configuration
+     *
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\CustomReportAccountConfigResponse
+     */
+    public function getCustomReportAccountConfig()
+    {
+        list($response) = $this->getCustomReportAccountConfigWithHttpInfo();
+        return $response;
+    }
+
+
+    /**
+     * Operation getCustomReportAccountConfigWithHttpInfo
+     *
+     * Get custom report account configuration
+     *
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CustomReportAccountConfigResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCustomReportAccountConfigWithHttpInfo()
+    {
+        return $this->getCustomReportAccountConfigWithHttpInfoRetry(true );
+    }
+
+
+    /**
+     * Operation getCustomReportAccountConfigWithHttpInfoRetry
+     *
+     * Get custom report account configuration
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CustomReportAccountConfigResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCustomReportAccountConfigWithHttpInfoRetry($retry )
+    {
+        $returnType = '\ultracart\v2\models\CustomReportAccountConfigResponse';
+        $request = $this->getCustomReportAccountConfigRequest();
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getCustomReportAccountConfigWithHttpInfoRetry(false );
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\CustomReportAccountConfigResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getCustomReportAccountConfigAsync
+     *
+     * Get custom report account configuration
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCustomReportAccountConfigAsync()
+    {
+        return $this->getCustomReportAccountConfigAsyncWithHttpInfo()
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getCustomReportAccountConfigAsyncWithHttpInfo
+     *
+     * Get custom report account configuration
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCustomReportAccountConfigAsyncWithHttpInfo()
+    {
+        $returnType = '\ultracart\v2\models\CustomReportAccountConfigResponse';
+        $request = $this->getCustomReportAccountConfigRequest();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getCustomReportAccountConfig'
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getCustomReportAccountConfigRequest()
+    {
+
+        $resourcePath = '/datawarehouse/custom_reports/account_config';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -2706,6 +4016,339 @@ class DatawarehouseApi
     }
 
     /**
+     * Operation insertCustomReport
+     *
+     * Create a custom report
+     *
+     * @param  \ultracart\v2\models\CustomReport $report Report to create (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\CustomReportResponse
+     */
+    public function insertCustomReport($report)
+    {
+        list($response) = $this->insertCustomReportWithHttpInfo($report);
+        return $response;
+    }
+
+
+    /**
+     * Operation insertCustomReportWithHttpInfo
+     *
+     * Create a custom report
+     *
+     * @param  \ultracart\v2\models\CustomReport $report Report to create (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CustomReportResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertCustomReportWithHttpInfo($report)
+    {
+        return $this->insertCustomReportWithHttpInfoRetry(true ,   $report);
+    }
+
+
+    /**
+     * Operation insertCustomReportWithHttpInfoRetry
+     *
+     * Create a custom report
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\CustomReport $report Report to create (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CustomReportResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertCustomReportWithHttpInfoRetry($retry ,  $report)
+    {
+        $returnType = '\ultracart\v2\models\CustomReportResponse';
+        $request = $this->insertCustomReportRequest($report);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->insertCustomReportWithHttpInfoRetry(false ,   $report);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\CustomReportResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation insertCustomReportAsync
+     *
+     * Create a custom report
+     *
+     * @param  \ultracart\v2\models\CustomReport $report Report to create (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function insertCustomReportAsync($report)
+    {
+        return $this->insertCustomReportAsyncWithHttpInfo($report)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation insertCustomReportAsyncWithHttpInfo
+     *
+     * Create a custom report
+     *
+     * @param  \ultracart\v2\models\CustomReport $report Report to create (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function insertCustomReportAsyncWithHttpInfo($report)
+    {
+        $returnType = '\ultracart\v2\models\CustomReportResponse';
+        $request = $this->insertCustomReportRequest($report);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'insertCustomReport'
+     *
+     * @param  \ultracart\v2\models\CustomReport $report Report to create (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function insertCustomReportRequest($report)
+    {
+        // verify the required parameter 'report' is set
+        if ($report === null || (is_array($report) && count($report) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $report when calling insertCustomReport'
+            );
+        }
+
+        $resourcePath = '/datawarehouse/custom_reports';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($report)) {
+            $_tempBody = $report;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json; charset=UTF-8']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation insertReport
      *
      * Create a report
@@ -3032,6 +4675,692 @@ class DatawarehouseApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateCustomReport
+     *
+     * Update a custom report
+     *
+     * @param  \ultracart\v2\models\CustomReport $report Report to custom update (required)
+     * @param  int $custom_report_oid The report oid to custom update. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\CustomReportResponse
+     */
+    public function updateCustomReport($report, $custom_report_oid)
+    {
+        list($response) = $this->updateCustomReportWithHttpInfo($report, $custom_report_oid);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateCustomReportWithHttpInfo
+     *
+     * Update a custom report
+     *
+     * @param  \ultracart\v2\models\CustomReport $report Report to custom update (required)
+     * @param  int $custom_report_oid The report oid to custom update. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CustomReportResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateCustomReportWithHttpInfo($report, $custom_report_oid)
+    {
+        return $this->updateCustomReportWithHttpInfoRetry(true ,   $report,   $custom_report_oid);
+    }
+
+
+    /**
+     * Operation updateCustomReportWithHttpInfoRetry
+     *
+     * Update a custom report
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\CustomReport $report Report to custom update (required)
+     * @param  int $custom_report_oid The report oid to custom update. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CustomReportResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateCustomReportWithHttpInfoRetry($retry ,  $report,  $custom_report_oid)
+    {
+        $returnType = '\ultracart\v2\models\CustomReportResponse';
+        $request = $this->updateCustomReportRequest($report, $custom_report_oid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateCustomReportWithHttpInfoRetry(false ,   $report,   $custom_report_oid);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\CustomReportResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateCustomReportAsync
+     *
+     * Update a custom report
+     *
+     * @param  \ultracart\v2\models\CustomReport $report Report to custom update (required)
+     * @param  int $custom_report_oid The report oid to custom update. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateCustomReportAsync($report, $custom_report_oid)
+    {
+        return $this->updateCustomReportAsyncWithHttpInfo($report, $custom_report_oid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateCustomReportAsyncWithHttpInfo
+     *
+     * Update a custom report
+     *
+     * @param  \ultracart\v2\models\CustomReport $report Report to custom update (required)
+     * @param  int $custom_report_oid The report oid to custom update. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateCustomReportAsyncWithHttpInfo($report, $custom_report_oid)
+    {
+        $returnType = '\ultracart\v2\models\CustomReportResponse';
+        $request = $this->updateCustomReportRequest($report, $custom_report_oid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateCustomReport'
+     *
+     * @param  \ultracart\v2\models\CustomReport $report Report to custom update (required)
+     * @param  int $custom_report_oid The report oid to custom update. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function updateCustomReportRequest($report, $custom_report_oid)
+    {
+        // verify the required parameter 'report' is set
+        if ($report === null || (is_array($report) && count($report) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $report when calling updateCustomReport'
+            );
+        }
+        // verify the required parameter 'custom_report_oid' is set
+        if ($custom_report_oid === null || (is_array($custom_report_oid) && count($custom_report_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $custom_report_oid when calling updateCustomReport'
+            );
+        }
+
+        $resourcePath = '/datawarehouse/custom_reports/{custom_report_oid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($custom_report_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'custom_report_oid' . '}',
+                ObjectSerializer::toPathValue($custom_report_oid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($report)) {
+            $_tempBody = $report;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json; charset=UTF-8']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateCustomReportAccountConfig
+     *
+     * Update custom report account config
+     *
+     * @param  \ultracart\v2\models\CustomReportAccountConfig $account_config Account config to update (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\CustomReportAccountConfigResponse
+     */
+    public function updateCustomReportAccountConfig($account_config)
+    {
+        list($response) = $this->updateCustomReportAccountConfigWithHttpInfo($account_config);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateCustomReportAccountConfigWithHttpInfo
+     *
+     * Update custom report account config
+     *
+     * @param  \ultracart\v2\models\CustomReportAccountConfig $account_config Account config to update (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CustomReportAccountConfigResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateCustomReportAccountConfigWithHttpInfo($account_config)
+    {
+        return $this->updateCustomReportAccountConfigWithHttpInfoRetry(true ,   $account_config);
+    }
+
+
+    /**
+     * Operation updateCustomReportAccountConfigWithHttpInfoRetry
+     *
+     * Update custom report account config
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\CustomReportAccountConfig $account_config Account config to update (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CustomReportAccountConfigResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateCustomReportAccountConfigWithHttpInfoRetry($retry ,  $account_config)
+    {
+        $returnType = '\ultracart\v2\models\CustomReportAccountConfigResponse';
+        $request = $this->updateCustomReportAccountConfigRequest($account_config);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateCustomReportAccountConfigWithHttpInfoRetry(false ,   $account_config);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\CustomReportAccountConfigResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateCustomReportAccountConfigAsync
+     *
+     * Update custom report account config
+     *
+     * @param  \ultracart\v2\models\CustomReportAccountConfig $account_config Account config to update (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateCustomReportAccountConfigAsync($account_config)
+    {
+        return $this->updateCustomReportAccountConfigAsyncWithHttpInfo($account_config)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateCustomReportAccountConfigAsyncWithHttpInfo
+     *
+     * Update custom report account config
+     *
+     * @param  \ultracart\v2\models\CustomReportAccountConfig $account_config Account config to update (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateCustomReportAccountConfigAsyncWithHttpInfo($account_config)
+    {
+        $returnType = '\ultracart\v2\models\CustomReportAccountConfigResponse';
+        $request = $this->updateCustomReportAccountConfigRequest($account_config);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateCustomReportAccountConfig'
+     *
+     * @param  \ultracart\v2\models\CustomReportAccountConfig $account_config Account config to update (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function updateCustomReportAccountConfigRequest($account_config)
+    {
+        // verify the required parameter 'account_config' is set
+        if ($account_config === null || (is_array($account_config) && count($account_config) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $account_config when calling updateCustomReportAccountConfig'
+            );
+        }
+
+        $resourcePath = '/datawarehouse/custom_reports/account_config';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($account_config)) {
+            $_tempBody = $account_config;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json; charset=UTF-8']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PUT',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

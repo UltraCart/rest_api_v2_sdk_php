@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **lookup_order_information** | **bool** |  | [optional] 
 **lookup_subscription_information** | **bool** |  | [optional] 
 **open_support_ticket** | **bool** |  | [optional] 
+**open_support_ticket_channel** | **string** | Channel to use to open the support ticket | [optional] 
+**open_support_ticket_channel_email** | **string** | Email to send support ticket to | [optional] 
 **pause_subscription** | **bool** |  | [optional] 
 **resume_subscription** | **bool** |  | [optional] 
 **transfer_chat_to_live_agent** | **bool** |  | [optional] 
