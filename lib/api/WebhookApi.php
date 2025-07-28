@@ -1103,14 +1103,6 @@ class WebhookApi
      * Retrieve the log summaries
      *
      * @param  int $webhook_oid The webhook oid to retrieve log summaries for. (required)
-     * @param  string $request_id request_id (optional)
-     * @param  string $begin_date begin_date (optional)
-     * @param  string $end_date end_date (optional)
-     * @param  string $status status (optional)
-     * @param  string $event event (optional)
-     * @param  string $order_id order_id (optional)
-     * @param  string $request request (optional)
-     * @param  int $duration duration (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_since Fetch log summaries that have been delivered since this date/time. (optional)
@@ -1119,9 +1111,9 @@ class WebhookApi
      * @throws \InvalidArgumentException
      * @return \ultracart\v2\models\WebhookLogSummariesResponse
      */
-    public function getWebhookLogSummaries($webhook_oid, $request_id = null, $begin_date = null, $end_date = null, $status = null, $event = null, $order_id = null, $request = null, $duration = null, $_limit = '100', $_offset = '0', $_since = null)
+    public function getWebhookLogSummaries($webhook_oid, $_limit = '100', $_offset = '0', $_since = null)
     {
-        list($response) = $this->getWebhookLogSummariesWithHttpInfo($webhook_oid, $request_id, $begin_date, $end_date, $status, $event, $order_id, $request, $duration, $_limit, $_offset, $_since);
+        list($response) = $this->getWebhookLogSummariesWithHttpInfo($webhook_oid, $_limit, $_offset, $_since);
         return $response;
     }
 
@@ -1132,14 +1124,6 @@ class WebhookApi
      * Retrieve the log summaries
      *
      * @param  int $webhook_oid The webhook oid to retrieve log summaries for. (required)
-     * @param  string $request_id (optional)
-     * @param  string $begin_date (optional)
-     * @param  string $end_date (optional)
-     * @param  string $status (optional)
-     * @param  string $event (optional)
-     * @param  string $order_id (optional)
-     * @param  string $request (optional)
-     * @param  int $duration (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_since Fetch log summaries that have been delivered since this date/time. (optional)
@@ -1148,9 +1132,9 @@ class WebhookApi
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\WebhookLogSummariesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWebhookLogSummariesWithHttpInfo($webhook_oid, $request_id = null, $begin_date = null, $end_date = null, $status = null, $event = null, $order_id = null, $request = null, $duration = null, $_limit = '100', $_offset = '0', $_since = null)
+    public function getWebhookLogSummariesWithHttpInfo($webhook_oid, $_limit = '100', $_offset = '0', $_since = null)
     {
-        return $this->getWebhookLogSummariesWithHttpInfoRetry(true ,   $webhook_oid,   $request_id,   $begin_date,   $end_date,   $status,   $event,   $order_id,   $request,   $duration,   $_limit,   $_offset,   $_since);
+        return $this->getWebhookLogSummariesWithHttpInfoRetry(true ,   $webhook_oid,   $_limit,   $_offset,   $_since);
     }
 
 
@@ -1161,14 +1145,6 @@ class WebhookApi
      *
      * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
      * @param  int $webhook_oid The webhook oid to retrieve log summaries for. (required)
-     * @param  string $request_id (optional)
-     * @param  string $begin_date (optional)
-     * @param  string $end_date (optional)
-     * @param  string $status (optional)
-     * @param  string $event (optional)
-     * @param  string $order_id (optional)
-     * @param  string $request (optional)
-     * @param  int $duration (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_since Fetch log summaries that have been delivered since this date/time. (optional)
@@ -1177,10 +1153,10 @@ class WebhookApi
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\WebhookLogSummariesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWebhookLogSummariesWithHttpInfoRetry($retry ,  $webhook_oid,  $request_id = null,  $begin_date = null,  $end_date = null,  $status = null,  $event = null,  $order_id = null,  $request = null,  $duration = null,  $_limit = '100',  $_offset = '0',  $_since = null)
+    public function getWebhookLogSummariesWithHttpInfoRetry($retry ,  $webhook_oid,  $_limit = '100',  $_offset = '0',  $_since = null)
     {
         $returnType = '\ultracart\v2\models\WebhookLogSummariesResponse';
-        $request = $this->getWebhookLogSummariesRequest($webhook_oid, $request_id, $begin_date, $end_date, $status, $event, $order_id, $request, $duration, $_limit, $_offset, $_since);
+        $request = $this->getWebhookLogSummariesRequest($webhook_oid, $_limit, $_offset, $_since);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1199,7 +1175,7 @@ class WebhookApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->getWebhookLogSummariesWithHttpInfoRetry(false ,   $webhook_oid,   $request_id,   $begin_date,   $end_date,   $status,   $event,   $order_id,   $request,   $duration,   $_limit,   $_offset,   $_since);
+                        return $this->getWebhookLogSummariesWithHttpInfoRetry(false ,   $webhook_oid,   $_limit,   $_offset,   $_since);
                     }
                 }
 
@@ -1288,14 +1264,6 @@ class WebhookApi
      * Retrieve the log summaries
      *
      * @param  int $webhook_oid The webhook oid to retrieve log summaries for. (required)
-     * @param  string $request_id (optional)
-     * @param  string $begin_date (optional)
-     * @param  string $end_date (optional)
-     * @param  string $status (optional)
-     * @param  string $event (optional)
-     * @param  string $order_id (optional)
-     * @param  string $request (optional)
-     * @param  int $duration (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_since Fetch log summaries that have been delivered since this date/time. (optional)
@@ -1303,9 +1271,9 @@ class WebhookApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookLogSummariesAsync($webhook_oid, $request_id = null, $begin_date = null, $end_date = null, $status = null, $event = null, $order_id = null, $request = null, $duration = null, $_limit = '100', $_offset = '0', $_since = null)
+    public function getWebhookLogSummariesAsync($webhook_oid, $_limit = '100', $_offset = '0', $_since = null)
     {
-        return $this->getWebhookLogSummariesAsyncWithHttpInfo($webhook_oid, $request_id, $begin_date, $end_date, $status, $event, $order_id, $request, $duration, $_limit, $_offset, $_since)
+        return $this->getWebhookLogSummariesAsyncWithHttpInfo($webhook_oid, $_limit, $_offset, $_since)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1319,14 +1287,6 @@ class WebhookApi
      * Retrieve the log summaries
      *
      * @param  int $webhook_oid The webhook oid to retrieve log summaries for. (required)
-     * @param  string $request_id (optional)
-     * @param  string $begin_date (optional)
-     * @param  string $end_date (optional)
-     * @param  string $status (optional)
-     * @param  string $event (optional)
-     * @param  string $order_id (optional)
-     * @param  string $request (optional)
-     * @param  int $duration (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_since Fetch log summaries that have been delivered since this date/time. (optional)
@@ -1334,10 +1294,10 @@ class WebhookApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookLogSummariesAsyncWithHttpInfo($webhook_oid, $request_id = null, $begin_date = null, $end_date = null, $status = null, $event = null, $order_id = null, $request = null, $duration = null, $_limit = '100', $_offset = '0', $_since = null)
+    public function getWebhookLogSummariesAsyncWithHttpInfo($webhook_oid, $_limit = '100', $_offset = '0', $_since = null)
     {
         $returnType = '\ultracart\v2\models\WebhookLogSummariesResponse';
-        $request = $this->getWebhookLogSummariesRequest($webhook_oid, $request_id, $begin_date, $end_date, $status, $event, $order_id, $request, $duration, $_limit, $_offset, $_since);
+        $request = $this->getWebhookLogSummariesRequest($webhook_oid, $_limit, $_offset, $_since);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1380,14 +1340,6 @@ class WebhookApi
      * Create request for operation 'getWebhookLogSummaries'
      *
      * @param  int $webhook_oid The webhook oid to retrieve log summaries for. (required)
-     * @param  string $request_id (optional)
-     * @param  string $begin_date (optional)
-     * @param  string $end_date (optional)
-     * @param  string $status (optional)
-     * @param  string $event (optional)
-     * @param  string $order_id (optional)
-     * @param  string $request (optional)
-     * @param  int $duration (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_since Fetch log summaries that have been delivered since this date/time. (optional)
@@ -1395,7 +1347,7 @@ class WebhookApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getWebhookLogSummariesRequest($webhook_oid, $request_id = null, $begin_date = null, $end_date = null, $status = null, $event = null, $order_id = null, $request = null, $duration = null, $_limit = '100', $_offset = '0', $_since = null)
+    protected function getWebhookLogSummariesRequest($webhook_oid, $_limit = '100', $_offset = '0', $_since = null)
     {
         // verify the required parameter 'webhook_oid' is set
         if ($webhook_oid === null || (is_array($webhook_oid) && count($webhook_oid) === 0)) {
@@ -1411,38 +1363,6 @@ class WebhookApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if ($request_id !== null) {
-            $queryParams['requestId'] = ObjectSerializer::toQueryValue($request_id);
-        }
-        // query params
-        if ($begin_date !== null) {
-            $queryParams['beginDate'] = ObjectSerializer::toQueryValue($begin_date);
-        }
-        // query params
-        if ($end_date !== null) {
-            $queryParams['endDate'] = ObjectSerializer::toQueryValue($end_date);
-        }
-        // query params
-        if ($status !== null) {
-            $queryParams['status'] = ObjectSerializer::toQueryValue($status);
-        }
-        // query params
-        if ($event !== null) {
-            $queryParams['event'] = ObjectSerializer::toQueryValue($event);
-        }
-        // query params
-        if ($order_id !== null) {
-            $queryParams['orderId'] = ObjectSerializer::toQueryValue($order_id);
-        }
-        // query params
-        if ($request !== null) {
-            $queryParams['request'] = ObjectSerializer::toQueryValue($request);
-        }
-        // query params
-        if ($duration !== null) {
-            $queryParams['duration'] = ObjectSerializer::toQueryValue($duration);
-        }
         // query params
         if ($_limit !== null) {
             $queryParams['_limit'] = ObjectSerializer::toQueryValue($_limit);
