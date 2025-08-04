@@ -481,6 +481,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailCampaigns**](docs/Api/StorefrontApi.md#getemailcampaigns) | **GET** /storefront/{storefront_oid}/email/campaigns | Get email campaigns
 *StorefrontApi* | [**getEmailCampaignsWithStats**](docs/Api/StorefrontApi.md#getemailcampaignswithstats) | **GET** /storefront/{storefront_oid}/email/campaignsWithStats/{stat_days} | Get email campaigns with stats
 *StorefrontApi* | [**getEmailCommseq**](docs/Api/StorefrontApi.md#getemailcommseq) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid} | Get email commseq
+*StorefrontApi* | [**getEmailCommseqEditorValues**](docs/Api/StorefrontApi.md#getemailcommseqeditorvalues) | **GET** /storefront/{storefront_oid}/email/commseqs/editorValues | Get email merchant specific editor values
 *StorefrontApi* | [**getEmailCommseqEmailStats**](docs/Api/StorefrontApi.md#getemailcommseqemailstats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/emailStats | Get email communication sequence emails stats
 *StorefrontApi* | [**getEmailCommseqPostcardStats**](docs/Api/StorefrontApi.md#getemailcommseqpostcardstats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/postcardStats | Get email communication sequence postcard stats
 *StorefrontApi* | [**getEmailCommseqPostcardTracking**](docs/Api/StorefrontApi.md#getemailcommseqpostcardtracking) | **GET** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}/tracking | Get email communication postcard tracking
@@ -1089,6 +1090,7 @@ Class | Method | HTTP request | Description
  - [EmailDashboardStatsResponse](docs/Model/EmailDashboardStatsResponse.md)
  - [EmailDomain](docs/Model/EmailDomain.md)
  - [EmailEditorTokenResponse](docs/Model/EmailEditorTokenResponse.md)
+ - [EmailEditorValuesResponse](docs/Model/EmailEditorValuesResponse.md)
  - [EmailFlow](docs/Model/EmailFlow.md)
  - [EmailFlowBackPopulateRequest](docs/Model/EmailFlowBackPopulateRequest.md)
  - [EmailFlowBackPopulateResponse](docs/Model/EmailFlowBackPopulateResponse.md)
@@ -1644,6 +1646,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.18 | 08/04/2025 | more internal development on loyalty step for storefront flows |
 | 3.11.17 | 08/04/2025 | small changes to internal flow app to support loyalty tier moves |
 | 3.11.16 | 07/28/2025 | updated doc samples |
 | 3.11.15 | 07/28/2025 | new order methods for blocking and unblocking refunds |

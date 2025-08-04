@@ -1,6 +1,6 @@
 <?php
 /**
- * EmailWebhookEditorValuesResponse
+ * EmailEditorValuesResponse
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * EmailWebhookEditorValuesResponse Class Doc Comment
+ * EmailEditorValuesResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
+class EmailEditorValuesResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'EmailWebhookEditorValuesResponse';
+    protected static $swaggerModelName = 'EmailEditorValuesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,9 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'available_expansions' => 'string[]',
-        'available_tokens' => 'string[]',
         'error' => '\ultracart\v2\models\Error',
+        'loyalty_tiers' => 'string[]',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
-        'rest_object_type' => 'string',
         'success' => 'bool',
         'warning' => '\ultracart\v2\models\Warning'
     ];
@@ -72,11 +70,9 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'available_expansions' => null,
-        'available_tokens' => null,
         'error' => null,
+        'loyalty_tiers' => null,
         'metadata' => null,
-        'rest_object_type' => null,
         'success' => null,
         'warning' => null
     ];
@@ -108,11 +104,9 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'available_expansions' => 'available_expansions',
-        'available_tokens' => 'available_tokens',
         'error' => 'error',
+        'loyalty_tiers' => 'loyalty_tiers',
         'metadata' => 'metadata',
-        'rest_object_type' => 'rest_object_type',
         'success' => 'success',
         'warning' => 'warning'
     ];
@@ -123,11 +117,9 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'available_expansions' => 'setAvailableExpansions',
-        'available_tokens' => 'setAvailableTokens',
         'error' => 'setError',
+        'loyalty_tiers' => 'setLoyaltyTiers',
         'metadata' => 'setMetadata',
-        'rest_object_type' => 'setRestObjectType',
         'success' => 'setSuccess',
         'warning' => 'setWarning'
     ];
@@ -138,11 +130,9 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'available_expansions' => 'getAvailableExpansions',
-        'available_tokens' => 'getAvailableTokens',
         'error' => 'getError',
+        'loyalty_tiers' => 'getLoyaltyTiers',
         'metadata' => 'getMetadata',
-        'rest_object_type' => 'getRestObjectType',
         'success' => 'getSuccess',
         'warning' => 'getWarning'
     ];
@@ -207,11 +197,9 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['available_expansions'] = isset($data['available_expansions']) ? $data['available_expansions'] : null;
-        $this->container['available_tokens'] = isset($data['available_tokens']) ? $data['available_tokens'] : null;
         $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['loyalty_tiers'] = isset($data['loyalty_tiers']) ? $data['loyalty_tiers'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['rest_object_type'] = isset($data['rest_object_type']) ? $data['rest_object_type'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
         $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
@@ -241,54 +229,6 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets available_expansions
-     *
-     * @return string[]
-     */
-    public function getAvailableExpansions()
-    {
-        return $this->container['available_expansions'];
-    }
-
-    /**
-     * Sets available_expansions
-     *
-     * @param string[] $available_expansions available_expansions
-     *
-     * @return $this
-     */
-    public function setAvailableExpansions($available_expansions)
-    {
-        $this->container['available_expansions'] = $available_expansions;
-
-        return $this;
-    }
-
-    /**
-     * Gets available_tokens
-     *
-     * @return string[]
-     */
-    public function getAvailableTokens()
-    {
-        return $this->container['available_tokens'];
-    }
-
-    /**
-     * Sets available_tokens
-     *
-     * @param string[] $available_tokens available_tokens
-     *
-     * @return $this
-     */
-    public function setAvailableTokens($available_tokens)
-    {
-        $this->container['available_tokens'] = $available_tokens;
-
-        return $this;
-    }
-
-    /**
      * Gets error
      *
      * @return \ultracart\v2\models\Error
@@ -313,6 +253,30 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets loyalty_tiers
+     *
+     * @return string[]
+     */
+    public function getLoyaltyTiers()
+    {
+        return $this->container['loyalty_tiers'];
+    }
+
+    /**
+     * Sets loyalty_tiers
+     *
+     * @param string[] $loyalty_tiers loyalty_tiers
+     *
+     * @return $this
+     */
+    public function setLoyaltyTiers($loyalty_tiers)
+    {
+        $this->container['loyalty_tiers'] = $loyalty_tiers;
+
+        return $this;
+    }
+
+    /**
      * Gets metadata
      *
      * @return \ultracart\v2\models\ResponseMetadata
@@ -332,30 +296,6 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
     public function setMetadata($metadata)
     {
         $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets rest_object_type
-     *
-     * @return string
-     */
-    public function getRestObjectType()
-    {
-        return $this->container['rest_object_type'];
-    }
-
-    /**
-     * Sets rest_object_type
-     *
-     * @param string $rest_object_type rest_object_type
-     *
-     * @return $this
-     */
-    public function setRestObjectType($rest_object_type)
-    {
-        $this->container['rest_object_type'] = $rest_object_type;
 
         return $this;
     }
