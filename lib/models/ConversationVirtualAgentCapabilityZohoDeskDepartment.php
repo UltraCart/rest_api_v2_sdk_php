@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomDashboard
+ * ConversationVirtualAgentCapabilityZohoDeskDepartment
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * CustomDashboard Class Doc Comment
+ * ConversationVirtualAgentCapabilityZohoDeskDepartment Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CustomDashboard implements ModelInterface, ArrayAccess
+class ConversationVirtualAgentCapabilityZohoDeskDepartment implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class CustomDashboard implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CustomDashboard';
+    protected static $swaggerModelName = 'ConversationVirtualAgentCapabilityZohoDeskDepartment';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,8 @@ class CustomDashboard implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'data_warehouse_custom_dashboard_oid' => 'int',
-        'merchant_id' => 'string',
-        'name' => 'string',
-        'pages' => '\ultracart\v2\models\CustomDashboardPage[]',
-        'parameters' => '\ultracart\v2\models\CustomDashboardExecutionParameter[]'
+        'department_id' => 'string',
+        'department_name' => 'string'
     ];
 
     /**
@@ -70,11 +67,8 @@ class CustomDashboard implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'data_warehouse_custom_dashboard_oid' => 'int32',
-        'merchant_id' => null,
-        'name' => null,
-        'pages' => null,
-        'parameters' => null
+        'department_id' => null,
+        'department_name' => null
     ];
 
     /**
@@ -104,11 +98,8 @@ class CustomDashboard implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'data_warehouse_custom_dashboard_oid' => 'data_warehouse_custom_dashboard_oid',
-        'merchant_id' => 'merchant_id',
-        'name' => 'name',
-        'pages' => 'pages',
-        'parameters' => 'parameters'
+        'department_id' => 'department_id',
+        'department_name' => 'department_name'
     ];
 
     /**
@@ -117,11 +108,8 @@ class CustomDashboard implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'data_warehouse_custom_dashboard_oid' => 'setDataWarehouseCustomDashboardOid',
-        'merchant_id' => 'setMerchantId',
-        'name' => 'setName',
-        'pages' => 'setPages',
-        'parameters' => 'setParameters'
+        'department_id' => 'setDepartmentId',
+        'department_name' => 'setDepartmentName'
     ];
 
     /**
@@ -130,11 +118,8 @@ class CustomDashboard implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'data_warehouse_custom_dashboard_oid' => 'getDataWarehouseCustomDashboardOid',
-        'merchant_id' => 'getMerchantId',
-        'name' => 'getName',
-        'pages' => 'getPages',
-        'parameters' => 'getParameters'
+        'department_id' => 'getDepartmentId',
+        'department_name' => 'getDepartmentName'
     ];
 
     /**
@@ -197,11 +182,8 @@ class CustomDashboard implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['data_warehouse_custom_dashboard_oid'] = isset($data['data_warehouse_custom_dashboard_oid']) ? $data['data_warehouse_custom_dashboard_oid'] : null;
-        $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['pages'] = isset($data['pages']) ? $data['pages'] : null;
-        $this->container['parameters'] = isset($data['parameters']) ? $data['parameters'] : null;
+        $this->container['department_id'] = isset($data['department_id']) ? $data['department_id'] : null;
+        $this->container['department_name'] = isset($data['department_name']) ? $data['department_name'] : null;
     }
 
     /**
@@ -229,121 +211,49 @@ class CustomDashboard implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets data_warehouse_custom_dashboard_oid
-     *
-     * @return int
-     */
-    public function getDataWarehouseCustomDashboardOid()
-    {
-        return $this->container['data_warehouse_custom_dashboard_oid'];
-    }
-
-    /**
-     * Sets data_warehouse_custom_dashboard_oid
-     *
-     * @param int $data_warehouse_custom_dashboard_oid data_warehouse_custom_dashboard_oid
-     *
-     * @return $this
-     */
-    public function setDataWarehouseCustomDashboardOid($data_warehouse_custom_dashboard_oid)
-    {
-        $this->container['data_warehouse_custom_dashboard_oid'] = $data_warehouse_custom_dashboard_oid;
-
-        return $this;
-    }
-
-    /**
-     * Gets merchant_id
+     * Gets department_id
      *
      * @return string
      */
-    public function getMerchantId()
+    public function getDepartmentId()
     {
-        return $this->container['merchant_id'];
+        return $this->container['department_id'];
     }
 
     /**
-     * Sets merchant_id
+     * Sets department_id
      *
-     * @param string $merchant_id merchant_id
+     * @param string $department_id department_id
      *
      * @return $this
      */
-    public function setMerchantId($merchant_id)
+    public function setDepartmentId($department_id)
     {
-        $this->container['merchant_id'] = $merchant_id;
+        $this->container['department_id'] = $department_id;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets department_name
      *
      * @return string
      */
-    public function getName()
+    public function getDepartmentName()
     {
-        return $this->container['name'];
+        return $this->container['department_name'];
     }
 
     /**
-     * Sets name
+     * Sets department_name
      *
-     * @param string $name name
+     * @param string $department_name department_name
      *
      * @return $this
      */
-    public function setName($name)
+    public function setDepartmentName($department_name)
     {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets pages
-     *
-     * @return \ultracart\v2\models\CustomDashboardPage[]
-     */
-    public function getPages()
-    {
-        return $this->container['pages'];
-    }
-
-    /**
-     * Sets pages
-     *
-     * @param \ultracart\v2\models\CustomDashboardPage[] $pages pages
-     *
-     * @return $this
-     */
-    public function setPages($pages)
-    {
-        $this->container['pages'] = $pages;
-
-        return $this;
-    }
-
-    /**
-     * Gets parameters
-     *
-     * @return \ultracart\v2\models\CustomDashboardExecutionParameter[]
-     */
-    public function getParameters()
-    {
-        return $this->container['parameters'];
-    }
-
-    /**
-     * Sets parameters
-     *
-     * @param \ultracart\v2\models\CustomDashboardExecutionParameter[] $parameters parameters
-     *
-     * @return $this
-     */
-    public function setParameters($parameters)
-    {
-        $this->container['parameters'] = $parameters;
+        $this->container['department_name'] = $department_name;
 
         return $this;
     }

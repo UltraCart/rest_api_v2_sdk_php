@@ -1,4 +1,4 @@
-# CustomReportExecutionParameter
+# CustomDashboardExecutionParameter
 
 ## Properties
 Name | Type | Description | Notes

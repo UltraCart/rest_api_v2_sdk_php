@@ -58,6 +58,7 @@ class CustomReportExecutionParameter implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'name' => 'string',
+        'quick_pick_key' => 'string',
         'type' => 'string',
         'value' => 'string'
     ];
@@ -69,6 +70,7 @@ class CustomReportExecutionParameter implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'name' => null,
+        'quick_pick_key' => null,
         'type' => null,
         'value' => null
     ];
@@ -101,6 +103,7 @@ class CustomReportExecutionParameter implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'name' => 'name',
+        'quick_pick_key' => 'quick_pick_key',
         'type' => 'type',
         'value' => 'value'
     ];
@@ -112,6 +115,7 @@ class CustomReportExecutionParameter implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'name' => 'setName',
+        'quick_pick_key' => 'setQuickPickKey',
         'type' => 'setType',
         'value' => 'setValue'
     ];
@@ -123,6 +127,7 @@ class CustomReportExecutionParameter implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'name' => 'getName',
+        'quick_pick_key' => 'getQuickPickKey',
         'type' => 'getType',
         'value' => 'getValue'
     ];
@@ -188,6 +193,7 @@ class CustomReportExecutionParameter implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['quick_pick_key'] = isset($data['quick_pick_key']) ? $data['quick_pick_key'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
@@ -236,6 +242,30 @@ class CustomReportExecutionParameter implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets quick_pick_key
+     *
+     * @return string
+     */
+    public function getQuickPickKey()
+    {
+        return $this->container['quick_pick_key'];
+    }
+
+    /**
+     * Sets quick_pick_key
+     *
+     * @param string $quick_pick_key quick_pick_key
+     *
+     * @return $this
+     */
+    public function setQuickPickKey($quick_pick_key)
+    {
+        $this->container['quick_pick_key'] = $quick_pick_key;
 
         return $this;
     }

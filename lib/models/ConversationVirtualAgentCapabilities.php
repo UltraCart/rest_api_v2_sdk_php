@@ -64,10 +64,13 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
         'open_support_ticket' => 'bool',
         'open_support_ticket_channel' => 'string',
         'open_support_ticket_channel_email' => 'string',
+        'open_support_ticket_zoho_desk_department_id' => 'string',
         'pause_subscription' => 'bool',
         'resume_subscription' => 'bool',
         'transfer_chat_to_live_agent' => 'bool',
-        'update_subscription_credit_card' => 'bool'
+        'update_subscription_credit_card' => 'bool',
+        'zoho_desk_available' => 'bool',
+        'zoho_desk_departments' => '\ultracart\v2\models\ConversationVirtualAgentCapabilityZohoDeskDepartment[]'
     ];
 
     /**
@@ -83,10 +86,13 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
         'open_support_ticket' => null,
         'open_support_ticket_channel' => null,
         'open_support_ticket_channel_email' => null,
+        'open_support_ticket_zoho_desk_department_id' => null,
         'pause_subscription' => null,
         'resume_subscription' => null,
         'transfer_chat_to_live_agent' => null,
-        'update_subscription_credit_card' => null
+        'update_subscription_credit_card' => null,
+        'zoho_desk_available' => null,
+        'zoho_desk_departments' => null
     ];
 
     /**
@@ -123,10 +129,13 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
         'open_support_ticket' => 'open_support_ticket',
         'open_support_ticket_channel' => 'open_support_ticket_channel',
         'open_support_ticket_channel_email' => 'open_support_ticket_channel_email',
+        'open_support_ticket_zoho_desk_department_id' => 'open_support_ticket_zoho_desk_department_id',
         'pause_subscription' => 'pause_subscription',
         'resume_subscription' => 'resume_subscription',
         'transfer_chat_to_live_agent' => 'transfer_chat_to_live_agent',
-        'update_subscription_credit_card' => 'update_subscription_credit_card'
+        'update_subscription_credit_card' => 'update_subscription_credit_card',
+        'zoho_desk_available' => 'zoho_desk_available',
+        'zoho_desk_departments' => 'zoho_desk_departments'
     ];
 
     /**
@@ -142,10 +151,13 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
         'open_support_ticket' => 'setOpenSupportTicket',
         'open_support_ticket_channel' => 'setOpenSupportTicketChannel',
         'open_support_ticket_channel_email' => 'setOpenSupportTicketChannelEmail',
+        'open_support_ticket_zoho_desk_department_id' => 'setOpenSupportTicketZohoDeskDepartmentId',
         'pause_subscription' => 'setPauseSubscription',
         'resume_subscription' => 'setResumeSubscription',
         'transfer_chat_to_live_agent' => 'setTransferChatToLiveAgent',
-        'update_subscription_credit_card' => 'setUpdateSubscriptionCreditCard'
+        'update_subscription_credit_card' => 'setUpdateSubscriptionCreditCard',
+        'zoho_desk_available' => 'setZohoDeskAvailable',
+        'zoho_desk_departments' => 'setZohoDeskDepartments'
     ];
 
     /**
@@ -161,10 +173,13 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
         'open_support_ticket' => 'getOpenSupportTicket',
         'open_support_ticket_channel' => 'getOpenSupportTicketChannel',
         'open_support_ticket_channel_email' => 'getOpenSupportTicketChannelEmail',
+        'open_support_ticket_zoho_desk_department_id' => 'getOpenSupportTicketZohoDeskDepartmentId',
         'pause_subscription' => 'getPauseSubscription',
         'resume_subscription' => 'getResumeSubscription',
         'transfer_chat_to_live_agent' => 'getTransferChatToLiveAgent',
-        'update_subscription_credit_card' => 'getUpdateSubscriptionCreditCard'
+        'update_subscription_credit_card' => 'getUpdateSubscriptionCreditCard',
+        'zoho_desk_available' => 'getZohoDeskAvailable',
+        'zoho_desk_departments' => 'getZohoDeskDepartments'
     ];
 
     /**
@@ -210,8 +225,8 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
 
     const OPEN_SUPPORT_TICKET_CHANNEL_NONE = 'none';
     const OPEN_SUPPORT_TICKET_CHANNEL_EMAIL = 'email';
-    const OPEN_SUPPORT_TICKET_CHANNEL_ULTRA_CART_TASK = 'UltraCart Task';
-    const OPEN_SUPPORT_TICKET_CHANNEL_ZOHO_DESK_TICKET = 'Zoho Desk Ticket';
+    const OPEN_SUPPORT_TICKET_CHANNEL_ULTRACART_TASK = 'ultracart_task';
+    const OPEN_SUPPORT_TICKET_CHANNEL_ZOHO_DESK_TICKET = 'zoho_desk_ticket';
     
 
     
@@ -225,7 +240,7 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
         return [
             self::OPEN_SUPPORT_TICKET_CHANNEL_NONE,
             self::OPEN_SUPPORT_TICKET_CHANNEL_EMAIL,
-            self::OPEN_SUPPORT_TICKET_CHANNEL_ULTRA_CART_TASK,
+            self::OPEN_SUPPORT_TICKET_CHANNEL_ULTRACART_TASK,
             self::OPEN_SUPPORT_TICKET_CHANNEL_ZOHO_DESK_TICKET,
         ];
     }
@@ -253,10 +268,13 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
         $this->container['open_support_ticket'] = isset($data['open_support_ticket']) ? $data['open_support_ticket'] : null;
         $this->container['open_support_ticket_channel'] = isset($data['open_support_ticket_channel']) ? $data['open_support_ticket_channel'] : null;
         $this->container['open_support_ticket_channel_email'] = isset($data['open_support_ticket_channel_email']) ? $data['open_support_ticket_channel_email'] : null;
+        $this->container['open_support_ticket_zoho_desk_department_id'] = isset($data['open_support_ticket_zoho_desk_department_id']) ? $data['open_support_ticket_zoho_desk_department_id'] : null;
         $this->container['pause_subscription'] = isset($data['pause_subscription']) ? $data['pause_subscription'] : null;
         $this->container['resume_subscription'] = isset($data['resume_subscription']) ? $data['resume_subscription'] : null;
         $this->container['transfer_chat_to_live_agent'] = isset($data['transfer_chat_to_live_agent']) ? $data['transfer_chat_to_live_agent'] : null;
         $this->container['update_subscription_credit_card'] = isset($data['update_subscription_credit_card']) ? $data['update_subscription_credit_card'] : null;
+        $this->container['zoho_desk_available'] = isset($data['zoho_desk_available']) ? $data['zoho_desk_available'] : null;
+        $this->container['zoho_desk_departments'] = isset($data['zoho_desk_departments']) ? $data['zoho_desk_departments'] : null;
     }
 
     /**
@@ -469,6 +487,30 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
     }
 
     /**
+     * Gets open_support_ticket_zoho_desk_department_id
+     *
+     * @return string
+     */
+    public function getOpenSupportTicketZohoDeskDepartmentId()
+    {
+        return $this->container['open_support_ticket_zoho_desk_department_id'];
+    }
+
+    /**
+     * Sets open_support_ticket_zoho_desk_department_id
+     *
+     * @param string $open_support_ticket_zoho_desk_department_id Department ID to open a Zoho Desk ticket for
+     *
+     * @return $this
+     */
+    public function setOpenSupportTicketZohoDeskDepartmentId($open_support_ticket_zoho_desk_department_id)
+    {
+        $this->container['open_support_ticket_zoho_desk_department_id'] = $open_support_ticket_zoho_desk_department_id;
+
+        return $this;
+    }
+
+    /**
      * Gets pause_subscription
      *
      * @return bool
@@ -560,6 +602,54 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
     public function setUpdateSubscriptionCreditCard($update_subscription_credit_card)
     {
         $this->container['update_subscription_credit_card'] = $update_subscription_credit_card;
+
+        return $this;
+    }
+
+    /**
+     * Gets zoho_desk_available
+     *
+     * @return bool
+     */
+    public function getZohoDeskAvailable()
+    {
+        return $this->container['zoho_desk_available'];
+    }
+
+    /**
+     * Sets zoho_desk_available
+     *
+     * @param bool $zoho_desk_available True if Zoho Desk is connected to UltraCart
+     *
+     * @return $this
+     */
+    public function setZohoDeskAvailable($zoho_desk_available)
+    {
+        $this->container['zoho_desk_available'] = $zoho_desk_available;
+
+        return $this;
+    }
+
+    /**
+     * Gets zoho_desk_departments
+     *
+     * @return \ultracart\v2\models\ConversationVirtualAgentCapabilityZohoDeskDepartment[]
+     */
+    public function getZohoDeskDepartments()
+    {
+        return $this->container['zoho_desk_departments'];
+    }
+
+    /**
+     * Sets zoho_desk_departments
+     *
+     * @param \ultracart\v2\models\ConversationVirtualAgentCapabilityZohoDeskDepartment[] $zoho_desk_departments Array of Zoho Desk Department if zoho desk is connected to UltraCart
+     *
+     * @return $this
+     */
+    public function setZohoDeskDepartments($zoho_desk_departments)
+    {
+        $this->container['zoho_desk_departments'] = $zoho_desk_departments;
 
         return $this;
     }
