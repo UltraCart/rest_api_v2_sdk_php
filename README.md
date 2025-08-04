@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.18"
+    "ultracart/rest_api_v2_sdk_php": "4.1.19"
   }
 }
 ```
@@ -846,6 +846,7 @@ Class | Method | HTTP request | Description
 - [ConversationVirtualAgentBudgetResponse](docs/Model/ConversationVirtualAgentBudgetResponse.md)
 - [ConversationVirtualAgentCapabilities](docs/Model/ConversationVirtualAgentCapabilities.md)
 - [ConversationVirtualAgentCapabilitiesResponse](docs/Model/ConversationVirtualAgentCapabilitiesResponse.md)
+- [ConversationVirtualAgentCapabilityZohoDeskDepartment](docs/Model/ConversationVirtualAgentCapabilityZohoDeskDepartment.md)
 - [ConversationWebchatContext](docs/Model/ConversationWebchatContext.md)
 - [ConversationWebchatQueueStatus](docs/Model/ConversationWebchatQueueStatus.md)
 - [ConversationWebchatQueueStatusAgent](docs/Model/ConversationWebchatQueueStatusAgent.md)
@@ -927,6 +928,7 @@ Class | Method | HTTP request | Description
 - [CouponsResponse](docs/Model/CouponsResponse.md)
 - [Currency](docs/Model/Currency.md)
 - [CustomDashboard](docs/Model/CustomDashboard.md)
+- [CustomDashboardExecutionParameter](docs/Model/CustomDashboardExecutionParameter.md)
 - [CustomDashboardPage](docs/Model/CustomDashboardPage.md)
 - [CustomDashboardPageReport](docs/Model/CustomDashboardPageReport.md)
 - [CustomDashboardResponse](docs/Model/CustomDashboardResponse.md)
@@ -1599,6 +1601,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.19 | 08/04/2025 | conversations api - add zoho departments to getCapabilities call |
 | 4.1.18 | 08/04/2025 | more internal development on loyalty step for storefront flows |
 | 4.1.17 | 08/04/2025 | small changes to internal flow app to support loyalty tier moves |
 | 4.1.16 | 07/28/2025 | updated doc samples |

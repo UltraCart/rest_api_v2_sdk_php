@@ -248,6 +248,7 @@ docs/Model/ConversationVirtualAgentBudget.md
 docs/Model/ConversationVirtualAgentBudgetResponse.md
 docs/Model/ConversationVirtualAgentCapabilities.md
 docs/Model/ConversationVirtualAgentCapabilitiesResponse.md
+docs/Model/ConversationVirtualAgentCapabilityZohoDeskDepartment.md
 docs/Model/ConversationWebchatContext.md
 docs/Model/ConversationWebchatQueueStatus.md
 docs/Model/ConversationWebchatQueueStatusAgent.md
@@ -329,6 +330,7 @@ docs/Model/CouponsRequest.md
 docs/Model/CouponsResponse.md
 docs/Model/Currency.md
 docs/Model/CustomDashboard.md
+docs/Model/CustomDashboardExecutionParameter.md
 docs/Model/CustomDashboardPage.md
 docs/Model/CustomDashboardPageReport.md
 docs/Model/CustomDashboardResponse.md
@@ -1158,6 +1160,7 @@ lib/models/ConversationVirtualAgentBudget.php
 lib/models/ConversationVirtualAgentBudgetResponse.php
 lib/models/ConversationVirtualAgentCapabilities.php
 lib/models/ConversationVirtualAgentCapabilitiesResponse.php
+lib/models/ConversationVirtualAgentCapabilityZohoDeskDepartment.php
 lib/models/ConversationWebchatContext.php
 lib/models/ConversationWebchatQueueStatus.php
 lib/models/ConversationWebchatQueueStatusAgent.php
@@ -1239,6 +1242,7 @@ lib/models/CouponsRequest.php
 lib/models/CouponsResponse.php
 lib/models/Currency.php
 lib/models/CustomDashboard.php
+lib/models/CustomDashboardExecutionParameter.php
 lib/models/CustomDashboardPage.php
 lib/models/CustomDashboardPageReport.php
 lib/models/CustomDashboardResponse.php

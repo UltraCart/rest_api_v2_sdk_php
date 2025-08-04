@@ -1,12 +1,10 @@
-# # CustomReportExecutionParameter
+# # ConversationVirtualAgentCapabilityZohoDeskDepartment
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **string** |  | [optional]
-**quick_pick_key** | **string** |  | [optional]
-**type** | **string** |  | [optional]
-**value** | **string** |  | [optional]
+**department_id** | **string** |  | [optional]
+**department_name** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

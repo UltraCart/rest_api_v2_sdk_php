@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **merchant_id** | **string** |  | [optional]
 **name** | **string** |  | [optional]
 **pages** | [**\ultracart\v2\models\CustomDashboardPage[]**](CustomDashboardPage.md) |  | [optional]
+**parameters** | [**\ultracart\v2\models\CustomDashboardExecutionParameter[]**](CustomDashboardExecutionParameter.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

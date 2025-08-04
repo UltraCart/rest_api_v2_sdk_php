@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomDashboard
+ * CustomDashboardExecutionParameter
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * CustomDashboard Class Doc Comment
+ * CustomDashboardExecutionParameter Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CustomDashboard implements ModelInterface, ArrayAccess, \JsonSerializable
+class CustomDashboardExecutionParameter implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CustomDashboard implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CustomDashboard';
+    protected static $openAPIModelName = 'CustomDashboardExecutionParameter';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,11 +58,10 @@ class CustomDashboard implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data_warehouse_custom_dashboard_oid' => 'int',
-        'merchant_id' => 'string',
         'name' => 'string',
-        'pages' => '\ultracart\v2\models\CustomDashboardPage[]',
-        'parameters' => '\ultracart\v2\models\CustomDashboardExecutionParameter[]'
+        'quick_pick_key' => 'string',
+        'type' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -73,11 +72,10 @@ class CustomDashboard implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data_warehouse_custom_dashboard_oid' => 'int32',
-        'merchant_id' => null,
         'name' => null,
-        'pages' => null,
-        'parameters' => null
+        'quick_pick_key' => null,
+        'type' => null,
+        'value' => null
     ];
 
     /**
@@ -107,11 +105,10 @@ class CustomDashboard implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'data_warehouse_custom_dashboard_oid' => 'data_warehouse_custom_dashboard_oid',
-        'merchant_id' => 'merchant_id',
         'name' => 'name',
-        'pages' => 'pages',
-        'parameters' => 'parameters'
+        'quick_pick_key' => 'quick_pick_key',
+        'type' => 'type',
+        'value' => 'value'
     ];
 
     /**
@@ -120,11 +117,10 @@ class CustomDashboard implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'data_warehouse_custom_dashboard_oid' => 'setDataWarehouseCustomDashboardOid',
-        'merchant_id' => 'setMerchantId',
         'name' => 'setName',
-        'pages' => 'setPages',
-        'parameters' => 'setParameters'
+        'quick_pick_key' => 'setQuickPickKey',
+        'type' => 'setType',
+        'value' => 'setValue'
     ];
 
     /**
@@ -133,11 +129,10 @@ class CustomDashboard implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'data_warehouse_custom_dashboard_oid' => 'getDataWarehouseCustomDashboardOid',
-        'merchant_id' => 'getMerchantId',
         'name' => 'getName',
-        'pages' => 'getPages',
-        'parameters' => 'getParameters'
+        'quick_pick_key' => 'getQuickPickKey',
+        'type' => 'getType',
+        'value' => 'getValue'
     ];
 
     /**
@@ -197,11 +192,10 @@ class CustomDashboard implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['data_warehouse_custom_dashboard_oid'] = $data['data_warehouse_custom_dashboard_oid'] ?? null;
-        $this->container['merchant_id'] = $data['merchant_id'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
-        $this->container['pages'] = $data['pages'] ?? null;
-        $this->container['parameters'] = $data['parameters'] ?? null;
+        $this->container['quick_pick_key'] = $data['quick_pick_key'] ?? null;
+        $this->container['type'] = $data['type'] ?? null;
+        $this->container['value'] = $data['value'] ?? null;
     }
 
     /**
@@ -229,54 +223,6 @@ class CustomDashboard implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets data_warehouse_custom_dashboard_oid
-     *
-     * @return int|null
-     */
-    public function getDataWarehouseCustomDashboardOid()
-    {
-        return $this->container['data_warehouse_custom_dashboard_oid'];
-    }
-
-    /**
-     * Sets data_warehouse_custom_dashboard_oid
-     *
-     * @param int|null $data_warehouse_custom_dashboard_oid data_warehouse_custom_dashboard_oid
-     *
-     * @return self
-     */
-    public function setDataWarehouseCustomDashboardOid($data_warehouse_custom_dashboard_oid)
-    {
-        $this->container['data_warehouse_custom_dashboard_oid'] = $data_warehouse_custom_dashboard_oid;
-
-        return $this;
-    }
-
-    /**
-     * Gets merchant_id
-     *
-     * @return string|null
-     */
-    public function getMerchantId()
-    {
-        return $this->container['merchant_id'];
-    }
-
-    /**
-     * Sets merchant_id
-     *
-     * @param string|null $merchant_id merchant_id
-     *
-     * @return self
-     */
-    public function setMerchantId($merchant_id)
-    {
-        $this->container['merchant_id'] = $merchant_id;
-
-        return $this;
-    }
-
-    /**
      * Gets name
      *
      * @return string|null
@@ -301,49 +247,73 @@ class CustomDashboard implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets pages
+     * Gets quick_pick_key
      *
-     * @return \ultracart\v2\models\CustomDashboardPage[]|null
+     * @return string|null
      */
-    public function getPages()
+    public function getQuickPickKey()
     {
-        return $this->container['pages'];
+        return $this->container['quick_pick_key'];
     }
 
     /**
-     * Sets pages
+     * Sets quick_pick_key
      *
-     * @param \ultracart\v2\models\CustomDashboardPage[]|null $pages pages
+     * @param string|null $quick_pick_key quick_pick_key
      *
      * @return self
      */
-    public function setPages($pages)
+    public function setQuickPickKey($quick_pick_key)
     {
-        $this->container['pages'] = $pages;
+        $this->container['quick_pick_key'] = $quick_pick_key;
 
         return $this;
     }
 
     /**
-     * Gets parameters
+     * Gets type
      *
-     * @return \ultracart\v2\models\CustomDashboardExecutionParameter[]|null
+     * @return string|null
      */
-    public function getParameters()
+    public function getType()
     {
-        return $this->container['parameters'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets parameters
+     * Sets type
      *
-     * @param \ultracart\v2\models\CustomDashboardExecutionParameter[]|null $parameters parameters
+     * @param string|null $type type
      *
      * @return self
      */
-    public function setParameters($parameters)
+    public function setType($type)
     {
-        $this->container['parameters'] = $parameters;
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets value
+     *
+     * @return string|null
+     */
+    public function getValue()
+    {
+        return $this->container['value'];
+    }
+
+    /**
+     * Sets value
+     *
+     * @param string|null $value value
+     *
+     * @return self
+     */
+    public function setValue($value)
+    {
+        $this->container['value'] = $value;
 
         return $this;
     }
