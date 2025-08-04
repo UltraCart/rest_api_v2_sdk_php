@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.17"
+    "ultracart/rest_api_v2_sdk_php": "4.1.18"
   }
 }
 ```
@@ -1599,6 +1599,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.18 | 08/04/2025 | more internal development on loyalty step for storefront flows |
 | 4.1.17 | 08/04/2025 | small changes to internal flow app to support loyalty tier moves |
 | 4.1.16 | 07/28/2025 | updated doc samples |
 | 4.1.15 | 07/28/2025 | new order methods for blocking and unblocking refunds |
