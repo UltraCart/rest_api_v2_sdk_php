@@ -4,11 +4,15 @@ All URIs are relative to https://secure.ultracart.com/rest/v2.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**deleteCustomDashboard()**](DatawarehouseApi.md#deleteCustomDashboard) | **DELETE** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Delete a custom dashboard
 [**deleteCustomReport()**](DatawarehouseApi.md#deleteCustomReport) | **DELETE** /datawarehouse/custom_reports/{custom_report_oid} | Delete a custom report
 [**deleteReport()**](DatawarehouseApi.md#deleteReport) | **DELETE** /datawarehouse/reports/{report_oid} | Delete a report
 [**dryRunReportQueries()**](DatawarehouseApi.md#dryRunReportQueries) | **PUT** /datawarehouse/reports/dryrun | Dry run the report queries
 [**executeCustomReport()**](DatawarehouseApi.md#executeCustomReport) | **PUT** /datawarehouse/custom_reports/{custom_report_oid}/execute | Execute a custom report
+[**executeCustomReports()**](DatawarehouseApi.md#executeCustomReports) | **PUT** /datawarehouse/custom_reports/execute | Execute a custom reports
 [**executeReportQueries()**](DatawarehouseApi.md#executeReportQueries) | **PUT** /datawarehouse/reports/execute | Execute the report queries
+[**getCustomDashboard()**](DatawarehouseApi.md#getCustomDashboard) | **GET** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Get a custom dashboard
+[**getCustomDashboards()**](DatawarehouseApi.md#getCustomDashboards) | **GET** /datawarehouse/custom_dashboards | Get custom dashboards
 [**getCustomReport()**](DatawarehouseApi.md#getCustomReport) | **GET** /datawarehouse/custom_reports/{custom_report_oid} | Get a custom report
 [**getCustomReportAccountConfig()**](DatawarehouseApi.md#getCustomReportAccountConfig) | **GET** /datawarehouse/custom_reports/account_config | Get custom report account configuration
 [**getCustomReports()**](DatawarehouseApi.md#getCustomReports) | **GET** /datawarehouse/custom_reports | Get custom reports
@@ -17,12 +21,54 @@ Method | HTTP request | Description
 [**getReportDataSetPage()**](DatawarehouseApi.md#getReportDataSetPage) | **GET** /datawarehouse/reports/dataset/{dataset_uuid}/pages/{page_number} | Get a report data set page
 [**getReportWebsocketAuthorization()**](DatawarehouseApi.md#getReportWebsocketAuthorization) | **PUT** /datawarehouse/reports/auth | Get report websocket authorization
 [**getReports()**](DatawarehouseApi.md#getReports) | **GET** /datawarehouse/reports | Get list of reports available
+[**insertCustomDashboard()**](DatawarehouseApi.md#insertCustomDashboard) | **POST** /datawarehouse/custom_dashboards | Create a custom dashboard
 [**insertCustomReport()**](DatawarehouseApi.md#insertCustomReport) | **POST** /datawarehouse/custom_reports | Create a custom report
 [**insertReport()**](DatawarehouseApi.md#insertReport) | **POST** /datawarehouse/reports | Create a report
+[**updateCustomDashboard()**](DatawarehouseApi.md#updateCustomDashboard) | **PUT** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Update a custom dashboard
 [**updateCustomReport()**](DatawarehouseApi.md#updateCustomReport) | **PUT** /datawarehouse/custom_reports/{custom_report_oid} | Update a custom report
 [**updateCustomReportAccountConfig()**](DatawarehouseApi.md#updateCustomReportAccountConfig) | **PUT** /datawarehouse/custom_reports/account_config | Update custom report account config
 [**updateReport()**](DatawarehouseApi.md#updateReport) | **PUT** /datawarehouse/reports/{report_oid} | Update a report
 
+
+## `deleteCustomDashboard()`
+
+```php
+deleteCustomDashboard($custom_dashboard_oid)
+```
+
+Delete a custom dashboard
+
+Delete a custom dashboard on the UltraCart account.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **custom_dashboard_oid** | **int**| The dashboard oid to delete. |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `deleteCustomReport()`
 
@@ -149,7 +195,7 @@ Name | Type | Description  | Notes
 ## `executeCustomReport()`
 
 ```php
-executeCustomReport($custom_report_oid, $execution_request): \ultracart\v2\models\CustomReportResponse
+executeCustomReport($custom_report_oid, $execution_request): \ultracart\v2\models\CustomReportExecutionResponse
 ```
 
 Execute a custom report
@@ -172,7 +218,47 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\CustomReportResponse**](../Model/CustomReportResponse.md)
+[**\ultracart\v2\models\CustomReportExecutionResponse**](../Model/CustomReportExecutionResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `executeCustomReports()`
+
+```php
+executeCustomReports($execution_request): \ultracart\v2\models\CustomReportsExecutionResponse
+```
+
+Execute a custom reports
+
+Execute a custom reports on the UltraCart account.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **execution_request** | [**\ultracart\v2\models\CustomReportsExecutionRequest**](../Model/CustomReportsExecutionRequest.md)| Request to execute custom reports |
+
+### Return type
+
+[**\ultracart\v2\models\CustomReportsExecutionResponse**](../Model/CustomReportsExecutionResponse.md)
 
 ### Authorization
 
@@ -222,6 +308,84 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getCustomDashboard()`
+
+```php
+getCustomDashboard($custom_dashboard_oid): \ultracart\v2\models\CustomDashboardResponse
+```
+
+Get a custom dashboard
+
+Retrieve a custom dashboard
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **custom_dashboard_oid** | **int**|  |
+
+### Return type
+
+[**\ultracart\v2\models\CustomDashboardResponse**](../Model/CustomDashboardResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getCustomDashboards()`
+
+```php
+getCustomDashboards(): \ultracart\v2\models\CustomDashboardsResponse
+```
+
+Get custom dashboards
+
+Retrieve a custom dashboards
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\ultracart\v2\models\CustomDashboardsResponse**](../Model/CustomDashboardsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -546,6 +710,46 @@ This endpoint does not need any parameter.
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `insertCustomDashboard()`
+
+```php
+insertCustomDashboard($dashboard): \ultracart\v2\models\CustomDashboardResponse
+```
+
+Create a custom dashboard
+
+Create a new custom dashboard on the UltraCart account.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **dashboard** | [**\ultracart\v2\models\CustomDashboard**](../Model/CustomDashboard.md)| Dashboard to create |
+
+### Return type
+
+[**\ultracart\v2\models\CustomDashboardResponse**](../Model/CustomDashboardResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `insertCustomReport()`
 
 ```php
@@ -613,6 +817,47 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\ReportResponse**](../Model/ReportResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateCustomDashboard()`
+
+```php
+updateCustomDashboard($custom_dashboard_oid, $dashboard): \ultracart\v2\models\CustomDashboardResponse
+```
+
+Update a custom dashboard
+
+Update a custom dashboard on the UltraCart account.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **custom_dashboard_oid** | **int**| The dashboard oid to custom update. |
+ **dashboard** | [**\ultracart\v2\models\CustomDashboard**](../Model/CustomDashboard.md)| Dashboard to custom update |
+
+### Return type
+
+[**\ultracart\v2\models\CustomDashboardResponse**](../Model/CustomDashboardResponse.md)
 
 ### Authorization
 
