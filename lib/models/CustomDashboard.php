@@ -1,6 +1,6 @@
 <?php
 /**
- * EmailWebhookEditorValuesResponse
+ * CustomDashboard
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * EmailWebhookEditorValuesResponse Class Doc Comment
+ * CustomDashboard Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
+class CustomDashboard implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'EmailWebhookEditorValuesResponse';
+    protected static $swaggerModelName = 'CustomDashboard';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,14 +57,10 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'available_expansions' => 'string[]',
-        'available_tokens' => 'string[]',
-        'error' => '\ultracart\v2\models\Error',
-        'loyalty_tiers' => 'string[]',
-        'metadata' => '\ultracart\v2\models\ResponseMetadata',
-        'rest_object_type' => 'string',
-        'success' => 'bool',
-        'warning' => '\ultracart\v2\models\Warning'
+        'data_warehouse_custom_dashboard_oid' => 'int',
+        'merchant_id' => 'string',
+        'name' => 'string',
+        'pages' => '\ultracart\v2\models\CustomDashboardPage[]'
     ];
 
     /**
@@ -73,14 +69,10 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'available_expansions' => null,
-        'available_tokens' => null,
-        'error' => null,
-        'loyalty_tiers' => null,
-        'metadata' => null,
-        'rest_object_type' => null,
-        'success' => null,
-        'warning' => null
+        'data_warehouse_custom_dashboard_oid' => 'int32',
+        'merchant_id' => null,
+        'name' => null,
+        'pages' => null
     ];
 
     /**
@@ -110,14 +102,10 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'available_expansions' => 'available_expansions',
-        'available_tokens' => 'available_tokens',
-        'error' => 'error',
-        'loyalty_tiers' => 'loyalty_tiers',
-        'metadata' => 'metadata',
-        'rest_object_type' => 'rest_object_type',
-        'success' => 'success',
-        'warning' => 'warning'
+        'data_warehouse_custom_dashboard_oid' => 'data_warehouse_custom_dashboard_oid',
+        'merchant_id' => 'merchant_id',
+        'name' => 'name',
+        'pages' => 'pages'
     ];
 
     /**
@@ -126,14 +114,10 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'available_expansions' => 'setAvailableExpansions',
-        'available_tokens' => 'setAvailableTokens',
-        'error' => 'setError',
-        'loyalty_tiers' => 'setLoyaltyTiers',
-        'metadata' => 'setMetadata',
-        'rest_object_type' => 'setRestObjectType',
-        'success' => 'setSuccess',
-        'warning' => 'setWarning'
+        'data_warehouse_custom_dashboard_oid' => 'setDataWarehouseCustomDashboardOid',
+        'merchant_id' => 'setMerchantId',
+        'name' => 'setName',
+        'pages' => 'setPages'
     ];
 
     /**
@@ -142,14 +126,10 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'available_expansions' => 'getAvailableExpansions',
-        'available_tokens' => 'getAvailableTokens',
-        'error' => 'getError',
-        'loyalty_tiers' => 'getLoyaltyTiers',
-        'metadata' => 'getMetadata',
-        'rest_object_type' => 'getRestObjectType',
-        'success' => 'getSuccess',
-        'warning' => 'getWarning'
+        'data_warehouse_custom_dashboard_oid' => 'getDataWarehouseCustomDashboardOid',
+        'merchant_id' => 'getMerchantId',
+        'name' => 'getName',
+        'pages' => 'getPages'
     ];
 
     /**
@@ -212,14 +192,10 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['available_expansions'] = isset($data['available_expansions']) ? $data['available_expansions'] : null;
-        $this->container['available_tokens'] = isset($data['available_tokens']) ? $data['available_tokens'] : null;
-        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
-        $this->container['loyalty_tiers'] = isset($data['loyalty_tiers']) ? $data['loyalty_tiers'] : null;
-        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['rest_object_type'] = isset($data['rest_object_type']) ? $data['rest_object_type'] : null;
-        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
-        $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
+        $this->container['data_warehouse_custom_dashboard_oid'] = isset($data['data_warehouse_custom_dashboard_oid']) ? $data['data_warehouse_custom_dashboard_oid'] : null;
+        $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['pages'] = isset($data['pages']) ? $data['pages'] : null;
     }
 
     /**
@@ -247,193 +223,97 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets available_expansions
+     * Gets data_warehouse_custom_dashboard_oid
      *
-     * @return string[]
+     * @return int
      */
-    public function getAvailableExpansions()
+    public function getDataWarehouseCustomDashboardOid()
     {
-        return $this->container['available_expansions'];
+        return $this->container['data_warehouse_custom_dashboard_oid'];
     }
 
     /**
-     * Sets available_expansions
+     * Sets data_warehouse_custom_dashboard_oid
      *
-     * @param string[] $available_expansions available_expansions
+     * @param int $data_warehouse_custom_dashboard_oid data_warehouse_custom_dashboard_oid
      *
      * @return $this
      */
-    public function setAvailableExpansions($available_expansions)
+    public function setDataWarehouseCustomDashboardOid($data_warehouse_custom_dashboard_oid)
     {
-        $this->container['available_expansions'] = $available_expansions;
+        $this->container['data_warehouse_custom_dashboard_oid'] = $data_warehouse_custom_dashboard_oid;
 
         return $this;
     }
 
     /**
-     * Gets available_tokens
-     *
-     * @return string[]
-     */
-    public function getAvailableTokens()
-    {
-        return $this->container['available_tokens'];
-    }
-
-    /**
-     * Sets available_tokens
-     *
-     * @param string[] $available_tokens available_tokens
-     *
-     * @return $this
-     */
-    public function setAvailableTokens($available_tokens)
-    {
-        $this->container['available_tokens'] = $available_tokens;
-
-        return $this;
-    }
-
-    /**
-     * Gets error
-     *
-     * @return \ultracart\v2\models\Error
-     */
-    public function getError()
-    {
-        return $this->container['error'];
-    }
-
-    /**
-     * Sets error
-     *
-     * @param \ultracart\v2\models\Error $error error
-     *
-     * @return $this
-     */
-    public function setError($error)
-    {
-        $this->container['error'] = $error;
-
-        return $this;
-    }
-
-    /**
-     * Gets loyalty_tiers
-     *
-     * @return string[]
-     */
-    public function getLoyaltyTiers()
-    {
-        return $this->container['loyalty_tiers'];
-    }
-
-    /**
-     * Sets loyalty_tiers
-     *
-     * @param string[] $loyalty_tiers loyalty_tiers
-     *
-     * @return $this
-     */
-    public function setLoyaltyTiers($loyalty_tiers)
-    {
-        $this->container['loyalty_tiers'] = $loyalty_tiers;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return \ultracart\v2\models\ResponseMetadata
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
-     *
-     * @return $this
-     */
-    public function setMetadata($metadata)
-    {
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets rest_object_type
+     * Gets merchant_id
      *
      * @return string
      */
-    public function getRestObjectType()
+    public function getMerchantId()
     {
-        return $this->container['rest_object_type'];
+        return $this->container['merchant_id'];
     }
 
     /**
-     * Sets rest_object_type
+     * Sets merchant_id
      *
-     * @param string $rest_object_type rest_object_type
+     * @param string $merchant_id merchant_id
      *
      * @return $this
      */
-    public function setRestObjectType($rest_object_type)
+    public function setMerchantId($merchant_id)
     {
-        $this->container['rest_object_type'] = $rest_object_type;
+        $this->container['merchant_id'] = $merchant_id;
 
         return $this;
     }
 
     /**
-     * Gets success
+     * Gets name
      *
-     * @return bool
+     * @return string
      */
-    public function getSuccess()
+    public function getName()
     {
-        return $this->container['success'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets success
+     * Sets name
      *
-     * @param bool $success Indicates if API call was successful
+     * @param string $name name
      *
      * @return $this
      */
-    public function setSuccess($success)
+    public function setName($name)
     {
-        $this->container['success'] = $success;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets warning
+     * Gets pages
      *
-     * @return \ultracart\v2\models\Warning
+     * @return \ultracart\v2\models\CustomDashboardPage[]
      */
-    public function getWarning()
+    public function getPages()
     {
-        return $this->container['warning'];
+        return $this->container['pages'];
     }
 
     /**
-     * Sets warning
+     * Sets pages
      *
-     * @param \ultracart\v2\models\Warning $warning warning
+     * @param \ultracart\v2\models\CustomDashboardPage[] $pages pages
      *
      * @return $this
      */
-    public function setWarning($warning)
+    public function setPages($pages)
     {
-        $this->container['warning'] = $warning;
+        $this->container['pages'] = $pages;
 
         return $this;
     }

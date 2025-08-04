@@ -1,6 +1,6 @@
 <?php
 /**
- * EmailWebhookEditorValuesResponse
+ * CustomReportsExecutionResponse
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * EmailWebhookEditorValuesResponse Class Doc Comment
+ * CustomReportsExecutionResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
+class CustomReportsExecutionResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'EmailWebhookEditorValuesResponse';
+    protected static $swaggerModelName = 'CustomReportsExecutionResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,12 +57,10 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'available_expansions' => 'string[]',
-        'available_tokens' => 'string[]',
         'error' => '\ultracart\v2\models\Error',
-        'loyalty_tiers' => 'string[]',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
-        'rest_object_type' => 'string',
+        'parameters' => '\ultracart\v2\models\CustomReportExecutionParameter[]',
+        'reports' => '\ultracart\v2\models\CustomReportsExecutionReportData[]',
         'success' => 'bool',
         'warning' => '\ultracart\v2\models\Warning'
     ];
@@ -73,12 +71,10 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'available_expansions' => null,
-        'available_tokens' => null,
         'error' => null,
-        'loyalty_tiers' => null,
         'metadata' => null,
-        'rest_object_type' => null,
+        'parameters' => null,
+        'reports' => null,
         'success' => null,
         'warning' => null
     ];
@@ -110,12 +106,10 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'available_expansions' => 'available_expansions',
-        'available_tokens' => 'available_tokens',
         'error' => 'error',
-        'loyalty_tiers' => 'loyalty_tiers',
         'metadata' => 'metadata',
-        'rest_object_type' => 'rest_object_type',
+        'parameters' => 'parameters',
+        'reports' => 'reports',
         'success' => 'success',
         'warning' => 'warning'
     ];
@@ -126,12 +120,10 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'available_expansions' => 'setAvailableExpansions',
-        'available_tokens' => 'setAvailableTokens',
         'error' => 'setError',
-        'loyalty_tiers' => 'setLoyaltyTiers',
         'metadata' => 'setMetadata',
-        'rest_object_type' => 'setRestObjectType',
+        'parameters' => 'setParameters',
+        'reports' => 'setReports',
         'success' => 'setSuccess',
         'warning' => 'setWarning'
     ];
@@ -142,12 +134,10 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'available_expansions' => 'getAvailableExpansions',
-        'available_tokens' => 'getAvailableTokens',
         'error' => 'getError',
-        'loyalty_tiers' => 'getLoyaltyTiers',
         'metadata' => 'getMetadata',
-        'rest_object_type' => 'getRestObjectType',
+        'parameters' => 'getParameters',
+        'reports' => 'getReports',
         'success' => 'getSuccess',
         'warning' => 'getWarning'
     ];
@@ -212,12 +202,10 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['available_expansions'] = isset($data['available_expansions']) ? $data['available_expansions'] : null;
-        $this->container['available_tokens'] = isset($data['available_tokens']) ? $data['available_tokens'] : null;
         $this->container['error'] = isset($data['error']) ? $data['error'] : null;
-        $this->container['loyalty_tiers'] = isset($data['loyalty_tiers']) ? $data['loyalty_tiers'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['rest_object_type'] = isset($data['rest_object_type']) ? $data['rest_object_type'] : null;
+        $this->container['parameters'] = isset($data['parameters']) ? $data['parameters'] : null;
+        $this->container['reports'] = isset($data['reports']) ? $data['reports'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
         $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
@@ -247,54 +235,6 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets available_expansions
-     *
-     * @return string[]
-     */
-    public function getAvailableExpansions()
-    {
-        return $this->container['available_expansions'];
-    }
-
-    /**
-     * Sets available_expansions
-     *
-     * @param string[] $available_expansions available_expansions
-     *
-     * @return $this
-     */
-    public function setAvailableExpansions($available_expansions)
-    {
-        $this->container['available_expansions'] = $available_expansions;
-
-        return $this;
-    }
-
-    /**
-     * Gets available_tokens
-     *
-     * @return string[]
-     */
-    public function getAvailableTokens()
-    {
-        return $this->container['available_tokens'];
-    }
-
-    /**
-     * Sets available_tokens
-     *
-     * @param string[] $available_tokens available_tokens
-     *
-     * @return $this
-     */
-    public function setAvailableTokens($available_tokens)
-    {
-        $this->container['available_tokens'] = $available_tokens;
-
-        return $this;
-    }
-
-    /**
      * Gets error
      *
      * @return \ultracart\v2\models\Error
@@ -314,30 +254,6 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
     public function setError($error)
     {
         $this->container['error'] = $error;
-
-        return $this;
-    }
-
-    /**
-     * Gets loyalty_tiers
-     *
-     * @return string[]
-     */
-    public function getLoyaltyTiers()
-    {
-        return $this->container['loyalty_tiers'];
-    }
-
-    /**
-     * Sets loyalty_tiers
-     *
-     * @param string[] $loyalty_tiers loyalty_tiers
-     *
-     * @return $this
-     */
-    public function setLoyaltyTiers($loyalty_tiers)
-    {
-        $this->container['loyalty_tiers'] = $loyalty_tiers;
 
         return $this;
     }
@@ -367,25 +283,49 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets rest_object_type
+     * Gets parameters
      *
-     * @return string
+     * @return \ultracart\v2\models\CustomReportExecutionParameter[]
      */
-    public function getRestObjectType()
+    public function getParameters()
     {
-        return $this->container['rest_object_type'];
+        return $this->container['parameters'];
     }
 
     /**
-     * Sets rest_object_type
+     * Sets parameters
      *
-     * @param string $rest_object_type rest_object_type
+     * @param \ultracart\v2\models\CustomReportExecutionParameter[] $parameters parameters
      *
      * @return $this
      */
-    public function setRestObjectType($rest_object_type)
+    public function setParameters($parameters)
     {
-        $this->container['rest_object_type'] = $rest_object_type;
+        $this->container['parameters'] = $parameters;
+
+        return $this;
+    }
+
+    /**
+     * Gets reports
+     *
+     * @return \ultracart\v2\models\CustomReportsExecutionReportData[]
+     */
+    public function getReports()
+    {
+        return $this->container['reports'];
+    }
+
+    /**
+     * Sets reports
+     *
+     * @param \ultracart\v2\models\CustomReportsExecutionReportData[] $reports reports
+     *
+     * @return $this
+     */
+    public function setReports($reports)
+    {
+        $this->container['reports'] = $reports;
 
         return $this;
     }

@@ -1,14 +1,11 @@
-# EmailWebhookEditorValuesResponse
+# CustomDashboardsResponse
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**available_expansions** | **string[]** |  | [optional] 
-**available_tokens** | **string[]** |  | [optional] 
+**dashboards** | [**\ultracart\v2\models\CustomDashboard[]**](CustomDashboard.md) | reports | [optional] 
 **error** | [**\ultracart\v2\models\Error**](Error.md) |  | [optional] 
-**loyalty_tiers** | **string[]** |  | [optional] 
 **metadata** | [**\ultracart\v2\models\ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
-**rest_object_type** | **string** |  | [optional] 
 **success** | **bool** | Indicates if API call was successful | [optional] 
 **warning** | [**\ultracart\v2\models\Warning**](Warning.md) |  | [optional] 
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * EmailWebhookEditorValuesResponse
+ * CustomDashboardPageReport
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * EmailWebhookEditorValuesResponse Class Doc Comment
+ * CustomDashboardPageReport Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
+class CustomDashboardPageReport implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'EmailWebhookEditorValuesResponse';
+    protected static $swaggerModelName = 'CustomDashboardPageReport';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,14 +57,11 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'available_expansions' => 'string[]',
-        'available_tokens' => 'string[]',
-        'error' => '\ultracart\v2\models\Error',
-        'loyalty_tiers' => 'string[]',
-        'metadata' => '\ultracart\v2\models\ResponseMetadata',
-        'rest_object_type' => 'string',
-        'success' => 'bool',
-        'warning' => '\ultracart\v2\models\Warning'
+        'data_warehouse_report_config_oid' => 'int',
+        'grid_height' => 'int',
+        'grid_width' => 'int',
+        'grid_x' => 'int',
+        'grid_y' => 'int'
     ];
 
     /**
@@ -73,14 +70,11 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'available_expansions' => null,
-        'available_tokens' => null,
-        'error' => null,
-        'loyalty_tiers' => null,
-        'metadata' => null,
-        'rest_object_type' => null,
-        'success' => null,
-        'warning' => null
+        'data_warehouse_report_config_oid' => 'int32',
+        'grid_height' => 'int32',
+        'grid_width' => 'int32',
+        'grid_x' => 'int32',
+        'grid_y' => 'int32'
     ];
 
     /**
@@ -110,14 +104,11 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'available_expansions' => 'available_expansions',
-        'available_tokens' => 'available_tokens',
-        'error' => 'error',
-        'loyalty_tiers' => 'loyalty_tiers',
-        'metadata' => 'metadata',
-        'rest_object_type' => 'rest_object_type',
-        'success' => 'success',
-        'warning' => 'warning'
+        'data_warehouse_report_config_oid' => 'data_warehouse_report_config_oid',
+        'grid_height' => 'grid_height',
+        'grid_width' => 'grid_width',
+        'grid_x' => 'grid_x',
+        'grid_y' => 'grid_y'
     ];
 
     /**
@@ -126,14 +117,11 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'available_expansions' => 'setAvailableExpansions',
-        'available_tokens' => 'setAvailableTokens',
-        'error' => 'setError',
-        'loyalty_tiers' => 'setLoyaltyTiers',
-        'metadata' => 'setMetadata',
-        'rest_object_type' => 'setRestObjectType',
-        'success' => 'setSuccess',
-        'warning' => 'setWarning'
+        'data_warehouse_report_config_oid' => 'setDataWarehouseReportConfigOid',
+        'grid_height' => 'setGridHeight',
+        'grid_width' => 'setGridWidth',
+        'grid_x' => 'setGridX',
+        'grid_y' => 'setGridY'
     ];
 
     /**
@@ -142,14 +130,11 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'available_expansions' => 'getAvailableExpansions',
-        'available_tokens' => 'getAvailableTokens',
-        'error' => 'getError',
-        'loyalty_tiers' => 'getLoyaltyTiers',
-        'metadata' => 'getMetadata',
-        'rest_object_type' => 'getRestObjectType',
-        'success' => 'getSuccess',
-        'warning' => 'getWarning'
+        'data_warehouse_report_config_oid' => 'getDataWarehouseReportConfigOid',
+        'grid_height' => 'getGridHeight',
+        'grid_width' => 'getGridWidth',
+        'grid_x' => 'getGridX',
+        'grid_y' => 'getGridY'
     ];
 
     /**
@@ -212,14 +197,11 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['available_expansions'] = isset($data['available_expansions']) ? $data['available_expansions'] : null;
-        $this->container['available_tokens'] = isset($data['available_tokens']) ? $data['available_tokens'] : null;
-        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
-        $this->container['loyalty_tiers'] = isset($data['loyalty_tiers']) ? $data['loyalty_tiers'] : null;
-        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['rest_object_type'] = isset($data['rest_object_type']) ? $data['rest_object_type'] : null;
-        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
-        $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
+        $this->container['data_warehouse_report_config_oid'] = isset($data['data_warehouse_report_config_oid']) ? $data['data_warehouse_report_config_oid'] : null;
+        $this->container['grid_height'] = isset($data['grid_height']) ? $data['grid_height'] : null;
+        $this->container['grid_width'] = isset($data['grid_width']) ? $data['grid_width'] : null;
+        $this->container['grid_x'] = isset($data['grid_x']) ? $data['grid_x'] : null;
+        $this->container['grid_y'] = isset($data['grid_y']) ? $data['grid_y'] : null;
     }
 
     /**
@@ -247,193 +229,121 @@ class EmailWebhookEditorValuesResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets available_expansions
+     * Gets data_warehouse_report_config_oid
      *
-     * @return string[]
+     * @return int
      */
-    public function getAvailableExpansions()
+    public function getDataWarehouseReportConfigOid()
     {
-        return $this->container['available_expansions'];
+        return $this->container['data_warehouse_report_config_oid'];
     }
 
     /**
-     * Sets available_expansions
+     * Sets data_warehouse_report_config_oid
      *
-     * @param string[] $available_expansions available_expansions
+     * @param int $data_warehouse_report_config_oid data_warehouse_report_config_oid
      *
      * @return $this
      */
-    public function setAvailableExpansions($available_expansions)
+    public function setDataWarehouseReportConfigOid($data_warehouse_report_config_oid)
     {
-        $this->container['available_expansions'] = $available_expansions;
+        $this->container['data_warehouse_report_config_oid'] = $data_warehouse_report_config_oid;
 
         return $this;
     }
 
     /**
-     * Gets available_tokens
+     * Gets grid_height
      *
-     * @return string[]
+     * @return int
      */
-    public function getAvailableTokens()
+    public function getGridHeight()
     {
-        return $this->container['available_tokens'];
+        return $this->container['grid_height'];
     }
 
     /**
-     * Sets available_tokens
+     * Sets grid_height
      *
-     * @param string[] $available_tokens available_tokens
+     * @param int $grid_height grid_height
      *
      * @return $this
      */
-    public function setAvailableTokens($available_tokens)
+    public function setGridHeight($grid_height)
     {
-        $this->container['available_tokens'] = $available_tokens;
+        $this->container['grid_height'] = $grid_height;
 
         return $this;
     }
 
     /**
-     * Gets error
+     * Gets grid_width
      *
-     * @return \ultracart\v2\models\Error
+     * @return int
      */
-    public function getError()
+    public function getGridWidth()
     {
-        return $this->container['error'];
+        return $this->container['grid_width'];
     }
 
     /**
-     * Sets error
+     * Sets grid_width
      *
-     * @param \ultracart\v2\models\Error $error error
+     * @param int $grid_width grid_width
      *
      * @return $this
      */
-    public function setError($error)
+    public function setGridWidth($grid_width)
     {
-        $this->container['error'] = $error;
+        $this->container['grid_width'] = $grid_width;
 
         return $this;
     }
 
     /**
-     * Gets loyalty_tiers
+     * Gets grid_x
      *
-     * @return string[]
+     * @return int
      */
-    public function getLoyaltyTiers()
+    public function getGridX()
     {
-        return $this->container['loyalty_tiers'];
+        return $this->container['grid_x'];
     }
 
     /**
-     * Sets loyalty_tiers
+     * Sets grid_x
      *
-     * @param string[] $loyalty_tiers loyalty_tiers
+     * @param int $grid_x grid_x
      *
      * @return $this
      */
-    public function setLoyaltyTiers($loyalty_tiers)
+    public function setGridX($grid_x)
     {
-        $this->container['loyalty_tiers'] = $loyalty_tiers;
+        $this->container['grid_x'] = $grid_x;
 
         return $this;
     }
 
     /**
-     * Gets metadata
+     * Gets grid_y
      *
-     * @return \ultracart\v2\models\ResponseMetadata
+     * @return int
      */
-    public function getMetadata()
+    public function getGridY()
     {
-        return $this->container['metadata'];
+        return $this->container['grid_y'];
     }
 
     /**
-     * Sets metadata
+     * Sets grid_y
      *
-     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
+     * @param int $grid_y grid_y
      *
      * @return $this
      */
-    public function setMetadata($metadata)
+    public function setGridY($grid_y)
     {
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets rest_object_type
-     *
-     * @return string
-     */
-    public function getRestObjectType()
-    {
-        return $this->container['rest_object_type'];
-    }
-
-    /**
-     * Sets rest_object_type
-     *
-     * @param string $rest_object_type rest_object_type
-     *
-     * @return $this
-     */
-    public function setRestObjectType($rest_object_type)
-    {
-        $this->container['rest_object_type'] = $rest_object_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets success
-     *
-     * @return bool
-     */
-    public function getSuccess()
-    {
-        return $this->container['success'];
-    }
-
-    /**
-     * Sets success
-     *
-     * @param bool $success Indicates if API call was successful
-     *
-     * @return $this
-     */
-    public function setSuccess($success)
-    {
-        $this->container['success'] = $success;
-
-        return $this;
-    }
-
-    /**
-     * Gets warning
-     *
-     * @return \ultracart\v2\models\Warning
-     */
-    public function getWarning()
-    {
-        return $this->container['warning'];
-    }
-
-    /**
-     * Sets warning
-     *
-     * @param \ultracart\v2\models\Warning $warning warning
-     *
-     * @return $this
-     */
-    public function setWarning($warning)
-    {
-        $this->container['warning'] = $warning;
+        $this->container['grid_y'] = $grid_y;
 
         return $this;
     }

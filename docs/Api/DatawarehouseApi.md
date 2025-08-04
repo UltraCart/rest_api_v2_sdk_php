@@ -4,11 +4,15 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**deleteCustomDashboard**](DatawarehouseApi.md#deleteCustomDashboard) | **DELETE** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Delete a custom dashboard
 [**deleteCustomReport**](DatawarehouseApi.md#deleteCustomReport) | **DELETE** /datawarehouse/custom_reports/{custom_report_oid} | Delete a custom report
 [**deleteReport**](DatawarehouseApi.md#deleteReport) | **DELETE** /datawarehouse/reports/{report_oid} | Delete a report
 [**dryRunReportQueries**](DatawarehouseApi.md#dryRunReportQueries) | **PUT** /datawarehouse/reports/dryrun | Dry run the report queries
 [**executeCustomReport**](DatawarehouseApi.md#executeCustomReport) | **PUT** /datawarehouse/custom_reports/{custom_report_oid}/execute | Execute a custom report
+[**executeCustomReports**](DatawarehouseApi.md#executeCustomReports) | **PUT** /datawarehouse/custom_reports/execute | Execute a custom reports
 [**executeReportQueries**](DatawarehouseApi.md#executeReportQueries) | **PUT** /datawarehouse/reports/execute | Execute the report queries
+[**getCustomDashboard**](DatawarehouseApi.md#getCustomDashboard) | **GET** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Get a custom dashboard
+[**getCustomDashboards**](DatawarehouseApi.md#getCustomDashboards) | **GET** /datawarehouse/custom_dashboards | Get custom dashboards
 [**getCustomReport**](DatawarehouseApi.md#getCustomReport) | **GET** /datawarehouse/custom_reports/{custom_report_oid} | Get a custom report
 [**getCustomReportAccountConfig**](DatawarehouseApi.md#getCustomReportAccountConfig) | **GET** /datawarehouse/custom_reports/account_config | Get custom report account configuration
 [**getCustomReports**](DatawarehouseApi.md#getCustomReports) | **GET** /datawarehouse/custom_reports | Get custom reports
@@ -17,12 +21,61 @@ Method | HTTP request | Description
 [**getReportDataSetPage**](DatawarehouseApi.md#getReportDataSetPage) | **GET** /datawarehouse/reports/dataset/{dataset_uuid}/pages/{page_number} | Get a report data set page
 [**getReportWebsocketAuthorization**](DatawarehouseApi.md#getReportWebsocketAuthorization) | **PUT** /datawarehouse/reports/auth | Get report websocket authorization
 [**getReports**](DatawarehouseApi.md#getReports) | **GET** /datawarehouse/reports | Get list of reports available
+[**insertCustomDashboard**](DatawarehouseApi.md#insertCustomDashboard) | **POST** /datawarehouse/custom_dashboards | Create a custom dashboard
 [**insertCustomReport**](DatawarehouseApi.md#insertCustomReport) | **POST** /datawarehouse/custom_reports | Create a custom report
 [**insertReport**](DatawarehouseApi.md#insertReport) | **POST** /datawarehouse/reports | Create a report
+[**updateCustomDashboard**](DatawarehouseApi.md#updateCustomDashboard) | **PUT** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Update a custom dashboard
 [**updateCustomReport**](DatawarehouseApi.md#updateCustomReport) | **PUT** /datawarehouse/custom_reports/{custom_report_oid} | Update a custom report
 [**updateCustomReportAccountConfig**](DatawarehouseApi.md#updateCustomReportAccountConfig) | **PUT** /datawarehouse/custom_reports/account_config | Update custom report account config
 [**updateReport**](DatawarehouseApi.md#updateReport) | **PUT** /datawarehouse/reports/{report_oid} | Update a report
 
+
+# **deleteCustomDashboard**
+> deleteCustomDashboard($custom_dashboard_oid)
+
+Delete a custom dashboard
+
+Delete a custom dashboard on the UltraCart account.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\DatawarehouseApi::usingApiKey($simple_key);
+
+$custom_dashboard_oid = 56; // int | The dashboard oid to delete.
+
+try {
+    $apiInstance->deleteCustomDashboard($custom_dashboard_oid);
+} catch (Exception $e) {
+    echo 'Exception when calling DatawarehouseApi->deleteCustomDashboard: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **custom_dashboard_oid** | **int**| The dashboard oid to delete. |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteCustomReport**
 > deleteCustomReport($custom_report_oid)
@@ -167,7 +220,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **executeCustomReport**
-> \ultracart\v2\models\CustomReportResponse executeCustomReport($execution_request, $custom_report_oid)
+> \ultracart\v2\models\CustomReportExecutionResponse executeCustomReport($execution_request, $custom_report_oid)
 
 Execute a custom report
 
@@ -203,7 +256,55 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\CustomReportResponse**](../Model/CustomReportResponse.md)
+[**\ultracart\v2\models\CustomReportExecutionResponse**](../Model/CustomReportExecutionResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **executeCustomReports**
+> \ultracart\v2\models\CustomReportsExecutionResponse executeCustomReports($execution_request)
+
+Execute a custom reports
+
+Execute a custom reports on the UltraCart account.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\DatawarehouseApi::usingApiKey($simple_key);
+
+$execution_request = new \ultracart\v2\models\CustomReportsExecutionRequest(); // \ultracart\v2\models\CustomReportsExecutionRequest | Request to execute custom reports
+
+try {
+    $result = $apiInstance->executeCustomReports($execution_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DatawarehouseApi->executeCustomReports: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **execution_request** | [**\ultracart\v2\models\CustomReportsExecutionRequest**](../Model/CustomReportsExecutionRequest.md)| Request to execute custom reports |
+
+### Return type
+
+[**\ultracart\v2\models\CustomReportsExecutionResponse**](../Model/CustomReportsExecutionResponse.md)
 
 ### Authorization
 
@@ -251,6 +352,98 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getCustomDashboard**
+> \ultracart\v2\models\CustomDashboardResponse getCustomDashboard($custom_dashboard_oid)
+
+Get a custom dashboard
+
+Retrieve a custom dashboard
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\DatawarehouseApi::usingApiKey($simple_key);
+
+$custom_dashboard_oid = 56; // int | 
+
+try {
+    $result = $apiInstance->getCustomDashboard($custom_dashboard_oid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DatawarehouseApi->getCustomDashboard: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **custom_dashboard_oid** | **int**|  |
+
+### Return type
+
+[**\ultracart\v2\models\CustomDashboardResponse**](../Model/CustomDashboardResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getCustomDashboards**
+> \ultracart\v2\models\CustomDashboardsResponse getCustomDashboards()
+
+Get custom dashboards
+
+Retrieve a custom dashboards
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\DatawarehouseApi::usingApiKey($simple_key);
+
+
+try {
+    $result = $apiInstance->getCustomDashboards();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DatawarehouseApi->getCustomDashboards: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\ultracart\v2\models\CustomDashboardsResponse**](../Model/CustomDashboardsResponse.md)
 
 ### Authorization
 
@@ -633,6 +826,54 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **insertCustomDashboard**
+> \ultracart\v2\models\CustomDashboardResponse insertCustomDashboard($dashboard)
+
+Create a custom dashboard
+
+Create a new custom dashboard on the UltraCart account.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\DatawarehouseApi::usingApiKey($simple_key);
+
+$dashboard = new \ultracart\v2\models\CustomDashboard(); // \ultracart\v2\models\CustomDashboard | Dashboard to create
+
+try {
+    $result = $apiInstance->insertCustomDashboard($dashboard);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DatawarehouseApi->insertCustomDashboard: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **dashboard** | [**\ultracart\v2\models\CustomDashboard**](../Model/CustomDashboard.md)| Dashboard to create |
+
+### Return type
+
+[**\ultracart\v2\models\CustomDashboardResponse**](../Model/CustomDashboardResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **insertCustomReport**
 > \ultracart\v2\models\CustomReportResponse insertCustomReport($report)
 
@@ -717,6 +958,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\ReportResponse**](../Model/ReportResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **updateCustomDashboard**
+> \ultracart\v2\models\CustomDashboardResponse updateCustomDashboard($dashboard, $custom_dashboard_oid)
+
+Update a custom dashboard
+
+Update a custom dashboard on the UltraCart account.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\DatawarehouseApi::usingApiKey($simple_key);
+
+$dashboard = new \ultracart\v2\models\CustomDashboard(); // \ultracart\v2\models\CustomDashboard | Dashboard to custom update
+$custom_dashboard_oid = 56; // int | The dashboard oid to custom update.
+
+try {
+    $result = $apiInstance->updateCustomDashboard($dashboard, $custom_dashboard_oid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DatawarehouseApi->updateCustomDashboard: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **dashboard** | [**\ultracart\v2\models\CustomDashboard**](../Model/CustomDashboard.md)| Dashboard to custom update |
+ **custom_dashboard_oid** | **int**| The dashboard oid to custom update. |
+
+### Return type
+
+[**\ultracart\v2\models\CustomDashboardResponse**](../Model/CustomDashboardResponse.md)
 
 ### Authorization
 

@@ -340,11 +340,15 @@ Class | Method | HTTP request | Description
 *CustomerApi* | [**updateCustomerEmailLists**](docs/Api/CustomerApi.md#updatecustomeremaillists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
 *CustomerApi* | [**updateWishListItem**](docs/Api/CustomerApi.md#updatewishlistitem) | **PUT** /customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid} | Update a customer wishlist item
 *CustomerApi* | [**validateEmailVerificationToken**](docs/Api/CustomerApi.md#validateemailverificationtoken) | **POST** /customer/customers/email_verify/validate_token | Validate a token that can be used to verify a customer email address
+*DatawarehouseApi* | [**deleteCustomDashboard**](docs/Api/DatawarehouseApi.md#deletecustomdashboard) | **DELETE** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Delete a custom dashboard
 *DatawarehouseApi* | [**deleteCustomReport**](docs/Api/DatawarehouseApi.md#deletecustomreport) | **DELETE** /datawarehouse/custom_reports/{custom_report_oid} | Delete a custom report
 *DatawarehouseApi* | [**deleteReport**](docs/Api/DatawarehouseApi.md#deletereport) | **DELETE** /datawarehouse/reports/{report_oid} | Delete a report
 *DatawarehouseApi* | [**dryRunReportQueries**](docs/Api/DatawarehouseApi.md#dryrunreportqueries) | **PUT** /datawarehouse/reports/dryrun | Dry run the report queries
 *DatawarehouseApi* | [**executeCustomReport**](docs/Api/DatawarehouseApi.md#executecustomreport) | **PUT** /datawarehouse/custom_reports/{custom_report_oid}/execute | Execute a custom report
+*DatawarehouseApi* | [**executeCustomReports**](docs/Api/DatawarehouseApi.md#executecustomreports) | **PUT** /datawarehouse/custom_reports/execute | Execute a custom reports
 *DatawarehouseApi* | [**executeReportQueries**](docs/Api/DatawarehouseApi.md#executereportqueries) | **PUT** /datawarehouse/reports/execute | Execute the report queries
+*DatawarehouseApi* | [**getCustomDashboard**](docs/Api/DatawarehouseApi.md#getcustomdashboard) | **GET** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Get a custom dashboard
+*DatawarehouseApi* | [**getCustomDashboards**](docs/Api/DatawarehouseApi.md#getcustomdashboards) | **GET** /datawarehouse/custom_dashboards | Get custom dashboards
 *DatawarehouseApi* | [**getCustomReport**](docs/Api/DatawarehouseApi.md#getcustomreport) | **GET** /datawarehouse/custom_reports/{custom_report_oid} | Get a custom report
 *DatawarehouseApi* | [**getCustomReportAccountConfig**](docs/Api/DatawarehouseApi.md#getcustomreportaccountconfig) | **GET** /datawarehouse/custom_reports/account_config | Get custom report account configuration
 *DatawarehouseApi* | [**getCustomReports**](docs/Api/DatawarehouseApi.md#getcustomreports) | **GET** /datawarehouse/custom_reports | Get custom reports
@@ -353,8 +357,10 @@ Class | Method | HTTP request | Description
 *DatawarehouseApi* | [**getReportDataSetPage**](docs/Api/DatawarehouseApi.md#getreportdatasetpage) | **GET** /datawarehouse/reports/dataset/{dataset_uuid}/pages/{page_number} | Get a report data set page
 *DatawarehouseApi* | [**getReportWebsocketAuthorization**](docs/Api/DatawarehouseApi.md#getreportwebsocketauthorization) | **PUT** /datawarehouse/reports/auth | Get report websocket authorization
 *DatawarehouseApi* | [**getReports**](docs/Api/DatawarehouseApi.md#getreports) | **GET** /datawarehouse/reports | Get list of reports available
+*DatawarehouseApi* | [**insertCustomDashboard**](docs/Api/DatawarehouseApi.md#insertcustomdashboard) | **POST** /datawarehouse/custom_dashboards | Create a custom dashboard
 *DatawarehouseApi* | [**insertCustomReport**](docs/Api/DatawarehouseApi.md#insertcustomreport) | **POST** /datawarehouse/custom_reports | Create a custom report
 *DatawarehouseApi* | [**insertReport**](docs/Api/DatawarehouseApi.md#insertreport) | **POST** /datawarehouse/reports | Create a report
+*DatawarehouseApi* | [**updateCustomDashboard**](docs/Api/DatawarehouseApi.md#updatecustomdashboard) | **PUT** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Update a custom dashboard
 *DatawarehouseApi* | [**updateCustomReport**](docs/Api/DatawarehouseApi.md#updatecustomreport) | **PUT** /datawarehouse/custom_reports/{custom_report_oid} | Update a custom report
 *DatawarehouseApi* | [**updateCustomReportAccountConfig**](docs/Api/DatawarehouseApi.md#updatecustomreportaccountconfig) | **PUT** /datawarehouse/custom_reports/account_config | Update custom report account config
 *DatawarehouseApi* | [**updateReport**](docs/Api/DatawarehouseApi.md#updatereport) | **PUT** /datawarehouse/reports/{report_oid} | Update a report
@@ -981,16 +987,25 @@ Class | Method | HTTP request | Description
  - [CouponsRequest](docs/Model/CouponsRequest.md)
  - [CouponsResponse](docs/Model/CouponsResponse.md)
  - [Currency](docs/Model/Currency.md)
+ - [CustomDashboard](docs/Model/CustomDashboard.md)
+ - [CustomDashboardPage](docs/Model/CustomDashboardPage.md)
+ - [CustomDashboardPageReport](docs/Model/CustomDashboardPageReport.md)
+ - [CustomDashboardResponse](docs/Model/CustomDashboardResponse.md)
+ - [CustomDashboardsResponse](docs/Model/CustomDashboardsResponse.md)
  - [CustomReport](docs/Model/CustomReport.md)
  - [CustomReportAccountConfig](docs/Model/CustomReportAccountConfig.md)
  - [CustomReportAccountConfigResponse](docs/Model/CustomReportAccountConfigResponse.md)
  - [CustomReportExecutionParameter](docs/Model/CustomReportExecutionParameter.md)
  - [CustomReportExecutionRequest](docs/Model/CustomReportExecutionRequest.md)
+ - [CustomReportExecutionResponse](docs/Model/CustomReportExecutionResponse.md)
  - [CustomReportParameter](docs/Model/CustomReportParameter.md)
  - [CustomReportParameterOption](docs/Model/CustomReportParameterOption.md)
  - [CustomReportQuery](docs/Model/CustomReportQuery.md)
  - [CustomReportResponse](docs/Model/CustomReportResponse.md)
  - [CustomReportTooltip](docs/Model/CustomReportTooltip.md)
+ - [CustomReportsExecutionReportData](docs/Model/CustomReportsExecutionReportData.md)
+ - [CustomReportsExecutionRequest](docs/Model/CustomReportsExecutionRequest.md)
+ - [CustomReportsExecutionResponse](docs/Model/CustomReportsExecutionResponse.md)
  - [CustomReportsResponse](docs/Model/CustomReportsResponse.md)
  - [Customer](docs/Model/Customer.md)
  - [CustomerActivity](docs/Model/CustomerActivity.md)
@@ -1629,6 +1644,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.17 | 08/04/2025 | small changes to internal flow app to support loyalty tier moves |
 | 3.11.16 | 07/28/2025 | updated doc samples |
 | 3.11.15 | 07/28/2025 | new order methods for blocking and unblocking refunds |
 | 3.11.14 | 07/10/2025 | automation test |
