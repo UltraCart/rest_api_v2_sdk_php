@@ -6,7 +6,6 @@ composer.json
 docs/Api/AffiliateApi.md
 docs/Api/AutoOrderApi.md
 docs/Api/ChannelPartnerApi.md
-docs/Api/ChargebackApi.md
 docs/Api/CheckoutApi.md
 docs/Api/ConversationApi.md
 docs/Api/CouponApi.md
@@ -144,9 +143,6 @@ docs/Model/ChannelPartnerShipToPreferenceResponse.md
 docs/Model/ChannelPartnerShipToPreferencesResponse.md
 docs/Model/ChannelPartnerShippingEstimate.md
 docs/Model/ChannelPartnersResponse.md
-docs/Model/ChargebackDispute.md
-docs/Model/ChargebackDisputeResponse.md
-docs/Model/ChargebackDisputesResponse.md
 docs/Model/CheckoutAllowedCountriesResponse.md
 docs/Model/CheckoutHandoffRequest.md
 docs/Model/CheckoutHandoffResponse.md
@@ -334,6 +330,9 @@ docs/Model/CustomDashboardExecutionParameter.md
 docs/Model/CustomDashboardPage.md
 docs/Model/CustomDashboardPageReport.md
 docs/Model/CustomDashboardResponse.md
+docs/Model/CustomDashboardSchedule.md
+docs/Model/CustomDashboardScheduleResponse.md
+docs/Model/CustomDashboardSchedulesResponse.md
 docs/Model/CustomDashboardsResponse.md
 docs/Model/CustomReport.md
 docs/Model/CustomReportAccountConfig.md
@@ -918,7 +917,6 @@ lib/ObjectSerializer.php
 lib/api/AffiliateApi.php
 lib/api/AutoOrderApi.php
 lib/api/ChannelPartnerApi.php
-lib/api/ChargebackApi.php
 lib/api/CheckoutApi.php
 lib/api/ConversationApi.php
 lib/api/CouponApi.php
@@ -1056,9 +1054,6 @@ lib/models/ChannelPartnerShipToPreferenceResponse.php
 lib/models/ChannelPartnerShipToPreferencesResponse.php
 lib/models/ChannelPartnerShippingEstimate.php
 lib/models/ChannelPartnersResponse.php
-lib/models/ChargebackDispute.php
-lib/models/ChargebackDisputeResponse.php
-lib/models/ChargebackDisputesResponse.php
 lib/models/CheckoutAllowedCountriesResponse.php
 lib/models/CheckoutHandoffRequest.php
 lib/models/CheckoutHandoffResponse.php
@@ -1246,6 +1241,9 @@ lib/models/CustomDashboardExecutionParameter.php
 lib/models/CustomDashboardPage.php
 lib/models/CustomDashboardPageReport.php
 lib/models/CustomDashboardResponse.php
+lib/models/CustomDashboardSchedule.php
+lib/models/CustomDashboardScheduleResponse.php
+lib/models/CustomDashboardSchedulesResponse.php
 lib/models/CustomDashboardsResponse.php
 lib/models/CustomReport.php
 lib/models/CustomReportAccountConfig.php

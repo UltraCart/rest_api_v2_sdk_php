@@ -267,6 +267,8 @@ class OrderPayment implements ModelInterface, ArrayAccess, \JsonSerializable
     public const PAYMENT_METHOD_E_BAY = 'eBay';
     public const PAYMENT_METHOD_E_CHECK = 'eCheck';
     public const PAYMENT_METHOD_GOOGLE_SHOPPING = 'Google Shopping';
+    public const PAYMENT_METHOD_GOLDBELLY = 'Goldbelly';
+    public const PAYMENT_METHOD_GO_HIGH_LEVEL = 'GoHighLevel';
     public const PAYMENT_METHOD_INSURANCE = 'Insurance';
     public const PAYMENT_METHOD_LINK = 'Link';
     public const PAYMENT_METHOD_LOAN_HERO = 'LoanHero';
@@ -312,6 +314,8 @@ class OrderPayment implements ModelInterface, ArrayAccess, \JsonSerializable
             self::PAYMENT_METHOD_E_BAY,
             self::PAYMENT_METHOD_E_CHECK,
             self::PAYMENT_METHOD_GOOGLE_SHOPPING,
+            self::PAYMENT_METHOD_GOLDBELLY,
+            self::PAYMENT_METHOD_GO_HIGH_LEVEL,
             self::PAYMENT_METHOD_INSURANCE,
             self::PAYMENT_METHOD_LINK,
             self::PAYMENT_METHOD_LOAN_HERO,

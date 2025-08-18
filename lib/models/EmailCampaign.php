@@ -75,6 +75,8 @@ class EmailCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'open_rate_formatted' => 'string',
         'prevent_sending_due_to_spam' => 'bool',
+        'repeat_monthly' => 'bool',
+        'repeat_weekly' => 'bool',
         'revenue_formatted' => 'string',
         'revenue_per_customer_formatted' => 'string',
         'scheduled_dts' => 'string',
@@ -111,6 +113,8 @@ class EmailCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => null,
         'open_rate_formatted' => null,
         'prevent_sending_due_to_spam' => null,
+        'repeat_monthly' => null,
+        'repeat_weekly' => null,
         'revenue_formatted' => null,
         'revenue_per_customer_formatted' => null,
         'scheduled_dts' => 'dateTime',
@@ -166,6 +170,8 @@ class EmailCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'name',
         'open_rate_formatted' => 'open_rate_formatted',
         'prevent_sending_due_to_spam' => 'prevent_sending_due_to_spam',
+        'repeat_monthly' => 'repeat_monthly',
+        'repeat_weekly' => 'repeat_weekly',
         'revenue_formatted' => 'revenue_formatted',
         'revenue_per_customer_formatted' => 'revenue_per_customer_formatted',
         'scheduled_dts' => 'scheduled_dts',
@@ -200,6 +206,8 @@ class EmailCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'setName',
         'open_rate_formatted' => 'setOpenRateFormatted',
         'prevent_sending_due_to_spam' => 'setPreventSendingDueToSpam',
+        'repeat_monthly' => 'setRepeatMonthly',
+        'repeat_weekly' => 'setRepeatWeekly',
         'revenue_formatted' => 'setRevenueFormatted',
         'revenue_per_customer_formatted' => 'setRevenuePerCustomerFormatted',
         'scheduled_dts' => 'setScheduledDts',
@@ -234,6 +242,8 @@ class EmailCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'getName',
         'open_rate_formatted' => 'getOpenRateFormatted',
         'prevent_sending_due_to_spam' => 'getPreventSendingDueToSpam',
+        'repeat_monthly' => 'getRepeatMonthly',
+        'repeat_weekly' => 'getRepeatWeekly',
         'revenue_formatted' => 'getRevenueFormatted',
         'revenue_per_customer_formatted' => 'getRevenuePerCustomerFormatted',
         'scheduled_dts' => 'getScheduledDts',
@@ -319,6 +329,8 @@ class EmailCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['name'] = $data['name'] ?? null;
         $this->container['open_rate_formatted'] = $data['open_rate_formatted'] ?? null;
         $this->container['prevent_sending_due_to_spam'] = $data['prevent_sending_due_to_spam'] ?? null;
+        $this->container['repeat_monthly'] = $data['repeat_monthly'] ?? null;
+        $this->container['repeat_weekly'] = $data['repeat_weekly'] ?? null;
         $this->container['revenue_formatted'] = $data['revenue_formatted'] ?? null;
         $this->container['revenue_per_customer_formatted'] = $data['revenue_per_customer_formatted'] ?? null;
         $this->container['scheduled_dts'] = $data['scheduled_dts'] ?? null;
@@ -766,6 +778,54 @@ class EmailCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setPreventSendingDueToSpam($prevent_sending_due_to_spam)
     {
         $this->container['prevent_sending_due_to_spam'] = $prevent_sending_due_to_spam;
+
+        return $this;
+    }
+
+    /**
+     * Gets repeat_monthly
+     *
+     * @return bool|null
+     */
+    public function getRepeatMonthly()
+    {
+        return $this->container['repeat_monthly'];
+    }
+
+    /**
+     * Sets repeat_monthly
+     *
+     * @param bool|null $repeat_monthly True if the campaign should repeat on a monthly basis
+     *
+     * @return self
+     */
+    public function setRepeatMonthly($repeat_monthly)
+    {
+        $this->container['repeat_monthly'] = $repeat_monthly;
+
+        return $this;
+    }
+
+    /**
+     * Gets repeat_weekly
+     *
+     * @return bool|null
+     */
+    public function getRepeatWeekly()
+    {
+        return $this->container['repeat_weekly'];
+    }
+
+    /**
+     * Sets repeat_weekly
+     *
+     * @param bool|null $repeat_weekly True if the campaign should repeat on a weekly basis
+     *
+     * @return self
+     */
+    public function setRepeatWeekly($repeat_weekly)
+    {
+        $this->container['repeat_weekly'] = $repeat_weekly;
 
         return $this;
     }
