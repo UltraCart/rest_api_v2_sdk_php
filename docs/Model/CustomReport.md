@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**business_analysis_prompt** | **string** |  | [optional] 
 **chart_javascript** | **string** |  | [optional] 
 **chart_javascript_url** | **string** |  | [optional] 
 **data_warehouse_report_config_oid** | **int** |  | [optional] 

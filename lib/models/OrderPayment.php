@@ -264,6 +264,8 @@ class OrderPayment implements ModelInterface, ArrayAccess
     const PAYMENT_METHOD_E_BAY = 'eBay';
     const PAYMENT_METHOD_E_CHECK = 'eCheck';
     const PAYMENT_METHOD_GOOGLE_SHOPPING = 'Google Shopping';
+    const PAYMENT_METHOD_GOLDBELLY = 'Goldbelly';
+    const PAYMENT_METHOD_GO_HIGH_LEVEL = 'GoHighLevel';
     const PAYMENT_METHOD_INSURANCE = 'Insurance';
     const PAYMENT_METHOD_LINK = 'Link';
     const PAYMENT_METHOD_LOAN_HERO = 'LoanHero';
@@ -311,6 +313,8 @@ class OrderPayment implements ModelInterface, ArrayAccess
             self::PAYMENT_METHOD_E_BAY,
             self::PAYMENT_METHOD_E_CHECK,
             self::PAYMENT_METHOD_GOOGLE_SHOPPING,
+            self::PAYMENT_METHOD_GOLDBELLY,
+            self::PAYMENT_METHOD_GO_HIGH_LEVEL,
             self::PAYMENT_METHOD_INSURANCE,
             self::PAYMENT_METHOD_LINK,
             self::PAYMENT_METHOD_LOAN_HERO,

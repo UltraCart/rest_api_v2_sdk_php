@@ -5,6 +5,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteCustomDashboard**](DatawarehouseApi.md#deleteCustomDashboard) | **DELETE** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Delete a custom dashboard
+[**deleteCustomDashboardSchedule**](DatawarehouseApi.md#deleteCustomDashboardSchedule) | **DELETE** /datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules/{custom_dashboard_schedule_oid} | Delete a custom dashboard schedule
 [**deleteCustomReport**](DatawarehouseApi.md#deleteCustomReport) | **DELETE** /datawarehouse/custom_reports/{custom_report_oid} | Delete a custom report
 [**deleteReport**](DatawarehouseApi.md#deleteReport) | **DELETE** /datawarehouse/reports/{report_oid} | Delete a report
 [**dryRunReportQueries**](DatawarehouseApi.md#dryRunReportQueries) | **PUT** /datawarehouse/reports/dryrun | Dry run the report queries
@@ -12,6 +13,7 @@ Method | HTTP request | Description
 [**executeCustomReports**](DatawarehouseApi.md#executeCustomReports) | **PUT** /datawarehouse/custom_reports/execute | Execute a custom reports
 [**executeReportQueries**](DatawarehouseApi.md#executeReportQueries) | **PUT** /datawarehouse/reports/execute | Execute the report queries
 [**getCustomDashboard**](DatawarehouseApi.md#getCustomDashboard) | **GET** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Get a custom dashboard
+[**getCustomDashboardSchedules**](DatawarehouseApi.md#getCustomDashboardSchedules) | **GET** /datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules | Get custom dashboards
 [**getCustomDashboards**](DatawarehouseApi.md#getCustomDashboards) | **GET** /datawarehouse/custom_dashboards | Get custom dashboards
 [**getCustomReport**](DatawarehouseApi.md#getCustomReport) | **GET** /datawarehouse/custom_reports/{custom_report_oid} | Get a custom report
 [**getCustomReportAccountConfig**](DatawarehouseApi.md#getCustomReportAccountConfig) | **GET** /datawarehouse/custom_reports/account_config | Get custom report account configuration
@@ -22,9 +24,11 @@ Method | HTTP request | Description
 [**getReportWebsocketAuthorization**](DatawarehouseApi.md#getReportWebsocketAuthorization) | **PUT** /datawarehouse/reports/auth | Get report websocket authorization
 [**getReports**](DatawarehouseApi.md#getReports) | **GET** /datawarehouse/reports | Get list of reports available
 [**insertCustomDashboard**](DatawarehouseApi.md#insertCustomDashboard) | **POST** /datawarehouse/custom_dashboards | Create a custom dashboard
+[**insertCustomDashboardSchedule**](DatawarehouseApi.md#insertCustomDashboardSchedule) | **POST** /datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules | Create a custom dashboard schedule
 [**insertCustomReport**](DatawarehouseApi.md#insertCustomReport) | **POST** /datawarehouse/custom_reports | Create a custom report
 [**insertReport**](DatawarehouseApi.md#insertReport) | **POST** /datawarehouse/reports | Create a report
 [**updateCustomDashboard**](DatawarehouseApi.md#updateCustomDashboard) | **PUT** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Update a custom dashboard
+[**updateCustomDashboardSchedule**](DatawarehouseApi.md#updateCustomDashboardSchedule) | **PUT** /datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules/{custom_dashboard_schedule_oid} | Update a custom dashboard schedule
 [**updateCustomReport**](DatawarehouseApi.md#updateCustomReport) | **PUT** /datawarehouse/custom_reports/{custom_report_oid} | Update a custom report
 [**updateCustomReportAccountConfig**](DatawarehouseApi.md#updateCustomReportAccountConfig) | **PUT** /datawarehouse/custom_reports/account_config | Update custom report account config
 [**updateReport**](DatawarehouseApi.md#updateReport) | **PUT** /datawarehouse/reports/{report_oid} | Update a report
@@ -73,6 +77,55 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **deleteCustomDashboardSchedule**
+> deleteCustomDashboardSchedule($custom_dashboard_schedule_oid, $custom_dashboard_oid)
+
+Delete a custom dashboard schedule
+
+delete a custom dashboard schedule on the UltraCart account.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\DatawarehouseApi::usingApiKey($simple_key);
+
+$custom_dashboard_schedule_oid = 56; // int | The dashboard schedule oid to delete.
+$custom_dashboard_oid = 56; // int | The dashboard oid that owns the schedule.
+
+try {
+    $apiInstance->deleteCustomDashboardSchedule($custom_dashboard_schedule_oid, $custom_dashboard_oid);
+} catch (Exception $e) {
+    echo 'Exception when calling DatawarehouseApi->deleteCustomDashboardSchedule: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **custom_dashboard_schedule_oid** | **int**| The dashboard schedule oid to delete. |
+ **custom_dashboard_oid** | **int**| The dashboard oid that owns the schedule. |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -400,6 +453,54 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\CustomDashboardResponse**](../Model/CustomDashboardResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getCustomDashboardSchedules**
+> \ultracart\v2\models\CustomDashboardSchedulesResponse getCustomDashboardSchedules($custom_dashboard_oid)
+
+Get custom dashboards
+
+Retrieve a custom dashboards
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\DatawarehouseApi::usingApiKey($simple_key);
+
+$custom_dashboard_oid = 56; // int | 
+
+try {
+    $result = $apiInstance->getCustomDashboardSchedules($custom_dashboard_oid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DatawarehouseApi->getCustomDashboardSchedules: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **custom_dashboard_oid** | **int**|  |
+
+### Return type
+
+[**\ultracart\v2\models\CustomDashboardSchedulesResponse**](../Model/CustomDashboardSchedulesResponse.md)
 
 ### Authorization
 
@@ -874,6 +975,56 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **insertCustomDashboardSchedule**
+> \ultracart\v2\models\CustomDashboardScheduleResponse insertCustomDashboardSchedule($custom_dashboard_oid, $dashboard_schedule)
+
+Create a custom dashboard schedule
+
+Create a new custom dashboard schedule on the UltraCart account.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\DatawarehouseApi::usingApiKey($simple_key);
+
+$custom_dashboard_oid = 56; // int | 
+$dashboard_schedule = new \ultracart\v2\models\CustomDashboardSchedule(); // \ultracart\v2\models\CustomDashboardSchedule | Dashboard schedule to create
+
+try {
+    $result = $apiInstance->insertCustomDashboardSchedule($custom_dashboard_oid, $dashboard_schedule);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DatawarehouseApi->insertCustomDashboardSchedule: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **custom_dashboard_oid** | **int**|  |
+ **dashboard_schedule** | [**\ultracart\v2\models\CustomDashboardSchedule**](../Model/CustomDashboardSchedule.md)| Dashboard schedule to create |
+
+### Return type
+
+[**\ultracart\v2\models\CustomDashboardScheduleResponse**](../Model/CustomDashboardScheduleResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **insertCustomReport**
 > \ultracart\v2\models\CustomReportResponse insertCustomReport($report)
 
@@ -1004,6 +1155,58 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **dashboard** | [**\ultracart\v2\models\CustomDashboard**](../Model/CustomDashboard.md)| Dashboard to custom update |
  **custom_dashboard_oid** | **int**| The dashboard oid to custom update. |
+
+### Return type
+
+[**\ultracart\v2\models\CustomDashboardResponse**](../Model/CustomDashboardResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **updateCustomDashboardSchedule**
+> \ultracart\v2\models\CustomDashboardResponse updateCustomDashboardSchedule($dashboard_schedule, $custom_dashboard_schedule_oid, $custom_dashboard_oid)
+
+Update a custom dashboard schedule
+
+Update a custom dashboard schedule on the UltraCart account.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\DatawarehouseApi::usingApiKey($simple_key);
+
+$dashboard_schedule = new \ultracart\v2\models\CustomDashboardSchedule(); // \ultracart\v2\models\CustomDashboardSchedule | Dashboard schedule to update
+$custom_dashboard_schedule_oid = 56; // int | The dashboard schedule oid to update.
+$custom_dashboard_oid = 56; // int | The dashboard oid to update.
+
+try {
+    $result = $apiInstance->updateCustomDashboardSchedule($dashboard_schedule, $custom_dashboard_schedule_oid, $custom_dashboard_oid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DatawarehouseApi->updateCustomDashboardSchedule: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **dashboard_schedule** | [**\ultracart\v2\models\CustomDashboardSchedule**](../Model/CustomDashboardSchedule.md)| Dashboard schedule to update |
+ **custom_dashboard_schedule_oid** | **int**| The dashboard schedule oid to update. |
+ **custom_dashboard_oid** | **int**| The dashboard oid to update. |
 
 ### Return type
 

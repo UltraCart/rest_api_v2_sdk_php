@@ -407,6 +407,327 @@ class DatawarehouseApi
     }
 
     /**
+     * Operation deleteCustomDashboardSchedule
+     *
+     * Delete a custom dashboard schedule
+     *
+     * @param  int $custom_dashboard_schedule_oid The dashboard schedule oid to delete. (required)
+     * @param  int $custom_dashboard_oid The dashboard oid that owns the schedule. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteCustomDashboardSchedule($custom_dashboard_schedule_oid, $custom_dashboard_oid)
+    {
+        $this->deleteCustomDashboardScheduleWithHttpInfo($custom_dashboard_schedule_oid, $custom_dashboard_oid);
+    }
+
+
+    /**
+     * Operation deleteCustomDashboardScheduleWithHttpInfo
+     *
+     * Delete a custom dashboard schedule
+     *
+     * @param  int $custom_dashboard_schedule_oid The dashboard schedule oid to delete. (required)
+     * @param  int $custom_dashboard_oid The dashboard oid that owns the schedule. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteCustomDashboardScheduleWithHttpInfo($custom_dashboard_schedule_oid, $custom_dashboard_oid)
+    {
+        $this->deleteCustomDashboardScheduleWithHttpInfoRetry(true ,   $custom_dashboard_schedule_oid,   $custom_dashboard_oid);
+    }
+
+
+    /**
+     * Operation deleteCustomDashboardScheduleWithHttpInfoRetry
+     *
+     * Delete a custom dashboard schedule
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $custom_dashboard_schedule_oid The dashboard schedule oid to delete. (required)
+     * @param  int $custom_dashboard_oid The dashboard oid that owns the schedule. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteCustomDashboardScheduleWithHttpInfoRetry($retry ,  $custom_dashboard_schedule_oid,  $custom_dashboard_oid)
+    {
+        $returnType = '';
+        $request = $this->deleteCustomDashboardScheduleRequest($custom_dashboard_schedule_oid, $custom_dashboard_oid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        $this->deleteCustomDashboardScheduleWithHttpInfoRetry(false ,   $custom_dashboard_schedule_oid,   $custom_dashboard_oid);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            return [null, $response->getStatusCode(), $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteCustomDashboardScheduleAsync
+     *
+     * Delete a custom dashboard schedule
+     *
+     * @param  int $custom_dashboard_schedule_oid The dashboard schedule oid to delete. (required)
+     * @param  int $custom_dashboard_oid The dashboard oid that owns the schedule. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteCustomDashboardScheduleAsync($custom_dashboard_schedule_oid, $custom_dashboard_oid)
+    {
+        return $this->deleteCustomDashboardScheduleAsyncWithHttpInfo($custom_dashboard_schedule_oid, $custom_dashboard_oid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteCustomDashboardScheduleAsyncWithHttpInfo
+     *
+     * Delete a custom dashboard schedule
+     *
+     * @param  int $custom_dashboard_schedule_oid The dashboard schedule oid to delete. (required)
+     * @param  int $custom_dashboard_oid The dashboard oid that owns the schedule. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteCustomDashboardScheduleAsyncWithHttpInfo($custom_dashboard_schedule_oid, $custom_dashboard_oid)
+    {
+        $returnType = '';
+        $request = $this->deleteCustomDashboardScheduleRequest($custom_dashboard_schedule_oid, $custom_dashboard_oid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteCustomDashboardSchedule'
+     *
+     * @param  int $custom_dashboard_schedule_oid The dashboard schedule oid to delete. (required)
+     * @param  int $custom_dashboard_oid The dashboard oid that owns the schedule. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deleteCustomDashboardScheduleRequest($custom_dashboard_schedule_oid, $custom_dashboard_oid)
+    {
+        // verify the required parameter 'custom_dashboard_schedule_oid' is set
+        if ($custom_dashboard_schedule_oid === null || (is_array($custom_dashboard_schedule_oid) && count($custom_dashboard_schedule_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $custom_dashboard_schedule_oid when calling deleteCustomDashboardSchedule'
+            );
+        }
+        // verify the required parameter 'custom_dashboard_oid' is set
+        if ($custom_dashboard_oid === null || (is_array($custom_dashboard_oid) && count($custom_dashboard_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $custom_dashboard_oid when calling deleteCustomDashboardSchedule'
+            );
+        }
+
+        $resourcePath = '/datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules/{custom_dashboard_schedule_oid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($custom_dashboard_schedule_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'custom_dashboard_schedule_oid' . '}',
+                ObjectSerializer::toPathValue($custom_dashboard_schedule_oid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($custom_dashboard_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'custom_dashboard_oid' . '}',
+                ObjectSerializer::toPathValue($custom_dashboard_oid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json; charset=UTF-8']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation deleteCustomReport
      *
      * Delete a custom report
@@ -2565,6 +2886,344 @@ class DatawarehouseApi
         }
 
         $resourcePath = '/datawarehouse/custom_dashboards/{custom_dashboard_oid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($custom_dashboard_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'custom_dashboard_oid' . '}',
+                ObjectSerializer::toPathValue($custom_dashboard_oid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getCustomDashboardSchedules
+     *
+     * Get custom dashboards
+     *
+     * @param  int $custom_dashboard_oid custom_dashboard_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\CustomDashboardSchedulesResponse
+     */
+    public function getCustomDashboardSchedules($custom_dashboard_oid)
+    {
+        list($response) = $this->getCustomDashboardSchedulesWithHttpInfo($custom_dashboard_oid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getCustomDashboardSchedulesWithHttpInfo
+     *
+     * Get custom dashboards
+     *
+     * @param  int $custom_dashboard_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CustomDashboardSchedulesResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCustomDashboardSchedulesWithHttpInfo($custom_dashboard_oid)
+    {
+        return $this->getCustomDashboardSchedulesWithHttpInfoRetry(true ,   $custom_dashboard_oid);
+    }
+
+
+    /**
+     * Operation getCustomDashboardSchedulesWithHttpInfoRetry
+     *
+     * Get custom dashboards
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $custom_dashboard_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CustomDashboardSchedulesResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCustomDashboardSchedulesWithHttpInfoRetry($retry ,  $custom_dashboard_oid)
+    {
+        $returnType = '\ultracart\v2\models\CustomDashboardSchedulesResponse';
+        $request = $this->getCustomDashboardSchedulesRequest($custom_dashboard_oid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getCustomDashboardSchedulesWithHttpInfoRetry(false ,   $custom_dashboard_oid);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\CustomDashboardSchedulesResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getCustomDashboardSchedulesAsync
+     *
+     * Get custom dashboards
+     *
+     * @param  int $custom_dashboard_oid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCustomDashboardSchedulesAsync($custom_dashboard_oid)
+    {
+        return $this->getCustomDashboardSchedulesAsyncWithHttpInfo($custom_dashboard_oid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getCustomDashboardSchedulesAsyncWithHttpInfo
+     *
+     * Get custom dashboards
+     *
+     * @param  int $custom_dashboard_oid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCustomDashboardSchedulesAsyncWithHttpInfo($custom_dashboard_oid)
+    {
+        $returnType = '\ultracart\v2\models\CustomDashboardSchedulesResponse';
+        $request = $this->getCustomDashboardSchedulesRequest($custom_dashboard_oid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getCustomDashboardSchedules'
+     *
+     * @param  int $custom_dashboard_oid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getCustomDashboardSchedulesRequest($custom_dashboard_oid)
+    {
+        // verify the required parameter 'custom_dashboard_oid' is set
+        if ($custom_dashboard_oid === null || (is_array($custom_dashboard_oid) && count($custom_dashboard_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $custom_dashboard_oid when calling getCustomDashboardSchedules'
+            );
+        }
+
+        $resourcePath = '/datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5957,6 +6616,359 @@ class DatawarehouseApi
     }
 
     /**
+     * Operation insertCustomDashboardSchedule
+     *
+     * Create a custom dashboard schedule
+     *
+     * @param  int $custom_dashboard_oid custom_dashboard_oid (required)
+     * @param  \ultracart\v2\models\CustomDashboardSchedule $dashboard_schedule Dashboard schedule to create (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\CustomDashboardScheduleResponse
+     */
+    public function insertCustomDashboardSchedule($custom_dashboard_oid, $dashboard_schedule)
+    {
+        list($response) = $this->insertCustomDashboardScheduleWithHttpInfo($custom_dashboard_oid, $dashboard_schedule);
+        return $response;
+    }
+
+
+    /**
+     * Operation insertCustomDashboardScheduleWithHttpInfo
+     *
+     * Create a custom dashboard schedule
+     *
+     * @param  int $custom_dashboard_oid (required)
+     * @param  \ultracart\v2\models\CustomDashboardSchedule $dashboard_schedule Dashboard schedule to create (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CustomDashboardScheduleResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertCustomDashboardScheduleWithHttpInfo($custom_dashboard_oid, $dashboard_schedule)
+    {
+        return $this->insertCustomDashboardScheduleWithHttpInfoRetry(true ,   $custom_dashboard_oid,   $dashboard_schedule);
+    }
+
+
+    /**
+     * Operation insertCustomDashboardScheduleWithHttpInfoRetry
+     *
+     * Create a custom dashboard schedule
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $custom_dashboard_oid (required)
+     * @param  \ultracart\v2\models\CustomDashboardSchedule $dashboard_schedule Dashboard schedule to create (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CustomDashboardScheduleResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertCustomDashboardScheduleWithHttpInfoRetry($retry ,  $custom_dashboard_oid,  $dashboard_schedule)
+    {
+        $returnType = '\ultracart\v2\models\CustomDashboardScheduleResponse';
+        $request = $this->insertCustomDashboardScheduleRequest($custom_dashboard_oid, $dashboard_schedule);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->insertCustomDashboardScheduleWithHttpInfoRetry(false ,   $custom_dashboard_oid,   $dashboard_schedule);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\CustomDashboardScheduleResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation insertCustomDashboardScheduleAsync
+     *
+     * Create a custom dashboard schedule
+     *
+     * @param  int $custom_dashboard_oid (required)
+     * @param  \ultracart\v2\models\CustomDashboardSchedule $dashboard_schedule Dashboard schedule to create (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function insertCustomDashboardScheduleAsync($custom_dashboard_oid, $dashboard_schedule)
+    {
+        return $this->insertCustomDashboardScheduleAsyncWithHttpInfo($custom_dashboard_oid, $dashboard_schedule)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation insertCustomDashboardScheduleAsyncWithHttpInfo
+     *
+     * Create a custom dashboard schedule
+     *
+     * @param  int $custom_dashboard_oid (required)
+     * @param  \ultracart\v2\models\CustomDashboardSchedule $dashboard_schedule Dashboard schedule to create (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function insertCustomDashboardScheduleAsyncWithHttpInfo($custom_dashboard_oid, $dashboard_schedule)
+    {
+        $returnType = '\ultracart\v2\models\CustomDashboardScheduleResponse';
+        $request = $this->insertCustomDashboardScheduleRequest($custom_dashboard_oid, $dashboard_schedule);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'insertCustomDashboardSchedule'
+     *
+     * @param  int $custom_dashboard_oid (required)
+     * @param  \ultracart\v2\models\CustomDashboardSchedule $dashboard_schedule Dashboard schedule to create (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function insertCustomDashboardScheduleRequest($custom_dashboard_oid, $dashboard_schedule)
+    {
+        // verify the required parameter 'custom_dashboard_oid' is set
+        if ($custom_dashboard_oid === null || (is_array($custom_dashboard_oid) && count($custom_dashboard_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $custom_dashboard_oid when calling insertCustomDashboardSchedule'
+            );
+        }
+        // verify the required parameter 'dashboard_schedule' is set
+        if ($dashboard_schedule === null || (is_array($dashboard_schedule) && count($dashboard_schedule) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $dashboard_schedule when calling insertCustomDashboardSchedule'
+            );
+        }
+
+        $resourcePath = '/datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($custom_dashboard_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'custom_dashboard_oid' . '}',
+                ObjectSerializer::toPathValue($custom_dashboard_oid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($dashboard_schedule)) {
+            $_tempBody = $dashboard_schedule;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json; charset=UTF-8']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation insertCustomReport
      *
      * Create a custom report
@@ -6896,6 +7908,379 @@ class DatawarehouseApi
         $_tempBody = null;
         if (isset($dashboard)) {
             $_tempBody = $dashboard;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json; charset=UTF-8']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateCustomDashboardSchedule
+     *
+     * Update a custom dashboard schedule
+     *
+     * @param  \ultracart\v2\models\CustomDashboardSchedule $dashboard_schedule Dashboard schedule to update (required)
+     * @param  int $custom_dashboard_schedule_oid The dashboard schedule oid to update. (required)
+     * @param  int $custom_dashboard_oid The dashboard oid to update. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\CustomDashboardResponse
+     */
+    public function updateCustomDashboardSchedule($dashboard_schedule, $custom_dashboard_schedule_oid, $custom_dashboard_oid)
+    {
+        list($response) = $this->updateCustomDashboardScheduleWithHttpInfo($dashboard_schedule, $custom_dashboard_schedule_oid, $custom_dashboard_oid);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateCustomDashboardScheduleWithHttpInfo
+     *
+     * Update a custom dashboard schedule
+     *
+     * @param  \ultracart\v2\models\CustomDashboardSchedule $dashboard_schedule Dashboard schedule to update (required)
+     * @param  int $custom_dashboard_schedule_oid The dashboard schedule oid to update. (required)
+     * @param  int $custom_dashboard_oid The dashboard oid to update. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CustomDashboardResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateCustomDashboardScheduleWithHttpInfo($dashboard_schedule, $custom_dashboard_schedule_oid, $custom_dashboard_oid)
+    {
+        return $this->updateCustomDashboardScheduleWithHttpInfoRetry(true ,   $dashboard_schedule,   $custom_dashboard_schedule_oid,   $custom_dashboard_oid);
+    }
+
+
+    /**
+     * Operation updateCustomDashboardScheduleWithHttpInfoRetry
+     *
+     * Update a custom dashboard schedule
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\CustomDashboardSchedule $dashboard_schedule Dashboard schedule to update (required)
+     * @param  int $custom_dashboard_schedule_oid The dashboard schedule oid to update. (required)
+     * @param  int $custom_dashboard_oid The dashboard oid to update. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CustomDashboardResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateCustomDashboardScheduleWithHttpInfoRetry($retry ,  $dashboard_schedule,  $custom_dashboard_schedule_oid,  $custom_dashboard_oid)
+    {
+        $returnType = '\ultracart\v2\models\CustomDashboardResponse';
+        $request = $this->updateCustomDashboardScheduleRequest($dashboard_schedule, $custom_dashboard_schedule_oid, $custom_dashboard_oid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateCustomDashboardScheduleWithHttpInfoRetry(false ,   $dashboard_schedule,   $custom_dashboard_schedule_oid,   $custom_dashboard_oid);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\CustomDashboardResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateCustomDashboardScheduleAsync
+     *
+     * Update a custom dashboard schedule
+     *
+     * @param  \ultracart\v2\models\CustomDashboardSchedule $dashboard_schedule Dashboard schedule to update (required)
+     * @param  int $custom_dashboard_schedule_oid The dashboard schedule oid to update. (required)
+     * @param  int $custom_dashboard_oid The dashboard oid to update. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateCustomDashboardScheduleAsync($dashboard_schedule, $custom_dashboard_schedule_oid, $custom_dashboard_oid)
+    {
+        return $this->updateCustomDashboardScheduleAsyncWithHttpInfo($dashboard_schedule, $custom_dashboard_schedule_oid, $custom_dashboard_oid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateCustomDashboardScheduleAsyncWithHttpInfo
+     *
+     * Update a custom dashboard schedule
+     *
+     * @param  \ultracart\v2\models\CustomDashboardSchedule $dashboard_schedule Dashboard schedule to update (required)
+     * @param  int $custom_dashboard_schedule_oid The dashboard schedule oid to update. (required)
+     * @param  int $custom_dashboard_oid The dashboard oid to update. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateCustomDashboardScheduleAsyncWithHttpInfo($dashboard_schedule, $custom_dashboard_schedule_oid, $custom_dashboard_oid)
+    {
+        $returnType = '\ultracart\v2\models\CustomDashboardResponse';
+        $request = $this->updateCustomDashboardScheduleRequest($dashboard_schedule, $custom_dashboard_schedule_oid, $custom_dashboard_oid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateCustomDashboardSchedule'
+     *
+     * @param  \ultracart\v2\models\CustomDashboardSchedule $dashboard_schedule Dashboard schedule to update (required)
+     * @param  int $custom_dashboard_schedule_oid The dashboard schedule oid to update. (required)
+     * @param  int $custom_dashboard_oid The dashboard oid to update. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function updateCustomDashboardScheduleRequest($dashboard_schedule, $custom_dashboard_schedule_oid, $custom_dashboard_oid)
+    {
+        // verify the required parameter 'dashboard_schedule' is set
+        if ($dashboard_schedule === null || (is_array($dashboard_schedule) && count($dashboard_schedule) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $dashboard_schedule when calling updateCustomDashboardSchedule'
+            );
+        }
+        // verify the required parameter 'custom_dashboard_schedule_oid' is set
+        if ($custom_dashboard_schedule_oid === null || (is_array($custom_dashboard_schedule_oid) && count($custom_dashboard_schedule_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $custom_dashboard_schedule_oid when calling updateCustomDashboardSchedule'
+            );
+        }
+        // verify the required parameter 'custom_dashboard_oid' is set
+        if ($custom_dashboard_oid === null || (is_array($custom_dashboard_oid) && count($custom_dashboard_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $custom_dashboard_oid when calling updateCustomDashboardSchedule'
+            );
+        }
+
+        $resourcePath = '/datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules/{custom_dashboard_schedule_oid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($custom_dashboard_schedule_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'custom_dashboard_schedule_oid' . '}',
+                ObjectSerializer::toPathValue($custom_dashboard_schedule_oid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($custom_dashboard_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'custom_dashboard_oid' . '}',
+                ObjectSerializer::toPathValue($custom_dashboard_oid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($dashboard_schedule)) {
+            $_tempBody = $dashboard_schedule;
         }
 
         if ($multipart) {

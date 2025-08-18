@@ -1,6 +1,6 @@
 <?php
 /**
- * ChargebackDisputeResponse
+ * CustomDashboardSchedule
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ChargebackDisputeResponse Class Doc Comment
+ * CustomDashboardSchedule Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ChargebackDisputeResponse implements ModelInterface, ArrayAccess
+class CustomDashboardSchedule implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ChargebackDisputeResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ChargebackDisputeResponse';
+    protected static $swaggerModelName = 'CustomDashboardSchedule';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,11 @@ class ChargebackDisputeResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'chargeback' => '\ultracart\v2\models\ChargebackDispute',
-        'error' => '\ultracart\v2\models\Error',
-        'metadata' => '\ultracart\v2\models\ResponseMetadata',
-        'success' => 'bool',
-        'warning' => '\ultracart\v2\models\Warning'
+        'cron_trigger_expression' => 'string',
+        'data_warehouse_custom_dashboard_oid' => 'int',
+        'data_warehouse_custom_dashboard_schedule_oid' => 'int',
+        'emails' => 'string[]',
+        'next_send_dts' => 'string'
     ];
 
     /**
@@ -70,11 +70,11 @@ class ChargebackDisputeResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'chargeback' => null,
-        'error' => null,
-        'metadata' => null,
-        'success' => null,
-        'warning' => null
+        'cron_trigger_expression' => null,
+        'data_warehouse_custom_dashboard_oid' => 'int32',
+        'data_warehouse_custom_dashboard_schedule_oid' => 'int32',
+        'emails' => null,
+        'next_send_dts' => 'dateTime'
     ];
 
     /**
@@ -104,11 +104,11 @@ class ChargebackDisputeResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'chargeback' => 'chargeback',
-        'error' => 'error',
-        'metadata' => 'metadata',
-        'success' => 'success',
-        'warning' => 'warning'
+        'cron_trigger_expression' => 'cron_trigger_expression',
+        'data_warehouse_custom_dashboard_oid' => 'data_warehouse_custom_dashboard_oid',
+        'data_warehouse_custom_dashboard_schedule_oid' => 'data_warehouse_custom_dashboard_schedule_oid',
+        'emails' => 'emails',
+        'next_send_dts' => 'next_send_dts'
     ];
 
     /**
@@ -117,11 +117,11 @@ class ChargebackDisputeResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'chargeback' => 'setChargeback',
-        'error' => 'setError',
-        'metadata' => 'setMetadata',
-        'success' => 'setSuccess',
-        'warning' => 'setWarning'
+        'cron_trigger_expression' => 'setCronTriggerExpression',
+        'data_warehouse_custom_dashboard_oid' => 'setDataWarehouseCustomDashboardOid',
+        'data_warehouse_custom_dashboard_schedule_oid' => 'setDataWarehouseCustomDashboardScheduleOid',
+        'emails' => 'setEmails',
+        'next_send_dts' => 'setNextSendDts'
     ];
 
     /**
@@ -130,11 +130,11 @@ class ChargebackDisputeResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'chargeback' => 'getChargeback',
-        'error' => 'getError',
-        'metadata' => 'getMetadata',
-        'success' => 'getSuccess',
-        'warning' => 'getWarning'
+        'cron_trigger_expression' => 'getCronTriggerExpression',
+        'data_warehouse_custom_dashboard_oid' => 'getDataWarehouseCustomDashboardOid',
+        'data_warehouse_custom_dashboard_schedule_oid' => 'getDataWarehouseCustomDashboardScheduleOid',
+        'emails' => 'getEmails',
+        'next_send_dts' => 'getNextSendDts'
     ];
 
     /**
@@ -197,11 +197,11 @@ class ChargebackDisputeResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['chargeback'] = isset($data['chargeback']) ? $data['chargeback'] : null;
-        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
-        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
-        $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
+        $this->container['cron_trigger_expression'] = isset($data['cron_trigger_expression']) ? $data['cron_trigger_expression'] : null;
+        $this->container['data_warehouse_custom_dashboard_oid'] = isset($data['data_warehouse_custom_dashboard_oid']) ? $data['data_warehouse_custom_dashboard_oid'] : null;
+        $this->container['data_warehouse_custom_dashboard_schedule_oid'] = isset($data['data_warehouse_custom_dashboard_schedule_oid']) ? $data['data_warehouse_custom_dashboard_schedule_oid'] : null;
+        $this->container['emails'] = isset($data['emails']) ? $data['emails'] : null;
+        $this->container['next_send_dts'] = isset($data['next_send_dts']) ? $data['next_send_dts'] : null;
     }
 
     /**
@@ -229,121 +229,121 @@ class ChargebackDisputeResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets chargeback
+     * Gets cron_trigger_expression
      *
-     * @return \ultracart\v2\models\ChargebackDispute
+     * @return string
      */
-    public function getChargeback()
+    public function getCronTriggerExpression()
     {
-        return $this->container['chargeback'];
+        return $this->container['cron_trigger_expression'];
     }
 
     /**
-     * Sets chargeback
+     * Sets cron_trigger_expression
      *
-     * @param \ultracart\v2\models\ChargebackDispute $chargeback chargeback
+     * @param string $cron_trigger_expression cron_trigger_expression
      *
      * @return $this
      */
-    public function setChargeback($chargeback)
+    public function setCronTriggerExpression($cron_trigger_expression)
     {
-        $this->container['chargeback'] = $chargeback;
+        $this->container['cron_trigger_expression'] = $cron_trigger_expression;
 
         return $this;
     }
 
     /**
-     * Gets error
+     * Gets data_warehouse_custom_dashboard_oid
      *
-     * @return \ultracart\v2\models\Error
+     * @return int
      */
-    public function getError()
+    public function getDataWarehouseCustomDashboardOid()
     {
-        return $this->container['error'];
+        return $this->container['data_warehouse_custom_dashboard_oid'];
     }
 
     /**
-     * Sets error
+     * Sets data_warehouse_custom_dashboard_oid
      *
-     * @param \ultracart\v2\models\Error $error error
+     * @param int $data_warehouse_custom_dashboard_oid data_warehouse_custom_dashboard_oid
      *
      * @return $this
      */
-    public function setError($error)
+    public function setDataWarehouseCustomDashboardOid($data_warehouse_custom_dashboard_oid)
     {
-        $this->container['error'] = $error;
+        $this->container['data_warehouse_custom_dashboard_oid'] = $data_warehouse_custom_dashboard_oid;
 
         return $this;
     }
 
     /**
-     * Gets metadata
+     * Gets data_warehouse_custom_dashboard_schedule_oid
      *
-     * @return \ultracart\v2\models\ResponseMetadata
+     * @return int
      */
-    public function getMetadata()
+    public function getDataWarehouseCustomDashboardScheduleOid()
     {
-        return $this->container['metadata'];
+        return $this->container['data_warehouse_custom_dashboard_schedule_oid'];
     }
 
     /**
-     * Sets metadata
+     * Sets data_warehouse_custom_dashboard_schedule_oid
      *
-     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
+     * @param int $data_warehouse_custom_dashboard_schedule_oid data_warehouse_custom_dashboard_schedule_oid
      *
      * @return $this
      */
-    public function setMetadata($metadata)
+    public function setDataWarehouseCustomDashboardScheduleOid($data_warehouse_custom_dashboard_schedule_oid)
     {
-        $this->container['metadata'] = $metadata;
+        $this->container['data_warehouse_custom_dashboard_schedule_oid'] = $data_warehouse_custom_dashboard_schedule_oid;
 
         return $this;
     }
 
     /**
-     * Gets success
+     * Gets emails
      *
-     * @return bool
+     * @return string[]
      */
-    public function getSuccess()
+    public function getEmails()
     {
-        return $this->container['success'];
+        return $this->container['emails'];
     }
 
     /**
-     * Sets success
+     * Sets emails
      *
-     * @param bool $success Indicates if API call was successful
+     * @param string[] $emails emails
      *
      * @return $this
      */
-    public function setSuccess($success)
+    public function setEmails($emails)
     {
-        $this->container['success'] = $success;
+        $this->container['emails'] = $emails;
 
         return $this;
     }
 
     /**
-     * Gets warning
+     * Gets next_send_dts
      *
-     * @return \ultracart\v2\models\Warning
+     * @return string
      */
-    public function getWarning()
+    public function getNextSendDts()
     {
-        return $this->container['warning'];
+        return $this->container['next_send_dts'];
     }
 
     /**
-     * Sets warning
+     * Sets next_send_dts
      *
-     * @param \ultracart\v2\models\Warning $warning warning
+     * @param string $next_send_dts Date/time that the next send will occur.
      *
      * @return $this
      */
-    public function setWarning($warning)
+    public function setNextSendDts($next_send_dts)
     {
-        $this->container['warning'] = $warning;
+        $this->container['next_send_dts'] = $next_send_dts;
 
         return $this;
     }

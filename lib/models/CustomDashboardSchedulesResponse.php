@@ -1,6 +1,6 @@
 <?php
 /**
- * ChargebackDisputesResponse
+ * CustomDashboardSchedulesResponse
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ChargebackDisputesResponse Class Doc Comment
+ * CustomDashboardSchedulesResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ChargebackDisputesResponse implements ModelInterface, ArrayAccess
+class CustomDashboardSchedulesResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ChargebackDisputesResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ChargebackDisputesResponse';
+    protected static $swaggerModelName = 'CustomDashboardSchedulesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,9 @@ class ChargebackDisputesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'chargebacks' => '\ultracart\v2\models\ChargebackDispute[]',
         'error' => '\ultracart\v2\models\Error',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'schedules' => '\ultracart\v2\models\CustomDashboardSchedule[]',
         'success' => 'bool',
         'warning' => '\ultracart\v2\models\Warning'
     ];
@@ -70,9 +70,9 @@ class ChargebackDisputesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'chargebacks' => null,
         'error' => null,
         'metadata' => null,
+        'schedules' => null,
         'success' => null,
         'warning' => null
     ];
@@ -104,9 +104,9 @@ class ChargebackDisputesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'chargebacks' => 'chargebacks',
         'error' => 'error',
         'metadata' => 'metadata',
+        'schedules' => 'schedules',
         'success' => 'success',
         'warning' => 'warning'
     ];
@@ -117,9 +117,9 @@ class ChargebackDisputesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'chargebacks' => 'setChargebacks',
         'error' => 'setError',
         'metadata' => 'setMetadata',
+        'schedules' => 'setSchedules',
         'success' => 'setSuccess',
         'warning' => 'setWarning'
     ];
@@ -130,9 +130,9 @@ class ChargebackDisputesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'chargebacks' => 'getChargebacks',
         'error' => 'getError',
         'metadata' => 'getMetadata',
+        'schedules' => 'getSchedules',
         'success' => 'getSuccess',
         'warning' => 'getWarning'
     ];
@@ -197,9 +197,9 @@ class ChargebackDisputesResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['chargebacks'] = isset($data['chargebacks']) ? $data['chargebacks'] : null;
         $this->container['error'] = isset($data['error']) ? $data['error'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['schedules'] = isset($data['schedules']) ? $data['schedules'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
         $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
@@ -227,30 +227,6 @@ class ChargebackDisputesResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets chargebacks
-     *
-     * @return \ultracart\v2\models\ChargebackDispute[]
-     */
-    public function getChargebacks()
-    {
-        return $this->container['chargebacks'];
-    }
-
-    /**
-     * Sets chargebacks
-     *
-     * @param \ultracart\v2\models\ChargebackDispute[] $chargebacks chargebacks
-     *
-     * @return $this
-     */
-    public function setChargebacks($chargebacks)
-    {
-        $this->container['chargebacks'] = $chargebacks;
-
-        return $this;
-    }
 
     /**
      * Gets error
@@ -296,6 +272,30 @@ class ChargebackDisputesResponse implements ModelInterface, ArrayAccess
     public function setMetadata($metadata)
     {
         $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets schedules
+     *
+     * @return \ultracart\v2\models\CustomDashboardSchedule[]
+     */
+    public function getSchedules()
+    {
+        return $this->container['schedules'];
+    }
+
+    /**
+     * Sets schedules
+     *
+     * @param \ultracart\v2\models\CustomDashboardSchedule[] $schedules schedules
+     *
+     * @return $this
+     */
+    public function setSchedules($schedules)
+    {
+        $this->container['schedules'] = $schedules;
 
         return $this;
     }

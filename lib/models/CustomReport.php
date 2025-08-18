@@ -57,6 +57,7 @@ class CustomReport implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'business_analysis_prompt' => 'string',
         'chart_javascript' => 'string',
         'chart_javascript_url' => 'string',
         'data_warehouse_report_config_oid' => 'int',
@@ -75,6 +76,7 @@ class CustomReport implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'business_analysis_prompt' => null,
         'chart_javascript' => null,
         'chart_javascript_url' => null,
         'data_warehouse_report_config_oid' => 'int32',
@@ -114,6 +116,7 @@ class CustomReport implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'business_analysis_prompt' => 'business_analysis_prompt',
         'chart_javascript' => 'chart_javascript',
         'chart_javascript_url' => 'chart_javascript_url',
         'data_warehouse_report_config_oid' => 'data_warehouse_report_config_oid',
@@ -132,6 +135,7 @@ class CustomReport implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'business_analysis_prompt' => 'setBusinessAnalysisPrompt',
         'chart_javascript' => 'setChartJavascript',
         'chart_javascript_url' => 'setChartJavascriptUrl',
         'data_warehouse_report_config_oid' => 'setDataWarehouseReportConfigOid',
@@ -150,6 +154,7 @@ class CustomReport implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'business_analysis_prompt' => 'getBusinessAnalysisPrompt',
         'chart_javascript' => 'getChartJavascript',
         'chart_javascript_url' => 'getChartJavascriptUrl',
         'data_warehouse_report_config_oid' => 'getDataWarehouseReportConfigOid',
@@ -222,6 +227,7 @@ class CustomReport implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['business_analysis_prompt'] = isset($data['business_analysis_prompt']) ? $data['business_analysis_prompt'] : null;
         $this->container['chart_javascript'] = isset($data['chart_javascript']) ? $data['chart_javascript'] : null;
         $this->container['chart_javascript_url'] = isset($data['chart_javascript_url']) ? $data['chart_javascript_url'] : null;
         $this->container['data_warehouse_report_config_oid'] = isset($data['data_warehouse_report_config_oid']) ? $data['data_warehouse_report_config_oid'] : null;
@@ -257,6 +263,30 @@ class CustomReport implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets business_analysis_prompt
+     *
+     * @return string
+     */
+    public function getBusinessAnalysisPrompt()
+    {
+        return $this->container['business_analysis_prompt'];
+    }
+
+    /**
+     * Sets business_analysis_prompt
+     *
+     * @param string $business_analysis_prompt business_analysis_prompt
+     *
+     * @return $this
+     */
+    public function setBusinessAnalysisPrompt($business_analysis_prompt)
+    {
+        $this->container['business_analysis_prompt'] = $business_analysis_prompt;
+
+        return $this;
+    }
 
     /**
      * Gets chart_javascript
