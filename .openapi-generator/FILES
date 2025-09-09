@@ -337,6 +337,9 @@ docs/Model/CustomDashboardsResponse.md
 docs/Model/CustomReport.md
 docs/Model/CustomReportAccountConfig.md
 docs/Model/CustomReportAccountConfigResponse.md
+docs/Model/CustomReportAnalysisRequest.md
+docs/Model/CustomReportAnalysisResponse.md
+docs/Model/CustomReportChartPngUploadResponse.md
 docs/Model/CustomReportExecutionParameter.md
 docs/Model/CustomReportExecutionRequest.md
 docs/Model/CustomReportExecutionResponse.md
@@ -743,6 +746,7 @@ docs/Model/Property.md
 docs/Model/PublishLibraryItemRequest.md
 docs/Model/RegisterAffiliateClickRequest.md
 docs/Model/RegisterAffiliateClickResponse.md
+docs/Model/ReplaceOrderItemIdRequest.md
 docs/Model/Report.md
 docs/Model/ReportAuth.md
 docs/Model/ReportAuthResponse.md
@@ -1248,6 +1252,9 @@ lib/models/CustomDashboardsResponse.php
 lib/models/CustomReport.php
 lib/models/CustomReportAccountConfig.php
 lib/models/CustomReportAccountConfigResponse.php
+lib/models/CustomReportAnalysisRequest.php
+lib/models/CustomReportAnalysisResponse.php
+lib/models/CustomReportChartPngUploadResponse.php
 lib/models/CustomReportExecutionParameter.php
 lib/models/CustomReportExecutionRequest.php
 lib/models/CustomReportExecutionResponse.php
@@ -1655,6 +1662,7 @@ lib/models/Property.php
 lib/models/PublishLibraryItemRequest.php
 lib/models/RegisterAffiliateClickRequest.php
 lib/models/RegisterAffiliateClickResponse.php
+lib/models/ReplaceOrderItemIdRequest.php
 lib/models/Report.php
 lib/models/ReportAuth.php
 lib/models/ReportAuthResponse.php

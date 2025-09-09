@@ -4,6 +4,7 @@ All URIs are relative to https://secure.ultracart.com/rest/v2.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**analyzeCustomReport()**](DatawarehouseApi.md#analyzeCustomReport) | **PUT** /datawarehouse/custom_reports/{custom_report_oid}/analysis | Analyze a custom report
 [**deleteCustomDashboard()**](DatawarehouseApi.md#deleteCustomDashboard) | **DELETE** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Delete a custom dashboard
 [**deleteCustomDashboardSchedule()**](DatawarehouseApi.md#deleteCustomDashboardSchedule) | **DELETE** /datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules/{custom_dashboard_schedule_oid} | Delete a custom dashboard schedule
 [**deleteCustomReport()**](DatawarehouseApi.md#deleteCustomReport) | **DELETE** /datawarehouse/custom_reports/{custom_report_oid} | Delete a custom report
@@ -17,6 +18,7 @@ Method | HTTP request | Description
 [**getCustomDashboards()**](DatawarehouseApi.md#getCustomDashboards) | **GET** /datawarehouse/custom_dashboards | Get custom dashboards
 [**getCustomReport()**](DatawarehouseApi.md#getCustomReport) | **GET** /datawarehouse/custom_reports/{custom_report_oid} | Get a custom report
 [**getCustomReportAccountConfig()**](DatawarehouseApi.md#getCustomReportAccountConfig) | **GET** /datawarehouse/custom_reports/account_config | Get custom report account configuration
+[**getCustomReportChartPngUploadUrl()**](DatawarehouseApi.md#getCustomReportChartPngUploadUrl) | **GET** /datawarehouse/custom_reports/{custom_report_oid}/chart_png | Upload a PNG of a custom report chart
 [**getCustomReports()**](DatawarehouseApi.md#getCustomReports) | **GET** /datawarehouse/custom_reports | Get custom reports
 [**getReport()**](DatawarehouseApi.md#getReport) | **GET** /datawarehouse/reports/{report_oid} | Get a report
 [**getReportDataSet()**](DatawarehouseApi.md#getReportDataSet) | **GET** /datawarehouse/reports/dataset/{dataset_uuid} | Get a report data set
@@ -33,6 +35,47 @@ Method | HTTP request | Description
 [**updateCustomReportAccountConfig()**](DatawarehouseApi.md#updateCustomReportAccountConfig) | **PUT** /datawarehouse/custom_reports/account_config | Update custom report account config
 [**updateReport()**](DatawarehouseApi.md#updateReport) | **PUT** /datawarehouse/reports/{report_oid} | Update a report
 
+
+## `analyzeCustomReport()`
+
+```php
+analyzeCustomReport($custom_report_oid, $analyze_request): \ultracart\v2\models\CustomReportAnalysisResponse
+```
+
+Analyze a custom report
+
+Analyze a custom report on the UltraCart account.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **custom_report_oid** | **int**| The report oid to analyze. |
+ **analyze_request** | [**\ultracart\v2\models\CustomReportAnalysisRequest**](../Model/CustomReportAnalysisRequest.md)| Request to analyze custom report |
+
+### Return type
+
+[**\ultracart\v2\models\CustomReportAnalysisResponse**](../Model/CustomReportAnalysisResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `deleteCustomDashboard()`
 
@@ -541,6 +584,46 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**\ultracart\v2\models\CustomReportAccountConfigResponse**](../Model/CustomReportAccountConfigResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getCustomReportChartPngUploadUrl()`
+
+```php
+getCustomReportChartPngUploadUrl($custom_report_oid): \ultracart\v2\models\CustomReportChartPngUploadResponse
+```
+
+Upload a PNG of a custom report chart
+
+Upload a PNG of a custom report chart
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **custom_report_oid** | **int**| The report oid to upload a chart PNG for. |
+
+### Return type
+
+[**\ultracart\v2\models\CustomReportChartPngUploadResponse**](../Model/CustomReportChartPngUploadResponse.md)
 
 ### Authorization
 

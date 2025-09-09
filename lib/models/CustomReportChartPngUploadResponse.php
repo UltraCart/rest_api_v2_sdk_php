@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomReportAccountConfig
+ * CustomReportChartPngUploadResponse
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * CustomReportAccountConfig Class Doc Comment
+ * CustomReportChartPngUploadResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CustomReportAccountConfig implements ModelInterface, ArrayAccess, \JsonSerializable
+class CustomReportChartPngUploadResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CustomReportAccountConfig implements ModelInterface, ArrayAccess, \JsonSer
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CustomReportAccountConfig';
+    protected static $openAPIModelName = 'CustomReportChartPngUploadResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,16 +58,12 @@ class CustomReportAccountConfig implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'ai_budget' => 'float',
-        'ai_usage' => 'float',
-        'merchant_id' => 'string',
-        'novice_sql_comments' => 'bool',
-        'opt_in' => 'bool',
-        'opt_in_by_user' => 'string',
-        'opt_in_date' => 'string',
-        'read_only' => 'bool',
-        'sql_budget' => 'float',
-        'sql_usage' => 'float'
+        'error' => '\ultracart\v2\models\Error',
+        'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'signed_download_url' => 'string',
+        'signed_upload_url' => 'string',
+        'success' => 'bool',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -78,16 +74,12 @@ class CustomReportAccountConfig implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'ai_budget' => null,
-        'ai_usage' => null,
-        'merchant_id' => null,
-        'novice_sql_comments' => null,
-        'opt_in' => null,
-        'opt_in_by_user' => null,
-        'opt_in_date' => 'dateTime',
-        'read_only' => null,
-        'sql_budget' => null,
-        'sql_usage' => null
+        'error' => null,
+        'metadata' => null,
+        'signed_download_url' => null,
+        'signed_upload_url' => null,
+        'success' => null,
+        'warning' => null
     ];
 
     /**
@@ -117,16 +109,12 @@ class CustomReportAccountConfig implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
-        'ai_budget' => 'ai_budget',
-        'ai_usage' => 'ai_usage',
-        'merchant_id' => 'merchant_id',
-        'novice_sql_comments' => 'novice_sql_comments',
-        'opt_in' => 'opt_in',
-        'opt_in_by_user' => 'opt_in_by_user',
-        'opt_in_date' => 'opt_in_date',
-        'read_only' => 'read_only',
-        'sql_budget' => 'sql_budget',
-        'sql_usage' => 'sql_usage'
+        'error' => 'error',
+        'metadata' => 'metadata',
+        'signed_download_url' => 'signed_download_url',
+        'signed_upload_url' => 'signed_upload_url',
+        'success' => 'success',
+        'warning' => 'warning'
     ];
 
     /**
@@ -135,16 +123,12 @@ class CustomReportAccountConfig implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
-        'ai_budget' => 'setAiBudget',
-        'ai_usage' => 'setAiUsage',
-        'merchant_id' => 'setMerchantId',
-        'novice_sql_comments' => 'setNoviceSqlComments',
-        'opt_in' => 'setOptIn',
-        'opt_in_by_user' => 'setOptInByUser',
-        'opt_in_date' => 'setOptInDate',
-        'read_only' => 'setReadOnly',
-        'sql_budget' => 'setSqlBudget',
-        'sql_usage' => 'setSqlUsage'
+        'error' => 'setError',
+        'metadata' => 'setMetadata',
+        'signed_download_url' => 'setSignedDownloadUrl',
+        'signed_upload_url' => 'setSignedUploadUrl',
+        'success' => 'setSuccess',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -153,16 +137,12 @@ class CustomReportAccountConfig implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
-        'ai_budget' => 'getAiBudget',
-        'ai_usage' => 'getAiUsage',
-        'merchant_id' => 'getMerchantId',
-        'novice_sql_comments' => 'getNoviceSqlComments',
-        'opt_in' => 'getOptIn',
-        'opt_in_by_user' => 'getOptInByUser',
-        'opt_in_date' => 'getOptInDate',
-        'read_only' => 'getReadOnly',
-        'sql_budget' => 'getSqlBudget',
-        'sql_usage' => 'getSqlUsage'
+        'error' => 'getError',
+        'metadata' => 'getMetadata',
+        'signed_download_url' => 'getSignedDownloadUrl',
+        'signed_upload_url' => 'getSignedUploadUrl',
+        'success' => 'getSuccess',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -222,16 +202,12 @@ class CustomReportAccountConfig implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function __construct(array $data = null)
     {
-        $this->container['ai_budget'] = $data['ai_budget'] ?? null;
-        $this->container['ai_usage'] = $data['ai_usage'] ?? null;
-        $this->container['merchant_id'] = $data['merchant_id'] ?? null;
-        $this->container['novice_sql_comments'] = $data['novice_sql_comments'] ?? null;
-        $this->container['opt_in'] = $data['opt_in'] ?? null;
-        $this->container['opt_in_by_user'] = $data['opt_in_by_user'] ?? null;
-        $this->container['opt_in_date'] = $data['opt_in_date'] ?? null;
-        $this->container['read_only'] = $data['read_only'] ?? null;
-        $this->container['sql_budget'] = $data['sql_budget'] ?? null;
-        $this->container['sql_usage'] = $data['sql_usage'] ?? null;
+        $this->container['error'] = $data['error'] ?? null;
+        $this->container['metadata'] = $data['metadata'] ?? null;
+        $this->container['signed_download_url'] = $data['signed_download_url'] ?? null;
+        $this->container['signed_upload_url'] = $data['signed_upload_url'] ?? null;
+        $this->container['success'] = $data['success'] ?? null;
+        $this->container['warning'] = $data['warning'] ?? null;
     }
 
     /**
@@ -259,241 +235,145 @@ class CustomReportAccountConfig implements ModelInterface, ArrayAccess, \JsonSer
 
 
     /**
-     * Gets ai_budget
+     * Gets error
      *
-     * @return float|null
+     * @return \ultracart\v2\models\Error|null
      */
-    public function getAiBudget()
+    public function getError()
     {
-        return $this->container['ai_budget'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets ai_budget
+     * Sets error
      *
-     * @param float|null $ai_budget ai_budget
+     * @param \ultracart\v2\models\Error|null $error error
      *
      * @return self
      */
-    public function setAiBudget($ai_budget)
+    public function setError($error)
     {
-        $this->container['ai_budget'] = $ai_budget;
+        $this->container['error'] = $error;
 
         return $this;
     }
 
     /**
-     * Gets ai_usage
+     * Gets metadata
      *
-     * @return float|null
+     * @return \ultracart\v2\models\ResponseMetadata|null
      */
-    public function getAiUsage()
+    public function getMetadata()
     {
-        return $this->container['ai_usage'];
+        return $this->container['metadata'];
     }
 
     /**
-     * Sets ai_usage
+     * Sets metadata
      *
-     * @param float|null $ai_usage Current AI usage creating reports
+     * @param \ultracart\v2\models\ResponseMetadata|null $metadata metadata
      *
      * @return self
      */
-    public function setAiUsage($ai_usage)
+    public function setMetadata($metadata)
     {
-        $this->container['ai_usage'] = $ai_usage;
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }
 
     /**
-     * Gets merchant_id
+     * Gets signed_download_url
      *
      * @return string|null
      */
-    public function getMerchantId()
+    public function getSignedDownloadUrl()
     {
-        return $this->container['merchant_id'];
+        return $this->container['signed_download_url'];
     }
 
     /**
-     * Sets merchant_id
+     * Sets signed_download_url
      *
-     * @param string|null $merchant_id Current BigQuery SQL usage running reports
+     * @param string|null $signed_download_url signed_download_url
      *
      * @return self
      */
-    public function setMerchantId($merchant_id)
+    public function setSignedDownloadUrl($signed_download_url)
     {
-        $this->container['merchant_id'] = $merchant_id;
+        $this->container['signed_download_url'] = $signed_download_url;
 
         return $this;
     }
 
     /**
-     * Gets novice_sql_comments
-     *
-     * @return bool|null
-     */
-    public function getNoviceSqlComments()
-    {
-        return $this->container['novice_sql_comments'];
-    }
-
-    /**
-     * Sets novice_sql_comments
-     *
-     * @param bool|null $novice_sql_comments novice_sql_comments
-     *
-     * @return self
-     */
-    public function setNoviceSqlComments($novice_sql_comments)
-    {
-        $this->container['novice_sql_comments'] = $novice_sql_comments;
-
-        return $this;
-    }
-
-    /**
-     * Gets opt_in
-     *
-     * @return bool|null
-     */
-    public function getOptIn()
-    {
-        return $this->container['opt_in'];
-    }
-
-    /**
-     * Sets opt_in
-     *
-     * @param bool|null $opt_in True if they have opted into custom reports
-     *
-     * @return self
-     */
-    public function setOptIn($opt_in)
-    {
-        $this->container['opt_in'] = $opt_in;
-
-        return $this;
-    }
-
-    /**
-     * Gets opt_in_by_user
+     * Gets signed_upload_url
      *
      * @return string|null
      */
-    public function getOptInByUser()
+    public function getSignedUploadUrl()
     {
-        return $this->container['opt_in_by_user'];
+        return $this->container['signed_upload_url'];
     }
 
     /**
-     * Sets opt_in_by_user
+     * Sets signed_upload_url
      *
-     * @param string|null $opt_in_by_user User that opted into custom reporting
+     * @param string|null $signed_upload_url signed_upload_url
      *
      * @return self
      */
-    public function setOptInByUser($opt_in_by_user)
+    public function setSignedUploadUrl($signed_upload_url)
     {
-        $this->container['opt_in_by_user'] = $opt_in_by_user;
+        $this->container['signed_upload_url'] = $signed_upload_url;
 
         return $this;
     }
 
     /**
-     * Gets opt_in_date
-     *
-     * @return string|null
-     */
-    public function getOptInDate()
-    {
-        return $this->container['opt_in_date'];
-    }
-
-    /**
-     * Sets opt_in_date
-     *
-     * @param string|null $opt_in_date Date/time that custom reporting was opted in to
-     *
-     * @return self
-     */
-    public function setOptInDate($opt_in_date)
-    {
-        $this->container['opt_in_date'] = $opt_in_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets read_only
+     * Gets success
      *
      * @return bool|null
      */
-    public function getReadOnly()
+    public function getSuccess()
     {
-        return $this->container['read_only'];
+        return $this->container['success'];
     }
 
     /**
-     * Sets read_only
+     * Sets success
      *
-     * @param bool|null $read_only read_only
+     * @param bool|null $success Indicates if API call was successful
      *
      * @return self
      */
-    public function setReadOnly($read_only)
+    public function setSuccess($success)
     {
-        $this->container['read_only'] = $read_only;
+        $this->container['success'] = $success;
 
         return $this;
     }
 
     /**
-     * Gets sql_budget
+     * Gets warning
      *
-     * @return float|null
+     * @return \ultracart\v2\models\Warning|null
      */
-    public function getSqlBudget()
+    public function getWarning()
     {
-        return $this->container['sql_budget'];
+        return $this->container['warning'];
     }
 
     /**
-     * Sets sql_budget
+     * Sets warning
      *
-     * @param float|null $sql_budget sql_budget
+     * @param \ultracart\v2\models\Warning|null $warning warning
      *
      * @return self
      */
-    public function setSqlBudget($sql_budget)
+    public function setWarning($warning)
     {
-        $this->container['sql_budget'] = $sql_budget;
-
-        return $this;
-    }
-
-    /**
-     * Gets sql_usage
-     *
-     * @return float|null
-     */
-    public function getSqlUsage()
-    {
-        return $this->container['sql_usage'];
-    }
-
-    /**
-     * Sets sql_usage
-     *
-     * @param float|null $sql_usage sql_usage
-     *
-     * @return self
-     */
-    public function setSqlUsage($sql_usage)
-    {
-        $this->container['sql_usage'] = $sql_usage;
+        $this->container['warning'] = $warning;
 
         return $this;
     }

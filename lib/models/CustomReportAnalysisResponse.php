@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomReportAccountConfig
+ * CustomReportAnalysisResponse
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * CustomReportAccountConfig Class Doc Comment
+ * CustomReportAnalysisResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CustomReportAccountConfig implements ModelInterface, ArrayAccess, \JsonSerializable
+class CustomReportAnalysisResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CustomReportAccountConfig implements ModelInterface, ArrayAccess, \JsonSer
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CustomReportAccountConfig';
+    protected static $openAPIModelName = 'CustomReportAnalysisResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,16 +58,11 @@ class CustomReportAccountConfig implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'ai_budget' => 'float',
-        'ai_usage' => 'float',
-        'merchant_id' => 'string',
-        'novice_sql_comments' => 'bool',
-        'opt_in' => 'bool',
-        'opt_in_by_user' => 'string',
-        'opt_in_date' => 'string',
-        'read_only' => 'bool',
-        'sql_budget' => 'float',
-        'sql_usage' => 'float'
+        'error' => '\ultracart\v2\models\Error',
+        'html' => 'string',
+        'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'success' => 'bool',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -78,16 +73,11 @@ class CustomReportAccountConfig implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'ai_budget' => null,
-        'ai_usage' => null,
-        'merchant_id' => null,
-        'novice_sql_comments' => null,
-        'opt_in' => null,
-        'opt_in_by_user' => null,
-        'opt_in_date' => 'dateTime',
-        'read_only' => null,
-        'sql_budget' => null,
-        'sql_usage' => null
+        'error' => null,
+        'html' => null,
+        'metadata' => null,
+        'success' => null,
+        'warning' => null
     ];
 
     /**
@@ -117,16 +107,11 @@ class CustomReportAccountConfig implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
-        'ai_budget' => 'ai_budget',
-        'ai_usage' => 'ai_usage',
-        'merchant_id' => 'merchant_id',
-        'novice_sql_comments' => 'novice_sql_comments',
-        'opt_in' => 'opt_in',
-        'opt_in_by_user' => 'opt_in_by_user',
-        'opt_in_date' => 'opt_in_date',
-        'read_only' => 'read_only',
-        'sql_budget' => 'sql_budget',
-        'sql_usage' => 'sql_usage'
+        'error' => 'error',
+        'html' => 'html',
+        'metadata' => 'metadata',
+        'success' => 'success',
+        'warning' => 'warning'
     ];
 
     /**
@@ -135,16 +120,11 @@ class CustomReportAccountConfig implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
-        'ai_budget' => 'setAiBudget',
-        'ai_usage' => 'setAiUsage',
-        'merchant_id' => 'setMerchantId',
-        'novice_sql_comments' => 'setNoviceSqlComments',
-        'opt_in' => 'setOptIn',
-        'opt_in_by_user' => 'setOptInByUser',
-        'opt_in_date' => 'setOptInDate',
-        'read_only' => 'setReadOnly',
-        'sql_budget' => 'setSqlBudget',
-        'sql_usage' => 'setSqlUsage'
+        'error' => 'setError',
+        'html' => 'setHtml',
+        'metadata' => 'setMetadata',
+        'success' => 'setSuccess',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -153,16 +133,11 @@ class CustomReportAccountConfig implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
-        'ai_budget' => 'getAiBudget',
-        'ai_usage' => 'getAiUsage',
-        'merchant_id' => 'getMerchantId',
-        'novice_sql_comments' => 'getNoviceSqlComments',
-        'opt_in' => 'getOptIn',
-        'opt_in_by_user' => 'getOptInByUser',
-        'opt_in_date' => 'getOptInDate',
-        'read_only' => 'getReadOnly',
-        'sql_budget' => 'getSqlBudget',
-        'sql_usage' => 'getSqlUsage'
+        'error' => 'getError',
+        'html' => 'getHtml',
+        'metadata' => 'getMetadata',
+        'success' => 'getSuccess',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -222,16 +197,11 @@ class CustomReportAccountConfig implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function __construct(array $data = null)
     {
-        $this->container['ai_budget'] = $data['ai_budget'] ?? null;
-        $this->container['ai_usage'] = $data['ai_usage'] ?? null;
-        $this->container['merchant_id'] = $data['merchant_id'] ?? null;
-        $this->container['novice_sql_comments'] = $data['novice_sql_comments'] ?? null;
-        $this->container['opt_in'] = $data['opt_in'] ?? null;
-        $this->container['opt_in_by_user'] = $data['opt_in_by_user'] ?? null;
-        $this->container['opt_in_date'] = $data['opt_in_date'] ?? null;
-        $this->container['read_only'] = $data['read_only'] ?? null;
-        $this->container['sql_budget'] = $data['sql_budget'] ?? null;
-        $this->container['sql_usage'] = $data['sql_usage'] ?? null;
+        $this->container['error'] = $data['error'] ?? null;
+        $this->container['html'] = $data['html'] ?? null;
+        $this->container['metadata'] = $data['metadata'] ?? null;
+        $this->container['success'] = $data['success'] ?? null;
+        $this->container['warning'] = $data['warning'] ?? null;
     }
 
     /**
@@ -259,241 +229,121 @@ class CustomReportAccountConfig implements ModelInterface, ArrayAccess, \JsonSer
 
 
     /**
-     * Gets ai_budget
+     * Gets error
      *
-     * @return float|null
+     * @return \ultracart\v2\models\Error|null
      */
-    public function getAiBudget()
+    public function getError()
     {
-        return $this->container['ai_budget'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets ai_budget
+     * Sets error
      *
-     * @param float|null $ai_budget ai_budget
+     * @param \ultracart\v2\models\Error|null $error error
      *
      * @return self
      */
-    public function setAiBudget($ai_budget)
+    public function setError($error)
     {
-        $this->container['ai_budget'] = $ai_budget;
+        $this->container['error'] = $error;
 
         return $this;
     }
 
     /**
-     * Gets ai_usage
-     *
-     * @return float|null
-     */
-    public function getAiUsage()
-    {
-        return $this->container['ai_usage'];
-    }
-
-    /**
-     * Sets ai_usage
-     *
-     * @param float|null $ai_usage Current AI usage creating reports
-     *
-     * @return self
-     */
-    public function setAiUsage($ai_usage)
-    {
-        $this->container['ai_usage'] = $ai_usage;
-
-        return $this;
-    }
-
-    /**
-     * Gets merchant_id
+     * Gets html
      *
      * @return string|null
      */
-    public function getMerchantId()
+    public function getHtml()
     {
-        return $this->container['merchant_id'];
+        return $this->container['html'];
     }
 
     /**
-     * Sets merchant_id
+     * Sets html
      *
-     * @param string|null $merchant_id Current BigQuery SQL usage running reports
+     * @param string|null $html html
      *
      * @return self
      */
-    public function setMerchantId($merchant_id)
+    public function setHtml($html)
     {
-        $this->container['merchant_id'] = $merchant_id;
+        $this->container['html'] = $html;
 
         return $this;
     }
 
     /**
-     * Gets novice_sql_comments
+     * Gets metadata
+     *
+     * @return \ultracart\v2\models\ResponseMetadata|null
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param \ultracart\v2\models\ResponseMetadata|null $metadata metadata
+     *
+     * @return self
+     */
+    public function setMetadata($metadata)
+    {
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets success
      *
      * @return bool|null
      */
-    public function getNoviceSqlComments()
+    public function getSuccess()
     {
-        return $this->container['novice_sql_comments'];
+        return $this->container['success'];
     }
 
     /**
-     * Sets novice_sql_comments
+     * Sets success
      *
-     * @param bool|null $novice_sql_comments novice_sql_comments
+     * @param bool|null $success Indicates if API call was successful
      *
      * @return self
      */
-    public function setNoviceSqlComments($novice_sql_comments)
+    public function setSuccess($success)
     {
-        $this->container['novice_sql_comments'] = $novice_sql_comments;
+        $this->container['success'] = $success;
 
         return $this;
     }
 
     /**
-     * Gets opt_in
+     * Gets warning
      *
-     * @return bool|null
+     * @return \ultracart\v2\models\Warning|null
      */
-    public function getOptIn()
+    public function getWarning()
     {
-        return $this->container['opt_in'];
+        return $this->container['warning'];
     }
 
     /**
-     * Sets opt_in
+     * Sets warning
      *
-     * @param bool|null $opt_in True if they have opted into custom reports
+     * @param \ultracart\v2\models\Warning|null $warning warning
      *
      * @return self
      */
-    public function setOptIn($opt_in)
+    public function setWarning($warning)
     {
-        $this->container['opt_in'] = $opt_in;
-
-        return $this;
-    }
-
-    /**
-     * Gets opt_in_by_user
-     *
-     * @return string|null
-     */
-    public function getOptInByUser()
-    {
-        return $this->container['opt_in_by_user'];
-    }
-
-    /**
-     * Sets opt_in_by_user
-     *
-     * @param string|null $opt_in_by_user User that opted into custom reporting
-     *
-     * @return self
-     */
-    public function setOptInByUser($opt_in_by_user)
-    {
-        $this->container['opt_in_by_user'] = $opt_in_by_user;
-
-        return $this;
-    }
-
-    /**
-     * Gets opt_in_date
-     *
-     * @return string|null
-     */
-    public function getOptInDate()
-    {
-        return $this->container['opt_in_date'];
-    }
-
-    /**
-     * Sets opt_in_date
-     *
-     * @param string|null $opt_in_date Date/time that custom reporting was opted in to
-     *
-     * @return self
-     */
-    public function setOptInDate($opt_in_date)
-    {
-        $this->container['opt_in_date'] = $opt_in_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets read_only
-     *
-     * @return bool|null
-     */
-    public function getReadOnly()
-    {
-        return $this->container['read_only'];
-    }
-
-    /**
-     * Sets read_only
-     *
-     * @param bool|null $read_only read_only
-     *
-     * @return self
-     */
-    public function setReadOnly($read_only)
-    {
-        $this->container['read_only'] = $read_only;
-
-        return $this;
-    }
-
-    /**
-     * Gets sql_budget
-     *
-     * @return float|null
-     */
-    public function getSqlBudget()
-    {
-        return $this->container['sql_budget'];
-    }
-
-    /**
-     * Sets sql_budget
-     *
-     * @param float|null $sql_budget sql_budget
-     *
-     * @return self
-     */
-    public function setSqlBudget($sql_budget)
-    {
-        $this->container['sql_budget'] = $sql_budget;
-
-        return $this;
-    }
-
-    /**
-     * Gets sql_usage
-     *
-     * @return float|null
-     */
-    public function getSqlUsage()
-    {
-        return $this->container['sql_usage'];
-    }
-
-    /**
-     * Sets sql_usage
-     *
-     * @param float|null $sql_usage sql_usage
-     *
-     * @return self
-     */
-    public function setSqlUsage($sql_usage)
-    {
-        $this->container['sql_usage'] = $sql_usage;
+        $this->container['warning'] = $warning;
 
         return $this;
     }

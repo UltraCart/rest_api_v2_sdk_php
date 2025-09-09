@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.20"
+    "ultracart/rest_api_v2_sdk_php": "4.1.21"
   }
 }
 ```
@@ -275,6 +275,7 @@ Class | Method | HTTP request | Description
 *CustomerApi* | [**updateCustomerEmailLists**](docs/Api/CustomerApi.md#updatecustomeremaillists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
 *CustomerApi* | [**updateWishListItem**](docs/Api/CustomerApi.md#updatewishlistitem) | **PUT** /customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid} | Update a customer wishlist item
 *CustomerApi* | [**validateEmailVerificationToken**](docs/Api/CustomerApi.md#validateemailverificationtoken) | **POST** /customer/customers/email_verify/validate_token | Validate a token that can be used to verify a customer email address
+*DatawarehouseApi* | [**analyzeCustomReport**](docs/Api/DatawarehouseApi.md#analyzecustomreport) | **PUT** /datawarehouse/custom_reports/{custom_report_oid}/analysis | Analyze a custom report
 *DatawarehouseApi* | [**deleteCustomDashboard**](docs/Api/DatawarehouseApi.md#deletecustomdashboard) | **DELETE** /datawarehouse/custom_dashboards/{custom_dashboard_oid} | Delete a custom dashboard
 *DatawarehouseApi* | [**deleteCustomDashboardSchedule**](docs/Api/DatawarehouseApi.md#deletecustomdashboardschedule) | **DELETE** /datawarehouse/custom_dashboards/{custom_dashboard_oid}/schedules/{custom_dashboard_schedule_oid} | Delete a custom dashboard schedule
 *DatawarehouseApi* | [**deleteCustomReport**](docs/Api/DatawarehouseApi.md#deletecustomreport) | **DELETE** /datawarehouse/custom_reports/{custom_report_oid} | Delete a custom report
@@ -288,6 +289,7 @@ Class | Method | HTTP request | Description
 *DatawarehouseApi* | [**getCustomDashboards**](docs/Api/DatawarehouseApi.md#getcustomdashboards) | **GET** /datawarehouse/custom_dashboards | Get custom dashboards
 *DatawarehouseApi* | [**getCustomReport**](docs/Api/DatawarehouseApi.md#getcustomreport) | **GET** /datawarehouse/custom_reports/{custom_report_oid} | Get a custom report
 *DatawarehouseApi* | [**getCustomReportAccountConfig**](docs/Api/DatawarehouseApi.md#getcustomreportaccountconfig) | **GET** /datawarehouse/custom_reports/account_config | Get custom report account configuration
+*DatawarehouseApi* | [**getCustomReportChartPngUploadUrl**](docs/Api/DatawarehouseApi.md#getcustomreportchartpnguploadurl) | **GET** /datawarehouse/custom_reports/{custom_report_oid}/chart_png | Upload a PNG of a custom report chart
 *DatawarehouseApi* | [**getCustomReports**](docs/Api/DatawarehouseApi.md#getcustomreports) | **GET** /datawarehouse/custom_reports | Get custom reports
 *DatawarehouseApi* | [**getReport**](docs/Api/DatawarehouseApi.md#getreport) | **GET** /datawarehouse/reports/{report_oid} | Get a report
 *DatawarehouseApi* | [**getReportDataSet**](docs/Api/DatawarehouseApi.md#getreportdataset) | **GET** /datawarehouse/reports/dataset/{dataset_uuid} | Get a report data set
@@ -369,6 +371,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**isRefundableOrder**](docs/Api/OrderApi.md#isrefundableorder) | **GET** /order/orders/{order_id}/refundable | Determine if an order can be refunded
 *OrderApi* | [**processPayment**](docs/Api/OrderApi.md#processpayment) | **POST** /order/orders/{order_id}/process_payment | Process payment
 *OrderApi* | [**refundOrder**](docs/Api/OrderApi.md#refundorder) | **PUT** /order/orders/{order_id}/refund | Refund an order
+*OrderApi* | [**replaceOrderItemMerchantItemId**](docs/Api/OrderApi.md#replaceorderitemmerchantitemid) | **PUT** /order/orders/{order_id}/replace_item_id | Replaces an order item id
 *OrderApi* | [**replacement**](docs/Api/OrderApi.md#replacement) | **POST** /order/orders/{order_id}/replacement | Replacement order
 *OrderApi* | [**resendReceipt**](docs/Api/OrderApi.md#resendreceipt) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
 *OrderApi* | [**resendShipmentConfirmation**](docs/Api/OrderApi.md#resendshipmentconfirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
@@ -935,6 +938,9 @@ Class | Method | HTTP request | Description
 - [CustomReport](docs/Model/CustomReport.md)
 - [CustomReportAccountConfig](docs/Model/CustomReportAccountConfig.md)
 - [CustomReportAccountConfigResponse](docs/Model/CustomReportAccountConfigResponse.md)
+- [CustomReportAnalysisRequest](docs/Model/CustomReportAnalysisRequest.md)
+- [CustomReportAnalysisResponse](docs/Model/CustomReportAnalysisResponse.md)
+- [CustomReportChartPngUploadResponse](docs/Model/CustomReportChartPngUploadResponse.md)
 - [CustomReportExecutionParameter](docs/Model/CustomReportExecutionParameter.md)
 - [CustomReportExecutionRequest](docs/Model/CustomReportExecutionRequest.md)
 - [CustomReportExecutionResponse](docs/Model/CustomReportExecutionResponse.md)
@@ -1341,6 +1347,7 @@ Class | Method | HTTP request | Description
 - [PublishLibraryItemRequest](docs/Model/PublishLibraryItemRequest.md)
 - [RegisterAffiliateClickRequest](docs/Model/RegisterAffiliateClickRequest.md)
 - [RegisterAffiliateClickResponse](docs/Model/RegisterAffiliateClickResponse.md)
+- [ReplaceOrderItemIdRequest](docs/Model/ReplaceOrderItemIdRequest.md)
 - [Report](docs/Model/Report.md)
 - [ReportAuth](docs/Model/ReportAuth.md)
 - [ReportAuthResponse](docs/Model/ReportAuthResponse.md)
@@ -1600,6 +1607,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.21 | 09/09/2025 | added OrderRestApi.replaceOrderItemMerchantItemId |
 | 4.1.20 | 08/18/2025 | storefront communiations - campaign repeat flags |
 | 4.1.19 | 08/04/2025 | conversations api - add zoho departments to getCapabilities call |
 | 4.1.18 | 08/04/2025 | more internal development on loyalty step for storefront flows |
