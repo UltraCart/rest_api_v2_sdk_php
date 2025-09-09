@@ -1,6 +1,6 @@
 <?php
 /**
- * ItemTag
+ * CustomReportChartPngUploadResponse
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ItemTag Class Doc Comment
+ * CustomReportChartPngUploadResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ItemTag implements ModelInterface, ArrayAccess
+class CustomReportChartPngUploadResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ItemTag implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ItemTag';
+    protected static $swaggerModelName = 'CustomReportChartPngUploadResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,12 @@ class ItemTag implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'tag_type' => 'string',
-        'tag_value' => 'string'
+        'error' => '\ultracart\v2\models\Error',
+        'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'signed_download_url' => 'string',
+        'signed_upload_url' => 'string',
+        'success' => 'bool',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -67,8 +71,12 @@ class ItemTag implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'tag_type' => null,
-        'tag_value' => null
+        'error' => null,
+        'metadata' => null,
+        'signed_download_url' => null,
+        'signed_upload_url' => null,
+        'success' => null,
+        'warning' => null
     ];
 
     /**
@@ -98,8 +106,12 @@ class ItemTag implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'tag_type' => 'tagType',
-        'tag_value' => 'tagValue'
+        'error' => 'error',
+        'metadata' => 'metadata',
+        'signed_download_url' => 'signed_download_url',
+        'signed_upload_url' => 'signed_upload_url',
+        'success' => 'success',
+        'warning' => 'warning'
     ];
 
     /**
@@ -108,8 +120,12 @@ class ItemTag implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'tag_type' => 'setTagType',
-        'tag_value' => 'setTagValue'
+        'error' => 'setError',
+        'metadata' => 'setMetadata',
+        'signed_download_url' => 'setSignedDownloadUrl',
+        'signed_upload_url' => 'setSignedUploadUrl',
+        'success' => 'setSuccess',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -118,8 +134,12 @@ class ItemTag implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'tag_type' => 'getTagType',
-        'tag_value' => 'getTagValue'
+        'error' => 'getError',
+        'metadata' => 'getMetadata',
+        'signed_download_url' => 'getSignedDownloadUrl',
+        'signed_upload_url' => 'getSignedUploadUrl',
+        'success' => 'getSuccess',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -163,25 +183,8 @@ class ItemTag implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TAG_TYPE_ITEM = 'item';
-    const TAG_TYPE_ORDER = 'order';
-    const TAG_TYPE_CUSTOMER = 'customer';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTagTypeAllowableValues()
-    {
-        return [
-            self::TAG_TYPE_ITEM,
-            self::TAG_TYPE_ORDER,
-            self::TAG_TYPE_CUSTOMER,
-        ];
-    }
     
 
     /**
@@ -199,8 +202,12 @@ class ItemTag implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['tag_type'] = isset($data['tag_type']) ? $data['tag_type'] : null;
-        $this->container['tag_value'] = isset($data['tag_value']) ? $data['tag_value'] : null;
+        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['signed_download_url'] = isset($data['signed_download_url']) ? $data['signed_download_url'] : null;
+        $this->container['signed_upload_url'] = isset($data['signed_upload_url']) ? $data['signed_upload_url'] : null;
+        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
 
     /**
@@ -211,18 +218,6 @@ class ItemTag implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getTagTypeAllowableValues();
-        if (!is_null($this->container['tag_type']) && !in_array($this->container['tag_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'tag_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if (!is_null($this->container['tag_value']) && (mb_strlen($this->container['tag_value']) > 100)) {
-            $invalidProperties[] = "invalid value for 'tag_value', the character length must be smaller than or equal to 100.";
-        }
 
         return $invalidProperties;
     }
@@ -240,62 +235,145 @@ class ItemTag implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets tag_type
+     * Gets error
      *
-     * @return string
+     * @return \ultracart\v2\models\Error
      */
-    public function getTagType()
+    public function getError()
     {
-        return $this->container['tag_type'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets tag_type
+     * Sets error
      *
-     * @param string $tag_type tag_type
+     * @param \ultracart\v2\models\Error $error error
      *
      * @return $this
      */
-    public function setTagType($tag_type)
+    public function setError($error)
     {
-        $allowedValues = $this->getTagTypeAllowableValues();
-        if (!is_null($tag_type) && !in_array($tag_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'tag_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['tag_type'] = $tag_type;
+        $this->container['error'] = $error;
 
         return $this;
     }
 
     /**
-     * Gets tag_value
+     * Gets metadata
      *
-     * @return string
+     * @return \ultracart\v2\models\ResponseMetadata
      */
-    public function getTagValue()
+    public function getMetadata()
     {
-        return $this->container['tag_value'];
+        return $this->container['metadata'];
     }
 
     /**
-     * Sets tag_value
+     * Sets metadata
      *
-     * @param string $tag_value tag_value
+     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
      *
      * @return $this
      */
-    public function setTagValue($tag_value)
+    public function setMetadata($metadata)
     {
-        if (!is_null($tag_value) && (mb_strlen($tag_value) > 100)) {
-            throw new \InvalidArgumentException('invalid length for $tag_value when calling ItemTag., must be smaller than or equal to 100.');
-        }
+        $this->container['metadata'] = $metadata;
 
-        $this->container['tag_value'] = $tag_value;
+        return $this;
+    }
+
+    /**
+     * Gets signed_download_url
+     *
+     * @return string
+     */
+    public function getSignedDownloadUrl()
+    {
+        return $this->container['signed_download_url'];
+    }
+
+    /**
+     * Sets signed_download_url
+     *
+     * @param string $signed_download_url signed_download_url
+     *
+     * @return $this
+     */
+    public function setSignedDownloadUrl($signed_download_url)
+    {
+        $this->container['signed_download_url'] = $signed_download_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets signed_upload_url
+     *
+     * @return string
+     */
+    public function getSignedUploadUrl()
+    {
+        return $this->container['signed_upload_url'];
+    }
+
+    /**
+     * Sets signed_upload_url
+     *
+     * @param string $signed_upload_url signed_upload_url
+     *
+     * @return $this
+     */
+    public function setSignedUploadUrl($signed_upload_url)
+    {
+        $this->container['signed_upload_url'] = $signed_upload_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets success
+     *
+     * @return bool
+     */
+    public function getSuccess()
+    {
+        return $this->container['success'];
+    }
+
+    /**
+     * Sets success
+     *
+     * @param bool $success Indicates if API call was successful
+     *
+     * @return $this
+     */
+    public function setSuccess($success)
+    {
+        $this->container['success'] = $success;
+
+        return $this;
+    }
+
+    /**
+     * Gets warning
+     *
+     * @return \ultracart\v2\models\Warning
+     */
+    public function getWarning()
+    {
+        return $this->container['warning'];
+    }
+
+    /**
+     * Sets warning
+     *
+     * @param \ultracart\v2\models\Warning $warning warning
+     *
+     * @return $this
+     */
+    public function setWarning($warning)
+    {
+        $this->container['warning'] = $warning;
 
         return $this;
     }

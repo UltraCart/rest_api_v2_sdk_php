@@ -1,6 +1,6 @@
 <?php
 /**
- * ItemTag
+ * ReplaceOrderItemIdRequest
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ItemTag Class Doc Comment
+ * ReplaceOrderItemIdRequest Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ItemTag implements ModelInterface, ArrayAccess
+class ReplaceOrderItemIdRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ItemTag implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ItemTag';
+    protected static $swaggerModelName = 'ReplaceOrderItemIdRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,10 @@ class ItemTag implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'tag_type' => 'string',
-        'tag_value' => 'string'
+        'item_index' => 'int',
+        'merchant_item_id' => 'string',
+        'order_id' => 'string',
+        'replacement_merchant_item_id' => 'string'
     ];
 
     /**
@@ -67,8 +69,10 @@ class ItemTag implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'tag_type' => null,
-        'tag_value' => null
+        'item_index' => 'int32',
+        'merchant_item_id' => null,
+        'order_id' => null,
+        'replacement_merchant_item_id' => null
     ];
 
     /**
@@ -98,8 +102,10 @@ class ItemTag implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'tag_type' => 'tagType',
-        'tag_value' => 'tagValue'
+        'item_index' => 'item_index',
+        'merchant_item_id' => 'merchant_item_id',
+        'order_id' => 'order_id',
+        'replacement_merchant_item_id' => 'replacement_merchant_item_id'
     ];
 
     /**
@@ -108,8 +114,10 @@ class ItemTag implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'tag_type' => 'setTagType',
-        'tag_value' => 'setTagValue'
+        'item_index' => 'setItemIndex',
+        'merchant_item_id' => 'setMerchantItemId',
+        'order_id' => 'setOrderId',
+        'replacement_merchant_item_id' => 'setReplacementMerchantItemId'
     ];
 
     /**
@@ -118,8 +126,10 @@ class ItemTag implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'tag_type' => 'getTagType',
-        'tag_value' => 'getTagValue'
+        'item_index' => 'getItemIndex',
+        'merchant_item_id' => 'getMerchantItemId',
+        'order_id' => 'getOrderId',
+        'replacement_merchant_item_id' => 'getReplacementMerchantItemId'
     ];
 
     /**
@@ -163,25 +173,8 @@ class ItemTag implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TAG_TYPE_ITEM = 'item';
-    const TAG_TYPE_ORDER = 'order';
-    const TAG_TYPE_CUSTOMER = 'customer';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTagTypeAllowableValues()
-    {
-        return [
-            self::TAG_TYPE_ITEM,
-            self::TAG_TYPE_ORDER,
-            self::TAG_TYPE_CUSTOMER,
-        ];
-    }
     
 
     /**
@@ -199,8 +192,10 @@ class ItemTag implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['tag_type'] = isset($data['tag_type']) ? $data['tag_type'] : null;
-        $this->container['tag_value'] = isset($data['tag_value']) ? $data['tag_value'] : null;
+        $this->container['item_index'] = isset($data['item_index']) ? $data['item_index'] : null;
+        $this->container['merchant_item_id'] = isset($data['merchant_item_id']) ? $data['merchant_item_id'] : null;
+        $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
+        $this->container['replacement_merchant_item_id'] = isset($data['replacement_merchant_item_id']) ? $data['replacement_merchant_item_id'] : null;
     }
 
     /**
@@ -212,16 +207,12 @@ class ItemTag implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getTagTypeAllowableValues();
-        if (!is_null($this->container['tag_type']) && !in_array($this->container['tag_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'tag_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
+        if (!is_null($this->container['merchant_item_id']) && (mb_strlen($this->container['merchant_item_id']) > 20)) {
+            $invalidProperties[] = "invalid value for 'merchant_item_id', the character length must be smaller than or equal to 20.";
         }
 
-        if (!is_null($this->container['tag_value']) && (mb_strlen($this->container['tag_value']) > 100)) {
-            $invalidProperties[] = "invalid value for 'tag_value', the character length must be smaller than or equal to 100.";
+        if (!is_null($this->container['replacement_merchant_item_id']) && (mb_strlen($this->container['replacement_merchant_item_id']) > 20)) {
+            $invalidProperties[] = "invalid value for 'replacement_merchant_item_id', the character length must be smaller than or equal to 20.";
         }
 
         return $invalidProperties;
@@ -240,62 +231,105 @@ class ItemTag implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets tag_type
+     * Gets item_index
      *
-     * @return string
+     * @return int
      */
-    public function getTagType()
+    public function getItemIndex()
     {
-        return $this->container['tag_type'];
+        return $this->container['item_index'];
     }
 
     /**
-     * Sets tag_type
+     * Sets item_index
      *
-     * @param string $tag_type tag_type
+     * @param int $item_index Index of the item on the order (one based index)
      *
      * @return $this
      */
-    public function setTagType($tag_type)
+    public function setItemIndex($item_index)
     {
-        $allowedValues = $this->getTagTypeAllowableValues();
-        if (!is_null($tag_type) && !in_array($tag_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'tag_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['tag_type'] = $tag_type;
+        $this->container['item_index'] = $item_index;
 
         return $this;
     }
 
     /**
-     * Gets tag_value
+     * Gets merchant_item_id
      *
      * @return string
      */
-    public function getTagValue()
+    public function getMerchantItemId()
     {
-        return $this->container['tag_value'];
+        return $this->container['merchant_item_id'];
     }
 
     /**
-     * Sets tag_value
+     * Sets merchant_item_id
      *
-     * @param string $tag_value tag_value
+     * @param string $merchant_item_id Item ID
      *
      * @return $this
      */
-    public function setTagValue($tag_value)
+    public function setMerchantItemId($merchant_item_id)
     {
-        if (!is_null($tag_value) && (mb_strlen($tag_value) > 100)) {
-            throw new \InvalidArgumentException('invalid length for $tag_value when calling ItemTag., must be smaller than or equal to 100.');
+        if (!is_null($merchant_item_id) && (mb_strlen($merchant_item_id) > 20)) {
+            throw new \InvalidArgumentException('invalid length for $merchant_item_id when calling ReplaceOrderItemIdRequest., must be smaller than or equal to 20.');
         }
 
-        $this->container['tag_value'] = $tag_value;
+        $this->container['merchant_item_id'] = $merchant_item_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_id
+     *
+     * @return string
+     */
+    public function getOrderId()
+    {
+        return $this->container['order_id'];
+    }
+
+    /**
+     * Sets order_id
+     *
+     * @param string $order_id Order ID
+     *
+     * @return $this
+     */
+    public function setOrderId($order_id)
+    {
+        $this->container['order_id'] = $order_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets replacement_merchant_item_id
+     *
+     * @return string
+     */
+    public function getReplacementMerchantItemId()
+    {
+        return $this->container['replacement_merchant_item_id'];
+    }
+
+    /**
+     * Sets replacement_merchant_item_id
+     *
+     * @param string $replacement_merchant_item_id Replacement Item ID
+     *
+     * @return $this
+     */
+    public function setReplacementMerchantItemId($replacement_merchant_item_id)
+    {
+        if (!is_null($replacement_merchant_item_id) && (mb_strlen($replacement_merchant_item_id) > 20)) {
+            throw new \InvalidArgumentException('invalid length for $replacement_merchant_item_id when calling ReplaceOrderItemIdRequest., must be smaller than or equal to 20.');
+        }
+
+        $this->container['replacement_merchant_item_id'] = $replacement_merchant_item_id;
 
         return $this;
     }

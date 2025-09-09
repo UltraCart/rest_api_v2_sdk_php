@@ -64,6 +64,7 @@ class CustomReportAccountConfig implements ModelInterface, ArrayAccess
         'opt_in' => 'bool',
         'opt_in_by_user' => 'string',
         'opt_in_date' => 'string',
+        'read_only' => 'bool',
         'sql_budget' => 'float',
         'sql_usage' => 'float'
     ];
@@ -81,6 +82,7 @@ class CustomReportAccountConfig implements ModelInterface, ArrayAccess
         'opt_in' => null,
         'opt_in_by_user' => null,
         'opt_in_date' => 'dateTime',
+        'read_only' => null,
         'sql_budget' => null,
         'sql_usage' => null
     ];
@@ -119,6 +121,7 @@ class CustomReportAccountConfig implements ModelInterface, ArrayAccess
         'opt_in' => 'opt_in',
         'opt_in_by_user' => 'opt_in_by_user',
         'opt_in_date' => 'opt_in_date',
+        'read_only' => 'read_only',
         'sql_budget' => 'sql_budget',
         'sql_usage' => 'sql_usage'
     ];
@@ -136,6 +139,7 @@ class CustomReportAccountConfig implements ModelInterface, ArrayAccess
         'opt_in' => 'setOptIn',
         'opt_in_by_user' => 'setOptInByUser',
         'opt_in_date' => 'setOptInDate',
+        'read_only' => 'setReadOnly',
         'sql_budget' => 'setSqlBudget',
         'sql_usage' => 'setSqlUsage'
     ];
@@ -153,6 +157,7 @@ class CustomReportAccountConfig implements ModelInterface, ArrayAccess
         'opt_in' => 'getOptIn',
         'opt_in_by_user' => 'getOptInByUser',
         'opt_in_date' => 'getOptInDate',
+        'read_only' => 'getReadOnly',
         'sql_budget' => 'getSqlBudget',
         'sql_usage' => 'getSqlUsage'
     ];
@@ -224,6 +229,7 @@ class CustomReportAccountConfig implements ModelInterface, ArrayAccess
         $this->container['opt_in'] = isset($data['opt_in']) ? $data['opt_in'] : null;
         $this->container['opt_in_by_user'] = isset($data['opt_in_by_user']) ? $data['opt_in_by_user'] : null;
         $this->container['opt_in_date'] = isset($data['opt_in_date']) ? $data['opt_in_date'] : null;
+        $this->container['read_only'] = isset($data['read_only']) ? $data['read_only'] : null;
         $this->container['sql_budget'] = isset($data['sql_budget']) ? $data['sql_budget'] : null;
         $this->container['sql_usage'] = isset($data['sql_usage']) ? $data['sql_usage'] : null;
     }
@@ -416,6 +422,30 @@ class CustomReportAccountConfig implements ModelInterface, ArrayAccess
     public function setOptInDate($opt_in_date)
     {
         $this->container['opt_in_date'] = $opt_in_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets read_only
+     *
+     * @return bool
+     */
+    public function getReadOnly()
+    {
+        return $this->container['read_only'];
+    }
+
+    /**
+     * Sets read_only
+     *
+     * @param bool $read_only read_only
+     *
+     * @return $this
+     */
+    public function setReadOnly($read_only)
+    {
+        $this->container['read_only'] = $read_only;
 
         return $this;
     }

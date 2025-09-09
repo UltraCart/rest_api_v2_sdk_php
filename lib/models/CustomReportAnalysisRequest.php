@@ -1,6 +1,6 @@
 <?php
 /**
- * ItemTag
+ * CustomReportAnalysisRequest
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ItemTag Class Doc Comment
+ * CustomReportAnalysisRequest Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ItemTag implements ModelInterface, ArrayAccess
+class CustomReportAnalysisRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ItemTag implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ItemTag';
+    protected static $swaggerModelName = 'CustomReportAnalysisRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,8 @@ class ItemTag implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'tag_type' => 'string',
-        'tag_value' => 'string'
+        'png_url' => 'string',
+        'result_url' => 'string'
     ];
 
     /**
@@ -67,8 +67,8 @@ class ItemTag implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'tag_type' => null,
-        'tag_value' => null
+        'png_url' => null,
+        'result_url' => null
     ];
 
     /**
@@ -98,8 +98,8 @@ class ItemTag implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'tag_type' => 'tagType',
-        'tag_value' => 'tagValue'
+        'png_url' => 'png_url',
+        'result_url' => 'result_url'
     ];
 
     /**
@@ -108,8 +108,8 @@ class ItemTag implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'tag_type' => 'setTagType',
-        'tag_value' => 'setTagValue'
+        'png_url' => 'setPngUrl',
+        'result_url' => 'setResultUrl'
     ];
 
     /**
@@ -118,8 +118,8 @@ class ItemTag implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'tag_type' => 'getTagType',
-        'tag_value' => 'getTagValue'
+        'png_url' => 'getPngUrl',
+        'result_url' => 'getResultUrl'
     ];
 
     /**
@@ -163,25 +163,8 @@ class ItemTag implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TAG_TYPE_ITEM = 'item';
-    const TAG_TYPE_ORDER = 'order';
-    const TAG_TYPE_CUSTOMER = 'customer';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTagTypeAllowableValues()
-    {
-        return [
-            self::TAG_TYPE_ITEM,
-            self::TAG_TYPE_ORDER,
-            self::TAG_TYPE_CUSTOMER,
-        ];
-    }
     
 
     /**
@@ -199,8 +182,8 @@ class ItemTag implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['tag_type'] = isset($data['tag_type']) ? $data['tag_type'] : null;
-        $this->container['tag_value'] = isset($data['tag_value']) ? $data['tag_value'] : null;
+        $this->container['png_url'] = isset($data['png_url']) ? $data['png_url'] : null;
+        $this->container['result_url'] = isset($data['result_url']) ? $data['result_url'] : null;
     }
 
     /**
@@ -211,18 +194,6 @@ class ItemTag implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getTagTypeAllowableValues();
-        if (!is_null($this->container['tag_type']) && !in_array($this->container['tag_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'tag_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if (!is_null($this->container['tag_value']) && (mb_strlen($this->container['tag_value']) > 100)) {
-            $invalidProperties[] = "invalid value for 'tag_value', the character length must be smaller than or equal to 100.";
-        }
 
         return $invalidProperties;
     }
@@ -240,62 +211,49 @@ class ItemTag implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets tag_type
+     * Gets png_url
      *
      * @return string
      */
-    public function getTagType()
+    public function getPngUrl()
     {
-        return $this->container['tag_type'];
+        return $this->container['png_url'];
     }
 
     /**
-     * Sets tag_type
+     * Sets png_url
      *
-     * @param string $tag_type tag_type
+     * @param string $png_url png_url
      *
      * @return $this
      */
-    public function setTagType($tag_type)
+    public function setPngUrl($png_url)
     {
-        $allowedValues = $this->getTagTypeAllowableValues();
-        if (!is_null($tag_type) && !in_array($tag_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'tag_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['tag_type'] = $tag_type;
+        $this->container['png_url'] = $png_url;
 
         return $this;
     }
 
     /**
-     * Gets tag_value
+     * Gets result_url
      *
      * @return string
      */
-    public function getTagValue()
+    public function getResultUrl()
     {
-        return $this->container['tag_value'];
+        return $this->container['result_url'];
     }
 
     /**
-     * Sets tag_value
+     * Sets result_url
      *
-     * @param string $tag_value tag_value
+     * @param string $result_url result_url
      *
      * @return $this
      */
-    public function setTagValue($tag_value)
+    public function setResultUrl($result_url)
     {
-        if (!is_null($tag_value) && (mb_strlen($tag_value) > 100)) {
-            throw new \InvalidArgumentException('invalid length for $tag_value when calling ItemTag., must be smaller than or equal to 100.');
-        }
-
-        $this->container['tag_value'] = $tag_value;
+        $this->container['result_url'] = $result_url;
 
         return $this;
     }
