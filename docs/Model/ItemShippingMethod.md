@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **shipping_method** | **string** | Shipping method name | [optional] 
 **shipping_method_oid** | **int** | Shipping method object identifier | [optional] 
 **shipping_method_validity** | **string** | Shipping method validity | [optional] 
+**ships_separately** | **bool** | Ships separately | [optional] 
 **signature_required** | **bool** | Signature required | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -1654,6 +1654,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.22 | 10/06/2025 | added Customer.fax back into object model |
 | 3.11.21 | 09/09/2025 | added OrderRestApi.replaceOrderItemMerchantItemId |
 | 3.11.20 | 08/18/2025 | storefront communiations - campaign repeat flags |
 | 3.11.19 | 08/04/2025 | conversations api - add zoho departments to getCapabilities call |

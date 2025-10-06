@@ -80,6 +80,7 @@ class Customer implements ModelInterface, ArrayAccess
         'edi' => '\ultracart\v2\models\CustomerEDI',
         'email' => 'string',
         'exempt_shipping_handling_charge' => 'bool',
+        'fax' => 'string',
         'fedex_account_number' => 'string',
         'free_shipping' => 'bool',
         'free_shipping_minimum' => 'float',
@@ -152,6 +153,7 @@ class Customer implements ModelInterface, ArrayAccess
         'edi' => null,
         'email' => null,
         'exempt_shipping_handling_charge' => null,
+        'fax' => null,
         'fedex_account_number' => null,
         'free_shipping' => null,
         'free_shipping_minimum' => null,
@@ -245,6 +247,7 @@ class Customer implements ModelInterface, ArrayAccess
         'edi' => 'edi',
         'email' => 'email',
         'exempt_shipping_handling_charge' => 'exempt_shipping_handling_charge',
+        'fax' => 'fax',
         'fedex_account_number' => 'fedex_account_number',
         'free_shipping' => 'free_shipping',
         'free_shipping_minimum' => 'free_shipping_minimum',
@@ -317,6 +320,7 @@ class Customer implements ModelInterface, ArrayAccess
         'edi' => 'setEdi',
         'email' => 'setEmail',
         'exempt_shipping_handling_charge' => 'setExemptShippingHandlingCharge',
+        'fax' => 'setFax',
         'fedex_account_number' => 'setFedexAccountNumber',
         'free_shipping' => 'setFreeShipping',
         'free_shipping_minimum' => 'setFreeShippingMinimum',
@@ -389,6 +393,7 @@ class Customer implements ModelInterface, ArrayAccess
         'edi' => 'getEdi',
         'email' => 'getEmail',
         'exempt_shipping_handling_charge' => 'getExemptShippingHandlingCharge',
+        'fax' => 'getFax',
         'fedex_account_number' => 'getFedexAccountNumber',
         'free_shipping' => 'getFreeShipping',
         'free_shipping_minimum' => 'getFreeShippingMinimum',
@@ -515,6 +520,7 @@ class Customer implements ModelInterface, ArrayAccess
         $this->container['edi'] = isset($data['edi']) ? $data['edi'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['exempt_shipping_handling_charge'] = isset($data['exempt_shipping_handling_charge']) ? $data['exempt_shipping_handling_charge'] : null;
+        $this->container['fax'] = isset($data['fax']) ? $data['fax'] : null;
         $this->container['fedex_account_number'] = isset($data['fedex_account_number']) ? $data['fedex_account_number'] : null;
         $this->container['free_shipping'] = isset($data['free_shipping']) ? $data['free_shipping'] : null;
         $this->container['free_shipping_minimum'] = isset($data['free_shipping_minimum']) ? $data['free_shipping_minimum'] : null;
@@ -577,6 +583,10 @@ class Customer implements ModelInterface, ArrayAccess
 
         if (!is_null($this->container['dhl_duty_account_number']) && (mb_strlen($this->container['dhl_duty_account_number']) > 20)) {
             $invalidProperties[] = "invalid value for 'dhl_duty_account_number', the character length must be smaller than or equal to 20.";
+        }
+
+        if (!is_null($this->container['fax']) && (mb_strlen($this->container['fax']) > 32)) {
+            $invalidProperties[] = "invalid value for 'fax', the character length must be smaller than or equal to 32.";
         }
 
         if (!is_null($this->container['fedex_account_number']) && (mb_strlen($this->container['fedex_account_number']) > 20)) {
@@ -1186,6 +1196,34 @@ class Customer implements ModelInterface, ArrayAccess
     public function setExemptShippingHandlingCharge($exempt_shipping_handling_charge)
     {
         $this->container['exempt_shipping_handling_charge'] = $exempt_shipping_handling_charge;
+
+        return $this;
+    }
+
+    /**
+     * Gets fax
+     *
+     * @return string
+     */
+    public function getFax()
+    {
+        return $this->container['fax'];
+    }
+
+    /**
+     * Sets fax
+     *
+     * @param string $fax Fax Number
+     *
+     * @return $this
+     */
+    public function setFax($fax)
+    {
+        if (!is_null($fax) && (mb_strlen($fax) > 32)) {
+            throw new \InvalidArgumentException('invalid length for $fax when calling Customer., must be smaller than or equal to 32.');
+        }
+
+        $this->container['fax'] = $fax;
 
         return $this;
     }
