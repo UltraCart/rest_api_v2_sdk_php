@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.21"
+    "ultracart/rest_api_v2_sdk_php": "4.1.22"
   }
 }
 ```
@@ -1607,6 +1607,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.22 | 10/06/2025 | added Customer.fax back into object model |
 | 4.1.21 | 09/09/2025 | added OrderRestApi.replaceOrderItemMerchantItemId |
 | 4.1.20 | 08/18/2025 | storefront communiations - campaign repeat flags |
 | 4.1.19 | 08/04/2025 | conversations api - add zoho departments to getCapabilities call |

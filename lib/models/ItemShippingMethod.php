@@ -72,6 +72,7 @@ class ItemShippingMethod implements ModelInterface, ArrayAccess, \JsonSerializab
         'shipping_method' => 'string',
         'shipping_method_oid' => 'int',
         'shipping_method_validity' => 'string',
+        'ships_separately' => 'bool',
         'signature_required' => 'bool'
     ];
 
@@ -97,6 +98,7 @@ class ItemShippingMethod implements ModelInterface, ArrayAccess, \JsonSerializab
         'shipping_method' => null,
         'shipping_method_oid' => 'int32',
         'shipping_method_validity' => null,
+        'ships_separately' => null,
         'signature_required' => null
     ];
 
@@ -141,6 +143,7 @@ class ItemShippingMethod implements ModelInterface, ArrayAccess, \JsonSerializab
         'shipping_method' => 'shipping_method',
         'shipping_method_oid' => 'shipping_method_oid',
         'shipping_method_validity' => 'shipping_method_validity',
+        'ships_separately' => 'ships_separately',
         'signature_required' => 'signature_required'
     ];
 
@@ -164,6 +167,7 @@ class ItemShippingMethod implements ModelInterface, ArrayAccess, \JsonSerializab
         'shipping_method' => 'setShippingMethod',
         'shipping_method_oid' => 'setShippingMethodOid',
         'shipping_method_validity' => 'setShippingMethodValidity',
+        'ships_separately' => 'setShipsSeparately',
         'signature_required' => 'setSignatureRequired'
     ];
 
@@ -187,6 +191,7 @@ class ItemShippingMethod implements ModelInterface, ArrayAccess, \JsonSerializab
         'shipping_method' => 'getShippingMethod',
         'shipping_method_oid' => 'getShippingMethodOid',
         'shipping_method_validity' => 'getShippingMethodValidity',
+        'ships_separately' => 'getShipsSeparately',
         'signature_required' => 'getSignatureRequired'
     ];
 
@@ -278,6 +283,7 @@ class ItemShippingMethod implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->container['shipping_method'] = $data['shipping_method'] ?? null;
         $this->container['shipping_method_oid'] = $data['shipping_method_oid'] ?? null;
         $this->container['shipping_method_validity'] = $data['shipping_method_validity'] ?? null;
+        $this->container['ships_separately'] = $data['ships_separately'] ?? null;
         $this->container['signature_required'] = $data['signature_required'] ?? null;
     }
 
@@ -656,6 +662,30 @@ class ItemShippingMethod implements ModelInterface, ArrayAccess, \JsonSerializab
             );
         }
         $this->container['shipping_method_validity'] = $shipping_method_validity;
+
+        return $this;
+    }
+
+    /**
+     * Gets ships_separately
+     *
+     * @return bool|null
+     */
+    public function getShipsSeparately()
+    {
+        return $this->container['ships_separately'];
+    }
+
+    /**
+     * Sets ships_separately
+     *
+     * @param bool|null $ships_separately Ships separately
+     *
+     * @return self
+     */
+    public function setShipsSeparately($ships_separately)
+    {
+        $this->container['ships_separately'] = $ships_separately;
 
         return $this;
     }

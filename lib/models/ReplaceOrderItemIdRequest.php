@@ -243,7 +243,7 @@ class ReplaceOrderItemIdRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets item_index
      *
-     * @param int|null $item_index Index of the item on the order (one based index)
+     * @param int|null $item_index Index of the item on the order.  Must match order.items[].item_index
      *
      * @return self
      */
