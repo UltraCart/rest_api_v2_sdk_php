@@ -204,6 +204,7 @@ Class | Method | HTTP request | Description
 *CheckoutApi* | [**setupBrowserKey**](docs/Api/CheckoutApi.md#setupbrowserkey) | **PUT** /checkout/browser_key | Setup Browser Application
 *CheckoutApi* | [**updateCart**](docs/Api/CheckoutApi.md#updatecart) | **PUT** /checkout/cart | Update cart
 *CheckoutApi* | [**validateCart**](docs/Api/CheckoutApi.md#validatecart) | **POST** /checkout/cart/validate | Validate
+*ConversationApi* | [**deleteAgentProfileKnowledgeBaseDocument**](docs/Api/ConversationApi.md#deleteagentprofileknowledgebasedocument) | **DELETE** /conversation/agent/profiles/{user_id}/knowledge_base/{document_uuid} | Delete a knowledge base document
 *ConversationApi* | [**deleteConversationCannedMessage**](docs/Api/ConversationApi.md#deleteconversationcannedmessage) | **DELETE** /conversation/canned_messages/{conversation_canned_message_oid} | Delete a conversation canned message
 *ConversationApi* | [**deleteDepartment**](docs/Api/ConversationApi.md#deletedepartment) | **DELETE** /conversation/departments/{conversation_department_oid} | Delete a conversation department
 *ConversationApi* | [**deleteEngagement**](docs/Api/ConversationApi.md#deleteengagement) | **DELETE** /conversation/engagements/{conversation_engagement_oid} | Delete a conversation engagement
@@ -217,6 +218,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**deletePbxVoicemailMailbox**](docs/Api/ConversationApi.md#deletepbxvoicemailmailbox) | **DELETE** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Delete pbx voicemailMailbox
 *ConversationApi* | [**getAgentKeepAlive**](docs/Api/ConversationApi.md#getagentkeepalive) | **GET** /conversation/agent/keepalive | Agent keep alive
 *ConversationApi* | [**getAgentProfile**](docs/Api/ConversationApi.md#getagentprofile) | **GET** /conversation/agent/profile | Get agent profile
+*ConversationApi* | [**getAgentProfileKnowledgeBase**](docs/Api/ConversationApi.md#getagentprofileknowledgebase) | **GET** /conversation/agent/profiles/{user_id}/knowledge_base | Get the list of knowledge base documents associated with this agent profile
 *ConversationApi* | [**getAgentProfiles**](docs/Api/ConversationApi.md#getagentprofiles) | **GET** /conversation/agent/profiles | Get agent profiles
 *ConversationApi* | [**getAgentWebsocketAuthorization**](docs/Api/ConversationApi.md#getagentwebsocketauthorization) | **PUT** /conversation/agent/auth | Get agent websocket authorization
 *ConversationApi* | [**getConversation**](docs/Api/ConversationApi.md#getconversation) | **GET** /conversation/conversations/{conversation_uuid} | Retrieve a conversation
@@ -226,6 +228,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getConversationDepartments**](docs/Api/ConversationApi.md#getconversationdepartments) | **GET** /conversation/departments | Retrieve a list of departments ordered by name
 *ConversationApi* | [**getConversationEngagement**](docs/Api/ConversationApi.md#getconversationengagement) | **GET** /conversation/engagements/{conversation_engagement_oid} | Retrieve an engagement
 *ConversationApi* | [**getConversationEngagements**](docs/Api/ConversationApi.md#getconversationengagements) | **GET** /conversation/engagements | Retrieve a list of engagements ordered by name
+*ConversationApi* | [**getConversationKnowledgeBaseDocumentUploadUrl**](docs/Api/ConversationApi.md#getconversationknowledgebasedocumentuploadurl) | **GET** /conversation//rest/v2/conversation/agent/profiles/{user_id}/knowledge_base/upload_url/{extension} | Get a pre-signed conversation knowledge base document upload URL
 *ConversationApi* | [**getConversationMessages**](docs/Api/ConversationApi.md#getconversationmessages) | **GET** /conversation/conversations/{conversation_uuid}/messages/{since} | Retrieve conversation messages
 *ConversationApi* | [**getConversationMultimediaUploadUrl**](docs/Api/ConversationApi.md#getconversationmultimediauploadurl) | **GET** /conversation/upload_url/{extension} | Get a presigned conversation multimedia upload URL
 *ConversationApi* | [**getConversationPbxAudioUploadUrl**](docs/Api/ConversationApi.md#getconversationpbxaudiouploadurl) | **GET** /conversation/pbx/audio/upload_url/{extension} | Get a pre-signed conversation multimedia upload URL
@@ -259,6 +262,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getPbxVoicemailMailboxes**](docs/Api/ConversationApi.md#getpbxvoicemailmailboxes) | **GET** /conversation/pbx/voicemail_mailbox | Get pbx voicemailMailboxes
 *ConversationApi* | [**getVirtualAgentBudget**](docs/Api/ConversationApi.md#getvirtualagentbudget) | **GET** /conversation/virtualagent/budget | Get virtual agent budget
 *ConversationApi* | [**getVirtualAgentCapabilities**](docs/Api/ConversationApi.md#getvirtualagentcapabilities) | **GET** /conversation/virtualagent/capabilities | Get virtual agent capabilities
+*ConversationApi* | [**insertAgentProfileKnowledgeBaseDocument**](docs/Api/ConversationApi.md#insertagentprofileknowledgebasedocument) | **POST** /conversation/agent/profiles/{user_id}/knowledge_base | Insert a knowledge base document
 *ConversationApi* | [**insertConversationCannedMessage**](docs/Api/ConversationApi.md#insertconversationcannedmessage) | **POST** /conversation/canned_messages | Insert a canned message
 *ConversationApi* | [**insertConversationDepartment**](docs/Api/ConversationApi.md#insertconversationdepartment) | **POST** /conversation/departments | Insert a department
 *ConversationApi* | [**insertConversationEngagement**](docs/Api/ConversationApi.md#insertconversationengagement) | **POST** /conversation/engagements | Insert a engagement
@@ -825,6 +829,7 @@ Class | Method | HTTP request | Description
  - [ConversationCannedMessageResponse](docs/Model/ConversationCannedMessageResponse.md)
  - [ConversationCannedMessagesResponse](docs/Model/ConversationCannedMessagesResponse.md)
  - [ConversationCannedMessagesSearch](docs/Model/ConversationCannedMessagesSearch.md)
+ - [ConversationDeleteKnowledgeBaseDocumentResponse](docs/Model/ConversationDeleteKnowledgeBaseDocumentResponse.md)
  - [ConversationDepartment](docs/Model/ConversationDepartment.md)
  - [ConversationDepartmentMember](docs/Model/ConversationDepartmentMember.md)
  - [ConversationDepartmentMembersResponse](docs/Model/ConversationDepartmentMembersResponse.md)
@@ -844,7 +849,13 @@ Class | Method | HTTP request | Description
  - [ConversationEventReadMessage](docs/Model/ConversationEventReadMessage.md)
  - [ConversationEventTyping](docs/Model/ConversationEventTyping.md)
  - [ConversationEventWebchatContext](docs/Model/ConversationEventWebchatContext.md)
+ - [ConversationInsertKnowledgeBaseDocumentRequest](docs/Model/ConversationInsertKnowledgeBaseDocumentRequest.md)
+ - [ConversationInsertKnowledgeBaseDocumentResponse](docs/Model/ConversationInsertKnowledgeBaseDocumentResponse.md)
  - [ConversationJoinRequest](docs/Model/ConversationJoinRequest.md)
+ - [ConversationKnowledgeBaseDocument](docs/Model/ConversationKnowledgeBaseDocument.md)
+ - [ConversationKnowledgeBaseDocumentUploadUrl](docs/Model/ConversationKnowledgeBaseDocumentUploadUrl.md)
+ - [ConversationKnowledgeBaseDocumentUploadUrlResponse](docs/Model/ConversationKnowledgeBaseDocumentUploadUrlResponse.md)
+ - [ConversationKnowledgeBaseDocumentsResponse](docs/Model/ConversationKnowledgeBaseDocumentsResponse.md)
  - [ConversationLocationCountry](docs/Model/ConversationLocationCountry.md)
  - [ConversationLocationStateProvince](docs/Model/ConversationLocationStateProvince.md)
  - [ConversationLocationsResponse](docs/Model/ConversationLocationsResponse.md)
@@ -1011,6 +1022,7 @@ Class | Method | HTTP request | Description
  - [CustomReportQuery](docs/Model/CustomReportQuery.md)
  - [CustomReportResponse](docs/Model/CustomReportResponse.md)
  - [CustomReportTooltip](docs/Model/CustomReportTooltip.md)
+ - [CustomReportUsageBreakdown](docs/Model/CustomReportUsageBreakdown.md)
  - [CustomReportsExecutionReportData](docs/Model/CustomReportsExecutionReportData.md)
  - [CustomReportsExecutionRequest](docs/Model/CustomReportsExecutionRequest.md)
  - [CustomReportsExecutionResponse](docs/Model/CustomReportsExecutionResponse.md)
@@ -1654,6 +1666,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.23 | 10/14/2025 | CustomerApi.deleteWishlistItem bug fix for bad response type |
 | 3.11.22 | 10/06/2025 | added Customer.fax back into object model |
 | 3.11.21 | 09/09/2025 | added OrderRestApi.replaceOrderItemMerchantItemId |
 | 3.11.20 | 08/18/2025 | storefront communiations - campaign repeat flags |

@@ -958,7 +958,7 @@ class ItemApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/json; charset=UTF-8']
+                ['application/json']
             );
         }
 
@@ -4130,7 +4130,7 @@ class ItemApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/json; charset=UTF-8']
+                ['application/json']
             );
         }
 
@@ -4468,7 +4468,7 @@ class ItemApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/json; charset=UTF-8']
+                ['application/json']
             );
         }
 

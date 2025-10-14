@@ -106,6 +106,364 @@ class ConversationApi
     }
 
     /**
+     * Operation deleteAgentProfileKnowledgeBaseDocument
+     *
+     * Delete a knowledge base document
+     *
+     * @param  int $user_id user_id (required)
+     * @param  string $document_uuid document_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationDeleteKnowledgeBaseDocumentResponse
+     */
+    public function deleteAgentProfileKnowledgeBaseDocument($user_id, $document_uuid)
+    {
+        list($response) = $this->deleteAgentProfileKnowledgeBaseDocumentWithHttpInfo($user_id, $document_uuid);
+        return $response;
+    }
+
+
+    /**
+     * Operation deleteAgentProfileKnowledgeBaseDocumentWithHttpInfo
+     *
+     * Delete a knowledge base document
+     *
+     * @param  int $user_id (required)
+     * @param  string $document_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationDeleteKnowledgeBaseDocumentResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteAgentProfileKnowledgeBaseDocumentWithHttpInfo($user_id, $document_uuid)
+    {
+        return $this->deleteAgentProfileKnowledgeBaseDocumentWithHttpInfoRetry(true ,   $user_id,   $document_uuid);
+    }
+
+
+    /**
+     * Operation deleteAgentProfileKnowledgeBaseDocumentWithHttpInfoRetry
+     *
+     * Delete a knowledge base document
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $user_id (required)
+     * @param  string $document_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationDeleteKnowledgeBaseDocumentResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteAgentProfileKnowledgeBaseDocumentWithHttpInfoRetry($retry ,  $user_id,  $document_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationDeleteKnowledgeBaseDocumentResponse';
+        $request = $this->deleteAgentProfileKnowledgeBaseDocumentRequest($user_id, $document_uuid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deleteAgentProfileKnowledgeBaseDocumentWithHttpInfoRetry(false ,   $user_id,   $document_uuid);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationDeleteKnowledgeBaseDocumentResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteAgentProfileKnowledgeBaseDocumentAsync
+     *
+     * Delete a knowledge base document
+     *
+     * @param  int $user_id (required)
+     * @param  string $document_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteAgentProfileKnowledgeBaseDocumentAsync($user_id, $document_uuid)
+    {
+        return $this->deleteAgentProfileKnowledgeBaseDocumentAsyncWithHttpInfo($user_id, $document_uuid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteAgentProfileKnowledgeBaseDocumentAsyncWithHttpInfo
+     *
+     * Delete a knowledge base document
+     *
+     * @param  int $user_id (required)
+     * @param  string $document_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteAgentProfileKnowledgeBaseDocumentAsyncWithHttpInfo($user_id, $document_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationDeleteKnowledgeBaseDocumentResponse';
+        $request = $this->deleteAgentProfileKnowledgeBaseDocumentRequest($user_id, $document_uuid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteAgentProfileKnowledgeBaseDocument'
+     *
+     * @param  int $user_id (required)
+     * @param  string $document_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deleteAgentProfileKnowledgeBaseDocumentRequest($user_id, $document_uuid)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $user_id when calling deleteAgentProfileKnowledgeBaseDocument'
+            );
+        }
+        // verify the required parameter 'document_uuid' is set
+        if ($document_uuid === null || (is_array($document_uuid) && count($document_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $document_uuid when calling deleteAgentProfileKnowledgeBaseDocument'
+            );
+        }
+
+        $resourcePath = '/conversation/agent/profiles/{user_id}/knowledge_base/{document_uuid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'user_id' . '}',
+                ObjectSerializer::toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($document_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'document_uuid' . '}',
+                ObjectSerializer::toPathValue($document_uuid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation deleteConversationCannedMessage
      *
      * Delete a conversation canned message
@@ -4258,6 +4616,344 @@ class ConversationApi
     }
 
     /**
+     * Operation getAgentProfileKnowledgeBase
+     *
+     * Get the list of knowledge base documents associated with this agent profile
+     *
+     * @param  int $user_id user_id (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationKnowledgeBaseDocumentsResponse
+     */
+    public function getAgentProfileKnowledgeBase($user_id)
+    {
+        list($response) = $this->getAgentProfileKnowledgeBaseWithHttpInfo($user_id);
+        return $response;
+    }
+
+
+    /**
+     * Operation getAgentProfileKnowledgeBaseWithHttpInfo
+     *
+     * Get the list of knowledge base documents associated with this agent profile
+     *
+     * @param  int $user_id (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationKnowledgeBaseDocumentsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAgentProfileKnowledgeBaseWithHttpInfo($user_id)
+    {
+        return $this->getAgentProfileKnowledgeBaseWithHttpInfoRetry(true ,   $user_id);
+    }
+
+
+    /**
+     * Operation getAgentProfileKnowledgeBaseWithHttpInfoRetry
+     *
+     * Get the list of knowledge base documents associated with this agent profile
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $user_id (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationKnowledgeBaseDocumentsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAgentProfileKnowledgeBaseWithHttpInfoRetry($retry ,  $user_id)
+    {
+        $returnType = '\ultracart\v2\models\ConversationKnowledgeBaseDocumentsResponse';
+        $request = $this->getAgentProfileKnowledgeBaseRequest($user_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getAgentProfileKnowledgeBaseWithHttpInfoRetry(false ,   $user_id);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationKnowledgeBaseDocumentsResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getAgentProfileKnowledgeBaseAsync
+     *
+     * Get the list of knowledge base documents associated with this agent profile
+     *
+     * @param  int $user_id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAgentProfileKnowledgeBaseAsync($user_id)
+    {
+        return $this->getAgentProfileKnowledgeBaseAsyncWithHttpInfo($user_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getAgentProfileKnowledgeBaseAsyncWithHttpInfo
+     *
+     * Get the list of knowledge base documents associated with this agent profile
+     *
+     * @param  int $user_id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAgentProfileKnowledgeBaseAsyncWithHttpInfo($user_id)
+    {
+        $returnType = '\ultracart\v2\models\ConversationKnowledgeBaseDocumentsResponse';
+        $request = $this->getAgentProfileKnowledgeBaseRequest($user_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getAgentProfileKnowledgeBase'
+     *
+     * @param  int $user_id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getAgentProfileKnowledgeBaseRequest($user_id)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $user_id when calling getAgentProfileKnowledgeBase'
+            );
+        }
+
+        $resourcePath = '/conversation/agent/profiles/{user_id}/knowledge_base';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'user_id' . '}',
+                ObjectSerializer::toPathValue($user_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getAgentProfiles
      *
      * Get agent profiles
@@ -7108,6 +7804,364 @@ class ConversationApi
         $multipart = false;
 
 
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getConversationKnowledgeBaseDocumentUploadUrl
+     *
+     * Get a pre-signed conversation knowledge base document upload URL
+     *
+     * @param  int $user_id user_id (required)
+     * @param  string $extension extension (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationKnowledgeBaseDocumentUploadUrlResponse
+     */
+    public function getConversationKnowledgeBaseDocumentUploadUrl($user_id, $extension)
+    {
+        list($response) = $this->getConversationKnowledgeBaseDocumentUploadUrlWithHttpInfo($user_id, $extension);
+        return $response;
+    }
+
+
+    /**
+     * Operation getConversationKnowledgeBaseDocumentUploadUrlWithHttpInfo
+     *
+     * Get a pre-signed conversation knowledge base document upload URL
+     *
+     * @param  int $user_id (required)
+     * @param  string $extension (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationKnowledgeBaseDocumentUploadUrlResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getConversationKnowledgeBaseDocumentUploadUrlWithHttpInfo($user_id, $extension)
+    {
+        return $this->getConversationKnowledgeBaseDocumentUploadUrlWithHttpInfoRetry(true ,   $user_id,   $extension);
+    }
+
+
+    /**
+     * Operation getConversationKnowledgeBaseDocumentUploadUrlWithHttpInfoRetry
+     *
+     * Get a pre-signed conversation knowledge base document upload URL
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $user_id (required)
+     * @param  string $extension (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationKnowledgeBaseDocumentUploadUrlResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getConversationKnowledgeBaseDocumentUploadUrlWithHttpInfoRetry($retry ,  $user_id,  $extension)
+    {
+        $returnType = '\ultracart\v2\models\ConversationKnowledgeBaseDocumentUploadUrlResponse';
+        $request = $this->getConversationKnowledgeBaseDocumentUploadUrlRequest($user_id, $extension);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getConversationKnowledgeBaseDocumentUploadUrlWithHttpInfoRetry(false ,   $user_id,   $extension);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationKnowledgeBaseDocumentUploadUrlResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getConversationKnowledgeBaseDocumentUploadUrlAsync
+     *
+     * Get a pre-signed conversation knowledge base document upload URL
+     *
+     * @param  int $user_id (required)
+     * @param  string $extension (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getConversationKnowledgeBaseDocumentUploadUrlAsync($user_id, $extension)
+    {
+        return $this->getConversationKnowledgeBaseDocumentUploadUrlAsyncWithHttpInfo($user_id, $extension)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getConversationKnowledgeBaseDocumentUploadUrlAsyncWithHttpInfo
+     *
+     * Get a pre-signed conversation knowledge base document upload URL
+     *
+     * @param  int $user_id (required)
+     * @param  string $extension (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getConversationKnowledgeBaseDocumentUploadUrlAsyncWithHttpInfo($user_id, $extension)
+    {
+        $returnType = '\ultracart\v2\models\ConversationKnowledgeBaseDocumentUploadUrlResponse';
+        $request = $this->getConversationKnowledgeBaseDocumentUploadUrlRequest($user_id, $extension);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getConversationKnowledgeBaseDocumentUploadUrl'
+     *
+     * @param  int $user_id (required)
+     * @param  string $extension (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getConversationKnowledgeBaseDocumentUploadUrlRequest($user_id, $extension)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $user_id when calling getConversationKnowledgeBaseDocumentUploadUrl'
+            );
+        }
+        // verify the required parameter 'extension' is set
+        if ($extension === null || (is_array($extension) && count($extension) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $extension when calling getConversationKnowledgeBaseDocumentUploadUrl'
+            );
+        }
+
+        $resourcePath = '/conversation//rest/v2/conversation/agent/profiles/{user_id}/knowledge_base/upload_url/{extension}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'user_id' . '}',
+                ObjectSerializer::toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($extension !== null) {
+            $resourcePath = str_replace(
+                '{' . 'extension' . '}',
+                ObjectSerializer::toPathValue($extension),
+                $resourcePath
+            );
+        }
 
         // body params
         $_tempBody = null;
@@ -18112,6 +19166,359 @@ class ConversationApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation insertAgentProfileKnowledgeBaseDocument
+     *
+     * Insert a knowledge base document
+     *
+     * @param  int $user_id user_id (required)
+     * @param  \ultracart\v2\models\ConversationInsertKnowledgeBaseDocumentRequest $knowledge_base_document_request Insert request (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationInsertKnowledgeBaseDocumentResponse
+     */
+    public function insertAgentProfileKnowledgeBaseDocument($user_id, $knowledge_base_document_request)
+    {
+        list($response) = $this->insertAgentProfileKnowledgeBaseDocumentWithHttpInfo($user_id, $knowledge_base_document_request);
+        return $response;
+    }
+
+
+    /**
+     * Operation insertAgentProfileKnowledgeBaseDocumentWithHttpInfo
+     *
+     * Insert a knowledge base document
+     *
+     * @param  int $user_id (required)
+     * @param  \ultracart\v2\models\ConversationInsertKnowledgeBaseDocumentRequest $knowledge_base_document_request Insert request (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationInsertKnowledgeBaseDocumentResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertAgentProfileKnowledgeBaseDocumentWithHttpInfo($user_id, $knowledge_base_document_request)
+    {
+        return $this->insertAgentProfileKnowledgeBaseDocumentWithHttpInfoRetry(true ,   $user_id,   $knowledge_base_document_request);
+    }
+
+
+    /**
+     * Operation insertAgentProfileKnowledgeBaseDocumentWithHttpInfoRetry
+     *
+     * Insert a knowledge base document
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $user_id (required)
+     * @param  \ultracart\v2\models\ConversationInsertKnowledgeBaseDocumentRequest $knowledge_base_document_request Insert request (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationInsertKnowledgeBaseDocumentResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertAgentProfileKnowledgeBaseDocumentWithHttpInfoRetry($retry ,  $user_id,  $knowledge_base_document_request)
+    {
+        $returnType = '\ultracart\v2\models\ConversationInsertKnowledgeBaseDocumentResponse';
+        $request = $this->insertAgentProfileKnowledgeBaseDocumentRequest($user_id, $knowledge_base_document_request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->insertAgentProfileKnowledgeBaseDocumentWithHttpInfoRetry(false ,   $user_id,   $knowledge_base_document_request);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationInsertKnowledgeBaseDocumentResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation insertAgentProfileKnowledgeBaseDocumentAsync
+     *
+     * Insert a knowledge base document
+     *
+     * @param  int $user_id (required)
+     * @param  \ultracart\v2\models\ConversationInsertKnowledgeBaseDocumentRequest $knowledge_base_document_request Insert request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function insertAgentProfileKnowledgeBaseDocumentAsync($user_id, $knowledge_base_document_request)
+    {
+        return $this->insertAgentProfileKnowledgeBaseDocumentAsyncWithHttpInfo($user_id, $knowledge_base_document_request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation insertAgentProfileKnowledgeBaseDocumentAsyncWithHttpInfo
+     *
+     * Insert a knowledge base document
+     *
+     * @param  int $user_id (required)
+     * @param  \ultracart\v2\models\ConversationInsertKnowledgeBaseDocumentRequest $knowledge_base_document_request Insert request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function insertAgentProfileKnowledgeBaseDocumentAsyncWithHttpInfo($user_id, $knowledge_base_document_request)
+    {
+        $returnType = '\ultracart\v2\models\ConversationInsertKnowledgeBaseDocumentResponse';
+        $request = $this->insertAgentProfileKnowledgeBaseDocumentRequest($user_id, $knowledge_base_document_request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'insertAgentProfileKnowledgeBaseDocument'
+     *
+     * @param  int $user_id (required)
+     * @param  \ultracart\v2\models\ConversationInsertKnowledgeBaseDocumentRequest $knowledge_base_document_request Insert request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function insertAgentProfileKnowledgeBaseDocumentRequest($user_id, $knowledge_base_document_request)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $user_id when calling insertAgentProfileKnowledgeBaseDocument'
+            );
+        }
+        // verify the required parameter 'knowledge_base_document_request' is set
+        if ($knowledge_base_document_request === null || (is_array($knowledge_base_document_request) && count($knowledge_base_document_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $knowledge_base_document_request when calling insertAgentProfileKnowledgeBaseDocument'
+            );
+        }
+
+        $resourcePath = '/conversation/agent/profiles/{user_id}/knowledge_base';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'user_id' . '}',
+                ObjectSerializer::toPathValue($user_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($knowledge_base_document_request)) {
+            $_tempBody = $knowledge_base_document_request;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

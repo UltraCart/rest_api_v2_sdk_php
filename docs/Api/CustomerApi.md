@@ -178,7 +178,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteWishListItem**
-> \ultracart\v2\models\CustomerWishListItem deleteWishListItem($customer_profile_oid, $customer_wishlist_item_oid)
+> deleteWishListItem($customer_profile_oid, $customer_wishlist_item_oid)
 
 Delete a customer wishlist item
 
@@ -197,8 +197,7 @@ $customer_profile_oid = 56; // int | The customer oid for this wishlist.
 $customer_wishlist_item_oid = 56; // int | The wishlist oid for this wishlist item to delete.
 
 try {
-    $result = $apiInstance->deleteWishListItem($customer_profile_oid, $customer_wishlist_item_oid);
-    print_r($result);
+    $apiInstance->deleteWishListItem($customer_profile_oid, $customer_wishlist_item_oid);
 } catch (Exception $e) {
     echo 'Exception when calling CustomerApi->deleteWishListItem: ', $e->getMessage(), PHP_EOL;
 }
@@ -214,7 +213,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\CustomerWishListItem**](../Model/CustomerWishListItem.md)
+void (empty response body)
 
 ### Authorization
 
@@ -222,7 +221,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json; charset=UTF-8
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
