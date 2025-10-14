@@ -278,7 +278,7 @@ void (empty response body)
 ## `deleteWishListItem()`
 
 ```php
-deleteWishListItem($customer_profile_oid, $customer_wishlist_item_oid): \ultracart\v2\models\CustomerWishListItem
+deleteWishListItem($customer_profile_oid, $customer_wishlist_item_oid)
 ```
 
 Delete a customer wishlist item
@@ -381,7 +381,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\CustomerWishListItem**](../Model/CustomerWishListItem.md)
+void (empty response body)
 
 ### Authorization
 

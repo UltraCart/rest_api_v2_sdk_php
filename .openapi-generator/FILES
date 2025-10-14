@@ -163,6 +163,7 @@ docs/Model/ConversationCannedMessage.md
 docs/Model/ConversationCannedMessageResponse.md
 docs/Model/ConversationCannedMessagesResponse.md
 docs/Model/ConversationCannedMessagesSearch.md
+docs/Model/ConversationDeleteKnowledgeBaseDocumentResponse.md
 docs/Model/ConversationDepartment.md
 docs/Model/ConversationDepartmentMember.md
 docs/Model/ConversationDepartmentMembersResponse.md
@@ -181,7 +182,13 @@ docs/Model/ConversationEventRRWeb.md
 docs/Model/ConversationEventReadMessage.md
 docs/Model/ConversationEventTyping.md
 docs/Model/ConversationEventWebchatContext.md
+docs/Model/ConversationInsertKnowledgeBaseDocumentRequest.md
+docs/Model/ConversationInsertKnowledgeBaseDocumentResponse.md
 docs/Model/ConversationJoinRequest.md
+docs/Model/ConversationKnowledgeBaseDocument.md
+docs/Model/ConversationKnowledgeBaseDocumentUploadUrl.md
+docs/Model/ConversationKnowledgeBaseDocumentUploadUrlResponse.md
+docs/Model/ConversationKnowledgeBaseDocumentsResponse.md
 docs/Model/ConversationLocationCountry.md
 docs/Model/ConversationLocationStateProvince.md
 docs/Model/ConversationLocationsResponse.md
@@ -348,6 +355,7 @@ docs/Model/CustomReportParameterOption.md
 docs/Model/CustomReportQuery.md
 docs/Model/CustomReportResponse.md
 docs/Model/CustomReportTooltip.md
+docs/Model/CustomReportUsageBreakdown.md
 docs/Model/CustomReportsExecutionReportData.md
 docs/Model/CustomReportsExecutionRequest.md
 docs/Model/CustomReportsExecutionResponse.md
@@ -1078,6 +1086,7 @@ lib/models/ConversationCannedMessage.php
 lib/models/ConversationCannedMessageResponse.php
 lib/models/ConversationCannedMessagesResponse.php
 lib/models/ConversationCannedMessagesSearch.php
+lib/models/ConversationDeleteKnowledgeBaseDocumentResponse.php
 lib/models/ConversationDepartment.php
 lib/models/ConversationDepartmentMember.php
 lib/models/ConversationDepartmentMembersResponse.php
@@ -1096,7 +1105,13 @@ lib/models/ConversationEventRRWeb.php
 lib/models/ConversationEventReadMessage.php
 lib/models/ConversationEventTyping.php
 lib/models/ConversationEventWebchatContext.php
+lib/models/ConversationInsertKnowledgeBaseDocumentRequest.php
+lib/models/ConversationInsertKnowledgeBaseDocumentResponse.php
 lib/models/ConversationJoinRequest.php
+lib/models/ConversationKnowledgeBaseDocument.php
+lib/models/ConversationKnowledgeBaseDocumentUploadUrl.php
+lib/models/ConversationKnowledgeBaseDocumentUploadUrlResponse.php
+lib/models/ConversationKnowledgeBaseDocumentsResponse.php
 lib/models/ConversationLocationCountry.php
 lib/models/ConversationLocationStateProvince.php
 lib/models/ConversationLocationsResponse.php
@@ -1263,6 +1278,7 @@ lib/models/CustomReportParameterOption.php
 lib/models/CustomReportQuery.php
 lib/models/CustomReportResponse.php
 lib/models/CustomReportTooltip.php
+lib/models/CustomReportUsageBreakdown.php
 lib/models/CustomReportsExecutionReportData.php
 lib/models/CustomReportsExecutionRequest.php
 lib/models/CustomReportsExecutionResponse.php

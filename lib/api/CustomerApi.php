@@ -1390,12 +1390,11 @@ class CustomerApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\CustomerWishListItem|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     * @return void
      */
     public function deleteWishListItem($customer_profile_oid, $customer_wishlist_item_oid)
     {
-        list($response) = $this->deleteWishListItemWithHttpInfo($customer_profile_oid, $customer_wishlist_item_oid);
-        return $response;
+        $this->deleteWishListItemWithHttpInfo($customer_profile_oid, $customer_wishlist_item_oid);
     }
 
     /**
@@ -1408,11 +1407,11 @@ class CustomerApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\CustomerWishListItem|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteWishListItemWithHttpInfo($customer_profile_oid, $customer_wishlist_item_oid)
     {
-        return $this->deleteWishListItemWithHttpInfoRetry(true ,   $customer_profile_oid,   $customer_wishlist_item_oid);
+        $this->deleteWishListItemWithHttpInfoRetry(true ,   $customer_profile_oid,   $customer_wishlist_item_oid);
     }
 
 
@@ -1428,11 +1427,11 @@ class CustomerApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\CustomerWishListItem|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteWishListItemWithHttpInfoRetry($retry , $customer_profile_oid, $customer_wishlist_item_oid)
     {
-        $returnType = '\ultracart\v2\models\CustomerWishListItem';
+        $returnType = '';
         $request = $this->deleteWishListItemRequest($customer_profile_oid, $customer_wishlist_item_oid);
 
         try {
@@ -1452,7 +1451,7 @@ class CustomerApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->deleteWishListItemWithHttpInfoRetry(false ,   $customer_profile_oid,   $customer_wishlist_item_oid);
+                        $this->deleteWishListItemWithHttpInfoRetry(false ,   $customer_profile_oid,   $customer_wishlist_item_oid);
                     }
                 }
 
@@ -1487,125 +1486,10 @@ class CustomerApi
                 );
             }
 
-            switch($statusCode) {
-                case 200:
-                    if ('\ultracart\v2\models\CustomerWishListItem' === '\SplFileObject') {
-                        $content = $response->getBody()->getContents(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\ultracart\v2\models\CustomerWishListItem' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\CustomerWishListItem', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 400:
-                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody()->getContents(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody()->getContents(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 410:
-                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody()->getContents(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 429:
-                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody()->getContents(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 500:
-                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody()->getContents(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\ultracart\v2\models\CustomerWishListItem';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody()->getContents()(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
+            return [null, $statusCode, $response->getHeaders()];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\CustomerWishListItem',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -1688,27 +1572,14 @@ class CustomerApi
      */
     public function deleteWishListItemAsyncWithHttpInfo($customer_profile_oid, $customer_wishlist_item_oid)
     {
-        $returnType = '\ultracart\v2\models\CustomerWishListItem';
+        $returnType = '';
         $request = $this->deleteWishListItemRequest($customer_profile_oid, $customer_wishlist_item_oid);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody()->getContents(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();

@@ -60,6 +60,7 @@ class CustomReportAccountConfig implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPITypes = [
         'ai_budget' => 'float',
         'ai_usage' => 'float',
+        'ai_usage_breakdowns' => '\ultracart\v2\models\CustomReportUsageBreakdown[]',
         'merchant_id' => 'string',
         'novice_sql_comments' => 'bool',
         'opt_in' => 'bool',
@@ -80,6 +81,7 @@ class CustomReportAccountConfig implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPIFormats = [
         'ai_budget' => null,
         'ai_usage' => null,
+        'ai_usage_breakdowns' => null,
         'merchant_id' => null,
         'novice_sql_comments' => null,
         'opt_in' => null,
@@ -119,6 +121,7 @@ class CustomReportAccountConfig implements ModelInterface, ArrayAccess, \JsonSer
     protected static $attributeMap = [
         'ai_budget' => 'ai_budget',
         'ai_usage' => 'ai_usage',
+        'ai_usage_breakdowns' => 'ai_usage_breakdowns',
         'merchant_id' => 'merchant_id',
         'novice_sql_comments' => 'novice_sql_comments',
         'opt_in' => 'opt_in',
@@ -137,6 +140,7 @@ class CustomReportAccountConfig implements ModelInterface, ArrayAccess, \JsonSer
     protected static $setters = [
         'ai_budget' => 'setAiBudget',
         'ai_usage' => 'setAiUsage',
+        'ai_usage_breakdowns' => 'setAiUsageBreakdowns',
         'merchant_id' => 'setMerchantId',
         'novice_sql_comments' => 'setNoviceSqlComments',
         'opt_in' => 'setOptIn',
@@ -155,6 +159,7 @@ class CustomReportAccountConfig implements ModelInterface, ArrayAccess, \JsonSer
     protected static $getters = [
         'ai_budget' => 'getAiBudget',
         'ai_usage' => 'getAiUsage',
+        'ai_usage_breakdowns' => 'getAiUsageBreakdowns',
         'merchant_id' => 'getMerchantId',
         'novice_sql_comments' => 'getNoviceSqlComments',
         'opt_in' => 'getOptIn',
@@ -224,6 +229,7 @@ class CustomReportAccountConfig implements ModelInterface, ArrayAccess, \JsonSer
     {
         $this->container['ai_budget'] = $data['ai_budget'] ?? null;
         $this->container['ai_usage'] = $data['ai_usage'] ?? null;
+        $this->container['ai_usage_breakdowns'] = $data['ai_usage_breakdowns'] ?? null;
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
         $this->container['novice_sql_comments'] = $data['novice_sql_comments'] ?? null;
         $this->container['opt_in'] = $data['opt_in'] ?? null;
@@ -302,6 +308,30 @@ class CustomReportAccountConfig implements ModelInterface, ArrayAccess, \JsonSer
     public function setAiUsage($ai_usage)
     {
         $this->container['ai_usage'] = $ai_usage;
+
+        return $this;
+    }
+
+    /**
+     * Gets ai_usage_breakdowns
+     *
+     * @return \ultracart\v2\models\CustomReportUsageBreakdown[]|null
+     */
+    public function getAiUsageBreakdowns()
+    {
+        return $this->container['ai_usage_breakdowns'];
+    }
+
+    /**
+     * Sets ai_usage_breakdowns
+     *
+     * @param \ultracart\v2\models\CustomReportUsageBreakdown[]|null $ai_usage_breakdowns ai_usage_breakdowns
+     *
+     * @return self
+     */
+    public function setAiUsageBreakdowns($ai_usage_breakdowns)
+    {
+        $this->container['ai_usage_breakdowns'] = $ai_usage_breakdowns;
 
         return $this;
     }
