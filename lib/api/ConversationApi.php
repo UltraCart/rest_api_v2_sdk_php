@@ -8138,7 +8138,7 @@ class ConversationApi
             );
         }
 
-        $resourcePath = '/conversation//rest/v2/conversation/agent/profiles/{user_id}/knowledge_base/upload_url/{extension}';
+        $resourcePath = '/conversation/agent/profiles/{user_id}/knowledge_base/upload_url/{extension}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
