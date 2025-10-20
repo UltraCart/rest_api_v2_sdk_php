@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**access_storefront_and_item** | **bool** | Permission flag to allow this Agent access to the storefront and item information. | [optional]
 **cancel_subscription** | **bool** |  | [optional]
 **delay_subscription** | **bool** |  | [optional]
 **lookup_order_information** | **bool** |  | [optional]
