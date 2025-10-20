@@ -57,6 +57,7 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'access_storefront_and_item' => 'bool',
         'cancel_subscription' => 'bool',
         'delay_subscription' => 'bool',
         'lookup_order_information' => 'bool',
@@ -79,6 +80,7 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'access_storefront_and_item' => null,
         'cancel_subscription' => null,
         'delay_subscription' => null,
         'lookup_order_information' => null,
@@ -122,6 +124,7 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
+        'access_storefront_and_item' => 'access_storefront_and_item',
         'cancel_subscription' => 'cancel_subscription',
         'delay_subscription' => 'delay_subscription',
         'lookup_order_information' => 'lookup_order_information',
@@ -144,6 +147,7 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
+        'access_storefront_and_item' => 'setAccessStorefrontAndItem',
         'cancel_subscription' => 'setCancelSubscription',
         'delay_subscription' => 'setDelaySubscription',
         'lookup_order_information' => 'setLookupOrderInformation',
@@ -166,6 +170,7 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
+        'access_storefront_and_item' => 'getAccessStorefrontAndItem',
         'cancel_subscription' => 'getCancelSubscription',
         'delay_subscription' => 'getDelaySubscription',
         'lookup_order_information' => 'getLookupOrderInformation',
@@ -261,6 +266,7 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
      */
     public function __construct(array $data = null)
     {
+        $this->container['access_storefront_and_item'] = isset($data['access_storefront_and_item']) ? $data['access_storefront_and_item'] : null;
         $this->container['cancel_subscription'] = isset($data['cancel_subscription']) ? $data['cancel_subscription'] : null;
         $this->container['delay_subscription'] = isset($data['delay_subscription']) ? $data['delay_subscription'] : null;
         $this->container['lookup_order_information'] = isset($data['lookup_order_information']) ? $data['lookup_order_information'] : null;
@@ -308,6 +314,30 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets access_storefront_and_item
+     *
+     * @return bool
+     */
+    public function getAccessStorefrontAndItem()
+    {
+        return $this->container['access_storefront_and_item'];
+    }
+
+    /**
+     * Sets access_storefront_and_item
+     *
+     * @param bool $access_storefront_and_item Permission flag to allow this Agent access to the storefront and item information.
+     *
+     * @return $this
+     */
+    public function setAccessStorefrontAndItem($access_storefront_and_item)
+    {
+        $this->container['access_storefront_and_item'] = $access_storefront_and_item;
+
+        return $this;
+    }
 
     /**
      * Gets cancel_subscription

@@ -62,6 +62,9 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
         'internal_gift_certificate_balance' => 'string',
         'internal_gift_certificate_oid' => 'int',
         'ledger_entries' => '\ultracart\v2\models\CustomerLoyaltyLedger[]',
+        'loyalty_tier_expiration_dts' => 'string',
+        'loyalty_tier_name' => 'string',
+        'loyalty_tier_oid' => 'int',
         'pending_points' => 'int',
         'redemptions' => '\ultracart\v2\models\CustomerLoyaltyRedemption[]'
     ];
@@ -77,6 +80,9 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
         'internal_gift_certificate_balance' => null,
         'internal_gift_certificate_oid' => 'int32',
         'ledger_entries' => null,
+        'loyalty_tier_expiration_dts' => 'dateTime',
+        'loyalty_tier_name' => null,
+        'loyalty_tier_oid' => 'int32',
         'pending_points' => 'int32',
         'redemptions' => null
     ];
@@ -113,6 +119,9 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
         'internal_gift_certificate_balance' => 'internal_gift_certificate_balance',
         'internal_gift_certificate_oid' => 'internal_gift_certificate_oid',
         'ledger_entries' => 'ledger_entries',
+        'loyalty_tier_expiration_dts' => 'loyalty_tier_expiration_dts',
+        'loyalty_tier_name' => 'loyalty_tier_name',
+        'loyalty_tier_oid' => 'loyalty_tier_oid',
         'pending_points' => 'pending_points',
         'redemptions' => 'redemptions'
     ];
@@ -128,6 +137,9 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
         'internal_gift_certificate_balance' => 'setInternalGiftCertificateBalance',
         'internal_gift_certificate_oid' => 'setInternalGiftCertificateOid',
         'ledger_entries' => 'setLedgerEntries',
+        'loyalty_tier_expiration_dts' => 'setLoyaltyTierExpirationDts',
+        'loyalty_tier_name' => 'setLoyaltyTierName',
+        'loyalty_tier_oid' => 'setLoyaltyTierOid',
         'pending_points' => 'setPendingPoints',
         'redemptions' => 'setRedemptions'
     ];
@@ -143,6 +155,9 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
         'internal_gift_certificate_balance' => 'getInternalGiftCertificateBalance',
         'internal_gift_certificate_oid' => 'getInternalGiftCertificateOid',
         'ledger_entries' => 'getLedgerEntries',
+        'loyalty_tier_expiration_dts' => 'getLoyaltyTierExpirationDts',
+        'loyalty_tier_name' => 'getLoyaltyTierName',
+        'loyalty_tier_oid' => 'getLoyaltyTierOid',
         'pending_points' => 'getPendingPoints',
         'redemptions' => 'getRedemptions'
     ];
@@ -212,6 +227,9 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
         $this->container['internal_gift_certificate_balance'] = isset($data['internal_gift_certificate_balance']) ? $data['internal_gift_certificate_balance'] : null;
         $this->container['internal_gift_certificate_oid'] = isset($data['internal_gift_certificate_oid']) ? $data['internal_gift_certificate_oid'] : null;
         $this->container['ledger_entries'] = isset($data['ledger_entries']) ? $data['ledger_entries'] : null;
+        $this->container['loyalty_tier_expiration_dts'] = isset($data['loyalty_tier_expiration_dts']) ? $data['loyalty_tier_expiration_dts'] : null;
+        $this->container['loyalty_tier_name'] = isset($data['loyalty_tier_name']) ? $data['loyalty_tier_name'] : null;
+        $this->container['loyalty_tier_oid'] = isset($data['loyalty_tier_oid']) ? $data['loyalty_tier_oid'] : null;
         $this->container['pending_points'] = isset($data['pending_points']) ? $data['pending_points'] : null;
         $this->container['redemptions'] = isset($data['redemptions']) ? $data['redemptions'] : null;
     }
@@ -356,6 +374,78 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
     public function setLedgerEntries($ledger_entries)
     {
         $this->container['ledger_entries'] = $ledger_entries;
+
+        return $this;
+    }
+
+    /**
+     * Gets loyalty_tier_expiration_dts
+     *
+     * @return string
+     */
+    public function getLoyaltyTierExpirationDts()
+    {
+        return $this->container['loyalty_tier_expiration_dts'];
+    }
+
+    /**
+     * Sets loyalty_tier_expiration_dts
+     *
+     * @param string $loyalty_tier_expiration_dts Loyalty tier expiration date (read only because of SDK addition)
+     *
+     * @return $this
+     */
+    public function setLoyaltyTierExpirationDts($loyalty_tier_expiration_dts)
+    {
+        $this->container['loyalty_tier_expiration_dts'] = $loyalty_tier_expiration_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets loyalty_tier_name
+     *
+     * @return string
+     */
+    public function getLoyaltyTierName()
+    {
+        return $this->container['loyalty_tier_name'];
+    }
+
+    /**
+     * Sets loyalty_tier_name
+     *
+     * @param string $loyalty_tier_name Loyalty tier name
+     *
+     * @return $this
+     */
+    public function setLoyaltyTierName($loyalty_tier_name)
+    {
+        $this->container['loyalty_tier_name'] = $loyalty_tier_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets loyalty_tier_oid
+     *
+     * @return int
+     */
+    public function getLoyaltyTierOid()
+    {
+        return $this->container['loyalty_tier_oid'];
+    }
+
+    /**
+     * Sets loyalty_tier_oid
+     *
+     * @param int $loyalty_tier_oid Loyalty tier oid (set to zero to remove the tier)
+     *
+     * @return $this
+     */
+    public function setLoyaltyTierOid($loyalty_tier_oid)
+    {
+        $this->container['loyalty_tier_oid'] = $loyalty_tier_oid;
 
         return $this;
     }

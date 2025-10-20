@@ -1666,6 +1666,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.24 | 10/20/2025 | new perm flag on conversation virtual agent capabilities |
 | 3.11.23 | 10/14/2025 | CustomerApi.deleteWishlistItem bug fix for bad response type |
 | 3.11.22 | 10/06/2025 | added Customer.fax back into object model |
 | 3.11.21 | 09/09/2025 | added OrderRestApi.replaceOrderItemMerchantItemId |
