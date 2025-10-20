@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.25"
+    "ultracart/rest_api_v2_sdk_php": "4.1.26"
   }
 }
 ```
@@ -1619,6 +1619,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.26 | 10/20/2025 | conversation api bug fixes |
 | 4.1.25 | 10/20/2025 | conversation api bug fix for bad url on agent profile kb upload |
 | 4.1.24 | 10/20/2025 | new perm flag on conversation virtual agent capabilities |
 | 4.1.23 | 10/14/2025 | CustomerApi.deleteWishlistItem bug fix for bad response type |
