@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.24"
+    "ultracart/rest_api_v2_sdk_php": "4.1.25"
   }
 }
 ```
@@ -168,7 +168,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getConversationDepartments**](docs/Api/ConversationApi.md#getconversationdepartments) | **GET** /conversation/departments | Retrieve a list of departments ordered by name
 *ConversationApi* | [**getConversationEngagement**](docs/Api/ConversationApi.md#getconversationengagement) | **GET** /conversation/engagements/{conversation_engagement_oid} | Retrieve an engagement
 *ConversationApi* | [**getConversationEngagements**](docs/Api/ConversationApi.md#getconversationengagements) | **GET** /conversation/engagements | Retrieve a list of engagements ordered by name
-*ConversationApi* | [**getConversationKnowledgeBaseDocumentUploadUrl**](docs/Api/ConversationApi.md#getconversationknowledgebasedocumentuploadurl) | **GET** /conversation//rest/v2/conversation/agent/profiles/{user_id}/knowledge_base/upload_url/{extension} | Get a pre-signed conversation knowledge base document upload URL
+*ConversationApi* | [**getConversationKnowledgeBaseDocumentUploadUrl**](docs/Api/ConversationApi.md#getconversationknowledgebasedocumentuploadurl) | **GET** /conversation/agent/profiles/{user_id}/knowledge_base/upload_url/{extension} | Get a pre-signed conversation knowledge base document upload URL
 *ConversationApi* | [**getConversationMessages**](docs/Api/ConversationApi.md#getconversationmessages) | **GET** /conversation/conversations/{conversation_uuid}/messages/{since} | Retrieve conversation messages
 *ConversationApi* | [**getConversationMultimediaUploadUrl**](docs/Api/ConversationApi.md#getconversationmultimediauploadurl) | **GET** /conversation/upload_url/{extension} | Get a presigned conversation multimedia upload URL
 *ConversationApi* | [**getConversationPbxAudioUploadUrl**](docs/Api/ConversationApi.md#getconversationpbxaudiouploadurl) | **GET** /conversation/pbx/audio/upload_url/{extension} | Get a pre-signed conversation multimedia upload URL
@@ -1619,6 +1619,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.25 | 10/20/2025 | conversation api bug fix for bad url on agent profile kb upload |
 | 4.1.24 | 10/20/2025 | new perm flag on conversation virtual agent capabilities |
 | 4.1.23 | 10/14/2025 | CustomerApi.deleteWishlistItem bug fix for bad response type |
 | 4.1.22 | 10/06/2025 | added Customer.fax back into object model |
