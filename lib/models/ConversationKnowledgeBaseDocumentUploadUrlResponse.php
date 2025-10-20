@@ -57,7 +57,7 @@ class ConversationKnowledgeBaseDocumentUploadUrlResponse implements ModelInterfa
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'conversation_pbx_audio_upload_url' => '\ultracart\v2\models\ConversationKnowledgeBaseDocumentUploadUrl',
+        'conversation_knowledge_base_document_upload_url' => '\ultracart\v2\models\ConversationKnowledgeBaseDocumentUploadUrl',
         'error' => '\ultracart\v2\models\Error',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
         'success' => 'bool',
@@ -70,7 +70,7 @@ class ConversationKnowledgeBaseDocumentUploadUrlResponse implements ModelInterfa
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'conversation_pbx_audio_upload_url' => null,
+        'conversation_knowledge_base_document_upload_url' => null,
         'error' => null,
         'metadata' => null,
         'success' => null,
@@ -104,7 +104,7 @@ class ConversationKnowledgeBaseDocumentUploadUrlResponse implements ModelInterfa
      * @var string[]
      */
     protected static $attributeMap = [
-        'conversation_pbx_audio_upload_url' => 'conversation_pbx_audio_upload_url',
+        'conversation_knowledge_base_document_upload_url' => 'conversation_knowledge_base_document_upload_url',
         'error' => 'error',
         'metadata' => 'metadata',
         'success' => 'success',
@@ -117,7 +117,7 @@ class ConversationKnowledgeBaseDocumentUploadUrlResponse implements ModelInterfa
      * @var string[]
      */
     protected static $setters = [
-        'conversation_pbx_audio_upload_url' => 'setConversationPbxAudioUploadUrl',
+        'conversation_knowledge_base_document_upload_url' => 'setConversationKnowledgeBaseDocumentUploadUrl',
         'error' => 'setError',
         'metadata' => 'setMetadata',
         'success' => 'setSuccess',
@@ -130,7 +130,7 @@ class ConversationKnowledgeBaseDocumentUploadUrlResponse implements ModelInterfa
      * @var string[]
      */
     protected static $getters = [
-        'conversation_pbx_audio_upload_url' => 'getConversationPbxAudioUploadUrl',
+        'conversation_knowledge_base_document_upload_url' => 'getConversationKnowledgeBaseDocumentUploadUrl',
         'error' => 'getError',
         'metadata' => 'getMetadata',
         'success' => 'getSuccess',
@@ -197,7 +197,7 @@ class ConversationKnowledgeBaseDocumentUploadUrlResponse implements ModelInterfa
      */
     public function __construct(array $data = null)
     {
-        $this->container['conversation_pbx_audio_upload_url'] = isset($data['conversation_pbx_audio_upload_url']) ? $data['conversation_pbx_audio_upload_url'] : null;
+        $this->container['conversation_knowledge_base_document_upload_url'] = isset($data['conversation_knowledge_base_document_upload_url']) ? $data['conversation_knowledge_base_document_upload_url'] : null;
         $this->container['error'] = isset($data['error']) ? $data['error'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
@@ -229,25 +229,25 @@ class ConversationKnowledgeBaseDocumentUploadUrlResponse implements ModelInterfa
 
 
     /**
-     * Gets conversation_pbx_audio_upload_url
+     * Gets conversation_knowledge_base_document_upload_url
      *
      * @return \ultracart\v2\models\ConversationKnowledgeBaseDocumentUploadUrl
      */
-    public function getConversationPbxAudioUploadUrl()
+    public function getConversationKnowledgeBaseDocumentUploadUrl()
     {
-        return $this->container['conversation_pbx_audio_upload_url'];
+        return $this->container['conversation_knowledge_base_document_upload_url'];
     }
 
     /**
-     * Sets conversation_pbx_audio_upload_url
+     * Sets conversation_knowledge_base_document_upload_url
      *
-     * @param \ultracart\v2\models\ConversationKnowledgeBaseDocumentUploadUrl $conversation_pbx_audio_upload_url conversation_pbx_audio_upload_url
+     * @param \ultracart\v2\models\ConversationKnowledgeBaseDocumentUploadUrl $conversation_knowledge_base_document_upload_url conversation_knowledge_base_document_upload_url
      *
      * @return $this
      */
-    public function setConversationPbxAudioUploadUrl($conversation_pbx_audio_upload_url)
+    public function setConversationKnowledgeBaseDocumentUploadUrl($conversation_knowledge_base_document_upload_url)
     {
-        $this->container['conversation_pbx_audio_upload_url'] = $conversation_pbx_audio_upload_url;
+        $this->container['conversation_knowledge_base_document_upload_url'] = $conversation_knowledge_base_document_upload_url;
 
         return $this;
     }

@@ -1666,6 +1666,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.26 | 10/20/2025 | conversation api bug fixes |
 | 3.11.25 | 10/20/2025 | conversation api bug fix for bad url on agent profile kb upload |
 | 3.11.24 | 10/20/2025 | new perm flag on conversation virtual agent capabilities |
 | 3.11.23 | 10/14/2025 | CustomerApi.deleteWishlistItem bug fix for bad response type |

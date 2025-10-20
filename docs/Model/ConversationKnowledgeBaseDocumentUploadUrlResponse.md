@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**conversation_pbx_audio_upload_url** | [**\ultracart\v2\models\ConversationKnowledgeBaseDocumentUploadUrl**](ConversationKnowledgeBaseDocumentUploadUrl.md) |  | [optional] 
+**conversation_knowledge_base_document_upload_url** | [**\ultracart\v2\models\ConversationKnowledgeBaseDocumentUploadUrl**](ConversationKnowledgeBaseDocumentUploadUrl.md) |  | [optional] 
 **error** | [**\ultracart\v2\models\Error**](Error.md) |  | [optional] 
 **metadata** | [**\ultracart\v2\models\ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
 **success** | **bool** | Indicates if API call was successful | [optional] 
