@@ -284,6 +284,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
     const PAYMENT_METHOD_GOOGLE_PAY = 'Google Pay';
     const PAYMENT_METHOD_HEALTH_BENEFIT_CARD = 'Health Benefit Card';
     const PAYMENT_METHOD_PAY_PAL_FASTLANE = 'PayPal Fastlane';
+    const PAYMENT_METHOD_KLARNA = 'Klarna';
     const PAYMENT_STATUS_UNPROCESSED = 'Unprocessed';
     const PAYMENT_STATUS_AUTHORIZED = 'Authorized';
     const PAYMENT_STATUS_CAPTURE_FAILED = 'Capture Failed';
@@ -334,6 +335,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
             self::PAYMENT_METHOD_GOOGLE_PAY,
             self::PAYMENT_METHOD_HEALTH_BENEFIT_CARD,
             self::PAYMENT_METHOD_PAY_PAL_FASTLANE,
+            self::PAYMENT_METHOD_KLARNA,
         ];
     }
     
