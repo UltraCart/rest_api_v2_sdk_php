@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **metadata** | **string** |  | [optional]
 **mime_type** | **string** |  | [optional]
 **s3_key** | **string** |  | [optional]
+**s3_url** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

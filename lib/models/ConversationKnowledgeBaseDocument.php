@@ -64,7 +64,8 @@ class ConversationKnowledgeBaseDocument implements ModelInterface, ArrayAccess, 
         'document_uuid' => 'string',
         'metadata' => 'string',
         'mime_type' => 'string',
-        's3_key' => 'string'
+        's3_key' => 'string',
+        's3_url' => 'string'
     ];
 
     /**
@@ -81,7 +82,8 @@ class ConversationKnowledgeBaseDocument implements ModelInterface, ArrayAccess, 
         'document_uuid' => null,
         'metadata' => null,
         'mime_type' => null,
-        's3_key' => null
+        's3_key' => null,
+        's3_url' => null
     ];
 
     /**
@@ -117,7 +119,8 @@ class ConversationKnowledgeBaseDocument implements ModelInterface, ArrayAccess, 
         'document_uuid' => 'document_uuid',
         'metadata' => 'metadata',
         'mime_type' => 'mime_type',
-        's3_key' => 's3_key'
+        's3_key' => 's3_key',
+        's3_url' => 's3_url'
     ];
 
     /**
@@ -132,7 +135,8 @@ class ConversationKnowledgeBaseDocument implements ModelInterface, ArrayAccess, 
         'document_uuid' => 'setDocumentUuid',
         'metadata' => 'setMetadata',
         'mime_type' => 'setMimeType',
-        's3_key' => 'setS3Key'
+        's3_key' => 'setS3Key',
+        's3_url' => 'setS3Url'
     ];
 
     /**
@@ -147,7 +151,8 @@ class ConversationKnowledgeBaseDocument implements ModelInterface, ArrayAccess, 
         'document_uuid' => 'getDocumentUuid',
         'metadata' => 'getMetadata',
         'mime_type' => 'getMimeType',
-        's3_key' => 'getS3Key'
+        's3_key' => 'getS3Key',
+        's3_url' => 'getS3Url'
     ];
 
     /**
@@ -214,6 +219,7 @@ class ConversationKnowledgeBaseDocument implements ModelInterface, ArrayAccess, 
         $this->container['metadata'] = $data['metadata'] ?? null;
         $this->container['mime_type'] = $data['mime_type'] ?? null;
         $this->container['s3_key'] = $data['s3_key'] ?? null;
+        $this->container['s3_url'] = $data['s3_url'] ?? null;
     }
 
     /**
@@ -404,6 +410,30 @@ class ConversationKnowledgeBaseDocument implements ModelInterface, ArrayAccess, 
     public function setS3Key($s3_key)
     {
         $this->container['s3_key'] = $s3_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets s3_url
+     *
+     * @return string|null
+     */
+    public function getS3Url()
+    {
+        return $this->container['s3_url'];
+    }
+
+    /**
+     * Sets s3_url
+     *
+     * @param string|null $s3_url s3_url
+     *
+     * @return self
+     */
+    public function setS3Url($s3_url)
+    {
+        $this->container['s3_url'] = $s3_url;
 
         return $this;
     }

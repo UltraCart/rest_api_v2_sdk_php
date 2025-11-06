@@ -58,6 +58,7 @@ class ConversationInsertKnowledgeBaseDocumentRequest implements ModelInterface, 
       * @var string[]
       */
     protected static $openAPITypes = [
+        'original_file_name' => 'string',
         'presigned_url' => 'string'
     ];
 
@@ -69,6 +70,7 @@ class ConversationInsertKnowledgeBaseDocumentRequest implements ModelInterface, 
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'original_file_name' => null,
         'presigned_url' => null
     ];
 
@@ -99,6 +101,7 @@ class ConversationInsertKnowledgeBaseDocumentRequest implements ModelInterface, 
      * @var string[]
      */
     protected static $attributeMap = [
+        'original_file_name' => 'original_file_name',
         'presigned_url' => 'presigned_url'
     ];
 
@@ -108,6 +111,7 @@ class ConversationInsertKnowledgeBaseDocumentRequest implements ModelInterface, 
      * @var string[]
      */
     protected static $setters = [
+        'original_file_name' => 'setOriginalFileName',
         'presigned_url' => 'setPresignedUrl'
     ];
 
@@ -117,6 +121,7 @@ class ConversationInsertKnowledgeBaseDocumentRequest implements ModelInterface, 
      * @var string[]
      */
     protected static $getters = [
+        'original_file_name' => 'getOriginalFileName',
         'presigned_url' => 'getPresignedUrl'
     ];
 
@@ -177,6 +182,7 @@ class ConversationInsertKnowledgeBaseDocumentRequest implements ModelInterface, 
      */
     public function __construct(array $data = null)
     {
+        $this->container['original_file_name'] = $data['original_file_name'] ?? null;
         $this->container['presigned_url'] = $data['presigned_url'] ?? null;
     }
 
@@ -203,6 +209,30 @@ class ConversationInsertKnowledgeBaseDocumentRequest implements ModelInterface, 
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets original_file_name
+     *
+     * @return string|null
+     */
+    public function getOriginalFileName()
+    {
+        return $this->container['original_file_name'];
+    }
+
+    /**
+     * Sets original_file_name
+     *
+     * @param string|null $original_file_name original_file_name
+     *
+     * @return self
+     */
+    public function setOriginalFileName($original_file_name)
+    {
+        $this->container['original_file_name'] = $original_file_name;
+
+        return $this;
+    }
 
     /**
      * Gets presigned_url

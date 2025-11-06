@@ -287,6 +287,7 @@ class OrderPayment implements ModelInterface, ArrayAccess, \JsonSerializable
     public const PAYMENT_METHOD_GOOGLE_PAY = 'Google Pay';
     public const PAYMENT_METHOD_HEALTH_BENEFIT_CARD = 'Health Benefit Card';
     public const PAYMENT_METHOD_PAY_PAL_FASTLANE = 'PayPal Fastlane';
+    public const PAYMENT_METHOD_KLARNA = 'Klarna';
     public const PAYMENT_STATUS_UNPROCESSED = 'Unprocessed';
     public const PAYMENT_STATUS_AUTHORIZED = 'Authorized';
     public const PAYMENT_STATUS_CAPTURE_FAILED = 'Capture Failed';
@@ -335,6 +336,7 @@ class OrderPayment implements ModelInterface, ArrayAccess, \JsonSerializable
             self::PAYMENT_METHOD_GOOGLE_PAY,
             self::PAYMENT_METHOD_HEALTH_BENEFIT_CARD,
             self::PAYMENT_METHOD_PAY_PAL_FASTLANE,
+            self::PAYMENT_METHOD_KLARNA,
         ];
     }
 
