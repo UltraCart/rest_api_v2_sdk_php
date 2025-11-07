@@ -674,6 +674,7 @@ docs/Model/OauthTokenResponse.md
 docs/Model/Order.md
 docs/Model/OrderAffiliate.md
 docs/Model/OrderAffiliateLedger.md
+docs/Model/OrderAssignToAffiliateRequest.md
 docs/Model/OrderAutoOrder.md
 docs/Model/OrderBilling.md
 docs/Model/OrderBuysafe.md
@@ -1598,6 +1599,7 @@ lib/models/OauthTokenResponse.php
 lib/models/Order.php
 lib/models/OrderAffiliate.php
 lib/models/OrderAffiliateLedger.php
+lib/models/OrderAssignToAffiliateRequest.php
 lib/models/OrderAutoOrder.php
 lib/models/OrderBilling.php
 lib/models/OrderBuysafe.php

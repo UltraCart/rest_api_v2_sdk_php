@@ -5,6 +5,7 @@ All URIs are relative to https://secure.ultracart.com/rest/v2.
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**adjustOrderTotal()**](OrderApi.md#adjustOrderTotal) | **POST** /order/orders/{order_id}/adjust_order_total/{desired_total} | Adjusts an order total
+[**assignToAffiliate()**](OrderApi.md#assignToAffiliate) | **POST** /order/orders/{order_id}/assignToAffiliate | Assigns an order to an affiliate
 [**blockRefundOnOrder()**](OrderApi.md#blockRefundOnOrder) | **GET** /order/orders/{order_id}/refund_block | Set a refund block on an order
 [**cancelOrder()**](OrderApi.md#cancelOrder) | **POST** /order/orders/{order_id}/cancel | Cancel an order
 [**deleteOrder()**](OrderApi.md#deleteOrder) | **DELETE** /order/orders/{order_id} | Delete an order
@@ -100,6 +101,48 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `assignToAffiliate()`
+
+```php
+assignToAffiliate($order_id, $assign_to_affiliate_request, $_expand): \ultracart\v2\models\OrderResponse
+```
+
+Assigns an order to an affiliate
+
+Assigns an order to an affiliate.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **string**| The order id to assign to the affiliate. |
+ **assign_to_affiliate_request** | [**\ultracart\v2\models\OrderAssignToAffiliateRequest**](../Model/OrderAssignToAffiliateRequest.md)| Assign to affiliate request |
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\OrderResponse**](../Model/OrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
