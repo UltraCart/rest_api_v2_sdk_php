@@ -414,6 +414,7 @@ Class | Method | HTTP request | Description
 *OauthApi* | [**oauthAccessToken**](docs/Api/OauthApi.md#oauthaccesstoken) | **POST** /oauth/token | Exchange authorization code for access token.
 *OauthApi* | [**oauthRevoke**](docs/Api/OauthApi.md#oauthrevoke) | **POST** /oauth/revoke | Revoke this OAuth application.
 *OrderApi* | [**adjustOrderTotal**](docs/Api/OrderApi.md#adjustordertotal) | **POST** /order/orders/{order_id}/adjust_order_total/{desired_total} | Adjusts an order total
+*OrderApi* | [**assignToAffiliate**](docs/Api/OrderApi.md#assigntoaffiliate) | **POST** /order/orders/{order_id}/assignToAffiliate | Assigns an order to an affiliate
 *OrderApi* | [**blockRefundOnOrder**](docs/Api/OrderApi.md#blockrefundonorder) | **GET** /order/orders/{order_id}/refund_block | Set a refund block on an order
 *OrderApi* | [**cancelOrder**](docs/Api/OrderApi.md#cancelorder) | **POST** /order/orders/{order_id}/cancel | Cancel an order
 *OrderApi* | [**deleteOrder**](docs/Api/OrderApi.md#deleteorder) | **DELETE** /order/orders/{order_id} | Delete an order
@@ -1341,6 +1342,7 @@ Class | Method | HTTP request | Description
  - [Order](docs/Model/Order.md)
  - [OrderAffiliate](docs/Model/OrderAffiliate.md)
  - [OrderAffiliateLedger](docs/Model/OrderAffiliateLedger.md)
+ - [OrderAssignToAffiliateRequest](docs/Model/OrderAssignToAffiliateRequest.md)
  - [OrderAutoOrder](docs/Model/OrderAutoOrder.md)
  - [OrderBilling](docs/Model/OrderBilling.md)
  - [OrderBuysafe](docs/Model/OrderBuysafe.md)
@@ -1666,6 +1668,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.28 | 11/07/2025 | OrderApi.assignToAffiliate |
 | 3.11.27 | 11/06/2025 | conversation ai knowledge base changes |
 | 3.11.26 | 10/20/2025 | conversation api bug fixes |
 | 3.11.25 | 10/20/2025 | conversation api bug fix for bad url on agent profile kb upload |

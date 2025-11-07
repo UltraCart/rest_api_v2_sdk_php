@@ -5,6 +5,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**adjustOrderTotal**](OrderApi.md#adjustOrderTotal) | **POST** /order/orders/{order_id}/adjust_order_total/{desired_total} | Adjusts an order total
+[**assignToAffiliate**](OrderApi.md#assignToAffiliate) | **POST** /order/orders/{order_id}/assignToAffiliate | Assigns an order to an affiliate
 [**blockRefundOnOrder**](OrderApi.md#blockRefundOnOrder) | **GET** /order/orders/{order_id}/refund_block | Set a refund block on an order
 [**cancelOrder**](OrderApi.md#cancelOrder) | **POST** /order/orders/{order_id}/cancel | Cancel an order
 [**deleteOrder**](OrderApi.md#deleteOrder) | **DELETE** /order/orders/{order_id} | Delete an order
@@ -74,6 +75,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\BaseResponse**](../Model/BaseResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **assignToAffiliate**
+> \ultracart\v2\models\OrderResponse assignToAffiliate($order_id, $assign_to_affiliate_request, $_expand)
+
+Assigns an order to an affiliate
+
+Assigns an order to an affiliate.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\OrderApi::usingApiKey($simple_key);
+
+$order_id = "order_id_example"; // string | The order id to assign to the affiliate.
+$assign_to_affiliate_request = new \ultracart\v2\models\OrderAssignToAffiliateRequest(); // \ultracart\v2\models\OrderAssignToAffiliateRequest | Assign to affiliate request
+$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
+
+try {
+    $result = $apiInstance->assignToAffiliate($order_id, $assign_to_affiliate_request, $_expand);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling OrderApi->assignToAffiliate: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **string**| The order id to assign to the affiliate. |
+ **assign_to_affiliate_request** | [**\ultracart\v2\models\OrderAssignToAffiliateRequest**](../Model/OrderAssignToAffiliateRequest.md)| Assign to affiliate request |
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\OrderResponse**](../Model/OrderResponse.md)
 
 ### Authorization
 
