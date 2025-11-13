@@ -1668,6 +1668,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.29 | 11/13/2025 | conversations - AI capabilities flag for generate coupon |
 | 3.11.28 | 11/07/2025 | OrderApi.assignToAffiliate |
 | 3.11.27 | 11/06/2025 | conversation ai knowledge base changes |
 | 3.11.26 | 10/20/2025 | conversation api bug fixes |

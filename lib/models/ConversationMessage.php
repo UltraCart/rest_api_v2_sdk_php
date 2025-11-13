@@ -68,6 +68,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess
         'merchant_id' => 'string',
         'message_dts' => 'string',
         'message_epoch' => 'int',
+        'message_type' => 'string',
         'translations' => '\ultracart\v2\models\ConversationMessageTranslation[]',
         'transport_statuses' => '\ultracart\v2\models\ConversationMessageTransportStatus[]',
         'type' => 'string',
@@ -91,6 +92,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess
         'merchant_id' => null,
         'message_dts' => 'dateTime',
         'message_epoch' => 'int64',
+        'message_type' => null,
         'translations' => null,
         'transport_statuses' => null,
         'type' => null,
@@ -135,6 +137,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess
         'merchant_id' => 'merchant_id',
         'message_dts' => 'message_dts',
         'message_epoch' => 'message_epoch',
+        'message_type' => 'message_type',
         'translations' => 'translations',
         'transport_statuses' => 'transport_statuses',
         'type' => 'type',
@@ -158,6 +161,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess
         'merchant_id' => 'setMerchantId',
         'message_dts' => 'setMessageDts',
         'message_epoch' => 'setMessageEpoch',
+        'message_type' => 'setMessageType',
         'translations' => 'setTranslations',
         'transport_statuses' => 'setTransportStatuses',
         'type' => 'setType',
@@ -181,6 +185,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess
         'merchant_id' => 'getMerchantId',
         'message_dts' => 'getMessageDts',
         'message_epoch' => 'getMessageEpoch',
+        'message_type' => 'getMessageType',
         'translations' => 'getTranslations',
         'transport_statuses' => 'getTransportStatuses',
         'type' => 'getType',
@@ -275,6 +280,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['message_dts'] = isset($data['message_dts']) ? $data['message_dts'] : null;
         $this->container['message_epoch'] = isset($data['message_epoch']) ? $data['message_epoch'] : null;
+        $this->container['message_type'] = isset($data['message_type']) ? $data['message_type'] : null;
         $this->container['translations'] = isset($data['translations']) ? $data['translations'] : null;
         $this->container['transport_statuses'] = isset($data['transport_statuses']) ? $data['transport_statuses'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
@@ -573,6 +579,30 @@ class ConversationMessage implements ModelInterface, ArrayAccess
     public function setMessageEpoch($message_epoch)
     {
         $this->container['message_epoch'] = $message_epoch;
+
+        return $this;
+    }
+
+    /**
+     * Gets message_type
+     *
+     * @return string
+     */
+    public function getMessageType()
+    {
+        return $this->container['message_type'];
+    }
+
+    /**
+     * Sets message_type
+     *
+     * @param string $message_type message_type
+     *
+     * @return $this
+     */
+    public function setMessageType($message_type)
+    {
+        $this->container['message_type'] = $message_type;
 
         return $this;
     }
