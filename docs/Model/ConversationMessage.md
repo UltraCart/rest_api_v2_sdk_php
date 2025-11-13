@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **merchant_id** | **string** |  | [optional]
 **message_dts** | **string** | Message date/time | [optional]
 **message_epoch** | **int** | Message epoch milliseconds | [optional]
+**message_type** | **string** |  | [optional]
 **translations** | [**\ultracart\v2\models\ConversationMessageTranslation[]**](ConversationMessageTranslation.md) |  | [optional]
 **transport_statuses** | [**\ultracart\v2\models\ConversationMessageTransportStatus[]**](ConversationMessageTransportStatus.md) |  | [optional]
 **type** | **string** | Message type | [optional]

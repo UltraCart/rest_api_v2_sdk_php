@@ -61,6 +61,7 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
         'access_storefront_and_item' => 'bool',
         'cancel_subscription' => 'bool',
         'delay_subscription' => 'bool',
+        'generate_coupon' => 'bool',
         'lookup_order_information' => 'bool',
         'lookup_subscription_information' => 'bool',
         'open_support_ticket' => 'bool',
@@ -86,6 +87,7 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
         'access_storefront_and_item' => null,
         'cancel_subscription' => null,
         'delay_subscription' => null,
+        'generate_coupon' => null,
         'lookup_order_information' => null,
         'lookup_subscription_information' => null,
         'open_support_ticket' => null,
@@ -130,6 +132,7 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
         'access_storefront_and_item' => 'access_storefront_and_item',
         'cancel_subscription' => 'cancel_subscription',
         'delay_subscription' => 'delay_subscription',
+        'generate_coupon' => 'generate_coupon',
         'lookup_order_information' => 'lookup_order_information',
         'lookup_subscription_information' => 'lookup_subscription_information',
         'open_support_ticket' => 'open_support_ticket',
@@ -153,6 +156,7 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
         'access_storefront_and_item' => 'setAccessStorefrontAndItem',
         'cancel_subscription' => 'setCancelSubscription',
         'delay_subscription' => 'setDelaySubscription',
+        'generate_coupon' => 'setGenerateCoupon',
         'lookup_order_information' => 'setLookupOrderInformation',
         'lookup_subscription_information' => 'setLookupSubscriptionInformation',
         'open_support_ticket' => 'setOpenSupportTicket',
@@ -176,6 +180,7 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
         'access_storefront_and_item' => 'getAccessStorefrontAndItem',
         'cancel_subscription' => 'getCancelSubscription',
         'delay_subscription' => 'getDelaySubscription',
+        'generate_coupon' => 'getGenerateCoupon',
         'lookup_order_information' => 'getLookupOrderInformation',
         'lookup_subscription_information' => 'getLookupSubscriptionInformation',
         'open_support_ticket' => 'getOpenSupportTicket',
@@ -269,6 +274,7 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
         $this->container['access_storefront_and_item'] = $data['access_storefront_and_item'] ?? null;
         $this->container['cancel_subscription'] = $data['cancel_subscription'] ?? null;
         $this->container['delay_subscription'] = $data['delay_subscription'] ?? null;
+        $this->container['generate_coupon'] = $data['generate_coupon'] ?? null;
         $this->container['lookup_order_information'] = $data['lookup_order_information'] ?? null;
         $this->container['lookup_subscription_information'] = $data['lookup_subscription_information'] ?? null;
         $this->container['open_support_ticket'] = $data['open_support_ticket'] ?? null;
@@ -384,6 +390,30 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
     public function setDelaySubscription($delay_subscription)
     {
         $this->container['delay_subscription'] = $delay_subscription;
+
+        return $this;
+    }
+
+    /**
+     * Gets generate_coupon
+     *
+     * @return bool|null
+     */
+    public function getGenerateCoupon()
+    {
+        return $this->container['generate_coupon'];
+    }
+
+    /**
+     * Sets generate_coupon
+     *
+     * @param bool|null $generate_coupon Permission flag to allow this Agent to generate coupons based upon the agent prompt instructions
+     *
+     * @return self
+     */
+    public function setGenerateCoupon($generate_coupon)
+    {
+        $this->container['generate_coupon'] = $generate_coupon;
 
         return $this;
     }

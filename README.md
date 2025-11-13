@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.28"
+    "ultracart/rest_api_v2_sdk_php": "4.1.29"
   }
 }
 ```
@@ -1621,6 +1621,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.29 | 11/13/2025 | conversations - AI capabilities flag for generate coupon |
 | 4.1.28 | 11/07/2025 | OrderApi.assignToAffiliate |
 | 4.1.27 | 11/06/2025 | conversation ai knowledge base changes |
 | 4.1.26 | 10/20/2025 | conversation api bug fixes |

@@ -69,6 +69,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         'merchant_id' => 'string',
         'message_dts' => 'string',
         'message_epoch' => 'int',
+        'message_type' => 'string',
         'translations' => '\ultracart\v2\models\ConversationMessageTranslation[]',
         'transport_statuses' => '\ultracart\v2\models\ConversationMessageTransportStatus[]',
         'type' => 'string',
@@ -94,6 +95,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         'merchant_id' => null,
         'message_dts' => 'dateTime',
         'message_epoch' => 'int64',
+        'message_type' => null,
         'translations' => null,
         'transport_statuses' => null,
         'type' => null,
@@ -138,6 +140,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         'merchant_id' => 'merchant_id',
         'message_dts' => 'message_dts',
         'message_epoch' => 'message_epoch',
+        'message_type' => 'message_type',
         'translations' => 'translations',
         'transport_statuses' => 'transport_statuses',
         'type' => 'type',
@@ -161,6 +164,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         'merchant_id' => 'setMerchantId',
         'message_dts' => 'setMessageDts',
         'message_epoch' => 'setMessageEpoch',
+        'message_type' => 'setMessageType',
         'translations' => 'setTranslations',
         'transport_statuses' => 'setTransportStatuses',
         'type' => 'setType',
@@ -184,6 +188,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         'merchant_id' => 'getMerchantId',
         'message_dts' => 'getMessageDts',
         'message_epoch' => 'getMessageEpoch',
+        'message_type' => 'getMessageType',
         'translations' => 'getTranslations',
         'transport_statuses' => 'getTransportStatuses',
         'type' => 'getType',
@@ -275,6 +280,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
         $this->container['message_dts'] = $data['message_dts'] ?? null;
         $this->container['message_epoch'] = $data['message_epoch'] ?? null;
+        $this->container['message_type'] = $data['message_type'] ?? null;
         $this->container['translations'] = $data['translations'] ?? null;
         $this->container['transport_statuses'] = $data['transport_statuses'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
@@ -574,6 +580,30 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setMessageEpoch($message_epoch)
     {
         $this->container['message_epoch'] = $message_epoch;
+
+        return $this;
+    }
+
+    /**
+     * Gets message_type
+     *
+     * @return string|null
+     */
+    public function getMessageType()
+    {
+        return $this->container['message_type'];
+    }
+
+    /**
+     * Sets message_type
+     *
+     * @param string|null $message_type message_type
+     *
+     * @return self
+     */
+    public function setMessageType($message_type)
+    {
+        $this->container['message_type'] = $message_type;
 
         return $this;
     }
