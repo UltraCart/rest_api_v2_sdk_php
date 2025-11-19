@@ -192,6 +192,9 @@ docs/Model/ConversationKnowledgeBaseDocumentsResponse.md
 docs/Model/ConversationLocationCountry.md
 docs/Model/ConversationLocationStateProvince.md
 docs/Model/ConversationLocationsResponse.md
+docs/Model/ConversationMcpServer.md
+docs/Model/ConversationMcpServerResponse.md
+docs/Model/ConversationMcpServersResponse.md
 docs/Model/ConversationMessage.md
 docs/Model/ConversationMessageTranslation.md
 docs/Model/ConversationMessageTransportStatus.md
@@ -1116,6 +1119,9 @@ lib/models/ConversationKnowledgeBaseDocumentsResponse.php
 lib/models/ConversationLocationCountry.php
 lib/models/ConversationLocationStateProvince.php
 lib/models/ConversationLocationsResponse.php
+lib/models/ConversationMcpServer.php
+lib/models/ConversationMcpServerResponse.php
+lib/models/ConversationMcpServersResponse.php
 lib/models/ConversationMessage.php
 lib/models/ConversationMessageTranslation.php
 lib/models/ConversationMessageTransportStatus.php

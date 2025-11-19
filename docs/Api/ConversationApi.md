@@ -19,6 +19,8 @@ Method | HTTP request | Description
 [**getAgentKeepAlive()**](ConversationApi.md#getAgentKeepAlive) | **GET** /conversation/agent/keepalive | Agent keep alive
 [**getAgentProfile()**](ConversationApi.md#getAgentProfile) | **GET** /conversation/agent/profile | Get agent profile
 [**getAgentProfileKnowledgeBase()**](ConversationApi.md#getAgentProfileKnowledgeBase) | **GET** /conversation/agent/profiles/{user_id}/knowledge_base | Get the list of knowledge base documents associated with this agent profile
+[**getAgentProfileMcp()**](ConversationApi.md#getAgentProfileMcp) | **GET** /conversation/agent/profiles/{user_id}/mcps/{mcp_server_uuid} | Get an MCP server associated with this agent
+[**getAgentProfileMcps()**](ConversationApi.md#getAgentProfileMcps) | **GET** /conversation/agent/profiles/{user_id}/mcps | Get the list of MCP servers associated with this agent
 [**getAgentProfiles()**](ConversationApi.md#getAgentProfiles) | **GET** /conversation/agent/profiles | Get agent profiles
 [**getAgentWebsocketAuthorization()**](ConversationApi.md#getAgentWebsocketAuthorization) | **PUT** /conversation/agent/auth | Get agent websocket authorization
 [**getConversation()**](ConversationApi.md#getConversation) | **GET** /conversation/conversations/{conversation_uuid} | Retrieve a conversation
@@ -63,6 +65,7 @@ Method | HTTP request | Description
 [**getVirtualAgentBudget()**](ConversationApi.md#getVirtualAgentBudget) | **GET** /conversation/virtualagent/budget | Get virtual agent budget
 [**getVirtualAgentCapabilities()**](ConversationApi.md#getVirtualAgentCapabilities) | **GET** /conversation/virtualagent/capabilities | Get virtual agent capabilities
 [**insertAgentProfileKnowledgeBaseDocument()**](ConversationApi.md#insertAgentProfileKnowledgeBaseDocument) | **POST** /conversation/agent/profiles/{user_id}/knowledge_base | Insert a knowledge base document
+[**insertAgentProfileMcp()**](ConversationApi.md#insertAgentProfileMcp) | **POST** /conversation/agent/profiles/{user_id}/mcps | Insert an agent MCP server
 [**insertConversationCannedMessage()**](ConversationApi.md#insertConversationCannedMessage) | **POST** /conversation/canned_messages | Insert a canned message
 [**insertConversationDepartment()**](ConversationApi.md#insertConversationDepartment) | **POST** /conversation/departments | Insert a department
 [**insertConversationEngagement()**](ConversationApi.md#insertConversationEngagement) | **POST** /conversation/engagements | Insert a engagement
@@ -82,6 +85,7 @@ Method | HTTP request | Description
 [**smsUnsubscribeConversation()**](ConversationApi.md#smsUnsubscribeConversation) | **PUT** /conversation/conversations/{conversation_uuid}/sms_unsubscribe | Unsubscribe any SMS participants in this conversation
 [**startConversation()**](ConversationApi.md#startConversation) | **PUT** /conversation/conversations | Start a conversation
 [**updateAgentProfile()**](ConversationApi.md#updateAgentProfile) | **PUT** /conversation/agent/profile | Update agent profile
+[**updateAgentProfileMcp()**](ConversationApi.md#updateAgentProfileMcp) | **POST** /conversation/agent/profiles/{user_id}/mcps/{mcp_server_uuid} | Update an agent MCP server
 [**updateConversationCannedMessage()**](ConversationApi.md#updateConversationCannedMessage) | **PUT** /conversation/canned_messages/{conversation_canned_message_oid} | Update a canned message
 [**updateConversationDepartment()**](ConversationApi.md#updateConversationDepartment) | **PUT** /conversation/departments/{conversation_department_oid} | Update a department
 [**updateConversationEngagement()**](ConversationApi.md#updateConversationEngagement) | **PUT** /conversation/engagements/{conversation_engagement_oid} | Update a engagement
@@ -695,6 +699,87 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\ConversationKnowledgeBaseDocumentsResponse**](../Model/ConversationKnowledgeBaseDocumentsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getAgentProfileMcp()`
+
+```php
+getAgentProfileMcp($user_id, $mcp_server_uuid): \ultracart\v2\models\ConversationMcpServerResponse
+```
+
+Get an MCP server associated with this agent
+
+Retrieve MCP server associated with this agent
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**|  |
+ **mcp_server_uuid** | **string**|  |
+
+### Return type
+
+[**\ultracart\v2\models\ConversationMcpServerResponse**](../Model/ConversationMcpServerResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getAgentProfileMcps()`
+
+```php
+getAgentProfileMcps($user_id): \ultracart\v2\models\ConversationMcpServersResponse
+```
+
+Get the list of MCP servers associated with this agent
+
+Retrieve MCP servers associated with this agent
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**|  |
+
+### Return type
+
+[**\ultracart\v2\models\ConversationMcpServersResponse**](../Model/ConversationMcpServersResponse.md)
 
 ### Authorization
 
@@ -2477,6 +2562,47 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `insertAgentProfileMcp()`
+
+```php
+insertAgentProfileMcp($user_id, $mcp_server): \ultracart\v2\models\ConversationMcpServerResponse
+```
+
+Insert an agent MCP server
+
+Insert an agent MCP server
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**|  |
+ **mcp_server** | [**\ultracart\v2\models\ConversationMcpServer**](../Model/ConversationMcpServer.md)| MCP Server |
+
+### Return type
+
+[**\ultracart\v2\models\ConversationMcpServerResponse**](../Model/ConversationMcpServerResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `insertConversationCannedMessage()`
 
 ```php
@@ -3244,6 +3370,48 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\ConversationAgentProfileResponse**](../Model/ConversationAgentProfileResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateAgentProfileMcp()`
+
+```php
+updateAgentProfileMcp($user_id, $mcp_server_uuid, $mcp_server): \ultracart\v2\models\ConversationMcpServerResponse
+```
+
+Update an agent MCP server
+
+Update an agent MCP server
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**|  |
+ **mcp_server_uuid** | **string**|  |
+ **mcp_server** | [**\ultracart\v2\models\ConversationMcpServer**](../Model/ConversationMcpServer.md)| MCP Server |
+
+### Return type
+
+[**\ultracart\v2\models\ConversationMcpServerResponse**](../Model/ConversationMcpServerResponse.md)
 
 ### Authorization
 
