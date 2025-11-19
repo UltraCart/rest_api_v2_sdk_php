@@ -219,6 +219,8 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getAgentKeepAlive**](docs/Api/ConversationApi.md#getagentkeepalive) | **GET** /conversation/agent/keepalive | Agent keep alive
 *ConversationApi* | [**getAgentProfile**](docs/Api/ConversationApi.md#getagentprofile) | **GET** /conversation/agent/profile | Get agent profile
 *ConversationApi* | [**getAgentProfileKnowledgeBase**](docs/Api/ConversationApi.md#getagentprofileknowledgebase) | **GET** /conversation/agent/profiles/{user_id}/knowledge_base | Get the list of knowledge base documents associated with this agent profile
+*ConversationApi* | [**getAgentProfileMcp**](docs/Api/ConversationApi.md#getagentprofilemcp) | **GET** /conversation/agent/profiles/{user_id}/mcps/{mcp_server_uuid} | Get an MCP server associated with this agent
+*ConversationApi* | [**getAgentProfileMcps**](docs/Api/ConversationApi.md#getagentprofilemcps) | **GET** /conversation/agent/profiles/{user_id}/mcps | Get the list of MCP servers associated with this agent
 *ConversationApi* | [**getAgentProfiles**](docs/Api/ConversationApi.md#getagentprofiles) | **GET** /conversation/agent/profiles | Get agent profiles
 *ConversationApi* | [**getAgentWebsocketAuthorization**](docs/Api/ConversationApi.md#getagentwebsocketauthorization) | **PUT** /conversation/agent/auth | Get agent websocket authorization
 *ConversationApi* | [**getConversation**](docs/Api/ConversationApi.md#getconversation) | **GET** /conversation/conversations/{conversation_uuid} | Retrieve a conversation
@@ -263,6 +265,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getVirtualAgentBudget**](docs/Api/ConversationApi.md#getvirtualagentbudget) | **GET** /conversation/virtualagent/budget | Get virtual agent budget
 *ConversationApi* | [**getVirtualAgentCapabilities**](docs/Api/ConversationApi.md#getvirtualagentcapabilities) | **GET** /conversation/virtualagent/capabilities | Get virtual agent capabilities
 *ConversationApi* | [**insertAgentProfileKnowledgeBaseDocument**](docs/Api/ConversationApi.md#insertagentprofileknowledgebasedocument) | **POST** /conversation/agent/profiles/{user_id}/knowledge_base | Insert a knowledge base document
+*ConversationApi* | [**insertAgentProfileMcp**](docs/Api/ConversationApi.md#insertagentprofilemcp) | **POST** /conversation/agent/profiles/{user_id}/mcps | Insert an agent MCP server
 *ConversationApi* | [**insertConversationCannedMessage**](docs/Api/ConversationApi.md#insertconversationcannedmessage) | **POST** /conversation/canned_messages | Insert a canned message
 *ConversationApi* | [**insertConversationDepartment**](docs/Api/ConversationApi.md#insertconversationdepartment) | **POST** /conversation/departments | Insert a department
 *ConversationApi* | [**insertConversationEngagement**](docs/Api/ConversationApi.md#insertconversationengagement) | **POST** /conversation/engagements | Insert a engagement
@@ -282,6 +285,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**smsUnsubscribeConversation**](docs/Api/ConversationApi.md#smsunsubscribeconversation) | **PUT** /conversation/conversations/{conversation_uuid}/sms_unsubscribe | Unsubscribe any SMS participants in this conversation
 *ConversationApi* | [**startConversation**](docs/Api/ConversationApi.md#startconversation) | **PUT** /conversation/conversations | Start a conversation
 *ConversationApi* | [**updateAgentProfile**](docs/Api/ConversationApi.md#updateagentprofile) | **PUT** /conversation/agent/profile | Update agent profile
+*ConversationApi* | [**updateAgentProfileMcp**](docs/Api/ConversationApi.md#updateagentprofilemcp) | **POST** /conversation/agent/profiles/{user_id}/mcps/{mcp_server_uuid} | Update an agent MCP server
 *ConversationApi* | [**updateConversationCannedMessage**](docs/Api/ConversationApi.md#updateconversationcannedmessage) | **PUT** /conversation/canned_messages/{conversation_canned_message_oid} | Update a canned message
 *ConversationApi* | [**updateConversationDepartment**](docs/Api/ConversationApi.md#updateconversationdepartment) | **PUT** /conversation/departments/{conversation_department_oid} | Update a department
 *ConversationApi* | [**updateConversationEngagement**](docs/Api/ConversationApi.md#updateconversationengagement) | **PUT** /conversation/engagements/{conversation_engagement_oid} | Update a engagement
@@ -860,6 +864,9 @@ Class | Method | HTTP request | Description
  - [ConversationLocationCountry](docs/Model/ConversationLocationCountry.md)
  - [ConversationLocationStateProvince](docs/Model/ConversationLocationStateProvince.md)
  - [ConversationLocationsResponse](docs/Model/ConversationLocationsResponse.md)
+ - [ConversationMcpServer](docs/Model/ConversationMcpServer.md)
+ - [ConversationMcpServerResponse](docs/Model/ConversationMcpServerResponse.md)
+ - [ConversationMcpServersResponse](docs/Model/ConversationMcpServersResponse.md)
  - [ConversationMessage](docs/Model/ConversationMessage.md)
  - [ConversationMessageTranslation](docs/Model/ConversationMessageTranslation.md)
  - [ConversationMessageTransportStatus](docs/Model/ConversationMessageTransportStatus.md)
@@ -1668,6 +1675,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.30 | 11/19/2025 | conversation - AI agent MCP server configuration methods |
 | 3.11.29 | 11/13/2025 | conversations - AI capabilities flag for generate coupon |
 | 3.11.28 | 11/07/2025 | OrderApi.assignToAffiliate |
 | 3.11.27 | 11/06/2025 | conversation ai knowledge base changes |
