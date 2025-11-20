@@ -464,6 +464,327 @@ class ConversationApi
     }
 
     /**
+     * Operation deleteAgentProfileMcp
+     *
+     * Delete an agent MCP server
+     *
+     * @param  int $user_id user_id (required)
+     * @param  string $mcp_server_uuid mcp_server_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteAgentProfileMcp($user_id, $mcp_server_uuid)
+    {
+        $this->deleteAgentProfileMcpWithHttpInfo($user_id, $mcp_server_uuid);
+    }
+
+
+    /**
+     * Operation deleteAgentProfileMcpWithHttpInfo
+     *
+     * Delete an agent MCP server
+     *
+     * @param  int $user_id (required)
+     * @param  string $mcp_server_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteAgentProfileMcpWithHttpInfo($user_id, $mcp_server_uuid)
+    {
+        $this->deleteAgentProfileMcpWithHttpInfoRetry(true ,   $user_id,   $mcp_server_uuid);
+    }
+
+
+    /**
+     * Operation deleteAgentProfileMcpWithHttpInfoRetry
+     *
+     * Delete an agent MCP server
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $user_id (required)
+     * @param  string $mcp_server_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteAgentProfileMcpWithHttpInfoRetry($retry ,  $user_id,  $mcp_server_uuid)
+    {
+        $returnType = '';
+        $request = $this->deleteAgentProfileMcpRequest($user_id, $mcp_server_uuid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        $this->deleteAgentProfileMcpWithHttpInfoRetry(false ,   $user_id,   $mcp_server_uuid);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            return [null, $response->getStatusCode(), $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteAgentProfileMcpAsync
+     *
+     * Delete an agent MCP server
+     *
+     * @param  int $user_id (required)
+     * @param  string $mcp_server_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteAgentProfileMcpAsync($user_id, $mcp_server_uuid)
+    {
+        return $this->deleteAgentProfileMcpAsyncWithHttpInfo($user_id, $mcp_server_uuid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteAgentProfileMcpAsyncWithHttpInfo
+     *
+     * Delete an agent MCP server
+     *
+     * @param  int $user_id (required)
+     * @param  string $mcp_server_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteAgentProfileMcpAsyncWithHttpInfo($user_id, $mcp_server_uuid)
+    {
+        $returnType = '';
+        $request = $this->deleteAgentProfileMcpRequest($user_id, $mcp_server_uuid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteAgentProfileMcp'
+     *
+     * @param  int $user_id (required)
+     * @param  string $mcp_server_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deleteAgentProfileMcpRequest($user_id, $mcp_server_uuid)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $user_id when calling deleteAgentProfileMcp'
+            );
+        }
+        // verify the required parameter 'mcp_server_uuid' is set
+        if ($mcp_server_uuid === null || (is_array($mcp_server_uuid) && count($mcp_server_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $mcp_server_uuid when calling deleteAgentProfileMcp'
+            );
+        }
+
+        $resourcePath = '/conversation/agent/profiles/{user_id}/mcps/{mcp_server_uuid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'user_id' . '}',
+                ObjectSerializer::toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($mcp_server_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'mcp_server_uuid' . '}',
+                ObjectSerializer::toPathValue($mcp_server_uuid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation deleteConversationCannedMessage
      *
      * Delete a conversation canned message
@@ -5207,6 +5528,364 @@ class ConversationApi
         }
 
         $resourcePath = '/conversation/agent/profiles/{user_id}/mcps/{mcp_server_uuid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'user_id' . '}',
+                ObjectSerializer::toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($mcp_server_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'mcp_server_uuid' . '}',
+                ObjectSerializer::toPathValue($mcp_server_uuid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getAgentProfileMcpTools
+     *
+     * Get the tools available from the MCP server
+     *
+     * @param  int $user_id user_id (required)
+     * @param  string $mcp_server_uuid mcp_server_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationMcpServerToolsResponse
+     */
+    public function getAgentProfileMcpTools($user_id, $mcp_server_uuid)
+    {
+        list($response) = $this->getAgentProfileMcpToolsWithHttpInfo($user_id, $mcp_server_uuid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getAgentProfileMcpToolsWithHttpInfo
+     *
+     * Get the tools available from the MCP server
+     *
+     * @param  int $user_id (required)
+     * @param  string $mcp_server_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationMcpServerToolsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAgentProfileMcpToolsWithHttpInfo($user_id, $mcp_server_uuid)
+    {
+        return $this->getAgentProfileMcpToolsWithHttpInfoRetry(true ,   $user_id,   $mcp_server_uuid);
+    }
+
+
+    /**
+     * Operation getAgentProfileMcpToolsWithHttpInfoRetry
+     *
+     * Get the tools available from the MCP server
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $user_id (required)
+     * @param  string $mcp_server_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationMcpServerToolsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAgentProfileMcpToolsWithHttpInfoRetry($retry ,  $user_id,  $mcp_server_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationMcpServerToolsResponse';
+        $request = $this->getAgentProfileMcpToolsRequest($user_id, $mcp_server_uuid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getAgentProfileMcpToolsWithHttpInfoRetry(false ,   $user_id,   $mcp_server_uuid);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationMcpServerToolsResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getAgentProfileMcpToolsAsync
+     *
+     * Get the tools available from the MCP server
+     *
+     * @param  int $user_id (required)
+     * @param  string $mcp_server_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAgentProfileMcpToolsAsync($user_id, $mcp_server_uuid)
+    {
+        return $this->getAgentProfileMcpToolsAsyncWithHttpInfo($user_id, $mcp_server_uuid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getAgentProfileMcpToolsAsyncWithHttpInfo
+     *
+     * Get the tools available from the MCP server
+     *
+     * @param  int $user_id (required)
+     * @param  string $mcp_server_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAgentProfileMcpToolsAsyncWithHttpInfo($user_id, $mcp_server_uuid)
+    {
+        $returnType = '\ultracart\v2\models\ConversationMcpServerToolsResponse';
+        $request = $this->getAgentProfileMcpToolsRequest($user_id, $mcp_server_uuid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getAgentProfileMcpTools'
+     *
+     * @param  int $user_id (required)
+     * @param  string $mcp_server_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getAgentProfileMcpToolsRequest($user_id, $mcp_server_uuid)
+    {
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $user_id when calling getAgentProfileMcpTools'
+            );
+        }
+        // verify the required parameter 'mcp_server_uuid' is set
+        if ($mcp_server_uuid === null || (is_array($mcp_server_uuid) && count($mcp_server_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $mcp_server_uuid when calling getAgentProfileMcpTools'
+            );
+        }
+
+        $resourcePath = '/conversation/agent/profiles/{user_id}/mcps/{mcp_server_uuid}/tools';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -26700,379 +27379,6 @@ class ConversationApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'PUT',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation updateAgentProfileMcp
-     *
-     * Update an agent MCP server
-     *
-     * @param  int $user_id user_id (required)
-     * @param  string $mcp_server_uuid mcp_server_uuid (required)
-     * @param  \ultracart\v2\models\ConversationMcpServer $mcp_server MCP Server (required)
-     *
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\ConversationMcpServerResponse
-     */
-    public function updateAgentProfileMcp($user_id, $mcp_server_uuid, $mcp_server)
-    {
-        list($response) = $this->updateAgentProfileMcpWithHttpInfo($user_id, $mcp_server_uuid, $mcp_server);
-        return $response;
-    }
-
-
-    /**
-     * Operation updateAgentProfileMcpWithHttpInfo
-     *
-     * Update an agent MCP server
-     *
-     * @param  int $user_id (required)
-     * @param  string $mcp_server_uuid (required)
-     * @param  \ultracart\v2\models\ConversationMcpServer $mcp_server MCP Server (required)
-     *
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\ConversationMcpServerResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function updateAgentProfileMcpWithHttpInfo($user_id, $mcp_server_uuid, $mcp_server)
-    {
-        return $this->updateAgentProfileMcpWithHttpInfoRetry(true ,   $user_id,   $mcp_server_uuid,   $mcp_server);
-    }
-
-
-    /**
-     * Operation updateAgentProfileMcpWithHttpInfoRetry
-     *
-     * Update an agent MCP server
-     *
-     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
-     * @param  int $user_id (required)
-     * @param  string $mcp_server_uuid (required)
-     * @param  \ultracart\v2\models\ConversationMcpServer $mcp_server MCP Server (required)
-     *
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\ConversationMcpServerResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function updateAgentProfileMcpWithHttpInfoRetry($retry ,  $user_id,  $mcp_server_uuid,  $mcp_server)
-    {
-        $returnType = '\ultracart\v2\models\ConversationMcpServerResponse';
-        $request = $this->updateAgentProfileMcpRequest($user_id, $mcp_server_uuid, $mcp_server);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-
-                if($e->getResponse()) {
-                    $response = $e->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    $retryAfter = 0;
-                    $headers = $response->getHeaders();
-                    if (array_key_exists('Retry-After', $headers)) {
-                        $retryAfter = intval($headers['Retry-After'][0]);
-                    }
-
-                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
-                        sleep($retryAfter);
-                        return $this->updateAgentProfileMcpWithHttpInfoRetry(false ,   $user_id,   $mcp_server_uuid,   $mcp_server);
-                    }
-                }
-
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\ConversationMcpServerResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 410:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation updateAgentProfileMcpAsync
-     *
-     * Update an agent MCP server
-     *
-     * @param  int $user_id (required)
-     * @param  string $mcp_server_uuid (required)
-     * @param  \ultracart\v2\models\ConversationMcpServer $mcp_server MCP Server (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function updateAgentProfileMcpAsync($user_id, $mcp_server_uuid, $mcp_server)
-    {
-        return $this->updateAgentProfileMcpAsyncWithHttpInfo($user_id, $mcp_server_uuid, $mcp_server)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation updateAgentProfileMcpAsyncWithHttpInfo
-     *
-     * Update an agent MCP server
-     *
-     * @param  int $user_id (required)
-     * @param  string $mcp_server_uuid (required)
-     * @param  \ultracart\v2\models\ConversationMcpServer $mcp_server MCP Server (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function updateAgentProfileMcpAsyncWithHttpInfo($user_id, $mcp_server_uuid, $mcp_server)
-    {
-        $returnType = '\ultracart\v2\models\ConversationMcpServerResponse';
-        $request = $this->updateAgentProfileMcpRequest($user_id, $mcp_server_uuid, $mcp_server);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'updateAgentProfileMcp'
-     *
-     * @param  int $user_id (required)
-     * @param  string $mcp_server_uuid (required)
-     * @param  \ultracart\v2\models\ConversationMcpServer $mcp_server MCP Server (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function updateAgentProfileMcpRequest($user_id, $mcp_server_uuid, $mcp_server)
-    {
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling updateAgentProfileMcp'
-            );
-        }
-        // verify the required parameter 'mcp_server_uuid' is set
-        if ($mcp_server_uuid === null || (is_array($mcp_server_uuid) && count($mcp_server_uuid) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $mcp_server_uuid when calling updateAgentProfileMcp'
-            );
-        }
-        // verify the required parameter 'mcp_server' is set
-        if ($mcp_server === null || (is_array($mcp_server) && count($mcp_server) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $mcp_server when calling updateAgentProfileMcp'
-            );
-        }
-
-        $resourcePath = '/conversation/agent/profiles/{user_id}/mcps/{mcp_server_uuid}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'user_id' . '}',
-                ObjectSerializer::toPathValue($user_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($mcp_server_uuid !== null) {
-            $resourcePath = str_replace(
-                '{' . 'mcp_server_uuid' . '}',
-                ObjectSerializer::toPathValue($mcp_server_uuid),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-        if (isset($mcp_server)) {
-            $_tempBody = $mcp_server;
-        }
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            
-            if($headers['Content-Type'] === 'application/json') {
-                // \stdClass has no __toString(), so we should encode it manually
-                if ($httpBody instanceof \stdClass) {
-                    $httpBody = \GuzzleHttp\json_encode($httpBody);
-                }
-                // array has no __toString(), so we should encode it manually
-                if(is_array($httpBody)) {
-                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
-                }
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if ($this->config->getAccessToken() !== null) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
-        if ($apiKey !== null) {
-            $headers['x-ultracart-simple-key'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
