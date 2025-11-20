@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.31"
+    "ultracart/rest_api_v2_sdk_php": "4.1.32"
   }
 }
 ```
@@ -145,7 +145,7 @@ Class | Method | HTTP request | Description
 *CheckoutApi* | [**updateCart**](docs/Api/CheckoutApi.md#updatecart) | **PUT** /checkout/cart | Update cart
 *CheckoutApi* | [**validateCart**](docs/Api/CheckoutApi.md#validatecart) | **POST** /checkout/cart/validate | Validate
 *ConversationApi* | [**deleteAgentProfileKnowledgeBaseDocument**](docs/Api/ConversationApi.md#deleteagentprofileknowledgebasedocument) | **DELETE** /conversation/agent/profiles/{user_id}/knowledge_base/{document_uuid} | Delete a knowledge base document
-*ConversationApi* | [**deleteAgentProfileMcp**](docs/Api/ConversationApi.md#deleteagentprofilemcp) | **POST** /conversation/agent/profiles/{user_id}/mcps/{mcp_server_uuid} | Delete an agent MCP server
+*ConversationApi* | [**deleteAgentProfileMcp**](docs/Api/ConversationApi.md#deleteagentprofilemcp) | **DELETE** /conversation/agent/profiles/{user_id}/mcps/{mcp_server_uuid} | Delete an agent MCP server
 *ConversationApi* | [**deleteConversationCannedMessage**](docs/Api/ConversationApi.md#deleteconversationcannedmessage) | **DELETE** /conversation/canned_messages/{conversation_canned_message_oid} | Delete a conversation canned message
 *ConversationApi* | [**deleteDepartment**](docs/Api/ConversationApi.md#deletedepartment) | **DELETE** /conversation/departments/{conversation_department_oid} | Delete a conversation department
 *ConversationApi* | [**deleteEngagement**](docs/Api/ConversationApi.md#deleteengagement) | **DELETE** /conversation/engagements/{conversation_engagement_oid} | Delete a conversation engagement
@@ -227,6 +227,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**smsUnsubscribeConversation**](docs/Api/ConversationApi.md#smsunsubscribeconversation) | **PUT** /conversation/conversations/{conversation_uuid}/sms_unsubscribe | Unsubscribe any SMS participants in this conversation
 *ConversationApi* | [**startConversation**](docs/Api/ConversationApi.md#startconversation) | **PUT** /conversation/conversations | Start a conversation
 *ConversationApi* | [**updateAgentProfile**](docs/Api/ConversationApi.md#updateagentprofile) | **PUT** /conversation/agent/profile | Update agent profile
+*ConversationApi* | [**updateAgentProfileMcp**](docs/Api/ConversationApi.md#updateagentprofilemcp) | **POST** /conversation/agent/profiles/{user_id}/mcps/{mcp_server_uuid} | Update an agent MCP server
 *ConversationApi* | [**updateConversationCannedMessage**](docs/Api/ConversationApi.md#updateconversationcannedmessage) | **PUT** /conversation/canned_messages/{conversation_canned_message_oid} | Update a canned message
 *ConversationApi* | [**updateConversationDepartment**](docs/Api/ConversationApi.md#updateconversationdepartment) | **PUT** /conversation/departments/{conversation_department_oid} | Update a department
 *ConversationApi* | [**updateConversationEngagement**](docs/Api/ConversationApi.md#updateconversationengagement) | **PUT** /conversation/engagements/{conversation_engagement_oid} | Update a engagement
@@ -1630,6 +1631,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.32 | 11/20/2025 | conversion api bug fix on incorrect signature |
 | 4.1.31 | 11/20/2025 | conversation - AI agent mcp server tools function |
 | 4.1.30 | 11/19/2025 | conversation - AI agent MCP server configuration methods |
 | 4.1.29 | 11/13/2025 | conversations - AI capabilities flag for generate coupon |
