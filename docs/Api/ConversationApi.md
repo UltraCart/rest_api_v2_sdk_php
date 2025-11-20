@@ -5,6 +5,7 @@ All URIs are relative to https://secure.ultracart.com/rest/v2.
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteAgentProfileKnowledgeBaseDocument()**](ConversationApi.md#deleteAgentProfileKnowledgeBaseDocument) | **DELETE** /conversation/agent/profiles/{user_id}/knowledge_base/{document_uuid} | Delete a knowledge base document
+[**deleteAgentProfileMcp()**](ConversationApi.md#deleteAgentProfileMcp) | **POST** /conversation/agent/profiles/{user_id}/mcps/{mcp_server_uuid} | Delete an agent MCP server
 [**deleteConversationCannedMessage()**](ConversationApi.md#deleteConversationCannedMessage) | **DELETE** /conversation/canned_messages/{conversation_canned_message_oid} | Delete a conversation canned message
 [**deleteDepartment()**](ConversationApi.md#deleteDepartment) | **DELETE** /conversation/departments/{conversation_department_oid} | Delete a conversation department
 [**deleteEngagement()**](ConversationApi.md#deleteEngagement) | **DELETE** /conversation/engagements/{conversation_engagement_oid} | Delete a conversation engagement
@@ -20,6 +21,7 @@ Method | HTTP request | Description
 [**getAgentProfile()**](ConversationApi.md#getAgentProfile) | **GET** /conversation/agent/profile | Get agent profile
 [**getAgentProfileKnowledgeBase()**](ConversationApi.md#getAgentProfileKnowledgeBase) | **GET** /conversation/agent/profiles/{user_id}/knowledge_base | Get the list of knowledge base documents associated with this agent profile
 [**getAgentProfileMcp()**](ConversationApi.md#getAgentProfileMcp) | **GET** /conversation/agent/profiles/{user_id}/mcps/{mcp_server_uuid} | Get an MCP server associated with this agent
+[**getAgentProfileMcpTools()**](ConversationApi.md#getAgentProfileMcpTools) | **GET** /conversation/agent/profiles/{user_id}/mcps/{mcp_server_uuid}/tools | Get the tools available from the MCP server
 [**getAgentProfileMcps()**](ConversationApi.md#getAgentProfileMcps) | **GET** /conversation/agent/profiles/{user_id}/mcps | Get the list of MCP servers associated with this agent
 [**getAgentProfiles()**](ConversationApi.md#getAgentProfiles) | **GET** /conversation/agent/profiles | Get agent profiles
 [**getAgentWebsocketAuthorization()**](ConversationApi.md#getAgentWebsocketAuthorization) | **PUT** /conversation/agent/auth | Get agent websocket authorization
@@ -85,7 +87,6 @@ Method | HTTP request | Description
 [**smsUnsubscribeConversation()**](ConversationApi.md#smsUnsubscribeConversation) | **PUT** /conversation/conversations/{conversation_uuid}/sms_unsubscribe | Unsubscribe any SMS participants in this conversation
 [**startConversation()**](ConversationApi.md#startConversation) | **PUT** /conversation/conversations | Start a conversation
 [**updateAgentProfile()**](ConversationApi.md#updateAgentProfile) | **PUT** /conversation/agent/profile | Update agent profile
-[**updateAgentProfileMcp()**](ConversationApi.md#updateAgentProfileMcp) | **POST** /conversation/agent/profiles/{user_id}/mcps/{mcp_server_uuid} | Update an agent MCP server
 [**updateConversationCannedMessage()**](ConversationApi.md#updateConversationCannedMessage) | **PUT** /conversation/canned_messages/{conversation_canned_message_oid} | Update a canned message
 [**updateConversationDepartment()**](ConversationApi.md#updateConversationDepartment) | **PUT** /conversation/departments/{conversation_department_oid} | Update a department
 [**updateConversationEngagement()**](ConversationApi.md#updateConversationEngagement) | **PUT** /conversation/engagements/{conversation_engagement_oid} | Update a engagement
@@ -129,6 +130,47 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\ConversationDeleteKnowledgeBaseDocumentResponse**](../Model/ConversationDeleteKnowledgeBaseDocumentResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteAgentProfileMcp()`
+
+```php
+deleteAgentProfileMcp($user_id, $mcp_server_uuid)
+```
+
+Delete an agent MCP server
+
+Delete an agent MCP server
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**|  |
+ **mcp_server_uuid** | **string**|  |
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 
@@ -740,6 +782,47 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\ConversationMcpServerResponse**](../Model/ConversationMcpServerResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getAgentProfileMcpTools()`
+
+```php
+getAgentProfileMcpTools($user_id, $mcp_server_uuid): \ultracart\v2\models\ConversationMcpServerToolsResponse
+```
+
+Get the tools available from the MCP server
+
+Get the tools available from the MCP server
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**|  |
+ **mcp_server_uuid** | **string**|  |
+
+### Return type
+
+[**\ultracart\v2\models\ConversationMcpServerToolsResponse**](../Model/ConversationMcpServerToolsResponse.md)
 
 ### Authorization
 
@@ -3370,48 +3453,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\ConversationAgentProfileResponse**](../Model/ConversationAgentProfileResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `updateAgentProfileMcp()`
-
-```php
-updateAgentProfileMcp($user_id, $mcp_server_uuid, $mcp_server): \ultracart\v2\models\ConversationMcpServerResponse
-```
-
-Update an agent MCP server
-
-Update an agent MCP server
-
-
-### Example
-
-
-(No example for this operation).
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **int**|  |
- **mcp_server_uuid** | **string**|  |
- **mcp_server** | [**\ultracart\v2\models\ConversationMcpServer**](../Model/ConversationMcpServer.md)| MCP Server |
-
-### Return type
-
-[**\ultracart\v2\models\ConversationMcpServerResponse**](../Model/ConversationMcpServerResponse.md)
 
 ### Authorization
 
