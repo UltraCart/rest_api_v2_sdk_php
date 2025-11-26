@@ -1678,6 +1678,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.33 | 11/26/2025 | conversation - AI agent profile fields |
 | 3.11.32 | 11/20/2025 | conversion api bug fix on incorrect signature |
 | 3.11.31 | 11/20/2025 | conversation - AI agent mcp server tools function |
 | 3.11.30 | 11/19/2025 | conversation - AI agent MCP server configuration methods |

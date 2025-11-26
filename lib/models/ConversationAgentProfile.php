@@ -61,6 +61,7 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
         'ai_chat_instructions' => 'string',
         'ai_persona' => 'string',
         'ai_sms_instructions' => 'string',
+        'ai_ticket_instructions' => 'string',
         'chat_limit' => 'int',
         'default_language_iso_code' => 'string',
         'default_status' => 'string',
@@ -68,7 +69,9 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
         'name' => 'string',
         'profile_image_upload_key' => 'string',
         'profile_image_url' => 'string',
-        'user_id' => 'int'
+        'user_id' => 'int',
+        'zohodesk_classifications' => 'string[]',
+        'zohodesk_departments' => 'string[]'
     ];
 
     /**
@@ -81,6 +84,7 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
         'ai_chat_instructions' => null,
         'ai_persona' => null,
         'ai_sms_instructions' => null,
+        'ai_ticket_instructions' => null,
         'chat_limit' => 'int32',
         'default_language_iso_code' => null,
         'default_status' => null,
@@ -88,7 +92,9 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
         'name' => null,
         'profile_image_upload_key' => null,
         'profile_image_url' => null,
-        'user_id' => 'int32'
+        'user_id' => 'int32',
+        'zohodesk_classifications' => null,
+        'zohodesk_departments' => null
     ];
 
     /**
@@ -122,6 +128,7 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
         'ai_chat_instructions' => 'ai_chat_instructions',
         'ai_persona' => 'ai_persona',
         'ai_sms_instructions' => 'ai_sms_instructions',
+        'ai_ticket_instructions' => 'ai_ticket_instructions',
         'chat_limit' => 'chat_limit',
         'default_language_iso_code' => 'default_language_iso_code',
         'default_status' => 'default_status',
@@ -129,7 +136,9 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
         'name' => 'name',
         'profile_image_upload_key' => 'profile_image_upload_key',
         'profile_image_url' => 'profile_image_url',
-        'user_id' => 'user_id'
+        'user_id' => 'user_id',
+        'zohodesk_classifications' => 'zohodesk_classifications',
+        'zohodesk_departments' => 'zohodesk_departments'
     ];
 
     /**
@@ -142,6 +151,7 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
         'ai_chat_instructions' => 'setAiChatInstructions',
         'ai_persona' => 'setAiPersona',
         'ai_sms_instructions' => 'setAiSmsInstructions',
+        'ai_ticket_instructions' => 'setAiTicketInstructions',
         'chat_limit' => 'setChatLimit',
         'default_language_iso_code' => 'setDefaultLanguageIsoCode',
         'default_status' => 'setDefaultStatus',
@@ -149,7 +159,9 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'profile_image_upload_key' => 'setProfileImageUploadKey',
         'profile_image_url' => 'setProfileImageUrl',
-        'user_id' => 'setUserId'
+        'user_id' => 'setUserId',
+        'zohodesk_classifications' => 'setZohodeskClassifications',
+        'zohodesk_departments' => 'setZohodeskDepartments'
     ];
 
     /**
@@ -162,6 +174,7 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
         'ai_chat_instructions' => 'getAiChatInstructions',
         'ai_persona' => 'getAiPersona',
         'ai_sms_instructions' => 'getAiSmsInstructions',
+        'ai_ticket_instructions' => 'getAiTicketInstructions',
         'chat_limit' => 'getChatLimit',
         'default_language_iso_code' => 'getDefaultLanguageIsoCode',
         'default_status' => 'getDefaultStatus',
@@ -169,7 +182,9 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'profile_image_upload_key' => 'getProfileImageUploadKey',
         'profile_image_url' => 'getProfileImageUrl',
-        'user_id' => 'getUserId'
+        'user_id' => 'getUserId',
+        'zohodesk_classifications' => 'getZohodeskClassifications',
+        'zohodesk_departments' => 'getZohodeskDepartments'
     ];
 
     /**
@@ -253,6 +268,7 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
         $this->container['ai_chat_instructions'] = isset($data['ai_chat_instructions']) ? $data['ai_chat_instructions'] : null;
         $this->container['ai_persona'] = isset($data['ai_persona']) ? $data['ai_persona'] : null;
         $this->container['ai_sms_instructions'] = isset($data['ai_sms_instructions']) ? $data['ai_sms_instructions'] : null;
+        $this->container['ai_ticket_instructions'] = isset($data['ai_ticket_instructions']) ? $data['ai_ticket_instructions'] : null;
         $this->container['chat_limit'] = isset($data['chat_limit']) ? $data['chat_limit'] : null;
         $this->container['default_language_iso_code'] = isset($data['default_language_iso_code']) ? $data['default_language_iso_code'] : null;
         $this->container['default_status'] = isset($data['default_status']) ? $data['default_status'] : null;
@@ -261,6 +277,8 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
         $this->container['profile_image_upload_key'] = isset($data['profile_image_upload_key']) ? $data['profile_image_upload_key'] : null;
         $this->container['profile_image_url'] = isset($data['profile_image_url']) ? $data['profile_image_url'] : null;
         $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
+        $this->container['zohodesk_classifications'] = isset($data['zohodesk_classifications']) ? $data['zohodesk_classifications'] : null;
+        $this->container['zohodesk_departments'] = isset($data['zohodesk_departments']) ? $data['zohodesk_departments'] : null;
     }
 
     /**
@@ -387,6 +405,30 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
     public function setAiSmsInstructions($ai_sms_instructions)
     {
         $this->container['ai_sms_instructions'] = $ai_sms_instructions;
+
+        return $this;
+    }
+
+    /**
+     * Gets ai_ticket_instructions
+     *
+     * @return string
+     */
+    public function getAiTicketInstructions()
+    {
+        return $this->container['ai_ticket_instructions'];
+    }
+
+    /**
+     * Sets ai_ticket_instructions
+     *
+     * @param string $ai_ticket_instructions Additional instructions for this AI when handling ticket draft replies
+     *
+     * @return $this
+     */
+    public function setAiTicketInstructions($ai_ticket_instructions)
+    {
+        $this->container['ai_ticket_instructions'] = $ai_ticket_instructions;
 
         return $this;
     }
@@ -588,6 +630,54 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
     public function setUserId($user_id)
     {
         $this->container['user_id'] = $user_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets zohodesk_classifications
+     *
+     * @return string[]
+     */
+    public function getZohodeskClassifications()
+    {
+        return $this->container['zohodesk_classifications'];
+    }
+
+    /**
+     * Sets zohodesk_classifications
+     *
+     * @param string[] $zohodesk_classifications Restrict this agent to drafting replies only to tickets with these classifications
+     *
+     * @return $this
+     */
+    public function setZohodeskClassifications($zohodesk_classifications)
+    {
+        $this->container['zohodesk_classifications'] = $zohodesk_classifications;
+
+        return $this;
+    }
+
+    /**
+     * Gets zohodesk_departments
+     *
+     * @return string[]
+     */
+    public function getZohodeskDepartments()
+    {
+        return $this->container['zohodesk_departments'];
+    }
+
+    /**
+     * Sets zohodesk_departments
+     *
+     * @param string[] $zohodesk_departments Restrict this agent to drafting replies only to these department ids
+     *
+     * @return $this
+     */
+    public function setZohodeskDepartments($zohodesk_departments)
+    {
+        $this->container['zohodesk_departments'] = $zohodesk_departments;
 
         return $this;
     }
