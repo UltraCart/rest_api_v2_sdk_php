@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.33"
+    "ultracart/rest_api_v2_sdk_php": "4.1.34"
   }
 }
 ```
@@ -1631,6 +1631,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.34 | 12/02/2025 | coupons - added optional free specific shipping method to two coupons |
 | 4.1.33 | 11/26/2025 | conversation - AI agent profile fields |
 | 4.1.32 | 11/20/2025 | conversion api bug fix on incorrect signature |
 | 4.1.31 | 11/20/2025 | conversation - AI agent mcp server tools function |
