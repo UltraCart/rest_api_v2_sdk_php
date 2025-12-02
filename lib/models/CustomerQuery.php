@@ -75,6 +75,7 @@ class CustomerQuery implements ModelInterface, ArrayAccess
         'pricing_tier_name' => 'string',
         'pricing_tier_oid' => 'int',
         'qb_class' => 'string',
+        'query_target' => 'string',
         'quickbooks_code' => 'string',
         'shipping_city' => 'string',
         'shipping_company' => 'string',
@@ -113,6 +114,7 @@ class CustomerQuery implements ModelInterface, ArrayAccess
         'pricing_tier_name' => null,
         'pricing_tier_oid' => 'int32',
         'qb_class' => null,
+        'query_target' => null,
         'quickbooks_code' => null,
         'shipping_city' => null,
         'shipping_company' => null,
@@ -172,6 +174,7 @@ class CustomerQuery implements ModelInterface, ArrayAccess
         'pricing_tier_name' => 'pricing_tier_name',
         'pricing_tier_oid' => 'pricing_tier_oid',
         'qb_class' => 'qb_class',
+        'query_target' => 'query_target',
         'quickbooks_code' => 'quickbooks_code',
         'shipping_city' => 'shipping_city',
         'shipping_company' => 'shipping_company',
@@ -210,6 +213,7 @@ class CustomerQuery implements ModelInterface, ArrayAccess
         'pricing_tier_name' => 'setPricingTierName',
         'pricing_tier_oid' => 'setPricingTierOid',
         'qb_class' => 'setQbClass',
+        'query_target' => 'setQueryTarget',
         'quickbooks_code' => 'setQuickbooksCode',
         'shipping_city' => 'setShippingCity',
         'shipping_company' => 'setShippingCompany',
@@ -248,6 +252,7 @@ class CustomerQuery implements ModelInterface, ArrayAccess
         'pricing_tier_name' => 'getPricingTierName',
         'pricing_tier_oid' => 'getPricingTierOid',
         'qb_class' => 'getQbClass',
+        'query_target' => 'getQueryTarget',
         'quickbooks_code' => 'getQuickbooksCode',
         'shipping_city' => 'getShippingCity',
         'shipping_company' => 'getShippingCompany',
@@ -303,8 +308,23 @@ class CustomerQuery implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const QUERY_TARGET_ORIGIN = 'origin';
+    const QUERY_TARGET_CACHE = 'cache';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getQueryTargetAllowableValues()
+    {
+        return [
+            self::QUERY_TARGET_ORIGIN,
+            self::QUERY_TARGET_CACHE,
+        ];
+    }
     
 
     /**
@@ -340,6 +360,7 @@ class CustomerQuery implements ModelInterface, ArrayAccess
         $this->container['pricing_tier_name'] = isset($data['pricing_tier_name']) ? $data['pricing_tier_name'] : null;
         $this->container['pricing_tier_oid'] = isset($data['pricing_tier_oid']) ? $data['pricing_tier_oid'] : null;
         $this->container['qb_class'] = isset($data['qb_class']) ? $data['qb_class'] : null;
+        $this->container['query_target'] = isset($data['query_target']) ? $data['query_target'] : null;
         $this->container['quickbooks_code'] = isset($data['quickbooks_code']) ? $data['quickbooks_code'] : null;
         $this->container['shipping_city'] = isset($data['shipping_city']) ? $data['shipping_city'] : null;
         $this->container['shipping_company'] = isset($data['shipping_company']) ? $data['shipping_company'] : null;
@@ -401,6 +422,14 @@ class CustomerQuery implements ModelInterface, ArrayAccess
 
         if (!is_null($this->container['pricing_tier_name']) && (mb_strlen($this->container['pricing_tier_name']) > 50)) {
             $invalidProperties[] = "invalid value for 'pricing_tier_name', the character length must be smaller than or equal to 50.";
+        }
+
+        $allowedValues = $this->getQueryTargetAllowableValues();
+        if (!is_null($this->container['query_target']) && !in_array($this->container['query_target'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'query_target', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
 
         if (!is_null($this->container['shipping_city']) && (mb_strlen($this->container['shipping_city']) > 32)) {
@@ -922,6 +951,39 @@ class CustomerQuery implements ModelInterface, ArrayAccess
     public function setQbClass($qb_class)
     {
         $this->container['qb_class'] = $qb_class;
+
+        return $this;
+    }
+
+    /**
+     * Gets query_target
+     *
+     * @return string
+     */
+    public function getQueryTarget()
+    {
+        return $this->container['query_target'];
+    }
+
+    /**
+     * Sets query_target
+     *
+     * @param string $query_target Query Target
+     *
+     * @return $this
+     */
+    public function setQueryTarget($query_target)
+    {
+        $allowedValues = $this->getQueryTargetAllowableValues();
+        if (!is_null($query_target) && !in_array($query_target, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'query_target', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['query_target'] = $query_target;
 
         return $this;
     }

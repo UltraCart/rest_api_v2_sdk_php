@@ -57,6 +57,9 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'ai_generation' => 'bool',
+        'ai_generation_prompt' => 'string',
+        'ai_generation_user_id' => 'int',
         'deleted' => 'bool',
         'edited_by_user' => 'string',
         'email_communication_sequence_email_uuid' => 'string',
@@ -99,6 +102,9 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'ai_generation' => null,
+        'ai_generation_prompt' => null,
+        'ai_generation_user_id' => 'int32',
         'deleted' => null,
         'edited_by_user' => null,
         'email_communication_sequence_email_uuid' => null,
@@ -162,6 +168,9 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'ai_generation' => 'ai_generation',
+        'ai_generation_prompt' => 'ai_generation_prompt',
+        'ai_generation_user_id' => 'ai_generation_user_id',
         'deleted' => 'deleted',
         'edited_by_user' => 'edited_by_user',
         'email_communication_sequence_email_uuid' => 'email_communication_sequence_email_uuid',
@@ -204,6 +213,9 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'ai_generation' => 'setAiGeneration',
+        'ai_generation_prompt' => 'setAiGenerationPrompt',
+        'ai_generation_user_id' => 'setAiGenerationUserId',
         'deleted' => 'setDeleted',
         'edited_by_user' => 'setEditedByUser',
         'email_communication_sequence_email_uuid' => 'setEmailCommunicationSequenceEmailUuid',
@@ -246,6 +258,9 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'ai_generation' => 'getAiGeneration',
+        'ai_generation_prompt' => 'getAiGenerationPrompt',
+        'ai_generation_user_id' => 'getAiGenerationUserId',
         'deleted' => 'getDeleted',
         'edited_by_user' => 'getEditedByUser',
         'email_communication_sequence_email_uuid' => 'getEmailCommunicationSequenceEmailUuid',
@@ -342,6 +357,9 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['ai_generation'] = isset($data['ai_generation']) ? $data['ai_generation'] : null;
+        $this->container['ai_generation_prompt'] = isset($data['ai_generation_prompt']) ? $data['ai_generation_prompt'] : null;
+        $this->container['ai_generation_user_id'] = isset($data['ai_generation_user_id']) ? $data['ai_generation_user_id'] : null;
         $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
         $this->container['edited_by_user'] = isset($data['edited_by_user']) ? $data['edited_by_user'] : null;
         $this->container['email_communication_sequence_email_uuid'] = isset($data['email_communication_sequence_email_uuid']) ? $data['email_communication_sequence_email_uuid'] : null;
@@ -401,6 +419,78 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets ai_generation
+     *
+     * @return bool
+     */
+    public function getAiGeneration()
+    {
+        return $this->container['ai_generation'];
+    }
+
+    /**
+     * Sets ai_generation
+     *
+     * @param bool $ai_generation ai_generation
+     *
+     * @return $this
+     */
+    public function setAiGeneration($ai_generation)
+    {
+        $this->container['ai_generation'] = $ai_generation;
+
+        return $this;
+    }
+
+    /**
+     * Gets ai_generation_prompt
+     *
+     * @return string
+     */
+    public function getAiGenerationPrompt()
+    {
+        return $this->container['ai_generation_prompt'];
+    }
+
+    /**
+     * Sets ai_generation_prompt
+     *
+     * @param string $ai_generation_prompt ai_generation_prompt
+     *
+     * @return $this
+     */
+    public function setAiGenerationPrompt($ai_generation_prompt)
+    {
+        $this->container['ai_generation_prompt'] = $ai_generation_prompt;
+
+        return $this;
+    }
+
+    /**
+     * Gets ai_generation_user_id
+     *
+     * @return int
+     */
+    public function getAiGenerationUserId()
+    {
+        return $this->container['ai_generation_user_id'];
+    }
+
+    /**
+     * Sets ai_generation_user_id
+     *
+     * @param int $ai_generation_user_id ai_generation_user_id
+     *
+     * @return $this
+     */
+    public function setAiGenerationUserId($ai_generation_user_id)
+    {
+        $this->container['ai_generation_user_id'] = $ai_generation_user_id;
+
+        return $this;
+    }
 
     /**
      * Gets deleted

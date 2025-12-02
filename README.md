@@ -341,6 +341,7 @@ Class | Method | HTTP request | Description
 *CustomerApi* | [**insertWishListItem**](docs/Api/CustomerApi.md#insertwishlistitem) | **POST** /customer/customers/{customer_profile_oid}/wishlist | Insert a customer wishlist item
 *CustomerApi* | [**mergeCustomer**](docs/Api/CustomerApi.md#mergecustomer) | **PUT** /customer/customers/{customer_profile_oid}/merge | Merge customer into this customer
 *CustomerApi* | [**searchCustomerProfileValues**](docs/Api/CustomerApi.md#searchcustomerprofilevalues) | **POST** /customer/search | Searches for all matching values (using POST)
+*CustomerApi* | [**searchCustomers**](docs/Api/CustomerApi.md#searchcustomers) | **GET** /customer/customers/search | Search for customers
 *CustomerApi* | [**updateCustomer**](docs/Api/CustomerApi.md#updatecustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 *CustomerApi* | [**updateCustomerEmailLists**](docs/Api/CustomerApi.md#updatecustomeremaillists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
 *CustomerApi* | [**updateWishListItem**](docs/Api/CustomerApi.md#updatewishlistitem) | **PUT** /customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid} | Update a customer wishlist item
@@ -1678,6 +1679,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.35 | 12/02/2025 | caching option added to getCustomers, created new method searchCustomers |
 | 3.11.34 | 12/02/2025 | coupons - added optional free specific shipping method to two coupons |
 | 3.11.33 | 11/26/2025 | conversation - AI agent profile fields |
 | 3.11.32 | 11/20/2025 | conversion api bug fix on incorrect signature |
