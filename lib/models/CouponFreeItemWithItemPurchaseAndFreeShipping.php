@@ -60,7 +60,8 @@ class CouponFreeItemWithItemPurchaseAndFreeShipping implements ModelInterface, A
         'items' => 'string[]',
         'limit' => 'int',
         'match_required_purchase_item_to_free_item' => 'bool',
-        'required_purchase_items' => 'string[]'
+        'required_purchase_items' => 'string[]',
+        'shipping_methods' => 'string[]'
     ];
 
     /**
@@ -72,7 +73,8 @@ class CouponFreeItemWithItemPurchaseAndFreeShipping implements ModelInterface, A
         'items' => null,
         'limit' => 'int32',
         'match_required_purchase_item_to_free_item' => null,
-        'required_purchase_items' => null
+        'required_purchase_items' => null,
+        'shipping_methods' => null
     ];
 
     /**
@@ -105,7 +107,8 @@ class CouponFreeItemWithItemPurchaseAndFreeShipping implements ModelInterface, A
         'items' => 'items',
         'limit' => 'limit',
         'match_required_purchase_item_to_free_item' => 'match_required_purchase_item_to_free_item',
-        'required_purchase_items' => 'required_purchase_items'
+        'required_purchase_items' => 'required_purchase_items',
+        'shipping_methods' => 'shipping_methods'
     ];
 
     /**
@@ -117,7 +120,8 @@ class CouponFreeItemWithItemPurchaseAndFreeShipping implements ModelInterface, A
         'items' => 'setItems',
         'limit' => 'setLimit',
         'match_required_purchase_item_to_free_item' => 'setMatchRequiredPurchaseItemToFreeItem',
-        'required_purchase_items' => 'setRequiredPurchaseItems'
+        'required_purchase_items' => 'setRequiredPurchaseItems',
+        'shipping_methods' => 'setShippingMethods'
     ];
 
     /**
@@ -129,7 +133,8 @@ class CouponFreeItemWithItemPurchaseAndFreeShipping implements ModelInterface, A
         'items' => 'getItems',
         'limit' => 'getLimit',
         'match_required_purchase_item_to_free_item' => 'getMatchRequiredPurchaseItemToFreeItem',
-        'required_purchase_items' => 'getRequiredPurchaseItems'
+        'required_purchase_items' => 'getRequiredPurchaseItems',
+        'shipping_methods' => 'getShippingMethods'
     ];
 
     /**
@@ -196,6 +201,7 @@ class CouponFreeItemWithItemPurchaseAndFreeShipping implements ModelInterface, A
         $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
         $this->container['match_required_purchase_item_to_free_item'] = isset($data['match_required_purchase_item_to_free_item']) ? $data['match_required_purchase_item_to_free_item'] : null;
         $this->container['required_purchase_items'] = isset($data['required_purchase_items']) ? $data['required_purchase_items'] : null;
+        $this->container['shipping_methods'] = isset($data['shipping_methods']) ? $data['shipping_methods'] : null;
     }
 
     /**
@@ -314,6 +320,30 @@ class CouponFreeItemWithItemPurchaseAndFreeShipping implements ModelInterface, A
     public function setRequiredPurchaseItems($required_purchase_items)
     {
         $this->container['required_purchase_items'] = $required_purchase_items;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipping_methods
+     *
+     * @return string[]
+     */
+    public function getShippingMethods()
+    {
+        return $this->container['shipping_methods'];
+    }
+
+    /**
+     * Sets shipping_methods
+     *
+     * @param string[] $shipping_methods One or more shipping methods that may be used with this coupon.  If not specified or empty, methods that are marked as qualifies for free shipping will be the only free methods
+     *
+     * @return $this
+     */
+    public function setShippingMethods($shipping_methods)
+    {
+        $this->container['shipping_methods'] = $shipping_methods;
 
         return $this;
     }

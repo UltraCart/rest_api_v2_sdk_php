@@ -61,7 +61,8 @@ class CouponPercentOffItemsAndFreeShipping implements ModelInterface, ArrayAcces
         'excluded_item_tags' => 'string[]',
         'excluded_items' => 'string[]',
         'item_tags' => 'string[]',
-        'items' => 'string[]'
+        'items' => 'string[]',
+        'shipping_methods' => 'string[]'
     ];
 
     /**
@@ -74,7 +75,8 @@ class CouponPercentOffItemsAndFreeShipping implements ModelInterface, ArrayAcces
         'excluded_item_tags' => null,
         'excluded_items' => null,
         'item_tags' => null,
-        'items' => null
+        'items' => null,
+        'shipping_methods' => null
     ];
 
     /**
@@ -108,7 +110,8 @@ class CouponPercentOffItemsAndFreeShipping implements ModelInterface, ArrayAcces
         'excluded_item_tags' => 'excluded_item_tags',
         'excluded_items' => 'excluded_items',
         'item_tags' => 'item_tags',
-        'items' => 'items'
+        'items' => 'items',
+        'shipping_methods' => 'shipping_methods'
     ];
 
     /**
@@ -121,7 +124,8 @@ class CouponPercentOffItemsAndFreeShipping implements ModelInterface, ArrayAcces
         'excluded_item_tags' => 'setExcludedItemTags',
         'excluded_items' => 'setExcludedItems',
         'item_tags' => 'setItemTags',
-        'items' => 'setItems'
+        'items' => 'setItems',
+        'shipping_methods' => 'setShippingMethods'
     ];
 
     /**
@@ -134,7 +138,8 @@ class CouponPercentOffItemsAndFreeShipping implements ModelInterface, ArrayAcces
         'excluded_item_tags' => 'getExcludedItemTags',
         'excluded_items' => 'getExcludedItems',
         'item_tags' => 'getItemTags',
-        'items' => 'getItems'
+        'items' => 'getItems',
+        'shipping_methods' => 'getShippingMethods'
     ];
 
     /**
@@ -202,6 +207,7 @@ class CouponPercentOffItemsAndFreeShipping implements ModelInterface, ArrayAcces
         $this->container['excluded_items'] = isset($data['excluded_items']) ? $data['excluded_items'] : null;
         $this->container['item_tags'] = isset($data['item_tags']) ? $data['item_tags'] : null;
         $this->container['items'] = isset($data['items']) ? $data['items'] : null;
+        $this->container['shipping_methods'] = isset($data['shipping_methods']) ? $data['shipping_methods'] : null;
     }
 
     /**
@@ -344,6 +350,30 @@ class CouponPercentOffItemsAndFreeShipping implements ModelInterface, ArrayAcces
     public function setItems($items)
     {
         $this->container['items'] = $items;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipping_methods
+     *
+     * @return string[]
+     */
+    public function getShippingMethods()
+    {
+        return $this->container['shipping_methods'];
+    }
+
+    /**
+     * Sets shipping_methods
+     *
+     * @param string[] $shipping_methods One or more shipping methods that may be used with this coupon.  If not specified or empty, methods that are marked as qualifies for free shipping will be the only free methods
+     *
+     * @return $this
+     */
+    public function setShippingMethods($shipping_methods)
+    {
+        $this->container['shipping_methods'] = $shipping_methods;
 
         return $this;
     }
