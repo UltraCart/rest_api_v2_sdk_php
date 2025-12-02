@@ -4,6 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ai_generation** | **bool** |  | [optional]
+**ai_generation_prompt** | **string** |  | [optional]
+**ai_generation_user_id** | **int** |  | [optional]
 **deleted** | **bool** | Deleted | [optional]
 **edited_by_user** | **string** | Edited by user | [optional]
 **email_communication_sequence_email_uuid** | **string** | Email communication sequence email uuid | [optional]
