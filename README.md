@@ -1679,6 +1679,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.36 | 12/22/2025 | conversation - agent auth worker token v2 |
 | 3.11.35 | 12/02/2025 | caching option added to getCustomers, created new method searchCustomers |
 | 3.11.34 | 12/02/2025 | coupons - added optional free specific shipping method to two coupons |
 | 3.11.33 | 11/26/2025 | conversation - AI agent profile fields |
