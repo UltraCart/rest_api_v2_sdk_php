@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.35"
+    "ultracart/rest_api_v2_sdk_php": "4.1.36"
   }
 }
 ```
@@ -1632,6 +1632,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.36 | 12/22/2025 | conversation - agent auth worker token v2 |
 | 4.1.35 | 12/02/2025 | caching option added to getCustomers, created new method searchCustomers |
 | 4.1.34 | 12/02/2025 | coupons - added optional free specific shipping method to two coupons |
 | 4.1.33 | 11/26/2025 | conversation - AI agent profile fields |

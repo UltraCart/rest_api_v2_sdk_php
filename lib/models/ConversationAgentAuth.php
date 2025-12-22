@@ -70,6 +70,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
         'pbx_voice_identity' => 'string',
         'pbx_voice_token' => 'string',
         'pbx_worker_token' => 'string',
+        'pbx_worker_token_v2' => 'string',
         'twilio_accounts' => '\ultracart\v2\models\ConversationTwilioAccount[]',
         'user_id' => 'int',
         'websocket_url' => 'string'
@@ -95,6 +96,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
         'pbx_voice_identity' => null,
         'pbx_voice_token' => null,
         'pbx_worker_token' => null,
+        'pbx_worker_token_v2' => null,
         'twilio_accounts' => null,
         'user_id' => 'int32',
         'websocket_url' => null
@@ -139,6 +141,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
         'pbx_voice_identity' => 'pbx_voice_identity',
         'pbx_voice_token' => 'pbx_voice_token',
         'pbx_worker_token' => 'pbx_worker_token',
+        'pbx_worker_token_v2' => 'pbx_worker_token_v2',
         'twilio_accounts' => 'twilio_accounts',
         'user_id' => 'user_id',
         'websocket_url' => 'websocket_url'
@@ -162,6 +165,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
         'pbx_voice_identity' => 'setPbxVoiceIdentity',
         'pbx_voice_token' => 'setPbxVoiceToken',
         'pbx_worker_token' => 'setPbxWorkerToken',
+        'pbx_worker_token_v2' => 'setPbxWorkerTokenV2',
         'twilio_accounts' => 'setTwilioAccounts',
         'user_id' => 'setUserId',
         'websocket_url' => 'setWebsocketUrl'
@@ -185,6 +189,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
         'pbx_voice_identity' => 'getPbxVoiceIdentity',
         'pbx_voice_token' => 'getPbxVoiceToken',
         'pbx_worker_token' => 'getPbxWorkerToken',
+        'pbx_worker_token_v2' => 'getPbxWorkerTokenV2',
         'twilio_accounts' => 'getTwilioAccounts',
         'user_id' => 'getUserId',
         'websocket_url' => 'getWebsocketUrl'
@@ -259,6 +264,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->container['pbx_voice_identity'] = $data['pbx_voice_identity'] ?? null;
         $this->container['pbx_voice_token'] = $data['pbx_voice_token'] ?? null;
         $this->container['pbx_worker_token'] = $data['pbx_worker_token'] ?? null;
+        $this->container['pbx_worker_token_v2'] = $data['pbx_worker_token_v2'] ?? null;
         $this->container['twilio_accounts'] = $data['twilio_accounts'] ?? null;
         $this->container['user_id'] = $data['user_id'] ?? null;
         $this->container['websocket_url'] = $data['websocket_url'] ?? null;
@@ -572,6 +578,30 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setPbxWorkerToken($pbx_worker_token)
     {
         $this->container['pbx_worker_token'] = $pbx_worker_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets pbx_worker_token_v2
+     *
+     * @return string|null
+     */
+    public function getPbxWorkerTokenV2()
+    {
+        return $this->container['pbx_worker_token_v2'];
+    }
+
+    /**
+     * Sets pbx_worker_token_v2
+     *
+     * @param string|null $pbx_worker_token_v2 pbx_worker_token_v2
+     *
+     * @return self
+     */
+    public function setPbxWorkerTokenV2($pbx_worker_token_v2)
+    {
+        $this->container['pbx_worker_token_v2'] = $pbx_worker_token_v2;
 
         return $this;
     }
