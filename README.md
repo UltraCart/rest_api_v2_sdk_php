@@ -1682,6 +1682,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.38 | 12/29/2025 | conversations - AI agent level capabilities |
 | 3.11.37 | 12/29/2025 | conversations - pbx agent AI flag |
 | 3.11.36 | 12/22/2025 | conversation - agent auth worker token v2 |
 | 3.11.35 | 12/02/2025 | caching option added to getCustomers, created new method searchCustomers |

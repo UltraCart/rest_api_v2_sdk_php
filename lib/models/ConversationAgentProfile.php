@@ -58,6 +58,7 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'ai' => 'bool',
+        'ai_capabilities' => '\ultracart\v2\models\ConversationVirtualAgentCapabilities',
         'ai_chat_instructions' => 'string',
         'ai_persona' => 'string',
         'ai_sms_instructions' => 'string',
@@ -81,6 +82,7 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'ai' => null,
+        'ai_capabilities' => null,
         'ai_chat_instructions' => null,
         'ai_persona' => null,
         'ai_sms_instructions' => null,
@@ -125,6 +127,7 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'ai' => 'ai',
+        'ai_capabilities' => 'ai_capabilities',
         'ai_chat_instructions' => 'ai_chat_instructions',
         'ai_persona' => 'ai_persona',
         'ai_sms_instructions' => 'ai_sms_instructions',
@@ -148,6 +151,7 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'ai' => 'setAi',
+        'ai_capabilities' => 'setAiCapabilities',
         'ai_chat_instructions' => 'setAiChatInstructions',
         'ai_persona' => 'setAiPersona',
         'ai_sms_instructions' => 'setAiSmsInstructions',
@@ -171,6 +175,7 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'ai' => 'getAi',
+        'ai_capabilities' => 'getAiCapabilities',
         'ai_chat_instructions' => 'getAiChatInstructions',
         'ai_persona' => 'getAiPersona',
         'ai_sms_instructions' => 'getAiSmsInstructions',
@@ -265,6 +270,7 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['ai'] = isset($data['ai']) ? $data['ai'] : null;
+        $this->container['ai_capabilities'] = isset($data['ai_capabilities']) ? $data['ai_capabilities'] : null;
         $this->container['ai_chat_instructions'] = isset($data['ai_chat_instructions']) ? $data['ai_chat_instructions'] : null;
         $this->container['ai_persona'] = isset($data['ai_persona']) ? $data['ai_persona'] : null;
         $this->container['ai_sms_instructions'] = isset($data['ai_sms_instructions']) ? $data['ai_sms_instructions'] : null;
@@ -333,6 +339,30 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
     public function setAi($ai)
     {
         $this->container['ai'] = $ai;
+
+        return $this;
+    }
+
+    /**
+     * Gets ai_capabilities
+     *
+     * @return \ultracart\v2\models\ConversationVirtualAgentCapabilities
+     */
+    public function getAiCapabilities()
+    {
+        return $this->container['ai_capabilities'];
+    }
+
+    /**
+     * Sets ai_capabilities
+     *
+     * @param \ultracart\v2\models\ConversationVirtualAgentCapabilities $ai_capabilities ai_capabilities
+     *
+     * @return $this
+     */
+    public function setAiCapabilities($ai_capabilities)
+    {
+        $this->container['ai_capabilities'] = $ai_capabilities;
 
         return $this;
     }
