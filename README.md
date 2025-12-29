@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.37"
+    "ultracart/rest_api_v2_sdk_php": "4.1.38"
   }
 }
 ```
@@ -1635,6 +1635,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.38 | 12/29/2025 | conversations - AI agent level capabilities |
 | 4.1.37 | 12/29/2025 | conversations - pbx agent AI flag |
 | 4.1.36 | 12/22/2025 | conversation - agent auth worker token v2 |
 | 4.1.35 | 12/02/2025 | caching option added to getCustomers, created new method searchCustomers |
