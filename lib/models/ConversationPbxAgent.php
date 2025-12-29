@@ -57,6 +57,7 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'ai' => 'bool',
         'cellphone' => 'string',
         'conversation_pbx_agent_uuid' => 'string',
         'extension' => 'int',
@@ -81,6 +82,7 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'ai' => null,
         'cellphone' => null,
         'conversation_pbx_agent_uuid' => null,
         'extension' => 'int32',
@@ -126,6 +128,7 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'ai' => 'ai',
         'cellphone' => 'cellphone',
         'conversation_pbx_agent_uuid' => 'conversation_pbx_agent_uuid',
         'extension' => 'extension',
@@ -150,6 +153,7 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'ai' => 'setAi',
         'cellphone' => 'setCellphone',
         'conversation_pbx_agent_uuid' => 'setConversationPbxAgentUuid',
         'extension' => 'setExtension',
@@ -174,6 +178,7 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'ai' => 'getAi',
         'cellphone' => 'getCellphone',
         'conversation_pbx_agent_uuid' => 'getConversationPbxAgentUuid',
         'extension' => 'getExtension',
@@ -252,6 +257,7 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['ai'] = isset($data['ai']) ? $data['ai'] : null;
         $this->container['cellphone'] = isset($data['cellphone']) ? $data['cellphone'] : null;
         $this->container['conversation_pbx_agent_uuid'] = isset($data['conversation_pbx_agent_uuid']) ? $data['conversation_pbx_agent_uuid'] : null;
         $this->container['extension'] = isset($data['extension']) ? $data['extension'] : null;
@@ -321,6 +327,30 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets ai
+     *
+     * @return bool
+     */
+    public function getAi()
+    {
+        return $this->container['ai'];
+    }
+
+    /**
+     * Sets ai
+     *
+     * @param bool $ai Flag to indicate if the agent is AI
+     *
+     * @return $this
+     */
+    public function setAi($ai)
+    {
+        $this->container['ai'] = $ai;
+
+        return $this;
+    }
 
     /**
      * Gets cellphone

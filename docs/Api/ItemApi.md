@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**getInventorySnapshot**](ItemApi.md#getInventorySnapshot) | **GET** /item/items/inventory_snapshot | Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
 [**getItem**](ItemApi.md#getItem) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
 [**getItemByMerchantItemId**](ItemApi.md#getItemByMerchantItemId) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
+[**getItemShippingDistributionCenterByCode**](ItemApi.md#getItemShippingDistributionCenterByCode) | **GET** /item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code} | Retrieve an item shipping distribution center
 [**getItems**](ItemApi.md#getItems) | **GET** /item/items | Retrieve items
 [**getPricingTiers**](ItemApi.md#getPricingTiers) | **GET** /item/pricing_tiers | Retrieve pricing tiers
 [**getReview**](ItemApi.md#getReview) | **GET** /item/items/{merchant_item_oid}/reviews/{review_oid} | Get a review
@@ -24,6 +25,7 @@ Method | HTTP request | Description
 [**insertUpdateItemContentAttribute**](ItemApi.md#insertUpdateItemContentAttribute) | **POST** /item/items/{merchant_item_oid}/content/attributes | Upsert an item content attribute
 [**updateDigitalItem**](ItemApi.md#updateDigitalItem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 [**updateItem**](ItemApi.md#updateItem) | **PUT** /item/items/{merchant_item_oid} | Update an item
+[**updateItemShippingDistributionCenterByCode**](ItemApi.md#updateItemShippingDistributionCenterByCode) | **PUT** /item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code} | Update an item shipping distribution center
 [**updateItems**](ItemApi.md#updateItems) | **PUT** /item/items/batch | Update multiple items
 [**updateReview**](ItemApi.md#updateReview) | **PUT** /item/items/{merchant_item_oid}/reviews/{review_oid} | Update a review
 [**uploadTemporaryMultimedia**](ItemApi.md#uploadTemporaryMultimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
@@ -462,6 +464,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\ItemResponse**](../Model/ItemResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getItemShippingDistributionCenterByCode**
+> \ultracart\v2\models\ItemShippingDistributionCenterResponse getItemShippingDistributionCenterByCode($merchant_item_oid, $distribution_center_code, $_expand, $_placeholders)
+
+Retrieve an item shipping distribution center
+
+Retrieve an item shipping distribution center.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\ItemApi::usingApiKey($simple_key);
+
+$merchant_item_oid = 56; // int | The item oid to retrieve.
+$distribution_center_code = "distribution_center_code_example"; // string | 
+$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
+$_placeholders = true; // bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
+
+try {
+    $result = $apiInstance->getItemShippingDistributionCenterByCode($merchant_item_oid, $distribution_center_code, $_expand, $_placeholders);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemApi->getItemShippingDistributionCenterByCode: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchant_item_oid** | **int**| The item oid to retrieve. |
+ **distribution_center_code** | **string**|  |
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
+ **_placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\ItemShippingDistributionCenterResponse**](../Model/ItemShippingDistributionCenterResponse.md)
 
 ### Authorization
 
@@ -1031,6 +1087,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\ItemResponse**](../Model/ItemResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **updateItemShippingDistributionCenterByCode**
+> updateItemShippingDistributionCenterByCode($item_shipping_distribution_center, $merchant_item_oid, $distribution_center_code)
+
+Update an item shipping distribution center
+
+Update an item shipping distribution center
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\ItemApi::usingApiKey($simple_key);
+
+$item_shipping_distribution_center = new \ultracart\v2\models\ItemShippingDistributionCenter(); // \ultracart\v2\models\ItemShippingDistributionCenter | Item shipping distribution center
+$merchant_item_oid = 56; // int | The item oid to update.
+$distribution_center_code = "distribution_center_code_example"; // string | 
+
+try {
+    $apiInstance->updateItemShippingDistributionCenterByCode($item_shipping_distribution_center, $merchant_item_oid, $distribution_center_code);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemApi->updateItemShippingDistributionCenterByCode: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **item_shipping_distribution_center** | [**\ultracart\v2\models\ItemShippingDistributionCenter**](../Model/ItemShippingDistributionCenter.md)| Item shipping distribution center |
+ **merchant_item_oid** | **int**| The item oid to update. |
+ **distribution_center_code** | **string**|  |
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 
