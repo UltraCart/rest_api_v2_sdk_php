@@ -58,6 +58,7 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
+        'ai' => 'bool',
         'cellphone' => 'string',
         'conversation_pbx_agent_uuid' => 'string',
         'extension' => 'int',
@@ -84,6 +85,7 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'ai' => null,
         'cellphone' => null,
         'conversation_pbx_agent_uuid' => null,
         'extension' => 'int32',
@@ -129,6 +131,7 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
+        'ai' => 'ai',
         'cellphone' => 'cellphone',
         'conversation_pbx_agent_uuid' => 'conversation_pbx_agent_uuid',
         'extension' => 'extension',
@@ -153,6 +156,7 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
+        'ai' => 'setAi',
         'cellphone' => 'setCellphone',
         'conversation_pbx_agent_uuid' => 'setConversationPbxAgentUuid',
         'extension' => 'setExtension',
@@ -177,6 +181,7 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
+        'ai' => 'getAi',
         'cellphone' => 'getCellphone',
         'conversation_pbx_agent_uuid' => 'getConversationPbxAgentUuid',
         'extension' => 'getExtension',
@@ -252,6 +257,7 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
+        $this->container['ai'] = $data['ai'] ?? null;
         $this->container['cellphone'] = $data['cellphone'] ?? null;
         $this->container['conversation_pbx_agent_uuid'] = $data['conversation_pbx_agent_uuid'] ?? null;
         $this->container['extension'] = $data['extension'] ?? null;
@@ -321,6 +327,30 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets ai
+     *
+     * @return bool|null
+     */
+    public function getAi()
+    {
+        return $this->container['ai'];
+    }
+
+    /**
+     * Sets ai
+     *
+     * @param bool|null $ai Flag to indicate if the agent is AI
+     *
+     * @return self
+     */
+    public function setAi($ai)
+    {
+        $this->container['ai'] = $ai;
+
+        return $this;
+    }
 
     /**
      * Gets cellphone

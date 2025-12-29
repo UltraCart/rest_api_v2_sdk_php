@@ -1,6 +1,6 @@
 <?php
 /**
- * ItemRelatedItem
+ * ItemShippingDistributionCenterResponse
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ItemRelatedItem Class Doc Comment
+ * ItemShippingDistributionCenterResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ItemRelatedItem implements ModelInterface, ArrayAccess, \JsonSerializable
+class ItemShippingDistributionCenterResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ItemRelatedItem implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ItemRelatedItem';
+    protected static $openAPIModelName = 'ItemShippingDistributionCenterResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,11 @@ class ItemRelatedItem implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'related_merchant_item_id' => 'string',
-        'related_merchant_item_oid' => 'int',
-        'type' => 'string'
+        'error' => '\ultracart\v2\models\Error',
+        'item_shipping_distribution_center' => '\ultracart\v2\models\ItemShippingDistributionCenter',
+        'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'success' => 'bool',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -71,9 +73,11 @@ class ItemRelatedItem implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'related_merchant_item_id' => null,
-        'related_merchant_item_oid' => 'int32',
-        'type' => null
+        'error' => null,
+        'item_shipping_distribution_center' => null,
+        'metadata' => null,
+        'success' => null,
+        'warning' => null
     ];
 
     /**
@@ -103,9 +107,11 @@ class ItemRelatedItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'related_merchant_item_id' => 'related_merchant_item_id',
-        'related_merchant_item_oid' => 'related_merchant_item_oid',
-        'type' => 'type'
+        'error' => 'error',
+        'item_shipping_distribution_center' => 'itemShippingDistributionCenter',
+        'metadata' => 'metadata',
+        'success' => 'success',
+        'warning' => 'warning'
     ];
 
     /**
@@ -114,9 +120,11 @@ class ItemRelatedItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'related_merchant_item_id' => 'setRelatedMerchantItemId',
-        'related_merchant_item_oid' => 'setRelatedMerchantItemOid',
-        'type' => 'setType'
+        'error' => 'setError',
+        'item_shipping_distribution_center' => 'setItemShippingDistributionCenter',
+        'metadata' => 'setMetadata',
+        'success' => 'setSuccess',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -125,9 +133,11 @@ class ItemRelatedItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'related_merchant_item_id' => 'getRelatedMerchantItemId',
-        'related_merchant_item_oid' => 'getRelatedMerchantItemOid',
-        'type' => 'getType'
+        'error' => 'getError',
+        'item_shipping_distribution_center' => 'getItemShippingDistributionCenter',
+        'metadata' => 'getMetadata',
+        'success' => 'getSuccess',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -171,25 +181,6 @@ class ItemRelatedItem implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const TYPE_SYSTEM = 'System';
-    public const TYPE_USER_DEFINED = 'UserDefined';
-    public const TYPE_ADDON = 'Addon';
-    public const TYPE_COMPLEMENTARY = 'Complementary';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_SYSTEM,
-            self::TYPE_USER_DEFINED,
-            self::TYPE_ADDON,
-            self::TYPE_COMPLEMENTARY,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -206,9 +197,11 @@ class ItemRelatedItem implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['related_merchant_item_id'] = $data['related_merchant_item_id'] ?? null;
-        $this->container['related_merchant_item_oid'] = $data['related_merchant_item_oid'] ?? null;
-        $this->container['type'] = $data['type'] ?? null;
+        $this->container['error'] = $data['error'] ?? null;
+        $this->container['item_shipping_distribution_center'] = $data['item_shipping_distribution_center'] ?? null;
+        $this->container['metadata'] = $data['metadata'] ?? null;
+        $this->container['success'] = $data['success'] ?? null;
+        $this->container['warning'] = $data['warning'] ?? null;
     }
 
     /**
@@ -219,15 +212,6 @@ class ItemRelatedItem implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'type', must be one of '%s'",
-                $this->container['type'],
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -245,83 +229,121 @@ class ItemRelatedItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets related_merchant_item_id
+     * Gets error
      *
-     * @return string|null
+     * @return \ultracart\v2\models\Error|null
      */
-    public function getRelatedMerchantItemId()
+    public function getError()
     {
-        return $this->container['related_merchant_item_id'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets related_merchant_item_id
+     * Sets error
      *
-     * @param string|null $related_merchant_item_id Related item id
+     * @param \ultracart\v2\models\Error|null $error error
      *
      * @return self
      */
-    public function setRelatedMerchantItemId($related_merchant_item_id)
+    public function setError($error)
     {
-        $this->container['related_merchant_item_id'] = $related_merchant_item_id;
+        $this->container['error'] = $error;
 
         return $this;
     }
 
     /**
-     * Gets related_merchant_item_oid
+     * Gets item_shipping_distribution_center
      *
-     * @return int|null
+     * @return \ultracart\v2\models\ItemShippingDistributionCenter|null
      */
-    public function getRelatedMerchantItemOid()
+    public function getItemShippingDistributionCenter()
     {
-        return $this->container['related_merchant_item_oid'];
+        return $this->container['item_shipping_distribution_center'];
     }
 
     /**
-     * Sets related_merchant_item_oid
+     * Sets item_shipping_distribution_center
      *
-     * @param int|null $related_merchant_item_oid Related item object identifier
+     * @param \ultracart\v2\models\ItemShippingDistributionCenter|null $item_shipping_distribution_center item_shipping_distribution_center
      *
      * @return self
      */
-    public function setRelatedMerchantItemOid($related_merchant_item_oid)
+    public function setItemShippingDistributionCenter($item_shipping_distribution_center)
     {
-        $this->container['related_merchant_item_oid'] = $related_merchant_item_oid;
+        $this->container['item_shipping_distribution_center'] = $item_shipping_distribution_center;
 
         return $this;
     }
 
     /**
-     * Gets type
+     * Gets metadata
      *
-     * @return string|null
+     * @return \ultracart\v2\models\ResponseMetadata|null
      */
-    public function getType()
+    public function getMetadata()
     {
-        return $this->container['type'];
+        return $this->container['metadata'];
     }
 
     /**
-     * Sets type
+     * Sets metadata
      *
-     * @param string|null $type Relationship type
+     * @param \ultracart\v2\models\ResponseMetadata|null $metadata metadata
      *
      * @return self
      */
-    public function setType($type)
+    public function setMetadata($metadata)
     {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets success
+     *
+     * @return bool|null
+     */
+    public function getSuccess()
+    {
+        return $this->container['success'];
+    }
+
+    /**
+     * Sets success
+     *
+     * @param bool|null $success Indicates if API call was successful
+     *
+     * @return self
+     */
+    public function setSuccess($success)
+    {
+        $this->container['success'] = $success;
+
+        return $this;
+    }
+
+    /**
+     * Gets warning
+     *
+     * @return \ultracart\v2\models\Warning|null
+     */
+    public function getWarning()
+    {
+        return $this->container['warning'];
+    }
+
+    /**
+     * Sets warning
+     *
+     * @param \ultracart\v2\models\Warning|null $warning warning
+     *
+     * @return self
+     */
+    public function setWarning($warning)
+    {
+        $this->container['warning'] = $warning;
 
         return $this;
     }

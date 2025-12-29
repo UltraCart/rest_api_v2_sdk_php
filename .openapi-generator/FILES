@@ -639,6 +639,7 @@ docs/Model/ItemShippingCase.md
 docs/Model/ItemShippingDestinationMarkup.md
 docs/Model/ItemShippingDestinationRestriction.md
 docs/Model/ItemShippingDistributionCenter.md
+docs/Model/ItemShippingDistributionCenterResponse.md
 docs/Model/ItemShippingMethod.md
 docs/Model/ItemShippingPackageRequirement.md
 docs/Model/ItemTag.md
@@ -1567,6 +1568,7 @@ lib/models/ItemShippingCase.php
 lib/models/ItemShippingDestinationMarkup.php
 lib/models/ItemShippingDestinationRestriction.php
 lib/models/ItemShippingDistributionCenter.php
+lib/models/ItemShippingDistributionCenterResponse.php
 lib/models/ItemShippingMethod.php
 lib/models/ItemShippingPackageRequirement.php
 lib/models/ItemTag.php
