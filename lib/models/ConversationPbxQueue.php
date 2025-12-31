@@ -57,6 +57,8 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'ai_priority' => 'string',
+        'ai_timeout_seconds' => 'int',
         'announce_queue_position' => 'bool',
         'conversation_pbx_queue_uuid' => 'string',
         'conversation_voicemail_mailbox_uuid' => 'string',
@@ -86,6 +88,8 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'ai_priority' => null,
+        'ai_timeout_seconds' => 'int32',
         'announce_queue_position' => null,
         'conversation_pbx_queue_uuid' => null,
         'conversation_voicemail_mailbox_uuid' => null,
@@ -136,6 +140,8 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'ai_priority' => 'ai_priority',
+        'ai_timeout_seconds' => 'ai_timeout_seconds',
         'announce_queue_position' => 'announce_queue_position',
         'conversation_pbx_queue_uuid' => 'conversation_pbx_queue_uuid',
         'conversation_voicemail_mailbox_uuid' => 'conversation_voicemail_mailbox_uuid',
@@ -165,6 +171,8 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'ai_priority' => 'setAiPriority',
+        'ai_timeout_seconds' => 'setAiTimeoutSeconds',
         'announce_queue_position' => 'setAnnounceQueuePosition',
         'conversation_pbx_queue_uuid' => 'setConversationPbxQueueUuid',
         'conversation_voicemail_mailbox_uuid' => 'setConversationVoicemailMailboxUuid',
@@ -194,6 +202,8 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'ai_priority' => 'getAiPriority',
+        'ai_timeout_seconds' => 'getAiTimeoutSeconds',
         'announce_queue_position' => 'getAnnounceQueuePosition',
         'conversation_pbx_queue_uuid' => 'getConversationPbxQueueUuid',
         'conversation_voicemail_mailbox_uuid' => 'getConversationVoicemailMailboxUuid',
@@ -258,8 +268,25 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const AI_PRIORITY_NEUTRAL = 'neutral';
+    const AI_PRIORITY_FIRST = 'first';
+    const AI_PRIORITY_BACKUP = 'backup';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAiPriorityAllowableValues()
+    {
+        return [
+            self::AI_PRIORITY_NEUTRAL,
+            self::AI_PRIORITY_FIRST,
+            self::AI_PRIORITY_BACKUP,
+        ];
+    }
     
 
     /**
@@ -277,6 +304,8 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['ai_priority'] = isset($data['ai_priority']) ? $data['ai_priority'] : null;
+        $this->container['ai_timeout_seconds'] = isset($data['ai_timeout_seconds']) ? $data['ai_timeout_seconds'] : null;
         $this->container['announce_queue_position'] = isset($data['announce_queue_position']) ? $data['announce_queue_position'] : null;
         $this->container['conversation_pbx_queue_uuid'] = isset($data['conversation_pbx_queue_uuid']) ? $data['conversation_pbx_queue_uuid'] : null;
         $this->container['conversation_voicemail_mailbox_uuid'] = isset($data['conversation_voicemail_mailbox_uuid']) ? $data['conversation_voicemail_mailbox_uuid'] : null;
@@ -308,6 +337,14 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getAiPriorityAllowableValues();
+        if (!is_null($this->container['ai_priority']) && !in_array($this->container['ai_priority'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'ai_priority', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         if (!is_null($this->container['conversation_voicemail_mailbox_uuid']) && (mb_strlen($this->container['conversation_voicemail_mailbox_uuid']) > 50)) {
             $invalidProperties[] = "invalid value for 'conversation_voicemail_mailbox_uuid', the character length must be smaller than or equal to 50.";
@@ -363,6 +400,63 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets ai_priority
+     *
+     * @return string
+     */
+    public function getAiPriority()
+    {
+        return $this->container['ai_priority'];
+    }
+
+    /**
+     * Sets ai_priority
+     *
+     * @param string $ai_priority AI Agent Priority compared to human agents
+     *
+     * @return $this
+     */
+    public function setAiPriority($ai_priority)
+    {
+        $allowedValues = $this->getAiPriorityAllowableValues();
+        if (!is_null($ai_priority) && !in_array($ai_priority, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'ai_priority', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['ai_priority'] = $ai_priority;
+
+        return $this;
+    }
+
+    /**
+     * Gets ai_timeout_seconds
+     *
+     * @return int
+     */
+    public function getAiTimeoutSeconds()
+    {
+        return $this->container['ai_timeout_seconds'];
+    }
+
+    /**
+     * Sets ai_timeout_seconds
+     *
+     * @param int $ai_timeout_seconds AI timeout seconds
+     *
+     * @return $this
+     */
+    public function setAiTimeoutSeconds($ai_timeout_seconds)
+    {
+        $this->container['ai_timeout_seconds'] = $ai_timeout_seconds;
+
+        return $this;
+    }
 
     /**
      * Gets announce_queue_position
