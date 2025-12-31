@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.38"
+    "ultracart/rest_api_v2_sdk_php": "4.1.39"
   }
 }
 ```
@@ -356,6 +356,7 @@ Class | Method | HTTP request | Description
 *ItemApi* | [**insertUpdateItemContentAttribute**](docs/Api/ItemApi.md#insertupdateitemcontentattribute) | **POST** /item/items/{merchant_item_oid}/content/attributes | Upsert an item content attribute
 *ItemApi* | [**updateDigitalItem**](docs/Api/ItemApi.md#updatedigitalitem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 *ItemApi* | [**updateItem**](docs/Api/ItemApi.md#updateitem) | **PUT** /item/items/{merchant_item_oid} | Update an item
+*ItemApi* | [**updateItemInventories**](docs/Api/ItemApi.md#updateiteminventories) | **PUT** /item/items/update_item_inventories | Update item inventories for a distribution center
 *ItemApi* | [**updateItemShippingDistributionCenterByCode**](docs/Api/ItemApi.md#updateitemshippingdistributioncenterbycode) | **PUT** /item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code} | Update an item shipping distribution center
 *ItemApi* | [**updateItems**](docs/Api/ItemApi.md#updateitems) | **PUT** /item/items/batch | Update multiple items
 *ItemApi* | [**updateReview**](docs/Api/ItemApi.md#updatereview) | **PUT** /item/items/{merchant_item_oid}/reviews/{review_oid} | Update a review
@@ -1223,6 +1224,8 @@ Class | Method | HTTP request | Description
 - [ItemInventorySnapshot](docs/Model/ItemInventorySnapshot.md)
 - [ItemInventorySnapshotDistributionCenter](docs/Model/ItemInventorySnapshotDistributionCenter.md)
 - [ItemInventorySnapshotResponse](docs/Model/ItemInventorySnapshotResponse.md)
+- [ItemInventoryUpdate](docs/Model/ItemInventoryUpdate.md)
+- [ItemInventoryUpdateRequest](docs/Model/ItemInventoryUpdateRequest.md)
 - [ItemKitComponent](docs/Model/ItemKitComponent.md)
 - [ItemKitDefinition](docs/Model/ItemKitDefinition.md)
 - [ItemOption](docs/Model/ItemOption.md)
@@ -1635,6 +1638,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.39 | 12/31/2025 | conversations AI - queue AI settings |
 | 4.1.38 | 12/29/2025 | conversations - AI agent level capabilities |
 | 4.1.37 | 12/29/2025 | conversations - pbx agent AI flag |
 | 4.1.36 | 12/22/2025 | conversation - agent auth worker token v2 |
