@@ -1685,6 +1685,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.40 | 01/07/2026 | convseration - AI agent profile voice settings |
 | 3.11.39 | 12/31/2025 | conversations AI - queue AI settings |
 | 3.11.38 | 12/29/2025 | conversations - AI agent level capabilities |
 | 3.11.37 | 12/29/2025 | conversations - pbx agent AI flag |

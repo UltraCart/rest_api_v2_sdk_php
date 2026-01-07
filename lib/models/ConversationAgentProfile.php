@@ -63,6 +63,8 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
         'ai_persona' => 'string',
         'ai_sms_instructions' => 'string',
         'ai_ticket_instructions' => 'string',
+        'ai_voice_instructions' => 'string',
+        'ai_voice_personality' => 'string',
         'chat_limit' => 'int',
         'default_language_iso_code' => 'string',
         'default_status' => 'string',
@@ -87,6 +89,8 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
         'ai_persona' => null,
         'ai_sms_instructions' => null,
         'ai_ticket_instructions' => null,
+        'ai_voice_instructions' => null,
+        'ai_voice_personality' => null,
         'chat_limit' => 'int32',
         'default_language_iso_code' => null,
         'default_status' => null,
@@ -132,6 +136,8 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
         'ai_persona' => 'ai_persona',
         'ai_sms_instructions' => 'ai_sms_instructions',
         'ai_ticket_instructions' => 'ai_ticket_instructions',
+        'ai_voice_instructions' => 'ai_voice_instructions',
+        'ai_voice_personality' => 'ai_voice_personality',
         'chat_limit' => 'chat_limit',
         'default_language_iso_code' => 'default_language_iso_code',
         'default_status' => 'default_status',
@@ -156,6 +162,8 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
         'ai_persona' => 'setAiPersona',
         'ai_sms_instructions' => 'setAiSmsInstructions',
         'ai_ticket_instructions' => 'setAiTicketInstructions',
+        'ai_voice_instructions' => 'setAiVoiceInstructions',
+        'ai_voice_personality' => 'setAiVoicePersonality',
         'chat_limit' => 'setChatLimit',
         'default_language_iso_code' => 'setDefaultLanguageIsoCode',
         'default_status' => 'setDefaultStatus',
@@ -180,6 +188,8 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
         'ai_persona' => 'getAiPersona',
         'ai_sms_instructions' => 'getAiSmsInstructions',
         'ai_ticket_instructions' => 'getAiTicketInstructions',
+        'ai_voice_instructions' => 'getAiVoiceInstructions',
+        'ai_voice_personality' => 'getAiVoicePersonality',
         'chat_limit' => 'getChatLimit',
         'default_language_iso_code' => 'getDefaultLanguageIsoCode',
         'default_status' => 'getDefaultStatus',
@@ -233,11 +243,32 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const AI_VOICE_PERSONALITY_ARA = 'Ara';
+    const AI_VOICE_PERSONALITY_REX = 'Rex';
+    const AI_VOICE_PERSONALITY_SAL = 'Sal';
+    const AI_VOICE_PERSONALITY_EVE = 'Eve';
+    const AI_VOICE_PERSONALITY_LEO = 'Leo';
     const DEFAULT_STATUS_AVAILABLE = 'available';
     const DEFAULT_STATUS_BUSY = 'busy';
     const DEFAULT_STATUS_UNAVAILABLE = 'unavailable';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAiVoicePersonalityAllowableValues()
+    {
+        return [
+            self::AI_VOICE_PERSONALITY_ARA,
+            self::AI_VOICE_PERSONALITY_REX,
+            self::AI_VOICE_PERSONALITY_SAL,
+            self::AI_VOICE_PERSONALITY_EVE,
+            self::AI_VOICE_PERSONALITY_LEO,
+        ];
+    }
     
     /**
      * Gets allowable values of the enum
@@ -275,6 +306,8 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
         $this->container['ai_persona'] = isset($data['ai_persona']) ? $data['ai_persona'] : null;
         $this->container['ai_sms_instructions'] = isset($data['ai_sms_instructions']) ? $data['ai_sms_instructions'] : null;
         $this->container['ai_ticket_instructions'] = isset($data['ai_ticket_instructions']) ? $data['ai_ticket_instructions'] : null;
+        $this->container['ai_voice_instructions'] = isset($data['ai_voice_instructions']) ? $data['ai_voice_instructions'] : null;
+        $this->container['ai_voice_personality'] = isset($data['ai_voice_personality']) ? $data['ai_voice_personality'] : null;
         $this->container['chat_limit'] = isset($data['chat_limit']) ? $data['chat_limit'] : null;
         $this->container['default_language_iso_code'] = isset($data['default_language_iso_code']) ? $data['default_language_iso_code'] : null;
         $this->container['default_status'] = isset($data['default_status']) ? $data['default_status'] : null;
@@ -295,6 +328,14 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getAiVoicePersonalityAllowableValues();
+        if (!is_null($this->container['ai_voice_personality']) && !in_array($this->container['ai_voice_personality'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'ai_voice_personality', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         $allowedValues = $this->getDefaultStatusAllowableValues();
         if (!is_null($this->container['default_status']) && !in_array($this->container['default_status'], $allowedValues, true)) {
@@ -459,6 +500,63 @@ class ConversationAgentProfile implements ModelInterface, ArrayAccess
     public function setAiTicketInstructions($ai_ticket_instructions)
     {
         $this->container['ai_ticket_instructions'] = $ai_ticket_instructions;
+
+        return $this;
+    }
+
+    /**
+     * Gets ai_voice_instructions
+     *
+     * @return string
+     */
+    public function getAiVoiceInstructions()
+    {
+        return $this->container['ai_voice_instructions'];
+    }
+
+    /**
+     * Sets ai_voice_instructions
+     *
+     * @param string $ai_voice_instructions Additional voice instructions for this AI when handling voice calls
+     *
+     * @return $this
+     */
+    public function setAiVoiceInstructions($ai_voice_instructions)
+    {
+        $this->container['ai_voice_instructions'] = $ai_voice_instructions;
+
+        return $this;
+    }
+
+    /**
+     * Gets ai_voice_personality
+     *
+     * @return string
+     */
+    public function getAiVoicePersonality()
+    {
+        return $this->container['ai_voice_personality'];
+    }
+
+    /**
+     * Sets ai_voice_personality
+     *
+     * @param string $ai_voice_personality Which AI voice personality to use when handling the call.
+     *
+     * @return $this
+     */
+    public function setAiVoicePersonality($ai_voice_personality)
+    {
+        $allowedValues = $this->getAiVoicePersonalityAllowableValues();
+        if (!is_null($ai_voice_personality) && !in_array($ai_voice_personality, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'ai_voice_personality', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['ai_voice_personality'] = $ai_voice_personality;
 
         return $this;
     }
