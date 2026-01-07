@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.39"
+    "ultracart/rest_api_v2_sdk_php": "4.1.40"
   }
 }
 ```
@@ -1638,6 +1638,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.40 | 01/07/2026 | convseration - AI agent profile voice settings |
 | 4.1.39 | 12/31/2025 | conversations AI - queue AI settings |
 | 4.1.38 | 12/29/2025 | conversations - AI agent level capabilities |
 | 4.1.37 | 12/29/2025 | conversations - pbx agent AI flag |
