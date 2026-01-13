@@ -68,6 +68,7 @@ class ConversationPbxAddress implements ModelInterface, ArrayAccess, \JsonSerial
         'postal_code' => 'string',
         'region' => 'string',
         'street' => 'string',
+        'valid' => 'bool',
         'validated' => 'bool',
         'verified' => 'bool'
     ];
@@ -90,6 +91,7 @@ class ConversationPbxAddress implements ModelInterface, ArrayAccess, \JsonSerial
         'postal_code' => null,
         'region' => null,
         'street' => null,
+        'valid' => null,
         'validated' => null,
         'verified' => null
     ];
@@ -131,6 +133,7 @@ class ConversationPbxAddress implements ModelInterface, ArrayAccess, \JsonSerial
         'postal_code' => 'postal_code',
         'region' => 'region',
         'street' => 'street',
+        'valid' => 'valid',
         'validated' => 'validated',
         'verified' => 'verified'
     ];
@@ -151,6 +154,7 @@ class ConversationPbxAddress implements ModelInterface, ArrayAccess, \JsonSerial
         'postal_code' => 'setPostalCode',
         'region' => 'setRegion',
         'street' => 'setStreet',
+        'valid' => 'setValid',
         'validated' => 'setValidated',
         'verified' => 'setVerified'
     ];
@@ -171,6 +175,7 @@ class ConversationPbxAddress implements ModelInterface, ArrayAccess, \JsonSerial
         'postal_code' => 'getPostalCode',
         'region' => 'getRegion',
         'street' => 'getStreet',
+        'valid' => 'getValid',
         'validated' => 'getValidated',
         'verified' => 'getVerified'
     ];
@@ -242,6 +247,7 @@ class ConversationPbxAddress implements ModelInterface, ArrayAccess, \JsonSerial
         $this->container['postal_code'] = $data['postal_code'] ?? null;
         $this->container['region'] = $data['region'] ?? null;
         $this->container['street'] = $data['street'] ?? null;
+        $this->container['valid'] = $data['valid'] ?? null;
         $this->container['validated'] = $data['validated'] ?? null;
         $this->container['verified'] = $data['verified'] ?? null;
     }
@@ -586,6 +592,30 @@ class ConversationPbxAddress implements ModelInterface, ArrayAccess, \JsonSerial
         }
 
         $this->container['street'] = $street;
+
+        return $this;
+    }
+
+    /**
+     * Gets valid
+     *
+     * @return bool|null
+     */
+    public function getValid()
+    {
+        return $this->container['valid'];
+    }
+
+    /**
+     * Sets valid
+     *
+     * @param bool|null $valid Whether the address is valid (validated or verified)
+     *
+     * @return self
+     */
+    public function setValid($valid)
+    {
+        $this->container['valid'] = $valid;
 
         return $this;
     }

@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **postal_code** | **string** | Postal code | [optional]
 **region** | **string** | State/Province/Region | [optional]
 **street** | **string** | Street address | [optional]
+**valid** | **bool** | Whether the address is valid (validated or verified) | [optional]
 **validated** | **bool** | Whether the address has been validated by Twilio | [optional]
 **verified** | **bool** | Whether the address has been verified by Twilio | [optional]
 

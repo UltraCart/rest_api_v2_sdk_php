@@ -63,6 +63,7 @@ class ConversationPbxAvailablePhoneNumber implements ModelInterface, ArrayAccess
         'friendly_name' => 'string',
         'locality' => 'string',
         'mms' => 'bool',
+        'monthly_cost' => 'float',
         'phone_number' => 'string',
         'region' => 'string',
         'sms' => 'bool',
@@ -82,6 +83,7 @@ class ConversationPbxAvailablePhoneNumber implements ModelInterface, ArrayAccess
         'friendly_name' => null,
         'locality' => null,
         'mms' => null,
+        'monthly_cost' => null,
         'phone_number' => null,
         'region' => null,
         'sms' => null,
@@ -120,6 +122,7 @@ class ConversationPbxAvailablePhoneNumber implements ModelInterface, ArrayAccess
         'friendly_name' => 'friendly_name',
         'locality' => 'locality',
         'mms' => 'mms',
+        'monthly_cost' => 'monthly_cost',
         'phone_number' => 'phone_number',
         'region' => 'region',
         'sms' => 'sms',
@@ -137,6 +140,7 @@ class ConversationPbxAvailablePhoneNumber implements ModelInterface, ArrayAccess
         'friendly_name' => 'setFriendlyName',
         'locality' => 'setLocality',
         'mms' => 'setMms',
+        'monthly_cost' => 'setMonthlyCost',
         'phone_number' => 'setPhoneNumber',
         'region' => 'setRegion',
         'sms' => 'setSms',
@@ -154,6 +158,7 @@ class ConversationPbxAvailablePhoneNumber implements ModelInterface, ArrayAccess
         'friendly_name' => 'getFriendlyName',
         'locality' => 'getLocality',
         'mms' => 'getMms',
+        'monthly_cost' => 'getMonthlyCost',
         'phone_number' => 'getPhoneNumber',
         'region' => 'getRegion',
         'sms' => 'getSms',
@@ -241,6 +246,7 @@ class ConversationPbxAvailablePhoneNumber implements ModelInterface, ArrayAccess
         $this->container['friendly_name'] = $data['friendly_name'] ?? null;
         $this->container['locality'] = $data['locality'] ?? null;
         $this->container['mms'] = $data['mms'] ?? null;
+        $this->container['monthly_cost'] = $data['monthly_cost'] ?? null;
         $this->container['phone_number'] = $data['phone_number'] ?? null;
         $this->container['region'] = $data['region'] ?? null;
         $this->container['sms'] = $data['sms'] ?? null;
@@ -438,6 +444,30 @@ class ConversationPbxAvailablePhoneNumber implements ModelInterface, ArrayAccess
     public function setMms($mms)
     {
         $this->container['mms'] = $mms;
+
+        return $this;
+    }
+
+    /**
+     * Gets monthly_cost
+     *
+     * @return float|null
+     */
+    public function getMonthlyCost()
+    {
+        return $this->container['monthly_cost'];
+    }
+
+    /**
+     * Sets monthly_cost
+     *
+     * @param float|null $monthly_cost Monthly cost for this phone number
+     *
+     * @return self
+     */
+    public function setMonthlyCost($monthly_cost)
+    {
+        $this->container['monthly_cost'] = $monthly_cost;
 
         return $this;
     }

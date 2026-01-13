@@ -60,6 +60,7 @@ class ConversationPbxPhoneNumber implements ModelInterface, ArrayAccess, \JsonSe
     protected static $openAPITypes = [
         'action' => 'string',
         'action_target' => 'string',
+        'address_sid' => 'string',
         'conversation_pbx_phone_number_uuid' => 'string',
         'deletion_protected' => 'bool',
         'merchant_id' => 'string',
@@ -76,6 +77,7 @@ class ConversationPbxPhoneNumber implements ModelInterface, ArrayAccess, \JsonSe
     protected static $openAPIFormats = [
         'action' => null,
         'action_target' => null,
+        'address_sid' => null,
         'conversation_pbx_phone_number_uuid' => null,
         'deletion_protected' => null,
         'merchant_id' => null,
@@ -111,6 +113,7 @@ class ConversationPbxPhoneNumber implements ModelInterface, ArrayAccess, \JsonSe
     protected static $attributeMap = [
         'action' => 'action',
         'action_target' => 'action_target',
+        'address_sid' => 'address_sid',
         'conversation_pbx_phone_number_uuid' => 'conversation_pbx_phone_number_uuid',
         'deletion_protected' => 'deletion_protected',
         'merchant_id' => 'merchant_id',
@@ -125,6 +128,7 @@ class ConversationPbxPhoneNumber implements ModelInterface, ArrayAccess, \JsonSe
     protected static $setters = [
         'action' => 'setAction',
         'action_target' => 'setActionTarget',
+        'address_sid' => 'setAddressSid',
         'conversation_pbx_phone_number_uuid' => 'setConversationPbxPhoneNumberUuid',
         'deletion_protected' => 'setDeletionProtected',
         'merchant_id' => 'setMerchantId',
@@ -139,6 +143,7 @@ class ConversationPbxPhoneNumber implements ModelInterface, ArrayAccess, \JsonSe
     protected static $getters = [
         'action' => 'getAction',
         'action_target' => 'getActionTarget',
+        'address_sid' => 'getAddressSid',
         'conversation_pbx_phone_number_uuid' => 'getConversationPbxPhoneNumberUuid',
         'deletion_protected' => 'getDeletionProtected',
         'merchant_id' => 'getMerchantId',
@@ -225,6 +230,7 @@ class ConversationPbxPhoneNumber implements ModelInterface, ArrayAccess, \JsonSe
     {
         $this->container['action'] = $data['action'] ?? null;
         $this->container['action_target'] = $data['action_target'] ?? null;
+        $this->container['address_sid'] = $data['address_sid'] ?? null;
         $this->container['conversation_pbx_phone_number_uuid'] = $data['conversation_pbx_phone_number_uuid'] ?? null;
         $this->container['deletion_protected'] = $data['deletion_protected'] ?? null;
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
@@ -255,6 +261,10 @@ class ConversationPbxPhoneNumber implements ModelInterface, ArrayAccess, \JsonSe
 
         if (!is_null($this->container['action_target']) && (mb_strlen($this->container['action_target']) > 50)) {
             $invalidProperties[] = "invalid value for 'action_target', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['address_sid']) && (mb_strlen($this->container['address_sid']) > 50)) {
+            $invalidProperties[] = "invalid value for 'address_sid', the character length must be smaller than or equal to 50.";
         }
 
         if (!is_null($this->container['conversation_pbx_phone_number_uuid']) && (mb_strlen($this->container['conversation_pbx_phone_number_uuid']) > 50)) {
@@ -346,6 +356,34 @@ class ConversationPbxPhoneNumber implements ModelInterface, ArrayAccess, \JsonSe
         }
 
         $this->container['action_target'] = $action_target;
+
+        return $this;
+    }
+
+    /**
+     * Gets address_sid
+     *
+     * @return string|null
+     */
+    public function getAddressSid()
+    {
+        return $this->container['address_sid'];
+    }
+
+    /**
+     * Sets address_sid
+     *
+     * @param string|null $address_sid Twilio Address SID linked to this phone number for regulatory compliance
+     *
+     * @return self
+     */
+    public function setAddressSid($address_sid)
+    {
+        if (!is_null($address_sid) && (mb_strlen($address_sid) > 50)) {
+            throw new \InvalidArgumentException('invalid length for $address_sid when calling ConversationPbxPhoneNumber., must be smaller than or equal to 50.');
+        }
+
+        $this->container['address_sid'] = $address_sid;
 
         return $this;
     }
