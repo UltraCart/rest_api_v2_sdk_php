@@ -67,6 +67,7 @@ class ConversationPbxAddress implements ModelInterface, ArrayAccess
         'postal_code' => 'string',
         'region' => 'string',
         'street' => 'string',
+        'valid' => 'bool',
         'validated' => 'bool',
         'verified' => 'bool'
     ];
@@ -87,6 +88,7 @@ class ConversationPbxAddress implements ModelInterface, ArrayAccess
         'postal_code' => null,
         'region' => null,
         'street' => null,
+        'valid' => null,
         'validated' => null,
         'verified' => null
     ];
@@ -128,6 +130,7 @@ class ConversationPbxAddress implements ModelInterface, ArrayAccess
         'postal_code' => 'postal_code',
         'region' => 'region',
         'street' => 'street',
+        'valid' => 'valid',
         'validated' => 'validated',
         'verified' => 'verified'
     ];
@@ -148,6 +151,7 @@ class ConversationPbxAddress implements ModelInterface, ArrayAccess
         'postal_code' => 'setPostalCode',
         'region' => 'setRegion',
         'street' => 'setStreet',
+        'valid' => 'setValid',
         'validated' => 'setValidated',
         'verified' => 'setVerified'
     ];
@@ -168,6 +172,7 @@ class ConversationPbxAddress implements ModelInterface, ArrayAccess
         'postal_code' => 'getPostalCode',
         'region' => 'getRegion',
         'street' => 'getStreet',
+        'valid' => 'getValid',
         'validated' => 'getValidated',
         'verified' => 'getVerified'
     ];
@@ -242,6 +247,7 @@ class ConversationPbxAddress implements ModelInterface, ArrayAccess
         $this->container['postal_code'] = isset($data['postal_code']) ? $data['postal_code'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['street'] = isset($data['street']) ? $data['street'] : null;
+        $this->container['valid'] = isset($data['valid']) ? $data['valid'] : null;
         $this->container['validated'] = isset($data['validated']) ? $data['validated'] : null;
         $this->container['verified'] = isset($data['verified']) ? $data['verified'] : null;
     }
@@ -586,6 +592,30 @@ class ConversationPbxAddress implements ModelInterface, ArrayAccess
         }
 
         $this->container['street'] = $street;
+
+        return $this;
+    }
+
+    /**
+     * Gets valid
+     *
+     * @return bool
+     */
+    public function getValid()
+    {
+        return $this->container['valid'];
+    }
+
+    /**
+     * Sets valid
+     *
+     * @param bool $valid Whether the address is valid (validated or verified)
+     *
+     * @return $this
+     */
+    public function setValid($valid)
+    {
+        $this->container['valid'] = $valid;
 
         return $this;
     }

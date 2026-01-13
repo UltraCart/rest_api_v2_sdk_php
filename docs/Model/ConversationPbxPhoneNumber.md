@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **action** | **string** | Action | [optional] 
 **action_target** | **string** | Action target.  This is the UUID associated with the configuration object of that particular type. | [optional] 
+**address_sid** | **string** | Twilio Address SID linked to this phone number for regulatory compliance | [optional] 
 **conversation_pbx_phone_number_uuid** | **string** | Conversation Pbx Phone Number UUID | [optional] 
 **deletion_protected** | **bool** | If true, this phone number cannot be deleted through the API. It must be deleted via the Twilio console. | [optional] 
 **merchant_id** | **string** | Merchant Id | [optional] 
