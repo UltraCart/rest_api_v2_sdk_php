@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.40"
+    "ultracart/rest_api_v2_sdk_php": "4.1.41"
   }
 }
 ```
@@ -149,9 +149,11 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**deleteConversationCannedMessage**](docs/Api/ConversationApi.md#deleteconversationcannedmessage) | **DELETE** /conversation/canned_messages/{conversation_canned_message_oid} | Delete a conversation canned message
 *ConversationApi* | [**deleteDepartment**](docs/Api/ConversationApi.md#deletedepartment) | **DELETE** /conversation/departments/{conversation_department_oid} | Delete a conversation department
 *ConversationApi* | [**deleteEngagement**](docs/Api/ConversationApi.md#deleteengagement) | **DELETE** /conversation/engagements/{conversation_engagement_oid} | Delete a conversation engagement
+*ConversationApi* | [**deletePbxAddress**](docs/Api/ConversationApi.md#deletepbxaddress) | **DELETE** /conversation/pbx/address/{conversationPbxAddressUuid} | Delete pbx address
 *ConversationApi* | [**deletePbxAgentVoicemail**](docs/Api/ConversationApi.md#deletepbxagentvoicemail) | **DELETE** /conversation/pbx/agent/voicemails/{recording_sid} | Delete Agent Voicemail
 *ConversationApi* | [**deletePbxAudio**](docs/Api/ConversationApi.md#deletepbxaudio) | **DELETE** /conversation/pbx/audio/{conversationPbxAudioUuid} | Delete pbx audio
 *ConversationApi* | [**deletePbxMenu**](docs/Api/ConversationApi.md#deletepbxmenu) | **DELETE** /conversation/pbx/menu/{conversationPbxMenuUuid} | Delete pbx menu
+*ConversationApi* | [**deletePbxPhoneNumber**](docs/Api/ConversationApi.md#deletepbxphonenumber) | **DELETE** /conversation/pbx/phone_number/{conversationPbxPhoneNumberUuid} | Delete pbx phoneNumber
 *ConversationApi* | [**deletePbxQueue**](docs/Api/ConversationApi.md#deletepbxqueue) | **DELETE** /conversation/pbx/queue/{conversationPbxQueueUuid} | Delete pbx queue
 *ConversationApi* | [**deletePbxQueueVoicemail**](docs/Api/ConversationApi.md#deletepbxqueuevoicemail) | **DELETE** /conversation/pbx/queues/{queue_uuid}/voicemails/{recording_sid} | Delete Queue Voicemail
 *ConversationApi* | [**deletePbxTimeBased**](docs/Api/ConversationApi.md#deletepbxtimebased) | **DELETE** /conversation/pbx/time_based/{conversationPbxTimeBasedUuid} | Delete pbx timeBased
@@ -183,6 +185,8 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getConversationsAutocomplete**](docs/Api/ConversationApi.md#getconversationsautocomplete) | **POST** /conversation/conversations/autocomplete | Retrieve a list of matching terms for a search field
 *ConversationApi* | [**getConversationsSearch**](docs/Api/ConversationApi.md#getconversationssearch) | **POST** /conversation/conversations/search | Search conversations
 *ConversationApi* | [**getLocationsForEngagement**](docs/Api/ConversationApi.md#getlocationsforengagement) | **POST** /conversation/locations | Get location data for engagement configuration
+*ConversationApi* | [**getPbxAddress**](docs/Api/ConversationApi.md#getpbxaddress) | **GET** /conversation/pbx/address/{conversationPbxAddressUuid} | Get pbx address
+*ConversationApi* | [**getPbxAddresses**](docs/Api/ConversationApi.md#getpbxaddresses) | **GET** /conversation/pbx/address | Get pbx addresses
 *ConversationApi* | [**getPbxAgent**](docs/Api/ConversationApi.md#getpbxagent) | **GET** /conversation/pbx/agent/{conversationPbxAgentUuid} | Get pbx agent
 *ConversationApi* | [**getPbxAgentVoicemail**](docs/Api/ConversationApi.md#getpbxagentvoicemail) | **GET** /conversation/pbx/agent/voicemails/{recording_sid} | Get Agent Voicemail
 *ConversationApi* | [**getPbxAgentVoicemails**](docs/Api/ConversationApi.md#getpbxagentvoicemails) | **GET** /conversation/pbx/agent/voicemails | Get Agent Voicemails
@@ -211,6 +215,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**insertConversationCannedMessage**](docs/Api/ConversationApi.md#insertconversationcannedmessage) | **POST** /conversation/canned_messages | Insert a canned message
 *ConversationApi* | [**insertConversationDepartment**](docs/Api/ConversationApi.md#insertconversationdepartment) | **POST** /conversation/departments | Insert a department
 *ConversationApi* | [**insertConversationEngagement**](docs/Api/ConversationApi.md#insertconversationengagement) | **POST** /conversation/engagements | Insert a engagement
+*ConversationApi* | [**insertPbxAddress**](docs/Api/ConversationApi.md#insertpbxaddress) | **POST** /conversation/pbx/address | Insert pbx address
 *ConversationApi* | [**insertPbxAudio**](docs/Api/ConversationApi.md#insertpbxaudio) | **POST** /conversation/pbx/audio | Insert pbx audio
 *ConversationApi* | [**insertPbxMenu**](docs/Api/ConversationApi.md#insertpbxmenu) | **POST** /conversation/pbx/menu | Insert pbx menu
 *ConversationApi* | [**insertPbxQueue**](docs/Api/ConversationApi.md#insertpbxqueue) | **POST** /conversation/pbx/queue | Insert pbx queue
@@ -222,8 +227,11 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**listenedPbxAgentVoicemail**](docs/Api/ConversationApi.md#listenedpbxagentvoicemail) | **GET** /conversation/pbx/agent/voicemails/{recording_sid}/listened | Listened Agent Voicemail
 *ConversationApi* | [**listenedPbxQueueVoicemail**](docs/Api/ConversationApi.md#listenedpbxqueuevoicemail) | **GET** /conversation/pbx/queues/{queue_uuid}/voicemails/{recording_sid}/listened | Listened Queue Voicemail
 *ConversationApi* | [**markReadConversation**](docs/Api/ConversationApi.md#markreadconversation) | **PUT** /conversation/conversations/{conversation_uuid}/markread | Mark a conversation as read
+*ConversationApi* | [**protectPbxPhoneNumber**](docs/Api/ConversationApi.md#protectpbxphonenumber) | **PUT** /conversation/pbx/phone_number/{conversationPbxPhoneNumberUuid}/protect | Protect pbx phoneNumber from deletion
+*ConversationApi* | [**purchasePbxPhoneNumber**](docs/Api/ConversationApi.md#purchasepbxphonenumber) | **POST** /conversation/pbx/phone_number | Purchase pbx phone number
 *ConversationApi* | [**resetConversationPbxQueueStatistics**](docs/Api/ConversationApi.md#resetconversationpbxqueuestatistics) | **POST** /conversation/pbx/queues/{queue_uuid}/reset_statistics | reset statistics within the queue
 *ConversationApi* | [**searchConversationCannedMessages**](docs/Api/ConversationApi.md#searchconversationcannedmessages) | **POST** /conversation/canned_messages/search | Search for canned messages by short_code
+*ConversationApi* | [**searchPbxAvailablePhoneNumbers**](docs/Api/ConversationApi.md#searchpbxavailablephonenumbers) | **GET** /conversation/pbx/phone_number/search | Search for available phone numbers
 *ConversationApi* | [**smsUnsubscribeConversation**](docs/Api/ConversationApi.md#smsunsubscribeconversation) | **PUT** /conversation/conversations/{conversation_uuid}/sms_unsubscribe | Unsubscribe any SMS participants in this conversation
 *ConversationApi* | [**startConversation**](docs/Api/ConversationApi.md#startconversation) | **PUT** /conversation/conversations | Start a conversation
 *ConversationApi* | [**updateAgentProfile**](docs/Api/ConversationApi.md#updateagentprofile) | **PUT** /conversation/agent/profile | Update agent profile
@@ -232,6 +240,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**updateConversationDepartment**](docs/Api/ConversationApi.md#updateconversationdepartment) | **PUT** /conversation/departments/{conversation_department_oid} | Update a department
 *ConversationApi* | [**updateConversationEngagement**](docs/Api/ConversationApi.md#updateconversationengagement) | **PUT** /conversation/engagements/{conversation_engagement_oid} | Update a engagement
 *ConversationApi* | [**updateConversationWebchatQueueStatus**](docs/Api/ConversationApi.md#updateconversationwebchatqueuestatus) | **PUT** /conversation/conversations/queues/{queue_name}/status | Update status within the queue
+*ConversationApi* | [**updatePbxAddress**](docs/Api/ConversationApi.md#updatepbxaddress) | **PUT** /conversation/pbx/address/{conversationPbxAddressUuid} | Update pbx address
 *ConversationApi* | [**updatePbxAgent**](docs/Api/ConversationApi.md#updatepbxagent) | **PUT** /conversation/pbx/agent/{conversationPbxAgentUuid} | Update pbx agent
 *ConversationApi* | [**updatePbxAudio**](docs/Api/ConversationApi.md#updatepbxaudio) | **PUT** /conversation/pbx/audio/{conversationPbxAudioUuid} | Update pbx audio
 *ConversationApi* | [**updatePbxMenu**](docs/Api/ConversationApi.md#updatepbxmenu) | **PUT** /conversation/pbx/menu/{conversationPbxMenuUuid} | Update pbx menu
@@ -819,6 +828,9 @@ Class | Method | HTTP request | Description
 - [ConversationMultimediaUploadUrl](docs/Model/ConversationMultimediaUploadUrl.md)
 - [ConversationMultimediaUploadUrlResponse](docs/Model/ConversationMultimediaUploadUrlResponse.md)
 - [ConversationParticipant](docs/Model/ConversationParticipant.md)
+- [ConversationPbxAddress](docs/Model/ConversationPbxAddress.md)
+- [ConversationPbxAddressResponse](docs/Model/ConversationPbxAddressResponse.md)
+- [ConversationPbxAddressesResponse](docs/Model/ConversationPbxAddressesResponse.md)
 - [ConversationPbxAgent](docs/Model/ConversationPbxAgent.md)
 - [ConversationPbxAgentResponse](docs/Model/ConversationPbxAgentResponse.md)
 - [ConversationPbxAgentsResponse](docs/Model/ConversationPbxAgentsResponse.md)
@@ -828,6 +840,8 @@ Class | Method | HTTP request | Description
 - [ConversationPbxAudioUploadUrlResponse](docs/Model/ConversationPbxAudioUploadUrlResponse.md)
 - [ConversationPbxAudioUsageResponse](docs/Model/ConversationPbxAudioUsageResponse.md)
 - [ConversationPbxAudiosResponse](docs/Model/ConversationPbxAudiosResponse.md)
+- [ConversationPbxAvailablePhoneNumber](docs/Model/ConversationPbxAvailablePhoneNumber.md)
+- [ConversationPbxAvailablePhoneNumbersResponse](docs/Model/ConversationPbxAvailablePhoneNumbersResponse.md)
 - [ConversationPbxCustomerSnapshotRequest](docs/Model/ConversationPbxCustomerSnapshotRequest.md)
 - [ConversationPbxCustomerSnapshotResponse](docs/Model/ConversationPbxCustomerSnapshotResponse.md)
 - [ConversationPbxMenu](docs/Model/ConversationPbxMenu.md)
@@ -835,6 +849,7 @@ Class | Method | HTTP request | Description
 - [ConversationPbxMenuResponse](docs/Model/ConversationPbxMenuResponse.md)
 - [ConversationPbxMenusResponse](docs/Model/ConversationPbxMenusResponse.md)
 - [ConversationPbxPhoneNumber](docs/Model/ConversationPbxPhoneNumber.md)
+- [ConversationPbxPhoneNumberPurchaseRequest](docs/Model/ConversationPbxPhoneNumberPurchaseRequest.md)
 - [ConversationPbxPhoneNumberResponse](docs/Model/ConversationPbxPhoneNumberResponse.md)
 - [ConversationPbxPhoneNumbersResponse](docs/Model/ConversationPbxPhoneNumbersResponse.md)
 - [ConversationPbxQueue](docs/Model/ConversationPbxQueue.md)
@@ -1638,6 +1653,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.41 | 01/13/2026 | conversations - pbx methods for phone number purchasing |
 | 4.1.40 | 01/07/2026 | convseration - AI agent profile voice settings |
 | 4.1.39 | 12/31/2025 | conversations AI - queue AI settings |
 | 4.1.38 | 12/29/2025 | conversations - AI agent level capabilities |
