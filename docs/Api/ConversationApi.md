@@ -9,9 +9,11 @@ Method | HTTP request | Description
 [**deleteConversationCannedMessage**](ConversationApi.md#deleteConversationCannedMessage) | **DELETE** /conversation/canned_messages/{conversation_canned_message_oid} | Delete a conversation canned message
 [**deleteDepartment**](ConversationApi.md#deleteDepartment) | **DELETE** /conversation/departments/{conversation_department_oid} | Delete a conversation department
 [**deleteEngagement**](ConversationApi.md#deleteEngagement) | **DELETE** /conversation/engagements/{conversation_engagement_oid} | Delete a conversation engagement
+[**deletePbxAddress**](ConversationApi.md#deletePbxAddress) | **DELETE** /conversation/pbx/address/{conversationPbxAddressUuid} | Delete pbx address
 [**deletePbxAgentVoicemail**](ConversationApi.md#deletePbxAgentVoicemail) | **DELETE** /conversation/pbx/agent/voicemails/{recording_sid} | Delete Agent Voicemail
 [**deletePbxAudio**](ConversationApi.md#deletePbxAudio) | **DELETE** /conversation/pbx/audio/{conversationPbxAudioUuid} | Delete pbx audio
 [**deletePbxMenu**](ConversationApi.md#deletePbxMenu) | **DELETE** /conversation/pbx/menu/{conversationPbxMenuUuid} | Delete pbx menu
+[**deletePbxPhoneNumber**](ConversationApi.md#deletePbxPhoneNumber) | **DELETE** /conversation/pbx/phone_number/{conversationPbxPhoneNumberUuid} | Delete pbx phoneNumber
 [**deletePbxQueue**](ConversationApi.md#deletePbxQueue) | **DELETE** /conversation/pbx/queue/{conversationPbxQueueUuid} | Delete pbx queue
 [**deletePbxQueueVoicemail**](ConversationApi.md#deletePbxQueueVoicemail) | **DELETE** /conversation/pbx/queues/{queue_uuid}/voicemails/{recording_sid} | Delete Queue Voicemail
 [**deletePbxTimeBased**](ConversationApi.md#deletePbxTimeBased) | **DELETE** /conversation/pbx/time_based/{conversationPbxTimeBasedUuid} | Delete pbx timeBased
@@ -43,6 +45,8 @@ Method | HTTP request | Description
 [**getConversationsAutocomplete**](ConversationApi.md#getConversationsAutocomplete) | **POST** /conversation/conversations/autocomplete | Retrieve a list of matching terms for a search field
 [**getConversationsSearch**](ConversationApi.md#getConversationsSearch) | **POST** /conversation/conversations/search | Search conversations
 [**getLocationsForEngagement**](ConversationApi.md#getLocationsForEngagement) | **POST** /conversation/locations | Get location data for engagement configuration
+[**getPbxAddress**](ConversationApi.md#getPbxAddress) | **GET** /conversation/pbx/address/{conversationPbxAddressUuid} | Get pbx address
+[**getPbxAddresses**](ConversationApi.md#getPbxAddresses) | **GET** /conversation/pbx/address | Get pbx addresses
 [**getPbxAgent**](ConversationApi.md#getPbxAgent) | **GET** /conversation/pbx/agent/{conversationPbxAgentUuid} | Get pbx agent
 [**getPbxAgentVoicemail**](ConversationApi.md#getPbxAgentVoicemail) | **GET** /conversation/pbx/agent/voicemails/{recording_sid} | Get Agent Voicemail
 [**getPbxAgentVoicemails**](ConversationApi.md#getPbxAgentVoicemails) | **GET** /conversation/pbx/agent/voicemails | Get Agent Voicemails
@@ -71,6 +75,7 @@ Method | HTTP request | Description
 [**insertConversationCannedMessage**](ConversationApi.md#insertConversationCannedMessage) | **POST** /conversation/canned_messages | Insert a canned message
 [**insertConversationDepartment**](ConversationApi.md#insertConversationDepartment) | **POST** /conversation/departments | Insert a department
 [**insertConversationEngagement**](ConversationApi.md#insertConversationEngagement) | **POST** /conversation/engagements | Insert a engagement
+[**insertPbxAddress**](ConversationApi.md#insertPbxAddress) | **POST** /conversation/pbx/address | Insert pbx address
 [**insertPbxAudio**](ConversationApi.md#insertPbxAudio) | **POST** /conversation/pbx/audio | Insert pbx audio
 [**insertPbxMenu**](ConversationApi.md#insertPbxMenu) | **POST** /conversation/pbx/menu | Insert pbx menu
 [**insertPbxQueue**](ConversationApi.md#insertPbxQueue) | **POST** /conversation/pbx/queue | Insert pbx queue
@@ -82,8 +87,11 @@ Method | HTTP request | Description
 [**listenedPbxAgentVoicemail**](ConversationApi.md#listenedPbxAgentVoicemail) | **GET** /conversation/pbx/agent/voicemails/{recording_sid}/listened | Listened Agent Voicemail
 [**listenedPbxQueueVoicemail**](ConversationApi.md#listenedPbxQueueVoicemail) | **GET** /conversation/pbx/queues/{queue_uuid}/voicemails/{recording_sid}/listened | Listened Queue Voicemail
 [**markReadConversation**](ConversationApi.md#markReadConversation) | **PUT** /conversation/conversations/{conversation_uuid}/markread | Mark a conversation as read
+[**protectPbxPhoneNumber**](ConversationApi.md#protectPbxPhoneNumber) | **PUT** /conversation/pbx/phone_number/{conversationPbxPhoneNumberUuid}/protect | Protect pbx phoneNumber from deletion
+[**purchasePbxPhoneNumber**](ConversationApi.md#purchasePbxPhoneNumber) | **POST** /conversation/pbx/phone_number | Purchase pbx phone number
 [**resetConversationPbxQueueStatistics**](ConversationApi.md#resetConversationPbxQueueStatistics) | **POST** /conversation/pbx/queues/{queue_uuid}/reset_statistics | reset statistics within the queue
 [**searchConversationCannedMessages**](ConversationApi.md#searchConversationCannedMessages) | **POST** /conversation/canned_messages/search | Search for canned messages by short_code
+[**searchPbxAvailablePhoneNumbers**](ConversationApi.md#searchPbxAvailablePhoneNumbers) | **GET** /conversation/pbx/phone_number/search | Search for available phone numbers
 [**smsUnsubscribeConversation**](ConversationApi.md#smsUnsubscribeConversation) | **PUT** /conversation/conversations/{conversation_uuid}/sms_unsubscribe | Unsubscribe any SMS participants in this conversation
 [**startConversation**](ConversationApi.md#startConversation) | **PUT** /conversation/conversations | Start a conversation
 [**updateAgentProfile**](ConversationApi.md#updateAgentProfile) | **PUT** /conversation/agent/profile | Update agent profile
@@ -92,6 +100,7 @@ Method | HTTP request | Description
 [**updateConversationDepartment**](ConversationApi.md#updateConversationDepartment) | **PUT** /conversation/departments/{conversation_department_oid} | Update a department
 [**updateConversationEngagement**](ConversationApi.md#updateConversationEngagement) | **PUT** /conversation/engagements/{conversation_engagement_oid} | Update a engagement
 [**updateConversationWebchatQueueStatus**](ConversationApi.md#updateConversationWebchatQueueStatus) | **PUT** /conversation/conversations/queues/{queue_name}/status | Update status within the queue
+[**updatePbxAddress**](ConversationApi.md#updatePbxAddress) | **PUT** /conversation/pbx/address/{conversationPbxAddressUuid} | Update pbx address
 [**updatePbxAgent**](ConversationApi.md#updatePbxAgent) | **PUT** /conversation/pbx/agent/{conversationPbxAgentUuid} | Update pbx agent
 [**updatePbxAudio**](ConversationApi.md#updatePbxAudio) | **PUT** /conversation/pbx/audio/{conversationPbxAudioUuid} | Update pbx audio
 [**updatePbxMenu**](ConversationApi.md#updatePbxMenu) | **PUT** /conversation/pbx/menu/{conversationPbxMenuUuid} | Update pbx menu
@@ -344,6 +353,54 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **deletePbxAddress**
+> \ultracart\v2\models\ConversationPbxAddressResponse deletePbxAddress($conversation_pbx_address_uuid)
+
+Delete pbx address
+
+Delete a pbx address
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\ConversationApi::usingApiKey($simple_key);
+
+$conversation_pbx_address_uuid = "conversation_pbx_address_uuid_example"; // string | 
+
+try {
+    $result = $apiInstance->deletePbxAddress($conversation_pbx_address_uuid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ConversationApi->deletePbxAddress: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **conversation_pbx_address_uuid** | **string**|  |
+
+### Return type
+
+[**\ultracart\v2\models\ConversationPbxAddressResponse**](../Model/ConversationPbxAddressResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **deletePbxAgentVoicemail**
 > deletePbxAgentVoicemail($recording_sid)
 
@@ -475,6 +532,53 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\ConversationPbxMenuResponse**](../Model/ConversationPbxMenuResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **deletePbxPhoneNumber**
+> deletePbxPhoneNumber($conversation_pbx_phone_number_uuid)
+
+Delete pbx phoneNumber
+
+Delete a pbx phoneNumber. Only works if deletion_protected is false.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\ConversationApi::usingApiKey($simple_key);
+
+$conversation_pbx_phone_number_uuid = "conversation_pbx_phone_number_uuid_example"; // string | 
+
+try {
+    $apiInstance->deletePbxPhoneNumber($conversation_pbx_phone_number_uuid);
+} catch (Exception $e) {
+    echo 'Exception when calling ConversationApi->deletePbxPhoneNumber: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **conversation_pbx_phone_number_uuid** | **string**|  |
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 
@@ -1949,6 +2053,98 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **getPbxAddress**
+> \ultracart\v2\models\ConversationPbxAddressResponse getPbxAddress($conversation_pbx_address_uuid)
+
+Get pbx address
+
+Retrieve a pbx address
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\ConversationApi::usingApiKey($simple_key);
+
+$conversation_pbx_address_uuid = "conversation_pbx_address_uuid_example"; // string | 
+
+try {
+    $result = $apiInstance->getPbxAddress($conversation_pbx_address_uuid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ConversationApi->getPbxAddress: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **conversation_pbx_address_uuid** | **string**|  |
+
+### Return type
+
+[**\ultracart\v2\models\ConversationPbxAddressResponse**](../Model/ConversationPbxAddressResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getPbxAddresses**
+> \ultracart\v2\models\ConversationPbxAddressesResponse getPbxAddresses()
+
+Get pbx addresses
+
+Retrieve pbx addresses
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\ConversationApi::usingApiKey($simple_key);
+
+
+try {
+    $result = $apiInstance->getPbxAddresses();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ConversationApi->getPbxAddresses: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\ultracart\v2\models\ConversationPbxAddressesResponse**](../Model/ConversationPbxAddressesResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **getPbxAgent**
 > \ultracart\v2\models\ConversationPbxAgentResponse getPbxAgent($conversation_pbx_agent_uuid)
 
@@ -3255,6 +3451,54 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **insertPbxAddress**
+> \ultracart\v2\models\ConversationPbxAddressResponse insertPbxAddress($pbx_address)
+
+Insert pbx address
+
+Insert a pbx address
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\ConversationApi::usingApiKey($simple_key);
+
+$pbx_address = new \ultracart\v2\models\ConversationPbxAddress(); // \ultracart\v2\models\ConversationPbxAddress | Pbx Address
+
+try {
+    $result = $apiInstance->insertPbxAddress($pbx_address);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ConversationApi->insertPbxAddress: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pbx_address** | [**\ultracart\v2\models\ConversationPbxAddress**](../Model/ConversationPbxAddress.md)| Pbx Address |
+
+### Return type
+
+[**\ultracart\v2\models\ConversationPbxAddressResponse**](../Model/ConversationPbxAddressResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **insertPbxAudio**
 > \ultracart\v2\models\ConversationPbxAudioResponse insertPbxAudio($pbx_audio)
 
@@ -3782,6 +4026,102 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **protectPbxPhoneNumber**
+> \ultracart\v2\models\ConversationPbxPhoneNumberResponse protectPbxPhoneNumber($conversation_pbx_phone_number_uuid)
+
+Protect pbx phoneNumber from deletion
+
+Protect a pbx phoneNumber from deletion. This is a one-way operation and cannot be undone through the API.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\ConversationApi::usingApiKey($simple_key);
+
+$conversation_pbx_phone_number_uuid = "conversation_pbx_phone_number_uuid_example"; // string | 
+
+try {
+    $result = $apiInstance->protectPbxPhoneNumber($conversation_pbx_phone_number_uuid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ConversationApi->protectPbxPhoneNumber: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **conversation_pbx_phone_number_uuid** | **string**|  |
+
+### Return type
+
+[**\ultracart\v2\models\ConversationPbxPhoneNumberResponse**](../Model/ConversationPbxPhoneNumberResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **purchasePbxPhoneNumber**
+> \ultracart\v2\models\ConversationPbxPhoneNumberResponse purchasePbxPhoneNumber($phone_number_purchase_request)
+
+Purchase pbx phone number
+
+Purchase a phone number from Twilio. The phone_number must be from the available phone number search results.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\ConversationApi::usingApiKey($simple_key);
+
+$phone_number_purchase_request = new \ultracart\v2\models\ConversationPbxPhoneNumberPurchaseRequest(); // \ultracart\v2\models\ConversationPbxPhoneNumberPurchaseRequest | Phone number purchase request
+
+try {
+    $result = $apiInstance->purchasePbxPhoneNumber($phone_number_purchase_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ConversationApi->purchasePbxPhoneNumber: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **phone_number_purchase_request** | [**\ultracart\v2\models\ConversationPbxPhoneNumberPurchaseRequest**](../Model/ConversationPbxPhoneNumberPurchaseRequest.md)| Phone number purchase request |
+
+### Return type
+
+[**\ultracart\v2\models\ConversationPbxPhoneNumberResponse**](../Model/ConversationPbxPhoneNumberResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **resetConversationPbxQueueStatistics**
 > resetConversationPbxQueueStatistics($queue_uuid)
 
@@ -3865,6 +4205,66 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\ConversationCannedMessagesResponse**](../Model/ConversationCannedMessagesResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **searchPbxAvailablePhoneNumbers**
+> \ultracart\v2\models\ConversationPbxAvailablePhoneNumbersResponse searchPbxAvailablePhoneNumbers($country, $area_code, $contains, $sms_enabled, $voice_enabled, $type, $limit)
+
+Search for available phone numbers
+
+Search for available phone numbers from Twilio that can be purchased
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\ConversationApi::usingApiKey($simple_key);
+
+$country = "country_example"; // string | ISO country code (e.g., US, CA, GB)
+$area_code = "area_code_example"; // string | Area code filter (e.g., 614)
+$contains = "contains_example"; // string | Pattern to match (e.g., 555, *PIZZA)
+$sms_enabled = true; // bool | Filter for SMS capability
+$voice_enabled = true; // bool | Filter for voice capability
+$type = "type_example"; // string | Phone number type
+$limit = 56; // int | Max results (default 20, max 100)
+
+try {
+    $result = $apiInstance->searchPbxAvailablePhoneNumbers($country, $area_code, $contains, $sms_enabled, $voice_enabled, $type, $limit);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ConversationApi->searchPbxAvailablePhoneNumbers: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **country** | **string**| ISO country code (e.g., US, CA, GB) |
+ **area_code** | **string**| Area code filter (e.g., 614) | [optional]
+ **contains** | **string**| Pattern to match (e.g., 555, *PIZZA) | [optional]
+ **sms_enabled** | **bool**| Filter for SMS capability | [optional]
+ **voice_enabled** | **bool**| Filter for voice capability | [optional]
+ **type** | **string**| Phone number type | [optional]
+ **limit** | **int**| Max results (default 20, max 100) | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\ConversationPbxAvailablePhoneNumbersResponse**](../Model/ConversationPbxAvailablePhoneNumbersResponse.md)
 
 ### Authorization
 
@@ -4259,6 +4659,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **updatePbxAddress**
+> \ultracart\v2\models\ConversationPbxAddressResponse updatePbxAddress($conversation_pbx_address_uuid, $pbx_address)
+
+Update pbx address
+
+Update a pbx address
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\ConversationApi::usingApiKey($simple_key);
+
+$conversation_pbx_address_uuid = "conversation_pbx_address_uuid_example"; // string | 
+$pbx_address = new \ultracart\v2\models\ConversationPbxAddress(); // \ultracart\v2\models\ConversationPbxAddress | Pbx Address
+
+try {
+    $result = $apiInstance->updatePbxAddress($conversation_pbx_address_uuid, $pbx_address);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ConversationApi->updatePbxAddress: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **conversation_pbx_address_uuid** | **string**|  |
+ **pbx_address** | [**\ultracart\v2\models\ConversationPbxAddress**](../Model/ConversationPbxAddress.md)| Pbx Address |
+
+### Return type
+
+[**\ultracart\v2\models\ConversationPbxAddressResponse**](../Model/ConversationPbxAddressResponse.md)
 
 ### Authorization
 
