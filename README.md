@@ -1700,6 +1700,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.43 | 01/14/2026 | coupons - generate one time coupons prefix support (optional) |
 | 3.11.42 | 01/13/2026 | conversations - pbx methods for phone number purchasing |
 | 3.11.41 | 01/13/2026 | conversations - pbx methods for phone number purchasing |
 | 3.11.40 | 01/07/2026 | convseration - AI agent profile voice settings |
