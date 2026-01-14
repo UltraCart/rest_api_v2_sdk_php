@@ -62,6 +62,7 @@ class CouponCodesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         'expiration_dts' => 'string',
         'expiration_seconds' => 'int',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'prefix' => 'string',
         'quantity' => 'int',
         'success' => 'bool',
         'warning' => '\ultracart\v2\models\Warning'
@@ -79,6 +80,7 @@ class CouponCodesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         'expiration_dts' => null,
         'expiration_seconds' => 'int32',
         'metadata' => null,
+        'prefix' => null,
         'quantity' => 'int32',
         'success' => null,
         'warning' => null
@@ -115,6 +117,7 @@ class CouponCodesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         'expiration_dts' => 'expiration_dts',
         'expiration_seconds' => 'expiration_seconds',
         'metadata' => 'metadata',
+        'prefix' => 'prefix',
         'quantity' => 'quantity',
         'success' => 'success',
         'warning' => 'warning'
@@ -130,6 +133,7 @@ class CouponCodesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         'expiration_dts' => 'setExpirationDts',
         'expiration_seconds' => 'setExpirationSeconds',
         'metadata' => 'setMetadata',
+        'prefix' => 'setPrefix',
         'quantity' => 'setQuantity',
         'success' => 'setSuccess',
         'warning' => 'setWarning'
@@ -145,6 +149,7 @@ class CouponCodesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         'expiration_dts' => 'getExpirationDts',
         'expiration_seconds' => 'getExpirationSeconds',
         'metadata' => 'getMetadata',
+        'prefix' => 'getPrefix',
         'quantity' => 'getQuantity',
         'success' => 'getSuccess',
         'warning' => 'getWarning'
@@ -211,6 +216,7 @@ class CouponCodesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->container['expiration_dts'] = $data['expiration_dts'] ?? null;
         $this->container['expiration_seconds'] = $data['expiration_seconds'] ?? null;
         $this->container['metadata'] = $data['metadata'] ?? null;
+        $this->container['prefix'] = $data['prefix'] ?? null;
         $this->container['quantity'] = $data['quantity'] ?? null;
         $this->container['success'] = $data['success'] ?? null;
         $this->container['warning'] = $data['warning'] ?? null;
@@ -224,6 +230,10 @@ class CouponCodesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['prefix']) && (mb_strlen($this->container['prefix']) > 12)) {
+            $invalidProperties[] = "invalid value for 'prefix', the character length must be smaller than or equal to 12.";
+        }
 
         return $invalidProperties;
     }
@@ -332,6 +342,34 @@ class CouponCodesRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setMetadata($metadata)
     {
         $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets prefix
+     *
+     * @return string|null
+     */
+    public function getPrefix()
+    {
+        return $this->container['prefix'];
+    }
+
+    /**
+     * Sets prefix
+     *
+     * @param string|null $prefix Optional prefix for generated codes
+     *
+     * @return self
+     */
+    public function setPrefix($prefix)
+    {
+        if (!is_null($prefix) && (mb_strlen($prefix) > 12)) {
+            throw new \InvalidArgumentException('invalid length for $prefix when calling CouponCodesRequest., must be smaller than or equal to 12.');
+        }
+
+        $this->container['prefix'] = $prefix;
 
         return $this;
     }
