@@ -30,5 +30,6 @@ Name | Type | Description | Notes
 **summary** | [**\ultracart\v2\models\CartSummary**](CartSummary.md) |  | [optional]
 **taxes** | [**\ultracart\v2\models\CartTaxes**](CartTaxes.md) |  | [optional]
 **upsell_after** | [**\ultracart\v2\models\CartUpsellAfter**](CartUpsellAfter.md) |  | [optional]
+**utms** | [**\ultracart\v2\models\CartUtm[]**](CartUtm.md) | UTM clicks.  The zero index is the most recent (last) UTM click.  Only available in BigQuery and on an abandon webhook. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

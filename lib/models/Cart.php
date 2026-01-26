@@ -83,7 +83,8 @@ class Cart implements ModelInterface, ArrayAccess, \JsonSerializable
         'shipping' => '\ultracart\v2\models\CartShipping',
         'summary' => '\ultracart\v2\models\CartSummary',
         'taxes' => '\ultracart\v2\models\CartTaxes',
-        'upsell_after' => '\ultracart\v2\models\CartUpsellAfter'
+        'upsell_after' => '\ultracart\v2\models\CartUpsellAfter',
+        'utms' => '\ultracart\v2\models\CartUtm[]'
     ];
 
     /**
@@ -119,7 +120,8 @@ class Cart implements ModelInterface, ArrayAccess, \JsonSerializable
         'shipping' => null,
         'summary' => null,
         'taxes' => null,
-        'upsell_after' => null
+        'upsell_after' => null,
+        'utms' => null
     ];
 
     /**
@@ -174,7 +176,8 @@ class Cart implements ModelInterface, ArrayAccess, \JsonSerializable
         'shipping' => 'shipping',
         'summary' => 'summary',
         'taxes' => 'taxes',
-        'upsell_after' => 'upsell_after'
+        'upsell_after' => 'upsell_after',
+        'utms' => 'utms'
     ];
 
     /**
@@ -208,7 +211,8 @@ class Cart implements ModelInterface, ArrayAccess, \JsonSerializable
         'shipping' => 'setShipping',
         'summary' => 'setSummary',
         'taxes' => 'setTaxes',
-        'upsell_after' => 'setUpsellAfter'
+        'upsell_after' => 'setUpsellAfter',
+        'utms' => 'setUtms'
     ];
 
     /**
@@ -242,7 +246,8 @@ class Cart implements ModelInterface, ArrayAccess, \JsonSerializable
         'shipping' => 'getShipping',
         'summary' => 'getSummary',
         'taxes' => 'getTaxes',
-        'upsell_after' => 'getUpsellAfter'
+        'upsell_after' => 'getUpsellAfter',
+        'utms' => 'getUtms'
     ];
 
     /**
@@ -328,6 +333,7 @@ class Cart implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['summary'] = $data['summary'] ?? null;
         $this->container['taxes'] = $data['taxes'] ?? null;
         $this->container['upsell_after'] = $data['upsell_after'] ?? null;
+        $this->container['utms'] = $data['utms'] ?? null;
     }
 
     /**
@@ -998,6 +1004,30 @@ class Cart implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setUpsellAfter($upsell_after)
     {
         $this->container['upsell_after'] = $upsell_after;
+
+        return $this;
+    }
+
+    /**
+     * Gets utms
+     *
+     * @return \ultracart\v2\models\CartUtm[]|null
+     */
+    public function getUtms()
+    {
+        return $this->container['utms'];
+    }
+
+    /**
+     * Sets utms
+     *
+     * @param \ultracart\v2\models\CartUtm[]|null $utms UTM clicks.  The zero index is the most recent (last) UTM click.  Only available in BigQuery and on an abandon webhook.
+     *
+     * @return self
+     */
+    public function setUtms($utms)
+    {
+        $this->container['utms'] = $utms;
 
         return $this;
     }
