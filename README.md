@@ -1714,6 +1714,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.49 | 01/26/2026 | no changes - testing changes to build automation |
 | 3.11.48 | 01/26/2026 | conversation - hardware phone methods and objects |
 | 3.11.47 | 01/26/2026 | conversation - agent auth object chat admin/user properties |
 | 3.11.46 | 01/26/2026 | cart - expose utm array for use in abandon webhook only |
