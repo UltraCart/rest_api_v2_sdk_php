@@ -58,6 +58,7 @@ class ConversationDepartmentMember implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
+        'ai' => 'bool',
         'member' => 'bool',
         'name' => 'string',
         'user_id' => 'int'
@@ -71,6 +72,7 @@ class ConversationDepartmentMember implements ModelInterface, ArrayAccess, \Json
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'ai' => null,
         'member' => null,
         'name' => null,
         'user_id' => 'int32'
@@ -103,6 +105,7 @@ class ConversationDepartmentMember implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $attributeMap = [
+        'ai' => 'ai',
         'member' => 'member',
         'name' => 'name',
         'user_id' => 'user_id'
@@ -114,6 +117,7 @@ class ConversationDepartmentMember implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $setters = [
+        'ai' => 'setAi',
         'member' => 'setMember',
         'name' => 'setName',
         'user_id' => 'setUserId'
@@ -125,6 +129,7 @@ class ConversationDepartmentMember implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $getters = [
+        'ai' => 'getAi',
         'member' => 'getMember',
         'name' => 'getName',
         'user_id' => 'getUserId'
@@ -187,6 +192,7 @@ class ConversationDepartmentMember implements ModelInterface, ArrayAccess, \Json
      */
     public function __construct(array $data = null)
     {
+        $this->container['ai'] = $data['ai'] ?? null;
         $this->container['member'] = $data['member'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['user_id'] = $data['user_id'] ?? null;
@@ -215,6 +221,30 @@ class ConversationDepartmentMember implements ModelInterface, ArrayAccess, \Json
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets ai
+     *
+     * @return bool|null
+     */
+    public function getAi()
+    {
+        return $this->container['ai'];
+    }
+
+    /**
+     * Sets ai
+     *
+     * @param bool|null $ai ai
+     *
+     * @return self
+     */
+    public function setAi($ai)
+    {
+        $this->container['ai'] = $ai;
+
+        return $this;
+    }
 
     /**
      * Gets member

@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.43"
+    "ultracart/rest_api_v2_sdk_php": "4.1.44"
   }
 }
 ```
@@ -1653,6 +1653,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.44 | 01/26/2026 | conversations - ConversationDepartmentMember expose a flag for if the agent is AI |
 | 4.1.43 | 01/14/2026 | coupons - generate one time coupons prefix support (optional) |
 | 4.1.42 | 01/13/2026 | conversations - pbx methods for phone number purchasing |
 | 4.1.41 | 01/13/2026 | conversations - pbx methods for phone number purchasing |
