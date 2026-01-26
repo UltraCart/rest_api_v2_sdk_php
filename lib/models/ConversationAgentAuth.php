@@ -57,6 +57,8 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'chat_admin' => 'bool',
+        'chat_user' => 'bool',
         'conversation_participant_arn' => 'string',
         'conversation_participant_name' => 'string',
         'group_ids' => 'int[]',
@@ -81,6 +83,8 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'chat_admin' => null,
+        'chat_user' => null,
         'conversation_participant_arn' => null,
         'conversation_participant_name' => null,
         'group_ids' => null,
@@ -126,6 +130,8 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'chat_admin' => 'chat_admin',
+        'chat_user' => 'chat_user',
         'conversation_participant_arn' => 'conversation_participant_arn',
         'conversation_participant_name' => 'conversation_participant_name',
         'group_ids' => 'group_ids',
@@ -150,6 +156,8 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'chat_admin' => 'setChatAdmin',
+        'chat_user' => 'setChatUser',
         'conversation_participant_arn' => 'setConversationParticipantArn',
         'conversation_participant_name' => 'setConversationParticipantName',
         'group_ids' => 'setGroupIds',
@@ -174,6 +182,8 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'chat_admin' => 'getChatAdmin',
+        'chat_user' => 'getChatUser',
         'conversation_participant_arn' => 'getConversationParticipantArn',
         'conversation_participant_name' => 'getConversationParticipantName',
         'group_ids' => 'getGroupIds',
@@ -252,6 +262,8 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['chat_admin'] = isset($data['chat_admin']) ? $data['chat_admin'] : null;
+        $this->container['chat_user'] = isset($data['chat_user']) ? $data['chat_user'] : null;
         $this->container['conversation_participant_arn'] = isset($data['conversation_participant_arn']) ? $data['conversation_participant_arn'] : null;
         $this->container['conversation_participant_name'] = isset($data['conversation_participant_name']) ? $data['conversation_participant_name'] : null;
         $this->container['group_ids'] = isset($data['group_ids']) ? $data['group_ids'] : null;
@@ -293,6 +305,54 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets chat_admin
+     *
+     * @return bool
+     */
+    public function getChatAdmin()
+    {
+        return $this->container['chat_admin'];
+    }
+
+    /**
+     * Sets chat_admin
+     *
+     * @param bool $chat_admin chat_admin
+     *
+     * @return $this
+     */
+    public function setChatAdmin($chat_admin)
+    {
+        $this->container['chat_admin'] = $chat_admin;
+
+        return $this;
+    }
+
+    /**
+     * Gets chat_user
+     *
+     * @return bool
+     */
+    public function getChatUser()
+    {
+        return $this->container['chat_user'];
+    }
+
+    /**
+     * Sets chat_user
+     *
+     * @param bool $chat_user chat_user
+     *
+     * @return $this
+     */
+    public function setChatUser($chat_user)
+    {
+        $this->container['chat_user'] = $chat_user;
+
+        return $this;
+    }
 
     /**
      * Gets conversation_participant_arn
