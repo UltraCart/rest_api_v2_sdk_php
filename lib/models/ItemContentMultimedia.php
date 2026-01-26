@@ -68,6 +68,7 @@ class ItemContentMultimedia implements ModelInterface, ArrayAccess, \JsonSeriali
         'merchant_item_multimedia_oid' => 'int',
         'orphan' => 'bool',
         'placeholder' => 'bool',
+        'size' => 'int',
         'temp_multimedia_oid' => 'int',
         'thumbnails' => '\ultracart\v2\models\ItemContentMultimediaThumbnail[]',
         'type' => 'string',
@@ -93,6 +94,7 @@ class ItemContentMultimedia implements ModelInterface, ArrayAccess, \JsonSeriali
         'merchant_item_multimedia_oid' => 'int32',
         'orphan' => null,
         'placeholder' => null,
+        'size' => 'int32',
         'temp_multimedia_oid' => 'int32',
         'thumbnails' => null,
         'type' => null,
@@ -137,6 +139,7 @@ class ItemContentMultimedia implements ModelInterface, ArrayAccess, \JsonSeriali
         'merchant_item_multimedia_oid' => 'merchant_item_multimedia_oid',
         'orphan' => 'orphan',
         'placeholder' => 'placeholder',
+        'size' => 'size',
         'temp_multimedia_oid' => 'temp_multimedia_oid',
         'thumbnails' => 'thumbnails',
         'type' => 'type',
@@ -160,6 +163,7 @@ class ItemContentMultimedia implements ModelInterface, ArrayAccess, \JsonSeriali
         'merchant_item_multimedia_oid' => 'setMerchantItemMultimediaOid',
         'orphan' => 'setOrphan',
         'placeholder' => 'setPlaceholder',
+        'size' => 'setSize',
         'temp_multimedia_oid' => 'setTempMultimediaOid',
         'thumbnails' => 'setThumbnails',
         'type' => 'setType',
@@ -183,6 +187,7 @@ class ItemContentMultimedia implements ModelInterface, ArrayAccess, \JsonSeriali
         'merchant_item_multimedia_oid' => 'getMerchantItemMultimediaOid',
         'orphan' => 'getOrphan',
         'placeholder' => 'getPlaceholder',
+        'size' => 'getSize',
         'temp_multimedia_oid' => 'getTempMultimediaOid',
         'thumbnails' => 'getThumbnails',
         'type' => 'getType',
@@ -278,6 +283,7 @@ class ItemContentMultimedia implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->container['merchant_item_multimedia_oid'] = $data['merchant_item_multimedia_oid'] ?? null;
         $this->container['orphan'] = $data['orphan'] ?? null;
         $this->container['placeholder'] = $data['placeholder'] ?? null;
+        $this->container['size'] = $data['size'] ?? null;
         $this->container['temp_multimedia_oid'] = $data['temp_multimedia_oid'] ?? null;
         $this->container['thumbnails'] = $data['thumbnails'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
@@ -578,6 +584,30 @@ class ItemContentMultimedia implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setPlaceholder($placeholder)
     {
         $this->container['placeholder'] = $placeholder;
+
+        return $this;
+    }
+
+    /**
+     * Gets size
+     *
+     * @return int|null
+     */
+    public function getSize()
+    {
+        return $this->container['size'];
+    }
+
+    /**
+     * Sets size
+     *
+     * @param int|null $size Size of the file in bytes if known
+     *
+     * @return self
+     */
+    public function setSize($size)
+    {
+        $this->container['size'] = $size;
 
         return $this;
     }
