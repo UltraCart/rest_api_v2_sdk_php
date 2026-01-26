@@ -810,6 +810,7 @@ Class | Method | HTTP request | Description
  - [CartSummary](docs/Model/CartSummary.md)
  - [CartTaxes](docs/Model/CartTaxes.md)
  - [CartUpsellAfter](docs/Model/CartUpsellAfter.md)
+ - [CartUtm](docs/Model/CartUtm.md)
  - [CartValidationRequest](docs/Model/CartValidationRequest.md)
  - [CartValidationResponse](docs/Model/CartValidationResponse.md)
  - [ChanelPartnerReasonCodesResponse](docs/Model/ChanelPartnerReasonCodesResponse.md)
@@ -1700,6 +1701,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.46 | 01/26/2026 | cart - expose utm array for use in abandon webhook only |
 | 3.11.45 | 01/26/2026 | added multimedia file size to ItemContentMultimedia object |
 | 3.11.44 | 01/26/2026 | conversations - ConversationDepartmentMember expose a flag for if the agent is AI |
 | 3.11.43 | 01/14/2026 | coupons - generate one time coupons prefix support (optional) |
