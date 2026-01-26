@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ai** | **bool** |  | [optional] 
 **member** | **bool** |  | [optional] 
 **name** | **string** |  | [optional] 
 **user_id** | **int** |  | [optional] 
