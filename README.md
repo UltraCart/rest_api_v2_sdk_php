@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.46"
+    "ultracart/rest_api_v2_sdk_php": "4.1.47"
   }
 }
 ```
@@ -1654,6 +1654,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.47 | 01/26/2026 | conversation - agent auth object chat admin/user properties |
 | 4.1.46 | 01/26/2026 | cart - expose utm array for use in abandon webhook only |
 | 4.1.45 | 01/26/2026 | added multimedia file size to ItemContentMultimedia object |
 | 4.1.44 | 01/26/2026 | conversations - ConversationDepartmentMember expose a flag for if the agent is AI |

@@ -58,6 +58,8 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
+        'chat_admin' => 'bool',
+        'chat_user' => 'bool',
         'conversation_participant_arn' => 'string',
         'conversation_participant_name' => 'string',
         'group_ids' => 'int[]',
@@ -84,6 +86,8 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'chat_admin' => null,
+        'chat_user' => null,
         'conversation_participant_arn' => null,
         'conversation_participant_name' => null,
         'group_ids' => null,
@@ -129,6 +133,8 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
+        'chat_admin' => 'chat_admin',
+        'chat_user' => 'chat_user',
         'conversation_participant_arn' => 'conversation_participant_arn',
         'conversation_participant_name' => 'conversation_participant_name',
         'group_ids' => 'group_ids',
@@ -153,6 +159,8 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
+        'chat_admin' => 'setChatAdmin',
+        'chat_user' => 'setChatUser',
         'conversation_participant_arn' => 'setConversationParticipantArn',
         'conversation_participant_name' => 'setConversationParticipantName',
         'group_ids' => 'setGroupIds',
@@ -177,6 +185,8 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
+        'chat_admin' => 'getChatAdmin',
+        'chat_user' => 'getChatUser',
         'conversation_participant_arn' => 'getConversationParticipantArn',
         'conversation_participant_name' => 'getConversationParticipantName',
         'group_ids' => 'getGroupIds',
@@ -252,6 +262,8 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(array $data = null)
     {
+        $this->container['chat_admin'] = $data['chat_admin'] ?? null;
+        $this->container['chat_user'] = $data['chat_user'] ?? null;
         $this->container['conversation_participant_arn'] = $data['conversation_participant_arn'] ?? null;
         $this->container['conversation_participant_name'] = $data['conversation_participant_name'] ?? null;
         $this->container['group_ids'] = $data['group_ids'] ?? null;
@@ -293,6 +305,54 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets chat_admin
+     *
+     * @return bool|null
+     */
+    public function getChatAdmin()
+    {
+        return $this->container['chat_admin'];
+    }
+
+    /**
+     * Sets chat_admin
+     *
+     * @param bool|null $chat_admin chat_admin
+     *
+     * @return self
+     */
+    public function setChatAdmin($chat_admin)
+    {
+        $this->container['chat_admin'] = $chat_admin;
+
+        return $this;
+    }
+
+    /**
+     * Gets chat_user
+     *
+     * @return bool|null
+     */
+    public function getChatUser()
+    {
+        return $this->container['chat_user'];
+    }
+
+    /**
+     * Sets chat_user
+     *
+     * @param bool|null $chat_user chat_user
+     *
+     * @return self
+     */
+    public function setChatUser($chat_user)
+    {
+        $this->container['chat_user'] = $chat_user;
+
+        return $this;
+    }
 
     /**
      * Gets conversation_participant_arn
