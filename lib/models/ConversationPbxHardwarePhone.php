@@ -57,6 +57,8 @@ class ConversationPbxHardwarePhone implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'admin_username' => 'string',
+        'conversation_pbx_agent_uuid' => 'string',
         'conversation_pbx_hardware_phone_uuid' => 'string',
         'created_at' => 'object',
         'description' => 'string',
@@ -67,8 +69,10 @@ class ConversationPbxHardwarePhone implements ModelInterface, ArrayAccess
         'name' => 'string',
         'provisioning_url' => 'string',
         'sip_domain' => 'string',
+        'sip_edge_location' => 'string',
         'sip_password' => 'string',
         'sip_username' => 'string',
+        'twilio_credential_sid' => 'string',
         'updated_at' => 'object'
     ];
 
@@ -78,6 +82,8 @@ class ConversationPbxHardwarePhone implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'admin_username' => null,
+        'conversation_pbx_agent_uuid' => null,
         'conversation_pbx_hardware_phone_uuid' => null,
         'created_at' => null,
         'description' => null,
@@ -88,8 +94,10 @@ class ConversationPbxHardwarePhone implements ModelInterface, ArrayAccess
         'name' => null,
         'provisioning_url' => null,
         'sip_domain' => null,
+        'sip_edge_location' => null,
         'sip_password' => null,
         'sip_username' => null,
+        'twilio_credential_sid' => null,
         'updated_at' => null
     ];
 
@@ -120,6 +128,8 @@ class ConversationPbxHardwarePhone implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'admin_username' => 'admin_username',
+        'conversation_pbx_agent_uuid' => 'conversation_pbx_agent_uuid',
         'conversation_pbx_hardware_phone_uuid' => 'conversation_pbx_hardware_phone_uuid',
         'created_at' => 'created_at',
         'description' => 'description',
@@ -130,8 +140,10 @@ class ConversationPbxHardwarePhone implements ModelInterface, ArrayAccess
         'name' => 'name',
         'provisioning_url' => 'provisioning_url',
         'sip_domain' => 'sip_domain',
+        'sip_edge_location' => 'sip_edge_location',
         'sip_password' => 'sip_password',
         'sip_username' => 'sip_username',
+        'twilio_credential_sid' => 'twilio_credential_sid',
         'updated_at' => 'updated_at'
     ];
 
@@ -141,6 +153,8 @@ class ConversationPbxHardwarePhone implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'admin_username' => 'setAdminUsername',
+        'conversation_pbx_agent_uuid' => 'setConversationPbxAgentUuid',
         'conversation_pbx_hardware_phone_uuid' => 'setConversationPbxHardwarePhoneUuid',
         'created_at' => 'setCreatedAt',
         'description' => 'setDescription',
@@ -151,8 +165,10 @@ class ConversationPbxHardwarePhone implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'provisioning_url' => 'setProvisioningUrl',
         'sip_domain' => 'setSipDomain',
+        'sip_edge_location' => 'setSipEdgeLocation',
         'sip_password' => 'setSipPassword',
         'sip_username' => 'setSipUsername',
+        'twilio_credential_sid' => 'setTwilioCredentialSid',
         'updated_at' => 'setUpdatedAt'
     ];
 
@@ -162,6 +178,8 @@ class ConversationPbxHardwarePhone implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'admin_username' => 'getAdminUsername',
+        'conversation_pbx_agent_uuid' => 'getConversationPbxAgentUuid',
         'conversation_pbx_hardware_phone_uuid' => 'getConversationPbxHardwarePhoneUuid',
         'created_at' => 'getCreatedAt',
         'description' => 'getDescription',
@@ -172,8 +190,10 @@ class ConversationPbxHardwarePhone implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'provisioning_url' => 'getProvisioningUrl',
         'sip_domain' => 'getSipDomain',
+        'sip_edge_location' => 'getSipEdgeLocation',
         'sip_password' => 'getSipPassword',
         'sip_username' => 'getSipUsername',
+        'twilio_credential_sid' => 'getTwilioCredentialSid',
         'updated_at' => 'getUpdatedAt'
     ];
 
@@ -237,6 +257,8 @@ class ConversationPbxHardwarePhone implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['admin_username'] = isset($data['admin_username']) ? $data['admin_username'] : null;
+        $this->container['conversation_pbx_agent_uuid'] = isset($data['conversation_pbx_agent_uuid']) ? $data['conversation_pbx_agent_uuid'] : null;
         $this->container['conversation_pbx_hardware_phone_uuid'] = isset($data['conversation_pbx_hardware_phone_uuid']) ? $data['conversation_pbx_hardware_phone_uuid'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
@@ -247,8 +269,10 @@ class ConversationPbxHardwarePhone implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['provisioning_url'] = isset($data['provisioning_url']) ? $data['provisioning_url'] : null;
         $this->container['sip_domain'] = isset($data['sip_domain']) ? $data['sip_domain'] : null;
+        $this->container['sip_edge_location'] = isset($data['sip_edge_location']) ? $data['sip_edge_location'] : null;
         $this->container['sip_password'] = isset($data['sip_password']) ? $data['sip_password'] : null;
         $this->container['sip_username'] = isset($data['sip_username']) ? $data['sip_username'] : null;
+        $this->container['twilio_credential_sid'] = isset($data['twilio_credential_sid']) ? $data['twilio_credential_sid'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
 
@@ -293,6 +317,10 @@ class ConversationPbxHardwarePhone implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'sip_domain', the character length must be smaller than or equal to 200.";
         }
 
+        if (!is_null($this->container['sip_edge_location']) && (mb_strlen($this->container['sip_edge_location']) > 50)) {
+            $invalidProperties[] = "invalid value for 'sip_edge_location', the character length must be smaller than or equal to 50.";
+        }
+
         if (!is_null($this->container['sip_password']) && (mb_strlen($this->container['sip_password']) > 100)) {
             $invalidProperties[] = "invalid value for 'sip_password', the character length must be smaller than or equal to 100.";
         }
@@ -315,6 +343,54 @@ class ConversationPbxHardwarePhone implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets admin_username
+     *
+     * @return string
+     */
+    public function getAdminUsername()
+    {
+        return $this->container['admin_username'];
+    }
+
+    /**
+     * Sets admin_username
+     *
+     * @param string $admin_username Admin Username
+     *
+     * @return $this
+     */
+    public function setAdminUsername($admin_username)
+    {
+        $this->container['admin_username'] = $admin_username;
+
+        return $this;
+    }
+
+    /**
+     * Gets conversation_pbx_agent_uuid
+     *
+     * @return string
+     */
+    public function getConversationPbxAgentUuid()
+    {
+        return $this->container['conversation_pbx_agent_uuid'];
+    }
+
+    /**
+     * Sets conversation_pbx_agent_uuid
+     *
+     * @param string $conversation_pbx_agent_uuid Associated Agent UUID
+     *
+     * @return $this
+     */
+    public function setConversationPbxAgentUuid($conversation_pbx_agent_uuid)
+    {
+        $this->container['conversation_pbx_agent_uuid'] = $conversation_pbx_agent_uuid;
+
+        return $this;
+    }
 
     /**
      * Gets conversation_pbx_hardware_phone_uuid
@@ -589,6 +665,34 @@ class ConversationPbxHardwarePhone implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets sip_edge_location
+     *
+     * @return string
+     */
+    public function getSipEdgeLocation()
+    {
+        return $this->container['sip_edge_location'];
+    }
+
+    /**
+     * Sets sip_edge_location
+     *
+     * @param string $sip_edge_location SIP Edge Location
+     *
+     * @return $this
+     */
+    public function setSipEdgeLocation($sip_edge_location)
+    {
+        if (!is_null($sip_edge_location) && (mb_strlen($sip_edge_location) > 50)) {
+            throw new \InvalidArgumentException('invalid length for $sip_edge_location when calling ConversationPbxHardwarePhone., must be smaller than or equal to 50.');
+        }
+
+        $this->container['sip_edge_location'] = $sip_edge_location;
+
+        return $this;
+    }
+
+    /**
      * Gets sip_password
      *
      * @return string
@@ -601,7 +705,7 @@ class ConversationPbxHardwarePhone implements ModelInterface, ArrayAccess
     /**
      * Sets sip_password
      *
-     * @param string $sip_password SIP Password
+     * @param string $sip_password SIP Password (only on create or regenerate password requests)
      *
      * @return $this
      */
@@ -640,6 +744,30 @@ class ConversationPbxHardwarePhone implements ModelInterface, ArrayAccess
         }
 
         $this->container['sip_username'] = $sip_username;
+
+        return $this;
+    }
+
+    /**
+     * Gets twilio_credential_sid
+     *
+     * @return string
+     */
+    public function getTwilioCredentialSid()
+    {
+        return $this->container['twilio_credential_sid'];
+    }
+
+    /**
+     * Sets twilio_credential_sid
+     *
+     * @param string $twilio_credential_sid Twilio Credential SID
+     *
+     * @return $this
+     */
+    public function setTwilioCredentialSid($twilio_credential_sid)
+    {
+        $this->container['twilio_credential_sid'] = $twilio_credential_sid;
 
         return $this;
     }
