@@ -59,14 +59,16 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPITypes = [
         'ai' => 'bool',
+        'call_routing_preference' => 'string',
         'cellphone' => 'string',
         'conversation_pbx_agent_uuid' => 'string',
         'extension' => 'int',
-        'forward_calls_to_cellphone' => 'bool',
         'full_name' => 'string',
+        'hardware_phone_uuids' => 'string[]',
         'login' => 'string',
         'merchant_id' => 'string',
         'personal_conversation_pbx_voicemail_mailbox_uuid' => 'string',
+        'preferred_hardware_phone_uuid' => 'string',
         'record_outgoing_automatically' => 'bool',
         'shared_conversation_pbx_voicemail_mailbox_uuid' => 'string',
         'twilio_taskrouter_worker_id' => 'string',
@@ -86,14 +88,16 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPIFormats = [
         'ai' => null,
+        'call_routing_preference' => null,
         'cellphone' => null,
         'conversation_pbx_agent_uuid' => null,
         'extension' => 'int32',
-        'forward_calls_to_cellphone' => null,
         'full_name' => null,
+        'hardware_phone_uuids' => null,
         'login' => null,
         'merchant_id' => null,
         'personal_conversation_pbx_voicemail_mailbox_uuid' => null,
+        'preferred_hardware_phone_uuid' => null,
         'record_outgoing_automatically' => null,
         'shared_conversation_pbx_voicemail_mailbox_uuid' => null,
         'twilio_taskrouter_worker_id' => null,
@@ -132,14 +136,16 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $attributeMap = [
         'ai' => 'ai',
+        'call_routing_preference' => 'call_routing_preference',
         'cellphone' => 'cellphone',
         'conversation_pbx_agent_uuid' => 'conversation_pbx_agent_uuid',
         'extension' => 'extension',
-        'forward_calls_to_cellphone' => 'forward_calls_to_cellphone',
         'full_name' => 'full_name',
+        'hardware_phone_uuids' => 'hardware_phone_uuids',
         'login' => 'login',
         'merchant_id' => 'merchant_id',
         'personal_conversation_pbx_voicemail_mailbox_uuid' => 'personal_conversation_pbx_voicemail_mailbox_uuid',
+        'preferred_hardware_phone_uuid' => 'preferred_hardware_phone_uuid',
         'record_outgoing_automatically' => 'record_outgoing_automatically',
         'shared_conversation_pbx_voicemail_mailbox_uuid' => 'shared_conversation_pbx_voicemail_mailbox_uuid',
         'twilio_taskrouter_worker_id' => 'twilio_taskrouter_worker_id',
@@ -157,14 +163,16 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $setters = [
         'ai' => 'setAi',
+        'call_routing_preference' => 'setCallRoutingPreference',
         'cellphone' => 'setCellphone',
         'conversation_pbx_agent_uuid' => 'setConversationPbxAgentUuid',
         'extension' => 'setExtension',
-        'forward_calls_to_cellphone' => 'setForwardCallsToCellphone',
         'full_name' => 'setFullName',
+        'hardware_phone_uuids' => 'setHardwarePhoneUuids',
         'login' => 'setLogin',
         'merchant_id' => 'setMerchantId',
         'personal_conversation_pbx_voicemail_mailbox_uuid' => 'setPersonalConversationPbxVoicemailMailboxUuid',
+        'preferred_hardware_phone_uuid' => 'setPreferredHardwarePhoneUuid',
         'record_outgoing_automatically' => 'setRecordOutgoingAutomatically',
         'shared_conversation_pbx_voicemail_mailbox_uuid' => 'setSharedConversationPbxVoicemailMailboxUuid',
         'twilio_taskrouter_worker_id' => 'setTwilioTaskrouterWorkerId',
@@ -182,14 +190,16 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $getters = [
         'ai' => 'getAi',
+        'call_routing_preference' => 'getCallRoutingPreference',
         'cellphone' => 'getCellphone',
         'conversation_pbx_agent_uuid' => 'getConversationPbxAgentUuid',
         'extension' => 'getExtension',
-        'forward_calls_to_cellphone' => 'getForwardCallsToCellphone',
         'full_name' => 'getFullName',
+        'hardware_phone_uuids' => 'getHardwarePhoneUuids',
         'login' => 'getLogin',
         'merchant_id' => 'getMerchantId',
         'personal_conversation_pbx_voicemail_mailbox_uuid' => 'getPersonalConversationPbxVoicemailMailboxUuid',
+        'preferred_hardware_phone_uuid' => 'getPreferredHardwarePhoneUuid',
         'record_outgoing_automatically' => 'getRecordOutgoingAutomatically',
         'shared_conversation_pbx_voicemail_mailbox_uuid' => 'getSharedConversationPbxVoicemailMailboxUuid',
         'twilio_taskrouter_worker_id' => 'getTwilioTaskrouterWorkerId',
@@ -241,6 +251,23 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
         return self::$openAPIModelName;
     }
 
+    public const CALL_ROUTING_PREFERENCE_SOFTPHONE = 'softphone';
+    public const CALL_ROUTING_PREFERENCE_HARDWARE_PHONE = 'hardware_phone';
+    public const CALL_ROUTING_PREFERENCE_CELLPHONE = 'cellphone';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCallRoutingPreferenceAllowableValues()
+    {
+        return [
+            self::CALL_ROUTING_PREFERENCE_SOFTPHONE,
+            self::CALL_ROUTING_PREFERENCE_HARDWARE_PHONE,
+            self::CALL_ROUTING_PREFERENCE_CELLPHONE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -258,14 +285,16 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
     public function __construct(array $data = null)
     {
         $this->container['ai'] = $data['ai'] ?? null;
+        $this->container['call_routing_preference'] = $data['call_routing_preference'] ?? null;
         $this->container['cellphone'] = $data['cellphone'] ?? null;
         $this->container['conversation_pbx_agent_uuid'] = $data['conversation_pbx_agent_uuid'] ?? null;
         $this->container['extension'] = $data['extension'] ?? null;
-        $this->container['forward_calls_to_cellphone'] = $data['forward_calls_to_cellphone'] ?? null;
         $this->container['full_name'] = $data['full_name'] ?? null;
+        $this->container['hardware_phone_uuids'] = $data['hardware_phone_uuids'] ?? null;
         $this->container['login'] = $data['login'] ?? null;
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
         $this->container['personal_conversation_pbx_voicemail_mailbox_uuid'] = $data['personal_conversation_pbx_voicemail_mailbox_uuid'] ?? null;
+        $this->container['preferred_hardware_phone_uuid'] = $data['preferred_hardware_phone_uuid'] ?? null;
         $this->container['record_outgoing_automatically'] = $data['record_outgoing_automatically'] ?? null;
         $this->container['shared_conversation_pbx_voicemail_mailbox_uuid'] = $data['shared_conversation_pbx_voicemail_mailbox_uuid'] ?? null;
         $this->container['twilio_taskrouter_worker_id'] = $data['twilio_taskrouter_worker_id'] ?? null;
@@ -284,6 +313,15 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getCallRoutingPreferenceAllowableValues();
+        if (!is_null($this->container['call_routing_preference']) && !in_array($this->container['call_routing_preference'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'call_routing_preference', must be one of '%s'",
+                $this->container['call_routing_preference'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         if (!is_null($this->container['cellphone']) && (mb_strlen($this->container['cellphone']) > 50)) {
             $invalidProperties[] = "invalid value for 'cellphone', the character length must be smaller than or equal to 50.";
@@ -348,6 +386,40 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setAi($ai)
     {
         $this->container['ai'] = $ai;
+
+        return $this;
+    }
+
+    /**
+     * Gets call_routing_preference
+     *
+     * @return string|null
+     */
+    public function getCallRoutingPreference()
+    {
+        return $this->container['call_routing_preference'];
+    }
+
+    /**
+     * Sets call_routing_preference
+     *
+     * @param string|null $call_routing_preference The call routing preference
+     *
+     * @return self
+     */
+    public function setCallRoutingPreference($call_routing_preference)
+    {
+        $allowedValues = $this->getCallRoutingPreferenceAllowableValues();
+        if (!is_null($call_routing_preference) && !in_array($call_routing_preference, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'call_routing_preference', must be one of '%s'",
+                    $call_routing_preference,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['call_routing_preference'] = $call_routing_preference;
 
         return $this;
     }
@@ -429,30 +501,6 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets forward_calls_to_cellphone
-     *
-     * @return bool|null
-     */
-    public function getForwardCallsToCellphone()
-    {
-        return $this->container['forward_calls_to_cellphone'];
-    }
-
-    /**
-     * Sets forward_calls_to_cellphone
-     *
-     * @param bool|null $forward_calls_to_cellphone True if calls to this agent should be forwarded to their cellphone
-     *
-     * @return self
-     */
-    public function setForwardCallsToCellphone($forward_calls_to_cellphone)
-    {
-        $this->container['forward_calls_to_cellphone'] = $forward_calls_to_cellphone;
-
-        return $this;
-    }
-
-    /**
      * Gets full_name
      *
      * @return string|null
@@ -472,6 +520,30 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setFullName($full_name)
     {
         $this->container['full_name'] = $full_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets hardware_phone_uuids
+     *
+     * @return string[]|null
+     */
+    public function getHardwarePhoneUuids()
+    {
+        return $this->container['hardware_phone_uuids'];
+    }
+
+    /**
+     * Sets hardware_phone_uuids
+     *
+     * @param string[]|null $hardware_phone_uuids Array of hardware phones UUIDs associated with this agent
+     *
+     * @return self
+     */
+    public function setHardwarePhoneUuids($hardware_phone_uuids)
+    {
+        $this->container['hardware_phone_uuids'] = $hardware_phone_uuids;
 
         return $this;
     }
@@ -552,6 +624,30 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
         }
 
         $this->container['personal_conversation_pbx_voicemail_mailbox_uuid'] = $personal_conversation_pbx_voicemail_mailbox_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets preferred_hardware_phone_uuid
+     *
+     * @return string|null
+     */
+    public function getPreferredHardwarePhoneUuid()
+    {
+        return $this->container['preferred_hardware_phone_uuid'];
+    }
+
+    /**
+     * Sets preferred_hardware_phone_uuid
+     *
+     * @param string|null $preferred_hardware_phone_uuid The hardware phone that will be dialed on an incoming call if routing preference is hardware_phone
+     *
+     * @return self
+     */
+    public function setPreferredHardwarePhoneUuid($preferred_hardware_phone_uuid)
+    {
+        $this->container['preferred_hardware_phone_uuid'] = $preferred_hardware_phone_uuid;
 
         return $this;
     }
