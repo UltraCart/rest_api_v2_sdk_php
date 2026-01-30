@@ -1714,6 +1714,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.51 | 01/30/2026 | conversations queue setting for automatic AI coaching |
 | 3.11.50 | 01/27/2026 | conversations - refinements to support hardware phones |
 | 3.11.49 | 01/26/2026 | no changes - testing changes to build automation |
 | 3.11.48 | 01/26/2026 | conversation - hardware phone methods and objects |

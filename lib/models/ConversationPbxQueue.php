@@ -60,6 +60,7 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess
         'ai_priority' => 'string',
         'ai_timeout_seconds' => 'int',
         'announce_queue_position' => 'bool',
+        'automatic_coach_agent_uuid' => 'string',
         'conversation_pbx_queue_uuid' => 'string',
         'conversation_voicemail_mailbox_uuid' => 'string',
         'hold_conversation_pbx_audio_uuid' => 'string',
@@ -91,6 +92,7 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess
         'ai_priority' => null,
         'ai_timeout_seconds' => 'int32',
         'announce_queue_position' => null,
+        'automatic_coach_agent_uuid' => null,
         'conversation_pbx_queue_uuid' => null,
         'conversation_voicemail_mailbox_uuid' => null,
         'hold_conversation_pbx_audio_uuid' => null,
@@ -143,6 +145,7 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess
         'ai_priority' => 'ai_priority',
         'ai_timeout_seconds' => 'ai_timeout_seconds',
         'announce_queue_position' => 'announce_queue_position',
+        'automatic_coach_agent_uuid' => 'automatic_coach_agent_uuid',
         'conversation_pbx_queue_uuid' => 'conversation_pbx_queue_uuid',
         'conversation_voicemail_mailbox_uuid' => 'conversation_voicemail_mailbox_uuid',
         'hold_conversation_pbx_audio_uuid' => 'hold_conversation_pbx_audio_uuid',
@@ -174,6 +177,7 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess
         'ai_priority' => 'setAiPriority',
         'ai_timeout_seconds' => 'setAiTimeoutSeconds',
         'announce_queue_position' => 'setAnnounceQueuePosition',
+        'automatic_coach_agent_uuid' => 'setAutomaticCoachAgentUuid',
         'conversation_pbx_queue_uuid' => 'setConversationPbxQueueUuid',
         'conversation_voicemail_mailbox_uuid' => 'setConversationVoicemailMailboxUuid',
         'hold_conversation_pbx_audio_uuid' => 'setHoldConversationPbxAudioUuid',
@@ -205,6 +209,7 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess
         'ai_priority' => 'getAiPriority',
         'ai_timeout_seconds' => 'getAiTimeoutSeconds',
         'announce_queue_position' => 'getAnnounceQueuePosition',
+        'automatic_coach_agent_uuid' => 'getAutomaticCoachAgentUuid',
         'conversation_pbx_queue_uuid' => 'getConversationPbxQueueUuid',
         'conversation_voicemail_mailbox_uuid' => 'getConversationVoicemailMailboxUuid',
         'hold_conversation_pbx_audio_uuid' => 'getHoldConversationPbxAudioUuid',
@@ -307,6 +312,7 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess
         $this->container['ai_priority'] = isset($data['ai_priority']) ? $data['ai_priority'] : null;
         $this->container['ai_timeout_seconds'] = isset($data['ai_timeout_seconds']) ? $data['ai_timeout_seconds'] : null;
         $this->container['announce_queue_position'] = isset($data['announce_queue_position']) ? $data['announce_queue_position'] : null;
+        $this->container['automatic_coach_agent_uuid'] = isset($data['automatic_coach_agent_uuid']) ? $data['automatic_coach_agent_uuid'] : null;
         $this->container['conversation_pbx_queue_uuid'] = isset($data['conversation_pbx_queue_uuid']) ? $data['conversation_pbx_queue_uuid'] : null;
         $this->container['conversation_voicemail_mailbox_uuid'] = isset($data['conversation_voicemail_mailbox_uuid']) ? $data['conversation_voicemail_mailbox_uuid'] : null;
         $this->container['hold_conversation_pbx_audio_uuid'] = isset($data['hold_conversation_pbx_audio_uuid']) ? $data['hold_conversation_pbx_audio_uuid'] : null;
@@ -478,6 +484,30 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess
     public function setAnnounceQueuePosition($announce_queue_position)
     {
         $this->container['announce_queue_position'] = $announce_queue_position;
+
+        return $this;
+    }
+
+    /**
+     * Gets automatic_coach_agent_uuid
+     *
+     * @return string
+     */
+    public function getAutomaticCoachAgentUuid()
+    {
+        return $this->container['automatic_coach_agent_uuid'];
+    }
+
+    /**
+     * Sets automatic_coach_agent_uuid
+     *
+     * @param string $automatic_coach_agent_uuid AI Agent UUID to automatically engage to provide coaching
+     *
+     * @return $this
+     */
+    public function setAutomaticCoachAgentUuid($automatic_coach_agent_uuid)
+    {
+        $this->container['automatic_coach_agent_uuid'] = $automatic_coach_agent_uuid;
 
         return $this;
     }
