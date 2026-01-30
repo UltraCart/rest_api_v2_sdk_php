@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.50"
+    "ultracart/rest_api_v2_sdk_php": "4.1.51"
   }
 }
 ```
@@ -1667,6 +1667,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.51 | 01/30/2026 | conversations queue setting for automatic AI coaching |
 | 4.1.50 | 01/27/2026 | conversations - refinements to support hardware phones |
 | 4.1.49 | 01/26/2026 | no changes - testing changes to build automation |
 | 4.1.48 | 01/26/2026 | conversation - hardware phone methods and objects |
