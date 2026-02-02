@@ -1735,6 +1735,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.55 | 02/02/2026 | conversations - add enumerated values for say voice on queue and agent |
 | 3.11.54 | 02/02/2026 | build error fix |
 | 3.11.53 | 02/02/2026 | conversations default pricing phone number settings |
 | 3.11.52 | 01/31/2026 | conversation - pbx call log objects |
