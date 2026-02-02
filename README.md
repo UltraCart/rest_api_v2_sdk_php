@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.54"
+    "ultracart/rest_api_v2_sdk_php": "4.1.55"
   }
 }
 ```
@@ -1688,6 +1688,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.55 | 02/02/2026 | conversations - add enumerated values for say voice on queue and agent |
 | 4.1.54 | 02/02/2026 | build error fix |
 | 4.1.53 | 02/02/2026 | conversations default pricing phone number settings |
 | 4.1.52 | 01/31/2026 | conversation - pbx call log objects |
