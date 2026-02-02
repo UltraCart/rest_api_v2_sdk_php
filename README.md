@@ -6,6 +6,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.53 | 02/02/2026 | conversations default pricing phone number settings |
 | 4.1.52 | 01/31/2026 | conversation - pbx call log objects |
 | 4.1.51 | 01/30/2026 | conversations queue setting for automatic AI coaching |
 | 4.1.50 | 01/27/2026 | conversations - refinements to support hardware phones |
