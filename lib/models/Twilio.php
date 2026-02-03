@@ -58,6 +58,7 @@ class Twilio implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'account_sid' => 'string',
+        'ai_twiml_app_sid' => 'string',
         'api_key_id' => 'string',
         'api_key_name' => 'string',
         'auth_token' => 'string',
@@ -75,6 +76,7 @@ class Twilio implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'account_sid' => null,
+        'ai_twiml_app_sid' => null,
         'api_key_id' => null,
         'api_key_name' => null,
         'auth_token' => null,
@@ -113,6 +115,7 @@ class Twilio implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'account_sid' => 'account_sid',
+        'ai_twiml_app_sid' => 'ai_twiml_app_sid',
         'api_key_id' => 'api_key_id',
         'api_key_name' => 'api_key_name',
         'auth_token' => 'auth_token',
@@ -130,6 +133,7 @@ class Twilio implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'account_sid' => 'setAccountSid',
+        'ai_twiml_app_sid' => 'setAiTwimlAppSid',
         'api_key_id' => 'setApiKeyId',
         'api_key_name' => 'setApiKeyName',
         'auth_token' => 'setAuthToken',
@@ -147,6 +151,7 @@ class Twilio implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'account_sid' => 'getAccountSid',
+        'ai_twiml_app_sid' => 'getAiTwimlAppSid',
         'api_key_id' => 'getApiKeyId',
         'api_key_name' => 'getApiKeyName',
         'auth_token' => 'getAuthToken',
@@ -218,6 +223,7 @@ class Twilio implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['account_sid'] = isset($data['account_sid']) ? $data['account_sid'] : null;
+        $this->container['ai_twiml_app_sid'] = isset($data['ai_twiml_app_sid']) ? $data['ai_twiml_app_sid'] : null;
         $this->container['api_key_id'] = isset($data['api_key_id']) ? $data['api_key_id'] : null;
         $this->container['api_key_name'] = isset($data['api_key_name']) ? $data['api_key_name'] : null;
         $this->container['auth_token'] = isset($data['auth_token']) ? $data['auth_token'] : null;
@@ -272,6 +278,30 @@ class Twilio implements ModelInterface, ArrayAccess
     public function setAccountSid($account_sid)
     {
         $this->container['account_sid'] = $account_sid;
+
+        return $this;
+    }
+
+    /**
+     * Gets ai_twiml_app_sid
+     *
+     * @return string
+     */
+    public function getAiTwimlAppSid()
+    {
+        return $this->container['ai_twiml_app_sid'];
+    }
+
+    /**
+     * Sets ai_twiml_app_sid
+     *
+     * @param string $ai_twiml_app_sid ai_twiml_app_sid
+     *
+     * @return $this
+     */
+    public function setAiTwimlAppSid($ai_twiml_app_sid)
+    {
+        $this->container['ai_twiml_app_sid'] = $ai_twiml_app_sid;
 
         return $this;
     }

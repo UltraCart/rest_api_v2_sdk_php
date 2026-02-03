@@ -212,6 +212,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**deletePbxAddress**](docs/Api/ConversationApi.md#deletepbxaddress) | **DELETE** /conversation/pbx/address/{conversationPbxAddressUuid} | Delete pbx address
 *ConversationApi* | [**deletePbxAgentVoicemail**](docs/Api/ConversationApi.md#deletepbxagentvoicemail) | **DELETE** /conversation/pbx/agent/voicemails/{recording_sid} | Delete Agent Voicemail
 *ConversationApi* | [**deletePbxAudio**](docs/Api/ConversationApi.md#deletepbxaudio) | **DELETE** /conversation/pbx/audio/{conversationPbxAudioUuid} | Delete pbx audio
+*ConversationApi* | [**deletePbxClassOfService**](docs/Api/ConversationApi.md#deletepbxclassofservice) | **DELETE** /conversation/pbx/class_of_service/{classOfServiceUuid} | Delete pbx class of service
 *ConversationApi* | [**deletePbxHardwarePhone**](docs/Api/ConversationApi.md#deletepbxhardwarephone) | **DELETE** /conversation/pbx/hardware_phone/{conversationPbxHardwarePhoneUuid} | Delete pbx hardware phone
 *ConversationApi* | [**deletePbxMenu**](docs/Api/ConversationApi.md#deletepbxmenu) | **DELETE** /conversation/pbx/menu/{conversationPbxMenuUuid} | Delete pbx menu
 *ConversationApi* | [**deletePbxPhoneNumber**](docs/Api/ConversationApi.md#deletepbxphonenumber) | **DELETE** /conversation/pbx/phone_number/{conversationPbxPhoneNumberUuid} | Delete pbx phoneNumber
@@ -256,6 +257,9 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getPbxAudioUsage**](docs/Api/ConversationApi.md#getpbxaudiousage) | **GET** /conversation/pbx/audio/{conversationPbxAudioUuid}/usage | Get pbx audio usage
 *ConversationApi* | [**getPbxAudios**](docs/Api/ConversationApi.md#getpbxaudios) | **GET** /conversation/pbx/audio | Get pbx audios
 *ConversationApi* | [**getPbxCall**](docs/Api/ConversationApi.md#getpbxcall) | **GET** /conversation/pbx/call/{callUuid} | Get pbx call record
+*ConversationApi* | [**getPbxClassOfService**](docs/Api/ConversationApi.md#getpbxclassofservice) | **GET** /conversation/pbx/class_of_service/{classOfServiceUuid} | Get pbx class of service
+*ConversationApi* | [**getPbxClassesOfService**](docs/Api/ConversationApi.md#getpbxclassesofservice) | **GET** /conversation/pbx/class_of_service | Get pbx classes of service
+*ConversationApi* | [**getPbxCosAuditLogs**](docs/Api/ConversationApi.md#getpbxcosauditlogs) | **GET** /conversation/pbx/class_of_service/audit_log | Get pbx class of service audit logs
 *ConversationApi* | [**getPbxHardwarePhone**](docs/Api/ConversationApi.md#getpbxhardwarephone) | **GET** /conversation/pbx/hardware_phone/{conversationPbxHardwarePhoneUuid} | Get pbx hardware phone
 *ConversationApi* | [**getPbxHardwarePhoneManufacturers**](docs/Api/ConversationApi.md#getpbxhardwarephonemanufacturers) | **GET** /conversation/pbx/hardware_phone/manufacturers | Get pbx hardware phone manufacturers
 *ConversationApi* | [**getPbxHardwarePhones**](docs/Api/ConversationApi.md#getpbxhardwarephones) | **GET** /conversation/pbx/hardware_phone | Get pbx hardware phones
@@ -282,6 +286,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**insertConversationEngagement**](docs/Api/ConversationApi.md#insertconversationengagement) | **POST** /conversation/engagements | Insert a engagement
 *ConversationApi* | [**insertPbxAddress**](docs/Api/ConversationApi.md#insertpbxaddress) | **POST** /conversation/pbx/address | Insert pbx address
 *ConversationApi* | [**insertPbxAudio**](docs/Api/ConversationApi.md#insertpbxaudio) | **POST** /conversation/pbx/audio | Insert pbx audio
+*ConversationApi* | [**insertPbxClassOfService**](docs/Api/ConversationApi.md#insertpbxclassofservice) | **POST** /conversation/pbx/class_of_service | Insert pbx class of service
 *ConversationApi* | [**insertPbxHardwarePhone**](docs/Api/ConversationApi.md#insertpbxhardwarephone) | **POST** /conversation/pbx/hardware_phone | Insert pbx hardware phone
 *ConversationApi* | [**insertPbxMenu**](docs/Api/ConversationApi.md#insertpbxmenu) | **POST** /conversation/pbx/menu | Insert pbx menu
 *ConversationApi* | [**insertPbxQueue**](docs/Api/ConversationApi.md#insertpbxqueue) | **POST** /conversation/pbx/queue | Insert pbx queue
@@ -311,6 +316,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**updatePbxAddress**](docs/Api/ConversationApi.md#updatepbxaddress) | **PUT** /conversation/pbx/address/{conversationPbxAddressUuid} | Update pbx address
 *ConversationApi* | [**updatePbxAgent**](docs/Api/ConversationApi.md#updatepbxagent) | **PUT** /conversation/pbx/agent/{conversationPbxAgentUuid} | Update pbx agent
 *ConversationApi* | [**updatePbxAudio**](docs/Api/ConversationApi.md#updatepbxaudio) | **PUT** /conversation/pbx/audio/{conversationPbxAudioUuid} | Update pbx audio
+*ConversationApi* | [**updatePbxClassOfService**](docs/Api/ConversationApi.md#updatepbxclassofservice) | **PUT** /conversation/pbx/class_of_service/{classOfServiceUuid} | Update pbx class of service
 *ConversationApi* | [**updatePbxHardwarePhone**](docs/Api/ConversationApi.md#updatepbxhardwarephone) | **PUT** /conversation/pbx/hardware_phone/{conversationPbxHardwarePhoneUuid} | Update pbx hardware phone
 *ConversationApi* | [**updatePbxMenu**](docs/Api/ConversationApi.md#updatepbxmenu) | **PUT** /conversation/pbx/menu/{conversationPbxMenuUuid} | Update pbx menu
 *ConversationApi* | [**updatePbxPhoneNumber**](docs/Api/ConversationApi.md#updatepbxphonenumber) | **PUT** /conversation/pbx/phone_number/{conversationPbxPhoneNumberUuid} | Update pbx phoneNumber
@@ -933,6 +939,11 @@ Class | Method | HTTP request | Description
  - [ConversationPbxCallTranscript](docs/Model/ConversationPbxCallTranscript.md)
  - [ConversationPbxCallTranscriptSegment](docs/Model/ConversationPbxCallTranscriptSegment.md)
  - [ConversationPbxCallTransfer](docs/Model/ConversationPbxCallTransfer.md)
+ - [ConversationPbxClassOfService](docs/Model/ConversationPbxClassOfService.md)
+ - [ConversationPbxClassOfServiceResponse](docs/Model/ConversationPbxClassOfServiceResponse.md)
+ - [ConversationPbxClassOfServicesResponse](docs/Model/ConversationPbxClassOfServicesResponse.md)
+ - [ConversationPbxCosAuditLog](docs/Model/ConversationPbxCosAuditLog.md)
+ - [ConversationPbxCosAuditLogsResponse](docs/Model/ConversationPbxCosAuditLogsResponse.md)
  - [ConversationPbxCustomerSnapshotRequest](docs/Model/ConversationPbxCustomerSnapshotRequest.md)
  - [ConversationPbxCustomerSnapshotResponse](docs/Model/ConversationPbxCustomerSnapshotResponse.md)
  - [ConversationPbxHardwarePhone](docs/Model/ConversationPbxHardwarePhone.md)
@@ -1735,6 +1746,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.57 | 02/03/2026 | conversations - pbx class of service objects and endpoints |
 | 3.11.56 | 02/02/2026 | conversations - add default phone number to the agent auth |
 | 3.11.55 | 02/02/2026 | conversations - add enumerated values for say voice on queue and agent |
 | 3.11.54 | 02/02/2026 | build error fix |

@@ -61,6 +61,7 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess
         'call_routing_preference' => 'string',
         'cellphone' => 'string',
         'conversation_pbx_agent_uuid' => 'string',
+        'cos_uuid' => 'string',
         'default_phone_number_uuid' => 'string',
         'extension' => 'int',
         'full_name' => 'string',
@@ -89,6 +90,7 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess
         'call_routing_preference' => null,
         'cellphone' => null,
         'conversation_pbx_agent_uuid' => null,
+        'cos_uuid' => null,
         'default_phone_number_uuid' => null,
         'extension' => 'int32',
         'full_name' => null,
@@ -138,6 +140,7 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess
         'call_routing_preference' => 'call_routing_preference',
         'cellphone' => 'cellphone',
         'conversation_pbx_agent_uuid' => 'conversation_pbx_agent_uuid',
+        'cos_uuid' => 'cos_uuid',
         'default_phone_number_uuid' => 'default_phone_number_uuid',
         'extension' => 'extension',
         'full_name' => 'full_name',
@@ -166,6 +169,7 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess
         'call_routing_preference' => 'setCallRoutingPreference',
         'cellphone' => 'setCellphone',
         'conversation_pbx_agent_uuid' => 'setConversationPbxAgentUuid',
+        'cos_uuid' => 'setCosUuid',
         'default_phone_number_uuid' => 'setDefaultPhoneNumberUuid',
         'extension' => 'setExtension',
         'full_name' => 'setFullName',
@@ -194,6 +198,7 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess
         'call_routing_preference' => 'getCallRoutingPreference',
         'cellphone' => 'getCellphone',
         'conversation_pbx_agent_uuid' => 'getConversationPbxAgentUuid',
+        'cos_uuid' => 'getCosUuid',
         'default_phone_number_uuid' => 'getDefaultPhoneNumberUuid',
         'extension' => 'getExtension',
         'full_name' => 'getFullName',
@@ -256,6 +261,8 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess
     const CALL_ROUTING_PREFERENCE_SOFTPHONE = 'softphone';
     const CALL_ROUTING_PREFERENCE_HARDWARE_PHONE = 'hardware_phone';
     const CALL_ROUTING_PREFERENCE_CELLPHONE = 'cellphone';
+    const UNAVAILABLE_SAY_VOICE_MAN = 'man';
+    const UNAVAILABLE_SAY_VOICE_WOMAN = 'woman';
     
 
     
@@ -270,6 +277,19 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess
             self::CALL_ROUTING_PREFERENCE_SOFTPHONE,
             self::CALL_ROUTING_PREFERENCE_HARDWARE_PHONE,
             self::CALL_ROUTING_PREFERENCE_CELLPHONE,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getUnavailableSayVoiceAllowableValues()
+    {
+        return [
+            self::UNAVAILABLE_SAY_VOICE_MAN,
+            self::UNAVAILABLE_SAY_VOICE_WOMAN,
         ];
     }
     
@@ -293,6 +313,7 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess
         $this->container['call_routing_preference'] = isset($data['call_routing_preference']) ? $data['call_routing_preference'] : null;
         $this->container['cellphone'] = isset($data['cellphone']) ? $data['cellphone'] : null;
         $this->container['conversation_pbx_agent_uuid'] = isset($data['conversation_pbx_agent_uuid']) ? $data['conversation_pbx_agent_uuid'] : null;
+        $this->container['cos_uuid'] = isset($data['cos_uuid']) ? $data['cos_uuid'] : null;
         $this->container['default_phone_number_uuid'] = isset($data['default_phone_number_uuid']) ? $data['default_phone_number_uuid'] : null;
         $this->container['extension'] = isset($data['extension']) ? $data['extension'] : null;
         $this->container['full_name'] = isset($data['full_name']) ? $data['full_name'] : null;
@@ -350,6 +371,14 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess
 
         if (!is_null($this->container['unavailable_play_audio_uuid']) && (mb_strlen($this->container['unavailable_play_audio_uuid']) > 50)) {
             $invalidProperties[] = "invalid value for 'unavailable_play_audio_uuid', the character length must be smaller than or equal to 50.";
+        }
+
+        $allowedValues = $this->getUnavailableSayVoiceAllowableValues();
+        if (!is_null($this->container['unavailable_say_voice']) && !in_array($this->container['unavailable_say_voice'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'unavailable_say_voice', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
 
         if (!is_null($this->container['unavailable_say_voice']) && (mb_strlen($this->container['unavailable_say_voice']) > 50)) {
@@ -476,6 +505,30 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess
     public function setConversationPbxAgentUuid($conversation_pbx_agent_uuid)
     {
         $this->container['conversation_pbx_agent_uuid'] = $conversation_pbx_agent_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets cos_uuid
+     *
+     * @return string
+     */
+    public function getCosUuid()
+    {
+        return $this->container['cos_uuid'];
+    }
+
+    /**
+     * Sets cos_uuid
+     *
+     * @param string $cos_uuid Class of Service UUID. If null, the merchant default CoS applies.
+     *
+     * @return $this
+     */
+    public function setCosUuid($cos_uuid)
+    {
+        $this->container['cos_uuid'] = $cos_uuid;
 
         return $this;
     }
@@ -831,6 +884,15 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess
      */
     public function setUnavailableSayVoice($unavailable_say_voice)
     {
+        $allowedValues = $this->getUnavailableSayVoiceAllowableValues();
+        if (!is_null($unavailable_say_voice) && !in_array($unavailable_say_voice, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'unavailable_say_voice', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         if (!is_null($unavailable_say_voice) && (mb_strlen($unavailable_say_voice) > 50)) {
             throw new \InvalidArgumentException('invalid length for $unavailable_say_voice when calling ConversationPbxAgent., must be smaller than or equal to 50.');
         }

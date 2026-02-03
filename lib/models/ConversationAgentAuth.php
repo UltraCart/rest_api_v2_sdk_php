@@ -61,6 +61,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess
         'chat_user' => 'bool',
         'conversation_participant_arn' => 'string',
         'conversation_participant_name' => 'string',
+        'default_phone_number' => 'string',
         'group_ids' => 'int[]',
         'jwt' => 'string',
         'merchant_id' => 'string',
@@ -87,6 +88,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess
         'chat_user' => null,
         'conversation_participant_arn' => null,
         'conversation_participant_name' => null,
+        'default_phone_number' => null,
         'group_ids' => null,
         'jwt' => null,
         'merchant_id' => null,
@@ -134,6 +136,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess
         'chat_user' => 'chat_user',
         'conversation_participant_arn' => 'conversation_participant_arn',
         'conversation_participant_name' => 'conversation_participant_name',
+        'default_phone_number' => 'default_phone_number',
         'group_ids' => 'group_ids',
         'jwt' => 'jwt',
         'merchant_id' => 'merchant_id',
@@ -160,6 +163,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess
         'chat_user' => 'setChatUser',
         'conversation_participant_arn' => 'setConversationParticipantArn',
         'conversation_participant_name' => 'setConversationParticipantName',
+        'default_phone_number' => 'setDefaultPhoneNumber',
         'group_ids' => 'setGroupIds',
         'jwt' => 'setJwt',
         'merchant_id' => 'setMerchantId',
@@ -186,6 +190,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess
         'chat_user' => 'getChatUser',
         'conversation_participant_arn' => 'getConversationParticipantArn',
         'conversation_participant_name' => 'getConversationParticipantName',
+        'default_phone_number' => 'getDefaultPhoneNumber',
         'group_ids' => 'getGroupIds',
         'jwt' => 'getJwt',
         'merchant_id' => 'getMerchantId',
@@ -266,6 +271,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess
         $this->container['chat_user'] = isset($data['chat_user']) ? $data['chat_user'] : null;
         $this->container['conversation_participant_arn'] = isset($data['conversation_participant_arn']) ? $data['conversation_participant_arn'] : null;
         $this->container['conversation_participant_name'] = isset($data['conversation_participant_name']) ? $data['conversation_participant_name'] : null;
+        $this->container['default_phone_number'] = isset($data['default_phone_number']) ? $data['default_phone_number'] : null;
         $this->container['group_ids'] = isset($data['group_ids']) ? $data['group_ids'] : null;
         $this->container['jwt'] = isset($data['jwt']) ? $data['jwt'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
@@ -398,6 +404,30 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess
     public function setConversationParticipantName($conversation_participant_name)
     {
         $this->container['conversation_participant_name'] = $conversation_participant_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets default_phone_number
+     *
+     * @return string
+     */
+    public function getDefaultPhoneNumber()
+    {
+        return $this->container['default_phone_number'];
+    }
+
+    /**
+     * Sets default_phone_number
+     *
+     * @param string $default_phone_number The default phone number this agent should use when making an outbound call.
+     *
+     * @return $this
+     */
+    public function setDefaultPhoneNumber($default_phone_number)
+    {
+        $this->container['default_phone_number'] = $default_phone_number;
 
         return $this;
     }

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **call_routing_preference** | **string** | The call routing preference | [optional] 
 **cellphone** | **string** | Cellphone number of agent in E.164 format | [optional] 
 **conversation_pbx_agent_uuid** | **string** | Conversation Pbx Agent unique identifier | [optional] 
+**cos_uuid** | **string** | Class of Service UUID. If null, the merchant default CoS applies. | [optional] 
 **default_phone_number_uuid** | **string** | The default phone number that this agent should dial out to the PSTN with. | [optional] 
 **extension** | **int** | Extension | [optional] 
 **full_name** | **string** | Full name | [optional] 

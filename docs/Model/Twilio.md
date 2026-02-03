@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **account_sid** | **string** |  | [optional] 
+**ai_twiml_app_sid** | **string** |  | [optional] 
 **api_key_id** | **string** |  | [optional] 
 **api_key_name** | **string** |  | [optional] 
 **auth_token** | **string** |  | [optional] 

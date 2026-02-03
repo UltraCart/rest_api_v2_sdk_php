@@ -276,6 +276,10 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess
     const AI_PRIORITY_NEUTRAL = 'neutral';
     const AI_PRIORITY_FIRST = 'first';
     const AI_PRIORITY_BACKUP = 'backup';
+    const NO_AGENT_AVAILABLE_SAY_VOICE_MAN = 'man';
+    const NO_AGENT_AVAILABLE_SAY_VOICE_WOMAN = 'woman';
+    const SAY_VOICE_MAN = 'man';
+    const SAY_VOICE_WOMAN = 'woman';
     
 
     
@@ -290,6 +294,32 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess
             self::AI_PRIORITY_NEUTRAL,
             self::AI_PRIORITY_FIRST,
             self::AI_PRIORITY_BACKUP,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getNoAgentAvailableSayVoiceAllowableValues()
+    {
+        return [
+            self::NO_AGENT_AVAILABLE_SAY_VOICE_MAN,
+            self::NO_AGENT_AVAILABLE_SAY_VOICE_WOMAN,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSayVoiceAllowableValues()
+    {
+        return [
+            self::SAY_VOICE_MAN,
+            self::SAY_VOICE_WOMAN,
         ];
     }
     
@@ -372,12 +402,28 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'no_agent_available_play_audio_uuid', the character length must be smaller than or equal to 50.";
         }
 
+        $allowedValues = $this->getNoAgentAvailableSayVoiceAllowableValues();
+        if (!is_null($this->container['no_agent_available_say_voice']) && !in_array($this->container['no_agent_available_say_voice'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'no_agent_available_say_voice', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if (!is_null($this->container['no_agent_available_say_voice']) && (mb_strlen($this->container['no_agent_available_say_voice']) > 50)) {
             $invalidProperties[] = "invalid value for 'no_agent_available_say_voice', the character length must be smaller than or equal to 50.";
         }
 
         if (!is_null($this->container['play_audio_uuid']) && (mb_strlen($this->container['play_audio_uuid']) > 50)) {
             $invalidProperties[] = "invalid value for 'play_audio_uuid', the character length must be smaller than or equal to 50.";
+        }
+
+        $allowedValues = $this->getSayVoiceAllowableValues();
+        if (!is_null($this->container['say_voice']) && !in_array($this->container['say_voice'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'say_voice', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
 
         if (!is_null($this->container['say_voice']) && (mb_strlen($this->container['say_voice']) > 50)) {
@@ -767,6 +813,15 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess
      */
     public function setNoAgentAvailableSayVoice($no_agent_available_say_voice)
     {
+        $allowedValues = $this->getNoAgentAvailableSayVoiceAllowableValues();
+        if (!is_null($no_agent_available_say_voice) && !in_array($no_agent_available_say_voice, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'no_agent_available_say_voice', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         if (!is_null($no_agent_available_say_voice) && (mb_strlen($no_agent_available_say_voice) > 50)) {
             throw new \InvalidArgumentException('invalid length for $no_agent_available_say_voice when calling ConversationPbxQueue., must be smaller than or equal to 50.');
         }
@@ -871,6 +926,15 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess
      */
     public function setSayVoice($say_voice)
     {
+        $allowedValues = $this->getSayVoiceAllowableValues();
+        if (!is_null($say_voice) && !in_array($say_voice, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'say_voice', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         if (!is_null($say_voice) && (mb_strlen($say_voice) > 50)) {
             throw new \InvalidArgumentException('invalid length for $say_voice when calling ConversationPbxQueue., must be smaller than or equal to 50.');
         }
