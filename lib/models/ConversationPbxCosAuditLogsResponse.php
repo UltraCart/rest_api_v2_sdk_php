@@ -1,6 +1,6 @@
 <?php
 /**
- * ConversationPbxCallRecording
+ * ConversationPbxCosAuditLogsResponse
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ConversationPbxCallRecording Class Doc Comment
+ * ConversationPbxCosAuditLogsResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ConversationPbxCallRecording implements ModelInterface, ArrayAccess, \JsonSerializable
+class ConversationPbxCosAuditLogsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ConversationPbxCallRecording implements ModelInterface, ArrayAccess, \Json
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ConversationPbxCallRecording';
+    protected static $openAPIModelName = 'ConversationPbxCosAuditLogsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,14 +58,11 @@ class ConversationPbxCallRecording implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'channels' => 'int',
-        'duration_seconds' => 'int',
-        'is_primary' => 'bool',
-        'recording_s3_key' => 'string',
-        'recording_sid' => 'string',
-        'recording_url' => 'string',
-        'status' => 'string',
-        'transcript' => '\ultracart\v2\models\ConversationPbxCallTranscript'
+        'audit_logs' => '\ultracart\v2\models\ConversationPbxCosAuditLog[]',
+        'error' => '\ultracart\v2\models\Error',
+        'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'success' => 'bool',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -76,14 +73,11 @@ class ConversationPbxCallRecording implements ModelInterface, ArrayAccess, \Json
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'channels' => 'int32',
-        'duration_seconds' => 'int32',
-        'is_primary' => null,
-        'recording_s3_key' => null,
-        'recording_sid' => null,
-        'recording_url' => null,
-        'status' => null,
-        'transcript' => null
+        'audit_logs' => null,
+        'error' => null,
+        'metadata' => null,
+        'success' => null,
+        'warning' => null
     ];
 
     /**
@@ -113,14 +107,11 @@ class ConversationPbxCallRecording implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $attributeMap = [
-        'channels' => 'channels',
-        'duration_seconds' => 'duration_seconds',
-        'is_primary' => 'is_primary',
-        'recording_s3_key' => 'recording_s3_key',
-        'recording_sid' => 'recording_sid',
-        'recording_url' => 'recording_url',
-        'status' => 'status',
-        'transcript' => 'transcript'
+        'audit_logs' => 'audit_logs',
+        'error' => 'error',
+        'metadata' => 'metadata',
+        'success' => 'success',
+        'warning' => 'warning'
     ];
 
     /**
@@ -129,14 +120,11 @@ class ConversationPbxCallRecording implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $setters = [
-        'channels' => 'setChannels',
-        'duration_seconds' => 'setDurationSeconds',
-        'is_primary' => 'setIsPrimary',
-        'recording_s3_key' => 'setRecordingS3Key',
-        'recording_sid' => 'setRecordingSid',
-        'recording_url' => 'setRecordingUrl',
-        'status' => 'setStatus',
-        'transcript' => 'setTranscript'
+        'audit_logs' => 'setAuditLogs',
+        'error' => 'setError',
+        'metadata' => 'setMetadata',
+        'success' => 'setSuccess',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -145,14 +133,11 @@ class ConversationPbxCallRecording implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $getters = [
-        'channels' => 'getChannels',
-        'duration_seconds' => 'getDurationSeconds',
-        'is_primary' => 'getIsPrimary',
-        'recording_s3_key' => 'getRecordingS3Key',
-        'recording_sid' => 'getRecordingSid',
-        'recording_url' => 'getRecordingUrl',
-        'status' => 'getStatus',
-        'transcript' => 'getTranscript'
+        'audit_logs' => 'getAuditLogs',
+        'error' => 'getError',
+        'metadata' => 'getMetadata',
+        'success' => 'getSuccess',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -212,14 +197,11 @@ class ConversationPbxCallRecording implements ModelInterface, ArrayAccess, \Json
      */
     public function __construct(array $data = null)
     {
-        $this->container['channels'] = $data['channels'] ?? null;
-        $this->container['duration_seconds'] = $data['duration_seconds'] ?? null;
-        $this->container['is_primary'] = $data['is_primary'] ?? null;
-        $this->container['recording_s3_key'] = $data['recording_s3_key'] ?? null;
-        $this->container['recording_sid'] = $data['recording_sid'] ?? null;
-        $this->container['recording_url'] = $data['recording_url'] ?? null;
-        $this->container['status'] = $data['status'] ?? null;
-        $this->container['transcript'] = $data['transcript'] ?? null;
+        $this->container['audit_logs'] = $data['audit_logs'] ?? null;
+        $this->container['error'] = $data['error'] ?? null;
+        $this->container['metadata'] = $data['metadata'] ?? null;
+        $this->container['success'] = $data['success'] ?? null;
+        $this->container['warning'] = $data['warning'] ?? null;
     }
 
     /**
@@ -247,193 +229,121 @@ class ConversationPbxCallRecording implements ModelInterface, ArrayAccess, \Json
 
 
     /**
-     * Gets channels
+     * Gets audit_logs
      *
-     * @return int|null
+     * @return \ultracart\v2\models\ConversationPbxCosAuditLog[]|null
      */
-    public function getChannels()
+    public function getAuditLogs()
     {
-        return $this->container['channels'];
+        return $this->container['audit_logs'];
     }
 
     /**
-     * Sets channels
+     * Sets audit_logs
      *
-     * @param int|null $channels Number of audio channels in the recording (1 for mono, 2 for stereo/dual-channel)
+     * @param \ultracart\v2\models\ConversationPbxCosAuditLog[]|null $audit_logs Array of audit log entries
      *
      * @return self
      */
-    public function setChannels($channels)
+    public function setAuditLogs($audit_logs)
     {
-        $this->container['channels'] = $channels;
+        $this->container['audit_logs'] = $audit_logs;
 
         return $this;
     }
 
     /**
-     * Gets duration_seconds
+     * Gets error
      *
-     * @return int|null
+     * @return \ultracart\v2\models\Error|null
      */
-    public function getDurationSeconds()
+    public function getError()
     {
-        return $this->container['duration_seconds'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets duration_seconds
+     * Sets error
      *
-     * @param int|null $duration_seconds Duration of the recording in seconds
+     * @param \ultracart\v2\models\Error|null $error error
      *
      * @return self
      */
-    public function setDurationSeconds($duration_seconds)
+    public function setError($error)
     {
-        $this->container['duration_seconds'] = $duration_seconds;
+        $this->container['error'] = $error;
 
         return $this;
     }
 
     /**
-     * Gets is_primary
+     * Gets metadata
+     *
+     * @return \ultracart\v2\models\ResponseMetadata|null
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param \ultracart\v2\models\ResponseMetadata|null $metadata metadata
+     *
+     * @return self
+     */
+    public function setMetadata($metadata)
+    {
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets success
      *
      * @return bool|null
      */
-    public function getIsPrimary()
+    public function getSuccess()
     {
-        return $this->container['is_primary'];
+        return $this->container['success'];
     }
 
     /**
-     * Sets is_primary
+     * Sets success
      *
-     * @param bool|null $is_primary Whether this is the primary recording for the call
+     * @param bool|null $success Indicates if API call was successful
      *
      * @return self
      */
-    public function setIsPrimary($is_primary)
+    public function setSuccess($success)
     {
-        $this->container['is_primary'] = $is_primary;
+        $this->container['success'] = $success;
 
         return $this;
     }
 
     /**
-     * Gets recording_s3_key
+     * Gets warning
      *
-     * @return string|null
+     * @return \ultracart\v2\models\Warning|null
      */
-    public function getRecordingS3Key()
+    public function getWarning()
     {
-        return $this->container['recording_s3_key'];
+        return $this->container['warning'];
     }
 
     /**
-     * Sets recording_s3_key
+     * Sets warning
      *
-     * @param string|null $recording_s3_key S3 key for the recording audio file
+     * @param \ultracart\v2\models\Warning|null $warning warning
      *
      * @return self
      */
-    public function setRecordingS3Key($recording_s3_key)
+    public function setWarning($warning)
     {
-        $this->container['recording_s3_key'] = $recording_s3_key;
-
-        return $this;
-    }
-
-    /**
-     * Gets recording_sid
-     *
-     * @return string|null
-     */
-    public function getRecordingSid()
-    {
-        return $this->container['recording_sid'];
-    }
-
-    /**
-     * Sets recording_sid
-     *
-     * @param string|null $recording_sid Twilio recording SID
-     *
-     * @return self
-     */
-    public function setRecordingSid($recording_sid)
-    {
-        $this->container['recording_sid'] = $recording_sid;
-
-        return $this;
-    }
-
-    /**
-     * Gets recording_url
-     *
-     * @return string|null
-     */
-    public function getRecordingUrl()
-    {
-        return $this->container['recording_url'];
-    }
-
-    /**
-     * Sets recording_url
-     *
-     * @param string|null $recording_url URL to access the recording
-     *
-     * @return self
-     */
-    public function setRecordingUrl($recording_url)
-    {
-        $this->container['recording_url'] = $recording_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string|null
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string|null $status Status of the recording
-     *
-     * @return self
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets transcript
-     *
-     * @return \ultracart\v2\models\ConversationPbxCallTranscript|null
-     */
-    public function getTranscript()
-    {
-        return $this->container['transcript'];
-    }
-
-    /**
-     * Sets transcript
-     *
-     * @param \ultracart\v2\models\ConversationPbxCallTranscript|null $transcript transcript
-     *
-     * @return self
-     */
-    public function setTranscript($transcript)
-    {
-        $this->container['transcript'] = $transcript;
+        $this->container['warning'] = $warning;
 
         return $this;
     }

@@ -237,6 +237,11 @@ docs/Model/ConversationPbxCallTimeline.md
 docs/Model/ConversationPbxCallTranscript.md
 docs/Model/ConversationPbxCallTranscriptSegment.md
 docs/Model/ConversationPbxCallTransfer.md
+docs/Model/ConversationPbxClassOfService.md
+docs/Model/ConversationPbxClassOfServiceResponse.md
+docs/Model/ConversationPbxClassOfServicesResponse.md
+docs/Model/ConversationPbxCosAuditLog.md
+docs/Model/ConversationPbxCosAuditLogsResponse.md
 docs/Model/ConversationPbxCustomerSnapshotRequest.md
 docs/Model/ConversationPbxCustomerSnapshotResponse.md
 docs/Model/ConversationPbxHardwarePhone.md
@@ -1200,6 +1205,11 @@ lib/models/ConversationPbxCallTimeline.php
 lib/models/ConversationPbxCallTranscript.php
 lib/models/ConversationPbxCallTranscriptSegment.php
 lib/models/ConversationPbxCallTransfer.php
+lib/models/ConversationPbxClassOfService.php
+lib/models/ConversationPbxClassOfServiceResponse.php
+lib/models/ConversationPbxClassOfServicesResponse.php
+lib/models/ConversationPbxCosAuditLog.php
+lib/models/ConversationPbxCosAuditLogsResponse.php
 lib/models/ConversationPbxCustomerSnapshotRequest.php
 lib/models/ConversationPbxCustomerSnapshotResponse.php
 lib/models/ConversationPbxHardwarePhone.php

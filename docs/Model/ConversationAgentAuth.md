@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **chat_user** | **bool** |  | [optional]
 **conversation_participant_arn** | **string** |  | [optional]
 **conversation_participant_name** | **string** |  | [optional]
+**default_phone_number** | **string** | The default phone number this agent should use when making an outbound call. | [optional]
 **group_ids** | **int[]** | UltraCart Groups this user belongs to | [optional]
 **jwt** | **string** |  | [optional]
 **merchant_id** | **string** |  | [optional]
