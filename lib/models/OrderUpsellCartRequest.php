@@ -1,6 +1,6 @@
 <?php
 /**
- * ItemShippingDistributionCenterResponse
+ * OrderUpsellCartRequest
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ItemShippingDistributionCenterResponse Class Doc Comment
+ * OrderUpsellCartRequest Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ItemShippingDistributionCenterResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class OrderUpsellCartRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ItemShippingDistributionCenterResponse implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ItemShippingDistributionCenterResponse';
+    protected static $openAPIModelName = 'OrderUpsellCartRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,11 +58,9 @@ class ItemShippingDistributionCenterResponse implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $openAPITypes = [
-        'error' => '\ultracart\v2\models\Error',
-        'item_shipping_distribution_center' => '\ultracart\v2\models\ItemShippingDistributionCenter',
-        'metadata' => '\ultracart\v2\models\ResponseMetadata',
-        'success' => 'bool',
-        'warning' => '\ultracart\v2\models\Warning'
+        'checkout_url' => 'string',
+        'coupon_codes' => 'string[]',
+        'items' => '\ultracart\v2\models\CartItem[]'
     ];
 
     /**
@@ -73,11 +71,9 @@ class ItemShippingDistributionCenterResponse implements ModelInterface, ArrayAcc
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'error' => null,
-        'item_shipping_distribution_center' => null,
-        'metadata' => null,
-        'success' => null,
-        'warning' => null
+        'checkout_url' => null,
+        'coupon_codes' => null,
+        'items' => null
     ];
 
     /**
@@ -107,11 +103,9 @@ class ItemShippingDistributionCenterResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'error' => 'error',
-        'item_shipping_distribution_center' => 'itemShippingDistributionCenter',
-        'metadata' => 'metadata',
-        'success' => 'success',
-        'warning' => 'warning'
+        'checkout_url' => 'checkout_url',
+        'coupon_codes' => 'coupon_codes',
+        'items' => 'items'
     ];
 
     /**
@@ -120,11 +114,9 @@ class ItemShippingDistributionCenterResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'error' => 'setError',
-        'item_shipping_distribution_center' => 'setItemShippingDistributionCenter',
-        'metadata' => 'setMetadata',
-        'success' => 'setSuccess',
-        'warning' => 'setWarning'
+        'checkout_url' => 'setCheckoutUrl',
+        'coupon_codes' => 'setCouponCodes',
+        'items' => 'setItems'
     ];
 
     /**
@@ -133,11 +125,9 @@ class ItemShippingDistributionCenterResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'error' => 'getError',
-        'item_shipping_distribution_center' => 'getItemShippingDistributionCenter',
-        'metadata' => 'getMetadata',
-        'success' => 'getSuccess',
-        'warning' => 'getWarning'
+        'checkout_url' => 'getCheckoutUrl',
+        'coupon_codes' => 'getCouponCodes',
+        'items' => 'getItems'
     ];
 
     /**
@@ -197,11 +187,9 @@ class ItemShippingDistributionCenterResponse implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
-        $this->container['error'] = $data['error'] ?? null;
-        $this->container['item_shipping_distribution_center'] = $data['item_shipping_distribution_center'] ?? null;
-        $this->container['metadata'] = $data['metadata'] ?? null;
-        $this->container['success'] = $data['success'] ?? null;
-        $this->container['warning'] = $data['warning'] ?? null;
+        $this->container['checkout_url'] = $data['checkout_url'] ?? null;
+        $this->container['coupon_codes'] = $data['coupon_codes'] ?? null;
+        $this->container['items'] = $data['items'] ?? null;
     }
 
     /**
@@ -229,121 +217,73 @@ class ItemShippingDistributionCenterResponse implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets error
+     * Gets checkout_url
      *
-     * @return \ultracart\v2\models\Error|null
+     * @return string|null
      */
-    public function getError()
+    public function getCheckoutUrl()
     {
-        return $this->container['error'];
+        return $this->container['checkout_url'];
     }
 
     /**
-     * Sets error
+     * Sets checkout_url
      *
-     * @param \ultracart\v2\models\Error|null $error error
+     * @param string|null $checkout_url checkout_url
      *
      * @return self
      */
-    public function setError($error)
+    public function setCheckoutUrl($checkout_url)
     {
-        $this->container['error'] = $error;
+        $this->container['checkout_url'] = $checkout_url;
 
         return $this;
     }
 
     /**
-     * Gets item_shipping_distribution_center
+     * Gets coupon_codes
      *
-     * @return \ultracart\v2\models\ItemShippingDistributionCenter|null
+     * @return string[]|null
      */
-    public function getItemShippingDistributionCenter()
+    public function getCouponCodes()
     {
-        return $this->container['item_shipping_distribution_center'];
+        return $this->container['coupon_codes'];
     }
 
     /**
-     * Sets item_shipping_distribution_center
+     * Sets coupon_codes
      *
-     * @param \ultracart\v2\models\ItemShippingDistributionCenter|null $item_shipping_distribution_center item_shipping_distribution_center
+     * @param string[]|null $coupon_codes coupon_codes
      *
      * @return self
      */
-    public function setItemShippingDistributionCenter($item_shipping_distribution_center)
+    public function setCouponCodes($coupon_codes)
     {
-        $this->container['item_shipping_distribution_center'] = $item_shipping_distribution_center;
+        $this->container['coupon_codes'] = $coupon_codes;
 
         return $this;
     }
 
     /**
-     * Gets metadata
+     * Gets items
      *
-     * @return \ultracart\v2\models\ResponseMetadata|null
+     * @return \ultracart\v2\models\CartItem[]|null
      */
-    public function getMetadata()
+    public function getItems()
     {
-        return $this->container['metadata'];
+        return $this->container['items'];
     }
 
     /**
-     * Sets metadata
+     * Sets items
      *
-     * @param \ultracart\v2\models\ResponseMetadata|null $metadata metadata
+     * @param \ultracart\v2\models\CartItem[]|null $items items
      *
      * @return self
      */
-    public function setMetadata($metadata)
+    public function setItems($items)
     {
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets success
-     *
-     * @return bool|null
-     */
-    public function getSuccess()
-    {
-        return $this->container['success'];
-    }
-
-    /**
-     * Sets success
-     *
-     * @param bool|null $success Indicates if API call was successful
-     *
-     * @return self
-     */
-    public function setSuccess($success)
-    {
-        $this->container['success'] = $success;
-
-        return $this;
-    }
-
-    /**
-     * Gets warning
-     *
-     * @return \ultracart\v2\models\Warning|null
-     */
-    public function getWarning()
-    {
-        return $this->container['warning'];
-    }
-
-    /**
-     * Sets warning
-     *
-     * @param \ultracart\v2\models\Warning|null $warning warning
-     *
-     * @return self
-     */
-    public function setWarning($warning)
-    {
-        $this->container['warning'] = $warning;
+        $this->container['items'] = $items;
 
         return $this;
     }

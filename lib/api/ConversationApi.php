@@ -23420,15 +23420,16 @@ class ConversationApi
      *
      * @param  string $since ISO timestamp to filter entries since (optional)
      * @param  string $agent_login Filter by agent login (optional)
+     * @param  string $action Action (optional)
      * @param  int $limit Maximum number of entries to return (default 100) (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ultracart\v2\models\ConversationPbxCosAuditLogsResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
      */
-    public function getPbxCosAuditLogs($since = null, $agent_login = null, $limit = null)
+    public function getPbxCosAuditLogs($since = null, $agent_login = null, $action = null, $limit = null)
     {
-        list($response) = $this->getPbxCosAuditLogsWithHttpInfo($since, $agent_login, $limit);
+        list($response) = $this->getPbxCosAuditLogsWithHttpInfo($since, $agent_login, $action, $limit);
         return $response;
     }
 
@@ -23439,15 +23440,16 @@ class ConversationApi
      *
      * @param  string $since ISO timestamp to filter entries since (optional)
      * @param  string $agent_login Filter by agent login (optional)
+     * @param  string $action Action (optional)
      * @param  int $limit Maximum number of entries to return (default 100) (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\ConversationPbxCosAuditLogsResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPbxCosAuditLogsWithHttpInfo($since = null, $agent_login = null, $limit = null)
+    public function getPbxCosAuditLogsWithHttpInfo($since = null, $agent_login = null, $action = null, $limit = null)
     {
-        return $this->getPbxCosAuditLogsWithHttpInfoRetry(true ,   $since,   $agent_login,   $limit);
+        return $this->getPbxCosAuditLogsWithHttpInfoRetry(true ,   $since,   $agent_login,   $action,   $limit);
     }
 
 
@@ -23460,16 +23462,17 @@ class ConversationApi
      * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
      * @param  string $since ISO timestamp to filter entries since (optional)
      * @param  string $agent_login Filter by agent login (optional)
+     * @param  string $action Action (optional)
      * @param  int $limit Maximum number of entries to return (default 100) (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\ConversationPbxCosAuditLogsResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPbxCosAuditLogsWithHttpInfoRetry($retry , $since = null, $agent_login = null, $limit = null)
+    public function getPbxCosAuditLogsWithHttpInfoRetry($retry , $since = null, $agent_login = null, $action = null, $limit = null)
     {
         $returnType = '\ultracart\v2\models\ConversationPbxCosAuditLogsResponse';
-        $request = $this->getPbxCosAuditLogsRequest($since, $agent_login, $limit);
+        $request = $this->getPbxCosAuditLogsRequest($since, $agent_login, $action, $limit);
 
         try {
             $options = $this->createHttpClientOption();
@@ -23488,7 +23491,7 @@ class ConversationApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->getPbxCosAuditLogsWithHttpInfoRetry(false ,   $since,   $agent_login,   $limit);
+                        return $this->getPbxCosAuditLogsWithHttpInfoRetry(false ,   $since,   $agent_login,   $action,   $limit);
                     }
                 }
 
@@ -23697,14 +23700,15 @@ class ConversationApi
      *
      * @param  string $since ISO timestamp to filter entries since (optional)
      * @param  string $agent_login Filter by agent login (optional)
+     * @param  string $action Action (optional)
      * @param  int $limit Maximum number of entries to return (default 100) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPbxCosAuditLogsAsync($since = null, $agent_login = null, $limit = null)
+    public function getPbxCosAuditLogsAsync($since = null, $agent_login = null, $action = null, $limit = null)
     {
-        return $this->getPbxCosAuditLogsAsyncWithHttpInfo($since, $agent_login, $limit)
+        return $this->getPbxCosAuditLogsAsyncWithHttpInfo($since, $agent_login, $action, $limit)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -23719,15 +23723,16 @@ class ConversationApi
      *
      * @param  string $since ISO timestamp to filter entries since (optional)
      * @param  string $agent_login Filter by agent login (optional)
+     * @param  string $action Action (optional)
      * @param  int $limit Maximum number of entries to return (default 100) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPbxCosAuditLogsAsyncWithHttpInfo($since = null, $agent_login = null, $limit = null)
+    public function getPbxCosAuditLogsAsyncWithHttpInfo($since = null, $agent_login = null, $action = null, $limit = null)
     {
         $returnType = '\ultracart\v2\models\ConversationPbxCosAuditLogsResponse';
-        $request = $this->getPbxCosAuditLogsRequest($since, $agent_login, $limit);
+        $request = $this->getPbxCosAuditLogsRequest($since, $agent_login, $action, $limit);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -23770,12 +23775,13 @@ class ConversationApi
      *
      * @param  string $since ISO timestamp to filter entries since (optional)
      * @param  string $agent_login Filter by agent login (optional)
+     * @param  string $action Action (optional)
      * @param  int $limit Maximum number of entries to return (default 100) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPbxCosAuditLogsRequest($since = null, $agent_login = null, $limit = null)
+    public function getPbxCosAuditLogsRequest($since = null, $agent_login = null, $action = null, $limit = null)
     {
 
         $resourcePath = '/conversation/pbx/class_of_service/audit_log';
@@ -23798,6 +23804,15 @@ class ConversationApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $agent_login,
             'agent_login', // param base name
+            'string', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $action,
+            'action', // param base name
             'string', // openApiType
             '', // style
             false, // explode

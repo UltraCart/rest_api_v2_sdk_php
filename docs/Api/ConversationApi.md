@@ -2350,7 +2350,7 @@ This endpoint does not need any parameter.
 ## `getPbxCosAuditLogs()`
 
 ```php
-getPbxCosAuditLogs($since, $agent_login, $limit): \ultracart\v2\models\ConversationPbxCosAuditLogsResponse
+getPbxCosAuditLogs($since, $agent_login, $action, $limit): \ultracart\v2\models\ConversationPbxCosAuditLogsResponse
 ```
 
 Get pbx class of service audit logs
@@ -2370,6 +2370,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **since** | **string**| ISO timestamp to filter entries since | [optional]
  **agent_login** | **string**| Filter by agent login | [optional]
+ **action** | **string**| Action | [optional]
  **limit** | **int**| Maximum number of entries to return (default 100) | [optional]
 
 ### Return type
