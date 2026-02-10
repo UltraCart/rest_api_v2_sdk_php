@@ -1742,6 +1742,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.59 | 02/10/2026 | conversations - new method to look up an item with sparse variations |
 | 3.11.58 | 02/10/2026 | conversations - new method to look up an item with sparse variations. |
 | 3.11.57 | 02/03/2026 | conversations - pbx class of service objects and endpoints |
 | 3.11.56 | 02/02/2026 | conversations - add default phone number to the agent auth |
