@@ -2721,7 +2721,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPbxCosAuditLogs**
-> \ultracart\v2\models\ConversationPbxCosAuditLogsResponse getPbxCosAuditLogs($since, $agent_login, $limit)
+> \ultracart\v2\models\ConversationPbxCosAuditLogsResponse getPbxCosAuditLogs($since, $agent_login, $action, $limit)
 
 Get pbx class of service audit logs
 
@@ -2738,10 +2738,11 @@ $api_instance = ultracart\v2\api\ConversationApi::usingApiKey($simple_key);
 
 $since = "since_example"; // string | ISO timestamp to filter entries since
 $agent_login = "agent_login_example"; // string | Filter by agent login
+$action = "action_example"; // string | Action
 $limit = 56; // int | Maximum number of entries to return (default 100)
 
 try {
-    $result = $apiInstance->getPbxCosAuditLogs($since, $agent_login, $limit);
+    $result = $apiInstance->getPbxCosAuditLogs($since, $agent_login, $action, $limit);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ConversationApi->getPbxCosAuditLogs: ', $e->getMessage(), PHP_EOL;
@@ -2755,6 +2756,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **since** | **string**| ISO timestamp to filter entries since | [optional]
  **agent_login** | **string**| Filter by agent login | [optional]
+ **action** | **string**| Action | [optional]
  **limit** | **int**| Maximum number of entries to return (default 100) | [optional]
 
 ### Return type

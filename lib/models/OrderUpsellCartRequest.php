@@ -1,6 +1,6 @@
 <?php
 /**
- * ItemInventoryUpdate
+ * OrderUpsellCartRequest
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ItemInventoryUpdate Class Doc Comment
+ * OrderUpsellCartRequest Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ItemInventoryUpdate implements ModelInterface, ArrayAccess
+class OrderUpsellCartRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ItemInventoryUpdate implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ItemInventoryUpdate';
+    protected static $swaggerModelName = 'OrderUpsellCartRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,9 @@ class ItemInventoryUpdate implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'distribution_center_code' => 'string',
-        'inventory_level' => 'float',
-        'merchant_item_id' => 'string'
+        'checkout_url' => 'string',
+        'coupon_codes' => 'string[]',
+        'items' => '\ultracart\v2\models\CartItem[]'
     ];
 
     /**
@@ -68,9 +68,9 @@ class ItemInventoryUpdate implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'distribution_center_code' => null,
-        'inventory_level' => null,
-        'merchant_item_id' => null
+        'checkout_url' => null,
+        'coupon_codes' => null,
+        'items' => null
     ];
 
     /**
@@ -100,9 +100,9 @@ class ItemInventoryUpdate implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'distribution_center_code' => 'distribution_center_code',
-        'inventory_level' => 'inventory_level',
-        'merchant_item_id' => 'merchant_item_id'
+        'checkout_url' => 'checkout_url',
+        'coupon_codes' => 'coupon_codes',
+        'items' => 'items'
     ];
 
     /**
@@ -111,9 +111,9 @@ class ItemInventoryUpdate implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'distribution_center_code' => 'setDistributionCenterCode',
-        'inventory_level' => 'setInventoryLevel',
-        'merchant_item_id' => 'setMerchantItemId'
+        'checkout_url' => 'setCheckoutUrl',
+        'coupon_codes' => 'setCouponCodes',
+        'items' => 'setItems'
     ];
 
     /**
@@ -122,9 +122,9 @@ class ItemInventoryUpdate implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'distribution_center_code' => 'getDistributionCenterCode',
-        'inventory_level' => 'getInventoryLevel',
-        'merchant_item_id' => 'getMerchantItemId'
+        'checkout_url' => 'getCheckoutUrl',
+        'coupon_codes' => 'getCouponCodes',
+        'items' => 'getItems'
     ];
 
     /**
@@ -187,9 +187,9 @@ class ItemInventoryUpdate implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['distribution_center_code'] = isset($data['distribution_center_code']) ? $data['distribution_center_code'] : null;
-        $this->container['inventory_level'] = isset($data['inventory_level']) ? $data['inventory_level'] : null;
-        $this->container['merchant_item_id'] = isset($data['merchant_item_id']) ? $data['merchant_item_id'] : null;
+        $this->container['checkout_url'] = isset($data['checkout_url']) ? $data['checkout_url'] : null;
+        $this->container['coupon_codes'] = isset($data['coupon_codes']) ? $data['coupon_codes'] : null;
+        $this->container['items'] = isset($data['items']) ? $data['items'] : null;
     }
 
     /**
@@ -217,73 +217,73 @@ class ItemInventoryUpdate implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets distribution_center_code
+     * Gets checkout_url
      *
      * @return string
      */
-    public function getDistributionCenterCode()
+    public function getCheckoutUrl()
     {
-        return $this->container['distribution_center_code'];
+        return $this->container['checkout_url'];
     }
 
     /**
-     * Sets distribution_center_code
+     * Sets checkout_url
      *
-     * @param string $distribution_center_code Distribution center code
+     * @param string $checkout_url checkout_url
      *
      * @return $this
      */
-    public function setDistributionCenterCode($distribution_center_code)
+    public function setCheckoutUrl($checkout_url)
     {
-        $this->container['distribution_center_code'] = $distribution_center_code;
+        $this->container['checkout_url'] = $checkout_url;
 
         return $this;
     }
 
     /**
-     * Gets inventory_level
+     * Gets coupon_codes
      *
-     * @return float
+     * @return string[]
      */
-    public function getInventoryLevel()
+    public function getCouponCodes()
     {
-        return $this->container['inventory_level'];
+        return $this->container['coupon_codes'];
     }
 
     /**
-     * Sets inventory_level
+     * Sets coupon_codes
      *
-     * @param float $inventory_level Inventory level
+     * @param string[] $coupon_codes coupon_codes
      *
      * @return $this
      */
-    public function setInventoryLevel($inventory_level)
+    public function setCouponCodes($coupon_codes)
     {
-        $this->container['inventory_level'] = $inventory_level;
+        $this->container['coupon_codes'] = $coupon_codes;
 
         return $this;
     }
 
     /**
-     * Gets merchant_item_id
+     * Gets items
      *
-     * @return string
+     * @return \ultracart\v2\models\CartItem[]
      */
-    public function getMerchantItemId()
+    public function getItems()
     {
-        return $this->container['merchant_item_id'];
+        return $this->container['items'];
     }
 
     /**
-     * Sets merchant_item_id
+     * Sets items
      *
-     * @param string $merchant_item_id Merchant Item ID
+     * @param \ultracart\v2\models\CartItem[] $items items
      *
      * @return $this
      */
-    public function setMerchantItemId($merchant_item_id)
+    public function setItems($items)
     {
-        $this->container['merchant_item_id'] = $merchant_item_id;
+        $this->container['items'] = $items;
 
         return $this;
     }
