@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.58"
+    "ultracart/rest_api_v2_sdk_php": "4.1.59"
   }
 }
 ```
@@ -1695,6 +1695,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.59 | 02/10/2026 | conversations - new method to look up an item with sparse variations |
 | 4.1.58 | 02/10/2026 | conversations - new method to look up an item with sparse variations. |
 | 4.1.57 | 02/03/2026 | conversations - pbx class of service objects and endpoints |
 | 4.1.56 | 02/02/2026 | conversations - add default phone number to the agent auth |
