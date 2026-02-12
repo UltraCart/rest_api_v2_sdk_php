@@ -3117,6 +3117,384 @@ class ItemApi
     }
 
     /**
+     * Operation getItemShippingDistributionCenterByCode
+     *
+     * Retrieve an item shipping distribution center
+     *
+     * @param  int $merchant_item_oid The item oid to retrieve. (required)
+     * @param  string $distribution_center_code distribution_center_code (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ItemShippingDistributionCenterResponse
+     */
+    public function getItemShippingDistributionCenterByCode($merchant_item_oid, $distribution_center_code, $_expand = null, $_placeholders = null)
+    {
+        list($response) = $this->getItemShippingDistributionCenterByCodeWithHttpInfo($merchant_item_oid, $distribution_center_code, $_expand, $_placeholders);
+        return $response;
+    }
+
+
+    /**
+     * Operation getItemShippingDistributionCenterByCodeWithHttpInfo
+     *
+     * Retrieve an item shipping distribution center
+     *
+     * @param  int $merchant_item_oid The item oid to retrieve. (required)
+     * @param  string $distribution_center_code (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ItemShippingDistributionCenterResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getItemShippingDistributionCenterByCodeWithHttpInfo($merchant_item_oid, $distribution_center_code, $_expand = null, $_placeholders = null)
+    {
+        return $this->getItemShippingDistributionCenterByCodeWithHttpInfoRetry(true ,   $merchant_item_oid,   $distribution_center_code,   $_expand,   $_placeholders);
+    }
+
+
+    /**
+     * Operation getItemShippingDistributionCenterByCodeWithHttpInfoRetry
+     *
+     * Retrieve an item shipping distribution center
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $merchant_item_oid The item oid to retrieve. (required)
+     * @param  string $distribution_center_code (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ItemShippingDistributionCenterResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getItemShippingDistributionCenterByCodeWithHttpInfoRetry($retry ,  $merchant_item_oid,  $distribution_center_code,  $_expand = null,  $_placeholders = null)
+    {
+        $returnType = '\ultracart\v2\models\ItemShippingDistributionCenterResponse';
+        $request = $this->getItemShippingDistributionCenterByCodeRequest($merchant_item_oid, $distribution_center_code, $_expand, $_placeholders);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getItemShippingDistributionCenterByCodeWithHttpInfoRetry(false ,   $merchant_item_oid,   $distribution_center_code,   $_expand,   $_placeholders);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ItemShippingDistributionCenterResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getItemShippingDistributionCenterByCodeAsync
+     *
+     * Retrieve an item shipping distribution center
+     *
+     * @param  int $merchant_item_oid The item oid to retrieve. (required)
+     * @param  string $distribution_center_code (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getItemShippingDistributionCenterByCodeAsync($merchant_item_oid, $distribution_center_code, $_expand = null, $_placeholders = null)
+    {
+        return $this->getItemShippingDistributionCenterByCodeAsyncWithHttpInfo($merchant_item_oid, $distribution_center_code, $_expand, $_placeholders)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getItemShippingDistributionCenterByCodeAsyncWithHttpInfo
+     *
+     * Retrieve an item shipping distribution center
+     *
+     * @param  int $merchant_item_oid The item oid to retrieve. (required)
+     * @param  string $distribution_center_code (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getItemShippingDistributionCenterByCodeAsyncWithHttpInfo($merchant_item_oid, $distribution_center_code, $_expand = null, $_placeholders = null)
+    {
+        $returnType = '\ultracart\v2\models\ItemShippingDistributionCenterResponse';
+        $request = $this->getItemShippingDistributionCenterByCodeRequest($merchant_item_oid, $distribution_center_code, $_expand, $_placeholders);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getItemShippingDistributionCenterByCode'
+     *
+     * @param  int $merchant_item_oid The item oid to retrieve. (required)
+     * @param  string $distribution_center_code (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getItemShippingDistributionCenterByCodeRequest($merchant_item_oid, $distribution_center_code, $_expand = null, $_placeholders = null)
+    {
+        // verify the required parameter 'merchant_item_oid' is set
+        if ($merchant_item_oid === null || (is_array($merchant_item_oid) && count($merchant_item_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $merchant_item_oid when calling getItemShippingDistributionCenterByCode'
+            );
+        }
+        // verify the required parameter 'distribution_center_code' is set
+        if ($distribution_center_code === null || (is_array($distribution_center_code) && count($distribution_center_code) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $distribution_center_code when calling getItemShippingDistributionCenterByCode'
+            );
+        }
+
+        $resourcePath = '/item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($_expand !== null) {
+            $queryParams['_expand'] = ObjectSerializer::toQueryValue($_expand);
+        }
+        // query params
+        if ($_placeholders !== null) {
+            $queryParams['_placeholders'] = ObjectSerializer::toQueryValue($_placeholders);
+        }
+
+        // path params
+        if ($merchant_item_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'merchant_item_oid' . '}',
+                ObjectSerializer::toPathValue($merchant_item_oid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($distribution_center_code !== null) {
+            $resourcePath = str_replace(
+                '{' . 'distribution_center_code' . '}',
+                ObjectSerializer::toPathValue($distribution_center_code),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getItems
      *
      * Retrieve items
@@ -6918,6 +7296,638 @@ class ItemApi
         $_tempBody = null;
         if (isset($item)) {
             $_tempBody = $item;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json; charset=UTF-8']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateItemInventories
+     *
+     * Update item inventories for a distribution center
+     *
+     * @param  \ultracart\v2\models\ItemInventoryUpdateRequest $item_inventory_update_request Item inventory updates (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function updateItemInventories($item_inventory_update_request)
+    {
+        $this->updateItemInventoriesWithHttpInfo($item_inventory_update_request);
+    }
+
+
+    /**
+     * Operation updateItemInventoriesWithHttpInfo
+     *
+     * Update item inventories for a distribution center
+     *
+     * @param  \ultracart\v2\models\ItemInventoryUpdateRequest $item_inventory_update_request Item inventory updates (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateItemInventoriesWithHttpInfo($item_inventory_update_request)
+    {
+        $this->updateItemInventoriesWithHttpInfoRetry(true ,   $item_inventory_update_request);
+    }
+
+
+    /**
+     * Operation updateItemInventoriesWithHttpInfoRetry
+     *
+     * Update item inventories for a distribution center
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\ItemInventoryUpdateRequest $item_inventory_update_request Item inventory updates (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateItemInventoriesWithHttpInfoRetry($retry ,  $item_inventory_update_request)
+    {
+        $returnType = '';
+        $request = $this->updateItemInventoriesRequest($item_inventory_update_request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        $this->updateItemInventoriesWithHttpInfoRetry(false ,   $item_inventory_update_request);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            return [null, $response->getStatusCode(), $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateItemInventoriesAsync
+     *
+     * Update item inventories for a distribution center
+     *
+     * @param  \ultracart\v2\models\ItemInventoryUpdateRequest $item_inventory_update_request Item inventory updates (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateItemInventoriesAsync($item_inventory_update_request)
+    {
+        return $this->updateItemInventoriesAsyncWithHttpInfo($item_inventory_update_request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateItemInventoriesAsyncWithHttpInfo
+     *
+     * Update item inventories for a distribution center
+     *
+     * @param  \ultracart\v2\models\ItemInventoryUpdateRequest $item_inventory_update_request Item inventory updates (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateItemInventoriesAsyncWithHttpInfo($item_inventory_update_request)
+    {
+        $returnType = '';
+        $request = $this->updateItemInventoriesRequest($item_inventory_update_request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateItemInventories'
+     *
+     * @param  \ultracart\v2\models\ItemInventoryUpdateRequest $item_inventory_update_request Item inventory updates (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function updateItemInventoriesRequest($item_inventory_update_request)
+    {
+        // verify the required parameter 'item_inventory_update_request' is set
+        if ($item_inventory_update_request === null || (is_array($item_inventory_update_request) && count($item_inventory_update_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $item_inventory_update_request when calling updateItemInventories'
+            );
+        }
+
+        $resourcePath = '/item/items/update_item_inventories';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($item_inventory_update_request)) {
+            $_tempBody = $item_inventory_update_request;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json; charset=UTF-8']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateItemShippingDistributionCenterByCode
+     *
+     * Update an item shipping distribution center
+     *
+     * @param  \ultracart\v2\models\ItemShippingDistributionCenter $item_shipping_distribution_center Item shipping distribution center (required)
+     * @param  int $merchant_item_oid The item oid to update. (required)
+     * @param  string $distribution_center_code distribution_center_code (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function updateItemShippingDistributionCenterByCode($item_shipping_distribution_center, $merchant_item_oid, $distribution_center_code)
+    {
+        $this->updateItemShippingDistributionCenterByCodeWithHttpInfo($item_shipping_distribution_center, $merchant_item_oid, $distribution_center_code);
+    }
+
+
+    /**
+     * Operation updateItemShippingDistributionCenterByCodeWithHttpInfo
+     *
+     * Update an item shipping distribution center
+     *
+     * @param  \ultracart\v2\models\ItemShippingDistributionCenter $item_shipping_distribution_center Item shipping distribution center (required)
+     * @param  int $merchant_item_oid The item oid to update. (required)
+     * @param  string $distribution_center_code (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateItemShippingDistributionCenterByCodeWithHttpInfo($item_shipping_distribution_center, $merchant_item_oid, $distribution_center_code)
+    {
+        $this->updateItemShippingDistributionCenterByCodeWithHttpInfoRetry(true ,   $item_shipping_distribution_center,   $merchant_item_oid,   $distribution_center_code);
+    }
+
+
+    /**
+     * Operation updateItemShippingDistributionCenterByCodeWithHttpInfoRetry
+     *
+     * Update an item shipping distribution center
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\ItemShippingDistributionCenter $item_shipping_distribution_center Item shipping distribution center (required)
+     * @param  int $merchant_item_oid The item oid to update. (required)
+     * @param  string $distribution_center_code (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateItemShippingDistributionCenterByCodeWithHttpInfoRetry($retry ,  $item_shipping_distribution_center,  $merchant_item_oid,  $distribution_center_code)
+    {
+        $returnType = '';
+        $request = $this->updateItemShippingDistributionCenterByCodeRequest($item_shipping_distribution_center, $merchant_item_oid, $distribution_center_code);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        $this->updateItemShippingDistributionCenterByCodeWithHttpInfoRetry(false ,   $item_shipping_distribution_center,   $merchant_item_oid,   $distribution_center_code);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            return [null, $response->getStatusCode(), $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateItemShippingDistributionCenterByCodeAsync
+     *
+     * Update an item shipping distribution center
+     *
+     * @param  \ultracart\v2\models\ItemShippingDistributionCenter $item_shipping_distribution_center Item shipping distribution center (required)
+     * @param  int $merchant_item_oid The item oid to update. (required)
+     * @param  string $distribution_center_code (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateItemShippingDistributionCenterByCodeAsync($item_shipping_distribution_center, $merchant_item_oid, $distribution_center_code)
+    {
+        return $this->updateItemShippingDistributionCenterByCodeAsyncWithHttpInfo($item_shipping_distribution_center, $merchant_item_oid, $distribution_center_code)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateItemShippingDistributionCenterByCodeAsyncWithHttpInfo
+     *
+     * Update an item shipping distribution center
+     *
+     * @param  \ultracart\v2\models\ItemShippingDistributionCenter $item_shipping_distribution_center Item shipping distribution center (required)
+     * @param  int $merchant_item_oid The item oid to update. (required)
+     * @param  string $distribution_center_code (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateItemShippingDistributionCenterByCodeAsyncWithHttpInfo($item_shipping_distribution_center, $merchant_item_oid, $distribution_center_code)
+    {
+        $returnType = '';
+        $request = $this->updateItemShippingDistributionCenterByCodeRequest($item_shipping_distribution_center, $merchant_item_oid, $distribution_center_code);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateItemShippingDistributionCenterByCode'
+     *
+     * @param  \ultracart\v2\models\ItemShippingDistributionCenter $item_shipping_distribution_center Item shipping distribution center (required)
+     * @param  int $merchant_item_oid The item oid to update. (required)
+     * @param  string $distribution_center_code (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function updateItemShippingDistributionCenterByCodeRequest($item_shipping_distribution_center, $merchant_item_oid, $distribution_center_code)
+    {
+        // verify the required parameter 'item_shipping_distribution_center' is set
+        if ($item_shipping_distribution_center === null || (is_array($item_shipping_distribution_center) && count($item_shipping_distribution_center) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $item_shipping_distribution_center when calling updateItemShippingDistributionCenterByCode'
+            );
+        }
+        // verify the required parameter 'merchant_item_oid' is set
+        if ($merchant_item_oid === null || (is_array($merchant_item_oid) && count($merchant_item_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $merchant_item_oid when calling updateItemShippingDistributionCenterByCode'
+            );
+        }
+        // verify the required parameter 'distribution_center_code' is set
+        if ($distribution_center_code === null || (is_array($distribution_center_code) && count($distribution_center_code) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $distribution_center_code when calling updateItemShippingDistributionCenterByCode'
+            );
+        }
+
+        $resourcePath = '/item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($merchant_item_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'merchant_item_oid' . '}',
+                ObjectSerializer::toPathValue($merchant_item_oid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($distribution_center_code !== null) {
+            $resourcePath = str_replace(
+                '{' . 'distribution_center_code' . '}',
+                ObjectSerializer::toPathValue($distribution_center_code),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($item_shipping_distribution_center)) {
+            $_tempBody = $item_shipping_distribution_center;
         }
 
         if ($multipart) {

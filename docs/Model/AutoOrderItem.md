@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**add_ons** | [**\ultracart\v2\models\AutoOrderAddonItem[]**](AutoOrderAddonItem.md) | Array of addon objects instructing which items to add to auto order and how many times they should be added. | [optional] 
 **arbitrary_item_id** | **string** | Arbitrary item id that should be rebilled instead of the normal schedule | [optional] 
 **arbitrary_percentage_discount** | **float** | An arbitrary percentage discount to provide on future rebills | [optional] 
 **arbitrary_quantity** | **float** | Arbitrary quantity to rebill | [optional] 
@@ -28,6 +29,7 @@ Name | Type | Description | Notes
 **paypal_payer_id** | **string** | The PayPal Payer ID tied to this item | [optional] 
 **paypal_recurring_payment_profile_id** | **string** | The PayPal Profile ID tied to this item | [optional] 
 **preshipment_notice_sent** | **bool** | True if the preshipment notice associated with the next rebill has been sent | [optional] 
+**properties** | [**\ultracart\v2\models\AutoOrderProperty[]**](AutoOrderProperty.md) | Array of property objects | [optional] 
 **rebill_value** | **float** | The value of the rebills of this item | [optional] 
 **remaining_repeat_count** | **int** | The number of rebills remaining before this item is complete | [optional] 
 **simple_schedule** | [**\ultracart\v2\models\AutoOrderItemSimpleSchedule**](AutoOrderItemSimpleSchedule.md) |  | [optional] 

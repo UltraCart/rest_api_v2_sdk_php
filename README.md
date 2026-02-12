@@ -169,6 +169,9 @@ Class | Method | HTTP request | Description
 *AutoOrderApi* | [**getAutoOrdersByQuery**](docs/Api/AutoOrderApi.md#getautoordersbyquery) | **POST** /auto_order/auto_orders/query | Retrieve auto orders by query
 *AutoOrderApi* | [**pauseAutoOrder**](docs/Api/AutoOrderApi.md#pauseautoorder) | **PUT** /auto_order/auto_orders/{auto_order_oid}/pause | Pause auto order
 *AutoOrderApi* | [**updateAutoOrder**](docs/Api/AutoOrderApi.md#updateautoorder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
+*AutoOrderApi* | [**updateAutoOrderItemAddOns**](docs/Api/AutoOrderApi.md#updateautoorderitemaddons) | **PUT** /auto_order/auto_orders/{auto_order_oid}/items/{auto_order_item_oid}/add_ons | Update an auto order item add ons
+*AutoOrderApi* | [**updateAutoOrderItemProperties**](docs/Api/AutoOrderApi.md#updateautoorderitemproperties) | **PUT** /auto_order/auto_orders/{auto_order_oid}/items/{auto_order_item_oid}/properties | Update an auto order item properties
+*AutoOrderApi* | [**updateAutoOrderProperties**](docs/Api/AutoOrderApi.md#updateautoorderproperties) | **PUT** /auto_order/auto_orders/{auto_order_oid}/properties | Update an auto order properties
 *AutoOrderApi* | [**updateAutoOrdersBatch**](docs/Api/AutoOrderApi.md#updateautoordersbatch) | **PUT** /auto_order/auto_orders/batch | Update multiple auto orders
 *ChannelPartnerApi* | [**cancelOrderByChannelPartnerOrderId**](docs/Api/ChannelPartnerApi.md#cancelorderbychannelpartnerorderid) | **DELETE** /channel_partner/cancel/by_channel_partner_order_id/{order_id} | Cancel channel partner order by channel partner order id
 *ChannelPartnerApi* | [**cancelOrderByUltraCartOrderId**](docs/Api/ChannelPartnerApi.md#cancelorderbyultracartorderid) | **DELETE** /channel_partner/cancel/by_ultracart_order_id/{order_id} | Cancel channel partner order by UltraCart order id
@@ -236,6 +239,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getConversationDepartments**](docs/Api/ConversationApi.md#getconversationdepartments) | **GET** /conversation/departments | Retrieve a list of departments ordered by name
 *ConversationApi* | [**getConversationEngagement**](docs/Api/ConversationApi.md#getconversationengagement) | **GET** /conversation/engagements/{conversation_engagement_oid} | Retrieve an engagement
 *ConversationApi* | [**getConversationEngagements**](docs/Api/ConversationApi.md#getconversationengagements) | **GET** /conversation/engagements | Retrieve a list of engagements ordered by name
+*ConversationApi* | [**getConversationItemVariations**](docs/Api/ConversationApi.md#getconversationitemvariations) | **GET** /conversation/items/{merchant_item_id}/variations | Retrieve an item with sparse variations populated
 *ConversationApi* | [**getConversationKnowledgeBaseDocumentUploadUrl**](docs/Api/ConversationApi.md#getconversationknowledgebasedocumentuploadurl) | **GET** /conversation/agent/profiles/{user_id}/knowledge_base/upload_url/{extension} | Get a pre-signed conversation knowledge base document upload URL
 *ConversationApi* | [**getConversationMessages**](docs/Api/ConversationApi.md#getconversationmessages) | **GET** /conversation/conversations/{conversation_uuid}/messages/{since} | Retrieve conversation messages
 *ConversationApi* | [**getConversationMultimediaUploadUrl**](docs/Api/ConversationApi.md#getconversationmultimediauploadurl) | **GET** /conversation/upload_url/{extension} | Get a presigned conversation multimedia upload URL
@@ -428,6 +432,7 @@ Class | Method | HTTP request | Description
 *ItemApi* | [**getInventorySnapshot**](docs/Api/ItemApi.md#getinventorysnapshot) | **GET** /item/items/inventory_snapshot | Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
 *ItemApi* | [**getItem**](docs/Api/ItemApi.md#getitem) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
 *ItemApi* | [**getItemByMerchantItemId**](docs/Api/ItemApi.md#getitembymerchantitemid) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
+*ItemApi* | [**getItemShippingDistributionCenterByCode**](docs/Api/ItemApi.md#getitemshippingdistributioncenterbycode) | **GET** /item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code} | Retrieve an item shipping distribution center
 *ItemApi* | [**getItems**](docs/Api/ItemApi.md#getitems) | **GET** /item/items | Retrieve items
 *ItemApi* | [**getPricingTiers**](docs/Api/ItemApi.md#getpricingtiers) | **GET** /item/pricing_tiers | Retrieve pricing tiers
 *ItemApi* | [**getReview**](docs/Api/ItemApi.md#getreview) | **GET** /item/items/{merchant_item_oid}/reviews/{review_oid} | Get a review
@@ -439,6 +444,8 @@ Class | Method | HTTP request | Description
 *ItemApi* | [**insertUpdateItemContentAttribute**](docs/Api/ItemApi.md#insertupdateitemcontentattribute) | **POST** /item/items/{merchant_item_oid}/content/attributes | Upsert an item content attribute
 *ItemApi* | [**updateDigitalItem**](docs/Api/ItemApi.md#updatedigitalitem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 *ItemApi* | [**updateItem**](docs/Api/ItemApi.md#updateitem) | **PUT** /item/items/{merchant_item_oid} | Update an item
+*ItemApi* | [**updateItemInventories**](docs/Api/ItemApi.md#updateiteminventories) | **PUT** /item/items/update_item_inventories | Update item inventories for a distribution center
+*ItemApi* | [**updateItemShippingDistributionCenterByCode**](docs/Api/ItemApi.md#updateitemshippingdistributioncenterbycode) | **PUT** /item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code} | Update an item shipping distribution center
 *ItemApi* | [**updateItems**](docs/Api/ItemApi.md#updateitems) | **PUT** /item/items/batch | Update multiple items
 *ItemApi* | [**updateReview**](docs/Api/ItemApi.md#updatereview) | **PUT** /item/items/{merchant_item_oid}/reviews/{review_oid} | Update a review
 *ItemApi* | [**uploadTemporaryMultimedia**](docs/Api/ItemApi.md#uploadtemporarymultimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
@@ -464,6 +471,8 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**getOrders**](docs/Api/OrderApi.md#getorders) | **GET** /order/orders | Retrieve orders
 *OrderApi* | [**getOrdersBatch**](docs/Api/OrderApi.md#getordersbatch) | **POST** /order/orders/batch | Retrieve order batch
 *OrderApi* | [**getOrdersByQuery**](docs/Api/OrderApi.md#getordersbyquery) | **POST** /order/orders/query | Retrieve orders by query
+*OrderApi* | [**heldOrderAddItemsAndRelease**](docs/Api/OrderApi.md#heldorderadditemsandrelease) | **PUT** /order/orders/{order_id}/hold/add_items_and_release | Add items and release a held order
+*OrderApi* | [**heldOrderRelease**](docs/Api/OrderApi.md#heldorderrelease) | **PUT** /order/orders/{order_id}/hold/release | Release a held order
 *OrderApi* | [**insertOrder**](docs/Api/OrderApi.md#insertorder) | **POST** /order/orders | Insert an order
 *OrderApi* | [**isRefundableOrder**](docs/Api/OrderApi.md#isrefundableorder) | **GET** /order/orders/{order_id}/refundable | Determine if an order can be refunded
 *OrderApi* | [**processPayment**](docs/Api/OrderApi.md#processpayment) | **POST** /order/orders/{order_id}/process_payment | Process payment
@@ -747,6 +756,7 @@ Class | Method | HTTP request | Description
  - [AutoOrder](docs/Model/AutoOrder.md)
  - [AutoOrderAddonItem](docs/Model/AutoOrderAddonItem.md)
  - [AutoOrderAddonItemOption](docs/Model/AutoOrderAddonItemOption.md)
+ - [AutoOrderAddonItemsUpdateRequest](docs/Model/AutoOrderAddonItemsUpdateRequest.md)
  - [AutoOrderConsolidate](docs/Model/AutoOrderConsolidate.md)
  - [AutoOrderItem](docs/Model/AutoOrderItem.md)
  - [AutoOrderItemFutureSchedule](docs/Model/AutoOrderItemFutureSchedule.md)
@@ -754,6 +764,8 @@ Class | Method | HTTP request | Description
  - [AutoOrderItemSimpleSchedule](docs/Model/AutoOrderItemSimpleSchedule.md)
  - [AutoOrderLog](docs/Model/AutoOrderLog.md)
  - [AutoOrderManagement](docs/Model/AutoOrderManagement.md)
+ - [AutoOrderPropertiesUpdateRequest](docs/Model/AutoOrderPropertiesUpdateRequest.md)
+ - [AutoOrderProperty](docs/Model/AutoOrderProperty.md)
  - [AutoOrderQuery](docs/Model/AutoOrderQuery.md)
  - [AutoOrderQueryBatch](docs/Model/AutoOrderQueryBatch.md)
  - [AutoOrderResponse](docs/Model/AutoOrderResponse.md)
@@ -1345,6 +1357,8 @@ Class | Method | HTTP request | Description
  - [ItemInventorySnapshot](docs/Model/ItemInventorySnapshot.md)
  - [ItemInventorySnapshotDistributionCenter](docs/Model/ItemInventorySnapshotDistributionCenter.md)
  - [ItemInventorySnapshotResponse](docs/Model/ItemInventorySnapshotResponse.md)
+ - [ItemInventoryUpdate](docs/Model/ItemInventoryUpdate.md)
+ - [ItemInventoryUpdateRequest](docs/Model/ItemInventoryUpdateRequest.md)
  - [ItemKitComponent](docs/Model/ItemKitComponent.md)
  - [ItemKitDefinition](docs/Model/ItemKitDefinition.md)
  - [ItemOption](docs/Model/ItemOption.md)
@@ -1376,6 +1390,7 @@ Class | Method | HTTP request | Description
  - [ItemShippingDestinationMarkup](docs/Model/ItemShippingDestinationMarkup.md)
  - [ItemShippingDestinationRestriction](docs/Model/ItemShippingDestinationRestriction.md)
  - [ItemShippingDistributionCenter](docs/Model/ItemShippingDistributionCenter.md)
+ - [ItemShippingDistributionCenterResponse](docs/Model/ItemShippingDistributionCenterResponse.md)
  - [ItemShippingMethod](docs/Model/ItemShippingMethod.md)
  - [ItemShippingPackageRequirement](docs/Model/ItemShippingPackageRequirement.md)
  - [ItemTag](docs/Model/ItemTag.md)
@@ -1413,6 +1428,7 @@ Class | Method | HTTP request | Description
  - [OauthRevokeSuccessResponse](docs/Model/OauthRevokeSuccessResponse.md)
  - [OauthTokenResponse](docs/Model/OauthTokenResponse.md)
  - [Order](docs/Model/Order.md)
+ - [OrderAddItemsAndReleaseRequest](docs/Model/OrderAddItemsAndReleaseRequest.md)
  - [OrderAffiliate](docs/Model/OrderAffiliate.md)
  - [OrderAffiliateLedger](docs/Model/OrderAffiliateLedger.md)
  - [OrderAssignToAffiliateRequest](docs/Model/OrderAssignToAffiliateRequest.md)
@@ -1742,6 +1758,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.63 | 02/12/2026 | build automation issue |
 | 3.11.62 | 02/12/2026 | build automation run, no code changes |
 | 3.11.61 | 02/12/2026 | order - methods to release held orders |
 | 3.11.60 | 02/12/2026 | auto order - properties, item add-ons, and item properties |

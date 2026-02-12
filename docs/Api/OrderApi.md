@@ -24,6 +24,8 @@ Method | HTTP request | Description
 [**getOrders**](OrderApi.md#getOrders) | **GET** /order/orders | Retrieve orders
 [**getOrdersBatch**](OrderApi.md#getOrdersBatch) | **POST** /order/orders/batch | Retrieve order batch
 [**getOrdersByQuery**](OrderApi.md#getOrdersByQuery) | **POST** /order/orders/query | Retrieve orders by query
+[**heldOrderAddItemsAndRelease**](OrderApi.md#heldOrderAddItemsAndRelease) | **PUT** /order/orders/{order_id}/hold/add_items_and_release | Add items and release a held order
+[**heldOrderRelease**](OrderApi.md#heldOrderRelease) | **PUT** /order/orders/{order_id}/hold/release | Release a held order
 [**insertOrder**](OrderApi.md#insertOrder) | **POST** /order/orders | Insert an order
 [**isRefundableOrder**](OrderApi.md#isRefundableOrder) | **GET** /order/orders/{order_id}/refundable | Determine if an order can be refunded
 [**processPayment**](OrderApi.md#processPayment) | **POST** /order/orders/{order_id}/process_payment | Process payment
@@ -1086,6 +1088,108 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **heldOrderAddItemsAndRelease**
+> \ultracart\v2\models\OrderResponse heldOrderAddItemsAndRelease($add_items_and_release_request, $order_id, $_expand)
+
+Add items and release a held order
+
+This method adds items to an order in the hold stage and releases it
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\OrderApi::usingApiKey($simple_key);
+
+$add_items_and_release_request = new \ultracart\v2\models\OrderAddItemsAndReleaseRequest(); // \ultracart\v2\models\OrderAddItemsAndReleaseRequest | Add items and release request
+$order_id = "order_id_example"; // string | The order id to release.
+$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
+
+try {
+    $result = $apiInstance->heldOrderAddItemsAndRelease($add_items_and_release_request, $order_id, $_expand);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling OrderApi->heldOrderAddItemsAndRelease: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **add_items_and_release_request** | [**\ultracart\v2\models\OrderAddItemsAndReleaseRequest**](../Model/OrderAddItemsAndReleaseRequest.md)| Add items and release request |
+ **order_id** | **string**| The order id to release. |
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\OrderResponse**](../Model/OrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **heldOrderRelease**
+> \ultracart\v2\models\OrderResponse heldOrderRelease($order_id, $_expand)
+
+Release a held order
+
+This method releases an order from the hold stage
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\OrderApi::usingApiKey($simple_key);
+
+$order_id = "order_id_example"; // string | The order id to release.
+$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
+
+try {
+    $result = $apiInstance->heldOrderRelease($order_id, $_expand);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling OrderApi->heldOrderRelease: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **string**| The order id to release. |
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\OrderResponse**](../Model/OrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

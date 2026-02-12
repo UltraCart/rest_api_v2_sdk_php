@@ -99,6 +99,7 @@ class ItemShipping implements ModelInterface, ArrayAccess
         'restrict_shipment_on_thursday' => 'bool',
         'restrict_shipment_on_tuesday' => 'bool',
         'restrict_shipment_on_wednesday' => 'bool',
+        'send_to_hold_before_fulfillment' => 'bool',
         'ship_separately' => 'bool',
         'ship_separately_additional_weight' => '\ultracart\v2\models\Weight',
         'ship_separately_height' => '\ultracart\v2\models\Distance',
@@ -157,6 +158,7 @@ class ItemShipping implements ModelInterface, ArrayAccess
         'restrict_shipment_on_thursday' => null,
         'restrict_shipment_on_tuesday' => null,
         'restrict_shipment_on_wednesday' => null,
+        'send_to_hold_before_fulfillment' => null,
         'ship_separately' => null,
         'ship_separately_additional_weight' => null,
         'ship_separately_height' => null,
@@ -236,6 +238,7 @@ class ItemShipping implements ModelInterface, ArrayAccess
         'restrict_shipment_on_thursday' => 'restrict_shipment_on_thursday',
         'restrict_shipment_on_tuesday' => 'restrict_shipment_on_tuesday',
         'restrict_shipment_on_wednesday' => 'restrict_shipment_on_wednesday',
+        'send_to_hold_before_fulfillment' => 'send_to_hold_before_fulfillment',
         'ship_separately' => 'ship_separately',
         'ship_separately_additional_weight' => 'ship_separately_additional_weight',
         'ship_separately_height' => 'ship_separately_height',
@@ -294,6 +297,7 @@ class ItemShipping implements ModelInterface, ArrayAccess
         'restrict_shipment_on_thursday' => 'setRestrictShipmentOnThursday',
         'restrict_shipment_on_tuesday' => 'setRestrictShipmentOnTuesday',
         'restrict_shipment_on_wednesday' => 'setRestrictShipmentOnWednesday',
+        'send_to_hold_before_fulfillment' => 'setSendToHoldBeforeFulfillment',
         'ship_separately' => 'setShipSeparately',
         'ship_separately_additional_weight' => 'setShipSeparatelyAdditionalWeight',
         'ship_separately_height' => 'setShipSeparatelyHeight',
@@ -352,6 +356,7 @@ class ItemShipping implements ModelInterface, ArrayAccess
         'restrict_shipment_on_thursday' => 'getRestrictShipmentOnThursday',
         'restrict_shipment_on_tuesday' => 'getRestrictShipmentOnTuesday',
         'restrict_shipment_on_wednesday' => 'getRestrictShipmentOnWednesday',
+        'send_to_hold_before_fulfillment' => 'getSendToHoldBeforeFulfillment',
         'ship_separately' => 'getShipSeparately',
         'ship_separately_additional_weight' => 'getShipSeparatelyAdditionalWeight',
         'ship_separately_height' => 'getShipSeparatelyHeight',
@@ -464,6 +469,7 @@ class ItemShipping implements ModelInterface, ArrayAccess
         $this->container['restrict_shipment_on_thursday'] = isset($data['restrict_shipment_on_thursday']) ? $data['restrict_shipment_on_thursday'] : null;
         $this->container['restrict_shipment_on_tuesday'] = isset($data['restrict_shipment_on_tuesday']) ? $data['restrict_shipment_on_tuesday'] : null;
         $this->container['restrict_shipment_on_wednesday'] = isset($data['restrict_shipment_on_wednesday']) ? $data['restrict_shipment_on_wednesday'] : null;
+        $this->container['send_to_hold_before_fulfillment'] = isset($data['send_to_hold_before_fulfillment']) ? $data['send_to_hold_before_fulfillment'] : null;
         $this->container['ship_separately'] = isset($data['ship_separately']) ? $data['ship_separately'] : null;
         $this->container['ship_separately_additional_weight'] = isset($data['ship_separately_additional_weight']) ? $data['ship_separately_additional_weight'] : null;
         $this->container['ship_separately_height'] = isset($data['ship_separately_height']) ? $data['ship_separately_height'] : null;
@@ -1510,6 +1516,30 @@ class ItemShipping implements ModelInterface, ArrayAccess
     public function setRestrictShipmentOnWednesday($restrict_shipment_on_wednesday)
     {
         $this->container['restrict_shipment_on_wednesday'] = $restrict_shipment_on_wednesday;
+
+        return $this;
+    }
+
+    /**
+     * Gets send_to_hold_before_fulfillment
+     *
+     * @return bool
+     */
+    public function getSendToHoldBeforeFulfillment()
+    {
+        return $this->container['send_to_hold_before_fulfillment'];
+    }
+
+    /**
+     * Sets send_to_hold_before_fulfillment
+     *
+     * @param bool $send_to_hold_before_fulfillment Send order to hold stage before fulfillment
+     *
+     * @return $this
+     */
+    public function setSendToHoldBeforeFulfillment($send_to_hold_before_fulfillment)
+    {
+        $this->container['send_to_hold_before_fulfillment'] = $send_to_hold_before_fulfillment;
 
         return $this;
     }
