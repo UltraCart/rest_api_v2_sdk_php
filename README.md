@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.59"
+    "ultracart/rest_api_v2_sdk_php": "4.1.62"
   }
 }
 ```
@@ -1695,6 +1695,9 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.62 | 02/12/2026 | build automation run, no code changes |
+| 4.1.61 | 02/12/2026 | order - methods to release held orders |
+| 4.1.60 | 02/12/2026 | auto order - properties, item add-ons, and item properties |
 | 4.1.59 | 02/10/2026 | conversations - new method to look up an item with sparse variations |
 | 4.1.58 | 02/10/2026 | conversations - new method to look up an item with sparse variations. |
 | 4.1.57 | 02/03/2026 | conversations - pbx class of service objects and endpoints |
