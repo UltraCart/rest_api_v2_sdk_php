@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **original_order** | [**\ultracart\v2\models\Order**](Order.md) |  | [optional]
 **original_order_id** | **string** | The original order id that this auto order is associated with. | [optional]
 **override_affiliate_id** | **int** | Override the affiliate id given credit for rebills of this auto order | [optional]
+**properties** | [**\ultracart\v2\models\AutoOrderProperty[]**](AutoOrderProperty.md) | Array of property objects | [optional]
 **rebill_orders** | [**\ultracart\v2\models\Order[]**](Order.md) | Rebill orders that have taken place on this auto order | [optional]
 **rotating_transaction_gateway_code** | **string** | The RTG code associated with this order for future rebills | [optional]
 **status** | **string** | The status of the auto order | [optional]

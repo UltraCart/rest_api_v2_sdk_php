@@ -14,6 +14,9 @@ Method | HTTP request | Description
 [**getAutoOrdersByQuery()**](AutoOrderApi.md#getAutoOrdersByQuery) | **POST** /auto_order/auto_orders/query | Retrieve auto orders by query
 [**pauseAutoOrder()**](AutoOrderApi.md#pauseAutoOrder) | **PUT** /auto_order/auto_orders/{auto_order_oid}/pause | Pause auto order
 [**updateAutoOrder()**](AutoOrderApi.md#updateAutoOrder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
+[**updateAutoOrderItemAddOns()**](AutoOrderApi.md#updateAutoOrderItemAddOns) | **PUT** /auto_order/auto_orders/{auto_order_oid}/items/{auto_order_item_oid}/add_ons | Update an auto order item add ons
+[**updateAutoOrderItemProperties()**](AutoOrderApi.md#updateAutoOrderItemProperties) | **PUT** /auto_order/auto_orders/{auto_order_oid}/items/{auto_order_item_oid}/properties | Update an auto order item properties
+[**updateAutoOrderProperties()**](AutoOrderApi.md#updateAutoOrderProperties) | **PUT** /auto_order/auto_orders/{auto_order_oid}/properties | Update an auto order properties
 [**updateAutoOrdersBatch()**](AutoOrderApi.md#updateAutoOrdersBatch) | **PUT** /auto_order/auto_orders/batch | Update multiple auto orders
 
 
@@ -1117,6 +1120,134 @@ Name | Type | Description  | Notes
  **auto_order_oid** | **int**| The auto order oid to update. |
  **auto_order** | [**\ultracart\v2\models\AutoOrder**](../Model/AutoOrder.md)| Auto order to update |
  **validate_original_order** | **string**| Validate original order before updating | [optional]
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\AutoOrderResponse**](../Model/AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateAutoOrderItemAddOns()`
+
+```php
+updateAutoOrderItemAddOns($auto_order_oid, $auto_order_item_oid, $auto_order_add_ons_update_request, $_expand): \ultracart\v2\models\AutoOrderResponse
+```
+
+Update an auto order item add ons
+
+Update an auto order item add ons.  Returns the auto order based upon expansion
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **auto_order_oid** | **int**| The auto order oid to update. |
+ **auto_order_item_oid** | **int**| The auto order item oid to update. |
+ **auto_order_add_ons_update_request** | [**\ultracart\v2\models\AutoOrderAddonItemsUpdateRequest**](../Model/AutoOrderAddonItemsUpdateRequest.md)| Auto order add ons update request |
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\AutoOrderResponse**](../Model/AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateAutoOrderItemProperties()`
+
+```php
+updateAutoOrderItemProperties($auto_order_oid, $auto_order_item_oid, $auto_order_properties_update_request, $_expand): \ultracart\v2\models\AutoOrderResponse
+```
+
+Update an auto order item properties
+
+Update an auto order item properties.  Returns the auto order based upon expansion
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **auto_order_oid** | **int**| The auto order oid to update. |
+ **auto_order_item_oid** | **int**| The auto order item oid to update. |
+ **auto_order_properties_update_request** | [**\ultracart\v2\models\AutoOrderPropertiesUpdateRequest**](../Model/AutoOrderPropertiesUpdateRequest.md)| Auto order property update request |
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\AutoOrderResponse**](../Model/AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateAutoOrderProperties()`
+
+```php
+updateAutoOrderProperties($auto_order_oid, $auto_order_properties_update_request, $_expand): \ultracart\v2\models\AutoOrderResponse
+```
+
+Update an auto order properties
+
+Update an auto order properties.  Returns the auto order based upon expansion
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **auto_order_oid** | **int**| The auto order oid to update. |
+ **auto_order_properties_update_request** | [**\ultracart\v2\models\AutoOrderPropertiesUpdateRequest**](../Model/AutoOrderPropertiesUpdateRequest.md)| Auto order property update request |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type

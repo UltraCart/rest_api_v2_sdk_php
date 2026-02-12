@@ -48,6 +48,7 @@ docs/Model/ApplyLibraryItemResponse.md
 docs/Model/AutoOrder.md
 docs/Model/AutoOrderAddonItem.md
 docs/Model/AutoOrderAddonItemOption.md
+docs/Model/AutoOrderAddonItemsUpdateRequest.md
 docs/Model/AutoOrderConsolidate.md
 docs/Model/AutoOrderItem.md
 docs/Model/AutoOrderItemFutureSchedule.md
@@ -55,6 +56,8 @@ docs/Model/AutoOrderItemOption.md
 docs/Model/AutoOrderItemSimpleSchedule.md
 docs/Model/AutoOrderLog.md
 docs/Model/AutoOrderManagement.md
+docs/Model/AutoOrderPropertiesUpdateRequest.md
+docs/Model/AutoOrderProperty.md
 docs/Model/AutoOrderQuery.md
 docs/Model/AutoOrderQueryBatch.md
 docs/Model/AutoOrderResponse.md
@@ -645,6 +648,8 @@ docs/Model/ItemInternal.md
 docs/Model/ItemInventorySnapshot.md
 docs/Model/ItemInventorySnapshotDistributionCenter.md
 docs/Model/ItemInventorySnapshotResponse.md
+docs/Model/ItemInventoryUpdate.md
+docs/Model/ItemInventoryUpdateRequest.md
 docs/Model/ItemKitComponent.md
 docs/Model/ItemKitDefinition.md
 docs/Model/ItemOption.md
@@ -676,6 +681,7 @@ docs/Model/ItemShippingCase.md
 docs/Model/ItemShippingDestinationMarkup.md
 docs/Model/ItemShippingDestinationRestriction.md
 docs/Model/ItemShippingDistributionCenter.md
+docs/Model/ItemShippingDistributionCenterResponse.md
 docs/Model/ItemShippingMethod.md
 docs/Model/ItemShippingPackageRequirement.md
 docs/Model/ItemTag.md
@@ -713,6 +719,7 @@ docs/Model/Notification.md
 docs/Model/OauthRevokeSuccessResponse.md
 docs/Model/OauthTokenResponse.md
 docs/Model/Order.md
+docs/Model/OrderAddItemsAndReleaseRequest.md
 docs/Model/OrderAffiliate.md
 docs/Model/OrderAffiliateLedger.md
 docs/Model/OrderAssignToAffiliateRequest.md
@@ -1014,6 +1021,7 @@ lib/models/ApplyLibraryItemResponse.php
 lib/models/AutoOrder.php
 lib/models/AutoOrderAddonItem.php
 lib/models/AutoOrderAddonItemOption.php
+lib/models/AutoOrderAddonItemsUpdateRequest.php
 lib/models/AutoOrderConsolidate.php
 lib/models/AutoOrderItem.php
 lib/models/AutoOrderItemFutureSchedule.php
@@ -1021,6 +1029,8 @@ lib/models/AutoOrderItemOption.php
 lib/models/AutoOrderItemSimpleSchedule.php
 lib/models/AutoOrderLog.php
 lib/models/AutoOrderManagement.php
+lib/models/AutoOrderPropertiesUpdateRequest.php
+lib/models/AutoOrderProperty.php
 lib/models/AutoOrderQuery.php
 lib/models/AutoOrderQueryBatch.php
 lib/models/AutoOrderResponse.php
@@ -1611,6 +1621,8 @@ lib/models/ItemInternal.php
 lib/models/ItemInventorySnapshot.php
 lib/models/ItemInventorySnapshotDistributionCenter.php
 lib/models/ItemInventorySnapshotResponse.php
+lib/models/ItemInventoryUpdate.php
+lib/models/ItemInventoryUpdateRequest.php
 lib/models/ItemKitComponent.php
 lib/models/ItemKitDefinition.php
 lib/models/ItemOption.php
@@ -1642,6 +1654,7 @@ lib/models/ItemShippingCase.php
 lib/models/ItemShippingDestinationMarkup.php
 lib/models/ItemShippingDestinationRestriction.php
 lib/models/ItemShippingDistributionCenter.php
+lib/models/ItemShippingDistributionCenterResponse.php
 lib/models/ItemShippingMethod.php
 lib/models/ItemShippingPackageRequirement.php
 lib/models/ItemTag.php
@@ -1680,6 +1693,7 @@ lib/models/Notification.php
 lib/models/OauthRevokeSuccessResponse.php
 lib/models/OauthTokenResponse.php
 lib/models/Order.php
+lib/models/OrderAddItemsAndReleaseRequest.php
 lib/models/OrderAffiliate.php
 lib/models/OrderAffiliateLedger.php
 lib/models/OrderAssignToAffiliateRequest.php

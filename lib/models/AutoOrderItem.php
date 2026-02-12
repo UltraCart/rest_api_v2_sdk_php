@@ -58,6 +58,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'add_ons' => '\ultracart\v2\models\AutoOrderAddonItem[]',
         'arbitrary_item_id' => 'string',
         'arbitrary_percentage_discount' => 'float',
         'arbitrary_quantity' => 'float',
@@ -83,6 +84,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'paypal_payer_id' => 'string',
         'paypal_recurring_payment_profile_id' => 'string',
         'preshipment_notice_sent' => 'bool',
+        'properties' => '\ultracart\v2\models\AutoOrderProperty[]',
         'rebill_value' => 'float',
         'remaining_repeat_count' => 'int',
         'simple_schedule' => '\ultracart\v2\models\AutoOrderItemSimpleSchedule'
@@ -96,6 +98,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'add_ons' => null,
         'arbitrary_item_id' => null,
         'arbitrary_percentage_discount' => null,
         'arbitrary_quantity' => null,
@@ -121,6 +124,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'paypal_payer_id' => null,
         'paypal_recurring_payment_profile_id' => null,
         'preshipment_notice_sent' => null,
+        'properties' => null,
         'rebill_value' => null,
         'remaining_repeat_count' => 'int32',
         'simple_schedule' => null
@@ -153,6 +157,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'add_ons' => 'add_ons',
         'arbitrary_item_id' => 'arbitrary_item_id',
         'arbitrary_percentage_discount' => 'arbitrary_percentage_discount',
         'arbitrary_quantity' => 'arbitrary_quantity',
@@ -178,6 +183,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'paypal_payer_id' => 'paypal_payer_id',
         'paypal_recurring_payment_profile_id' => 'paypal_recurring_payment_profile_id',
         'preshipment_notice_sent' => 'preshipment_notice_sent',
+        'properties' => 'properties',
         'rebill_value' => 'rebill_value',
         'remaining_repeat_count' => 'remaining_repeat_count',
         'simple_schedule' => 'simple_schedule'
@@ -189,6 +195,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'add_ons' => 'setAddOns',
         'arbitrary_item_id' => 'setArbitraryItemId',
         'arbitrary_percentage_discount' => 'setArbitraryPercentageDiscount',
         'arbitrary_quantity' => 'setArbitraryQuantity',
@@ -214,6 +221,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'paypal_payer_id' => 'setPaypalPayerId',
         'paypal_recurring_payment_profile_id' => 'setPaypalRecurringPaymentProfileId',
         'preshipment_notice_sent' => 'setPreshipmentNoticeSent',
+        'properties' => 'setProperties',
         'rebill_value' => 'setRebillValue',
         'remaining_repeat_count' => 'setRemainingRepeatCount',
         'simple_schedule' => 'setSimpleSchedule'
@@ -225,6 +233,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'add_ons' => 'getAddOns',
         'arbitrary_item_id' => 'getArbitraryItemId',
         'arbitrary_percentage_discount' => 'getArbitraryPercentageDiscount',
         'arbitrary_quantity' => 'getArbitraryQuantity',
@@ -250,6 +259,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'paypal_payer_id' => 'getPaypalPayerId',
         'paypal_recurring_payment_profile_id' => 'getPaypalRecurringPaymentProfileId',
         'preshipment_notice_sent' => 'getPreshipmentNoticeSent',
+        'properties' => 'getProperties',
         'rebill_value' => 'getRebillValue',
         'remaining_repeat_count' => 'getRemainingRepeatCount',
         'simple_schedule' => 'getSimpleSchedule'
@@ -357,6 +367,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->container['add_ons'] = $data['add_ons'] ?? null;
         $this->container['arbitrary_item_id'] = $data['arbitrary_item_id'] ?? null;
         $this->container['arbitrary_percentage_discount'] = $data['arbitrary_percentage_discount'] ?? null;
         $this->container['arbitrary_quantity'] = $data['arbitrary_quantity'] ?? null;
@@ -382,6 +393,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['paypal_payer_id'] = $data['paypal_payer_id'] ?? null;
         $this->container['paypal_recurring_payment_profile_id'] = $data['paypal_recurring_payment_profile_id'] ?? null;
         $this->container['preshipment_notice_sent'] = $data['preshipment_notice_sent'] ?? null;
+        $this->container['properties'] = $data['properties'] ?? null;
         $this->container['rebill_value'] = $data['rebill_value'] ?? null;
         $this->container['remaining_repeat_count'] = $data['remaining_repeat_count'] ?? null;
         $this->container['simple_schedule'] = $data['simple_schedule'] ?? null;
@@ -419,6 +431,30 @@ class AutoOrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets add_ons
+     *
+     * @return \ultracart\v2\models\AutoOrderAddonItem[]|null
+     */
+    public function getAddOns()
+    {
+        return $this->container['add_ons'];
+    }
+
+    /**
+     * Sets add_ons
+     *
+     * @param \ultracart\v2\models\AutoOrderAddonItem[]|null $add_ons Array of addon objects instructing which items to add to auto order and how many times they should be added.
+     *
+     * @return self
+     */
+    public function setAddOns($add_ons)
+    {
+        $this->container['add_ons'] = $add_ons;
+
+        return $this;
+    }
 
     /**
      * Gets arbitrary_item_id
@@ -1026,6 +1062,30 @@ class AutoOrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setPreshipmentNoticeSent($preshipment_notice_sent)
     {
         $this->container['preshipment_notice_sent'] = $preshipment_notice_sent;
+
+        return $this;
+    }
+
+    /**
+     * Gets properties
+     *
+     * @return \ultracart\v2\models\AutoOrderProperty[]|null
+     */
+    public function getProperties()
+    {
+        return $this->container['properties'];
+    }
+
+    /**
+     * Sets properties
+     *
+     * @param \ultracart\v2\models\AutoOrderProperty[]|null $properties Array of property objects
+     *
+     * @return self
+     */
+    public function setProperties($properties)
+    {
+        $this->container['properties'] = $properties;
 
         return $this;
     }

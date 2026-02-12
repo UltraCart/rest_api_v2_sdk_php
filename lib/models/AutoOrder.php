@@ -82,6 +82,7 @@ class AutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'original_order' => '\ultracart\v2\models\Order',
         'original_order_id' => 'string',
         'override_affiliate_id' => 'int',
+        'properties' => '\ultracart\v2\models\AutoOrderProperty[]',
         'rebill_orders' => '\ultracart\v2\models\Order[]',
         'rotating_transaction_gateway_code' => 'string',
         'status' => 'string'
@@ -119,6 +120,7 @@ class AutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'original_order' => null,
         'original_order_id' => null,
         'override_affiliate_id' => 'int32',
+        'properties' => null,
         'rebill_orders' => null,
         'rotating_transaction_gateway_code' => null,
         'status' => null
@@ -175,6 +177,7 @@ class AutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'original_order' => 'original_order',
         'original_order_id' => 'original_order_id',
         'override_affiliate_id' => 'override_affiliate_id',
+        'properties' => 'properties',
         'rebill_orders' => 'rebill_orders',
         'rotating_transaction_gateway_code' => 'rotating_transaction_gateway_code',
         'status' => 'status'
@@ -210,6 +213,7 @@ class AutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'original_order' => 'setOriginalOrder',
         'original_order_id' => 'setOriginalOrderId',
         'override_affiliate_id' => 'setOverrideAffiliateId',
+        'properties' => 'setProperties',
         'rebill_orders' => 'setRebillOrders',
         'rotating_transaction_gateway_code' => 'setRotatingTransactionGatewayCode',
         'status' => 'setStatus'
@@ -245,6 +249,7 @@ class AutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'original_order' => 'getOriginalOrder',
         'original_order_id' => 'getOriginalOrderId',
         'override_affiliate_id' => 'getOverrideAffiliateId',
+        'properties' => 'getProperties',
         'rebill_orders' => 'getRebillOrders',
         'rotating_transaction_gateway_code' => 'getRotatingTransactionGatewayCode',
         'status' => 'getStatus'
@@ -350,6 +355,7 @@ class AutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['original_order'] = $data['original_order'] ?? null;
         $this->container['original_order_id'] = $data['original_order_id'] ?? null;
         $this->container['override_affiliate_id'] = $data['override_affiliate_id'] ?? null;
+        $this->container['properties'] = $data['properties'] ?? null;
         $this->container['rebill_orders'] = $data['rebill_orders'] ?? null;
         $this->container['rotating_transaction_gateway_code'] = $data['rotating_transaction_gateway_code'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
@@ -960,6 +966,30 @@ class AutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setOverrideAffiliateId($override_affiliate_id)
     {
         $this->container['override_affiliate_id'] = $override_affiliate_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets properties
+     *
+     * @return \ultracart\v2\models\AutoOrderProperty[]|null
+     */
+    public function getProperties()
+    {
+        return $this->container['properties'];
+    }
+
+    /**
+     * Sets properties
+     *
+     * @param \ultracart\v2\models\AutoOrderProperty[]|null $properties Array of property objects
+     *
+     * @return self
+     */
+    public function setProperties($properties)
+    {
+        $this->container['properties'] = $properties;
 
         return $this;
     }

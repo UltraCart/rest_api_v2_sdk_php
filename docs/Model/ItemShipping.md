@@ -46,6 +46,7 @@ Name | Type | Description | Notes
 **restrict_shipment_on_thursday** | **bool** | Restrict shipment on Thursday | [optional]
 **restrict_shipment_on_tuesday** | **bool** | Restrict shipment on Tuesday | [optional]
 **restrict_shipment_on_wednesday** | **bool** | Restrict shipment on Wednesday | [optional]
+**send_to_hold_before_fulfillment** | **bool** | Send order to hold stage before fulfillment | [optional]
 **ship_separately** | **bool** | Ship this item in a separate box | [optional]
 **ship_separately_additional_weight** | [**\ultracart\v2\models\Weight**](Weight.md) |  | [optional]
 **ship_separately_height** | [**\ultracart\v2\models\Distance**](Distance.md) |  | [optional]

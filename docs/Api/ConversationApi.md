@@ -36,6 +36,7 @@ Method | HTTP request | Description
 [**getConversationDepartments()**](ConversationApi.md#getConversationDepartments) | **GET** /conversation/departments | Retrieve a list of departments ordered by name
 [**getConversationEngagement()**](ConversationApi.md#getConversationEngagement) | **GET** /conversation/engagements/{conversation_engagement_oid} | Retrieve an engagement
 [**getConversationEngagements()**](ConversationApi.md#getConversationEngagements) | **GET** /conversation/engagements | Retrieve a list of engagements ordered by name
+[**getConversationItemVariations()**](ConversationApi.md#getConversationItemVariations) | **GET** /conversation/items/{merchant_item_id}/variations | Retrieve an item with sparse variations populated
 [**getConversationKnowledgeBaseDocumentUploadUrl()**](ConversationApi.md#getConversationKnowledgeBaseDocumentUploadUrl) | **GET** /conversation/agent/profiles/{user_id}/knowledge_base/upload_url/{extension} | Get a pre-signed conversation knowledge base document upload URL
 [**getConversationMessages()**](ConversationApi.md#getConversationMessages) | **GET** /conversation/conversations/{conversation_uuid}/messages/{since} | Retrieve conversation messages
 [**getConversationMultimediaUploadUrl()**](ConversationApi.md#getConversationMultimediaUploadUrl) | **GET** /conversation/upload_url/{extension} | Get a presigned conversation multimedia upload URL
@@ -1406,6 +1407,46 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**\ultracart\v2\models\ConversationEngagementsResponse**](../Model/ConversationEngagementsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getConversationItemVariations()`
+
+```php
+getConversationItemVariations($merchant_item_id): \ultracart\v2\models\ItemResponse
+```
+
+Retrieve an item with sparse variations populated
+
+Retrieve an item with sparse variations populated
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchant_item_id** | **string**|  |
+
+### Return type
+
+[**\ultracart\v2\models\ItemResponse**](../Model/ItemResponse.md)
 
 ### Authorization
 

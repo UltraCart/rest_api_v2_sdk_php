@@ -24,6 +24,8 @@ Method | HTTP request | Description
 [**getOrders()**](OrderApi.md#getOrders) | **GET** /order/orders | Retrieve orders
 [**getOrdersBatch()**](OrderApi.md#getOrdersBatch) | **POST** /order/orders/batch | Retrieve order batch
 [**getOrdersByQuery()**](OrderApi.md#getOrdersByQuery) | **POST** /order/orders/query | Retrieve orders by query
+[**heldOrderAddItemsAndRelease()**](OrderApi.md#heldOrderAddItemsAndRelease) | **PUT** /order/orders/{order_id}/hold/add_items_and_release | Add items and release a held order
+[**heldOrderRelease()**](OrderApi.md#heldOrderRelease) | **PUT** /order/orders/{order_id}/hold/release | Release a held order
 [**insertOrder()**](OrderApi.md#insertOrder) | **POST** /order/orders | Insert an order
 [**isRefundableOrder()**](OrderApi.md#isRefundableOrder) | **GET** /order/orders/{order_id}/refundable | Determine if an order can be refunded
 [**processPayment()**](OrderApi.md#processPayment) | **POST** /order/orders/{order_id}/process_payment | Process payment
@@ -1688,6 +1690,89 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `heldOrderAddItemsAndRelease()`
+
+```php
+heldOrderAddItemsAndRelease($order_id, $add_items_and_release_request, $_expand): \ultracart\v2\models\OrderResponse
+```
+
+Add items and release a held order
+
+This method adds items to an order in the hold stage and releases it
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **string**| The order id to release. |
+ **add_items_and_release_request** | [**\ultracart\v2\models\OrderAddItemsAndReleaseRequest**](../Model/OrderAddItemsAndReleaseRequest.md)| Add items and release request |
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\OrderResponse**](../Model/OrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `heldOrderRelease()`
+
+```php
+heldOrderRelease($order_id, $_expand): \ultracart\v2\models\OrderResponse
+```
+
+Release a held order
+
+This method releases an order from the hold stage
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **string**| The order id to release. |
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\OrderResponse**](../Model/OrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
