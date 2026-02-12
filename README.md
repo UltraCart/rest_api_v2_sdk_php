@@ -1742,6 +1742,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.60 | 02/12/2026 | auto order - properties, item add-ons, and item properties |
 | 3.11.59 | 02/10/2026 | conversations - new method to look up an item with sparse variations |
 | 3.11.58 | 02/10/2026 | conversations - new method to look up an item with sparse variations. |
 | 3.11.57 | 02/03/2026 | conversations - pbx class of service objects and endpoints |
