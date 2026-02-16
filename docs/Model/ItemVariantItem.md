@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **variant_default_multimedia** | [**\ultracart\v2\models\ItemContentMultimedia**](ItemContentMultimedia.md) |  | [optional] 
 **variant_merchant_item_id** | **string** | Variant item id | [optional] 
 **variant_merchant_item_oid** | **int** | Variant item object identifier | [optional] 
+**variant_pricing** | [**\ultracart\v2\models\ItemPricing**](ItemPricing.md) |  | [optional] 
 **variation_options** | **string[]** | Variation options | [optional] 
 **variations** | **string[]** | Variations | [optional] 
 

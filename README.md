@@ -1758,6 +1758,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.65 | 02/16/2026 | item - include variant pricing in the response |
 | 3.11.64 | 02/16/2026 | conversation - fix pbx call transcript segment speaker enum for leading space |
 | 3.11.63 | 02/12/2026 | build automation issue |
 | 3.11.62 | 02/12/2026 | build automation run, no code changes |

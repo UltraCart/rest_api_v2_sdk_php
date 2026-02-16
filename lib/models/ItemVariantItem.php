@@ -62,6 +62,7 @@ class ItemVariantItem implements ModelInterface, ArrayAccess
         'variant_default_multimedia' => '\ultracart\v2\models\ItemContentMultimedia',
         'variant_merchant_item_id' => 'string',
         'variant_merchant_item_oid' => 'int',
+        'variant_pricing' => '\ultracart\v2\models\ItemPricing',
         'variation_options' => 'string[]',
         'variations' => 'string[]'
     ];
@@ -77,6 +78,7 @@ class ItemVariantItem implements ModelInterface, ArrayAccess
         'variant_default_multimedia' => null,
         'variant_merchant_item_id' => null,
         'variant_merchant_item_oid' => 'int32',
+        'variant_pricing' => null,
         'variation_options' => null,
         'variations' => null
     ];
@@ -113,6 +115,7 @@ class ItemVariantItem implements ModelInterface, ArrayAccess
         'variant_default_multimedia' => 'variant_default_multimedia',
         'variant_merchant_item_id' => 'variant_merchant_item_id',
         'variant_merchant_item_oid' => 'variant_merchant_item_oid',
+        'variant_pricing' => 'variant_pricing',
         'variation_options' => 'variation_options',
         'variations' => 'variations'
     ];
@@ -128,6 +131,7 @@ class ItemVariantItem implements ModelInterface, ArrayAccess
         'variant_default_multimedia' => 'setVariantDefaultMultimedia',
         'variant_merchant_item_id' => 'setVariantMerchantItemId',
         'variant_merchant_item_oid' => 'setVariantMerchantItemOid',
+        'variant_pricing' => 'setVariantPricing',
         'variation_options' => 'setVariationOptions',
         'variations' => 'setVariations'
     ];
@@ -143,6 +147,7 @@ class ItemVariantItem implements ModelInterface, ArrayAccess
         'variant_default_multimedia' => 'getVariantDefaultMultimedia',
         'variant_merchant_item_id' => 'getVariantMerchantItemId',
         'variant_merchant_item_oid' => 'getVariantMerchantItemOid',
+        'variant_pricing' => 'getVariantPricing',
         'variation_options' => 'getVariationOptions',
         'variations' => 'getVariations'
     ];
@@ -212,6 +217,7 @@ class ItemVariantItem implements ModelInterface, ArrayAccess
         $this->container['variant_default_multimedia'] = isset($data['variant_default_multimedia']) ? $data['variant_default_multimedia'] : null;
         $this->container['variant_merchant_item_id'] = isset($data['variant_merchant_item_id']) ? $data['variant_merchant_item_id'] : null;
         $this->container['variant_merchant_item_oid'] = isset($data['variant_merchant_item_oid']) ? $data['variant_merchant_item_oid'] : null;
+        $this->container['variant_pricing'] = isset($data['variant_pricing']) ? $data['variant_pricing'] : null;
         $this->container['variation_options'] = isset($data['variation_options']) ? $data['variation_options'] : null;
         $this->container['variations'] = isset($data['variations']) ? $data['variations'] : null;
     }
@@ -364,6 +370,30 @@ class ItemVariantItem implements ModelInterface, ArrayAccess
     public function setVariantMerchantItemOid($variant_merchant_item_oid)
     {
         $this->container['variant_merchant_item_oid'] = $variant_merchant_item_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets variant_pricing
+     *
+     * @return \ultracart\v2\models\ItemPricing
+     */
+    public function getVariantPricing()
+    {
+        return $this->container['variant_pricing'];
+    }
+
+    /**
+     * Sets variant_pricing
+     *
+     * @param \ultracart\v2\models\ItemPricing $variant_pricing variant_pricing
+     *
+     * @return $this
+     */
+    public function setVariantPricing($variant_pricing)
+    {
+        $this->container['variant_pricing'] = $variant_pricing;
 
         return $this;
     }
