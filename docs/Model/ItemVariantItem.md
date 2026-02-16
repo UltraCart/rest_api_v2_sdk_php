@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **description** | **string** | Description | [optional] 
 **merchant_item_multimedia_oid** | **int** | Multimedia object identifier | [optional] 
+**variant_default_multimedia** | [**\ultracart\v2\models\ItemContentMultimedia**](ItemContentMultimedia.md) |  | [optional] 
 **variant_merchant_item_id** | **string** | Variant item id | [optional] 
 **variant_merchant_item_oid** | **int** | Variant item object identifier | [optional] 
 **variation_options** | **string[]** | Variation options | [optional] 
