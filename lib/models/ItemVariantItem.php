@@ -60,6 +60,7 @@ class ItemVariantItem implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'description' => 'string',
         'merchant_item_multimedia_oid' => 'int',
+        'variant_default_multimedia' => '\ultracart\v2\models\ItemContentMultimedia',
         'variant_merchant_item_id' => 'string',
         'variant_merchant_item_oid' => 'int',
         'variation_options' => 'string[]',
@@ -76,6 +77,7 @@ class ItemVariantItem implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'description' => null,
         'merchant_item_multimedia_oid' => 'int32',
+        'variant_default_multimedia' => null,
         'variant_merchant_item_id' => null,
         'variant_merchant_item_oid' => 'int32',
         'variation_options' => null,
@@ -111,6 +113,7 @@ class ItemVariantItem implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'description' => 'description',
         'merchant_item_multimedia_oid' => 'merchant_item_multimedia_oid',
+        'variant_default_multimedia' => 'variant_default_multimedia',
         'variant_merchant_item_id' => 'variant_merchant_item_id',
         'variant_merchant_item_oid' => 'variant_merchant_item_oid',
         'variation_options' => 'variation_options',
@@ -125,6 +128,7 @@ class ItemVariantItem implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'description' => 'setDescription',
         'merchant_item_multimedia_oid' => 'setMerchantItemMultimediaOid',
+        'variant_default_multimedia' => 'setVariantDefaultMultimedia',
         'variant_merchant_item_id' => 'setVariantMerchantItemId',
         'variant_merchant_item_oid' => 'setVariantMerchantItemOid',
         'variation_options' => 'setVariationOptions',
@@ -139,6 +143,7 @@ class ItemVariantItem implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'description' => 'getDescription',
         'merchant_item_multimedia_oid' => 'getMerchantItemMultimediaOid',
+        'variant_default_multimedia' => 'getVariantDefaultMultimedia',
         'variant_merchant_item_id' => 'getVariantMerchantItemId',
         'variant_merchant_item_oid' => 'getVariantMerchantItemOid',
         'variation_options' => 'getVariationOptions',
@@ -204,6 +209,7 @@ class ItemVariantItem implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->container['description'] = $data['description'] ?? null;
         $this->container['merchant_item_multimedia_oid'] = $data['merchant_item_multimedia_oid'] ?? null;
+        $this->container['variant_default_multimedia'] = $data['variant_default_multimedia'] ?? null;
         $this->container['variant_merchant_item_id'] = $data['variant_merchant_item_id'] ?? null;
         $this->container['variant_merchant_item_oid'] = $data['variant_merchant_item_oid'] ?? null;
         $this->container['variation_options'] = $data['variation_options'] ?? null;
@@ -286,6 +292,30 @@ class ItemVariantItem implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setMerchantItemMultimediaOid($merchant_item_multimedia_oid)
     {
         $this->container['merchant_item_multimedia_oid'] = $merchant_item_multimedia_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets variant_default_multimedia
+     *
+     * @return \ultracart\v2\models\ItemContentMultimedia|null
+     */
+    public function getVariantDefaultMultimedia()
+    {
+        return $this->container['variant_default_multimedia'];
+    }
+
+    /**
+     * Sets variant_default_multimedia
+     *
+     * @param \ultracart\v2\models\ItemContentMultimedia|null $variant_default_multimedia variant_default_multimedia
+     *
+     * @return self
+     */
+    public function setVariantDefaultMultimedia($variant_default_multimedia)
+    {
+        $this->container['variant_default_multimedia'] = $variant_default_multimedia;
 
         return $this;
     }

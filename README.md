@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.63"
+    "ultracart/rest_api_v2_sdk_php": "4.1.64"
   }
 }
 ```
@@ -1711,6 +1711,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.64 | 02/16/2026 | conversation - fix pbx call transcript segment speaker enum for leading space |
 | 4.1.63 | 02/12/2026 | build automation issue |
 | 4.1.62 | 02/12/2026 | build automation run, no code changes |
 | 4.1.61 | 02/12/2026 | order - methods to release held orders |
