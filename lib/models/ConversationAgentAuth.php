@@ -61,6 +61,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess
         'chat_user' => 'bool',
         'conversation_participant_arn' => 'string',
         'conversation_participant_name' => 'string',
+        'customer_profile' => 'bool',
         'default_phone_number' => 'string',
         'group_ids' => 'int[]',
         'jwt' => 'string',
@@ -88,6 +89,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess
         'chat_user' => null,
         'conversation_participant_arn' => null,
         'conversation_participant_name' => null,
+        'customer_profile' => null,
         'default_phone_number' => null,
         'group_ids' => null,
         'jwt' => null,
@@ -136,6 +138,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess
         'chat_user' => 'chat_user',
         'conversation_participant_arn' => 'conversation_participant_arn',
         'conversation_participant_name' => 'conversation_participant_name',
+        'customer_profile' => 'customer_profile',
         'default_phone_number' => 'default_phone_number',
         'group_ids' => 'group_ids',
         'jwt' => 'jwt',
@@ -163,6 +166,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess
         'chat_user' => 'setChatUser',
         'conversation_participant_arn' => 'setConversationParticipantArn',
         'conversation_participant_name' => 'setConversationParticipantName',
+        'customer_profile' => 'setCustomerProfile',
         'default_phone_number' => 'setDefaultPhoneNumber',
         'group_ids' => 'setGroupIds',
         'jwt' => 'setJwt',
@@ -190,6 +194,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess
         'chat_user' => 'getChatUser',
         'conversation_participant_arn' => 'getConversationParticipantArn',
         'conversation_participant_name' => 'getConversationParticipantName',
+        'customer_profile' => 'getCustomerProfile',
         'default_phone_number' => 'getDefaultPhoneNumber',
         'group_ids' => 'getGroupIds',
         'jwt' => 'getJwt',
@@ -271,6 +276,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess
         $this->container['chat_user'] = isset($data['chat_user']) ? $data['chat_user'] : null;
         $this->container['conversation_participant_arn'] = isset($data['conversation_participant_arn']) ? $data['conversation_participant_arn'] : null;
         $this->container['conversation_participant_name'] = isset($data['conversation_participant_name']) ? $data['conversation_participant_name'] : null;
+        $this->container['customer_profile'] = isset($data['customer_profile']) ? $data['customer_profile'] : null;
         $this->container['default_phone_number'] = isset($data['default_phone_number']) ? $data['default_phone_number'] : null;
         $this->container['group_ids'] = isset($data['group_ids']) ? $data['group_ids'] : null;
         $this->container['jwt'] = isset($data['jwt']) ? $data['jwt'] : null;
@@ -404,6 +410,30 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess
     public function setConversationParticipantName($conversation_participant_name)
     {
         $this->container['conversation_participant_name'] = $conversation_participant_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets customer_profile
+     *
+     * @return bool
+     */
+    public function getCustomerProfile()
+    {
+        return $this->container['customer_profile'];
+    }
+
+    /**
+     * Sets customer_profile
+     *
+     * @param bool $customer_profile customer_profile
+     *
+     * @return $this
+     */
+    public function setCustomerProfile($customer_profile)
+    {
+        $this->container['customer_profile'] = $customer_profile;
 
         return $this;
     }
