@@ -1829,7 +1829,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Sets referral_source
      *
-     * @param string $referral_source Referral Source
+     * @param string $referral_source Referral Source specified on the wholesale customer signup form.  No other meaning than that signup flow.
      *
      * @return $this
      */

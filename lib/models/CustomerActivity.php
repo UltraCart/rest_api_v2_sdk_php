@@ -63,6 +63,8 @@ class CustomerActivity implements ModelInterface, ArrayAccess
         'memberships' => '\ultracart\v2\models\ListSegmentMembership[]',
         'metrics' => '\ultracart\v2\models\Metric[]',
         'properties_list' => '\ultracart\v2\models\Property[]',
+        'sms' => 'string',
+        'sms_stop' => 'bool',
         'spam_complaint' => 'bool',
         'spam_complaint_dts' => 'string'
     ];
@@ -79,6 +81,8 @@ class CustomerActivity implements ModelInterface, ArrayAccess
         'memberships' => null,
         'metrics' => null,
         'properties_list' => null,
+        'sms' => null,
+        'sms_stop' => null,
         'spam_complaint' => null,
         'spam_complaint_dts' => null
     ];
@@ -116,6 +120,8 @@ class CustomerActivity implements ModelInterface, ArrayAccess
         'memberships' => 'memberships',
         'metrics' => 'metrics',
         'properties_list' => 'properties_list',
+        'sms' => 'sms',
+        'sms_stop' => 'sms_stop',
         'spam_complaint' => 'spam_complaint',
         'spam_complaint_dts' => 'spam_complaint_dts'
     ];
@@ -132,6 +138,8 @@ class CustomerActivity implements ModelInterface, ArrayAccess
         'memberships' => 'setMemberships',
         'metrics' => 'setMetrics',
         'properties_list' => 'setPropertiesList',
+        'sms' => 'setSms',
+        'sms_stop' => 'setSmsStop',
         'spam_complaint' => 'setSpamComplaint',
         'spam_complaint_dts' => 'setSpamComplaintDts'
     ];
@@ -148,6 +156,8 @@ class CustomerActivity implements ModelInterface, ArrayAccess
         'memberships' => 'getMemberships',
         'metrics' => 'getMetrics',
         'properties_list' => 'getPropertiesList',
+        'sms' => 'getSms',
+        'sms_stop' => 'getSmsStop',
         'spam_complaint' => 'getSpamComplaint',
         'spam_complaint_dts' => 'getSpamComplaintDts'
     ];
@@ -218,6 +228,8 @@ class CustomerActivity implements ModelInterface, ArrayAccess
         $this->container['memberships'] = isset($data['memberships']) ? $data['memberships'] : null;
         $this->container['metrics'] = isset($data['metrics']) ? $data['metrics'] : null;
         $this->container['properties_list'] = isset($data['properties_list']) ? $data['properties_list'] : null;
+        $this->container['sms'] = isset($data['sms']) ? $data['sms'] : null;
+        $this->container['sms_stop'] = isset($data['sms_stop']) ? $data['sms_stop'] : null;
         $this->container['spam_complaint'] = isset($data['spam_complaint']) ? $data['spam_complaint'] : null;
         $this->container['spam_complaint_dts'] = isset($data['spam_complaint_dts']) ? $data['spam_complaint_dts'] : null;
     }
@@ -386,6 +398,54 @@ class CustomerActivity implements ModelInterface, ArrayAccess
     public function setPropertiesList($properties_list)
     {
         $this->container['properties_list'] = $properties_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms
+     *
+     * @return string
+     */
+    public function getSms()
+    {
+        return $this->container['sms'];
+    }
+
+    /**
+     * Sets sms
+     *
+     * @param string $sms sms
+     *
+     * @return $this
+     */
+    public function setSms($sms)
+    {
+        $this->container['sms'] = $sms;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_stop
+     *
+     * @return bool
+     */
+    public function getSmsStop()
+    {
+        return $this->container['sms_stop'];
+    }
+
+    /**
+     * Sets sms_stop
+     *
+     * @param bool $sms_stop sms_stop
+     *
+     * @return $this
+     */
+    public function setSmsStop($sms_stop)
+    {
+        $this->container['sms_stop'] = $sms_stop;
 
         return $this;
     }

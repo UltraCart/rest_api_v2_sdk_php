@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **memberships** | [**\ultracart\v2\models\ListSegmentMembership[]**](ListSegmentMembership.md) |  | [optional] 
 **metrics** | [**\ultracart\v2\models\Metric[]**](Metric.md) |  | [optional] 
 **properties_list** | [**\ultracart\v2\models\Property[]**](Property.md) |  | [optional] 
+**sms** | **string** |  | [optional] 
+**sms_stop** | **bool** |  | [optional] 
 **spam_complaint** | **bool** |  | [optional] 
 **spam_complaint_dts** | **string** |  | [optional] 
 

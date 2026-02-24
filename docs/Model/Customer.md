@@ -51,7 +51,7 @@ Name | Type | Description | Notes
 **qb_tax_exemption_reason_code** | **int** | QuickBooks tax exemption reason code | [optional] 
 **quotes** | [**\ultracart\v2\models\Order[]**](Order.md) | Quotes associated with this customer profile | [optional] 
 **quotes_summary** | [**\ultracart\v2\models\CustomerQuotesSummary**](CustomerQuotesSummary.md) |  | [optional] 
-**referral_source** | **string** | Referral Source | [optional] 
+**referral_source** | **string** | Referral Source specified on the wholesale customer signup form.  No other meaning than that signup flow. | [optional] 
 **reviewer** | [**\ultracart\v2\models\CustomerReviewer**](CustomerReviewer.md) |  | [optional] 
 **sales_rep_code** | **string** | Sales rep code | [optional] 
 **send_signup_notification** | **bool** | Send signup notification, if true during customer creation, will send a notification. | [optional] 
