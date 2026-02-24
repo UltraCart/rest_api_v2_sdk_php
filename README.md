@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.66"
+    "ultracart/rest_api_v2_sdk_php": "4.1.67"
   }
 }
 ```
@@ -1711,6 +1711,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.67 | 02/24/2026 | customer activity - sms and sms_stop fields added |
 | 4.1.66 | 02/18/2026 | conversations - agent auth customer_profile flag |
 | 4.1.65 | 02/16/2026 | item - include variant pricing in the response |
 | 4.1.64 | 02/16/2026 | conversation - fix pbx call transcript segment speaker enum for leading space |

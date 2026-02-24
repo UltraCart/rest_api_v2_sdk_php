@@ -1829,7 +1829,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets referral_source
      *
-     * @param string|null $referral_source Referral Source
+     * @param string|null $referral_source Referral Source specified on the wholesale customer signup form.  No other meaning than that signup flow.
      *
      * @return self
      */
