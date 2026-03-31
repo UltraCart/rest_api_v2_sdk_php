@@ -21,6 +21,7 @@ Method | HTTP request | Description
 [**deletePbxTimeBased()**](ConversationApi.md#deletePbxTimeBased) | **DELETE** /conversation/pbx/time_based/{conversationPbxTimeBasedUuid} | Delete pbx timeBased
 [**deletePbxTimeRange()**](ConversationApi.md#deletePbxTimeRange) | **DELETE** /conversation/pbx/time_range/{conversationPbxTimeRangeUuid} | Delete pbx timeRange
 [**deletePbxVoicemailMailbox()**](ConversationApi.md#deletePbxVoicemailMailbox) | **DELETE** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Delete pbx voicemailMailbox
+[**deleteUserPbxAudio()**](ConversationApi.md#deleteUserPbxAudio) | **DELETE** /conversation/pbx/audio/user/{conversationPbxAudioUuid} | Delete user pbx audio
 [**getAgentKeepAlive()**](ConversationApi.md#getAgentKeepAlive) | **GET** /conversation/agent/keepalive | Agent keep alive
 [**getAgentProfile()**](ConversationApi.md#getAgentProfile) | **GET** /conversation/agent/profile | Get agent profile
 [**getAgentProfileKnowledgeBase()**](ConversationApi.md#getAgentProfileKnowledgeBase) | **GET** /conversation/agent/profiles/{user_id}/knowledge_base | Get the list of knowledge base documents associated with this agent profile
@@ -78,6 +79,8 @@ Method | HTTP request | Description
 [**getPbxTimeRanges()**](ConversationApi.md#getPbxTimeRanges) | **GET** /conversation/pbx/time_range | Get pbx timeRanges
 [**getPbxVoicemailMailbox()**](ConversationApi.md#getPbxVoicemailMailbox) | **GET** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Get pbx voicemailMailbox
 [**getPbxVoicemailMailboxes()**](ConversationApi.md#getPbxVoicemailMailboxes) | **GET** /conversation/pbx/voicemail_mailbox | Get pbx voicemailMailboxes
+[**getUserPbxAudio()**](ConversationApi.md#getUserPbxAudio) | **GET** /conversation/pbx/audio/user/{conversationPbxAudioUuid} | Get user pbx audio
+[**getUserPbxAudios()**](ConversationApi.md#getUserPbxAudios) | **GET** /conversation/pbx/audio/user | Get user pbx audios
 [**getVirtualAgentBudget()**](ConversationApi.md#getVirtualAgentBudget) | **GET** /conversation/virtualagent/budget | Get virtual agent budget
 [**getVirtualAgentCapabilities()**](ConversationApi.md#getVirtualAgentCapabilities) | **GET** /conversation/virtualagent/capabilities | Get virtual agent capabilities
 [**insertAgentProfileKnowledgeBaseDocument()**](ConversationApi.md#insertAgentProfileKnowledgeBaseDocument) | **POST** /conversation/agent/profiles/{user_id}/knowledge_base | Insert a knowledge base document
@@ -94,6 +97,7 @@ Method | HTTP request | Description
 [**insertPbxTimeBased()**](ConversationApi.md#insertPbxTimeBased) | **POST** /conversation/pbx/time_based | Insert pbx timeBased
 [**insertPbxTimeRange()**](ConversationApi.md#insertPbxTimeRange) | **POST** /conversation/pbx/time_range | Insert pbx timeRange
 [**insertPbxVoicemailMailbox()**](ConversationApi.md#insertPbxVoicemailMailbox) | **POST** /conversation/pbx/voicemail_mailbox | Insert pbx voicemailMailbox
+[**insertUserPbxAudio()**](ConversationApi.md#insertUserPbxAudio) | **POST** /conversation/pbx/audio/user | Insert user pbx audio
 [**joinConversation()**](ConversationApi.md#joinConversation) | **PUT** /conversation/conversations/{conversation_uuid}/join | Join a conversation
 [**leaveConversation()**](ConversationApi.md#leaveConversation) | **DELETE** /conversation/conversations/{conversation_uuid}/leave | Leave a conversation
 [**listenedPbxAgentVoicemail()**](ConversationApi.md#listenedPbxAgentVoicemail) | **GET** /conversation/pbx/agent/voicemails/{recording_sid}/listened | Listened Agent Voicemail
@@ -125,6 +129,7 @@ Method | HTTP request | Description
 [**updatePbxTimeBased()**](ConversationApi.md#updatePbxTimeBased) | **PUT** /conversation/pbx/time_based/{conversationPbxTimeBasedUuid} | Update pbx timeBased
 [**updatePbxTimeRange()**](ConversationApi.md#updatePbxTimeRange) | **PUT** /conversation/pbx/time_range/{conversationPbxTimeRangeUuid} | Update pbx timeRange
 [**updatePbxVoicemailMailbox()**](ConversationApi.md#updatePbxVoicemailMailbox) | **PUT** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Update pbx voicemailMailbox
+[**updateUserPbxAudio()**](ConversationApi.md#updateUserPbxAudio) | **PUT** /conversation/pbx/audio/user/{conversationPbxAudioUuid} | Update user pbx audio
 [**updateVirtualAgentBudget()**](ConversationApi.md#updateVirtualAgentBudget) | **PUT** /conversation/virtualagent/budget | Update virtual agent budget
 [**updateVirtualAgentCapabilities()**](ConversationApi.md#updateVirtualAgentCapabilities) | **PUT** /conversation/virtualagent/capabilities | Update virtual agent capabilities
 
@@ -810,6 +815,46 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\ConversationPbxVoicemailMailboxResponse**](../Model/ConversationPbxVoicemailMailboxResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteUserPbxAudio()`
+
+```php
+deleteUserPbxAudio($conversation_pbx_audio_uuid): \ultracart\v2\models\ConversationPbxAudioResponse
+```
+
+Delete user pbx audio
+
+Delete a pbx audio file owned by the authenticated user
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **conversation_pbx_audio_uuid** | **string**|  |
+
+### Return type
+
+[**\ultracart\v2\models\ConversationPbxAudioResponse**](../Model/ConversationPbxAudioResponse.md)
 
 ### Authorization
 
@@ -3110,6 +3155,84 @@ This endpoint does not need any parameter.
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getUserPbxAudio()`
+
+```php
+getUserPbxAudio($conversation_pbx_audio_uuid): \ultracart\v2\models\ConversationPbxAudioResponse
+```
+
+Get user pbx audio
+
+Retrieve a pbx audio file owned by the authenticated user
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **conversation_pbx_audio_uuid** | **string**|  |
+
+### Return type
+
+[**\ultracart\v2\models\ConversationPbxAudioResponse**](../Model/ConversationPbxAudioResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getUserPbxAudios()`
+
+```php
+getUserPbxAudios(): \ultracart\v2\models\ConversationPbxAudiosResponse
+```
+
+Get user pbx audios
+
+Retrieve pbx audio files owned by the authenticated user
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\ultracart\v2\models\ConversationPbxAudiosResponse**](../Model/ConversationPbxAudiosResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getVirtualAgentBudget()`
 
 ```php
@@ -3743,6 +3866,46 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\ConversationPbxVoicemailMailboxResponse**](../Model/ConversationPbxVoicemailMailboxResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `insertUserPbxAudio()`
+
+```php
+insertUserPbxAudio($pbx_audio): \ultracart\v2\models\ConversationPbxAudioResponse
+```
+
+Insert user pbx audio
+
+Insert a pbx audio file for the authenticated user
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pbx_audio** | [**\ultracart\v2\models\ConversationPbxAudio**](../Model/ConversationPbxAudio.md)| Pbx Audio |
+
+### Return type
+
+[**\ultracart\v2\models\ConversationPbxAudioResponse**](../Model/ConversationPbxAudioResponse.md)
 
 ### Authorization
 
@@ -5034,6 +5197,47 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\ConversationPbxVoicemailMailboxResponse**](../Model/ConversationPbxVoicemailMailboxResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateUserPbxAudio()`
+
+```php
+updateUserPbxAudio($conversation_pbx_audio_uuid, $pbx_audio): \ultracart\v2\models\ConversationPbxAudioResponse
+```
+
+Update user pbx audio
+
+Update a pbx audio file owned by the authenticated user
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **conversation_pbx_audio_uuid** | **string**|  |
+ **pbx_audio** | [**\ultracart\v2\models\ConversationPbxAudio**](../Model/ConversationPbxAudio.md)| Pbx Audio |
+
+### Return type
+
+[**\ultracart\v2\models\ConversationPbxAudioResponse**](../Model/ConversationPbxAudioResponse.md)
 
 ### Authorization
 

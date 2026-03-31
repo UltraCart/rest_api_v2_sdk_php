@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.68"
+    "ultracart/rest_api_v2_sdk_php": "4.1.69"
   }
 }
 ```
@@ -164,6 +164,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**deletePbxTimeBased**](docs/Api/ConversationApi.md#deletepbxtimebased) | **DELETE** /conversation/pbx/time_based/{conversationPbxTimeBasedUuid} | Delete pbx timeBased
 *ConversationApi* | [**deletePbxTimeRange**](docs/Api/ConversationApi.md#deletepbxtimerange) | **DELETE** /conversation/pbx/time_range/{conversationPbxTimeRangeUuid} | Delete pbx timeRange
 *ConversationApi* | [**deletePbxVoicemailMailbox**](docs/Api/ConversationApi.md#deletepbxvoicemailmailbox) | **DELETE** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Delete pbx voicemailMailbox
+*ConversationApi* | [**deleteUserPbxAudio**](docs/Api/ConversationApi.md#deleteuserpbxaudio) | **DELETE** /conversation/pbx/audio/user/{conversationPbxAudioUuid} | Delete user pbx audio
 *ConversationApi* | [**getAgentKeepAlive**](docs/Api/ConversationApi.md#getagentkeepalive) | **GET** /conversation/agent/keepalive | Agent keep alive
 *ConversationApi* | [**getAgentProfile**](docs/Api/ConversationApi.md#getagentprofile) | **GET** /conversation/agent/profile | Get agent profile
 *ConversationApi* | [**getAgentProfileKnowledgeBase**](docs/Api/ConversationApi.md#getagentprofileknowledgebase) | **GET** /conversation/agent/profiles/{user_id}/knowledge_base | Get the list of knowledge base documents associated with this agent profile
@@ -221,6 +222,8 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getPbxTimeRanges**](docs/Api/ConversationApi.md#getpbxtimeranges) | **GET** /conversation/pbx/time_range | Get pbx timeRanges
 *ConversationApi* | [**getPbxVoicemailMailbox**](docs/Api/ConversationApi.md#getpbxvoicemailmailbox) | **GET** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Get pbx voicemailMailbox
 *ConversationApi* | [**getPbxVoicemailMailboxes**](docs/Api/ConversationApi.md#getpbxvoicemailmailboxes) | **GET** /conversation/pbx/voicemail_mailbox | Get pbx voicemailMailboxes
+*ConversationApi* | [**getUserPbxAudio**](docs/Api/ConversationApi.md#getuserpbxaudio) | **GET** /conversation/pbx/audio/user/{conversationPbxAudioUuid} | Get user pbx audio
+*ConversationApi* | [**getUserPbxAudios**](docs/Api/ConversationApi.md#getuserpbxaudios) | **GET** /conversation/pbx/audio/user | Get user pbx audios
 *ConversationApi* | [**getVirtualAgentBudget**](docs/Api/ConversationApi.md#getvirtualagentbudget) | **GET** /conversation/virtualagent/budget | Get virtual agent budget
 *ConversationApi* | [**getVirtualAgentCapabilities**](docs/Api/ConversationApi.md#getvirtualagentcapabilities) | **GET** /conversation/virtualagent/capabilities | Get virtual agent capabilities
 *ConversationApi* | [**insertAgentProfileKnowledgeBaseDocument**](docs/Api/ConversationApi.md#insertagentprofileknowledgebasedocument) | **POST** /conversation/agent/profiles/{user_id}/knowledge_base | Insert a knowledge base document
@@ -237,6 +240,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**insertPbxTimeBased**](docs/Api/ConversationApi.md#insertpbxtimebased) | **POST** /conversation/pbx/time_based | Insert pbx timeBased
 *ConversationApi* | [**insertPbxTimeRange**](docs/Api/ConversationApi.md#insertpbxtimerange) | **POST** /conversation/pbx/time_range | Insert pbx timeRange
 *ConversationApi* | [**insertPbxVoicemailMailbox**](docs/Api/ConversationApi.md#insertpbxvoicemailmailbox) | **POST** /conversation/pbx/voicemail_mailbox | Insert pbx voicemailMailbox
+*ConversationApi* | [**insertUserPbxAudio**](docs/Api/ConversationApi.md#insertuserpbxaudio) | **POST** /conversation/pbx/audio/user | Insert user pbx audio
 *ConversationApi* | [**joinConversation**](docs/Api/ConversationApi.md#joinconversation) | **PUT** /conversation/conversations/{conversation_uuid}/join | Join a conversation
 *ConversationApi* | [**leaveConversation**](docs/Api/ConversationApi.md#leaveconversation) | **DELETE** /conversation/conversations/{conversation_uuid}/leave | Leave a conversation
 *ConversationApi* | [**listenedPbxAgentVoicemail**](docs/Api/ConversationApi.md#listenedpbxagentvoicemail) | **GET** /conversation/pbx/agent/voicemails/{recording_sid}/listened | Listened Agent Voicemail
@@ -268,6 +272,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**updatePbxTimeBased**](docs/Api/ConversationApi.md#updatepbxtimebased) | **PUT** /conversation/pbx/time_based/{conversationPbxTimeBasedUuid} | Update pbx timeBased
 *ConversationApi* | [**updatePbxTimeRange**](docs/Api/ConversationApi.md#updatepbxtimerange) | **PUT** /conversation/pbx/time_range/{conversationPbxTimeRangeUuid} | Update pbx timeRange
 *ConversationApi* | [**updatePbxVoicemailMailbox**](docs/Api/ConversationApi.md#updatepbxvoicemailmailbox) | **PUT** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Update pbx voicemailMailbox
+*ConversationApi* | [**updateUserPbxAudio**](docs/Api/ConversationApi.md#updateuserpbxaudio) | **PUT** /conversation/pbx/audio/user/{conversationPbxAudioUuid} | Update user pbx audio
 *ConversationApi* | [**updateVirtualAgentBudget**](docs/Api/ConversationApi.md#updatevirtualagentbudget) | **PUT** /conversation/virtualagent/budget | Update virtual agent budget
 *ConversationApi* | [**updateVirtualAgentCapabilities**](docs/Api/ConversationApi.md#updatevirtualagentcapabilities) | **PUT** /conversation/virtualagent/capabilities | Update virtual agent capabilities
 *CouponApi* | [**deleteCoupon**](docs/Api/CouponApi.md#deletecoupon) | **DELETE** /coupon/coupons/{coupon_oid} | Delete a coupon
@@ -1713,6 +1718,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.69 | 03/31/2026 | conversations - user specific audio methods |
 | 4.1.68 | 03/31/2026 | oauth - device support |
 | 4.1.67 | 02/24/2026 | customer activity - sms and sms_stop fields added |
 | 4.1.66 | 02/18/2026 | conversations - agent auth customer_profile flag |
