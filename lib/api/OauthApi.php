@@ -151,14 +151,15 @@ class OauthApi
      * @param  string $code Authorization code received back from the browser redirect (optional)
      * @param  string $redirect_uri The URI that you redirect the browser to start the authorization process (optional)
      * @param  string $refresh_token The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)
+     * @param  string $device_code The device code received from /oauth/device/authorize (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ultracart\v2\models\OauthTokenResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
      */
-    public function oauthAccessToken($client_id, $grant_type, $code = null, $redirect_uri = null, $refresh_token = null)
+    public function oauthAccessToken($client_id, $grant_type, $code = null, $redirect_uri = null, $refresh_token = null, $device_code = null)
     {
-        list($response) = $this->oauthAccessTokenWithHttpInfo($client_id, $grant_type, $code, $redirect_uri, $refresh_token);
+        list($response) = $this->oauthAccessTokenWithHttpInfo($client_id, $grant_type, $code, $redirect_uri, $refresh_token, $device_code);
         return $response;
     }
 
@@ -172,14 +173,15 @@ class OauthApi
      * @param  string $code Authorization code received back from the browser redirect (optional)
      * @param  string $redirect_uri The URI that you redirect the browser to start the authorization process (optional)
      * @param  string $refresh_token The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)
+     * @param  string $device_code The device code received from /oauth/device/authorize (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\OauthTokenResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function oauthAccessTokenWithHttpInfo($client_id, $grant_type, $code = null, $redirect_uri = null, $refresh_token = null)
+    public function oauthAccessTokenWithHttpInfo($client_id, $grant_type, $code = null, $redirect_uri = null, $refresh_token = null, $device_code = null)
     {
-        return $this->oauthAccessTokenWithHttpInfoRetry(true ,   $client_id,   $grant_type,   $code,   $redirect_uri,   $refresh_token);
+        return $this->oauthAccessTokenWithHttpInfoRetry(true ,   $client_id,   $grant_type,   $code,   $redirect_uri,   $refresh_token,   $device_code);
     }
 
 
@@ -195,15 +197,16 @@ class OauthApi
      * @param  string $code Authorization code received back from the browser redirect (optional)
      * @param  string $redirect_uri The URI that you redirect the browser to start the authorization process (optional)
      * @param  string $refresh_token The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)
+     * @param  string $device_code The device code received from /oauth/device/authorize (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\OauthTokenResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function oauthAccessTokenWithHttpInfoRetry($retry , $client_id, $grant_type, $code = null, $redirect_uri = null, $refresh_token = null)
+    public function oauthAccessTokenWithHttpInfoRetry($retry , $client_id, $grant_type, $code = null, $redirect_uri = null, $refresh_token = null, $device_code = null)
     {
         $returnType = '\ultracart\v2\models\OauthTokenResponse';
-        $request = $this->oauthAccessTokenRequest($client_id, $grant_type, $code, $redirect_uri, $refresh_token);
+        $request = $this->oauthAccessTokenRequest($client_id, $grant_type, $code, $redirect_uri, $refresh_token, $device_code);
 
         try {
             $options = $this->createHttpClientOption();
@@ -222,7 +225,7 @@ class OauthApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->oauthAccessTokenWithHttpInfoRetry(false ,   $client_id,   $grant_type,   $code,   $redirect_uri,   $refresh_token);
+                        return $this->oauthAccessTokenWithHttpInfoRetry(false ,   $client_id,   $grant_type,   $code,   $redirect_uri,   $refresh_token,   $device_code);
                     }
                 }
 
@@ -365,13 +368,14 @@ class OauthApi
      * @param  string $code Authorization code received back from the browser redirect (optional)
      * @param  string $redirect_uri The URI that you redirect the browser to start the authorization process (optional)
      * @param  string $refresh_token The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)
+     * @param  string $device_code The device code received from /oauth/device/authorize (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function oauthAccessTokenAsync($client_id, $grant_type, $code = null, $redirect_uri = null, $refresh_token = null)
+    public function oauthAccessTokenAsync($client_id, $grant_type, $code = null, $redirect_uri = null, $refresh_token = null, $device_code = null)
     {
-        return $this->oauthAccessTokenAsyncWithHttpInfo($client_id, $grant_type, $code, $redirect_uri, $refresh_token)
+        return $this->oauthAccessTokenAsyncWithHttpInfo($client_id, $grant_type, $code, $redirect_uri, $refresh_token, $device_code)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -389,14 +393,15 @@ class OauthApi
      * @param  string $code Authorization code received back from the browser redirect (optional)
      * @param  string $redirect_uri The URI that you redirect the browser to start the authorization process (optional)
      * @param  string $refresh_token The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)
+     * @param  string $device_code The device code received from /oauth/device/authorize (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function oauthAccessTokenAsyncWithHttpInfo($client_id, $grant_type, $code = null, $redirect_uri = null, $refresh_token = null)
+    public function oauthAccessTokenAsyncWithHttpInfo($client_id, $grant_type, $code = null, $redirect_uri = null, $refresh_token = null, $device_code = null)
     {
         $returnType = '\ultracart\v2\models\OauthTokenResponse';
-        $request = $this->oauthAccessTokenRequest($client_id, $grant_type, $code, $redirect_uri, $refresh_token);
+        $request = $this->oauthAccessTokenRequest($client_id, $grant_type, $code, $redirect_uri, $refresh_token, $device_code);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -442,11 +447,12 @@ class OauthApi
      * @param  string $code Authorization code received back from the browser redirect (optional)
      * @param  string $redirect_uri The URI that you redirect the browser to start the authorization process (optional)
      * @param  string $refresh_token The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)
+     * @param  string $device_code The device code received from /oauth/device/authorize (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function oauthAccessTokenRequest($client_id, $grant_type, $code = null, $redirect_uri = null, $refresh_token = null)
+    public function oauthAccessTokenRequest($client_id, $grant_type, $code = null, $redirect_uri = null, $refresh_token = null, $device_code = null)
     {
         // verify the required parameter 'client_id' is set
         if ($client_id === null || (is_array($client_id) && count($client_id) === 0)) {
@@ -490,6 +496,318 @@ class OauthApi
         // form params
         if ($refresh_token !== null) {
             $formParams['refresh_token'] = ObjectSerializer::toFormValue($refresh_token);
+        }
+        // form params
+        if ($device_code !== null) {
+            $formParams['device_code'] = ObjectSerializer::toFormValue($device_code);
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/x-www-form-urlencoded']
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-browser-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-browser-key'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation oauthDeviceAuthorize
+     *
+     * Initiate a device authorization flow.
+     *
+     * @param  string $client_id The OAuth application client_id. (required)
+     * @param  string $scope The application-level scope (e.g., crm, ultraship). (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function oauthDeviceAuthorize($client_id, $scope)
+    {
+        $this->oauthDeviceAuthorizeWithHttpInfo($client_id, $scope);
+    }
+
+    /**
+     * Operation oauthDeviceAuthorizeWithHttpInfo
+     *
+     * Initiate a device authorization flow.
+     *
+     * @param  string $client_id The OAuth application client_id. (required)
+     * @param  string $scope The application-level scope (e.g., crm, ultraship). (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function oauthDeviceAuthorizeWithHttpInfo($client_id, $scope)
+    {
+        $this->oauthDeviceAuthorizeWithHttpInfoRetry(true ,   $client_id,   $scope);
+    }
+
+
+
+    /**
+     * Operation oauthDeviceAuthorizeWithHttpInfoRetry
+     *
+     * Initiate a device authorization flow.
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $client_id The OAuth application client_id. (required)
+     * @param  string $scope The application-level scope (e.g., crm, ultraship). (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function oauthDeviceAuthorizeWithHttpInfoRetry($retry , $client_id, $scope)
+    {
+        $returnType = '';
+        $request = $this->oauthDeviceAuthorizeRequest($client_id, $scope);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        $this->oauthDeviceAuthorizeWithHttpInfoRetry(false ,   $client_id,   $scope);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation oauthDeviceAuthorizeAsync
+     *
+     * Initiate a device authorization flow.
+     *
+     * @param  string $client_id The OAuth application client_id. (required)
+     * @param  string $scope The application-level scope (e.g., crm, ultraship). (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function oauthDeviceAuthorizeAsync($client_id, $scope)
+    {
+        return $this->oauthDeviceAuthorizeAsyncWithHttpInfo($client_id, $scope)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation oauthDeviceAuthorizeAsyncWithHttpInfo
+     *
+     * Initiate a device authorization flow.
+     *
+     * @param  string $client_id The OAuth application client_id. (required)
+     * @param  string $scope The application-level scope (e.g., crm, ultraship). (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function oauthDeviceAuthorizeAsyncWithHttpInfo($client_id, $scope)
+    {
+        $returnType = '';
+        $request = $this->oauthDeviceAuthorizeRequest($client_id, $scope);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'oauthDeviceAuthorize'
+     *
+     * @param  string $client_id The OAuth application client_id. (required)
+     * @param  string $scope The application-level scope (e.g., crm, ultraship). (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function oauthDeviceAuthorizeRequest($client_id, $scope)
+    {
+        // verify the required parameter 'client_id' is set
+        if ($client_id === null || (is_array($client_id) && count($client_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $client_id when calling oauthDeviceAuthorize'
+            );
+        }
+        // verify the required parameter 'scope' is set
+        if ($scope === null || (is_array($scope) && count($scope) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $scope when calling oauthDeviceAuthorize'
+            );
+        }
+
+        $resourcePath = '/oauth/device/authorize';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+        // form params
+        if ($client_id !== null) {
+            $formParams['client_id'] = ObjectSerializer::toFormValue($client_id);
+        }
+        // form params
+        if ($scope !== null) {
+            $formParams['scope'] = ObjectSerializer::toFormValue($scope);
         }
 
         if ($multipart) {

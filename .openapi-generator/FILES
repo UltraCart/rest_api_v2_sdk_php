@@ -716,6 +716,7 @@ docs/Model/LookupResponse.md
 docs/Model/Mailgun.md
 docs/Model/Metric.md
 docs/Model/Notification.md
+docs/Model/OauthDeviceAuthorizationResponse.md
 docs/Model/OauthRevokeSuccessResponse.md
 docs/Model/OauthTokenResponse.md
 docs/Model/Order.md
@@ -1690,6 +1691,7 @@ lib/models/Mailgun.php
 lib/models/Metric.php
 lib/models/ModelInterface.php
 lib/models/Notification.php
+lib/models/OauthDeviceAuthorizationResponse.php
 lib/models/OauthRevokeSuccessResponse.php
 lib/models/OauthTokenResponse.php
 lib/models/Order.php

@@ -5,13 +5,14 @@ All URIs are relative to https://secure.ultracart.com/rest/v2.
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**oauthAccessToken()**](OauthApi.md#oauthAccessToken) | **POST** /oauth/token | Exchange authorization code for access token.
+[**oauthDeviceAuthorize()**](OauthApi.md#oauthDeviceAuthorize) | **POST** /oauth/device/authorize | Initiate a device authorization flow.
 [**oauthRevoke()**](OauthApi.md#oauthRevoke) | **POST** /oauth/revoke | Revoke this OAuth application.
 
 
 ## `oauthAccessToken()`
 
 ```php
-oauthAccessToken($client_id, $grant_type, $code, $redirect_uri, $refresh_token): \ultracart\v2\models\OauthTokenResponse
+oauthAccessToken($client_id, $grant_type, $code, $redirect_uri, $refresh_token, $device_code): \ultracart\v2\models\OauthTokenResponse
 ```
 
 Exchange authorization code for access token.
@@ -95,10 +96,52 @@ Name | Type | Description  | Notes
  **code** | **string**| Authorization code received back from the browser redirect | [optional]
  **redirect_uri** | **string**| The URI that you redirect the browser to start the authorization process | [optional]
  **refresh_token** | **string**| The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token | [optional]
+ **device_code** | **string**| The device code received from /oauth/device/authorize | [optional]
 
 ### Return type
 
 [**\ultracart\v2\models\OauthTokenResponse**](../Model/OauthTokenResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/x-www-form-urlencoded`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `oauthDeviceAuthorize()`
+
+```php
+oauthDeviceAuthorize($client_id, $scope)
+```
+
+Initiate a device authorization flow.
+
+Initiates the device authorization flow by returning a device code and user code. The device displays the user code to the merchant, who visits the verification URI to approve the request. RFC 8628.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **client_id** | **string**| The OAuth application client_id. |
+ **scope** | **string**| The application-level scope (e.g., crm, ultraship). |
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 

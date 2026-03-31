@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.67"
+    "ultracart/rest_api_v2_sdk_php": "4.1.68"
   }
 }
 ```
@@ -390,6 +390,7 @@ Class | Method | HTTP request | Description
 *ItemApi* | [**updateReview**](docs/Api/ItemApi.md#updatereview) | **PUT** /item/items/{merchant_item_oid}/reviews/{review_oid} | Update a review
 *ItemApi* | [**uploadTemporaryMultimedia**](docs/Api/ItemApi.md#uploadtemporarymultimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
 *OauthApi* | [**oauthAccessToken**](docs/Api/OauthApi.md#oauthaccesstoken) | **POST** /oauth/token | Exchange authorization code for access token.
+*OauthApi* | [**oauthDeviceAuthorize**](docs/Api/OauthApi.md#oauthdeviceauthorize) | **POST** /oauth/device/authorize | Initiate a device authorization flow.
 *OauthApi* | [**oauthRevoke**](docs/Api/OauthApi.md#oauthrevoke) | **POST** /oauth/revoke | Revoke this OAuth application.
 *OrderApi* | [**adjustOrderTotal**](docs/Api/OrderApi.md#adjustordertotal) | **POST** /order/orders/{order_id}/adjust_order_total/{desired_total} | Adjusts an order total
 *OrderApi* | [**assignToAffiliate**](docs/Api/OrderApi.md#assigntoaffiliate) | **POST** /order/orders/{order_id}/assignToAffiliate | Assigns an order to an affiliate
@@ -1363,6 +1364,7 @@ Class | Method | HTTP request | Description
 - [Mailgun](docs/Model/Mailgun.md)
 - [Metric](docs/Model/Metric.md)
 - [Notification](docs/Model/Notification.md)
+- [OauthDeviceAuthorizationResponse](docs/Model/OauthDeviceAuthorizationResponse.md)
 - [OauthRevokeSuccessResponse](docs/Model/OauthRevokeSuccessResponse.md)
 - [OauthTokenResponse](docs/Model/OauthTokenResponse.md)
 - [Order](docs/Model/Order.md)
@@ -1711,6 +1713,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.68 | 03/31/2026 | oauth - device support |
 | 4.1.67 | 02/24/2026 | customer activity - sms and sms_stop fields added |
 | 4.1.66 | 02/18/2026 | conversations - agent auth customer_profile flag |
 | 4.1.65 | 02/16/2026 | item - include variant pricing in the response |

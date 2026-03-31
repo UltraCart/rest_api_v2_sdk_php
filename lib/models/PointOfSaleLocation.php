@@ -67,7 +67,8 @@ class PointOfSaleLocation implements ModelInterface, ArrayAccess, \JsonSerializa
         'merchant_id' => 'string',
         'pos_location_oid' => 'int',
         'postal_code' => 'string',
-        'state_province' => 'string'
+        'state_province' => 'string',
+        'tax_county' => 'string'
     ];
 
     /**
@@ -87,7 +88,8 @@ class PointOfSaleLocation implements ModelInterface, ArrayAccess, \JsonSerializa
         'merchant_id' => null,
         'pos_location_oid' => 'int32',
         'postal_code' => null,
-        'state_province' => null
+        'state_province' => null,
+        'tax_county' => null
     ];
 
     /**
@@ -126,7 +128,8 @@ class PointOfSaleLocation implements ModelInterface, ArrayAccess, \JsonSerializa
         'merchant_id' => 'merchant_id',
         'pos_location_oid' => 'pos_location_oid',
         'postal_code' => 'postal_code',
-        'state_province' => 'state_province'
+        'state_province' => 'state_province',
+        'tax_county' => 'tax_county'
     ];
 
     /**
@@ -144,7 +147,8 @@ class PointOfSaleLocation implements ModelInterface, ArrayAccess, \JsonSerializa
         'merchant_id' => 'setMerchantId',
         'pos_location_oid' => 'setPosLocationOid',
         'postal_code' => 'setPostalCode',
-        'state_province' => 'setStateProvince'
+        'state_province' => 'setStateProvince',
+        'tax_county' => 'setTaxCounty'
     ];
 
     /**
@@ -162,7 +166,8 @@ class PointOfSaleLocation implements ModelInterface, ArrayAccess, \JsonSerializa
         'merchant_id' => 'getMerchantId',
         'pos_location_oid' => 'getPosLocationOid',
         'postal_code' => 'getPostalCode',
-        'state_province' => 'getStateProvince'
+        'state_province' => 'getStateProvince',
+        'tax_county' => 'getTaxCounty'
     ];
 
     /**
@@ -232,6 +237,7 @@ class PointOfSaleLocation implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['pos_location_oid'] = $data['pos_location_oid'] ?? null;
         $this->container['postal_code'] = $data['postal_code'] ?? null;
         $this->container['state_province'] = $data['state_province'] ?? null;
+        $this->container['tax_county'] = $data['tax_county'] ?? null;
     }
 
     /**
@@ -245,6 +251,10 @@ class PointOfSaleLocation implements ModelInterface, ArrayAccess, \JsonSerializa
 
         if (!is_null($this->container['external_id']) && (mb_strlen($this->container['external_id']) > 100)) {
             $invalidProperties[] = "invalid value for 'external_id', the character length must be smaller than or equal to 100.";
+        }
+
+        if (!is_null($this->container['tax_county']) && (mb_strlen($this->container['tax_county']) > 32)) {
+            $invalidProperties[] = "invalid value for 'tax_county', the character length must be smaller than or equal to 32.";
         }
 
         return $invalidProperties;
@@ -502,6 +512,34 @@ class PointOfSaleLocation implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setStateProvince($state_province)
     {
         $this->container['state_province'] = $state_province;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_county
+     *
+     * @return string|null
+     */
+    public function getTaxCounty()
+    {
+        return $this->container['tax_county'];
+    }
+
+    /**
+     * Sets tax_county
+     *
+     * @param string|null $tax_county Tax county associated with this address.  Need when a self managed tax configuration is being used.
+     *
+     * @return self
+     */
+    public function setTaxCounty($tax_county)
+    {
+        if (!is_null($tax_county) && (mb_strlen($tax_county) > 32)) {
+            throw new \InvalidArgumentException('invalid length for $tax_county when calling PointOfSaleLocation., must be smaller than or equal to 32.');
+        }
+
+        $this->container['tax_county'] = $tax_county;
 
         return $this;
     }
