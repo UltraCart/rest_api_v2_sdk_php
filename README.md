@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.69"
+    "ultracart/rest_api_v2_sdk_php": "4.1.70"
   }
 }
 ```
@@ -1718,6 +1718,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.70 | 04/03/2026 | conversation pbx - queue callback settings |
 | 4.1.69 | 03/31/2026 | conversations - user specific audio methods |
 | 4.1.68 | 03/31/2026 | oauth - device support |
 | 4.1.67 | 02/24/2026 | customer activity - sms and sms_stop fields added |

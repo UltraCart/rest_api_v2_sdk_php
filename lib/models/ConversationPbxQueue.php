@@ -62,6 +62,18 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
         'ai_timeout_seconds' => 'int',
         'announce_queue_position' => 'bool',
         'automatic_coach_agent_uuid' => 'string',
+        'callback_announce_audio_uuid' => 'string',
+        'callback_announce_say' => 'string',
+        'callback_confirm_audio_uuid' => 'string',
+        'callback_confirm_say' => 'string',
+        'callback_enabled' => 'bool',
+        'callback_hours_only' => 'bool',
+        'callback_max_attempts' => 'int',
+        'callback_max_offers' => 'int',
+        'callback_max_pending' => 'int',
+        'callback_offer_after_seconds' => 'int',
+        'callback_offer_interval_seconds' => 'int',
+        'callback_retry_delay_seconds' => 'int',
         'conversation_pbx_queue_uuid' => 'string',
         'conversation_voicemail_mailbox_uuid' => 'string',
         'hold_conversation_pbx_audio_uuid' => 'string',
@@ -96,6 +108,18 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
         'ai_timeout_seconds' => 'int32',
         'announce_queue_position' => null,
         'automatic_coach_agent_uuid' => null,
+        'callback_announce_audio_uuid' => null,
+        'callback_announce_say' => null,
+        'callback_confirm_audio_uuid' => null,
+        'callback_confirm_say' => null,
+        'callback_enabled' => null,
+        'callback_hours_only' => null,
+        'callback_max_attempts' => 'int32',
+        'callback_max_offers' => 'int32',
+        'callback_max_pending' => 'int32',
+        'callback_offer_after_seconds' => 'int32',
+        'callback_offer_interval_seconds' => 'int32',
+        'callback_retry_delay_seconds' => 'int32',
         'conversation_pbx_queue_uuid' => null,
         'conversation_voicemail_mailbox_uuid' => null,
         'hold_conversation_pbx_audio_uuid' => null,
@@ -149,6 +173,18 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
         'ai_timeout_seconds' => 'ai_timeout_seconds',
         'announce_queue_position' => 'announce_queue_position',
         'automatic_coach_agent_uuid' => 'automatic_coach_agent_uuid',
+        'callback_announce_audio_uuid' => 'callback_announce_audio_uuid',
+        'callback_announce_say' => 'callback_announce_say',
+        'callback_confirm_audio_uuid' => 'callback_confirm_audio_uuid',
+        'callback_confirm_say' => 'callback_confirm_say',
+        'callback_enabled' => 'callback_enabled',
+        'callback_hours_only' => 'callback_hours_only',
+        'callback_max_attempts' => 'callback_max_attempts',
+        'callback_max_offers' => 'callback_max_offers',
+        'callback_max_pending' => 'callback_max_pending',
+        'callback_offer_after_seconds' => 'callback_offer_after_seconds',
+        'callback_offer_interval_seconds' => 'callback_offer_interval_seconds',
+        'callback_retry_delay_seconds' => 'callback_retry_delay_seconds',
         'conversation_pbx_queue_uuid' => 'conversation_pbx_queue_uuid',
         'conversation_voicemail_mailbox_uuid' => 'conversation_voicemail_mailbox_uuid',
         'hold_conversation_pbx_audio_uuid' => 'hold_conversation_pbx_audio_uuid',
@@ -181,6 +217,18 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
         'ai_timeout_seconds' => 'setAiTimeoutSeconds',
         'announce_queue_position' => 'setAnnounceQueuePosition',
         'automatic_coach_agent_uuid' => 'setAutomaticCoachAgentUuid',
+        'callback_announce_audio_uuid' => 'setCallbackAnnounceAudioUuid',
+        'callback_announce_say' => 'setCallbackAnnounceSay',
+        'callback_confirm_audio_uuid' => 'setCallbackConfirmAudioUuid',
+        'callback_confirm_say' => 'setCallbackConfirmSay',
+        'callback_enabled' => 'setCallbackEnabled',
+        'callback_hours_only' => 'setCallbackHoursOnly',
+        'callback_max_attempts' => 'setCallbackMaxAttempts',
+        'callback_max_offers' => 'setCallbackMaxOffers',
+        'callback_max_pending' => 'setCallbackMaxPending',
+        'callback_offer_after_seconds' => 'setCallbackOfferAfterSeconds',
+        'callback_offer_interval_seconds' => 'setCallbackOfferIntervalSeconds',
+        'callback_retry_delay_seconds' => 'setCallbackRetryDelaySeconds',
         'conversation_pbx_queue_uuid' => 'setConversationPbxQueueUuid',
         'conversation_voicemail_mailbox_uuid' => 'setConversationVoicemailMailboxUuid',
         'hold_conversation_pbx_audio_uuid' => 'setHoldConversationPbxAudioUuid',
@@ -213,6 +261,18 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
         'ai_timeout_seconds' => 'getAiTimeoutSeconds',
         'announce_queue_position' => 'getAnnounceQueuePosition',
         'automatic_coach_agent_uuid' => 'getAutomaticCoachAgentUuid',
+        'callback_announce_audio_uuid' => 'getCallbackAnnounceAudioUuid',
+        'callback_announce_say' => 'getCallbackAnnounceSay',
+        'callback_confirm_audio_uuid' => 'getCallbackConfirmAudioUuid',
+        'callback_confirm_say' => 'getCallbackConfirmSay',
+        'callback_enabled' => 'getCallbackEnabled',
+        'callback_hours_only' => 'getCallbackHoursOnly',
+        'callback_max_attempts' => 'getCallbackMaxAttempts',
+        'callback_max_offers' => 'getCallbackMaxOffers',
+        'callback_max_pending' => 'getCallbackMaxPending',
+        'callback_offer_after_seconds' => 'getCallbackOfferAfterSeconds',
+        'callback_offer_interval_seconds' => 'getCallbackOfferIntervalSeconds',
+        'callback_retry_delay_seconds' => 'getCallbackRetryDelaySeconds',
         'conversation_pbx_queue_uuid' => 'getConversationPbxQueueUuid',
         'conversation_voicemail_mailbox_uuid' => 'getConversationVoicemailMailboxUuid',
         'hold_conversation_pbx_audio_uuid' => 'getHoldConversationPbxAudioUuid',
@@ -343,6 +403,18 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->container['ai_timeout_seconds'] = $data['ai_timeout_seconds'] ?? null;
         $this->container['announce_queue_position'] = $data['announce_queue_position'] ?? null;
         $this->container['automatic_coach_agent_uuid'] = $data['automatic_coach_agent_uuid'] ?? null;
+        $this->container['callback_announce_audio_uuid'] = $data['callback_announce_audio_uuid'] ?? null;
+        $this->container['callback_announce_say'] = $data['callback_announce_say'] ?? null;
+        $this->container['callback_confirm_audio_uuid'] = $data['callback_confirm_audio_uuid'] ?? null;
+        $this->container['callback_confirm_say'] = $data['callback_confirm_say'] ?? null;
+        $this->container['callback_enabled'] = $data['callback_enabled'] ?? null;
+        $this->container['callback_hours_only'] = $data['callback_hours_only'] ?? null;
+        $this->container['callback_max_attempts'] = $data['callback_max_attempts'] ?? null;
+        $this->container['callback_max_offers'] = $data['callback_max_offers'] ?? null;
+        $this->container['callback_max_pending'] = $data['callback_max_pending'] ?? null;
+        $this->container['callback_offer_after_seconds'] = $data['callback_offer_after_seconds'] ?? null;
+        $this->container['callback_offer_interval_seconds'] = $data['callback_offer_interval_seconds'] ?? null;
+        $this->container['callback_retry_delay_seconds'] = $data['callback_retry_delay_seconds'] ?? null;
         $this->container['conversation_pbx_queue_uuid'] = $data['conversation_pbx_queue_uuid'] ?? null;
         $this->container['conversation_voicemail_mailbox_uuid'] = $data['conversation_voicemail_mailbox_uuid'] ?? null;
         $this->container['hold_conversation_pbx_audio_uuid'] = $data['hold_conversation_pbx_audio_uuid'] ?? null;
@@ -381,6 +453,14 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
                 $this->container['ai_priority'],
                 implode("', '", $allowedValues)
             );
+        }
+
+        if (!is_null($this->container['callback_announce_audio_uuid']) && (mb_strlen($this->container['callback_announce_audio_uuid']) > 50)) {
+            $invalidProperties[] = "invalid value for 'callback_announce_audio_uuid', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['callback_confirm_audio_uuid']) && (mb_strlen($this->container['callback_confirm_audio_uuid']) > 50)) {
+            $invalidProperties[] = "invalid value for 'callback_confirm_audio_uuid', the character length must be smaller than or equal to 50.";
         }
 
         if (!is_null($this->container['conversation_voicemail_mailbox_uuid']) && (mb_strlen($this->container['conversation_voicemail_mailbox_uuid']) > 50)) {
@@ -558,6 +638,302 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setAutomaticCoachAgentUuid($automatic_coach_agent_uuid)
     {
         $this->container['automatic_coach_agent_uuid'] = $automatic_coach_agent_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets callback_announce_audio_uuid
+     *
+     * @return string|null
+     */
+    public function getCallbackAnnounceAudioUuid()
+    {
+        return $this->container['callback_announce_audio_uuid'];
+    }
+
+    /**
+     * Sets callback_announce_audio_uuid
+     *
+     * @param string|null $callback_announce_audio_uuid Custom audio file UUID for the callback offer prompt
+     *
+     * @return self
+     */
+    public function setCallbackAnnounceAudioUuid($callback_announce_audio_uuid)
+    {
+        if (!is_null($callback_announce_audio_uuid) && (mb_strlen($callback_announce_audio_uuid) > 50)) {
+            throw new \InvalidArgumentException('invalid length for $callback_announce_audio_uuid when calling ConversationPbxQueue., must be smaller than or equal to 50.');
+        }
+
+        $this->container['callback_announce_audio_uuid'] = $callback_announce_audio_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets callback_announce_say
+     *
+     * @return string|null
+     */
+    public function getCallbackAnnounceSay()
+    {
+        return $this->container['callback_announce_say'];
+    }
+
+    /**
+     * Sets callback_announce_say
+     *
+     * @param string|null $callback_announce_say Custom TTS text for the callback offer prompt
+     *
+     * @return self
+     */
+    public function setCallbackAnnounceSay($callback_announce_say)
+    {
+        $this->container['callback_announce_say'] = $callback_announce_say;
+
+        return $this;
+    }
+
+    /**
+     * Gets callback_confirm_audio_uuid
+     *
+     * @return string|null
+     */
+    public function getCallbackConfirmAudioUuid()
+    {
+        return $this->container['callback_confirm_audio_uuid'];
+    }
+
+    /**
+     * Sets callback_confirm_audio_uuid
+     *
+     * @param string|null $callback_confirm_audio_uuid Custom audio file UUID for the callback confirmation message
+     *
+     * @return self
+     */
+    public function setCallbackConfirmAudioUuid($callback_confirm_audio_uuid)
+    {
+        if (!is_null($callback_confirm_audio_uuid) && (mb_strlen($callback_confirm_audio_uuid) > 50)) {
+            throw new \InvalidArgumentException('invalid length for $callback_confirm_audio_uuid when calling ConversationPbxQueue., must be smaller than or equal to 50.');
+        }
+
+        $this->container['callback_confirm_audio_uuid'] = $callback_confirm_audio_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets callback_confirm_say
+     *
+     * @return string|null
+     */
+    public function getCallbackConfirmSay()
+    {
+        return $this->container['callback_confirm_say'];
+    }
+
+    /**
+     * Sets callback_confirm_say
+     *
+     * @param string|null $callback_confirm_say Custom TTS text for the callback confirmation message
+     *
+     * @return self
+     */
+    public function setCallbackConfirmSay($callback_confirm_say)
+    {
+        $this->container['callback_confirm_say'] = $callback_confirm_say;
+
+        return $this;
+    }
+
+    /**
+     * Gets callback_enabled
+     *
+     * @return bool|null
+     */
+    public function getCallbackEnabled()
+    {
+        return $this->container['callback_enabled'];
+    }
+
+    /**
+     * Sets callback_enabled
+     *
+     * @param bool|null $callback_enabled If true, the callback option is enabled for this queue
+     *
+     * @return self
+     */
+    public function setCallbackEnabled($callback_enabled)
+    {
+        $this->container['callback_enabled'] = $callback_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets callback_hours_only
+     *
+     * @return bool|null
+     */
+    public function getCallbackHoursOnly()
+    {
+        return $this->container['callback_hours_only'];
+    }
+
+    /**
+     * Sets callback_hours_only
+     *
+     * @param bool|null $callback_hours_only When true, only offer callbacks during business hours
+     *
+     * @return self
+     */
+    public function setCallbackHoursOnly($callback_hours_only)
+    {
+        $this->container['callback_hours_only'] = $callback_hours_only;
+
+        return $this;
+    }
+
+    /**
+     * Gets callback_max_attempts
+     *
+     * @return int|null
+     */
+    public function getCallbackMaxAttempts()
+    {
+        return $this->container['callback_max_attempts'];
+    }
+
+    /**
+     * Sets callback_max_attempts
+     *
+     * @param int|null $callback_max_attempts Maximum number of times the system will attempt to call the customer back
+     *
+     * @return self
+     */
+    public function setCallbackMaxAttempts($callback_max_attempts)
+    {
+        $this->container['callback_max_attempts'] = $callback_max_attempts;
+
+        return $this;
+    }
+
+    /**
+     * Gets callback_max_offers
+     *
+     * @return int|null
+     */
+    public function getCallbackMaxOffers()
+    {
+        return $this->container['callback_max_offers'];
+    }
+
+    /**
+     * Sets callback_max_offers
+     *
+     * @param int|null $callback_max_offers Maximum number of times the callback option is offered to a caller per call
+     *
+     * @return self
+     */
+    public function setCallbackMaxOffers($callback_max_offers)
+    {
+        $this->container['callback_max_offers'] = $callback_max_offers;
+
+        return $this;
+    }
+
+    /**
+     * Gets callback_max_pending
+     *
+     * @return int|null
+     */
+    public function getCallbackMaxPending()
+    {
+        return $this->container['callback_max_pending'];
+    }
+
+    /**
+     * Sets callback_max_pending
+     *
+     * @param int|null $callback_max_pending Maximum number of pending callbacks allowed per queue
+     *
+     * @return self
+     */
+    public function setCallbackMaxPending($callback_max_pending)
+    {
+        $this->container['callback_max_pending'] = $callback_max_pending;
+
+        return $this;
+    }
+
+    /**
+     * Gets callback_offer_after_seconds
+     *
+     * @return int|null
+     */
+    public function getCallbackOfferAfterSeconds()
+    {
+        return $this->container['callback_offer_after_seconds'];
+    }
+
+    /**
+     * Sets callback_offer_after_seconds
+     *
+     * @param int|null $callback_offer_after_seconds Seconds a caller must wait in queue before the callback option is offered
+     *
+     * @return self
+     */
+    public function setCallbackOfferAfterSeconds($callback_offer_after_seconds)
+    {
+        $this->container['callback_offer_after_seconds'] = $callback_offer_after_seconds;
+
+        return $this;
+    }
+
+    /**
+     * Gets callback_offer_interval_seconds
+     *
+     * @return int|null
+     */
+    public function getCallbackOfferIntervalSeconds()
+    {
+        return $this->container['callback_offer_interval_seconds'];
+    }
+
+    /**
+     * Sets callback_offer_interval_seconds
+     *
+     * @param int|null $callback_offer_interval_seconds Seconds between repeat callback offers to the same caller
+     *
+     * @return self
+     */
+    public function setCallbackOfferIntervalSeconds($callback_offer_interval_seconds)
+    {
+        $this->container['callback_offer_interval_seconds'] = $callback_offer_interval_seconds;
+
+        return $this;
+    }
+
+    /**
+     * Gets callback_retry_delay_seconds
+     *
+     * @return int|null
+     */
+    public function getCallbackRetryDelaySeconds()
+    {
+        return $this->container['callback_retry_delay_seconds'];
+    }
+
+    /**
+     * Sets callback_retry_delay_seconds
+     *
+     * @param int|null $callback_retry_delay_seconds Delay in seconds between callback retry attempts
+     *
+     * @return self
+     */
+    public function setCallbackRetryDelaySeconds($callback_retry_delay_seconds)
+    {
+        $this->container['callback_retry_delay_seconds'] = $callback_retry_delay_seconds;
 
         return $this;
     }
