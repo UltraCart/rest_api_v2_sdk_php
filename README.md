@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.70"
+    "ultracart/rest_api_v2_sdk_php": "4.1.71"
   }
 }
 ```
@@ -1003,6 +1003,7 @@ Class | Method | HTTP request | Description
 - [CouponPercentOffItems](docs/Model/CouponPercentOffItems.md)
 - [CouponPercentOffItemsAndFreeShipping](docs/Model/CouponPercentOffItemsAndFreeShipping.md)
 - [CouponPercentOffItemsWithItemsPurchase](docs/Model/CouponPercentOffItemsWithItemsPurchase.md)
+- [CouponPercentOffItemsWithMinimumItemAmount](docs/Model/CouponPercentOffItemsWithMinimumItemAmount.md)
 - [CouponPercentOffMsrpItems](docs/Model/CouponPercentOffMsrpItems.md)
 - [CouponPercentOffRetailPriceItems](docs/Model/CouponPercentOffRetailPriceItems.md)
 - [CouponPercentOffShipping](docs/Model/CouponPercentOffShipping.md)
@@ -1718,6 +1719,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.71 | 04/06/2026 | coupons - new percent_off_items_with_minimum_item_amount |
 | 4.1.70 | 04/03/2026 | conversation pbx - queue callback settings |
 | 4.1.69 | 03/31/2026 | conversations - user specific audio methods |
 | 4.1.68 | 03/31/2026 | oauth - device support |

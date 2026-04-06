@@ -103,6 +103,7 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
         'percent_off_items' => '\ultracart\v2\models\CouponPercentOffItems',
         'percent_off_items_and_free_shipping' => '\ultracart\v2\models\CouponPercentOffItemsAndFreeShipping',
         'percent_off_items_with_items_purchase' => '\ultracart\v2\models\CouponPercentOffItemsWithItemsPurchase',
+        'percent_off_items_with_minimum_item_amount' => '\ultracart\v2\models\CouponPercentOffItemsWithMinimumItemAmount',
         'percent_off_msrp_items' => '\ultracart\v2\models\CouponPercentOffMsrpItems',
         'percent_off_retail_price_items' => '\ultracart\v2\models\CouponPercentOffRetailPriceItems',
         'percent_off_shipping' => '\ultracart\v2\models\CouponPercentOffShipping',
@@ -180,6 +181,7 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
         'percent_off_items' => null,
         'percent_off_items_and_free_shipping' => null,
         'percent_off_items_with_items_purchase' => null,
+        'percent_off_items_with_minimum_item_amount' => null,
         'percent_off_msrp_items' => null,
         'percent_off_retail_price_items' => null,
         'percent_off_shipping' => null,
@@ -276,6 +278,7 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
         'percent_off_items' => 'percent_off_items',
         'percent_off_items_and_free_shipping' => 'percent_off_items_and_free_shipping',
         'percent_off_items_with_items_purchase' => 'percent_off_items_with_items_purchase',
+        'percent_off_items_with_minimum_item_amount' => 'percent_off_items_with_minimum_item_amount',
         'percent_off_msrp_items' => 'percent_off_msrp_items',
         'percent_off_retail_price_items' => 'percent_off_retail_price_items',
         'percent_off_shipping' => 'percent_off_shipping',
@@ -351,6 +354,7 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
         'percent_off_items' => 'setPercentOffItems',
         'percent_off_items_and_free_shipping' => 'setPercentOffItemsAndFreeShipping',
         'percent_off_items_with_items_purchase' => 'setPercentOffItemsWithItemsPurchase',
+        'percent_off_items_with_minimum_item_amount' => 'setPercentOffItemsWithMinimumItemAmount',
         'percent_off_msrp_items' => 'setPercentOffMsrpItems',
         'percent_off_retail_price_items' => 'setPercentOffRetailPriceItems',
         'percent_off_shipping' => 'setPercentOffShipping',
@@ -426,6 +430,7 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
         'percent_off_items' => 'getPercentOffItems',
         'percent_off_items_and_free_shipping' => 'getPercentOffItemsAndFreeShipping',
         'percent_off_items_with_items_purchase' => 'getPercentOffItemsWithItemsPurchase',
+        'percent_off_items_with_minimum_item_amount' => 'getPercentOffItemsWithMinimumItemAmount',
         'percent_off_msrp_items' => 'getPercentOffMsrpItems',
         'percent_off_retail_price_items' => 'getPercentOffRetailPriceItems',
         'percent_off_shipping' => 'getPercentOffShipping',
@@ -573,6 +578,7 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['percent_off_items'] = $data['percent_off_items'] ?? null;
         $this->container['percent_off_items_and_free_shipping'] = $data['percent_off_items_and_free_shipping'] ?? null;
         $this->container['percent_off_items_with_items_purchase'] = $data['percent_off_items_with_items_purchase'] ?? null;
+        $this->container['percent_off_items_with_minimum_item_amount'] = $data['percent_off_items_with_minimum_item_amount'] ?? null;
         $this->container['percent_off_msrp_items'] = $data['percent_off_msrp_items'] ?? null;
         $this->container['percent_off_retail_price_items'] = $data['percent_off_retail_price_items'] ?? null;
         $this->container['percent_off_shipping'] = $data['percent_off_shipping'] ?? null;
@@ -1746,6 +1752,30 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setPercentOffItemsWithItemsPurchase($percent_off_items_with_items_purchase)
     {
         $this->container['percent_off_items_with_items_purchase'] = $percent_off_items_with_items_purchase;
+
+        return $this;
+    }
+
+    /**
+     * Gets percent_off_items_with_minimum_item_amount
+     *
+     * @return \ultracart\v2\models\CouponPercentOffItemsWithMinimumItemAmount|null
+     */
+    public function getPercentOffItemsWithMinimumItemAmount()
+    {
+        return $this->container['percent_off_items_with_minimum_item_amount'];
+    }
+
+    /**
+     * Sets percent_off_items_with_minimum_item_amount
+     *
+     * @param \ultracart\v2\models\CouponPercentOffItemsWithMinimumItemAmount|null $percent_off_items_with_minimum_item_amount percent_off_items_with_minimum_item_amount
+     *
+     * @return self
+     */
+    public function setPercentOffItemsWithMinimumItemAmount($percent_off_items_with_minimum_item_amount)
+    {
+        $this->container['percent_off_items_with_minimum_item_amount'] = $percent_off_items_with_minimum_item_amount;
 
         return $this;
     }

@@ -350,6 +350,7 @@ docs/Model/CouponPercentOffItemWithItemsQuantityPurchase.md
 docs/Model/CouponPercentOffItems.md
 docs/Model/CouponPercentOffItemsAndFreeShipping.md
 docs/Model/CouponPercentOffItemsWithItemsPurchase.md
+docs/Model/CouponPercentOffItemsWithMinimumItemAmount.md
 docs/Model/CouponPercentOffMsrpItems.md
 docs/Model/CouponPercentOffRetailPriceItems.md
 docs/Model/CouponPercentOffShipping.md
@@ -1324,6 +1325,7 @@ lib/models/CouponPercentOffItemWithItemsQuantityPurchase.php
 lib/models/CouponPercentOffItems.php
 lib/models/CouponPercentOffItemsAndFreeShipping.php
 lib/models/CouponPercentOffItemsWithItemsPurchase.php
+lib/models/CouponPercentOffItemsWithMinimumItemAmount.php
 lib/models/CouponPercentOffMsrpItems.php
 lib/models/CouponPercentOffRetailPriceItems.php
 lib/models/CouponPercentOffShipping.php

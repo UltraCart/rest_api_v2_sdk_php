@@ -49,6 +49,7 @@ Name | Type | Description | Notes
 **percent_off_items** | [**\ultracart\v2\models\CouponPercentOffItems**](CouponPercentOffItems.md) |  | [optional]
 **percent_off_items_and_free_shipping** | [**\ultracart\v2\models\CouponPercentOffItemsAndFreeShipping**](CouponPercentOffItemsAndFreeShipping.md) |  | [optional]
 **percent_off_items_with_items_purchase** | [**\ultracart\v2\models\CouponPercentOffItemsWithItemsPurchase**](CouponPercentOffItemsWithItemsPurchase.md) |  | [optional]
+**percent_off_items_with_minimum_item_amount** | [**\ultracart\v2\models\CouponPercentOffItemsWithMinimumItemAmount**](CouponPercentOffItemsWithMinimumItemAmount.md) |  | [optional]
 **percent_off_msrp_items** | [**\ultracart\v2\models\CouponPercentOffMsrpItems**](CouponPercentOffMsrpItems.md) |  | [optional]
 **percent_off_retail_price_items** | [**\ultracart\v2\models\CouponPercentOffRetailPriceItems**](CouponPercentOffRetailPriceItems.md) |  | [optional]
 **percent_off_shipping** | [**\ultracart\v2\models\CouponPercentOffShipping**](CouponPercentOffShipping.md) |  | [optional]
