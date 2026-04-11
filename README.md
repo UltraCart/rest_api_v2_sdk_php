@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.71"
+    "ultracart/rest_api_v2_sdk_php": "4.1.72"
   }
 }
 ```
@@ -220,6 +220,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getPbxTimeBaseds**](docs/Api/ConversationApi.md#getpbxtimebaseds) | **GET** /conversation/pbx/time_based | Get pbx timeBaseds
 *ConversationApi* | [**getPbxTimeRange**](docs/Api/ConversationApi.md#getpbxtimerange) | **GET** /conversation/pbx/time_range/{conversationPbxTimeRangeUuid} | Get pbx timeRange
 *ConversationApi* | [**getPbxTimeRanges**](docs/Api/ConversationApi.md#getpbxtimeranges) | **GET** /conversation/pbx/time_range | Get pbx timeRanges
+*ConversationApi* | [**getPbxVoicemailCapabilities**](docs/Api/ConversationApi.md#getpbxvoicemailcapabilities) | **GET** /conversation/pbx/voicemail/capabilities | Get pbx voicemail capabilities
 *ConversationApi* | [**getPbxVoicemailMailbox**](docs/Api/ConversationApi.md#getpbxvoicemailmailbox) | **GET** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Get pbx voicemailMailbox
 *ConversationApi* | [**getPbxVoicemailMailboxes**](docs/Api/ConversationApi.md#getpbxvoicemailmailboxes) | **GET** /conversation/pbx/voicemail_mailbox | Get pbx voicemailMailboxes
 *ConversationApi* | [**getUserPbxAudio**](docs/Api/ConversationApi.md#getuserpbxaudio) | **GET** /conversation/pbx/audio/user/{conversationPbxAudioUuid} | Get user pbx audio
@@ -927,6 +928,7 @@ Class | Method | HTTP request | Description
 - [ConversationPbxTimeRangeConfig](docs/Model/ConversationPbxTimeRangeConfig.md)
 - [ConversationPbxTimeRangeResponse](docs/Model/ConversationPbxTimeRangeResponse.md)
 - [ConversationPbxTimeRangesResponse](docs/Model/ConversationPbxTimeRangesResponse.md)
+- [ConversationPbxVoicemailCapabilitiesResponse](docs/Model/ConversationPbxVoicemailCapabilitiesResponse.md)
 - [ConversationPbxVoicemailMailbox](docs/Model/ConversationPbxVoicemailMailbox.md)
 - [ConversationPbxVoicemailMailboxResponse](docs/Model/ConversationPbxVoicemailMailboxResponse.md)
 - [ConversationPbxVoicemailMailboxesResponse](docs/Model/ConversationPbxVoicemailMailboxesResponse.md)
@@ -1719,6 +1721,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.72 | 04/11/2026 | conversation pbx - voicemail notification channels |
 | 4.1.71 | 04/06/2026 | coupons - new percent_off_items_with_minimum_item_amount |
 | 4.1.70 | 04/03/2026 | conversation pbx - queue callback settings |
 | 4.1.69 | 03/31/2026 | conversations - user specific audio methods |

@@ -274,6 +274,7 @@ docs/Model/ConversationPbxTimeRange.md
 docs/Model/ConversationPbxTimeRangeConfig.md
 docs/Model/ConversationPbxTimeRangeResponse.md
 docs/Model/ConversationPbxTimeRangesResponse.md
+docs/Model/ConversationPbxVoicemailCapabilitiesResponse.md
 docs/Model/ConversationPbxVoicemailMailbox.md
 docs/Model/ConversationPbxVoicemailMailboxResponse.md
 docs/Model/ConversationPbxVoicemailMailboxesResponse.md
@@ -1249,6 +1250,7 @@ lib/models/ConversationPbxTimeRange.php
 lib/models/ConversationPbxTimeRangeConfig.php
 lib/models/ConversationPbxTimeRangeResponse.php
 lib/models/ConversationPbxTimeRangesResponse.php
+lib/models/ConversationPbxVoicemailCapabilitiesResponse.php
 lib/models/ConversationPbxVoicemailMailbox.php
 lib/models/ConversationPbxVoicemailMailboxResponse.php
 lib/models/ConversationPbxVoicemailMailboxesResponse.php

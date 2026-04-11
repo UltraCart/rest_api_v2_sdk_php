@@ -60,7 +60,9 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess, \J
     protected static $openAPITypes = [
         'conversation_pbx_voicemail_mailbox_uuid' => 'string',
         'merchant_id' => 'string',
+        'send_notices_to_channel' => 'string',
         'send_notices_to_email' => 'string',
+        'send_notices_to_zoho_desk_department_id' => 'string',
         'user_id' => 'int',
         'voicemail_followup_play_audio_uuid' => 'string',
         'voicemail_followup_say' => 'string',
@@ -82,7 +84,9 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess, \J
     protected static $openAPIFormats = [
         'conversation_pbx_voicemail_mailbox_uuid' => null,
         'merchant_id' => null,
+        'send_notices_to_channel' => null,
         'send_notices_to_email' => null,
+        'send_notices_to_zoho_desk_department_id' => null,
         'user_id' => 'int32',
         'voicemail_followup_play_audio_uuid' => null,
         'voicemail_followup_say' => null,
@@ -123,7 +127,9 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess, \J
     protected static $attributeMap = [
         'conversation_pbx_voicemail_mailbox_uuid' => 'conversation_pbx_voicemail_mailbox_uuid',
         'merchant_id' => 'merchant_id',
+        'send_notices_to_channel' => 'send_notices_to_channel',
         'send_notices_to_email' => 'send_notices_to_email',
+        'send_notices_to_zoho_desk_department_id' => 'send_notices_to_zoho_desk_department_id',
         'user_id' => 'user_id',
         'voicemail_followup_play_audio_uuid' => 'voicemail_followup_play_audio_uuid',
         'voicemail_followup_say' => 'voicemail_followup_say',
@@ -143,7 +149,9 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess, \J
     protected static $setters = [
         'conversation_pbx_voicemail_mailbox_uuid' => 'setConversationPbxVoicemailMailboxUuid',
         'merchant_id' => 'setMerchantId',
+        'send_notices_to_channel' => 'setSendNoticesToChannel',
         'send_notices_to_email' => 'setSendNoticesToEmail',
+        'send_notices_to_zoho_desk_department_id' => 'setSendNoticesToZohoDeskDepartmentId',
         'user_id' => 'setUserId',
         'voicemail_followup_play_audio_uuid' => 'setVoicemailFollowupPlayAudioUuid',
         'voicemail_followup_say' => 'setVoicemailFollowupSay',
@@ -163,7 +171,9 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess, \J
     protected static $getters = [
         'conversation_pbx_voicemail_mailbox_uuid' => 'getConversationPbxVoicemailMailboxUuid',
         'merchant_id' => 'getMerchantId',
+        'send_notices_to_channel' => 'getSendNoticesToChannel',
         'send_notices_to_email' => 'getSendNoticesToEmail',
+        'send_notices_to_zoho_desk_department_id' => 'getSendNoticesToZohoDeskDepartmentId',
         'user_id' => 'getUserId',
         'voicemail_followup_play_audio_uuid' => 'getVoicemailFollowupPlayAudioUuid',
         'voicemail_followup_say' => 'getVoicemailFollowupSay',
@@ -216,12 +226,31 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess, \J
         return self::$openAPIModelName;
     }
 
+    public const SEND_NOTICES_TO_CHANNEL_NONE = 'none';
+    public const SEND_NOTICES_TO_CHANNEL_EMAIL = 'email';
+    public const SEND_NOTICES_TO_CHANNEL_ZOHO_DESK_TICKET = 'zoho_desk_ticket';
+    public const SEND_NOTICES_TO_CHANNEL_ULTRACART_TASK = 'ultracart_task';
     public const VOICEMAIL_FOLLOWUP_SAY_VOICE_MAN = 'man';
     public const VOICEMAIL_FOLLOWUP_SAY_VOICE_WOMAN = 'woman';
     public const VOICEMAIL_MAILBOX_TYPE_AGENT = 'agent';
     public const VOICEMAIL_MAILBOX_TYPE_SHARED = 'shared';
     public const VOICEMAIL_PROMPT_SAY_VOICE_MAN = 'man';
     public const VOICEMAIL_PROMPT_SAY_VOICE_WOMAN = 'woman';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSendNoticesToChannelAllowableValues()
+    {
+        return [
+            self::SEND_NOTICES_TO_CHANNEL_NONE,
+            self::SEND_NOTICES_TO_CHANNEL_EMAIL,
+            self::SEND_NOTICES_TO_CHANNEL_ZOHO_DESK_TICKET,
+            self::SEND_NOTICES_TO_CHANNEL_ULTRACART_TASK,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -279,7 +308,9 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess, \J
     {
         $this->container['conversation_pbx_voicemail_mailbox_uuid'] = $data['conversation_pbx_voicemail_mailbox_uuid'] ?? null;
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
+        $this->container['send_notices_to_channel'] = $data['send_notices_to_channel'] ?? null;
         $this->container['send_notices_to_email'] = $data['send_notices_to_email'] ?? null;
+        $this->container['send_notices_to_zoho_desk_department_id'] = $data['send_notices_to_zoho_desk_department_id'] ?? null;
         $this->container['user_id'] = $data['user_id'] ?? null;
         $this->container['voicemail_followup_play_audio_uuid'] = $data['voicemail_followup_play_audio_uuid'] ?? null;
         $this->container['voicemail_followup_say'] = $data['voicemail_followup_say'] ?? null;
@@ -308,8 +339,25 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess, \J
             $invalidProperties[] = "invalid value for 'merchant_id', the character length must be smaller than or equal to 5.";
         }
 
+        $allowedValues = $this->getSendNoticesToChannelAllowableValues();
+        if (!is_null($this->container['send_notices_to_channel']) && !in_array($this->container['send_notices_to_channel'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'send_notices_to_channel', must be one of '%s'",
+                $this->container['send_notices_to_channel'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if (!is_null($this->container['send_notices_to_channel']) && (mb_strlen($this->container['send_notices_to_channel']) > 50)) {
+            $invalidProperties[] = "invalid value for 'send_notices_to_channel', the character length must be smaller than or equal to 50.";
+        }
+
         if (!is_null($this->container['send_notices_to_email']) && (mb_strlen($this->container['send_notices_to_email']) > 250)) {
             $invalidProperties[] = "invalid value for 'send_notices_to_email', the character length must be smaller than or equal to 250.";
+        }
+
+        if (!is_null($this->container['send_notices_to_zoho_desk_department_id']) && (mb_strlen($this->container['send_notices_to_zoho_desk_department_id']) > 50)) {
+            $invalidProperties[] = "invalid value for 'send_notices_to_zoho_desk_department_id', the character length must be smaller than or equal to 50.";
         }
 
         if (!is_null($this->container['voicemail_followup_play_audio_uuid']) && (mb_strlen($this->container['voicemail_followup_play_audio_uuid']) > 50)) {
@@ -435,6 +483,44 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess, \J
     }
 
     /**
+     * Gets send_notices_to_channel
+     *
+     * @return string|null
+     */
+    public function getSendNoticesToChannel()
+    {
+        return $this->container['send_notices_to_channel'];
+    }
+
+    /**
+     * Sets send_notices_to_channel
+     *
+     * @param string|null $send_notices_to_channel Send notices to channel
+     *
+     * @return self
+     */
+    public function setSendNoticesToChannel($send_notices_to_channel)
+    {
+        $allowedValues = $this->getSendNoticesToChannelAllowableValues();
+        if (!is_null($send_notices_to_channel) && !in_array($send_notices_to_channel, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'send_notices_to_channel', must be one of '%s'",
+                    $send_notices_to_channel,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        if (!is_null($send_notices_to_channel) && (mb_strlen($send_notices_to_channel) > 50)) {
+            throw new \InvalidArgumentException('invalid length for $send_notices_to_channel when calling ConversationPbxVoicemailMailbox., must be smaller than or equal to 50.');
+        }
+
+        $this->container['send_notices_to_channel'] = $send_notices_to_channel;
+
+        return $this;
+    }
+
+    /**
      * Gets send_notices_to_email
      *
      * @return string|null
@@ -458,6 +544,34 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess, \J
         }
 
         $this->container['send_notices_to_email'] = $send_notices_to_email;
+
+        return $this;
+    }
+
+    /**
+     * Gets send_notices_to_zoho_desk_department_id
+     *
+     * @return string|null
+     */
+    public function getSendNoticesToZohoDeskDepartmentId()
+    {
+        return $this->container['send_notices_to_zoho_desk_department_id'];
+    }
+
+    /**
+     * Sets send_notices_to_zoho_desk_department_id
+     *
+     * @param string|null $send_notices_to_zoho_desk_department_id Send notices to Zoho Desk department id
+     *
+     * @return self
+     */
+    public function setSendNoticesToZohoDeskDepartmentId($send_notices_to_zoho_desk_department_id)
+    {
+        if (!is_null($send_notices_to_zoho_desk_department_id) && (mb_strlen($send_notices_to_zoho_desk_department_id) > 50)) {
+            throw new \InvalidArgumentException('invalid length for $send_notices_to_zoho_desk_department_id when calling ConversationPbxVoicemailMailbox., must be smaller than or equal to 50.');
+        }
+
+        $this->container['send_notices_to_zoho_desk_department_id'] = $send_notices_to_zoho_desk_department_id;
 
         return $this;
     }

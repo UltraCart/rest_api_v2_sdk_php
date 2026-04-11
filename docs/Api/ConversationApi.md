@@ -77,6 +77,7 @@ Method | HTTP request | Description
 [**getPbxTimeBaseds()**](ConversationApi.md#getPbxTimeBaseds) | **GET** /conversation/pbx/time_based | Get pbx timeBaseds
 [**getPbxTimeRange()**](ConversationApi.md#getPbxTimeRange) | **GET** /conversation/pbx/time_range/{conversationPbxTimeRangeUuid} | Get pbx timeRange
 [**getPbxTimeRanges()**](ConversationApi.md#getPbxTimeRanges) | **GET** /conversation/pbx/time_range | Get pbx timeRanges
+[**getPbxVoicemailCapabilities()**](ConversationApi.md#getPbxVoicemailCapabilities) | **GET** /conversation/pbx/voicemail/capabilities | Get pbx voicemail capabilities
 [**getPbxVoicemailMailbox()**](ConversationApi.md#getPbxVoicemailMailbox) | **GET** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Get pbx voicemailMailbox
 [**getPbxVoicemailMailboxes()**](ConversationApi.md#getPbxVoicemailMailboxes) | **GET** /conversation/pbx/voicemail_mailbox | Get pbx voicemailMailboxes
 [**getUserPbxAudio()**](ConversationApi.md#getUserPbxAudio) | **GET** /conversation/pbx/audio/user/{conversationPbxAudioUuid} | Get user pbx audio
@@ -3061,6 +3062,44 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**\ultracart\v2\models\ConversationPbxTimeRangesResponse**](../Model/ConversationPbxTimeRangesResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getPbxVoicemailCapabilities()`
+
+```php
+getPbxVoicemailCapabilities(): \ultracart\v2\models\ConversationPbxVoicemailCapabilitiesResponse
+```
+
+Get pbx voicemail capabilities
+
+Retrieve voicemail notification capabilities including available channels
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\ultracart\v2\models\ConversationPbxVoicemailCapabilitiesResponse**](../Model/ConversationPbxVoicemailCapabilitiesResponse.md)
 
 ### Authorization
 
