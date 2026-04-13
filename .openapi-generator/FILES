@@ -225,6 +225,7 @@ docs/Model/ConversationPbxCall.md
 docs/Model/ConversationPbxCallAgent.md
 docs/Model/ConversationPbxCallAiCost.md
 docs/Model/ConversationPbxCallAiEngagement.md
+docs/Model/ConversationPbxCallAiSummary.md
 docs/Model/ConversationPbxCallAiToolCall.md
 docs/Model/ConversationPbxCallAiWhisper.md
 docs/Model/ConversationPbxCallCaller.md
@@ -1201,6 +1202,7 @@ lib/models/ConversationPbxCall.php
 lib/models/ConversationPbxCallAgent.php
 lib/models/ConversationPbxCallAiCost.php
 lib/models/ConversationPbxCallAiEngagement.php
+lib/models/ConversationPbxCallAiSummary.php
 lib/models/ConversationPbxCallAiToolCall.php
 lib/models/ConversationPbxCallAiWhisper.php
 lib/models/ConversationPbxCallCaller.php

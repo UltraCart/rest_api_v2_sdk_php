@@ -61,6 +61,7 @@ class ConversationPbxCallFinancial implements ModelInterface, ArrayAccess, \Json
         'ai_agent_billed_minutes' => 'float',
         'ai_agent_cost' => 'float',
         'ai_agent_cost_currency' => 'string',
+        'ai_summary_cost' => 'float',
         'call_currency' => 'string',
         'call_price' => 'float',
         'call_price_estimated' => 'bool',
@@ -78,6 +79,7 @@ class ConversationPbxCallFinancial implements ModelInterface, ArrayAccess, \Json
         'ai_agent_billed_minutes' => null,
         'ai_agent_cost' => null,
         'ai_agent_cost_currency' => null,
+        'ai_summary_cost' => null,
         'call_currency' => null,
         'call_price' => null,
         'call_price_estimated' => null,
@@ -114,6 +116,7 @@ class ConversationPbxCallFinancial implements ModelInterface, ArrayAccess, \Json
         'ai_agent_billed_minutes' => 'ai_agent_billed_minutes',
         'ai_agent_cost' => 'ai_agent_cost',
         'ai_agent_cost_currency' => 'ai_agent_cost_currency',
+        'ai_summary_cost' => 'ai_summary_cost',
         'call_currency' => 'call_currency',
         'call_price' => 'call_price',
         'call_price_estimated' => 'call_price_estimated',
@@ -129,6 +132,7 @@ class ConversationPbxCallFinancial implements ModelInterface, ArrayAccess, \Json
         'ai_agent_billed_minutes' => 'setAiAgentBilledMinutes',
         'ai_agent_cost' => 'setAiAgentCost',
         'ai_agent_cost_currency' => 'setAiAgentCostCurrency',
+        'ai_summary_cost' => 'setAiSummaryCost',
         'call_currency' => 'setCallCurrency',
         'call_price' => 'setCallPrice',
         'call_price_estimated' => 'setCallPriceEstimated',
@@ -144,6 +148,7 @@ class ConversationPbxCallFinancial implements ModelInterface, ArrayAccess, \Json
         'ai_agent_billed_minutes' => 'getAiAgentBilledMinutes',
         'ai_agent_cost' => 'getAiAgentCost',
         'ai_agent_cost_currency' => 'getAiAgentCostCurrency',
+        'ai_summary_cost' => 'getAiSummaryCost',
         'call_currency' => 'getCallCurrency',
         'call_price' => 'getCallPrice',
         'call_price_estimated' => 'getCallPriceEstimated',
@@ -210,6 +215,7 @@ class ConversationPbxCallFinancial implements ModelInterface, ArrayAccess, \Json
         $this->container['ai_agent_billed_minutes'] = $data['ai_agent_billed_minutes'] ?? null;
         $this->container['ai_agent_cost'] = $data['ai_agent_cost'] ?? null;
         $this->container['ai_agent_cost_currency'] = $data['ai_agent_cost_currency'] ?? null;
+        $this->container['ai_summary_cost'] = $data['ai_summary_cost'] ?? null;
         $this->container['call_currency'] = $data['call_currency'] ?? null;
         $this->container['call_price'] = $data['call_price'] ?? null;
         $this->container['call_price_estimated'] = $data['call_price_estimated'] ?? null;
@@ -308,6 +314,30 @@ class ConversationPbxCallFinancial implements ModelInterface, ArrayAccess, \Json
     public function setAiAgentCostCurrency($ai_agent_cost_currency)
     {
         $this->container['ai_agent_cost_currency'] = $ai_agent_cost_currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets ai_summary_cost
+     *
+     * @return float|null
+     */
+    public function getAiSummaryCost()
+    {
+        return $this->container['ai_summary_cost'];
+    }
+
+    /**
+     * Sets ai_summary_cost
+     *
+     * @param float|null $ai_summary_cost AI summary generation cost (LLM call made by pbx-transcript-formatter after the call ends)
+     *
+     * @return self
+     */
+    public function setAiSummaryCost($ai_summary_cost)
+    {
+        $this->container['ai_summary_cost'] = $ai_summary_cost;
 
         return $this;
     }

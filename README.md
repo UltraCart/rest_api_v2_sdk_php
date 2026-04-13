@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.72"
+    "ultracart/rest_api_v2_sdk_php": "4.1.73"
   }
 }
 ```
@@ -879,6 +879,7 @@ Class | Method | HTTP request | Description
 - [ConversationPbxCallAgent](docs/Model/ConversationPbxCallAgent.md)
 - [ConversationPbxCallAiCost](docs/Model/ConversationPbxCallAiCost.md)
 - [ConversationPbxCallAiEngagement](docs/Model/ConversationPbxCallAiEngagement.md)
+- [ConversationPbxCallAiSummary](docs/Model/ConversationPbxCallAiSummary.md)
 - [ConversationPbxCallAiToolCall](docs/Model/ConversationPbxCallAiToolCall.md)
 - [ConversationPbxCallAiWhisper](docs/Model/ConversationPbxCallAiWhisper.md)
 - [ConversationPbxCallCaller](docs/Model/ConversationPbxCallCaller.md)
@@ -1721,6 +1722,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.73 | 04/13/2026 | conversation pbx - queue configuration for ai summary and call record zoho desk |
 | 4.1.72 | 04/11/2026 | conversation pbx - voicemail notification channels |
 | 4.1.71 | 04/06/2026 | coupons - new percent_off_items_with_minimum_item_amount |
 | 4.1.70 | 04/03/2026 | conversation pbx - queue callback settings |

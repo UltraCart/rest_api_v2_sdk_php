@@ -61,6 +61,7 @@ class ConversationPbxCall implements ModelInterface, ArrayAccess, \JsonSerializa
         'account_sid' => 'string',
         'agents' => '\ultracart\v2\models\ConversationPbxCallAgent[]',
         'ai_agent_engagements' => '\ultracart\v2\models\ConversationPbxCallAiEngagement[]',
+        'ai_summary' => '\ultracart\v2\models\ConversationPbxCallAiSummary',
         'call_sid' => 'string',
         'call_uuid' => 'string',
         'caller' => '\ultracart\v2\models\ConversationPbxCallCaller',
@@ -79,7 +80,9 @@ class ConversationPbxCall implements ModelInterface, ArrayAccess, \JsonSerializa
         'status' => 'string',
         'timeline' => '\ultracart\v2\models\ConversationPbxCallTimeline',
         'transfers' => '\ultracart\v2\models\ConversationPbxCallTransfer[]',
-        'updated_at_dts' => 'string'
+        'updated_at_dts' => 'string',
+        'zoho_desk_ticket_id' => 'string',
+        'zoho_desk_ticket_url' => 'string'
     ];
 
     /**
@@ -93,6 +96,7 @@ class ConversationPbxCall implements ModelInterface, ArrayAccess, \JsonSerializa
         'account_sid' => null,
         'agents' => null,
         'ai_agent_engagements' => null,
+        'ai_summary' => null,
         'call_sid' => null,
         'call_uuid' => null,
         'caller' => null,
@@ -111,7 +115,9 @@ class ConversationPbxCall implements ModelInterface, ArrayAccess, \JsonSerializa
         'status' => null,
         'timeline' => null,
         'transfers' => null,
-        'updated_at_dts' => 'dateTime'
+        'updated_at_dts' => 'dateTime',
+        'zoho_desk_ticket_id' => null,
+        'zoho_desk_ticket_url' => null
     ];
 
     /**
@@ -144,6 +150,7 @@ class ConversationPbxCall implements ModelInterface, ArrayAccess, \JsonSerializa
         'account_sid' => 'account_sid',
         'agents' => 'agents',
         'ai_agent_engagements' => 'ai_agent_engagements',
+        'ai_summary' => 'ai_summary',
         'call_sid' => 'call_sid',
         'call_uuid' => 'call_uuid',
         'caller' => 'caller',
@@ -162,7 +169,9 @@ class ConversationPbxCall implements ModelInterface, ArrayAccess, \JsonSerializa
         'status' => 'status',
         'timeline' => 'timeline',
         'transfers' => 'transfers',
-        'updated_at_dts' => 'updated_at_dts'
+        'updated_at_dts' => 'updated_at_dts',
+        'zoho_desk_ticket_id' => 'zoho_desk_ticket_id',
+        'zoho_desk_ticket_url' => 'zoho_desk_ticket_url'
     ];
 
     /**
@@ -174,6 +183,7 @@ class ConversationPbxCall implements ModelInterface, ArrayAccess, \JsonSerializa
         'account_sid' => 'setAccountSid',
         'agents' => 'setAgents',
         'ai_agent_engagements' => 'setAiAgentEngagements',
+        'ai_summary' => 'setAiSummary',
         'call_sid' => 'setCallSid',
         'call_uuid' => 'setCallUuid',
         'caller' => 'setCaller',
@@ -192,7 +202,9 @@ class ConversationPbxCall implements ModelInterface, ArrayAccess, \JsonSerializa
         'status' => 'setStatus',
         'timeline' => 'setTimeline',
         'transfers' => 'setTransfers',
-        'updated_at_dts' => 'setUpdatedAtDts'
+        'updated_at_dts' => 'setUpdatedAtDts',
+        'zoho_desk_ticket_id' => 'setZohoDeskTicketId',
+        'zoho_desk_ticket_url' => 'setZohoDeskTicketUrl'
     ];
 
     /**
@@ -204,6 +216,7 @@ class ConversationPbxCall implements ModelInterface, ArrayAccess, \JsonSerializa
         'account_sid' => 'getAccountSid',
         'agents' => 'getAgents',
         'ai_agent_engagements' => 'getAiAgentEngagements',
+        'ai_summary' => 'getAiSummary',
         'call_sid' => 'getCallSid',
         'call_uuid' => 'getCallUuid',
         'caller' => 'getCaller',
@@ -222,7 +235,9 @@ class ConversationPbxCall implements ModelInterface, ArrayAccess, \JsonSerializa
         'status' => 'getStatus',
         'timeline' => 'getTimeline',
         'transfers' => 'getTransfers',
-        'updated_at_dts' => 'getUpdatedAtDts'
+        'updated_at_dts' => 'getUpdatedAtDts',
+        'zoho_desk_ticket_id' => 'getZohoDeskTicketId',
+        'zoho_desk_ticket_url' => 'getZohoDeskTicketUrl'
     ];
 
     /**
@@ -285,6 +300,7 @@ class ConversationPbxCall implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['account_sid'] = $data['account_sid'] ?? null;
         $this->container['agents'] = $data['agents'] ?? null;
         $this->container['ai_agent_engagements'] = $data['ai_agent_engagements'] ?? null;
+        $this->container['ai_summary'] = $data['ai_summary'] ?? null;
         $this->container['call_sid'] = $data['call_sid'] ?? null;
         $this->container['call_uuid'] = $data['call_uuid'] ?? null;
         $this->container['caller'] = $data['caller'] ?? null;
@@ -304,6 +320,8 @@ class ConversationPbxCall implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['timeline'] = $data['timeline'] ?? null;
         $this->container['transfers'] = $data['transfers'] ?? null;
         $this->container['updated_at_dts'] = $data['updated_at_dts'] ?? null;
+        $this->container['zoho_desk_ticket_id'] = $data['zoho_desk_ticket_id'] ?? null;
+        $this->container['zoho_desk_ticket_url'] = $data['zoho_desk_ticket_url'] ?? null;
     }
 
     /**
@@ -398,6 +416,30 @@ class ConversationPbxCall implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setAiAgentEngagements($ai_agent_engagements)
     {
         $this->container['ai_agent_engagements'] = $ai_agent_engagements;
+
+        return $this;
+    }
+
+    /**
+     * Gets ai_summary
+     *
+     * @return \ultracart\v2\models\ConversationPbxCallAiSummary|null
+     */
+    public function getAiSummary()
+    {
+        return $this->container['ai_summary'];
+    }
+
+    /**
+     * Sets ai_summary
+     *
+     * @param \ultracart\v2\models\ConversationPbxCallAiSummary|null $ai_summary ai_summary
+     *
+     * @return self
+     */
+    public function setAiSummary($ai_summary)
+    {
+        $this->container['ai_summary'] = $ai_summary;
 
         return $this;
     }
@@ -854,6 +896,54 @@ class ConversationPbxCall implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setUpdatedAtDts($updated_at_dts)
     {
         $this->container['updated_at_dts'] = $updated_at_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets zoho_desk_ticket_id
+     *
+     * @return string|null
+     */
+    public function getZohoDeskTicketId()
+    {
+        return $this->container['zoho_desk_ticket_id'];
+    }
+
+    /**
+     * Sets zoho_desk_ticket_id
+     *
+     * @param string|null $zoho_desk_ticket_id Zoho Desk ticket ID if a ticket was created for this call
+     *
+     * @return self
+     */
+    public function setZohoDeskTicketId($zoho_desk_ticket_id)
+    {
+        $this->container['zoho_desk_ticket_id'] = $zoho_desk_ticket_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets zoho_desk_ticket_url
+     *
+     * @return string|null
+     */
+    public function getZohoDeskTicketUrl()
+    {
+        return $this->container['zoho_desk_ticket_url'];
+    }
+
+    /**
+     * Sets zoho_desk_ticket_url
+     *
+     * @param string|null $zoho_desk_ticket_url URL to the Zoho Desk ticket if a ticket was created for this call
+     *
+     * @return self
+     */
+    public function setZohoDeskTicketUrl($zoho_desk_ticket_url)
+    {
+        $this->container['zoho_desk_ticket_url'] = $zoho_desk_ticket_url;
 
         return $this;
     }

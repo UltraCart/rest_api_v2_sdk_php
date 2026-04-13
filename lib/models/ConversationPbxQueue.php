@@ -59,6 +59,8 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPITypes = [
         'ai_priority' => 'string',
+        'ai_summary_enabled' => 'bool',
+        'ai_summary_instructions' => 'string',
         'ai_timeout_seconds' => 'int',
         'announce_queue_position' => 'bool',
         'automatic_coach_agent_uuid' => 'string',
@@ -93,7 +95,9 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
         'voicemail' => 'bool',
         'wait_critical_seconds' => 'int',
         'wait_warning_seconds' => 'int',
-        'wrap_up_seconds' => 'int'
+        'wrap_up_seconds' => 'int',
+        'zoho_desk_department_id' => 'string',
+        'zoho_desk_ticket_enabled' => 'bool'
     ];
 
     /**
@@ -105,6 +109,8 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPIFormats = [
         'ai_priority' => null,
+        'ai_summary_enabled' => null,
+        'ai_summary_instructions' => null,
         'ai_timeout_seconds' => 'int32',
         'announce_queue_position' => null,
         'automatic_coach_agent_uuid' => null,
@@ -139,7 +145,9 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
         'voicemail' => null,
         'wait_critical_seconds' => 'int32',
         'wait_warning_seconds' => 'int32',
-        'wrap_up_seconds' => 'int32'
+        'wrap_up_seconds' => 'int32',
+        'zoho_desk_department_id' => null,
+        'zoho_desk_ticket_enabled' => null
     ];
 
     /**
@@ -170,6 +178,8 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $attributeMap = [
         'ai_priority' => 'ai_priority',
+        'ai_summary_enabled' => 'ai_summary_enabled',
+        'ai_summary_instructions' => 'ai_summary_instructions',
         'ai_timeout_seconds' => 'ai_timeout_seconds',
         'announce_queue_position' => 'announce_queue_position',
         'automatic_coach_agent_uuid' => 'automatic_coach_agent_uuid',
@@ -204,7 +214,9 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
         'voicemail' => 'voicemail',
         'wait_critical_seconds' => 'wait_critical_seconds',
         'wait_warning_seconds' => 'wait_warning_seconds',
-        'wrap_up_seconds' => 'wrap_up_seconds'
+        'wrap_up_seconds' => 'wrap_up_seconds',
+        'zoho_desk_department_id' => 'zoho_desk_department_id',
+        'zoho_desk_ticket_enabled' => 'zoho_desk_ticket_enabled'
     ];
 
     /**
@@ -214,6 +226,8 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $setters = [
         'ai_priority' => 'setAiPriority',
+        'ai_summary_enabled' => 'setAiSummaryEnabled',
+        'ai_summary_instructions' => 'setAiSummaryInstructions',
         'ai_timeout_seconds' => 'setAiTimeoutSeconds',
         'announce_queue_position' => 'setAnnounceQueuePosition',
         'automatic_coach_agent_uuid' => 'setAutomaticCoachAgentUuid',
@@ -248,7 +262,9 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
         'voicemail' => 'setVoicemail',
         'wait_critical_seconds' => 'setWaitCriticalSeconds',
         'wait_warning_seconds' => 'setWaitWarningSeconds',
-        'wrap_up_seconds' => 'setWrapUpSeconds'
+        'wrap_up_seconds' => 'setWrapUpSeconds',
+        'zoho_desk_department_id' => 'setZohoDeskDepartmentId',
+        'zoho_desk_ticket_enabled' => 'setZohoDeskTicketEnabled'
     ];
 
     /**
@@ -258,6 +274,8 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $getters = [
         'ai_priority' => 'getAiPriority',
+        'ai_summary_enabled' => 'getAiSummaryEnabled',
+        'ai_summary_instructions' => 'getAiSummaryInstructions',
         'ai_timeout_seconds' => 'getAiTimeoutSeconds',
         'announce_queue_position' => 'getAnnounceQueuePosition',
         'automatic_coach_agent_uuid' => 'getAutomaticCoachAgentUuid',
@@ -292,7 +310,9 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
         'voicemail' => 'getVoicemail',
         'wait_critical_seconds' => 'getWaitCriticalSeconds',
         'wait_warning_seconds' => 'getWaitWarningSeconds',
-        'wrap_up_seconds' => 'getWrapUpSeconds'
+        'wrap_up_seconds' => 'getWrapUpSeconds',
+        'zoho_desk_department_id' => 'getZohoDeskDepartmentId',
+        'zoho_desk_ticket_enabled' => 'getZohoDeskTicketEnabled'
     ];
 
     /**
@@ -400,6 +420,8 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
     public function __construct(array $data = null)
     {
         $this->container['ai_priority'] = $data['ai_priority'] ?? null;
+        $this->container['ai_summary_enabled'] = $data['ai_summary_enabled'] ?? null;
+        $this->container['ai_summary_instructions'] = $data['ai_summary_instructions'] ?? null;
         $this->container['ai_timeout_seconds'] = $data['ai_timeout_seconds'] ?? null;
         $this->container['announce_queue_position'] = $data['announce_queue_position'] ?? null;
         $this->container['automatic_coach_agent_uuid'] = $data['automatic_coach_agent_uuid'] ?? null;
@@ -435,6 +457,8 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->container['wait_critical_seconds'] = $data['wait_critical_seconds'] ?? null;
         $this->container['wait_warning_seconds'] = $data['wait_warning_seconds'] ?? null;
         $this->container['wrap_up_seconds'] = $data['wrap_up_seconds'] ?? null;
+        $this->container['zoho_desk_department_id'] = $data['zoho_desk_department_id'] ?? null;
+        $this->container['zoho_desk_ticket_enabled'] = $data['zoho_desk_ticket_enabled'] ?? null;
     }
 
     /**
@@ -453,6 +477,10 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
                 $this->container['ai_priority'],
                 implode("', '", $allowedValues)
             );
+        }
+
+        if (!is_null($this->container['ai_summary_instructions']) && (mb_strlen($this->container['ai_summary_instructions']) > 100000)) {
+            $invalidProperties[] = "invalid value for 'ai_summary_instructions', the character length must be smaller than or equal to 100000.";
         }
 
         if (!is_null($this->container['callback_announce_audio_uuid']) && (mb_strlen($this->container['callback_announce_audio_uuid']) > 50)) {
@@ -521,6 +549,10 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
             $invalidProperties[] = "invalid value for 'twilio_workspace_queue_sid', the character length must be smaller than or equal to 50.";
         }
 
+        if (!is_null($this->container['zoho_desk_department_id']) && (mb_strlen($this->container['zoho_desk_department_id']) > 50)) {
+            $invalidProperties[] = "invalid value for 'zoho_desk_department_id', the character length must be smaller than or equal to 50.";
+        }
+
         return $invalidProperties;
     }
 
@@ -566,6 +598,58 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
             );
         }
         $this->container['ai_priority'] = $ai_priority;
+
+        return $this;
+    }
+
+    /**
+     * Gets ai_summary_enabled
+     *
+     * @return bool|null
+     */
+    public function getAiSummaryEnabled()
+    {
+        return $this->container['ai_summary_enabled'];
+    }
+
+    /**
+     * Sets ai_summary_enabled
+     *
+     * @param bool|null $ai_summary_enabled If true, AI summaries are generated for answered calls in this queue
+     *
+     * @return self
+     */
+    public function setAiSummaryEnabled($ai_summary_enabled)
+    {
+        $this->container['ai_summary_enabled'] = $ai_summary_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets ai_summary_instructions
+     *
+     * @return string|null
+     */
+    public function getAiSummaryInstructions()
+    {
+        return $this->container['ai_summary_instructions'];
+    }
+
+    /**
+     * Sets ai_summary_instructions
+     *
+     * @param string|null $ai_summary_instructions Custom instructions injected into the AI summary system prompt for this queue
+     *
+     * @return self
+     */
+    public function setAiSummaryInstructions($ai_summary_instructions)
+    {
+        if (!is_null($ai_summary_instructions) && (mb_strlen($ai_summary_instructions) > 100000)) {
+            throw new \InvalidArgumentException('invalid length for $ai_summary_instructions when calling ConversationPbxQueue., must be smaller than or equal to 100000.');
+        }
+
+        $this->container['ai_summary_instructions'] = $ai_summary_instructions;
 
         return $this;
     }
@@ -1474,6 +1558,58 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setWrapUpSeconds($wrap_up_seconds)
     {
         $this->container['wrap_up_seconds'] = $wrap_up_seconds;
+
+        return $this;
+    }
+
+    /**
+     * Gets zoho_desk_department_id
+     *
+     * @return string|null
+     */
+    public function getZohoDeskDepartmentId()
+    {
+        return $this->container['zoho_desk_department_id'];
+    }
+
+    /**
+     * Sets zoho_desk_department_id
+     *
+     * @param string|null $zoho_desk_department_id Zoho Desk department ID to create tickets in
+     *
+     * @return self
+     */
+    public function setZohoDeskDepartmentId($zoho_desk_department_id)
+    {
+        if (!is_null($zoho_desk_department_id) && (mb_strlen($zoho_desk_department_id) > 50)) {
+            throw new \InvalidArgumentException('invalid length for $zoho_desk_department_id when calling ConversationPbxQueue., must be smaller than or equal to 50.');
+        }
+
+        $this->container['zoho_desk_department_id'] = $zoho_desk_department_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets zoho_desk_ticket_enabled
+     *
+     * @return bool|null
+     */
+    public function getZohoDeskTicketEnabled()
+    {
+        return $this->container['zoho_desk_ticket_enabled'];
+    }
+
+    /**
+     * Sets zoho_desk_ticket_enabled
+     *
+     * @param bool|null $zoho_desk_ticket_enabled If true, a Zoho Desk ticket is automatically created for answered calls in this queue
+     *
+     * @return self
+     */
+    public function setZohoDeskTicketEnabled($zoho_desk_ticket_enabled)
+    {
+        $this->container['zoho_desk_ticket_enabled'] = $zoho_desk_ticket_enabled;
 
         return $this;
     }
