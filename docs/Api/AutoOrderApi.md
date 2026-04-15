@@ -4,6 +4,7 @@ All URIs are relative to https://secure.ultracart.com/rest/v2.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**cancelAutoOrderItemByReferenceOrderId()**](AutoOrderApi.md#cancelAutoOrderItemByReferenceOrderId) | **POST** /auto_order/auto_orders/reference_order_id/{reference_order_id}/items/original/{original_item_id}/cancel | Cancel a single item on an auto order
 [**consolidateAutoOrders()**](AutoOrderApi.md#consolidateAutoOrders) | **PUT** /auto_order/auto_orders/{auto_order_oid}/consolidate | Consolidates multiple auto orders
 [**establishAutoOrderByReferenceOrderId()**](AutoOrderApi.md#establishAutoOrderByReferenceOrderId) | **POST** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Establish an auto order by referencing a regular order id
 [**getAutoOrder()**](AutoOrderApi.md#getAutoOrder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order by oid
@@ -19,6 +20,49 @@ Method | HTTP request | Description
 [**updateAutoOrderProperties()**](AutoOrderApi.md#updateAutoOrderProperties) | **PUT** /auto_order/auto_orders/{auto_order_oid}/properties | Update an auto order properties
 [**updateAutoOrdersBatch()**](AutoOrderApi.md#updateAutoOrdersBatch) | **PUT** /auto_order/auto_orders/batch | Update multiple auto orders
 
+
+## `cancelAutoOrderItemByReferenceOrderId()`
+
+```php
+cancelAutoOrderItemByReferenceOrderId($reference_order_id, $original_item_id, $_expand, $auto_order_item_cancel_request): \ultracart\v2\models\AutoOrderResponse
+```
+
+Cancel a single item on an auto order
+
+Cancels a single item on an auto order identified by the original order id and the item's original_item_id.  The request body may specify mode=end (soft cancel by setting no_order_after_dts to the current time, preserving the row for reporting; this is the default when the body is omitted) or mode=remove (hard delete).  Returns the updated auto order based upon expansion.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **reference_order_id** | **string**| The reference order id (original_order_id) of the auto order. |
+ **original_item_id** | **string**| The original_item_id (SKU) of the item to cancel. |
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
+ **auto_order_item_cancel_request** | [**\ultracart\v2\models\AutoOrderItemCancelRequest**](../Model/AutoOrderItemCancelRequest.md)| Cancel request.  Body is optional; omit for default mode&#x3D;end. | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\AutoOrderResponse**](../Model/AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `consolidateAutoOrders()`
 

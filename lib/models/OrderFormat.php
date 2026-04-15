@@ -73,7 +73,8 @@ class OrderFormat implements ModelInterface, ArrayAccess, \JsonSerializable
         'show_merchant_notes' => 'bool',
         'show_non_sensitive_payment_info' => 'bool',
         'show_payment_info' => 'bool',
-        'translate' => 'bool'
+        'translate' => 'bool',
+        'use_phone_number_web_component' => 'bool'
     ];
 
     /**
@@ -99,7 +100,8 @@ class OrderFormat implements ModelInterface, ArrayAccess, \JsonSerializable
         'show_merchant_notes' => null,
         'show_non_sensitive_payment_info' => null,
         'show_payment_info' => null,
-        'translate' => null
+        'translate' => null,
+        'use_phone_number_web_component' => null
     ];
 
     /**
@@ -144,7 +146,8 @@ class OrderFormat implements ModelInterface, ArrayAccess, \JsonSerializable
         'show_merchant_notes' => 'show_merchant_notes',
         'show_non_sensitive_payment_info' => 'show_non_sensitive_payment_info',
         'show_payment_info' => 'show_payment_info',
-        'translate' => 'translate'
+        'translate' => 'translate',
+        'use_phone_number_web_component' => 'use_phone_number_web_component'
     ];
 
     /**
@@ -168,7 +171,8 @@ class OrderFormat implements ModelInterface, ArrayAccess, \JsonSerializable
         'show_merchant_notes' => 'setShowMerchantNotes',
         'show_non_sensitive_payment_info' => 'setShowNonSensitivePaymentInfo',
         'show_payment_info' => 'setShowPaymentInfo',
-        'translate' => 'setTranslate'
+        'translate' => 'setTranslate',
+        'use_phone_number_web_component' => 'setUsePhoneNumberWebComponent'
     ];
 
     /**
@@ -192,7 +196,8 @@ class OrderFormat implements ModelInterface, ArrayAccess, \JsonSerializable
         'show_merchant_notes' => 'getShowMerchantNotes',
         'show_non_sensitive_payment_info' => 'getShowNonSensitivePaymentInfo',
         'show_payment_info' => 'getShowPaymentInfo',
-        'translate' => 'getTranslate'
+        'translate' => 'getTranslate',
+        'use_phone_number_web_component' => 'getUsePhoneNumberWebComponent'
     ];
 
     /**
@@ -287,6 +292,7 @@ class OrderFormat implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['show_non_sensitive_payment_info'] = $data['show_non_sensitive_payment_info'] ?? null;
         $this->container['show_payment_info'] = $data['show_payment_info'] ?? null;
         $this->container['translate'] = $data['translate'] ?? null;
+        $this->container['use_phone_number_web_component'] = $data['use_phone_number_web_component'] ?? null;
     }
 
     /**
@@ -712,6 +718,30 @@ class OrderFormat implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setTranslate($translate)
     {
         $this->container['translate'] = $translate;
+
+        return $this;
+    }
+
+    /**
+     * Gets use_phone_number_web_component
+     *
+     * @return bool|null
+     */
+    public function getUsePhoneNumberWebComponent()
+    {
+        return $this->container['use_phone_number_web_component'];
+    }
+
+    /**
+     * Sets use_phone_number_web_component
+     *
+     * @param bool|null $use_phone_number_web_component True to render phone numbers as <phone-number-format> web components in the HTML output. Only honored by the div format. Default false preserves legacy scalar rendering for receipts and unauthenticated consumers.
+     *
+     * @return self
+     */
+    public function setUsePhoneNumberWebComponent($use_phone_number_web_component)
+    {
+        $this->container['use_phone_number_web_component'] = $use_phone_number_web_component;
 
         return $this;
     }

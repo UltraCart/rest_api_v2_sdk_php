@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.73"
+    "ultracart/rest_api_v2_sdk_php": "4.1.74"
   }
 }
 ```
@@ -99,6 +99,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AffiliateApi* | [**getClicksByQuery**](docs/Api/AffiliateApi.md#getclicksbyquery) | **POST** /affiliate/clicks/query | Retrieve clicks
 *AffiliateApi* | [**getLedgersByQuery**](docs/Api/AffiliateApi.md#getledgersbyquery) | **POST** /affiliate/ledgers/query | Retrieve ledger entries
+*AutoOrderApi* | [**cancelAutoOrderItemByReferenceOrderId**](docs/Api/AutoOrderApi.md#cancelautoorderitembyreferenceorderid) | **POST** /auto_order/auto_orders/reference_order_id/{reference_order_id}/items/original/{original_item_id}/cancel | Cancel a single item on an auto order
 *AutoOrderApi* | [**consolidateAutoOrders**](docs/Api/AutoOrderApi.md#consolidateautoorders) | **PUT** /auto_order/auto_orders/{auto_order_oid}/consolidate | Consolidates multiple auto orders
 *AutoOrderApi* | [**establishAutoOrderByReferenceOrderId**](docs/Api/AutoOrderApi.md#establishautoorderbyreferenceorderid) | **POST** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Establish an auto order by referencing a regular order id
 *AutoOrderApi* | [**getAutoOrder**](docs/Api/AutoOrderApi.md#getautoorder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order by oid
@@ -705,6 +706,7 @@ Class | Method | HTTP request | Description
 - [AutoOrderAddonItemsUpdateRequest](docs/Model/AutoOrderAddonItemsUpdateRequest.md)
 - [AutoOrderConsolidate](docs/Model/AutoOrderConsolidate.md)
 - [AutoOrderItem](docs/Model/AutoOrderItem.md)
+- [AutoOrderItemCancelRequest](docs/Model/AutoOrderItemCancelRequest.md)
 - [AutoOrderItemFutureSchedule](docs/Model/AutoOrderItemFutureSchedule.md)
 - [AutoOrderItemOption](docs/Model/AutoOrderItemOption.md)
 - [AutoOrderItemSimpleSchedule](docs/Model/AutoOrderItemSimpleSchedule.md)
@@ -1722,6 +1724,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.74 | 04/15/2026 | auto order - new method cancelAutoOrderItemByReferenceOrderId |
 | 4.1.73 | 04/13/2026 | conversation pbx - queue configuration for ai summary and call record zoho desk |
 | 4.1.72 | 04/11/2026 | conversation pbx - voicemail notification channels |
 | 4.1.71 | 04/06/2026 | coupons - new percent_off_items_with_minimum_item_amount |
