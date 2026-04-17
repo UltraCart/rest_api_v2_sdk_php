@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.76"
+    "ultracart/rest_api_v2_sdk_php": "4.1.77"
   }
 }
 ```
@@ -1729,6 +1729,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.77 | 04/17/2026 | conversation - embed oauth methods |
 | 4.1.76 | 04/17/2026 | conversation - embed oauth methods |
 | 4.1.75 | 04/17/2026 | conversation - embed oauth methods |
 | 4.1.74 | 04/15/2026 | auto order - new method cancelAutoOrderItemByReferenceOrderId |
