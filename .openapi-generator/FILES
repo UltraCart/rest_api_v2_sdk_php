@@ -8,6 +8,7 @@ docs/Api/AutoOrderApi.md
 docs/Api/ChannelPartnerApi.md
 docs/Api/CheckoutApi.md
 docs/Api/ConversationApi.md
+docs/Api/ConversationEmbedApi.md
 docs/Api/CouponApi.md
 docs/Api/CustomerApi.md
 docs/Api/DatawarehouseApi.md
@@ -174,6 +175,7 @@ docs/Model/ConversationDepartmentMember.md
 docs/Model/ConversationDepartmentMembersResponse.md
 docs/Model/ConversationDepartmentResponse.md
 docs/Model/ConversationDepartmentsResponse.md
+docs/Model/ConversationEmbedPbxAuthResponse.md
 docs/Model/ConversationEngagement.md
 docs/Model/ConversationEngagementEquation.md
 docs/Model/ConversationEngagementEquationFunction.md
@@ -986,6 +988,7 @@ lib/api/AutoOrderApi.php
 lib/api/ChannelPartnerApi.php
 lib/api/CheckoutApi.php
 lib/api/ConversationApi.php
+lib/api/ConversationEmbedApi.php
 lib/api/CouponApi.php
 lib/api/CustomerApi.php
 lib/api/DatawarehouseApi.php
@@ -1152,6 +1155,7 @@ lib/models/ConversationDepartmentMember.php
 lib/models/ConversationDepartmentMembersResponse.php
 lib/models/ConversationDepartmentResponse.php
 lib/models/ConversationDepartmentsResponse.php
+lib/models/ConversationEmbedPbxAuthResponse.php
 lib/models/ConversationEngagement.php
 lib/models/ConversationEngagementEquation.php
 lib/models/ConversationEngagementEquationFunction.php
