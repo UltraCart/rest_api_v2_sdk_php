@@ -59,6 +59,7 @@ class ConversationPbxAudio implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPITypes = [
         'audio_s3_listing_key' => 'string',
+        'context_merchant_id' => 'string',
         'conversation_pbx_audio_uuid' => 'string',
         'default_hold_music' => 'bool',
         'description' => 'string',
@@ -79,6 +80,7 @@ class ConversationPbxAudio implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPIFormats = [
         'audio_s3_listing_key' => null,
+        'context_merchant_id' => null,
         'conversation_pbx_audio_uuid' => null,
         'default_hold_music' => null,
         'description' => null,
@@ -118,6 +120,7 @@ class ConversationPbxAudio implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $attributeMap = [
         'audio_s3_listing_key' => 'audio_s3_listing_key',
+        'context_merchant_id' => 'context_merchant_id',
         'conversation_pbx_audio_uuid' => 'conversation_pbx_audio_uuid',
         'default_hold_music' => 'default_hold_music',
         'description' => 'description',
@@ -136,6 +139,7 @@ class ConversationPbxAudio implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $setters = [
         'audio_s3_listing_key' => 'setAudioS3ListingKey',
+        'context_merchant_id' => 'setContextMerchantId',
         'conversation_pbx_audio_uuid' => 'setConversationPbxAudioUuid',
         'default_hold_music' => 'setDefaultHoldMusic',
         'description' => 'setDescription',
@@ -154,6 +158,7 @@ class ConversationPbxAudio implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $getters = [
         'audio_s3_listing_key' => 'getAudioS3ListingKey',
+        'context_merchant_id' => 'getContextMerchantId',
         'conversation_pbx_audio_uuid' => 'getConversationPbxAudioUuid',
         'default_hold_music' => 'getDefaultHoldMusic',
         'description' => 'getDescription',
@@ -223,6 +228,7 @@ class ConversationPbxAudio implements ModelInterface, ArrayAccess, \JsonSerializ
     public function __construct(array $data = null)
     {
         $this->container['audio_s3_listing_key'] = $data['audio_s3_listing_key'] ?? null;
+        $this->container['context_merchant_id'] = $data['context_merchant_id'] ?? null;
         $this->container['conversation_pbx_audio_uuid'] = $data['conversation_pbx_audio_uuid'] ?? null;
         $this->container['default_hold_music'] = $data['default_hold_music'] ?? null;
         $this->container['description'] = $data['description'] ?? null;
@@ -245,6 +251,10 @@ class ConversationPbxAudio implements ModelInterface, ArrayAccess, \JsonSerializ
 
         if (!is_null($this->container['audio_s3_listing_key']) && (mb_strlen($this->container['audio_s3_listing_key']) > 250)) {
             $invalidProperties[] = "invalid value for 'audio_s3_listing_key', the character length must be smaller than or equal to 250.";
+        }
+
+        if (!is_null($this->container['context_merchant_id']) && (mb_strlen($this->container['context_merchant_id']) > 20)) {
+            $invalidProperties[] = "invalid value for 'context_merchant_id', the character length must be smaller than or equal to 20.";
         }
 
         if (!is_null($this->container['conversation_pbx_audio_uuid']) && (mb_strlen($this->container['conversation_pbx_audio_uuid']) > 50)) {
@@ -306,6 +316,34 @@ class ConversationPbxAudio implements ModelInterface, ArrayAccess, \JsonSerializ
         }
 
         $this->container['audio_s3_listing_key'] = $audio_s3_listing_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets context_merchant_id
+     *
+     * @return string|null
+     */
+    public function getContextMerchantId()
+    {
+        return $this->container['context_merchant_id'];
+    }
+
+    /**
+     * Sets context_merchant_id
+     *
+     * @param string|null $context_merchant_id Optional child merchant ID this resource is assigned to. Null = shared across the linked merchant group.
+     *
+     * @return self
+     */
+    public function setContextMerchantId($context_merchant_id)
+    {
+        if (!is_null($context_merchant_id) && (mb_strlen($context_merchant_id) > 20)) {
+            throw new \InvalidArgumentException('invalid length for $context_merchant_id when calling ConversationPbxAudio., must be smaller than or equal to 20.');
+        }
+
+        $this->container['context_merchant_id'] = $context_merchant_id;
 
         return $this;
     }

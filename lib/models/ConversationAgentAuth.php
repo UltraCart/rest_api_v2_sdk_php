@@ -67,6 +67,8 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
         'group_ids' => 'int[]',
         'jwt' => 'string',
         'merchant_id' => 'string',
+        'merchants' => '\ultracart\v2\models\ConversationAgentAuthMerchant[]',
+        'parent_merchant_id' => 'string',
         'pbx_admin' => 'bool',
         'pbx_jwt' => 'string',
         'pbx_supervisor' => 'bool',
@@ -97,6 +99,8 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
         'group_ids' => null,
         'jwt' => null,
         'merchant_id' => null,
+        'merchants' => null,
+        'parent_merchant_id' => null,
         'pbx_admin' => null,
         'pbx_jwt' => null,
         'pbx_supervisor' => null,
@@ -146,6 +150,8 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
         'group_ids' => 'group_ids',
         'jwt' => 'jwt',
         'merchant_id' => 'merchant_id',
+        'merchants' => 'merchants',
+        'parent_merchant_id' => 'parent_merchant_id',
         'pbx_admin' => 'pbx_admin',
         'pbx_jwt' => 'pbx_jwt',
         'pbx_supervisor' => 'pbx_supervisor',
@@ -174,6 +180,8 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
         'group_ids' => 'setGroupIds',
         'jwt' => 'setJwt',
         'merchant_id' => 'setMerchantId',
+        'merchants' => 'setMerchants',
+        'parent_merchant_id' => 'setParentMerchantId',
         'pbx_admin' => 'setPbxAdmin',
         'pbx_jwt' => 'setPbxJwt',
         'pbx_supervisor' => 'setPbxSupervisor',
@@ -202,6 +210,8 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
         'group_ids' => 'getGroupIds',
         'jwt' => 'getJwt',
         'merchant_id' => 'getMerchantId',
+        'merchants' => 'getMerchants',
+        'parent_merchant_id' => 'getParentMerchantId',
         'pbx_admin' => 'getPbxAdmin',
         'pbx_jwt' => 'getPbxJwt',
         'pbx_supervisor' => 'getPbxSupervisor',
@@ -281,6 +291,8 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->container['group_ids'] = $data['group_ids'] ?? null;
         $this->container['jwt'] = $data['jwt'] ?? null;
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
+        $this->container['merchants'] = $data['merchants'] ?? null;
+        $this->container['parent_merchant_id'] = $data['parent_merchant_id'] ?? null;
         $this->container['pbx_admin'] = $data['pbx_admin'] ?? null;
         $this->container['pbx_jwt'] = $data['pbx_jwt'] ?? null;
         $this->container['pbx_supervisor'] = $data['pbx_supervisor'] ?? null;
@@ -530,6 +542,54 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setMerchantId($merchant_id)
     {
         $this->container['merchant_id'] = $merchant_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets merchants
+     *
+     * @return \ultracart\v2\models\ConversationAgentAuthMerchant[]|null
+     */
+    public function getMerchants()
+    {
+        return $this->container['merchants'];
+    }
+
+    /**
+     * Sets merchants
+     *
+     * @param \ultracart\v2\models\ConversationAgentAuthMerchant[]|null $merchants List of merchants in this linked merchant group
+     *
+     * @return self
+     */
+    public function setMerchants($merchants)
+    {
+        $this->container['merchants'] = $merchants;
+
+        return $this;
+    }
+
+    /**
+     * Gets parent_merchant_id
+     *
+     * @return string|null
+     */
+    public function getParentMerchantId()
+    {
+        return $this->container['parent_merchant_id'];
+    }
+
+    /**
+     * Sets parent_merchant_id
+     *
+     * @param string|null $parent_merchant_id The parent merchant ID for PBX. For non-linked merchants, equals merchant_id.
+     *
+     * @return self
+     */
+    public function setParentMerchantId($parent_merchant_id)
+    {
+        $this->container['parent_merchant_id'] = $parent_merchant_id;
 
         return $this;
     }

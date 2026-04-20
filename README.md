@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.77"
+    "ultracart/rest_api_v2_sdk_php": "4.1.78"
   }
 }
 ```
@@ -816,6 +816,7 @@ Class | Method | HTTP request | Description
 - [CityStateZip](docs/Model/CityStateZip.md)
 - [Conversation](docs/Model/Conversation.md)
 - [ConversationAgentAuth](docs/Model/ConversationAgentAuth.md)
+- [ConversationAgentAuthMerchant](docs/Model/ConversationAgentAuthMerchant.md)
 - [ConversationAgentAuthResponse](docs/Model/ConversationAgentAuthResponse.md)
 - [ConversationAgentProfile](docs/Model/ConversationAgentProfile.md)
 - [ConversationAgentProfileResponse](docs/Model/ConversationAgentProfileResponse.md)
@@ -1729,6 +1730,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.78 | 04/20/2026 | conversation pbx - objects have context_merchant_id fields to linked account configs |
 | 4.1.77 | 04/17/2026 | conversation - embed oauth methods |
 | 4.1.76 | 04/17/2026 | conversation - embed oauth methods |
 | 4.1.75 | 04/17/2026 | conversation - embed oauth methods |

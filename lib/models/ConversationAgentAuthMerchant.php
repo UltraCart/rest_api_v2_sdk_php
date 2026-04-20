@@ -1,6 +1,6 @@
 <?php
 /**
- * ConversationPbxTimeBased
+ * ConversationAgentAuthMerchant
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ConversationPbxTimeBased Class Doc Comment
+ * ConversationAgentAuthMerchant Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ConversationPbxTimeBased implements ModelInterface, ArrayAccess, \JsonSerializable
+class ConversationAgentAuthMerchant implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ConversationPbxTimeBased implements ModelInterface, ArrayAccess, \JsonSeri
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ConversationPbxTimeBased';
+    protected static $openAPIModelName = 'ConversationAgentAuthMerchant';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,11 +58,9 @@ class ConversationPbxTimeBased implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'context_merchant_id' => 'string',
-        'conversation_pbx_time_based_uuid' => 'string',
-        'mapping_config' => '\ultracart\v2\models\ConversationPbxTimeBasedMappingConfig',
-        'merchant_id' => 'string',
-        'time_based_name' => 'string'
+        'company' => 'string',
+        'is_parent' => 'bool',
+        'merchant_id' => 'string'
     ];
 
     /**
@@ -73,11 +71,9 @@ class ConversationPbxTimeBased implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'context_merchant_id' => null,
-        'conversation_pbx_time_based_uuid' => null,
-        'mapping_config' => null,
-        'merchant_id' => null,
-        'time_based_name' => null
+        'company' => null,
+        'is_parent' => null,
+        'merchant_id' => null
     ];
 
     /**
@@ -107,11 +103,9 @@ class ConversationPbxTimeBased implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'context_merchant_id' => 'context_merchant_id',
-        'conversation_pbx_time_based_uuid' => 'conversation_pbx_time_based_uuid',
-        'mapping_config' => 'mapping_config',
-        'merchant_id' => 'merchant_id',
-        'time_based_name' => 'time_based_name'
+        'company' => 'company',
+        'is_parent' => 'is_parent',
+        'merchant_id' => 'merchant_id'
     ];
 
     /**
@@ -120,11 +114,9 @@ class ConversationPbxTimeBased implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'context_merchant_id' => 'setContextMerchantId',
-        'conversation_pbx_time_based_uuid' => 'setConversationPbxTimeBasedUuid',
-        'mapping_config' => 'setMappingConfig',
-        'merchant_id' => 'setMerchantId',
-        'time_based_name' => 'setTimeBasedName'
+        'company' => 'setCompany',
+        'is_parent' => 'setIsParent',
+        'merchant_id' => 'setMerchantId'
     ];
 
     /**
@@ -133,11 +125,9 @@ class ConversationPbxTimeBased implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'context_merchant_id' => 'getContextMerchantId',
-        'conversation_pbx_time_based_uuid' => 'getConversationPbxTimeBasedUuid',
-        'mapping_config' => 'getMappingConfig',
-        'merchant_id' => 'getMerchantId',
-        'time_based_name' => 'getTimeBasedName'
+        'company' => 'getCompany',
+        'is_parent' => 'getIsParent',
+        'merchant_id' => 'getMerchantId'
     ];
 
     /**
@@ -197,11 +187,9 @@ class ConversationPbxTimeBased implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(array $data = null)
     {
-        $this->container['context_merchant_id'] = $data['context_merchant_id'] ?? null;
-        $this->container['conversation_pbx_time_based_uuid'] = $data['conversation_pbx_time_based_uuid'] ?? null;
-        $this->container['mapping_config'] = $data['mapping_config'] ?? null;
+        $this->container['company'] = $data['company'] ?? null;
+        $this->container['is_parent'] = $data['is_parent'] ?? null;
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
-        $this->container['time_based_name'] = $data['time_based_name'] ?? null;
     }
 
     /**
@@ -212,6 +200,10 @@ class ConversationPbxTimeBased implements ModelInterface, ArrayAccess, \JsonSeri
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['merchant_id']) && (mb_strlen($this->container['merchant_id']) > 20)) {
+            $invalidProperties[] = "invalid value for 'merchant_id', the character length must be smaller than or equal to 20.";
+        }
 
         return $invalidProperties;
     }
@@ -229,73 +221,49 @@ class ConversationPbxTimeBased implements ModelInterface, ArrayAccess, \JsonSeri
 
 
     /**
-     * Gets context_merchant_id
+     * Gets company
      *
      * @return string|null
      */
-    public function getContextMerchantId()
+    public function getCompany()
     {
-        return $this->container['context_merchant_id'];
+        return $this->container['company'];
     }
 
     /**
-     * Sets context_merchant_id
+     * Sets company
      *
-     * @param string|null $context_merchant_id context_merchant_id
+     * @param string|null $company The company name for this merchant
      *
      * @return self
      */
-    public function setContextMerchantId($context_merchant_id)
+    public function setCompany($company)
     {
-        $this->container['context_merchant_id'] = $context_merchant_id;
+        $this->container['company'] = $company;
 
         return $this;
     }
 
     /**
-     * Gets conversation_pbx_time_based_uuid
+     * Gets is_parent
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getConversationPbxTimeBasedUuid()
+    public function getIsParent()
     {
-        return $this->container['conversation_pbx_time_based_uuid'];
+        return $this->container['is_parent'];
     }
 
     /**
-     * Sets conversation_pbx_time_based_uuid
+     * Sets is_parent
      *
-     * @param string|null $conversation_pbx_time_based_uuid conversation_pbx_time_based_uuid
+     * @param bool|null $is_parent True if this is the parent merchant that owns the Twilio account
      *
      * @return self
      */
-    public function setConversationPbxTimeBasedUuid($conversation_pbx_time_based_uuid)
+    public function setIsParent($is_parent)
     {
-        $this->container['conversation_pbx_time_based_uuid'] = $conversation_pbx_time_based_uuid;
-
-        return $this;
-    }
-
-    /**
-     * Gets mapping_config
-     *
-     * @return \ultracart\v2\models\ConversationPbxTimeBasedMappingConfig|null
-     */
-    public function getMappingConfig()
-    {
-        return $this->container['mapping_config'];
-    }
-
-    /**
-     * Sets mapping_config
-     *
-     * @param \ultracart\v2\models\ConversationPbxTimeBasedMappingConfig|null $mapping_config mapping_config
-     *
-     * @return self
-     */
-    public function setMappingConfig($mapping_config)
-    {
-        $this->container['mapping_config'] = $mapping_config;
+        $this->container['is_parent'] = $is_parent;
 
         return $this;
     }
@@ -313,37 +281,17 @@ class ConversationPbxTimeBased implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets merchant_id
      *
-     * @param string|null $merchant_id merchant_id
+     * @param string|null $merchant_id The merchant ID
      *
      * @return self
      */
     public function setMerchantId($merchant_id)
     {
+        if (!is_null($merchant_id) && (mb_strlen($merchant_id) > 20)) {
+            throw new \InvalidArgumentException('invalid length for $merchant_id when calling ConversationAgentAuthMerchant., must be smaller than or equal to 20.');
+        }
+
         $this->container['merchant_id'] = $merchant_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets time_based_name
-     *
-     * @return string|null
-     */
-    public function getTimeBasedName()
-    {
-        return $this->container['time_based_name'];
-    }
-
-    /**
-     * Sets time_based_name
-     *
-     * @param string|null $time_based_name time_based_name
-     *
-     * @return self
-     */
-    public function setTimeBasedName($time_based_name)
-    {
-        $this->container['time_based_name'] = $time_based_name;
 
         return $this;
     }

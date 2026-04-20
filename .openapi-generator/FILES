@@ -158,6 +158,7 @@ docs/Model/CheckoutStateProvinceResponse.md
 docs/Model/CityStateZip.md
 docs/Model/Conversation.md
 docs/Model/ConversationAgentAuth.md
+docs/Model/ConversationAgentAuthMerchant.md
 docs/Model/ConversationAgentAuthResponse.md
 docs/Model/ConversationAgentProfile.md
 docs/Model/ConversationAgentProfileResponse.md
@@ -1138,6 +1139,7 @@ lib/models/CheckoutStateProvinceResponse.php
 lib/models/CityStateZip.php
 lib/models/Conversation.php
 lib/models/ConversationAgentAuth.php
+lib/models/ConversationAgentAuthMerchant.php
 lib/models/ConversationAgentAuthResponse.php
 lib/models/ConversationAgentProfile.php
 lib/models/ConversationAgentProfileResponse.php

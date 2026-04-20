@@ -76,6 +76,7 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
         'callback_offer_after_seconds' => 'int',
         'callback_offer_interval_seconds' => 'int',
         'callback_retry_delay_seconds' => 'int',
+        'context_merchant_id' => 'string',
         'conversation_pbx_queue_uuid' => 'string',
         'conversation_voicemail_mailbox_uuid' => 'string',
         'hold_conversation_pbx_audio_uuid' => 'string',
@@ -126,6 +127,7 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
         'callback_offer_after_seconds' => 'int32',
         'callback_offer_interval_seconds' => 'int32',
         'callback_retry_delay_seconds' => 'int32',
+        'context_merchant_id' => null,
         'conversation_pbx_queue_uuid' => null,
         'conversation_voicemail_mailbox_uuid' => null,
         'hold_conversation_pbx_audio_uuid' => null,
@@ -195,6 +197,7 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
         'callback_offer_after_seconds' => 'callback_offer_after_seconds',
         'callback_offer_interval_seconds' => 'callback_offer_interval_seconds',
         'callback_retry_delay_seconds' => 'callback_retry_delay_seconds',
+        'context_merchant_id' => 'context_merchant_id',
         'conversation_pbx_queue_uuid' => 'conversation_pbx_queue_uuid',
         'conversation_voicemail_mailbox_uuid' => 'conversation_voicemail_mailbox_uuid',
         'hold_conversation_pbx_audio_uuid' => 'hold_conversation_pbx_audio_uuid',
@@ -243,6 +246,7 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
         'callback_offer_after_seconds' => 'setCallbackOfferAfterSeconds',
         'callback_offer_interval_seconds' => 'setCallbackOfferIntervalSeconds',
         'callback_retry_delay_seconds' => 'setCallbackRetryDelaySeconds',
+        'context_merchant_id' => 'setContextMerchantId',
         'conversation_pbx_queue_uuid' => 'setConversationPbxQueueUuid',
         'conversation_voicemail_mailbox_uuid' => 'setConversationVoicemailMailboxUuid',
         'hold_conversation_pbx_audio_uuid' => 'setHoldConversationPbxAudioUuid',
@@ -291,6 +295,7 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
         'callback_offer_after_seconds' => 'getCallbackOfferAfterSeconds',
         'callback_offer_interval_seconds' => 'getCallbackOfferIntervalSeconds',
         'callback_retry_delay_seconds' => 'getCallbackRetryDelaySeconds',
+        'context_merchant_id' => 'getContextMerchantId',
         'conversation_pbx_queue_uuid' => 'getConversationPbxQueueUuid',
         'conversation_voicemail_mailbox_uuid' => 'getConversationVoicemailMailboxUuid',
         'hold_conversation_pbx_audio_uuid' => 'getHoldConversationPbxAudioUuid',
@@ -437,6 +442,7 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->container['callback_offer_after_seconds'] = $data['callback_offer_after_seconds'] ?? null;
         $this->container['callback_offer_interval_seconds'] = $data['callback_offer_interval_seconds'] ?? null;
         $this->container['callback_retry_delay_seconds'] = $data['callback_retry_delay_seconds'] ?? null;
+        $this->container['context_merchant_id'] = $data['context_merchant_id'] ?? null;
         $this->container['conversation_pbx_queue_uuid'] = $data['conversation_pbx_queue_uuid'] ?? null;
         $this->container['conversation_voicemail_mailbox_uuid'] = $data['conversation_voicemail_mailbox_uuid'] ?? null;
         $this->container['hold_conversation_pbx_audio_uuid'] = $data['hold_conversation_pbx_audio_uuid'] ?? null;
@@ -489,6 +495,10 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
 
         if (!is_null($this->container['callback_confirm_audio_uuid']) && (mb_strlen($this->container['callback_confirm_audio_uuid']) > 50)) {
             $invalidProperties[] = "invalid value for 'callback_confirm_audio_uuid', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['context_merchant_id']) && (mb_strlen($this->container['context_merchant_id']) > 20)) {
+            $invalidProperties[] = "invalid value for 'context_merchant_id', the character length must be smaller than or equal to 20.";
         }
 
         if (!is_null($this->container['conversation_voicemail_mailbox_uuid']) && (mb_strlen($this->container['conversation_voicemail_mailbox_uuid']) > 50)) {
@@ -1018,6 +1028,34 @@ class ConversationPbxQueue implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setCallbackRetryDelaySeconds($callback_retry_delay_seconds)
     {
         $this->container['callback_retry_delay_seconds'] = $callback_retry_delay_seconds;
+
+        return $this;
+    }
+
+    /**
+     * Gets context_merchant_id
+     *
+     * @return string|null
+     */
+    public function getContextMerchantId()
+    {
+        return $this->container['context_merchant_id'];
+    }
+
+    /**
+     * Sets context_merchant_id
+     *
+     * @param string|null $context_merchant_id Optional child merchant ID this resource is assigned to. Null = shared across the linked merchant group.
+     *
+     * @return self
+     */
+    public function setContextMerchantId($context_merchant_id)
+    {
+        if (!is_null($context_merchant_id) && (mb_strlen($context_merchant_id) > 20)) {
+            throw new \InvalidArgumentException('invalid length for $context_merchant_id when calling ConversationPbxQueue., must be smaller than or equal to 20.');
+        }
+
+        $this->container['context_merchant_id'] = $context_merchant_id;
 
         return $this;
     }

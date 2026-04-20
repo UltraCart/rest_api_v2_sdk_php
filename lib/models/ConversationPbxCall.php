@@ -66,6 +66,7 @@ class ConversationPbxCall implements ModelInterface, ArrayAccess, \JsonSerializa
         'call_uuid' => 'string',
         'caller' => '\ultracart\v2\models\ConversationPbxCallCaller',
         'conference_sid' => 'string',
+        'context_merchant_id' => 'string',
         'created_at_dts' => 'string',
         'customer_name' => 'string',
         'customer_profile_oid' => 'string',
@@ -101,6 +102,7 @@ class ConversationPbxCall implements ModelInterface, ArrayAccess, \JsonSerializa
         'call_uuid' => null,
         'caller' => null,
         'conference_sid' => null,
+        'context_merchant_id' => null,
         'created_at_dts' => 'dateTime',
         'customer_name' => null,
         'customer_profile_oid' => null,
@@ -155,6 +157,7 @@ class ConversationPbxCall implements ModelInterface, ArrayAccess, \JsonSerializa
         'call_uuid' => 'call_uuid',
         'caller' => 'caller',
         'conference_sid' => 'conference_sid',
+        'context_merchant_id' => 'context_merchant_id',
         'created_at_dts' => 'created_at_dts',
         'customer_name' => 'customer_name',
         'customer_profile_oid' => 'customer_profile_oid',
@@ -188,6 +191,7 @@ class ConversationPbxCall implements ModelInterface, ArrayAccess, \JsonSerializa
         'call_uuid' => 'setCallUuid',
         'caller' => 'setCaller',
         'conference_sid' => 'setConferenceSid',
+        'context_merchant_id' => 'setContextMerchantId',
         'created_at_dts' => 'setCreatedAtDts',
         'customer_name' => 'setCustomerName',
         'customer_profile_oid' => 'setCustomerProfileOid',
@@ -221,6 +225,7 @@ class ConversationPbxCall implements ModelInterface, ArrayAccess, \JsonSerializa
         'call_uuid' => 'getCallUuid',
         'caller' => 'getCaller',
         'conference_sid' => 'getConferenceSid',
+        'context_merchant_id' => 'getContextMerchantId',
         'created_at_dts' => 'getCreatedAtDts',
         'customer_name' => 'getCustomerName',
         'customer_profile_oid' => 'getCustomerProfileOid',
@@ -305,6 +310,7 @@ class ConversationPbxCall implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['call_uuid'] = $data['call_uuid'] ?? null;
         $this->container['caller'] = $data['caller'] ?? null;
         $this->container['conference_sid'] = $data['conference_sid'] ?? null;
+        $this->container['context_merchant_id'] = $data['context_merchant_id'] ?? null;
         $this->container['created_at_dts'] = $data['created_at_dts'] ?? null;
         $this->container['customer_name'] = $data['customer_name'] ?? null;
         $this->container['customer_profile_oid'] = $data['customer_profile_oid'] ?? null;
@@ -536,6 +542,30 @@ class ConversationPbxCall implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setConferenceSid($conference_sid)
     {
         $this->container['conference_sid'] = $conference_sid;
+
+        return $this;
+    }
+
+    /**
+     * Gets context_merchant_id
+     *
+     * @return string|null
+     */
+    public function getContextMerchantId()
+    {
+        return $this->container['context_merchant_id'];
+    }
+
+    /**
+     * Sets context_merchant_id
+     *
+     * @param string|null $context_merchant_id Optional child merchant ID this call is attributed to. Null = no child attribution (parent-level call).
+     *
+     * @return self
+     */
+    public function setContextMerchantId($context_merchant_id)
+    {
+        $this->container['context_merchant_id'] = $context_merchant_id;
 
         return $this;
     }

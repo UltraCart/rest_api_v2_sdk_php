@@ -64,6 +64,7 @@ class ConversationPbxCustomerSnapshotRequest implements ModelInterface, ArrayAcc
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
         'order_expand' => 'string',
         'phone_number' => 'string',
+        'search_linked_accounts' => 'bool',
         'success' => 'bool',
         'warning' => '\ultracart\v2\models\Warning'
     ];
@@ -82,6 +83,7 @@ class ConversationPbxCustomerSnapshotRequest implements ModelInterface, ArrayAcc
         'metadata' => null,
         'order_expand' => null,
         'phone_number' => null,
+        'search_linked_accounts' => null,
         'success' => null,
         'warning' => null
     ];
@@ -119,6 +121,7 @@ class ConversationPbxCustomerSnapshotRequest implements ModelInterface, ArrayAcc
         'metadata' => 'metadata',
         'order_expand' => 'order_expand',
         'phone_number' => 'phone_number',
+        'search_linked_accounts' => 'search_linked_accounts',
         'success' => 'success',
         'warning' => 'warning'
     ];
@@ -135,6 +138,7 @@ class ConversationPbxCustomerSnapshotRequest implements ModelInterface, ArrayAcc
         'metadata' => 'setMetadata',
         'order_expand' => 'setOrderExpand',
         'phone_number' => 'setPhoneNumber',
+        'search_linked_accounts' => 'setSearchLinkedAccounts',
         'success' => 'setSuccess',
         'warning' => 'setWarning'
     ];
@@ -151,6 +155,7 @@ class ConversationPbxCustomerSnapshotRequest implements ModelInterface, ArrayAcc
         'metadata' => 'getMetadata',
         'order_expand' => 'getOrderExpand',
         'phone_number' => 'getPhoneNumber',
+        'search_linked_accounts' => 'getSearchLinkedAccounts',
         'success' => 'getSuccess',
         'warning' => 'getWarning'
     ];
@@ -218,6 +223,7 @@ class ConversationPbxCustomerSnapshotRequest implements ModelInterface, ArrayAcc
         $this->container['metadata'] = $data['metadata'] ?? null;
         $this->container['order_expand'] = $data['order_expand'] ?? null;
         $this->container['phone_number'] = $data['phone_number'] ?? null;
+        $this->container['search_linked_accounts'] = $data['search_linked_accounts'] ?? null;
         $this->container['success'] = $data['success'] ?? null;
         $this->container['warning'] = $data['warning'] ?? null;
     }
@@ -386,6 +392,30 @@ class ConversationPbxCustomerSnapshotRequest implements ModelInterface, ArrayAcc
     public function setPhoneNumber($phone_number)
     {
         $this->container['phone_number'] = $phone_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets search_linked_accounts
+     *
+     * @return bool|null
+     */
+    public function getSearchLinkedAccounts()
+    {
+        return $this->container['search_linked_accounts'];
+    }
+
+    /**
+     * Sets search_linked_accounts
+     *
+     * @param bool|null $search_linked_accounts search_linked_accounts
+     *
+     * @return self
+     */
+    public function setSearchLinkedAccounts($search_linked_accounts)
+    {
+        $this->container['search_linked_accounts'] = $search_linked_accounts;
 
         return $this;
     }

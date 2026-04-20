@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **metadata** | [**\ultracart\v2\models\ResponseMetadata**](ResponseMetadata.md) |  | [optional]
 **order_expand** | **string** |  | [optional]
 **phone_number** | **string** |  | [optional]
+**search_linked_accounts** | **bool** |  | [optional]
 **success** | **bool** | Indicates if API call was successful | [optional]
 **warning** | [**\ultracart\v2\models\Warning**](Warning.md) |  | [optional]
 

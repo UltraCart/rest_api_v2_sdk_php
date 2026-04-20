@@ -60,6 +60,7 @@ class ConversationPbxClassOfService implements ModelInterface, ArrayAccess, \Jso
     protected static $openAPITypes = [
         'allowed_countries' => 'string[]',
         'block_premium_numbers' => 'bool',
+        'context_merchant_id' => 'string',
         'conversation_pbx_class_of_service_uuid' => 'string',
         'default_flag' => 'bool',
         'description' => 'string',
@@ -79,6 +80,7 @@ class ConversationPbxClassOfService implements ModelInterface, ArrayAccess, \Jso
     protected static $openAPIFormats = [
         'allowed_countries' => null,
         'block_premium_numbers' => null,
+        'context_merchant_id' => null,
         'conversation_pbx_class_of_service_uuid' => null,
         'default_flag' => null,
         'description' => null,
@@ -117,6 +119,7 @@ class ConversationPbxClassOfService implements ModelInterface, ArrayAccess, \Jso
     protected static $attributeMap = [
         'allowed_countries' => 'allowed_countries',
         'block_premium_numbers' => 'block_premium_numbers',
+        'context_merchant_id' => 'context_merchant_id',
         'conversation_pbx_class_of_service_uuid' => 'conversation_pbx_class_of_service_uuid',
         'default_flag' => 'default_flag',
         'description' => 'description',
@@ -134,6 +137,7 @@ class ConversationPbxClassOfService implements ModelInterface, ArrayAccess, \Jso
     protected static $setters = [
         'allowed_countries' => 'setAllowedCountries',
         'block_premium_numbers' => 'setBlockPremiumNumbers',
+        'context_merchant_id' => 'setContextMerchantId',
         'conversation_pbx_class_of_service_uuid' => 'setConversationPbxClassOfServiceUuid',
         'default_flag' => 'setDefaultFlag',
         'description' => 'setDescription',
@@ -151,6 +155,7 @@ class ConversationPbxClassOfService implements ModelInterface, ArrayAccess, \Jso
     protected static $getters = [
         'allowed_countries' => 'getAllowedCountries',
         'block_premium_numbers' => 'getBlockPremiumNumbers',
+        'context_merchant_id' => 'getContextMerchantId',
         'conversation_pbx_class_of_service_uuid' => 'getConversationPbxClassOfServiceUuid',
         'default_flag' => 'getDefaultFlag',
         'description' => 'getDescription',
@@ -219,6 +224,7 @@ class ConversationPbxClassOfService implements ModelInterface, ArrayAccess, \Jso
     {
         $this->container['allowed_countries'] = $data['allowed_countries'] ?? null;
         $this->container['block_premium_numbers'] = $data['block_premium_numbers'] ?? null;
+        $this->container['context_merchant_id'] = $data['context_merchant_id'] ?? null;
         $this->container['conversation_pbx_class_of_service_uuid'] = $data['conversation_pbx_class_of_service_uuid'] ?? null;
         $this->container['default_flag'] = $data['default_flag'] ?? null;
         $this->container['description'] = $data['description'] ?? null;
@@ -236,6 +242,10 @@ class ConversationPbxClassOfService implements ModelInterface, ArrayAccess, \Jso
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['context_merchant_id']) && (mb_strlen($this->container['context_merchant_id']) > 20)) {
+            $invalidProperties[] = "invalid value for 'context_merchant_id', the character length must be smaller than or equal to 20.";
+        }
 
         if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 500)) {
             $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 500.";
@@ -308,6 +318,34 @@ class ConversationPbxClassOfService implements ModelInterface, ArrayAccess, \Jso
     public function setBlockPremiumNumbers($block_premium_numbers)
     {
         $this->container['block_premium_numbers'] = $block_premium_numbers;
+
+        return $this;
+    }
+
+    /**
+     * Gets context_merchant_id
+     *
+     * @return string|null
+     */
+    public function getContextMerchantId()
+    {
+        return $this->container['context_merchant_id'];
+    }
+
+    /**
+     * Sets context_merchant_id
+     *
+     * @param string|null $context_merchant_id Optional child merchant ID this resource is assigned to. Null = shared across the linked merchant group.
+     *
+     * @return self
+     */
+    public function setContextMerchantId($context_merchant_id)
+    {
+        if (!is_null($context_merchant_id) && (mb_strlen($context_merchant_id) > 20)) {
+            throw new \InvalidArgumentException('invalid length for $context_merchant_id when calling ConversationPbxClassOfService., must be smaller than or equal to 20.');
+        }
+
+        $this->container['context_merchant_id'] = $context_merchant_id;
 
         return $this;
     }

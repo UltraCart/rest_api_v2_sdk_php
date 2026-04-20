@@ -61,6 +61,7 @@ class ConversationPbxPhoneNumber implements ModelInterface, ArrayAccess, \JsonSe
         'action' => 'string',
         'action_target' => 'string',
         'address_sid' => 'string',
+        'context_merchant_id' => 'string',
         'conversation_pbx_phone_number_uuid' => 'string',
         'default_phone_number' => 'bool',
         'deletion_protected' => 'bool',
@@ -79,6 +80,7 @@ class ConversationPbxPhoneNumber implements ModelInterface, ArrayAccess, \JsonSe
         'action' => null,
         'action_target' => null,
         'address_sid' => null,
+        'context_merchant_id' => null,
         'conversation_pbx_phone_number_uuid' => null,
         'default_phone_number' => null,
         'deletion_protected' => null,
@@ -116,6 +118,7 @@ class ConversationPbxPhoneNumber implements ModelInterface, ArrayAccess, \JsonSe
         'action' => 'action',
         'action_target' => 'action_target',
         'address_sid' => 'address_sid',
+        'context_merchant_id' => 'context_merchant_id',
         'conversation_pbx_phone_number_uuid' => 'conversation_pbx_phone_number_uuid',
         'default_phone_number' => 'default_phone_number',
         'deletion_protected' => 'deletion_protected',
@@ -132,6 +135,7 @@ class ConversationPbxPhoneNumber implements ModelInterface, ArrayAccess, \JsonSe
         'action' => 'setAction',
         'action_target' => 'setActionTarget',
         'address_sid' => 'setAddressSid',
+        'context_merchant_id' => 'setContextMerchantId',
         'conversation_pbx_phone_number_uuid' => 'setConversationPbxPhoneNumberUuid',
         'default_phone_number' => 'setDefaultPhoneNumber',
         'deletion_protected' => 'setDeletionProtected',
@@ -148,6 +152,7 @@ class ConversationPbxPhoneNumber implements ModelInterface, ArrayAccess, \JsonSe
         'action' => 'getAction',
         'action_target' => 'getActionTarget',
         'address_sid' => 'getAddressSid',
+        'context_merchant_id' => 'getContextMerchantId',
         'conversation_pbx_phone_number_uuid' => 'getConversationPbxPhoneNumberUuid',
         'default_phone_number' => 'getDefaultPhoneNumber',
         'deletion_protected' => 'getDeletionProtected',
@@ -236,6 +241,7 @@ class ConversationPbxPhoneNumber implements ModelInterface, ArrayAccess, \JsonSe
         $this->container['action'] = $data['action'] ?? null;
         $this->container['action_target'] = $data['action_target'] ?? null;
         $this->container['address_sid'] = $data['address_sid'] ?? null;
+        $this->container['context_merchant_id'] = $data['context_merchant_id'] ?? null;
         $this->container['conversation_pbx_phone_number_uuid'] = $data['conversation_pbx_phone_number_uuid'] ?? null;
         $this->container['default_phone_number'] = $data['default_phone_number'] ?? null;
         $this->container['deletion_protected'] = $data['deletion_protected'] ?? null;
@@ -271,6 +277,10 @@ class ConversationPbxPhoneNumber implements ModelInterface, ArrayAccess, \JsonSe
 
         if (!is_null($this->container['address_sid']) && (mb_strlen($this->container['address_sid']) > 50)) {
             $invalidProperties[] = "invalid value for 'address_sid', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['context_merchant_id']) && (mb_strlen($this->container['context_merchant_id']) > 20)) {
+            $invalidProperties[] = "invalid value for 'context_merchant_id', the character length must be smaller than or equal to 20.";
         }
 
         if (!is_null($this->container['conversation_pbx_phone_number_uuid']) && (mb_strlen($this->container['conversation_pbx_phone_number_uuid']) > 50)) {
@@ -390,6 +400,34 @@ class ConversationPbxPhoneNumber implements ModelInterface, ArrayAccess, \JsonSe
         }
 
         $this->container['address_sid'] = $address_sid;
+
+        return $this;
+    }
+
+    /**
+     * Gets context_merchant_id
+     *
+     * @return string|null
+     */
+    public function getContextMerchantId()
+    {
+        return $this->container['context_merchant_id'];
+    }
+
+    /**
+     * Sets context_merchant_id
+     *
+     * @param string|null $context_merchant_id Optional child merchant ID this resource is assigned to. Null = shared across the linked merchant group.
+     *
+     * @return self
+     */
+    public function setContextMerchantId($context_merchant_id)
+    {
+        if (!is_null($context_merchant_id) && (mb_strlen($context_merchant_id) > 20)) {
+            throw new \InvalidArgumentException('invalid length for $context_merchant_id when calling ConversationPbxPhoneNumber., must be smaller than or equal to 20.');
+        }
+
+        $this->container['context_merchant_id'] = $context_merchant_id;
 
         return $this;
     }

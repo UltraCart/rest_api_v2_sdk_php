@@ -58,6 +58,7 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
+        'context_merchant_id' => 'string',
         'conversation_pbx_voicemail_mailbox_uuid' => 'string',
         'merchant_id' => 'string',
         'send_notices_to_channel' => 'string',
@@ -82,6 +83,7 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess, \J
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'context_merchant_id' => null,
         'conversation_pbx_voicemail_mailbox_uuid' => null,
         'merchant_id' => null,
         'send_notices_to_channel' => null,
@@ -125,6 +127,7 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $attributeMap = [
+        'context_merchant_id' => 'context_merchant_id',
         'conversation_pbx_voicemail_mailbox_uuid' => 'conversation_pbx_voicemail_mailbox_uuid',
         'merchant_id' => 'merchant_id',
         'send_notices_to_channel' => 'send_notices_to_channel',
@@ -147,6 +150,7 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $setters = [
+        'context_merchant_id' => 'setContextMerchantId',
         'conversation_pbx_voicemail_mailbox_uuid' => 'setConversationPbxVoicemailMailboxUuid',
         'merchant_id' => 'setMerchantId',
         'send_notices_to_channel' => 'setSendNoticesToChannel',
@@ -169,6 +173,7 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $getters = [
+        'context_merchant_id' => 'getContextMerchantId',
         'conversation_pbx_voicemail_mailbox_uuid' => 'getConversationPbxVoicemailMailboxUuid',
         'merchant_id' => 'getMerchantId',
         'send_notices_to_channel' => 'getSendNoticesToChannel',
@@ -306,6 +311,7 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess, \J
      */
     public function __construct(array $data = null)
     {
+        $this->container['context_merchant_id'] = $data['context_merchant_id'] ?? null;
         $this->container['conversation_pbx_voicemail_mailbox_uuid'] = $data['conversation_pbx_voicemail_mailbox_uuid'] ?? null;
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
         $this->container['send_notices_to_channel'] = $data['send_notices_to_channel'] ?? null;
@@ -330,6 +336,10 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess, \J
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['context_merchant_id']) && (mb_strlen($this->container['context_merchant_id']) > 20)) {
+            $invalidProperties[] = "invalid value for 'context_merchant_id', the character length must be smaller than or equal to 20.";
+        }
 
         if (!is_null($this->container['conversation_pbx_voicemail_mailbox_uuid']) && (mb_strlen($this->container['conversation_pbx_voicemail_mailbox_uuid']) > 50)) {
             $invalidProperties[] = "invalid value for 'conversation_pbx_voicemail_mailbox_uuid', the character length must be smaller than or equal to 50.";
@@ -425,6 +435,34 @@ class ConversationPbxVoicemailMailbox implements ModelInterface, ArrayAccess, \J
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets context_merchant_id
+     *
+     * @return string|null
+     */
+    public function getContextMerchantId()
+    {
+        return $this->container['context_merchant_id'];
+    }
+
+    /**
+     * Sets context_merchant_id
+     *
+     * @param string|null $context_merchant_id Optional child merchant ID this resource is assigned to. Null = shared across the linked merchant group.
+     *
+     * @return self
+     */
+    public function setContextMerchantId($context_merchant_id)
+    {
+        if (!is_null($context_merchant_id) && (mb_strlen($context_merchant_id) > 20)) {
+            throw new \InvalidArgumentException('invalid length for $context_merchant_id when calling ConversationPbxVoicemailMailbox., must be smaller than or equal to 20.');
+        }
+
+        $this->container['context_merchant_id'] = $context_merchant_id;
+
+        return $this;
+    }
 
     /**
      * Gets conversation_pbx_voicemail_mailbox_uuid

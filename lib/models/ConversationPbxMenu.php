@@ -59,6 +59,7 @@ class ConversationPbxMenu implements ModelInterface, ArrayAccess, \JsonSerializa
       */
     protected static $openAPITypes = [
         'allow_direct_extensions' => 'bool',
+        'context_merchant_id' => 'string',
         'conversation_pbx_menu_uuid' => 'string',
         'default_action' => 'string',
         'default_action_target' => 'string',
@@ -80,6 +81,7 @@ class ConversationPbxMenu implements ModelInterface, ArrayAccess, \JsonSerializa
       */
     protected static $openAPIFormats = [
         'allow_direct_extensions' => null,
+        'context_merchant_id' => null,
         'conversation_pbx_menu_uuid' => null,
         'default_action' => null,
         'default_action_target' => null,
@@ -120,6 +122,7 @@ class ConversationPbxMenu implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $attributeMap = [
         'allow_direct_extensions' => 'allow_direct_extensions',
+        'context_merchant_id' => 'context_merchant_id',
         'conversation_pbx_menu_uuid' => 'conversation_pbx_menu_uuid',
         'default_action' => 'default_action',
         'default_action_target' => 'default_action_target',
@@ -139,6 +142,7 @@ class ConversationPbxMenu implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $setters = [
         'allow_direct_extensions' => 'setAllowDirectExtensions',
+        'context_merchant_id' => 'setContextMerchantId',
         'conversation_pbx_menu_uuid' => 'setConversationPbxMenuUuid',
         'default_action' => 'setDefaultAction',
         'default_action_target' => 'setDefaultActionTarget',
@@ -158,6 +162,7 @@ class ConversationPbxMenu implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $getters = [
         'allow_direct_extensions' => 'getAllowDirectExtensions',
+        'context_merchant_id' => 'getContextMerchantId',
         'conversation_pbx_menu_uuid' => 'getConversationPbxMenuUuid',
         'default_action' => 'getDefaultAction',
         'default_action_target' => 'getDefaultActionTarget',
@@ -243,6 +248,7 @@ class ConversationPbxMenu implements ModelInterface, ArrayAccess, \JsonSerializa
     public function __construct(array $data = null)
     {
         $this->container['allow_direct_extensions'] = $data['allow_direct_extensions'] ?? null;
+        $this->container['context_merchant_id'] = $data['context_merchant_id'] ?? null;
         $this->container['conversation_pbx_menu_uuid'] = $data['conversation_pbx_menu_uuid'] ?? null;
         $this->container['default_action'] = $data['default_action'] ?? null;
         $this->container['default_action_target'] = $data['default_action_target'] ?? null;
@@ -263,6 +269,10 @@ class ConversationPbxMenu implements ModelInterface, ArrayAccess, \JsonSerializa
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['context_merchant_id']) && (mb_strlen($this->container['context_merchant_id']) > 20)) {
+            $invalidProperties[] = "invalid value for 'context_merchant_id', the character length must be smaller than or equal to 20.";
+        }
 
         if (!is_null($this->container['conversation_pbx_menu_uuid']) && (mb_strlen($this->container['conversation_pbx_menu_uuid']) > 50)) {
             $invalidProperties[] = "invalid value for 'conversation_pbx_menu_uuid', the character length must be smaller than or equal to 50.";
@@ -336,6 +346,34 @@ class ConversationPbxMenu implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setAllowDirectExtensions($allow_direct_extensions)
     {
         $this->container['allow_direct_extensions'] = $allow_direct_extensions;
+
+        return $this;
+    }
+
+    /**
+     * Gets context_merchant_id
+     *
+     * @return string|null
+     */
+    public function getContextMerchantId()
+    {
+        return $this->container['context_merchant_id'];
+    }
+
+    /**
+     * Sets context_merchant_id
+     *
+     * @param string|null $context_merchant_id Optional child merchant ID this resource is assigned to. Null = shared across the linked merchant group.
+     *
+     * @return self
+     */
+    public function setContextMerchantId($context_merchant_id)
+    {
+        if (!is_null($context_merchant_id) && (mb_strlen($context_merchant_id) > 20)) {
+            throw new \InvalidArgumentException('invalid length for $context_merchant_id when calling ConversationPbxMenu., must be smaller than or equal to 20.');
+        }
+
+        $this->container['context_merchant_id'] = $context_merchant_id;
 
         return $this;
     }

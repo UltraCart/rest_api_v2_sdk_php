@@ -59,6 +59,7 @@ class ConversationPbxTimeRange implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static $openAPITypes = [
         'configs' => '\ultracart\v2\models\ConversationPbxTimeRangeConfig[]',
+        'context_merchant_id' => 'string',
         'conversation_pbx_time_range_uuid' => 'string',
         'merchant_id' => 'string',
         'time_range_name' => 'string',
@@ -74,6 +75,7 @@ class ConversationPbxTimeRange implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static $openAPIFormats = [
         'configs' => null,
+        'context_merchant_id' => null,
         'conversation_pbx_time_range_uuid' => null,
         'merchant_id' => null,
         'time_range_name' => null,
@@ -108,6 +110,7 @@ class ConversationPbxTimeRange implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $attributeMap = [
         'configs' => 'configs',
+        'context_merchant_id' => 'context_merchant_id',
         'conversation_pbx_time_range_uuid' => 'conversation_pbx_time_range_uuid',
         'merchant_id' => 'merchant_id',
         'time_range_name' => 'time_range_name',
@@ -121,6 +124,7 @@ class ConversationPbxTimeRange implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $setters = [
         'configs' => 'setConfigs',
+        'context_merchant_id' => 'setContextMerchantId',
         'conversation_pbx_time_range_uuid' => 'setConversationPbxTimeRangeUuid',
         'merchant_id' => 'setMerchantId',
         'time_range_name' => 'setTimeRangeName',
@@ -134,6 +138,7 @@ class ConversationPbxTimeRange implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $getters = [
         'configs' => 'getConfigs',
+        'context_merchant_id' => 'getContextMerchantId',
         'conversation_pbx_time_range_uuid' => 'getConversationPbxTimeRangeUuid',
         'merchant_id' => 'getMerchantId',
         'time_range_name' => 'getTimeRangeName',
@@ -198,6 +203,7 @@ class ConversationPbxTimeRange implements ModelInterface, ArrayAccess, \JsonSeri
     public function __construct(array $data = null)
     {
         $this->container['configs'] = $data['configs'] ?? null;
+        $this->container['context_merchant_id'] = $data['context_merchant_id'] ?? null;
         $this->container['conversation_pbx_time_range_uuid'] = $data['conversation_pbx_time_range_uuid'] ?? null;
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
         $this->container['time_range_name'] = $data['time_range_name'] ?? null;
@@ -212,6 +218,10 @@ class ConversationPbxTimeRange implements ModelInterface, ArrayAccess, \JsonSeri
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['context_merchant_id']) && (mb_strlen($this->container['context_merchant_id']) > 20)) {
+            $invalidProperties[] = "invalid value for 'context_merchant_id', the character length must be smaller than or equal to 20.";
+        }
 
         if (!is_null($this->container['conversation_pbx_time_range_uuid']) && (mb_strlen($this->container['conversation_pbx_time_range_uuid']) > 50)) {
             $invalidProperties[] = "invalid value for 'conversation_pbx_time_range_uuid', the character length must be smaller than or equal to 50.";
@@ -264,6 +274,34 @@ class ConversationPbxTimeRange implements ModelInterface, ArrayAccess, \JsonSeri
     public function setConfigs($configs)
     {
         $this->container['configs'] = $configs;
+
+        return $this;
+    }
+
+    /**
+     * Gets context_merchant_id
+     *
+     * @return string|null
+     */
+    public function getContextMerchantId()
+    {
+        return $this->container['context_merchant_id'];
+    }
+
+    /**
+     * Sets context_merchant_id
+     *
+     * @param string|null $context_merchant_id Optional child merchant ID this resource is assigned to. Null = shared across the linked merchant group.
+     *
+     * @return self
+     */
+    public function setContextMerchantId($context_merchant_id)
+    {
+        if (!is_null($context_merchant_id) && (mb_strlen($context_merchant_id) > 20)) {
+            throw new \InvalidArgumentException('invalid length for $context_merchant_id when calling ConversationPbxTimeRange., must be smaller than or equal to 20.');
+        }
+
+        $this->container['context_merchant_id'] = $context_merchant_id;
 
         return $this;
     }
