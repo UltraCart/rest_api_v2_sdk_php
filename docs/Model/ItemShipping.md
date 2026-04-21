@@ -34,6 +34,7 @@ Name | Type | Description | Notes
 **max_days_time_in_transit** | **int** | Maximum days allowed in transit | [optional]
 **methods** | [**\ultracart\v2\models\ItemShippingMethod[]**](ItemShippingMethod.md) | Methods | [optional]
 **no_shipping_discount** | **bool** | No shipping discounts | [optional]
+**one_line_per_unit** | **bool** | Split cart line items with quantity greater than one into individual lines of quantity one on the order | [optional]
 **package_requirements** | [**\ultracart\v2\models\ItemShippingPackageRequirement[]**](ItemShippingPackageRequirement.md) | Package requirements | [optional]
 **perishable_class_name** | **string** | Perishable class name | [optional]
 **perishable_class_oid** | **int** | Perishable class object identifier | [optional]

@@ -88,6 +88,7 @@ class ItemShipping implements ModelInterface, ArrayAccess, \JsonSerializable
         'max_days_time_in_transit' => 'int',
         'methods' => '\ultracart\v2\models\ItemShippingMethod[]',
         'no_shipping_discount' => 'bool',
+        'one_line_per_unit' => 'bool',
         'package_requirements' => '\ultracart\v2\models\ItemShippingPackageRequirement[]',
         'perishable_class_name' => 'string',
         'perishable_class_oid' => 'int',
@@ -149,6 +150,7 @@ class ItemShipping implements ModelInterface, ArrayAccess, \JsonSerializable
         'max_days_time_in_transit' => 'int32',
         'methods' => null,
         'no_shipping_discount' => null,
+        'one_line_per_unit' => null,
         'package_requirements' => null,
         'perishable_class_name' => null,
         'perishable_class_oid' => 'int32',
@@ -229,6 +231,7 @@ class ItemShipping implements ModelInterface, ArrayAccess, \JsonSerializable
         'max_days_time_in_transit' => 'max_days_time_in_transit',
         'methods' => 'methods',
         'no_shipping_discount' => 'no_shipping_discount',
+        'one_line_per_unit' => 'one_line_per_unit',
         'package_requirements' => 'package_requirements',
         'perishable_class_name' => 'perishable_class_name',
         'perishable_class_oid' => 'perishable_class_oid',
@@ -288,6 +291,7 @@ class ItemShipping implements ModelInterface, ArrayAccess, \JsonSerializable
         'max_days_time_in_transit' => 'setMaxDaysTimeInTransit',
         'methods' => 'setMethods',
         'no_shipping_discount' => 'setNoShippingDiscount',
+        'one_line_per_unit' => 'setOneLinePerUnit',
         'package_requirements' => 'setPackageRequirements',
         'perishable_class_name' => 'setPerishableClassName',
         'perishable_class_oid' => 'setPerishableClassOid',
@@ -347,6 +351,7 @@ class ItemShipping implements ModelInterface, ArrayAccess, \JsonSerializable
         'max_days_time_in_transit' => 'getMaxDaysTimeInTransit',
         'methods' => 'getMethods',
         'no_shipping_discount' => 'getNoShippingDiscount',
+        'one_line_per_unit' => 'getOneLinePerUnit',
         'package_requirements' => 'getPackageRequirements',
         'perishable_class_name' => 'getPerishableClassName',
         'perishable_class_oid' => 'getPerishableClassOid',
@@ -457,6 +462,7 @@ class ItemShipping implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['max_days_time_in_transit'] = $data['max_days_time_in_transit'] ?? null;
         $this->container['methods'] = $data['methods'] ?? null;
         $this->container['no_shipping_discount'] = $data['no_shipping_discount'] ?? null;
+        $this->container['one_line_per_unit'] = $data['one_line_per_unit'] ?? null;
         $this->container['package_requirements'] = $data['package_requirements'] ?? null;
         $this->container['perishable_class_name'] = $data['perishable_class_name'] ?? null;
         $this->container['perishable_class_oid'] = $data['perishable_class_oid'] ?? null;
@@ -1228,6 +1234,30 @@ class ItemShipping implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setNoShippingDiscount($no_shipping_discount)
     {
         $this->container['no_shipping_discount'] = $no_shipping_discount;
+
+        return $this;
+    }
+
+    /**
+     * Gets one_line_per_unit
+     *
+     * @return bool|null
+     */
+    public function getOneLinePerUnit()
+    {
+        return $this->container['one_line_per_unit'];
+    }
+
+    /**
+     * Sets one_line_per_unit
+     *
+     * @param bool|null $one_line_per_unit Split cart line items with quantity greater than one into individual lines of quantity one on the order
+     *
+     * @return self
+     */
+    public function setOneLinePerUnit($one_line_per_unit)
+    {
+        $this->container['one_line_per_unit'] = $one_line_per_unit;
 
         return $this;
     }

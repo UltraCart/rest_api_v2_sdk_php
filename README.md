@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.78"
+    "ultracart/rest_api_v2_sdk_php": "4.1.79"
   }
 }
 ```
@@ -1730,6 +1730,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.79 | 04/21/2026 | item - one line per unit flag support |
 | 4.1.78 | 04/20/2026 | conversation pbx - objects have context_merchant_id fields to linked account configs |
 | 4.1.77 | 04/17/2026 | conversation - embed oauth methods |
 | 4.1.76 | 04/17/2026 | conversation - embed oauth methods |
