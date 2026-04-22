@@ -66,8 +66,10 @@ class CustomerShipping implements ModelInterface, ArrayAccess, \JsonSerializable
         'customer_profile_oid' => 'int',
         'customer_shipping_oid' => 'int',
         'day_phone' => 'string',
+        'day_phone_e164' => 'string',
         'default_shipping' => 'bool',
         'evening_phone' => 'string',
+        'evening_phone_e164' => 'string',
         'first_name' => 'string',
         'last_name' => 'string',
         'last_used_dts' => 'string',
@@ -93,8 +95,10 @@ class CustomerShipping implements ModelInterface, ArrayAccess, \JsonSerializable
         'customer_profile_oid' => 'int32',
         'customer_shipping_oid' => 'int32',
         'day_phone' => null,
+        'day_phone_e164' => null,
         'default_shipping' => null,
         'evening_phone' => null,
+        'evening_phone_e164' => null,
         'first_name' => null,
         'last_name' => null,
         'last_used_dts' => 'dateTime',
@@ -139,8 +143,10 @@ class CustomerShipping implements ModelInterface, ArrayAccess, \JsonSerializable
         'customer_profile_oid' => 'customer_profile_oid',
         'customer_shipping_oid' => 'customer_shipping_oid',
         'day_phone' => 'day_phone',
+        'day_phone_e164' => 'day_phone_e164',
         'default_shipping' => 'default_shipping',
         'evening_phone' => 'evening_phone',
+        'evening_phone_e164' => 'evening_phone_e164',
         'first_name' => 'first_name',
         'last_name' => 'last_name',
         'last_used_dts' => 'last_used_dts',
@@ -164,8 +170,10 @@ class CustomerShipping implements ModelInterface, ArrayAccess, \JsonSerializable
         'customer_profile_oid' => 'setCustomerProfileOid',
         'customer_shipping_oid' => 'setCustomerShippingOid',
         'day_phone' => 'setDayPhone',
+        'day_phone_e164' => 'setDayPhoneE164',
         'default_shipping' => 'setDefaultShipping',
         'evening_phone' => 'setEveningPhone',
+        'evening_phone_e164' => 'setEveningPhoneE164',
         'first_name' => 'setFirstName',
         'last_name' => 'setLastName',
         'last_used_dts' => 'setLastUsedDts',
@@ -189,8 +197,10 @@ class CustomerShipping implements ModelInterface, ArrayAccess, \JsonSerializable
         'customer_profile_oid' => 'getCustomerProfileOid',
         'customer_shipping_oid' => 'getCustomerShippingOid',
         'day_phone' => 'getDayPhone',
+        'day_phone_e164' => 'getDayPhoneE164',
         'default_shipping' => 'getDefaultShipping',
         'evening_phone' => 'getEveningPhone',
+        'evening_phone_e164' => 'getEveningPhoneE164',
         'first_name' => 'getFirstName',
         'last_name' => 'getLastName',
         'last_used_dts' => 'getLastUsedDts',
@@ -265,8 +275,10 @@ class CustomerShipping implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['customer_profile_oid'] = $data['customer_profile_oid'] ?? null;
         $this->container['customer_shipping_oid'] = $data['customer_shipping_oid'] ?? null;
         $this->container['day_phone'] = $data['day_phone'] ?? null;
+        $this->container['day_phone_e164'] = $data['day_phone_e164'] ?? null;
         $this->container['default_shipping'] = $data['default_shipping'] ?? null;
         $this->container['evening_phone'] = $data['evening_phone'] ?? null;
+        $this->container['evening_phone_e164'] = $data['evening_phone_e164'] ?? null;
         $this->container['first_name'] = $data['first_name'] ?? null;
         $this->container['last_name'] = $data['last_name'] ?? null;
         $this->container['last_used_dts'] = $data['last_used_dts'] ?? null;
@@ -569,6 +581,30 @@ class CustomerShipping implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets day_phone_e164
+     *
+     * @return string|null
+     */
+    public function getDayPhoneE164()
+    {
+        return $this->container['day_phone_e164'];
+    }
+
+    /**
+     * Sets day_phone_e164
+     *
+     * @param string|null $day_phone_e164 Day phone in E.164 format (derived â€” read only)
+     *
+     * @return self
+     */
+    public function setDayPhoneE164($day_phone_e164)
+    {
+        $this->container['day_phone_e164'] = $day_phone_e164;
+
+        return $this;
+    }
+
+    /**
      * Gets default_shipping
      *
      * @return bool|null
@@ -616,6 +652,30 @@ class CustomerShipping implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['evening_phone'] = $evening_phone;
+
+        return $this;
+    }
+
+    /**
+     * Gets evening_phone_e164
+     *
+     * @return string|null
+     */
+    public function getEveningPhoneE164()
+    {
+        return $this->container['evening_phone_e164'];
+    }
+
+    /**
+     * Sets evening_phone_e164
+     *
+     * @param string|null $evening_phone_e164 Evening phone in E.164 format (derived â€” read only)
+     *
+     * @return self
+     */
+    public function setEveningPhoneE164($evening_phone_e164)
+    {
+        $this->container['evening_phone_e164'] = $evening_phone_e164;
 
         return $this;
     }
