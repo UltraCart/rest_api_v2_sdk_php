@@ -61,6 +61,7 @@ class ConversationPbxCallAgent implements ModelInterface, ArrayAccess, \JsonSeri
         'agent_extension' => 'string',
         'agent_id' => 'string',
         'agent_name' => 'string',
+        'agent_user_id' => 'string',
         'answered' => 'bool',
         'call_sid' => 'string',
         'joined_at_dts' => 'string',
@@ -80,6 +81,7 @@ class ConversationPbxCallAgent implements ModelInterface, ArrayAccess, \JsonSeri
         'agent_extension' => null,
         'agent_id' => null,
         'agent_name' => null,
+        'agent_user_id' => null,
         'answered' => null,
         'call_sid' => null,
         'joined_at_dts' => 'dateTime',
@@ -118,6 +120,7 @@ class ConversationPbxCallAgent implements ModelInterface, ArrayAccess, \JsonSeri
         'agent_extension' => 'agent_extension',
         'agent_id' => 'agent_id',
         'agent_name' => 'agent_name',
+        'agent_user_id' => 'agent_user_id',
         'answered' => 'answered',
         'call_sid' => 'call_sid',
         'joined_at_dts' => 'joined_at_dts',
@@ -135,6 +138,7 @@ class ConversationPbxCallAgent implements ModelInterface, ArrayAccess, \JsonSeri
         'agent_extension' => 'setAgentExtension',
         'agent_id' => 'setAgentId',
         'agent_name' => 'setAgentName',
+        'agent_user_id' => 'setAgentUserId',
         'answered' => 'setAnswered',
         'call_sid' => 'setCallSid',
         'joined_at_dts' => 'setJoinedAtDts',
@@ -152,6 +156,7 @@ class ConversationPbxCallAgent implements ModelInterface, ArrayAccess, \JsonSeri
         'agent_extension' => 'getAgentExtension',
         'agent_id' => 'getAgentId',
         'agent_name' => 'getAgentName',
+        'agent_user_id' => 'getAgentUserId',
         'answered' => 'getAnswered',
         'call_sid' => 'getCallSid',
         'joined_at_dts' => 'getJoinedAtDts',
@@ -220,6 +225,7 @@ class ConversationPbxCallAgent implements ModelInterface, ArrayAccess, \JsonSeri
         $this->container['agent_extension'] = $data['agent_extension'] ?? null;
         $this->container['agent_id'] = $data['agent_id'] ?? null;
         $this->container['agent_name'] = $data['agent_name'] ?? null;
+        $this->container['agent_user_id'] = $data['agent_user_id'] ?? null;
         $this->container['answered'] = $data['answered'] ?? null;
         $this->container['call_sid'] = $data['call_sid'] ?? null;
         $this->container['joined_at_dts'] = $data['joined_at_dts'] ?? null;
@@ -320,6 +326,30 @@ class ConversationPbxCallAgent implements ModelInterface, ArrayAccess, \JsonSeri
     public function setAgentName($agent_name)
     {
         $this->container['agent_name'] = $agent_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets agent_user_id
+     *
+     * @return string|null
+     */
+    public function getAgentUserId()
+    {
+        return $this->container['agent_user_id'];
+    }
+
+    /**
+     * Sets agent_user_id
+     *
+     * @param string|null $agent_user_id UltraCart user id for the agent (denormalized at index time so reporting endpoints can join on agent_user_id without translating from the agent_id login).
+     *
+     * @return self
+     */
+    public function setAgentUserId($agent_user_id)
+    {
+        $this->container['agent_user_id'] = $agent_user_id;
 
         return $this;
     }

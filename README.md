@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.82"
+    "ultracart/rest_api_v2_sdk_php": "4.1.83"
   }
 }
 ```
@@ -1760,6 +1760,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.83 | 04/29/2026 | AO support for item appending on cancel request, order payment method test routing on hold release |
 | 4.1.82 | 04/27/2026 | converation - agent status and availability |
 | 4.1.81 | 04/27/2026 | conversations - agent status and availability |
 | 4.1.80 | 04/22/2026 | customer - e.164 read only fields on billing/shipping child objects |

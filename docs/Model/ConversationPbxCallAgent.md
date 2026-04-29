@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **agent_extension** | **string** | Agent&#39;s phone extension | [optional]
 **agent_id** | **string** | Unique identifier for the agent | [optional]
 **agent_name** | **string** | Display name of the agent | [optional]
+**agent_user_id** | **string** | UltraCart user id for the agent (denormalized at index time so reporting endpoints can join on agent_user_id without translating from the agent_id login). | [optional]
 **answered** | **bool** | Whether the agent answered the call | [optional]
 **call_sid** | **string** | Twilio call SID for the agent&#39;s call leg | [optional]
 **joined_at_dts** | **string** | Timestamp when the agent joined the call | [optional]

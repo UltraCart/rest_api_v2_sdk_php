@@ -58,6 +58,7 @@ class AutoOrderItemCancelRequest implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
+        'append_items' => '\ultracart\v2\models\AutoOrderItem[]',
         'auto_order_item_oid' => 'int',
         'mode' => 'string'
     ];
@@ -70,6 +71,7 @@ class AutoOrderItemCancelRequest implements ModelInterface, ArrayAccess, \JsonSe
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'append_items' => null,
         'auto_order_item_oid' => 'int32',
         'mode' => null
     ];
@@ -101,6 +103,7 @@ class AutoOrderItemCancelRequest implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
+        'append_items' => 'append_items',
         'auto_order_item_oid' => 'auto_order_item_oid',
         'mode' => 'mode'
     ];
@@ -111,6 +114,7 @@ class AutoOrderItemCancelRequest implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
+        'append_items' => 'setAppendItems',
         'auto_order_item_oid' => 'setAutoOrderItemOid',
         'mode' => 'setMode'
     ];
@@ -121,6 +125,7 @@ class AutoOrderItemCancelRequest implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
+        'append_items' => 'getAppendItems',
         'auto_order_item_oid' => 'getAutoOrderItemOid',
         'mode' => 'getMode'
     ];
@@ -197,6 +202,7 @@ class AutoOrderItemCancelRequest implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(array $data = null)
     {
+        $this->container['append_items'] = $data['append_items'] ?? null;
         $this->container['auto_order_item_oid'] = $data['auto_order_item_oid'] ?? null;
         $this->container['mode'] = $data['mode'] ?? null;
     }
@@ -235,6 +241,30 @@ class AutoOrderItemCancelRequest implements ModelInterface, ArrayAccess, \JsonSe
 
 
     /**
+     * Gets append_items
+     *
+     * @return \ultracart\v2\models\AutoOrderItem[]|null
+     */
+    public function getAppendItems()
+    {
+        return $this->container['append_items'];
+    }
+
+    /**
+     * Sets append_items
+     *
+     * @param \ultracart\v2\models\AutoOrderItem[]|null $append_items Specifying these items allows for an easier immutable item contact.  Validation will occur before any operations take place.  After the end/remove operation is successful, append these additional item(s) to the auto order.  The changes will be available in the response if the expansion includes items.
+     *
+     * @return self
+     */
+    public function setAppendItems($append_items)
+    {
+        $this->container['append_items'] = $append_items;
+
+        return $this;
+    }
+
+    /**
      * Gets auto_order_item_oid
      *
      * @return int|null
@@ -247,7 +277,7 @@ class AutoOrderItemCancelRequest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets auto_order_item_oid
      *
-     * @param int|null $auto_order_item_oid Optional tiebreaker when more than one item on the auto order shares the same original_item_id.  When present, the item with this oid is targeted and its original_item_id must match the URL path parameter (safety check).  Leave unset for the common case of a unique original_item_id.
+     * @param int|null $auto_order_item_oid Optional tiebreaker when more than one item on the auto order shares the same original_item_id.  When present, the item with this oid is targeted and its original_item_id must match the URL path parameter (safety check).  Leave unset for the common case of a unique original_item_id.  For reference the order_item.item_reference_oid is the same value as auto_order_item.auto_order_item_oid UNLESS the a manual edit took place AFTER the original order was placed.
      *
      * @return self
      */

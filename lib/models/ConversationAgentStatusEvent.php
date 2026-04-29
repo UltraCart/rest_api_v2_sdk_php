@@ -58,6 +58,7 @@ class ConversationAgentStatusEvent implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
+        'agent_identifier' => 'string',
         'agent_name' => 'string',
         'agent_type' => 'string',
         'agent_user_id' => 'string',
@@ -84,6 +85,7 @@ class ConversationAgentStatusEvent implements ModelInterface, ArrayAccess, \Json
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'agent_identifier' => null,
         'agent_name' => null,
         'agent_type' => null,
         'agent_user_id' => null,
@@ -129,6 +131,7 @@ class ConversationAgentStatusEvent implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $attributeMap = [
+        'agent_identifier' => 'agent_identifier',
         'agent_name' => 'agent_name',
         'agent_type' => 'agent_type',
         'agent_user_id' => 'agent_user_id',
@@ -153,6 +156,7 @@ class ConversationAgentStatusEvent implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $setters = [
+        'agent_identifier' => 'setAgentIdentifier',
         'agent_name' => 'setAgentName',
         'agent_type' => 'setAgentType',
         'agent_user_id' => 'setAgentUserId',
@@ -177,6 +181,7 @@ class ConversationAgentStatusEvent implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $getters = [
+        'agent_identifier' => 'getAgentIdentifier',
         'agent_name' => 'getAgentName',
         'agent_type' => 'getAgentType',
         'agent_user_id' => 'getAgentUserId',
@@ -333,6 +338,7 @@ class ConversationAgentStatusEvent implements ModelInterface, ArrayAccess, \Json
      */
     public function __construct(array $data = null)
     {
+        $this->container['agent_identifier'] = $data['agent_identifier'] ?? null;
         $this->container['agent_name'] = $data['agent_name'] ?? null;
         $this->container['agent_type'] = $data['agent_type'] ?? null;
         $this->container['agent_user_id'] = $data['agent_user_id'] ?? null;
@@ -435,6 +441,30 @@ class ConversationAgentStatusEvent implements ModelInterface, ArrayAccess, \Json
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets agent_identifier
+     *
+     * @return string|null
+     */
+    public function getAgentIdentifier()
+    {
+        return $this->container['agent_identifier'];
+    }
+
+    /**
+     * Sets agent_identifier
+     *
+     * @param string|null $agent_identifier Agent identifier â€” voice_identity for PBX (e.g. 'client:login'), participant_arn for chat, synthetic 'ai:<user_id>' for AI flag events. Stable across an agent's events; participates in DDB pk and GSI1 sk.
+     *
+     * @return self
+     */
+    public function setAgentIdentifier($agent_identifier)
+    {
+        $this->container['agent_identifier'] = $agent_identifier;
+
+        return $this;
+    }
 
     /**
      * Gets agent_name
