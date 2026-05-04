@@ -1,6 +1,6 @@
 <?php
 /**
- * ItemShippingDistributionCenterResponse
+ * ItemGenerateGatedCodesRequest
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ItemShippingDistributionCenterResponse Class Doc Comment
+ * ItemGenerateGatedCodesRequest Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ItemShippingDistributionCenterResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class ItemGenerateGatedCodesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ItemShippingDistributionCenterResponse implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ItemShippingDistributionCenterResponse';
+    protected static $openAPIModelName = 'ItemGenerateGatedCodesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,11 +58,9 @@ class ItemShippingDistributionCenterResponse implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $openAPITypes = [
-        'error' => '\ultracart\v2\models\Error',
-        'item_shipping_distribution_center' => '\ultracart\v2\models\ItemShippingDistributionCenter',
-        'metadata' => '\ultracart\v2\models\ResponseMetadata',
-        'success' => 'bool',
-        'warning' => '\ultracart\v2\models\Warning'
+        'additional_existing_codes' => 'string[]',
+        'count' => 'int',
+        'length' => 'int'
     ];
 
     /**
@@ -73,11 +71,9 @@ class ItemShippingDistributionCenterResponse implements ModelInterface, ArrayAcc
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'error' => null,
-        'item_shipping_distribution_center' => null,
-        'metadata' => null,
-        'success' => null,
-        'warning' => null
+        'additional_existing_codes' => null,
+        'count' => 'int32',
+        'length' => 'int32'
     ];
 
     /**
@@ -107,11 +103,9 @@ class ItemShippingDistributionCenterResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'error' => 'error',
-        'item_shipping_distribution_center' => 'itemShippingDistributionCenter',
-        'metadata' => 'metadata',
-        'success' => 'success',
-        'warning' => 'warning'
+        'additional_existing_codes' => 'additionalExistingCodes',
+        'count' => 'count',
+        'length' => 'length'
     ];
 
     /**
@@ -120,11 +114,9 @@ class ItemShippingDistributionCenterResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'error' => 'setError',
-        'item_shipping_distribution_center' => 'setItemShippingDistributionCenter',
-        'metadata' => 'setMetadata',
-        'success' => 'setSuccess',
-        'warning' => 'setWarning'
+        'additional_existing_codes' => 'setAdditionalExistingCodes',
+        'count' => 'setCount',
+        'length' => 'setLength'
     ];
 
     /**
@@ -133,11 +125,9 @@ class ItemShippingDistributionCenterResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'error' => 'getError',
-        'item_shipping_distribution_center' => 'getItemShippingDistributionCenter',
-        'metadata' => 'getMetadata',
-        'success' => 'getSuccess',
-        'warning' => 'getWarning'
+        'additional_existing_codes' => 'getAdditionalExistingCodes',
+        'count' => 'getCount',
+        'length' => 'getLength'
     ];
 
     /**
@@ -197,11 +187,9 @@ class ItemShippingDistributionCenterResponse implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
-        $this->container['error'] = $data['error'] ?? null;
-        $this->container['item_shipping_distribution_center'] = $data['item_shipping_distribution_center'] ?? null;
-        $this->container['metadata'] = $data['metadata'] ?? null;
-        $this->container['success'] = $data['success'] ?? null;
-        $this->container['warning'] = $data['warning'] ?? null;
+        $this->container['additional_existing_codes'] = $data['additional_existing_codes'] ?? null;
+        $this->container['count'] = $data['count'] ?? null;
+        $this->container['length'] = $data['length'] ?? null;
     }
 
     /**
@@ -229,121 +217,73 @@ class ItemShippingDistributionCenterResponse implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets error
+     * Gets additional_existing_codes
      *
-     * @return \ultracart\v2\models\Error|null
+     * @return string[]|null
      */
-    public function getError()
+    public function getAdditionalExistingCodes()
     {
-        return $this->container['error'];
+        return $this->container['additional_existing_codes'];
     }
 
     /**
-     * Sets error
+     * Sets additional_existing_codes
      *
-     * @param \ultracart\v2\models\Error|null $error error
+     * @param string[]|null $additional_existing_codes Optional codes to also dedupe against (e.g. an in-progress draft).
      *
      * @return self
      */
-    public function setError($error)
+    public function setAdditionalExistingCodes($additional_existing_codes)
     {
-        $this->container['error'] = $error;
+        $this->container['additional_existing_codes'] = $additional_existing_codes;
 
         return $this;
     }
 
     /**
-     * Gets item_shipping_distribution_center
+     * Gets count
      *
-     * @return \ultracart\v2\models\ItemShippingDistributionCenter|null
+     * @return int|null
      */
-    public function getItemShippingDistributionCenter()
+    public function getCount()
     {
-        return $this->container['item_shipping_distribution_center'];
+        return $this->container['count'];
     }
 
     /**
-     * Sets item_shipping_distribution_center
+     * Sets count
      *
-     * @param \ultracart\v2\models\ItemShippingDistributionCenter|null $item_shipping_distribution_center item_shipping_distribution_center
+     * @param int|null $count Number of codes to generate (1-1000).
      *
      * @return self
      */
-    public function setItemShippingDistributionCenter($item_shipping_distribution_center)
+    public function setCount($count)
     {
-        $this->container['item_shipping_distribution_center'] = $item_shipping_distribution_center;
+        $this->container['count'] = $count;
 
         return $this;
     }
 
     /**
-     * Gets metadata
+     * Gets length
      *
-     * @return \ultracart\v2\models\ResponseMetadata|null
+     * @return int|null
      */
-    public function getMetadata()
+    public function getLength()
     {
-        return $this->container['metadata'];
+        return $this->container['length'];
     }
 
     /**
-     * Sets metadata
+     * Sets length
      *
-     * @param \ultracart\v2\models\ResponseMetadata|null $metadata metadata
+     * @param int|null $length Length of each code (8-32).
      *
      * @return self
      */
-    public function setMetadata($metadata)
+    public function setLength($length)
     {
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets success
-     *
-     * @return bool|null
-     */
-    public function getSuccess()
-    {
-        return $this->container['success'];
-    }
-
-    /**
-     * Sets success
-     *
-     * @param bool|null $success Indicates if API call was successful
-     *
-     * @return self
-     */
-    public function setSuccess($success)
-    {
-        $this->container['success'] = $success;
-
-        return $this;
-    }
-
-    /**
-     * Gets warning
-     *
-     * @return \ultracart\v2\models\Warning|null
-     */
-    public function getWarning()
-    {
-        return $this->container['warning'];
-    }
-
-    /**
-     * Sets warning
-     *
-     * @param \ultracart\v2\models\Warning|null $warning warning
-     *
-     * @return self
-     */
-    public function setWarning($warning)
-    {
-        $this->container['warning'] = $warning;
+        $this->container['length'] = $length;
 
         return $this;
     }

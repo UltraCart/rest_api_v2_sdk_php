@@ -381,6 +381,7 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
     public const CURRENT_STAGE_QUOTE_SENT = 'Quote Sent';
     public const CURRENT_STAGE_LEAST_COST_ROUTING = 'Least Cost Routing';
     public const CURRENT_STAGE_UNKNOWN = 'Unknown';
+    public const CURRENT_STAGE_HOLD = 'Hold';
     public const PAYMENT_METHOD_AFFIRM = 'Affirm';
     public const PAYMENT_METHOD_AMAZON = 'Amazon';
     public const PAYMENT_METHOD_AMAZON_SC = 'Amazon SC';
@@ -421,6 +422,7 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
             self::CURRENT_STAGE_QUOTE_SENT,
             self::CURRENT_STAGE_LEAST_COST_ROUTING,
             self::CURRENT_STAGE_UNKNOWN,
+            self::CURRENT_STAGE_HOLD,
         ];
     }
 

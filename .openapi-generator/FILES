@@ -664,6 +664,11 @@ docs/Model/ItemEbayMarketPlaceAnalysis.md
 docs/Model/ItemEmailNotifications.md
 docs/Model/ItemEnrollment123.md
 docs/Model/ItemFulfillmentAddon.md
+docs/Model/ItemGatedCode.md
+docs/Model/ItemGatedCodeResponse.md
+docs/Model/ItemGatedCodesRequest.md
+docs/Model/ItemGatedCodesResponse.md
+docs/Model/ItemGenerateGatedCodesRequest.md
 docs/Model/ItemGiftCertificate.md
 docs/Model/ItemGoogleProductSearch.md
 docs/Model/ItemIdentifiers.md
@@ -673,8 +678,6 @@ docs/Model/ItemInternal.md
 docs/Model/ItemInventorySnapshot.md
 docs/Model/ItemInventorySnapshotDistributionCenter.md
 docs/Model/ItemInventorySnapshotResponse.md
-docs/Model/ItemInventoryUpdate.md
-docs/Model/ItemInventoryUpdateRequest.md
 docs/Model/ItemKitComponent.md
 docs/Model/ItemKitDefinition.md
 docs/Model/ItemOption.md
@@ -706,7 +709,6 @@ docs/Model/ItemShippingCase.md
 docs/Model/ItemShippingDestinationMarkup.md
 docs/Model/ItemShippingDestinationRestriction.md
 docs/Model/ItemShippingDistributionCenter.md
-docs/Model/ItemShippingDistributionCenterResponse.md
 docs/Model/ItemShippingMethod.md
 docs/Model/ItemShippingPackageRequirement.md
 docs/Model/ItemTag.md
@@ -1664,6 +1666,11 @@ lib/models/ItemEbayMarketPlaceAnalysis.php
 lib/models/ItemEmailNotifications.php
 lib/models/ItemEnrollment123.php
 lib/models/ItemFulfillmentAddon.php
+lib/models/ItemGatedCode.php
+lib/models/ItemGatedCodeResponse.php
+lib/models/ItemGatedCodesRequest.php
+lib/models/ItemGatedCodesResponse.php
+lib/models/ItemGenerateGatedCodesRequest.php
 lib/models/ItemGiftCertificate.php
 lib/models/ItemGoogleProductSearch.php
 lib/models/ItemIdentifiers.php
@@ -1673,8 +1680,6 @@ lib/models/ItemInternal.php
 lib/models/ItemInventorySnapshot.php
 lib/models/ItemInventorySnapshotDistributionCenter.php
 lib/models/ItemInventorySnapshotResponse.php
-lib/models/ItemInventoryUpdate.php
-lib/models/ItemInventoryUpdateRequest.php
 lib/models/ItemKitComponent.php
 lib/models/ItemKitDefinition.php
 lib/models/ItemOption.php
@@ -1706,7 +1711,6 @@ lib/models/ItemShippingCase.php
 lib/models/ItemShippingDestinationMarkup.php
 lib/models/ItemShippingDestinationRestriction.php
 lib/models/ItemShippingDistributionCenter.php
-lib/models/ItemShippingDistributionCenterResponse.php
 lib/models/ItemShippingMethod.php
 lib/models/ItemShippingPackageRequirement.php
 lib/models/ItemTag.php

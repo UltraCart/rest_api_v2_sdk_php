@@ -1,6 +1,6 @@
 <?php
 /**
- * ItemInventoryUpdate
+ * ItemGatedCode
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ItemInventoryUpdate Class Doc Comment
+ * ItemGatedCode Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ItemInventoryUpdate implements ModelInterface, ArrayAccess, \JsonSerializable
+class ItemGatedCode implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ItemInventoryUpdate implements ModelInterface, ArrayAccess, \JsonSerializa
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ItemInventoryUpdate';
+    protected static $openAPIModelName = 'ItemGatedCode';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,10 @@ class ItemInventoryUpdate implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'distribution_center_code' => 'string',
-        'inventory_level' => 'float',
-        'merchant_item_id' => 'string'
+        'code' => 'string',
+        'created_dts' => 'string',
+        'merchant_item_gated_code_oid' => 'int',
+        'merchant_item_oid' => 'int'
     ];
 
     /**
@@ -71,9 +72,10 @@ class ItemInventoryUpdate implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'distribution_center_code' => null,
-        'inventory_level' => null,
-        'merchant_item_id' => null
+        'code' => null,
+        'created_dts' => 'dateTime',
+        'merchant_item_gated_code_oid' => 'int32',
+        'merchant_item_oid' => 'int32'
     ];
 
     /**
@@ -103,9 +105,10 @@ class ItemInventoryUpdate implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'distribution_center_code' => 'distribution_center_code',
-        'inventory_level' => 'inventory_level',
-        'merchant_item_id' => 'merchant_item_id'
+        'code' => 'code',
+        'created_dts' => 'created_dts',
+        'merchant_item_gated_code_oid' => 'merchant_item_gated_code_oid',
+        'merchant_item_oid' => 'merchant_item_oid'
     ];
 
     /**
@@ -114,9 +117,10 @@ class ItemInventoryUpdate implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'distribution_center_code' => 'setDistributionCenterCode',
-        'inventory_level' => 'setInventoryLevel',
-        'merchant_item_id' => 'setMerchantItemId'
+        'code' => 'setCode',
+        'created_dts' => 'setCreatedDts',
+        'merchant_item_gated_code_oid' => 'setMerchantItemGatedCodeOid',
+        'merchant_item_oid' => 'setMerchantItemOid'
     ];
 
     /**
@@ -125,9 +129,10 @@ class ItemInventoryUpdate implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'distribution_center_code' => 'getDistributionCenterCode',
-        'inventory_level' => 'getInventoryLevel',
-        'merchant_item_id' => 'getMerchantItemId'
+        'code' => 'getCode',
+        'created_dts' => 'getCreatedDts',
+        'merchant_item_gated_code_oid' => 'getMerchantItemGatedCodeOid',
+        'merchant_item_oid' => 'getMerchantItemOid'
     ];
 
     /**
@@ -187,9 +192,10 @@ class ItemInventoryUpdate implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['distribution_center_code'] = $data['distribution_center_code'] ?? null;
-        $this->container['inventory_level'] = $data['inventory_level'] ?? null;
-        $this->container['merchant_item_id'] = $data['merchant_item_id'] ?? null;
+        $this->container['code'] = $data['code'] ?? null;
+        $this->container['created_dts'] = $data['created_dts'] ?? null;
+        $this->container['merchant_item_gated_code_oid'] = $data['merchant_item_gated_code_oid'] ?? null;
+        $this->container['merchant_item_oid'] = $data['merchant_item_oid'] ?? null;
     }
 
     /**
@@ -200,6 +206,10 @@ class ItemInventoryUpdate implements ModelInterface, ArrayAccess, \JsonSerializa
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['code']) && (mb_strlen($this->container['code']) > 255)) {
+            $invalidProperties[] = "invalid value for 'code', the character length must be smaller than or equal to 255.";
+        }
 
         return $invalidProperties;
     }
@@ -217,73 +227,101 @@ class ItemInventoryUpdate implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets distribution_center_code
+     * Gets code
      *
      * @return string|null
      */
-    public function getDistributionCenterCode()
+    public function getCode()
     {
-        return $this->container['distribution_center_code'];
+        return $this->container['code'];
     }
 
     /**
-     * Sets distribution_center_code
+     * Sets code
      *
-     * @param string|null $distribution_center_code Distribution center code
+     * @param string|null $code The access code a customer must enter at checkout.
      *
      * @return self
      */
-    public function setDistributionCenterCode($distribution_center_code)
+    public function setCode($code)
     {
-        $this->container['distribution_center_code'] = $distribution_center_code;
+        if (!is_null($code) && (mb_strlen($code) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $code when calling ItemGatedCode., must be smaller than or equal to 255.');
+        }
+
+        $this->container['code'] = $code;
 
         return $this;
     }
 
     /**
-     * Gets inventory_level
+     * Gets created_dts
      *
-     * @return float|null
+     * @return string|null
      */
-    public function getInventoryLevel()
+    public function getCreatedDts()
     {
-        return $this->container['inventory_level'];
+        return $this->container['created_dts'];
     }
 
     /**
-     * Sets inventory_level
+     * Sets created_dts
      *
-     * @param float|null $inventory_level Inventory level
+     * @param string|null $created_dts Date/time the code was added.
      *
      * @return self
      */
-    public function setInventoryLevel($inventory_level)
+    public function setCreatedDts($created_dts)
     {
-        $this->container['inventory_level'] = $inventory_level;
+        $this->container['created_dts'] = $created_dts;
 
         return $this;
     }
 
     /**
-     * Gets merchant_item_id
+     * Gets merchant_item_gated_code_oid
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getMerchantItemId()
+    public function getMerchantItemGatedCodeOid()
     {
-        return $this->container['merchant_item_id'];
+        return $this->container['merchant_item_gated_code_oid'];
     }
 
     /**
-     * Sets merchant_item_id
+     * Sets merchant_item_gated_code_oid
      *
-     * @param string|null $merchant_item_id Merchant Item ID
+     * @param int|null $merchant_item_gated_code_oid Internal identifier; populated by the server on insert.
      *
      * @return self
      */
-    public function setMerchantItemId($merchant_item_id)
+    public function setMerchantItemGatedCodeOid($merchant_item_gated_code_oid)
     {
-        $this->container['merchant_item_id'] = $merchant_item_id;
+        $this->container['merchant_item_gated_code_oid'] = $merchant_item_gated_code_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets merchant_item_oid
+     *
+     * @return int|null
+     */
+    public function getMerchantItemOid()
+    {
+        return $this->container['merchant_item_oid'];
+    }
+
+    /**
+     * Sets merchant_item_oid
+     *
+     * @param int|null $merchant_item_oid Item this code is associated with.
+     *
+     * @return self
+     */
+    public function setMerchantItemOid($merchant_item_oid)
+    {
+        $this->container['merchant_item_oid'] = $merchant_item_oid;
 
         return $this;
     }

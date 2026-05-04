@@ -1,6 +1,6 @@
 <?php
 /**
- * ItemInventoryUpdateRequest
+ * ItemGatedCodesRequest
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ItemInventoryUpdateRequest Class Doc Comment
+ * ItemGatedCodesRequest Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ItemInventoryUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class ItemGatedCodesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ItemInventoryUpdateRequest implements ModelInterface, ArrayAccess, \JsonSe
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ItemInventoryUpdateRequest';
+    protected static $openAPIModelName = 'ItemGatedCodesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,7 @@ class ItemInventoryUpdateRequest implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'inventory_updates' => '\ultracart\v2\models\ItemInventoryUpdate[]'
+        'gated_codes' => '\ultracart\v2\models\ItemGatedCode[]'
     ];
 
     /**
@@ -69,7 +69,7 @@ class ItemInventoryUpdateRequest implements ModelInterface, ArrayAccess, \JsonSe
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'inventory_updates' => null
+        'gated_codes' => null
     ];
 
     /**
@@ -99,7 +99,7 @@ class ItemInventoryUpdateRequest implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
-        'inventory_updates' => 'inventory_updates'
+        'gated_codes' => 'gatedCodes'
     ];
 
     /**
@@ -108,7 +108,7 @@ class ItemInventoryUpdateRequest implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
-        'inventory_updates' => 'setInventoryUpdates'
+        'gated_codes' => 'setGatedCodes'
     ];
 
     /**
@@ -117,7 +117,7 @@ class ItemInventoryUpdateRequest implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
-        'inventory_updates' => 'getInventoryUpdates'
+        'gated_codes' => 'getGatedCodes'
     ];
 
     /**
@@ -177,7 +177,7 @@ class ItemInventoryUpdateRequest implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(array $data = null)
     {
-        $this->container['inventory_updates'] = $data['inventory_updates'] ?? null;
+        $this->container['gated_codes'] = $data['gated_codes'] ?? null;
     }
 
     /**
@@ -205,25 +205,25 @@ class ItemInventoryUpdateRequest implements ModelInterface, ArrayAccess, \JsonSe
 
 
     /**
-     * Gets inventory_updates
+     * Gets gated_codes
      *
-     * @return \ultracart\v2\models\ItemInventoryUpdate[]|null
+     * @return \ultracart\v2\models\ItemGatedCode[]|null
      */
-    public function getInventoryUpdates()
+    public function getGatedCodes()
     {
-        return $this->container['inventory_updates'];
+        return $this->container['gated_codes'];
     }
 
     /**
-     * Sets inventory_updates
+     * Sets gated_codes
      *
-     * @param \ultracart\v2\models\ItemInventoryUpdate[]|null $inventory_updates Inventory updates array
+     * @param \ultracart\v2\models\ItemGatedCode[]|null $gated_codes gated_codes
      *
      * @return self
      */
-    public function setInventoryUpdates($inventory_updates)
+    public function setGatedCodes($gated_codes)
     {
-        $this->container['inventory_updates'] = $inventory_updates;
+        $this->container['gated_codes'] = $gated_codes;
 
         return $this;
     }

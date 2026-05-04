@@ -74,6 +74,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
         'email_notifications' => '\ultracart\v2\models\ItemEmailNotifications',
         'enrollment123' => '\ultracart\v2\models\ItemEnrollment123',
         'fulfillment_addons' => '\ultracart\v2\models\ItemFulfillmentAddon[]',
+        'gated_codes' => '\ultracart\v2\models\ItemGatedCode[]',
         'gift_certificate' => '\ultracart\v2\models\ItemGiftCertificate',
         'google_product_search' => '\ultracart\v2\models\ItemGoogleProductSearch',
         'identifiers' => '\ultracart\v2\models\ItemIdentifiers',
@@ -135,6 +136,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
         'email_notifications' => null,
         'enrollment123' => null,
         'fulfillment_addons' => null,
+        'gated_codes' => null,
         'gift_certificate' => null,
         'google_product_search' => null,
         'identifiers' => null,
@@ -215,6 +217,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
         'email_notifications' => 'email_notifications',
         'enrollment123' => 'enrollment123',
         'fulfillment_addons' => 'fulfillment_addons',
+        'gated_codes' => 'gated_codes',
         'gift_certificate' => 'gift_certificate',
         'google_product_search' => 'google_product_search',
         'identifiers' => 'identifiers',
@@ -274,6 +277,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
         'email_notifications' => 'setEmailNotifications',
         'enrollment123' => 'setEnrollment123',
         'fulfillment_addons' => 'setFulfillmentAddons',
+        'gated_codes' => 'setGatedCodes',
         'gift_certificate' => 'setGiftCertificate',
         'google_product_search' => 'setGoogleProductSearch',
         'identifiers' => 'setIdentifiers',
@@ -333,6 +337,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
         'email_notifications' => 'getEmailNotifications',
         'enrollment123' => 'getEnrollment123',
         'fulfillment_addons' => 'getFulfillmentAddons',
+        'gated_codes' => 'getGatedCodes',
         'gift_certificate' => 'getGiftCertificate',
         'google_product_search' => 'getGoogleProductSearch',
         'identifiers' => 'getIdentifiers',
@@ -443,6 +448,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['email_notifications'] = $data['email_notifications'] ?? null;
         $this->container['enrollment123'] = $data['enrollment123'] ?? null;
         $this->container['fulfillment_addons'] = $data['fulfillment_addons'] ?? null;
+        $this->container['gated_codes'] = $data['gated_codes'] ?? null;
         $this->container['gift_certificate'] = $data['gift_certificate'] ?? null;
         $this->container['google_product_search'] = $data['google_product_search'] ?? null;
         $this->container['identifiers'] = $data['identifiers'] ?? null;
@@ -900,6 +906,30 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setFulfillmentAddons($fulfillment_addons)
     {
         $this->container['fulfillment_addons'] = $fulfillment_addons;
+
+        return $this;
+    }
+
+    /**
+     * Gets gated_codes
+     *
+     * @return \ultracart\v2\models\ItemGatedCode[]|null
+     */
+    public function getGatedCodes()
+    {
+        return $this->container['gated_codes'];
+    }
+
+    /**
+     * Sets gated_codes
+     *
+     * @param \ultracart\v2\models\ItemGatedCode[]|null $gated_codes Gated access codes for this item. Read-only on this object. Use the /items/{merchant_item_oid}/gated_codes endpoints to manage.
+     *
+     * @return self
+     */
+    public function setGatedCodes($gated_codes)
+    {
+        $this->container['gated_codes'] = $gated_codes;
 
         return $this;
     }

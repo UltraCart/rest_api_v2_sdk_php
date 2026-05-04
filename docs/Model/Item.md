@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **email_notifications** | [**\ultracart\v2\models\ItemEmailNotifications**](ItemEmailNotifications.md) |  | [optional]
 **enrollment123** | [**\ultracart\v2\models\ItemEnrollment123**](ItemEnrollment123.md) |  | [optional]
 **fulfillment_addons** | [**\ultracart\v2\models\ItemFulfillmentAddon[]**](ItemFulfillmentAddon.md) | Fulfillment Add-ons | [optional]
+**gated_codes** | [**\ultracart\v2\models\ItemGatedCode[]**](ItemGatedCode.md) | Gated access codes for this item. Read-only on this object. Use the /items/{merchant_item_oid}/gated_codes endpoints to manage. | [optional]
 **gift_certificate** | [**\ultracart\v2\models\ItemGiftCertificate**](ItemGiftCertificate.md) |  | [optional]
 **google_product_search** | [**\ultracart\v2\models\ItemGoogleProductSearch**](ItemGoogleProductSearch.md) |  | [optional]
 **identifiers** | [**\ultracart\v2\models\ItemIdentifiers**](ItemIdentifiers.md) |  | [optional]
