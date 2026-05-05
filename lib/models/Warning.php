@@ -59,6 +59,7 @@ class Warning implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'more_info' => 'string',
+        'warning_code' => 'string',
         'warning_message' => 'string'
     ];
 
@@ -71,6 +72,7 @@ class Warning implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'more_info' => null,
+        'warning_code' => null,
         'warning_message' => null
     ];
 
@@ -102,6 +104,7 @@ class Warning implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'more_info' => 'more_info',
+        'warning_code' => 'warning_code',
         'warning_message' => 'warning_message'
     ];
 
@@ -112,6 +115,7 @@ class Warning implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'more_info' => 'setMoreInfo',
+        'warning_code' => 'setWarningCode',
         'warning_message' => 'setWarningMessage'
     ];
 
@@ -122,6 +126,7 @@ class Warning implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'more_info' => 'getMoreInfo',
+        'warning_code' => 'getWarningCode',
         'warning_message' => 'getWarningMessage'
     ];
 
@@ -183,6 +188,7 @@ class Warning implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->container['more_info'] = $data['more_info'] ?? null;
+        $this->container['warning_code'] = $data['warning_code'] ?? null;
         $this->container['warning_message'] = $data['warning_message'] ?? null;
     }
 
@@ -230,6 +236,30 @@ class Warning implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setMoreInfo($more_info)
     {
         $this->container['more_info'] = $more_info;
+
+        return $this;
+    }
+
+    /**
+     * Gets warning_code
+     *
+     * @return string|null
+     */
+    public function getWarningCode()
+    {
+        return $this->container['warning_code'];
+    }
+
+    /**
+     * Sets warning_code
+     *
+     * @param string|null $warning_code A stable machine-readable code identifying the warning. See API docs for known values.
+     *
+     * @return self
+     */
+    public function setWarningCode($warning_code)
+    {
+        $this->container['warning_code'] = $warning_code;
 
         return $this;
     }
