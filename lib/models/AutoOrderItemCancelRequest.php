@@ -60,7 +60,8 @@ class AutoOrderItemCancelRequest implements ModelInterface, ArrayAccess, \JsonSe
     protected static $openAPITypes = [
         'append_items' => '\ultracart\v2\models\AutoOrderItem[]',
         'auto_order_item_oid' => 'int',
-        'mode' => 'string'
+        'mode' => 'string',
+        'no_orders_after_dts' => 'string'
     ];
 
     /**
@@ -73,7 +74,8 @@ class AutoOrderItemCancelRequest implements ModelInterface, ArrayAccess, \JsonSe
     protected static $openAPIFormats = [
         'append_items' => null,
         'auto_order_item_oid' => 'int32',
-        'mode' => null
+        'mode' => null,
+        'no_orders_after_dts' => 'dateTime'
     ];
 
     /**
@@ -105,7 +107,8 @@ class AutoOrderItemCancelRequest implements ModelInterface, ArrayAccess, \JsonSe
     protected static $attributeMap = [
         'append_items' => 'append_items',
         'auto_order_item_oid' => 'auto_order_item_oid',
-        'mode' => 'mode'
+        'mode' => 'mode',
+        'no_orders_after_dts' => 'no_orders_after_dts'
     ];
 
     /**
@@ -116,7 +119,8 @@ class AutoOrderItemCancelRequest implements ModelInterface, ArrayAccess, \JsonSe
     protected static $setters = [
         'append_items' => 'setAppendItems',
         'auto_order_item_oid' => 'setAutoOrderItemOid',
-        'mode' => 'setMode'
+        'mode' => 'setMode',
+        'no_orders_after_dts' => 'setNoOrdersAfterDts'
     ];
 
     /**
@@ -127,7 +131,8 @@ class AutoOrderItemCancelRequest implements ModelInterface, ArrayAccess, \JsonSe
     protected static $getters = [
         'append_items' => 'getAppendItems',
         'auto_order_item_oid' => 'getAutoOrderItemOid',
-        'mode' => 'getMode'
+        'mode' => 'getMode',
+        'no_orders_after_dts' => 'getNoOrdersAfterDts'
     ];
 
     /**
@@ -205,6 +210,7 @@ class AutoOrderItemCancelRequest implements ModelInterface, ArrayAccess, \JsonSe
         $this->container['append_items'] = $data['append_items'] ?? null;
         $this->container['auto_order_item_oid'] = $data['auto_order_item_oid'] ?? null;
         $this->container['mode'] = $data['mode'] ?? null;
+        $this->container['no_orders_after_dts'] = $data['no_orders_after_dts'] ?? null;
     }
 
     /**
@@ -318,6 +324,30 @@ class AutoOrderItemCancelRequest implements ModelInterface, ArrayAccess, \JsonSe
             );
         }
         $this->container['mode'] = $mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets no_orders_after_dts
+     *
+     * @return string|null
+     */
+    public function getNoOrdersAfterDts()
+    {
+        return $this->container['no_orders_after_dts'];
+    }
+
+    /**
+     * Sets no_orders_after_dts
+     *
+     * @param string|null $no_orders_after_dts Date/time that will be used in an END mode (optional)
+     *
+     * @return self
+     */
+    public function setNoOrdersAfterDts($no_orders_after_dts)
+    {
+        $this->container['no_orders_after_dts'] = $no_orders_after_dts;
 
         return $this;
     }

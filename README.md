@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.85"
+    "ultracart/rest_api_v2_sdk_php": "4.1.86"
   }
 }
 ```
@@ -1767,6 +1767,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.86 | 05/07/2026 | rest auto order api - additional item cancel request parameter for no orders after dts |
 | 4.1.85 | 05/05/2026 | improved warning object for customer insertCustomer and updateCustomer |
 | 4.1.84 | 05/04/2026 | Order API - add hold stage to allowed values on order query request |
 | 4.1.83 | 04/29/2026 | AO support for item appending on cancel request, order payment method test routing on hold release |
