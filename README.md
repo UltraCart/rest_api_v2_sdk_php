@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.87"
+    "ultracart/rest_api_v2_sdk_php": "4.1.88"
   }
 }
 ```
@@ -437,6 +437,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**getOrderByToken**](docs/Api/OrderApi.md#getorderbytoken) | **POST** /order/orders/token | Retrieve an order using a token
 *OrderApi* | [**getOrderEdiDocuments**](docs/Api/OrderApi.md#getorderedidocuments) | **GET** /order/orders/{order_id}/edi | Retrieve EDI documents associated with this order.
 *OrderApi* | [**getOrderEmails**](docs/Api/OrderApi.md#getorderemails) | **GET** /order/orders/{order_id}/emails | Retrieve email delivery information for this order.
+*OrderApi* | [**getOrderPageViewHistory**](docs/Api/OrderApi.md#getorderpageviewhistory) | **GET** /order/orders/{order_id}/page_view_history | Retrieve page view history for this order.
 *OrderApi* | [**getOrderUpsellCart**](docs/Api/OrderApi.md#getorderupsellcart) | **PUT** /order/orders/{order_id}/upsell_with_cart | Get Order Upsell Cart
 *OrderApi* | [**getOrders**](docs/Api/OrderApi.md#getorders) | **GET** /order/orders | Retrieve orders
 *OrderApi* | [**getOrdersBatch**](docs/Api/OrderApi.md#getordersbatch) | **POST** /order/orders/batch | Retrieve order batch
@@ -1462,6 +1463,10 @@ Class | Method | HTTP request | Description
 - [OrderLinkedShipment](docs/Model/OrderLinkedShipment.md)
 - [OrderMarketing](docs/Model/OrderMarketing.md)
 - [OrderPackingSlipResponse](docs/Model/OrderPackingSlipResponse.md)
+- [OrderPageView](docs/Model/OrderPageView.md)
+- [OrderPageViewHistoryResponse](docs/Model/OrderPageViewHistoryResponse.md)
+- [OrderPageViewMetaData](docs/Model/OrderPageViewMetaData.md)
+- [OrderPageViewParam](docs/Model/OrderPageViewParam.md)
 - [OrderPayment](docs/Model/OrderPayment.md)
 - [OrderPaymentCheck](docs/Model/OrderPaymentCheck.md)
 - [OrderPaymentCreditCard](docs/Model/OrderPaymentCreditCard.md)
@@ -1773,6 +1778,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.88 | 05/08/2026 | order page view history |
 | 4.1.87 | 05/08/2026 | order and auto order emails |
 | 4.1.86 | 05/07/2026 | rest auto order api - additional item cancel request parameter for no orders after dts |
 | 4.1.85 | 05/05/2026 | improved warning object for customer insertCustomer and updateCustomer |

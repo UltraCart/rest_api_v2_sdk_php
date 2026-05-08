@@ -786,6 +786,10 @@ docs/Model/OrderItemTag.md
 docs/Model/OrderLinkedShipment.md
 docs/Model/OrderMarketing.md
 docs/Model/OrderPackingSlipResponse.md
+docs/Model/OrderPageView.md
+docs/Model/OrderPageViewHistoryResponse.md
+docs/Model/OrderPageViewMetaData.md
+docs/Model/OrderPageViewParam.md
 docs/Model/OrderPayment.md
 docs/Model/OrderPaymentCheck.md
 docs/Model/OrderPaymentCreditCard.md
@@ -1793,6 +1797,10 @@ lib/models/OrderItemTag.php
 lib/models/OrderLinkedShipment.php
 lib/models/OrderMarketing.php
 lib/models/OrderPackingSlipResponse.php
+lib/models/OrderPageView.php
+lib/models/OrderPageViewHistoryResponse.php
+lib/models/OrderPageViewMetaData.php
+lib/models/OrderPageViewParam.php
 lib/models/OrderPayment.php
 lib/models/OrderPaymentCheck.php
 lib/models/OrderPaymentCreditCard.php
