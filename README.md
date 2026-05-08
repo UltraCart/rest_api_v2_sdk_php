@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.86"
+    "ultracart/rest_api_v2_sdk_php": "4.1.87"
   }
 }
 ```
@@ -105,6 +105,7 @@ Class | Method | HTTP request | Description
 *AutoOrderApi* | [**getAutoOrder**](docs/Api/AutoOrderApi.md#getautoorder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order by oid
 *AutoOrderApi* | [**getAutoOrderByCode**](docs/Api/AutoOrderApi.md#getautoorderbycode) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order by code
 *AutoOrderApi* | [**getAutoOrderByReferenceOrderId**](docs/Api/AutoOrderApi.md#getautoorderbyreferenceorderid) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order by order id
+*AutoOrderApi* | [**getAutoOrderEmails**](docs/Api/AutoOrderApi.md#getautoorderemails) | **GET** /auto_order/auto_orders/{auto_order_oid}/emails | Retrieve email delivery information for this auto order.
 *AutoOrderApi* | [**getAutoOrders**](docs/Api/AutoOrderApi.md#getautoorders) | **GET** /auto_order/auto_orders | Retrieve auto orders
 *AutoOrderApi* | [**getAutoOrdersBatch**](docs/Api/AutoOrderApi.md#getautoordersbatch) | **POST** /auto_order/auto_orders/batch | Retrieve auto order batch
 *AutoOrderApi* | [**getAutoOrdersByQuery**](docs/Api/AutoOrderApi.md#getautoordersbyquery) | **POST** /auto_order/auto_orders/query | Retrieve auto orders by query
@@ -435,6 +436,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**getOrder**](docs/Api/OrderApi.md#getorder) | **GET** /order/orders/{order_id} | Retrieve an order
 *OrderApi* | [**getOrderByToken**](docs/Api/OrderApi.md#getorderbytoken) | **POST** /order/orders/token | Retrieve an order using a token
 *OrderApi* | [**getOrderEdiDocuments**](docs/Api/OrderApi.md#getorderedidocuments) | **GET** /order/orders/{order_id}/edi | Retrieve EDI documents associated with this order.
+*OrderApi* | [**getOrderEmails**](docs/Api/OrderApi.md#getorderemails) | **GET** /order/orders/{order_id}/emails | Retrieve email delivery information for this order.
 *OrderApi* | [**getOrderUpsellCart**](docs/Api/OrderApi.md#getorderupsellcart) | **PUT** /order/orders/{order_id}/upsell_with_cart | Get Order Upsell Cart
 *OrderApi* | [**getOrders**](docs/Api/OrderApi.md#getorders) | **GET** /order/orders | Retrieve orders
 *OrderApi* | [**getOrdersBatch**](docs/Api/OrderApi.md#getordersbatch) | **POST** /order/orders/batch | Retrieve order batch
@@ -726,6 +728,8 @@ Class | Method | HTTP request | Description
 - [AutoOrderAddonItemOption](docs/Model/AutoOrderAddonItemOption.md)
 - [AutoOrderAddonItemsUpdateRequest](docs/Model/AutoOrderAddonItemsUpdateRequest.md)
 - [AutoOrderConsolidate](docs/Model/AutoOrderConsolidate.md)
+- [AutoOrderEmail](docs/Model/AutoOrderEmail.md)
+- [AutoOrderEmailsResponse](docs/Model/AutoOrderEmailsResponse.md)
 - [AutoOrderItem](docs/Model/AutoOrderItem.md)
 - [AutoOrderItemCancelRequest](docs/Model/AutoOrderItemCancelRequest.md)
 - [AutoOrderItemFutureSchedule](docs/Model/AutoOrderItemFutureSchedule.md)
@@ -1438,6 +1442,8 @@ Class | Method | HTTP request | Description
 - [OrderEdi](docs/Model/OrderEdi.md)
 - [OrderEdiDocument](docs/Model/OrderEdiDocument.md)
 - [OrderEdiDocumentsResponse](docs/Model/OrderEdiDocumentsResponse.md)
+- [OrderEmail](docs/Model/OrderEmail.md)
+- [OrderEmailsResponse](docs/Model/OrderEmailsResponse.md)
 - [OrderFormat](docs/Model/OrderFormat.md)
 - [OrderFormatResponse](docs/Model/OrderFormatResponse.md)
 - [OrderFraudScore](docs/Model/OrderFraudScore.md)
@@ -1767,6 +1773,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.87 | 05/08/2026 | order and auto order emails |
 | 4.1.86 | 05/07/2026 | rest auto order api - additional item cancel request parameter for no orders after dts |
 | 4.1.85 | 05/05/2026 | improved warning object for customer insertCustomer and updateCustomer |
 | 4.1.84 | 05/04/2026 | Order API - add hold stage to allowed values on order query request |

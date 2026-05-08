@@ -22,6 +22,7 @@ Method | HTTP request | Description
 [**getOrder()**](OrderApi.md#getOrder) | **GET** /order/orders/{order_id} | Retrieve an order
 [**getOrderByToken()**](OrderApi.md#getOrderByToken) | **POST** /order/orders/token | Retrieve an order using a token
 [**getOrderEdiDocuments()**](OrderApi.md#getOrderEdiDocuments) | **GET** /order/orders/{order_id}/edi | Retrieve EDI documents associated with this order.
+[**getOrderEmails()**](OrderApi.md#getOrderEmails) | **GET** /order/orders/{order_id}/emails | Retrieve email delivery information for this order.
 [**getOrderUpsellCart()**](OrderApi.md#getOrderUpsellCart) | **PUT** /order/orders/{order_id}/upsell_with_cart | Get Order Upsell Cart
 [**getOrders()**](OrderApi.md#getOrders) | **GET** /order/orders | Retrieve orders
 [**getOrdersBatch()**](OrderApi.md#getOrdersBatch) | **POST** /order/orders/batch | Retrieve order batch
@@ -1279,6 +1280,46 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\OrderEdiDocumentsResponse**](../Model/OrderEdiDocumentsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getOrderEmails()`
+
+```php
+getOrderEmails($order_id): \ultracart\v2\models\OrderEmailsResponse
+```
+
+Retrieve email delivery information for this order.
+
+Retrieves email delivery records associated with the specified order id.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **string**| The order id to retrieve email delivery information for. |
+
+### Return type
+
+[**\ultracart\v2\models\OrderEmailsResponse**](../Model/OrderEmailsResponse.md)
 
 ### Authorization
 

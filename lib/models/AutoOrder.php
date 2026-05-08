@@ -70,6 +70,7 @@ class AutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'completed' => 'bool',
         'credit_card_attempt' => 'int',
         'disabled_dts' => 'string',
+        'emails' => '\ultracart\v2\models\AutoOrderEmail[]',
         'enabled' => 'bool',
         'failure_reason' => 'string',
         'items' => '\ultracart\v2\models\AutoOrderItem[]',
@@ -108,6 +109,7 @@ class AutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'completed' => null,
         'credit_card_attempt' => 'int32',
         'disabled_dts' => 'dateTime',
+        'emails' => null,
         'enabled' => null,
         'failure_reason' => null,
         'items' => null,
@@ -165,6 +167,7 @@ class AutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'completed' => 'completed',
         'credit_card_attempt' => 'credit_card_attempt',
         'disabled_dts' => 'disabled_dts',
+        'emails' => 'emails',
         'enabled' => 'enabled',
         'failure_reason' => 'failure_reason',
         'items' => 'items',
@@ -201,6 +204,7 @@ class AutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'completed' => 'setCompleted',
         'credit_card_attempt' => 'setCreditCardAttempt',
         'disabled_dts' => 'setDisabledDts',
+        'emails' => 'setEmails',
         'enabled' => 'setEnabled',
         'failure_reason' => 'setFailureReason',
         'items' => 'setItems',
@@ -237,6 +241,7 @@ class AutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'completed' => 'getCompleted',
         'credit_card_attempt' => 'getCreditCardAttempt',
         'disabled_dts' => 'getDisabledDts',
+        'emails' => 'getEmails',
         'enabled' => 'getEnabled',
         'failure_reason' => 'getFailureReason',
         'items' => 'getItems',
@@ -343,6 +348,7 @@ class AutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['completed'] = $data['completed'] ?? null;
         $this->container['credit_card_attempt'] = $data['credit_card_attempt'] ?? null;
         $this->container['disabled_dts'] = $data['disabled_dts'] ?? null;
+        $this->container['emails'] = $data['emails'] ?? null;
         $this->container['enabled'] = $data['enabled'] ?? null;
         $this->container['failure_reason'] = $data['failure_reason'] ?? null;
         $this->container['items'] = $data['items'] ?? null;
@@ -678,6 +684,30 @@ class AutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDisabledDts($disabled_dts)
     {
         $this->container['disabled_dts'] = $disabled_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets emails
+     *
+     * @return \ultracart\v2\models\AutoOrderEmail[]|null
+     */
+    public function getEmails()
+    {
+        return $this->container['emails'];
+    }
+
+    /**
+     * Sets emails
+     *
+     * @param \ultracart\v2\models\AutoOrderEmail[]|null $emails Email delivery records associated with this auto order.
+     *
+     * @return self
+     */
+    public function setEmails($emails)
+    {
+        $this->container['emails'] = $emails;
 
         return $this;
     }

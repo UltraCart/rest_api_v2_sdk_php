@@ -52,6 +52,8 @@ docs/Model/AutoOrderAddonItem.md
 docs/Model/AutoOrderAddonItemOption.md
 docs/Model/AutoOrderAddonItemsUpdateRequest.md
 docs/Model/AutoOrderConsolidate.md
+docs/Model/AutoOrderEmail.md
+docs/Model/AutoOrderEmailsResponse.md
 docs/Model/AutoOrderItem.md
 docs/Model/AutoOrderItemCancelRequest.md
 docs/Model/AutoOrderItemFutureSchedule.md
@@ -764,6 +766,8 @@ docs/Model/OrderDigitalOrder.md
 docs/Model/OrderEdi.md
 docs/Model/OrderEdiDocument.md
 docs/Model/OrderEdiDocumentsResponse.md
+docs/Model/OrderEmail.md
+docs/Model/OrderEmailsResponse.md
 docs/Model/OrderFormat.md
 docs/Model/OrderFormatResponse.md
 docs/Model/OrderFraudScore.md
@@ -1054,6 +1058,8 @@ lib/models/AutoOrderAddonItem.php
 lib/models/AutoOrderAddonItemOption.php
 lib/models/AutoOrderAddonItemsUpdateRequest.php
 lib/models/AutoOrderConsolidate.php
+lib/models/AutoOrderEmail.php
+lib/models/AutoOrderEmailsResponse.php
 lib/models/AutoOrderItem.php
 lib/models/AutoOrderItemCancelRequest.php
 lib/models/AutoOrderItemFutureSchedule.php
@@ -1767,6 +1773,8 @@ lib/models/OrderDigitalOrder.php
 lib/models/OrderEdi.php
 lib/models/OrderEdiDocument.php
 lib/models/OrderEdiDocumentsResponse.php
+lib/models/OrderEmail.php
+lib/models/OrderEmailsResponse.php
 lib/models/OrderFormat.php
 lib/models/OrderFormatResponse.php
 lib/models/OrderFraudScore.php

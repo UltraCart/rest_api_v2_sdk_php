@@ -72,6 +72,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         'customer_profile' => '\ultracart\v2\models\Customer',
         'digital_order' => '\ultracart\v2\models\OrderDigitalOrder',
         'edi' => '\ultracart\v2\models\OrderEdi',
+        'emails' => '\ultracart\v2\models\OrderEmail[]',
         'exchange_rate' => 'float',
         'fraud_score' => '\ultracart\v2\models\OrderFraudScore',
         'gift' => '\ultracart\v2\models\OrderGift',
@@ -121,6 +122,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         'customer_profile' => null,
         'digital_order' => null,
         'edi' => null,
+        'emails' => null,
         'exchange_rate' => null,
         'fraud_score' => null,
         'gift' => null,
@@ -189,6 +191,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         'customer_profile' => 'customer_profile',
         'digital_order' => 'digital_order',
         'edi' => 'edi',
+        'emails' => 'emails',
         'exchange_rate' => 'exchange_rate',
         'fraud_score' => 'fraud_score',
         'gift' => 'gift',
@@ -236,6 +239,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         'customer_profile' => 'setCustomerProfile',
         'digital_order' => 'setDigitalOrder',
         'edi' => 'setEdi',
+        'emails' => 'setEmails',
         'exchange_rate' => 'setExchangeRate',
         'fraud_score' => 'setFraudScore',
         'gift' => 'setGift',
@@ -283,6 +287,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         'customer_profile' => 'getCustomerProfile',
         'digital_order' => 'getDigitalOrder',
         'edi' => 'getEdi',
+        'emails' => 'getEmails',
         'exchange_rate' => 'getExchangeRate',
         'fraud_score' => 'getFraudScore',
         'gift' => 'getGift',
@@ -418,6 +423,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['customer_profile'] = $data['customer_profile'] ?? null;
         $this->container['digital_order'] = $data['digital_order'] ?? null;
         $this->container['edi'] = $data['edi'] ?? null;
+        $this->container['emails'] = $data['emails'] ?? null;
         $this->container['exchange_rate'] = $data['exchange_rate'] ?? null;
         $this->container['fraud_score'] = $data['fraud_score'] ?? null;
         $this->container['gift'] = $data['gift'] ?? null;
@@ -832,6 +838,30 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setEdi($edi)
     {
         $this->container['edi'] = $edi;
+
+        return $this;
+    }
+
+    /**
+     * Gets emails
+     *
+     * @return \ultracart\v2\models\OrderEmail[]|null
+     */
+    public function getEmails()
+    {
+        return $this->container['emails'];
+    }
+
+    /**
+     * Sets emails
+     *
+     * @param \ultracart\v2\models\OrderEmail[]|null $emails Email delivery records associated with this order.
+     *
+     * @return self
+     */
+    public function setEmails($emails)
+    {
+        $this->container['emails'] = $emails;
 
         return $this;
     }

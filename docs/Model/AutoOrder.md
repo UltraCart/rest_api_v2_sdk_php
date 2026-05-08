@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **completed** | **bool** | True if the auto order ran successfully to completion | [optional]
 **credit_card_attempt** | **int** | The number of credit card attempts that have taken place | [optional]
 **disabled_dts** | **string** | The date/time the auto order was disabled due to failed rebills | [optional]
+**emails** | [**\ultracart\v2\models\AutoOrderEmail[]**](AutoOrderEmail.md) | Email delivery records associated with this auto order. | [optional]
 **enabled** | **bool** | True if this auto order is enabled | [optional]
 **failure_reason** | **string** | The reason this auto order failed during the last rebill attempt | [optional]
 **items** | [**\ultracart\v2\models\AutoOrderItem[]**](AutoOrderItem.md) | The items that are setup to rebill | [optional]

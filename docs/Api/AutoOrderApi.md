@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**getAutoOrder()**](AutoOrderApi.md#getAutoOrder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order by oid
 [**getAutoOrderByCode()**](AutoOrderApi.md#getAutoOrderByCode) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order by code
 [**getAutoOrderByReferenceOrderId()**](AutoOrderApi.md#getAutoOrderByReferenceOrderId) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order by order id
+[**getAutoOrderEmails()**](AutoOrderApi.md#getAutoOrderEmails) | **GET** /auto_order/auto_orders/{auto_order_oid}/emails | Retrieve email delivery information for this auto order.
 [**getAutoOrders()**](AutoOrderApi.md#getAutoOrders) | **GET** /auto_order/auto_orders | Retrieve auto orders
 [**getAutoOrdersBatch()**](AutoOrderApi.md#getAutoOrdersBatch) | **POST** /auto_order/auto_orders/batch | Retrieve auto order batch
 [**getAutoOrdersByQuery()**](AutoOrderApi.md#getAutoOrdersByQuery) | **POST** /auto_order/auto_orders/query | Retrieve auto orders by query
@@ -518,6 +519,46 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\AutoOrderResponse**](../Model/AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getAutoOrderEmails()`
+
+```php
+getAutoOrderEmails($auto_order_oid): \ultracart\v2\models\AutoOrderEmailsResponse
+```
+
+Retrieve email delivery information for this auto order.
+
+Retrieves email delivery records associated with the specified auto order.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **auto_order_oid** | **int**| The auto order oid to retrieve email delivery information for. |
+
+### Return type
+
+[**\ultracart\v2\models\AutoOrderEmailsResponse**](../Model/AutoOrderEmailsResponse.md)
 
 ### Authorization
 

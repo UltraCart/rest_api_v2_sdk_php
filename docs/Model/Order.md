@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **customer_profile** | [**\ultracart\v2\models\Customer**](Customer.md) |  | [optional]
 **digital_order** | [**\ultracart\v2\models\OrderDigitalOrder**](OrderDigitalOrder.md) |  | [optional]
 **edi** | [**\ultracart\v2\models\OrderEdi**](OrderEdi.md) |  | [optional]
+**emails** | [**\ultracart\v2\models\OrderEmail[]**](OrderEmail.md) | Email delivery records associated with this order. | [optional]
 **exchange_rate** | **float** | Exchange rate at the time the order was placed if currency code is different than the base currency | [optional]
 **fraud_score** | [**\ultracart\v2\models\OrderFraudScore**](OrderFraudScore.md) |  | [optional]
 **gift** | [**\ultracart\v2\models\OrderGift**](OrderGift.md) |  | [optional]
