@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.88"
+    "ultracart/rest_api_v2_sdk_php": "4.1.89"
   }
 }
 ```
@@ -1778,6 +1778,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.89 | 05/11/2026 | auto order item level webhooks - cancel scheduled, cancel, pause, reactive, and unpause |
 | 4.1.88 | 05/08/2026 | order page view history |
 | 4.1.87 | 05/08/2026 | order and auto order emails |
 | 4.1.86 | 05/07/2026 | rest auto order api - additional item cancel request parameter for no orders after dts |
