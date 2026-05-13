@@ -979,6 +979,7 @@ docs/Model/UsersResponse.md
 docs/Model/VerificationRecord.md
 docs/Model/Warning.md
 docs/Model/Webhook.md
+docs/Model/WebhookEventCategoriesResponse.md
 docs/Model/WebhookEventCategory.md
 docs/Model/WebhookEventSubscription.md
 docs/Model/WebhookLog.md
@@ -1990,6 +1991,7 @@ lib/models/UsersResponse.php
 lib/models/VerificationRecord.php
 lib/models/Warning.php
 lib/models/Webhook.php
+lib/models/WebhookEventCategoriesResponse.php
 lib/models/WebhookEventCategory.php
 lib/models/WebhookEventSubscription.php
 lib/models/WebhookLog.php

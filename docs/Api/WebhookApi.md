@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteWebhook()**](WebhookApi.md#deleteWebhook) | **DELETE** /webhook/webhooks/{webhookOid} | Delete a webhook
 [**deleteWebhookByUrl()**](WebhookApi.md#deleteWebhookByUrl) | **DELETE** /webhook/webhooks | Delete a webhook by URL
+[**getWebhookEventCategories()**](WebhookApi.md#getWebhookEventCategories) | **GET** /webhook/webhook_event_categories | Retrieve webhook event categories
 [**getWebhookLog()**](WebhookApi.md#getWebhookLog) | **GET** /webhook/webhooks/{webhookOid}/logs/{requestId} | Retrieve an individual log
 [**getWebhookLogSummaries()**](WebhookApi.md#getWebhookLogSummaries) | **GET** /webhook/webhooks/{webhookOid}/logs | Retrieve the log summaries
 [**getWebhooks()**](WebhookApi.md#getWebhooks) | **GET** /webhook/webhooks | Retrieve webhooks
@@ -144,6 +145,44 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getWebhookEventCategories()`
+
+```php
+getWebhookEventCategories(): \ultracart\v2\models\WebhookEventCategoriesResponse
+```
+
+Retrieve webhook event categories
+
+Retrieves the available webhook event categories and events with backend-owned metadata (OIDs, names, descriptions, available expansions, flags) independent of whether any webhooks are saved.  Used by the New Webhook editor so a merchant with zero webhooks can still see the catalog.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\ultracart\v2\models\WebhookEventCategoriesResponse**](../Model/WebhookEventCategoriesResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

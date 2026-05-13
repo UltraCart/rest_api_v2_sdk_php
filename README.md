@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.89"
+    "ultracart/rest_api_v2_sdk_php": "4.1.90"
   }
 }
 ```
@@ -680,6 +680,7 @@ Class | Method | HTTP request | Description
 *UserApi* | [**updateUser**](docs/Api/UserApi.md#updateuser) | **PUT** /user/users/{user_id} | Update a user
 *WebhookApi* | [**deleteWebhook**](docs/Api/WebhookApi.md#deletewebhook) | **DELETE** /webhook/webhooks/{webhookOid} | Delete a webhook
 *WebhookApi* | [**deleteWebhookByUrl**](docs/Api/WebhookApi.md#deletewebhookbyurl) | **DELETE** /webhook/webhooks | Delete a webhook by URL
+*WebhookApi* | [**getWebhookEventCategories**](docs/Api/WebhookApi.md#getwebhookeventcategories) | **GET** /webhook/webhook_event_categories | Retrieve webhook event categories
 *WebhookApi* | [**getWebhookLog**](docs/Api/WebhookApi.md#getwebhooklog) | **GET** /webhook/webhooks/{webhookOid}/logs/{requestId} | Retrieve an individual log
 *WebhookApi* | [**getWebhookLogSummaries**](docs/Api/WebhookApi.md#getwebhooklogsummaries) | **GET** /webhook/webhooks/{webhookOid}/logs | Retrieve the log summaries
 *WebhookApi* | [**getWebhooks**](docs/Api/WebhookApi.md#getwebhooks) | **GET** /webhook/webhooks | Retrieve webhooks
@@ -1656,6 +1657,7 @@ Class | Method | HTTP request | Description
 - [VerificationRecord](docs/Model/VerificationRecord.md)
 - [Warning](docs/Model/Warning.md)
 - [Webhook](docs/Model/Webhook.md)
+- [WebhookEventCategoriesResponse](docs/Model/WebhookEventCategoriesResponse.md)
 - [WebhookEventCategory](docs/Model/WebhookEventCategory.md)
 - [WebhookEventSubscription](docs/Model/WebhookEventSubscription.md)
 - [WebhookLog](docs/Model/WebhookLog.md)
@@ -1778,6 +1780,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.90 | 05/13/2026 | webhook rest api - new method getWebhookEventCategories |
 | 4.1.89 | 05/11/2026 | auto order item level webhooks - cancel scheduled, cancel, pause, reactive, and unpause |
 | 4.1.88 | 05/08/2026 | order page view history |
 | 4.1.87 | 05/08/2026 | order and auto order emails |
