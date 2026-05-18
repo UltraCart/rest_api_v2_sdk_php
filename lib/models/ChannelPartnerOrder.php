@@ -83,6 +83,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'channel_partner_order_id' => 'string',
         'consider_recurring' => 'bool',
         'coupons' => 'string[]',
+        'creation_dts' => 'string',
         'credit_card_authorization_amount' => 'float',
         'credit_card_authorization_dts' => 'string',
         'credit_card_authorization_number' => 'string',
@@ -186,6 +187,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'channel_partner_order_id' => null,
         'consider_recurring' => null,
         'coupons' => null,
+        'creation_dts' => 'dateTime',
         'credit_card_authorization_amount' => null,
         'credit_card_authorization_dts' => 'dateTime',
         'credit_card_authorization_number' => null,
@@ -308,6 +310,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'channel_partner_order_id' => 'channel_partner_order_id',
         'consider_recurring' => 'consider_recurring',
         'coupons' => 'coupons',
+        'creation_dts' => 'creation_dts',
         'credit_card_authorization_amount' => 'credit_card_authorization_amount',
         'credit_card_authorization_dts' => 'credit_card_authorization_dts',
         'credit_card_authorization_number' => 'credit_card_authorization_number',
@@ -409,6 +412,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'channel_partner_order_id' => 'setChannelPartnerOrderId',
         'consider_recurring' => 'setConsiderRecurring',
         'coupons' => 'setCoupons',
+        'creation_dts' => 'setCreationDts',
         'credit_card_authorization_amount' => 'setCreditCardAuthorizationAmount',
         'credit_card_authorization_dts' => 'setCreditCardAuthorizationDts',
         'credit_card_authorization_number' => 'setCreditCardAuthorizationNumber',
@@ -510,6 +514,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'channel_partner_order_id' => 'getChannelPartnerOrderId',
         'consider_recurring' => 'getConsiderRecurring',
         'coupons' => 'getCoupons',
+        'creation_dts' => 'getCreationDts',
         'credit_card_authorization_amount' => 'getCreditCardAuthorizationAmount',
         'credit_card_authorization_dts' => 'getCreditCardAuthorizationDts',
         'credit_card_authorization_number' => 'getCreditCardAuthorizationNumber',
@@ -729,6 +734,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['channel_partner_order_id'] = $data['channel_partner_order_id'] ?? null;
         $this->container['consider_recurring'] = $data['consider_recurring'] ?? null;
         $this->container['coupons'] = $data['coupons'] ?? null;
+        $this->container['creation_dts'] = $data['creation_dts'] ?? null;
         $this->container['credit_card_authorization_amount'] = $data['credit_card_authorization_amount'] ?? null;
         $this->container['credit_card_authorization_dts'] = $data['credit_card_authorization_dts'] ?? null;
         $this->container['credit_card_authorization_number'] = $data['credit_card_authorization_number'] ?? null;
@@ -1646,6 +1652,30 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setCoupons($coupons)
     {
         $this->container['coupons'] = $coupons;
+
+        return $this;
+    }
+
+    /**
+     * Gets creation_dts
+     *
+     * @return string|null
+     */
+    public function getCreationDts()
+    {
+        return $this->container['creation_dts'];
+    }
+
+    /**
+     * Sets creation_dts
+     *
+     * @param string|null $creation_dts Date/time the original order was placed on the channel partner's system, in ISO8601 format. Only honored when store_completed is true (historical order imports). Rejected on live orders.
+     *
+     * @return self
+     */
+    public function setCreationDts($creation_dts)
+    {
+        $this->container['creation_dts'] = $creation_dts;
 
         return $this;
     }

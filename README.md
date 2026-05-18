@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.90"
+    "ultracart/rest_api_v2_sdk_php": "4.1.91"
   }
 }
 ```
@@ -1780,6 +1780,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.91 | 05/18/2026 | ChannelPartner - support creation_dts on import of a store_completed (historical) order |
 | 4.1.90 | 05/13/2026 | webhook rest api - new method getWebhookEventCategories |
 | 4.1.89 | 05/11/2026 | auto order item level webhooks - cancel scheduled, cancel, pause, reactive, and unpause |
 | 4.1.88 | 05/08/2026 | order page view history |
