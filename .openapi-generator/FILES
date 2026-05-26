@@ -51,6 +51,8 @@ docs/Model/AutoOrder.md
 docs/Model/AutoOrderAddonItem.md
 docs/Model/AutoOrderAddonItemOption.md
 docs/Model/AutoOrderAddonItemsUpdateRequest.md
+docs/Model/AutoOrderCancelReason.md
+docs/Model/AutoOrderCancelReasonsResponse.md
 docs/Model/AutoOrderConsolidate.md
 docs/Model/AutoOrderEmail.md
 docs/Model/AutoOrderEmailsResponse.md
@@ -1062,6 +1064,8 @@ lib/models/AutoOrder.php
 lib/models/AutoOrderAddonItem.php
 lib/models/AutoOrderAddonItemOption.php
 lib/models/AutoOrderAddonItemsUpdateRequest.php
+lib/models/AutoOrderCancelReason.php
+lib/models/AutoOrderCancelReasonsResponse.php
 lib/models/AutoOrderConsolidate.php
 lib/models/AutoOrderEmail.php
 lib/models/AutoOrderEmailsResponse.php

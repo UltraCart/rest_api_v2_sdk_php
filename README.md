@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.91"
+    "ultracart/rest_api_v2_sdk_php": "4.1.92"
   }
 }
 ```
@@ -105,6 +105,7 @@ Class | Method | HTTP request | Description
 *AutoOrderApi* | [**getAutoOrder**](docs/Api/AutoOrderApi.md#getautoorder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order by oid
 *AutoOrderApi* | [**getAutoOrderByCode**](docs/Api/AutoOrderApi.md#getautoorderbycode) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order by code
 *AutoOrderApi* | [**getAutoOrderByReferenceOrderId**](docs/Api/AutoOrderApi.md#getautoorderbyreferenceorderid) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order by order id
+*AutoOrderApi* | [**getAutoOrderCancelReasons**](docs/Api/AutoOrderApi.md#getautoordercancelreasons) | **GET** /auto_order/auto_orders/cancel_reasons | Retrieve auto order cancel reasons.
 *AutoOrderApi* | [**getAutoOrderEmails**](docs/Api/AutoOrderApi.md#getautoorderemails) | **GET** /auto_order/auto_orders/{auto_order_oid}/emails | Retrieve email delivery information for this auto order.
 *AutoOrderApi* | [**getAutoOrders**](docs/Api/AutoOrderApi.md#getautoorders) | **GET** /auto_order/auto_orders | Retrieve auto orders
 *AutoOrderApi* | [**getAutoOrdersBatch**](docs/Api/AutoOrderApi.md#getautoordersbatch) | **POST** /auto_order/auto_orders/batch | Retrieve auto order batch
@@ -729,6 +730,8 @@ Class | Method | HTTP request | Description
 - [AutoOrderAddonItem](docs/Model/AutoOrderAddonItem.md)
 - [AutoOrderAddonItemOption](docs/Model/AutoOrderAddonItemOption.md)
 - [AutoOrderAddonItemsUpdateRequest](docs/Model/AutoOrderAddonItemsUpdateRequest.md)
+- [AutoOrderCancelReason](docs/Model/AutoOrderCancelReason.md)
+- [AutoOrderCancelReasonsResponse](docs/Model/AutoOrderCancelReasonsResponse.md)
 - [AutoOrderConsolidate](docs/Model/AutoOrderConsolidate.md)
 - [AutoOrderEmail](docs/Model/AutoOrderEmail.md)
 - [AutoOrderEmailsResponse](docs/Model/AutoOrderEmailsResponse.md)
@@ -1780,6 +1783,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.92 | 05/26/2026 | AutoOrderApi.getAutoOrderCancelReasons |
 | 4.1.91 | 05/18/2026 | ChannelPartner - support creation_dts on import of a store_completed (historical) order |
 | 4.1.90 | 05/13/2026 | webhook rest api - new method getWebhookEventCategories |
 | 4.1.89 | 05/11/2026 | auto order item level webhooks - cancel scheduled, cancel, pause, reactive, and unpause |
