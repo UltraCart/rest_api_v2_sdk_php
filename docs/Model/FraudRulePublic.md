@@ -1,0 +1,45 @@
+# # FraudRulePublic
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**affiliate_oid** | **int** |  | [optional]
+**amount_threshold** | **float** |  | [optional]
+**auto_note** | **string** |  | [optional]
+**avs_match_type** | **string** |  | [optional]
+**avs_response_codes** | **string** |  | [optional]
+**card_number** | **string** | Masked credit card number for rules tied to a specific card | [optional]
+**count_threshold** | **int** |  | [optional]
+**country_code** | **string** |  | [optional]
+**created_by** | **string** |  | [optional]
+**created_dts** | **string** | Created date | [optional]
+**credit_card_bins** | **object** | Credit card BINs blocked by the &#39;credit card block bin&#39; rule type. | [optional]
+**decline_message** | **string** |  | [optional]
+**description** | **string** | Human-readable description of the rule | [optional]
+**description_html** | **string** | HTML version of the rule description | [optional]
+**email** | **string** |  | [optional]
+**failure_action** | **string** | Action taken when this rule fires. | [optional]
+**fraud_rule_oid** | **int** | UltraCart unique identifier for this fraud rule | [optional]
+**gateway_response_codes** | **string** |  | [optional]
+**gateway_response_value** | **string** |  | [optional]
+**ip_address** | **string** |  | [optional]
+**ip_range_type** | **string** |  | [optional]
+**item_filters** | [**\ultracart\v2\models\FraudRuleItemFilter[]**](FraudRuleItemFilter.md) |  | [optional]
+**merchant_item_id** | **string** |  | [optional]
+**modify_custom_field1** | **string** |  | [optional]
+**modify_custom_field2** | **string** |  | [optional]
+**modify_custom_field3** | **string** |  | [optional]
+**modify_custom_field4** | **string** |  | [optional]
+**modify_custom_field5** | **string** |  | [optional]
+**modify_custom_field6** | **string** |  | [optional]
+**modify_custom_field7** | **string** |  | [optional]
+**modify_skip_affiliate** | **bool** |  | [optional]
+**modify_skip_affiliate_network_pixel** | **bool** |  | [optional]
+**rotating_transaction_gateway_filters** | [**\ultracart\v2\models\FraudRuleRotatingTransactionGatewayFilter[]**](FraudRuleRotatingTransactionGatewayFilter.md) |  | [optional]
+**rule_group** | **string** | Group containing this rule type (eg &#39;creditCardRules&#39;) | [optional]
+**rule_type** | **string** | Rule type. | [optional]
+**storefront_filters** | [**\ultracart\v2\models\FraudRuleStorefrontFilter[]**](FraudRuleStorefrontFilter.md) |  | [optional]
+**user_action** | **string** |  | [optional]
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
