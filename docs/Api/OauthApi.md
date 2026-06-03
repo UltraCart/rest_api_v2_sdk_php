@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 ## `oauthDeviceAuthorize()`
 
 ```php
-oauthDeviceAuthorize($client_id, $scope)
+oauthDeviceAuthorize($client_id, $scope): \ultracart\v2\models\OauthDeviceAuthorizationResponse
 ```
 
 Initiate a device authorization flow.
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\ultracart\v2\models\OauthDeviceAuthorizationResponse**](../Model/OauthDeviceAuthorizationResponse.md)
 
 ### Authorization
 

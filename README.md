@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.94"
+    "ultracart/rest_api_v2_sdk_php": "4.1.95"
   }
 }
 ```
@@ -1801,6 +1801,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.95 | 06/02/2026 | fraud api alpha version |
 | 4.1.94 | 06/02/2026 | fraud api alpha version |
 | 4.1.93 | 06/02/2026 | fraud api alpha version for testing |
 | 4.1.92 | 05/26/2026 | AutoOrderApi.getAutoOrderCancelReasons |
