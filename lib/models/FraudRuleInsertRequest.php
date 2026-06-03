@@ -66,14 +66,14 @@ class FraudRuleInsertRequest implements ModelInterface, ArrayAccess, \JsonSerial
         'avs_response_codes' => 'string',
         'count_threshold' => 'int',
         'country_code' => 'string',
-        'credit_card_bins' => 'object',
+        'credit_card_bins' => 'string[]',
         'email' => 'string',
         'failure_action' => 'string',
         'gateway_response_codes' => 'string',
         'gateway_response_value' => 'string',
         'ip_address' => 'string',
         'ip_range_type' => 'string',
-        'item_filters' => 'object',
+        'item_filters' => 'string[]',
         'merchant_item_id' => 'string',
         'modify_custom_field1' => 'string',
         'modify_custom_field2' => 'string',
@@ -84,9 +84,9 @@ class FraudRuleInsertRequest implements ModelInterface, ArrayAccess, \JsonSerial
         'modify_custom_field7' => 'string',
         'modify_skip_affiliate' => 'bool',
         'modify_skip_affiliate_network_pixel' => 'bool',
-        'rotating_transaction_gateway_filters' => 'object',
+        'rotating_transaction_gateway_filters' => 'int[]',
         'rule_type' => 'string',
-        'screen_branding_theme_filters' => 'object',
+        'screen_branding_theme_filters' => 'int[]',
         'user_action' => 'string'
     ];
 
@@ -795,7 +795,7 @@ class FraudRuleInsertRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets credit_card_bins
      *
-     * @return object|null
+     * @return string[]|null
      */
     public function getCreditCardBins()
     {
@@ -805,7 +805,7 @@ class FraudRuleInsertRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets credit_card_bins
      *
-     * @param object|null $credit_card_bins Credit card BINs to block (max 20). Used by the 'credit card block bin' rule type.
+     * @param string[]|null $credit_card_bins Credit card BINs to block (max 20). Used by the 'credit card block bin' rule type.
      *
      * @return self
      */
@@ -983,7 +983,7 @@ class FraudRuleInsertRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets item_filters
      *
-     * @return object|null
+     * @return string[]|null
      */
     public function getItemFilters()
     {
@@ -993,7 +993,7 @@ class FraudRuleInsertRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets item_filters
      *
-     * @param object|null $item_filters Optional list of merchant item ids restricting this rule to orders containing one or more of these items.
+     * @param string[]|null $item_filters Optional list of merchant item ids restricting this rule to orders containing one or more of these items.
      *
      * @return self
      */
@@ -1041,7 +1041,7 @@ class FraudRuleInsertRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets modify_custom_field1
      *
-     * @param string|null $modify_custom_field1 modify_custom_field1
+     * @param string|null $modify_custom_field1 When failure_action is 'Process Payment and Modify', set order custom field 1 to this value.
      *
      * @return self
      */
@@ -1065,7 +1065,7 @@ class FraudRuleInsertRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets modify_custom_field2
      *
-     * @param string|null $modify_custom_field2 modify_custom_field2
+     * @param string|null $modify_custom_field2 When failure_action is 'Process Payment and Modify', set order custom field 2 to this value.
      *
      * @return self
      */
@@ -1089,7 +1089,7 @@ class FraudRuleInsertRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets modify_custom_field3
      *
-     * @param string|null $modify_custom_field3 modify_custom_field3
+     * @param string|null $modify_custom_field3 When failure_action is 'Process Payment and Modify', set order custom field 3 to this value.
      *
      * @return self
      */
@@ -1113,7 +1113,7 @@ class FraudRuleInsertRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets modify_custom_field4
      *
-     * @param string|null $modify_custom_field4 modify_custom_field4
+     * @param string|null $modify_custom_field4 When failure_action is 'Process Payment and Modify', set order custom field 4 to this value.
      *
      * @return self
      */
@@ -1137,7 +1137,7 @@ class FraudRuleInsertRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets modify_custom_field5
      *
-     * @param string|null $modify_custom_field5 modify_custom_field5
+     * @param string|null $modify_custom_field5 When failure_action is 'Process Payment and Modify', set order custom field 5 to this value.
      *
      * @return self
      */
@@ -1161,7 +1161,7 @@ class FraudRuleInsertRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets modify_custom_field6
      *
-     * @param string|null $modify_custom_field6 modify_custom_field6
+     * @param string|null $modify_custom_field6 When failure_action is 'Process Payment and Modify', set order custom field 6 to this value.
      *
      * @return self
      */
@@ -1185,7 +1185,7 @@ class FraudRuleInsertRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets modify_custom_field7
      *
-     * @param string|null $modify_custom_field7 modify_custom_field7
+     * @param string|null $modify_custom_field7 When failure_action is 'Process Payment and Modify', set order custom field 7 to this value.
      *
      * @return self
      */
@@ -1209,7 +1209,7 @@ class FraudRuleInsertRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets modify_skip_affiliate
      *
-     * @param bool|null $modify_skip_affiliate modify_skip_affiliate
+     * @param bool|null $modify_skip_affiliate When failure_action is 'Process Payment and Modify', strip the affiliate from the order.
      *
      * @return self
      */
@@ -1233,7 +1233,7 @@ class FraudRuleInsertRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets modify_skip_affiliate_network_pixel
      *
-     * @param bool|null $modify_skip_affiliate_network_pixel modify_skip_affiliate_network_pixel
+     * @param bool|null $modify_skip_affiliate_network_pixel When failure_action is 'Process Payment and Modify', skip firing the affiliate network pixel.
      *
      * @return self
      */
@@ -1247,7 +1247,7 @@ class FraudRuleInsertRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets rotating_transaction_gateway_filters
      *
-     * @return object|null
+     * @return int[]|null
      */
     public function getRotatingTransactionGatewayFilters()
     {
@@ -1257,7 +1257,7 @@ class FraudRuleInsertRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets rotating_transaction_gateway_filters
      *
-     * @param object|null $rotating_transaction_gateway_filters Optional list of rotating transaction gateway oids restricting this rule to orders processed by one of these gateways.
+     * @param int[]|null $rotating_transaction_gateway_filters Optional list of rotating transaction gateway oids restricting this rule to orders processed by one of these gateways.
      *
      * @return self
      */
@@ -1305,7 +1305,7 @@ class FraudRuleInsertRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets screen_branding_theme_filters
      *
-     * @return object|null
+     * @return int[]|null
      */
     public function getScreenBrandingThemeFilters()
     {
@@ -1315,7 +1315,7 @@ class FraudRuleInsertRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets screen_branding_theme_filters
      *
-     * @param object|null $screen_branding_theme_filters Optional list of screen branding theme oids restricting this rule to orders associated with one or more storefronts.
+     * @param int[]|null $screen_branding_theme_filters Optional list of screen branding theme oids restricting this rule to orders associated with one or more storefronts.
      *
      * @return self
      */

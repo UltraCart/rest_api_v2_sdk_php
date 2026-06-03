@@ -58,12 +58,17 @@ class FraudLookupValues implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'affiliates' => 'object',
-        'countries' => 'object',
-        'ip_range_types' => 'object',
+        'affiliates' => '\ultracart\v2\models\FraudLookupAffiliate[]',
+        'avs_match_types' => 'string[]',
+        'countries' => 'string[]',
+        'failure_actions' => 'string[]',
+        'ip_range_types' => 'string[]',
         'linked_accounts' => 'bool',
-        'rule_groups' => 'object',
-        'rule_types' => 'object'
+        'rotating_transaction_gateways' => '\ultracart\v2\models\FraudLookupGateway[]',
+        'rule_groups' => 'string[]',
+        'rule_types' => 'string[]',
+        'screen_branding_themes' => '\ultracart\v2\models\FraudLookupTheme[]',
+        'user_actions' => 'string[]'
     ];
 
     /**
@@ -75,11 +80,16 @@ class FraudLookupValues implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static $openAPIFormats = [
         'affiliates' => null,
+        'avs_match_types' => null,
         'countries' => null,
+        'failure_actions' => null,
         'ip_range_types' => null,
         'linked_accounts' => null,
+        'rotating_transaction_gateways' => null,
         'rule_groups' => null,
-        'rule_types' => null
+        'rule_types' => null,
+        'screen_branding_themes' => null,
+        'user_actions' => null
     ];
 
     /**
@@ -110,11 +120,16 @@ class FraudLookupValues implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $attributeMap = [
         'affiliates' => 'affiliates',
+        'avs_match_types' => 'avs_match_types',
         'countries' => 'countries',
+        'failure_actions' => 'failure_actions',
         'ip_range_types' => 'ip_range_types',
         'linked_accounts' => 'linked_accounts',
+        'rotating_transaction_gateways' => 'rotating_transaction_gateways',
         'rule_groups' => 'rule_groups',
-        'rule_types' => 'rule_types'
+        'rule_types' => 'rule_types',
+        'screen_branding_themes' => 'screen_branding_themes',
+        'user_actions' => 'user_actions'
     ];
 
     /**
@@ -124,11 +139,16 @@ class FraudLookupValues implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $setters = [
         'affiliates' => 'setAffiliates',
+        'avs_match_types' => 'setAvsMatchTypes',
         'countries' => 'setCountries',
+        'failure_actions' => 'setFailureActions',
         'ip_range_types' => 'setIpRangeTypes',
         'linked_accounts' => 'setLinkedAccounts',
+        'rotating_transaction_gateways' => 'setRotatingTransactionGateways',
         'rule_groups' => 'setRuleGroups',
-        'rule_types' => 'setRuleTypes'
+        'rule_types' => 'setRuleTypes',
+        'screen_branding_themes' => 'setScreenBrandingThemes',
+        'user_actions' => 'setUserActions'
     ];
 
     /**
@@ -138,11 +158,16 @@ class FraudLookupValues implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $getters = [
         'affiliates' => 'getAffiliates',
+        'avs_match_types' => 'getAvsMatchTypes',
         'countries' => 'getCountries',
+        'failure_actions' => 'getFailureActions',
         'ip_range_types' => 'getIpRangeTypes',
         'linked_accounts' => 'getLinkedAccounts',
+        'rotating_transaction_gateways' => 'getRotatingTransactionGateways',
         'rule_groups' => 'getRuleGroups',
-        'rule_types' => 'getRuleTypes'
+        'rule_types' => 'getRuleTypes',
+        'screen_branding_themes' => 'getScreenBrandingThemes',
+        'user_actions' => 'getUserActions'
     ];
 
     /**
@@ -203,11 +228,16 @@ class FraudLookupValues implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function __construct(array $data = null)
     {
         $this->container['affiliates'] = $data['affiliates'] ?? null;
+        $this->container['avs_match_types'] = $data['avs_match_types'] ?? null;
         $this->container['countries'] = $data['countries'] ?? null;
+        $this->container['failure_actions'] = $data['failure_actions'] ?? null;
         $this->container['ip_range_types'] = $data['ip_range_types'] ?? null;
         $this->container['linked_accounts'] = $data['linked_accounts'] ?? null;
+        $this->container['rotating_transaction_gateways'] = $data['rotating_transaction_gateways'] ?? null;
         $this->container['rule_groups'] = $data['rule_groups'] ?? null;
         $this->container['rule_types'] = $data['rule_types'] ?? null;
+        $this->container['screen_branding_themes'] = $data['screen_branding_themes'] ?? null;
+        $this->container['user_actions'] = $data['user_actions'] ?? null;
     }
 
     /**
@@ -237,7 +267,7 @@ class FraudLookupValues implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets affiliates
      *
-     * @return object|null
+     * @return \ultracart\v2\models\FraudLookupAffiliate[]|null
      */
     public function getAffiliates()
     {
@@ -247,7 +277,7 @@ class FraudLookupValues implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets affiliates
      *
-     * @param object|null $affiliates Affiliates with non-empty email, sorted by email.
+     * @param \ultracart\v2\models\FraudLookupAffiliate[]|null $affiliates Affiliates with non-empty email, sorted by email.
      *
      * @return self
      */
@@ -259,9 +289,33 @@ class FraudLookupValues implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
+     * Gets avs_match_types
+     *
+     * @return string[]|null
+     */
+    public function getAvsMatchTypes()
+    {
+        return $this->container['avs_match_types'];
+    }
+
+    /**
+     * Sets avs_match_types
+     *
+     * @param string[]|null $avs_match_types Valid values for avs_match_type on the 'address street and zip avs' rule type.
+     *
+     * @return self
+     */
+    public function setAvsMatchTypes($avs_match_types)
+    {
+        $this->container['avs_match_types'] = $avs_match_types;
+
+        return $this;
+    }
+
+    /**
      * Gets countries
      *
-     * @return object|null
+     * @return string[]|null
      */
     public function getCountries()
     {
@@ -271,7 +325,7 @@ class FraudLookupValues implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets countries
      *
-     * @param object|null $countries ISO country codes available to this merchant.
+     * @param string[]|null $countries ISO country codes available to this merchant.
      *
      * @return self
      */
@@ -283,9 +337,33 @@ class FraudLookupValues implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
+     * Gets failure_actions
+     *
+     * @return string[]|null
+     */
+    public function getFailureActions()
+    {
+        return $this->container['failure_actions'];
+    }
+
+    /**
+     * Sets failure_actions
+     *
+     * @param string[]|null $failure_actions Valid values for failure_action on insert and search requests.
+     *
+     * @return self
+     */
+    public function setFailureActions($failure_actions)
+    {
+        $this->container['failure_actions'] = $failure_actions;
+
+        return $this;
+    }
+
+    /**
      * Gets ip_range_types
      *
-     * @return object|null
+     * @return string[]|null
      */
     public function getIpRangeTypes()
     {
@@ -295,7 +373,7 @@ class FraudLookupValues implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets ip_range_types
      *
-     * @param object|null $ip_range_types Valid values for ip_range_type on IP-based rules.
+     * @param string[]|null $ip_range_types Valid values for ip_range_type on IP-based rules.
      *
      * @return self
      */
@@ -331,9 +409,33 @@ class FraudLookupValues implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
+     * Gets rotating_transaction_gateways
+     *
+     * @return \ultracart\v2\models\FraudLookupGateway[]|null
+     */
+    public function getRotatingTransactionGateways()
+    {
+        return $this->container['rotating_transaction_gateways'];
+    }
+
+    /**
+     * Sets rotating_transaction_gateways
+     *
+     * @param \ultracart\v2\models\FraudLookupGateway[]|null $rotating_transaction_gateways Rotating transaction gateways configured for this merchant. Use the oid as a value in rotating_transaction_gateway_filters on insert.
+     *
+     * @return self
+     */
+    public function setRotatingTransactionGateways($rotating_transaction_gateways)
+    {
+        $this->container['rotating_transaction_gateways'] = $rotating_transaction_gateways;
+
+        return $this;
+    }
+
+    /**
      * Gets rule_groups
      *
-     * @return object|null
+     * @return string[]|null
      */
     public function getRuleGroups()
     {
@@ -343,7 +445,7 @@ class FraudLookupValues implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets rule_groups
      *
-     * @param object|null $rule_groups Valid values for rule_group on search requests.
+     * @param string[]|null $rule_groups Valid values for rule_group on search requests.
      *
      * @return self
      */
@@ -357,7 +459,7 @@ class FraudLookupValues implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets rule_types
      *
-     * @return object|null
+     * @return string[]|null
      */
     public function getRuleTypes()
     {
@@ -367,13 +469,61 @@ class FraudLookupValues implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets rule_types
      *
-     * @param object|null $rule_types Valid values for rule_type on insert and search requests.
+     * @param string[]|null $rule_types Valid values for rule_type on insert and search requests.
      *
      * @return self
      */
     public function setRuleTypes($rule_types)
     {
         $this->container['rule_types'] = $rule_types;
+
+        return $this;
+    }
+
+    /**
+     * Gets screen_branding_themes
+     *
+     * @return \ultracart\v2\models\FraudLookupTheme[]|null
+     */
+    public function getScreenBrandingThemes()
+    {
+        return $this->container['screen_branding_themes'];
+    }
+
+    /**
+     * Sets screen_branding_themes
+     *
+     * @param \ultracart\v2\models\FraudLookupTheme[]|null $screen_branding_themes Screen branding themes configured for this merchant. Use the oid as a value in screen_branding_theme_filters on insert.
+     *
+     * @return self
+     */
+    public function setScreenBrandingThemes($screen_branding_themes)
+    {
+        $this->container['screen_branding_themes'] = $screen_branding_themes;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_actions
+     *
+     * @return string[]|null
+     */
+    public function getUserActions()
+    {
+        return $this->container['user_actions'];
+    }
+
+    /**
+     * Sets user_actions
+     *
+     * @param string[]|null $user_actions Valid values for user_action on rule types that distinguish between attempted and approved transactions.
+     *
+     * @return self
+     */
+    public function setUserActions($user_actions)
+    {
+        $this->container['user_actions'] = $user_actions;
 
         return $this;
     }

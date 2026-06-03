@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.96"
+    "ultracart/rest_api_v2_sdk_php": "4.1.97"
   }
 }
 ```
@@ -368,8 +368,9 @@ Class | Method | HTTP request | Description
 *DatawarehouseApi* | [**updateCustomReport**](docs/Api/DatawarehouseApi.md#updatecustomreport) | **PUT** /datawarehouse/custom_reports/{custom_report_oid} | Update a custom report
 *DatawarehouseApi* | [**updateCustomReportAccountConfig**](docs/Api/DatawarehouseApi.md#updatecustomreportaccountconfig) | **PUT** /datawarehouse/custom_reports/account_config | Update custom report account config
 *DatawarehouseApi* | [**updateReport**](docs/Api/DatawarehouseApi.md#updatereport) | **PUT** /datawarehouse/reports/{report_oid} | Update a report
-*FraudApi* | [**declineEmail**](docs/Api/FraudApi.md#declineemail) | **POST** /fraud/decline_email | Decline emails during checkout fraud review
+*FraudApi* | [**declineEmail**](docs/Api/FraudApi.md#declineemail) | **POST** /fraud/decline_email | Decline email during checkout fraud review
 *FraudApi* | [**deleteFraudRule**](docs/Api/FraudApi.md#deletefraudrule) | **DELETE** /fraud/rules/{fraud_rule_oid} | Delete a fraud rule
+*FraudApi* | [**establishFraudRulesFromOrder**](docs/Api/FraudApi.md#establishfraudrulesfromorder) | **POST** /fraud/rules/from_order | Establish fraud rules from an order
 *FraudApi* | [**getFraudLookupValues**](docs/Api/FraudApi.md#getfraudlookupvalues) | **GET** /fraud/lookup_values | Retrieve fraud rule lookup values
 *FraudApi* | [**insertFraudRule**](docs/Api/FraudApi.md#insertfraudrule) | **POST** /fraud/rules | Insert a fraud rule
 *FraudApi* | [**searchFraudRules**](docs/Api/FraudApi.md#searchfraudrules) | **POST** /fraud/rules/search | Search fraud rules
@@ -1293,8 +1294,12 @@ Class | Method | HTTP request | Description
 - [FileManagerUploadRequest](docs/Model/FileManagerUploadRequest.md)
 - [FileManagerUploadUrlResponse](docs/Model/FileManagerUploadUrlResponse.md)
 - [FraudDeclineEmailRequest](docs/Model/FraudDeclineEmailRequest.md)
+- [FraudLookupAffiliate](docs/Model/FraudLookupAffiliate.md)
+- [FraudLookupGateway](docs/Model/FraudLookupGateway.md)
+- [FraudLookupTheme](docs/Model/FraudLookupTheme.md)
 - [FraudLookupValues](docs/Model/FraudLookupValues.md)
 - [FraudLookupValuesResponse](docs/Model/FraudLookupValuesResponse.md)
+- [FraudRuleFromOrderRequest](docs/Model/FraudRuleFromOrderRequest.md)
 - [FraudRuleInsertRequest](docs/Model/FraudRuleInsertRequest.md)
 - [FraudRuleItemFilter](docs/Model/FraudRuleItemFilter.md)
 - [FraudRulePublic](docs/Model/FraudRulePublic.md)
@@ -1801,6 +1806,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.97 | 06/03/2026 | fraud api alpha version |
 | 4.1.96 | 06/03/2026 | fraud api alpha build |
 | 4.1.95 | 06/02/2026 | fraud api alpha version |
 | 4.1.94 | 06/02/2026 | fraud api alpha version |

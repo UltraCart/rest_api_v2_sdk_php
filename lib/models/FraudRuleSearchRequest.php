@@ -643,7 +643,7 @@ class FraudRuleSearchRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets amount_threshold_end
      *
-     * @param float|null $amount_threshold_end amount_threshold_end
+     * @param float|null $amount_threshold_end Upper bound on amount/score/percentage thresholds (rules backed by the same numeric column).
      *
      * @return self
      */
@@ -715,7 +715,7 @@ class FraudRuleSearchRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets count_threshold_end
      *
-     * @param int|null $count_threshold_end count_threshold_end
+     * @param int|null $count_threshold_end Upper bound on count thresholds (rules backed by the same integer count column).
      *
      * @return self
      */
@@ -739,7 +739,7 @@ class FraudRuleSearchRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets created_by
      *
-     * @param string|null $created_by created_by
+     * @param string|null $created_by Filter to rules created by this user login.
      *
      * @return self
      */
@@ -893,7 +893,7 @@ class FraudRuleSearchRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets gateway_code
      *
-     * @param string|null $gateway_code gateway_code
+     * @param string|null $gateway_code Filter to rules with this rotating transaction gateway code in their rotating_transaction_gateway_filters list.
      *
      * @return self
      */
@@ -917,7 +917,7 @@ class FraudRuleSearchRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets merchant_item_id
      *
-     * @param string|null $merchant_item_id merchant_item_id
+     * @param string|null $merchant_item_id Filter to rules with this merchant item id in their item_filters list.
      *
      * @return self
      */
@@ -965,7 +965,7 @@ class FraudRuleSearchRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets modify_custom_field1
      *
-     * @param string|null $modify_custom_field1 modify_custom_field1
+     * @param string|null $modify_custom_field1 Wildcard search on rules' modify_custom_field1 value.
      *
      * @return self
      */
@@ -989,7 +989,7 @@ class FraudRuleSearchRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets modify_custom_field2
      *
-     * @param string|null $modify_custom_field2 modify_custom_field2
+     * @param string|null $modify_custom_field2 Wildcard search on rules' modify_custom_field2 value.
      *
      * @return self
      */
@@ -1013,7 +1013,7 @@ class FraudRuleSearchRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets modify_custom_field3
      *
-     * @param string|null $modify_custom_field3 modify_custom_field3
+     * @param string|null $modify_custom_field3 Wildcard search on rules' modify_custom_field3 value.
      *
      * @return self
      */
@@ -1037,7 +1037,7 @@ class FraudRuleSearchRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets modify_custom_field4
      *
-     * @param string|null $modify_custom_field4 modify_custom_field4
+     * @param string|null $modify_custom_field4 Wildcard search on rules' modify_custom_field4 value.
      *
      * @return self
      */
@@ -1061,7 +1061,7 @@ class FraudRuleSearchRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets modify_custom_field5
      *
-     * @param string|null $modify_custom_field5 modify_custom_field5
+     * @param string|null $modify_custom_field5 Wildcard search on rules' modify_custom_field5 value.
      *
      * @return self
      */
@@ -1085,7 +1085,7 @@ class FraudRuleSearchRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets modify_custom_field6
      *
-     * @param string|null $modify_custom_field6 modify_custom_field6
+     * @param string|null $modify_custom_field6 Wildcard search on rules' modify_custom_field6 value.
      *
      * @return self
      */
@@ -1109,7 +1109,7 @@ class FraudRuleSearchRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets modify_custom_field7
      *
-     * @param string|null $modify_custom_field7 modify_custom_field7
+     * @param string|null $modify_custom_field7 Wildcard search on rules' modify_custom_field7 value.
      *
      * @return self
      */
@@ -1133,7 +1133,7 @@ class FraudRuleSearchRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets modify_skip_affiliate
      *
-     * @param bool|null $modify_skip_affiliate modify_skip_affiliate
+     * @param bool|null $modify_skip_affiliate Filter to rules whose modify_skip_affiliate flag matches this value.
      *
      * @return self
      */
@@ -1157,7 +1157,7 @@ class FraudRuleSearchRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets modify_skip_affiliate_network_pixel
      *
-     * @param bool|null $modify_skip_affiliate_network_pixel modify_skip_affiliate_network_pixel
+     * @param bool|null $modify_skip_affiliate_network_pixel Filter to rules whose modify_skip_affiliate_network_pixel flag matches this value.
      *
      * @return self
      */
@@ -1273,7 +1273,7 @@ class FraudRuleSearchRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets storefront_hostname
      *
-     * @param string|null $storefront_hostname storefront_hostname
+     * @param string|null $storefront_hostname Filter to rules with this storefront hostname in their screen_branding_theme_filters list.
      *
      * @return self
      */
@@ -1321,7 +1321,7 @@ class FraudRuleSearchRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets theme_code
      *
-     * @param string|null $theme_code theme_code
+     * @param string|null $theme_code Filter to rules with this screen branding theme code in their screen_branding_theme_filters list.
      *
      * @return self
      */

@@ -610,8 +610,12 @@ docs/Model/FileManagerPageResponse.md
 docs/Model/FileManagerUploadRequest.md
 docs/Model/FileManagerUploadUrlResponse.md
 docs/Model/FraudDeclineEmailRequest.md
+docs/Model/FraudLookupAffiliate.md
+docs/Model/FraudLookupGateway.md
+docs/Model/FraudLookupTheme.md
 docs/Model/FraudLookupValues.md
 docs/Model/FraudLookupValuesResponse.md
+docs/Model/FraudRuleFromOrderRequest.md
 docs/Model/FraudRuleInsertRequest.md
 docs/Model/FraudRuleItemFilter.md
 docs/Model/FraudRulePublic.md
@@ -1635,8 +1639,12 @@ lib/models/FileManagerPageResponse.php
 lib/models/FileManagerUploadRequest.php
 lib/models/FileManagerUploadUrlResponse.php
 lib/models/FraudDeclineEmailRequest.php
+lib/models/FraudLookupAffiliate.php
+lib/models/FraudLookupGateway.php
+lib/models/FraudLookupTheme.php
 lib/models/FraudLookupValues.php
 lib/models/FraudLookupValuesResponse.php
+lib/models/FraudRuleFromOrderRequest.php
 lib/models/FraudRuleInsertRequest.php
 lib/models/FraudRuleItemFilter.php
 lib/models/FraudRulePublic.php

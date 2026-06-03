@@ -68,7 +68,7 @@ class FraudRulePublic implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_code' => 'string',
         'created_by' => 'string',
         'created_dts' => 'string',
-        'credit_card_bins' => 'object',
+        'credit_card_bins' => 'string[]',
         'decline_message' => 'string',
         'description' => 'string',
         'description_html' => 'string',
@@ -645,7 +645,7 @@ class FraudRulePublic implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets affiliate_oid
      *
-     * @param int|null $affiliate_oid affiliate_oid
+     * @param int|null $affiliate_oid Affiliate oid for the 'affiliate matches' rule type.
      *
      * @return self
      */
@@ -669,7 +669,7 @@ class FraudRulePublic implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets amount_threshold
      *
-     * @param float|null $amount_threshold amount_threshold
+     * @param float|null $amount_threshold Monetary or score threshold for amount/score/percentage rule types.
      *
      * @return self
      */
@@ -693,7 +693,7 @@ class FraudRulePublic implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets auto_note
      *
-     * @param string|null $auto_note auto_note
+     * @param string|null $auto_note Note automatically appended to the order's merchant note when this rule fires.
      *
      * @return self
      */
@@ -751,7 +751,7 @@ class FraudRulePublic implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets avs_response_codes
      *
-     * @param string|null $avs_response_codes avs_response_codes
+     * @param string|null $avs_response_codes AVS response codes for the 'address street and zip avs' rule type.
      *
      * @return self
      */
@@ -799,7 +799,7 @@ class FraudRulePublic implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets count_threshold
      *
-     * @param int|null $count_threshold count_threshold
+     * @param int|null $count_threshold Integer count threshold for count/quantity/hours rule types.
      *
      * @return self
      */
@@ -823,7 +823,7 @@ class FraudRulePublic implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets country_code
      *
-     * @param string|null $country_code country_code
+     * @param string|null $country_code ISO country code for the 'address not in country' rule type.
      *
      * @return self
      */
@@ -885,7 +885,7 @@ class FraudRulePublic implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets credit_card_bins
      *
-     * @return object|null
+     * @return string[]|null
      */
     public function getCreditCardBins()
     {
@@ -895,7 +895,7 @@ class FraudRulePublic implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets credit_card_bins
      *
-     * @param object|null $credit_card_bins Credit card BINs blocked by the 'credit card block bin' rule type.
+     * @param string[]|null $credit_card_bins Credit card BINs blocked by the 'credit card block bin' rule type.
      *
      * @return self
      */
@@ -919,7 +919,7 @@ class FraudRulePublic implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets decline_message
      *
-     * @param string|null $decline_message decline_message
+     * @param string|null $decline_message Message shown in the A/R review screen when this rule fires.
      *
      * @return self
      */
@@ -991,7 +991,7 @@ class FraudRulePublic implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets email
      *
-     * @param string|null $email email
+     * @param string|null $email Email address for the 'address email' rule type.
      *
      * @return self
      */
@@ -1073,7 +1073,7 @@ class FraudRulePublic implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets gateway_response_codes
      *
-     * @param string|null $gateway_response_codes gateway_response_codes
+     * @param string|null $gateway_response_codes Gateway response code key for the 'gateway response' rule type.
      *
      * @return self
      */
@@ -1097,7 +1097,7 @@ class FraudRulePublic implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets gateway_response_value
      *
-     * @param string|null $gateway_response_value gateway_response_value
+     * @param string|null $gateway_response_value Gateway response code value for the 'gateway response' rule type.
      *
      * @return self
      */
@@ -1121,7 +1121,7 @@ class FraudRulePublic implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets ip_address
      *
-     * @param string|null $ip_address ip_address
+     * @param string|null $ip_address IP address or subnet for 'exempt ip' and 'ip matches' rule types.
      *
      * @return self
      */
@@ -1179,7 +1179,7 @@ class FraudRulePublic implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets item_filters
      *
-     * @param \ultracart\v2\models\FraudRuleItemFilter[]|null $item_filters item_filters
+     * @param \ultracart\v2\models\FraudRuleItemFilter[]|null $item_filters Item filters restricting this rule to orders containing one or more of these items.
      *
      * @return self
      */
@@ -1203,7 +1203,7 @@ class FraudRulePublic implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets merchant_item_id
      *
-     * @param string|null $merchant_item_id merchant_item_id
+     * @param string|null $merchant_item_id Merchant item id for the 'item matches' rule type.
      *
      * @return self
      */
@@ -1227,7 +1227,7 @@ class FraudRulePublic implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets modify_custom_field1
      *
-     * @param string|null $modify_custom_field1 modify_custom_field1
+     * @param string|null $modify_custom_field1 Value the rule sets on order custom field 1 (only meaningful for 'Process Payment and Modify').
      *
      * @return self
      */
@@ -1251,7 +1251,7 @@ class FraudRulePublic implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets modify_custom_field2
      *
-     * @param string|null $modify_custom_field2 modify_custom_field2
+     * @param string|null $modify_custom_field2 Value the rule sets on order custom field 2 (only meaningful for 'Process Payment and Modify').
      *
      * @return self
      */
@@ -1275,7 +1275,7 @@ class FraudRulePublic implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets modify_custom_field3
      *
-     * @param string|null $modify_custom_field3 modify_custom_field3
+     * @param string|null $modify_custom_field3 Value the rule sets on order custom field 3 (only meaningful for 'Process Payment and Modify').
      *
      * @return self
      */
@@ -1299,7 +1299,7 @@ class FraudRulePublic implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets modify_custom_field4
      *
-     * @param string|null $modify_custom_field4 modify_custom_field4
+     * @param string|null $modify_custom_field4 Value the rule sets on order custom field 4 (only meaningful for 'Process Payment and Modify').
      *
      * @return self
      */
@@ -1323,7 +1323,7 @@ class FraudRulePublic implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets modify_custom_field5
      *
-     * @param string|null $modify_custom_field5 modify_custom_field5
+     * @param string|null $modify_custom_field5 Value the rule sets on order custom field 5 (only meaningful for 'Process Payment and Modify').
      *
      * @return self
      */
@@ -1347,7 +1347,7 @@ class FraudRulePublic implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets modify_custom_field6
      *
-     * @param string|null $modify_custom_field6 modify_custom_field6
+     * @param string|null $modify_custom_field6 Value the rule sets on order custom field 6 (only meaningful for 'Process Payment and Modify').
      *
      * @return self
      */
@@ -1371,7 +1371,7 @@ class FraudRulePublic implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets modify_custom_field7
      *
-     * @param string|null $modify_custom_field7 modify_custom_field7
+     * @param string|null $modify_custom_field7 Value the rule sets on order custom field 7 (only meaningful for 'Process Payment and Modify').
      *
      * @return self
      */
@@ -1395,7 +1395,7 @@ class FraudRulePublic implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets modify_skip_affiliate
      *
-     * @param bool|null $modify_skip_affiliate modify_skip_affiliate
+     * @param bool|null $modify_skip_affiliate When true, the rule strips the affiliate from the order (only meaningful for 'Process Payment and Modify').
      *
      * @return self
      */
@@ -1419,7 +1419,7 @@ class FraudRulePublic implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets modify_skip_affiliate_network_pixel
      *
-     * @param bool|null $modify_skip_affiliate_network_pixel modify_skip_affiliate_network_pixel
+     * @param bool|null $modify_skip_affiliate_network_pixel When true, the rule suppresses the affiliate network pixel (only meaningful for 'Process Payment and Modify').
      *
      * @return self
      */
@@ -1443,7 +1443,7 @@ class FraudRulePublic implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets rotating_transaction_gateway_filters
      *
-     * @param \ultracart\v2\models\FraudRuleRotatingTransactionGatewayFilter[]|null $rotating_transaction_gateway_filters rotating_transaction_gateway_filters
+     * @param \ultracart\v2\models\FraudRuleRotatingTransactionGatewayFilter[]|null $rotating_transaction_gateway_filters Gateway filters restricting this rule to orders processed by one of these rotating transaction gateways.
      *
      * @return self
      */
@@ -1525,7 +1525,7 @@ class FraudRulePublic implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets storefront_filters
      *
-     * @param \ultracart\v2\models\FraudRuleStorefrontFilter[]|null $storefront_filters storefront_filters
+     * @param \ultracart\v2\models\FraudRuleStorefrontFilter[]|null $storefront_filters Storefront filters restricting this rule to orders placed on one of these storefronts.
      *
      * @return self
      */
