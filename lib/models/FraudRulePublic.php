@@ -351,14 +351,6 @@ class FraudRulePublic implements ModelInterface, ArrayAccess, \JsonSerializable
     public const FAILURE_ACTION_EXEMPT = 'Exempt';
     public const IP_RANGE_TYPE_ADDRESS = 'address';
     public const IP_RANGE_TYPE_SUBNET = 'subnet';
-    public const RULE_GROUP_EXEMPT_RULES = 'exemptRules';
-    public const RULE_GROUP_CREDIT_CARD_RULES = 'creditCardRules';
-    public const RULE_GROUP_IP_RULES = 'ipRules';
-    public const RULE_GROUP_ADDRESS_RULES = 'addressRules';
-    public const RULE_GROUP_AFFILIATE_RULES = 'affiliateRules';
-    public const RULE_GROUP_ITEM_RULES = 'itemRules';
-    public const RULE_GROUP_ORDER_RULES = 'orderRules';
-    public const RULE_GROUP_BROWSER_RULES = 'browserRules';
     public const RULE_TYPE_EXEMPT_APO_FPO = 'exempt apo fpo';
     public const RULE_TYPE_EXEMPT_IP = 'exempt ip';
     public const RULE_TYPE_EXEMPT_LOGGED_IN_CUSTOMER_WITH_PRICING_TIER = 'exempt logged in customer with pricing tier';
@@ -446,25 +438,6 @@ class FraudRulePublic implements ModelInterface, ArrayAccess, \JsonSerializable
         return [
             self::IP_RANGE_TYPE_ADDRESS,
             self::IP_RANGE_TYPE_SUBNET,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getRuleGroupAllowableValues()
-    {
-        return [
-            self::RULE_GROUP_EXEMPT_RULES,
-            self::RULE_GROUP_CREDIT_CARD_RULES,
-            self::RULE_GROUP_IP_RULES,
-            self::RULE_GROUP_ADDRESS_RULES,
-            self::RULE_GROUP_AFFILIATE_RULES,
-            self::RULE_GROUP_ITEM_RULES,
-            self::RULE_GROUP_ORDER_RULES,
-            self::RULE_GROUP_BROWSER_RULES,
         ];
     }
 
@@ -622,15 +595,6 @@ class FraudRulePublic implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'ip_range_type', must be one of '%s'",
                 $this->container['ip_range_type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getRuleGroupAllowableValues();
-        if (!is_null($this->container['rule_group']) && !in_array($this->container['rule_group'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'rule_group', must be one of '%s'",
-                $this->container['rule_group'],
                 implode("', '", $allowedValues)
             );
         }
@@ -1503,22 +1467,12 @@ class FraudRulePublic implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets rule_group
      *
-     * @param string|null $rule_group Group containing this rule type (eg 'creditCardRules')
+     * @param string|null $rule_group Group containing this rule type (eg 'creditCardRules'). Deliberately not constrained by allowableValues on the response so SDK consumers do not hard-fail on an unexpected value if a future rule_type slips through the server-side mapping. Search REQUESTS still restrict rule_group to the known set.
      *
      * @return self
      */
     public function setRuleGroup($rule_group)
     {
-        $allowedValues = $this->getRuleGroupAllowableValues();
-        if (!is_null($rule_group) && !in_array($rule_group, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'rule_group', must be one of '%s'",
-                    $rule_group,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['rule_group'] = $rule_group;
 
         return $this;

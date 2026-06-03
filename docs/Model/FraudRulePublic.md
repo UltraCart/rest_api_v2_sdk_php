@@ -37,7 +37,7 @@ Name | Type | Description | Notes
 **modify_skip_affiliate** | **bool** |  | [optional]
 **modify_skip_affiliate_network_pixel** | **bool** |  | [optional]
 **rotating_transaction_gateway_filters** | [**\ultracart\v2\models\FraudRuleRotatingTransactionGatewayFilter[]**](FraudRuleRotatingTransactionGatewayFilter.md) |  | [optional]
-**rule_group** | **string** | Group containing this rule type (eg &#39;creditCardRules&#39;) | [optional]
+**rule_group** | **string** | Group containing this rule type (eg &#39;creditCardRules&#39;). Deliberately not constrained by allowableValues on the response so SDK consumers do not hard-fail on an unexpected value if a future rule_type slips through the server-side mapping. Search REQUESTS still restrict rule_group to the known set. | [optional]
 **rule_type** | **string** | Rule type. | [optional]
 **storefront_filters** | [**\ultracart\v2\models\FraudRuleStorefrontFilter[]**](FraudRuleStorefrontFilter.md) |  | [optional]
 **user_action** | **string** |  | [optional]
