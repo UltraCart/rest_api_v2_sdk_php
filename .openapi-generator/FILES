@@ -337,6 +337,7 @@ docs/Model/CountriesResponse.md
 docs/Model/Country.md
 docs/Model/Coupon.md
 docs/Model/CouponAmountOffItems.md
+docs/Model/CouponAmountOffItemsAndFreeShipping.md
 docs/Model/CouponAmountOffShipping.md
 docs/Model/CouponAmountOffShippingWithItemsPurchase.md
 docs/Model/CouponAmountOffSubtotal.md
@@ -1366,6 +1367,7 @@ lib/models/CountriesResponse.php
 lib/models/Country.php
 lib/models/Coupon.php
 lib/models/CouponAmountOffItems.php
+lib/models/CouponAmountOffItemsAndFreeShipping.php
 lib/models/CouponAmountOffShipping.php
 lib/models/CouponAmountOffShippingWithItemsPurchase.php
 lib/models/CouponAmountOffSubtotal.php

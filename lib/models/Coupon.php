@@ -61,6 +61,7 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
         'affiliate_oid' => 'int',
         'allow_multiple_one_time_codes' => 'bool',
         'amount_off_items' => '\ultracart\v2\models\CouponAmountOffItems',
+        'amount_off_items_and_free_shipping' => '\ultracart\v2\models\CouponAmountOffItemsAndFreeShipping',
         'amount_off_shipping' => '\ultracart\v2\models\CouponAmountOffShipping',
         'amount_off_shipping_with_items_purchase' => '\ultracart\v2\models\CouponAmountOffShippingWithItemsPurchase',
         'amount_off_subtotal' => '\ultracart\v2\models\CouponAmountOffSubtotal',
@@ -139,6 +140,7 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
         'affiliate_oid' => 'int32',
         'allow_multiple_one_time_codes' => null,
         'amount_off_items' => null,
+        'amount_off_items_and_free_shipping' => null,
         'amount_off_shipping' => null,
         'amount_off_shipping_with_items_purchase' => null,
         'amount_off_subtotal' => null,
@@ -236,6 +238,7 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
         'affiliate_oid' => 'affiliate_oid',
         'allow_multiple_one_time_codes' => 'allow_multiple_one_time_codes',
         'amount_off_items' => 'amount_off_items',
+        'amount_off_items_and_free_shipping' => 'amount_off_items_and_free_shipping',
         'amount_off_shipping' => 'amount_off_shipping',
         'amount_off_shipping_with_items_purchase' => 'amount_off_shipping_with_items_purchase',
         'amount_off_subtotal' => 'amount_off_subtotal',
@@ -312,6 +315,7 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
         'affiliate_oid' => 'setAffiliateOid',
         'allow_multiple_one_time_codes' => 'setAllowMultipleOneTimeCodes',
         'amount_off_items' => 'setAmountOffItems',
+        'amount_off_items_and_free_shipping' => 'setAmountOffItemsAndFreeShipping',
         'amount_off_shipping' => 'setAmountOffShipping',
         'amount_off_shipping_with_items_purchase' => 'setAmountOffShippingWithItemsPurchase',
         'amount_off_subtotal' => 'setAmountOffSubtotal',
@@ -388,6 +392,7 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
         'affiliate_oid' => 'getAffiliateOid',
         'allow_multiple_one_time_codes' => 'getAllowMultipleOneTimeCodes',
         'amount_off_items' => 'getAmountOffItems',
+        'amount_off_items_and_free_shipping' => 'getAmountOffItemsAndFreeShipping',
         'amount_off_shipping' => 'getAmountOffShipping',
         'amount_off_shipping_with_items_purchase' => 'getAmountOffShippingWithItemsPurchase',
         'amount_off_subtotal' => 'getAmountOffSubtotal',
@@ -536,6 +541,7 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['affiliate_oid'] = $data['affiliate_oid'] ?? null;
         $this->container['allow_multiple_one_time_codes'] = $data['allow_multiple_one_time_codes'] ?? null;
         $this->container['amount_off_items'] = $data['amount_off_items'] ?? null;
+        $this->container['amount_off_items_and_free_shipping'] = $data['amount_off_items_and_free_shipping'] ?? null;
         $this->container['amount_off_shipping'] = $data['amount_off_shipping'] ?? null;
         $this->container['amount_off_shipping_with_items_purchase'] = $data['amount_off_shipping_with_items_purchase'] ?? null;
         $this->container['amount_off_subtotal'] = $data['amount_off_subtotal'] ?? null;
@@ -728,6 +734,30 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setAmountOffItems($amount_off_items)
     {
         $this->container['amount_off_items'] = $amount_off_items;
+
+        return $this;
+    }
+
+    /**
+     * Gets amount_off_items_and_free_shipping
+     *
+     * @return \ultracart\v2\models\CouponAmountOffItemsAndFreeShipping|null
+     */
+    public function getAmountOffItemsAndFreeShipping()
+    {
+        return $this->container['amount_off_items_and_free_shipping'];
+    }
+
+    /**
+     * Sets amount_off_items_and_free_shipping
+     *
+     * @param \ultracart\v2\models\CouponAmountOffItemsAndFreeShipping|null $amount_off_items_and_free_shipping amount_off_items_and_free_shipping
+     *
+     * @return self
+     */
+    public function setAmountOffItemsAndFreeShipping($amount_off_items_and_free_shipping)
+    {
+        $this->container['amount_off_items_and_free_shipping'] = $amount_off_items_and_free_shipping;
 
         return $this;
     }
