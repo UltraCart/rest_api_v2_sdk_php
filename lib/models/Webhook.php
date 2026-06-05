@@ -72,7 +72,9 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable
         'iam_secret_key' => 'string',
         'maximum_events' => 'int',
         'maximum_size' => 'int',
+        'merchant_comments' => 'string',
         'merchant_id' => 'string',
+        'name' => 'string',
         'next_retry_after' => 'string',
         'pending' => 'int',
         'webhook_oid' => 'int',
@@ -101,7 +103,9 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable
         'iam_secret_key' => null,
         'maximum_events' => 'int32',
         'maximum_size' => 'int32',
+        'merchant_comments' => null,
         'merchant_id' => null,
+        'name' => null,
         'next_retry_after' => 'dateTime',
         'pending' => 'int32',
         'webhook_oid' => 'int32',
@@ -149,7 +153,9 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable
         'iam_secret_key' => 'iam_secret_key',
         'maximum_events' => 'maximum_events',
         'maximum_size' => 'maximum_size',
+        'merchant_comments' => 'merchant_comments',
         'merchant_id' => 'merchant_id',
+        'name' => 'name',
         'next_retry_after' => 'next_retry_after',
         'pending' => 'pending',
         'webhook_oid' => 'webhook_oid',
@@ -176,7 +182,9 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable
         'iam_secret_key' => 'setIamSecretKey',
         'maximum_events' => 'setMaximumEvents',
         'maximum_size' => 'setMaximumSize',
+        'merchant_comments' => 'setMerchantComments',
         'merchant_id' => 'setMerchantId',
+        'name' => 'setName',
         'next_retry_after' => 'setNextRetryAfter',
         'pending' => 'setPending',
         'webhook_oid' => 'setWebhookOid',
@@ -203,7 +211,9 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable
         'iam_secret_key' => 'getIamSecretKey',
         'maximum_events' => 'getMaximumEvents',
         'maximum_size' => 'getMaximumSize',
+        'merchant_comments' => 'getMerchantComments',
         'merchant_id' => 'getMerchantId',
+        'name' => 'getName',
         'next_retry_after' => 'getNextRetryAfter',
         'pending' => 'getPending',
         'webhook_oid' => 'getWebhookOid',
@@ -313,7 +323,9 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['iam_secret_key'] = $data['iam_secret_key'] ?? null;
         $this->container['maximum_events'] = $data['maximum_events'] ?? null;
         $this->container['maximum_size'] = $data['maximum_size'] ?? null;
+        $this->container['merchant_comments'] = $data['merchant_comments'] ?? null;
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
         $this->container['next_retry_after'] = $data['next_retry_after'] ?? null;
         $this->container['pending'] = $data['pending'] ?? null;
         $this->container['webhook_oid'] = $data['webhook_oid'] ?? null;
@@ -719,6 +731,30 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets merchant_comments
+     *
+     * @return string|null
+     */
+    public function getMerchantComments()
+    {
+        return $this->container['merchant_comments'];
+    }
+
+    /**
+     * Sets merchant_comments
+     *
+     * @param string|null $merchant_comments Merchant comments about this webhook
+     *
+     * @return self
+     */
+    public function setMerchantComments($merchant_comments)
+    {
+        $this->container['merchant_comments'] = $merchant_comments;
+
+        return $this;
+    }
+
+    /**
      * Gets merchant_id
      *
      * @return string|null
@@ -738,6 +774,30 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setMerchantId($merchant_id)
     {
         $this->container['merchant_id'] = $merchant_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name Friendly name to help identify this webhook
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
 
         return $this;
     }

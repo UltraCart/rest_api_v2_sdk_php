@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.98"
+    "ultracart/rest_api_v2_sdk_php": "4.1.99"
   }
 }
 ```
@@ -1807,6 +1807,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.99 | 06/05/2026 | added webhook name and merchant_comments |
 | 4.1.98 | 06/04/2026 | coupon - new coupon type for amount off items with free shipping |
 | 4.1.97 | 06/03/2026 | fraud api alpha version |
 | 4.1.96 | 06/03/2026 | fraud api alpha build |
