@@ -59,7 +59,11 @@ class WebhookLogSummary implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static $openAPITypes = [
         'delivery_dts' => 'string',
+        'duration' => 'int',
+        'event_names' => 'string[]',
+        'order_ids' => 'string[]',
         'request_id' => 'string',
+        'status_code' => 'int',
         'success' => 'bool'
     ];
 
@@ -72,7 +76,11 @@ class WebhookLogSummary implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static $openAPIFormats = [
         'delivery_dts' => 'dateTime',
+        'duration' => 'int32',
+        'event_names' => null,
+        'order_ids' => null,
         'request_id' => null,
+        'status_code' => 'int32',
         'success' => null
     ];
 
@@ -104,7 +112,11 @@ class WebhookLogSummary implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $attributeMap = [
         'delivery_dts' => 'delivery_dts',
+        'duration' => 'duration',
+        'event_names' => 'event_names',
+        'order_ids' => 'order_ids',
         'request_id' => 'request_id',
+        'status_code' => 'status_code',
         'success' => 'success'
     ];
 
@@ -115,7 +127,11 @@ class WebhookLogSummary implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $setters = [
         'delivery_dts' => 'setDeliveryDts',
+        'duration' => 'setDuration',
+        'event_names' => 'setEventNames',
+        'order_ids' => 'setOrderIds',
         'request_id' => 'setRequestId',
+        'status_code' => 'setStatusCode',
         'success' => 'setSuccess'
     ];
 
@@ -126,7 +142,11 @@ class WebhookLogSummary implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $getters = [
         'delivery_dts' => 'getDeliveryDts',
+        'duration' => 'getDuration',
+        'event_names' => 'getEventNames',
+        'order_ids' => 'getOrderIds',
         'request_id' => 'getRequestId',
+        'status_code' => 'getStatusCode',
         'success' => 'getSuccess'
     ];
 
@@ -188,7 +208,11 @@ class WebhookLogSummary implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function __construct(array $data = null)
     {
         $this->container['delivery_dts'] = $data['delivery_dts'] ?? null;
+        $this->container['duration'] = $data['duration'] ?? null;
+        $this->container['event_names'] = $data['event_names'] ?? null;
+        $this->container['order_ids'] = $data['order_ids'] ?? null;
         $this->container['request_id'] = $data['request_id'] ?? null;
+        $this->container['status_code'] = $data['status_code'] ?? null;
         $this->container['success'] = $data['success'] ?? null;
     }
 
@@ -241,6 +265,78 @@ class WebhookLogSummary implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
+     * Gets duration
+     *
+     * @return int|null
+     */
+    public function getDuration()
+    {
+        return $this->container['duration'];
+    }
+
+    /**
+     * Sets duration
+     *
+     * @param int|null $duration Number of milliseconds to process the notification
+     *
+     * @return self
+     */
+    public function setDuration($duration)
+    {
+        $this->container['duration'] = $duration;
+
+        return $this;
+    }
+
+    /**
+     * Gets event_names
+     *
+     * @return string[]|null
+     */
+    public function getEventNames()
+    {
+        return $this->container['event_names'];
+    }
+
+    /**
+     * Sets event_names
+     *
+     * @param string[]|null $event_names Event names contained in this delivery
+     *
+     * @return self
+     */
+    public function setEventNames($event_names)
+    {
+        $this->container['event_names'] = $event_names;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_ids
+     *
+     * @return string[]|null
+     */
+    public function getOrderIds()
+    {
+        return $this->container['order_ids'];
+    }
+
+    /**
+     * Sets order_ids
+     *
+     * @param string[]|null $order_ids Order ids contained in this delivery
+     *
+     * @return self
+     */
+    public function setOrderIds($order_ids)
+    {
+        $this->container['order_ids'] = $order_ids;
+
+        return $this;
+    }
+
+    /**
      * Gets request_id
      *
      * @return string|null
@@ -260,6 +356,30 @@ class WebhookLogSummary implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setRequestId($request_id)
     {
         $this->container['request_id'] = $request_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets status_code
+     *
+     * @return int|null
+     */
+    public function getStatusCode()
+    {
+        return $this->container['status_code'];
+    }
+
+    /**
+     * Sets status_code
+     *
+     * @param int|null $status_code HTTP status code received from the server
+     *
+     * @return self
+     */
+    public function setStatusCode($status_code)
+    {
+        $this->container['status_code'] = $status_code;
 
         return $this;
     }

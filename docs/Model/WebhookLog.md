@@ -6,6 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **delivery_dts** | **string** | Date/time of delivery | [optional]
 **duration** | **int** | Number of milliseconds to process the notification | [optional]
+**event_names** | **string[]** | Event names contained in this delivery | [optional]
+**order_ids** | **string[]** | Order ids contained in this delivery | [optional]
 **queue_delay** | **int** | Number of milliseconds of delay caused by queuing | [optional]
 **request** | **string** | Request payload (first 100,000 characters) | [optional]
 **request_headers** | [**\ultracart\v2\models\HTTPHeader[]**](HTTPHeader.md) | Request headers sent to the server | [optional]
