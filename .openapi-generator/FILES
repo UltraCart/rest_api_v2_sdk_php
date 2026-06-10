@@ -266,6 +266,7 @@ docs/Model/ConversationPbxCallTimeline.md
 docs/Model/ConversationPbxCallTranscript.md
 docs/Model/ConversationPbxCallTranscriptSegment.md
 docs/Model/ConversationPbxCallTransfer.md
+docs/Model/ConversationPbxCallUpdateRequest.md
 docs/Model/ConversationPbxClassOfService.md
 docs/Model/ConversationPbxClassOfServiceResponse.md
 docs/Model/ConversationPbxClassOfServicesResponse.md
@@ -1296,6 +1297,7 @@ lib/models/ConversationPbxCallTimeline.php
 lib/models/ConversationPbxCallTranscript.php
 lib/models/ConversationPbxCallTranscriptSegment.php
 lib/models/ConversationPbxCallTransfer.php
+lib/models/ConversationPbxCallUpdateRequest.php
 lib/models/ConversationPbxClassOfService.php
 lib/models/ConversationPbxClassOfServiceResponse.php
 lib/models/ConversationPbxClassOfServicesResponse.php

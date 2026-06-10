@@ -132,6 +132,7 @@ Method | HTTP request | Description
 [**updatePbxAddress()**](ConversationApi.md#updatePbxAddress) | **PUT** /conversation/pbx/address/{conversationPbxAddressUuid} | Update pbx address
 [**updatePbxAgent()**](ConversationApi.md#updatePbxAgent) | **PUT** /conversation/pbx/agent/{conversationPbxAgentUuid} | Update pbx agent
 [**updatePbxAudio()**](ConversationApi.md#updatePbxAudio) | **PUT** /conversation/pbx/audio/{conversationPbxAudioUuid} | Update pbx audio
+[**updatePbxCall()**](ConversationApi.md#updatePbxCall) | **PUT** /conversation/pbx/call/{callUuid} | Update pbx call record
 [**updatePbxClassOfService()**](ConversationApi.md#updatePbxClassOfService) | **PUT** /conversation/pbx/class_of_service/{classOfServiceUuid} | Update pbx class of service
 [**updatePbxDefaultTimezone()**](ConversationApi.md#updatePbxDefaultTimezone) | **PUT** /conversation/pbx/config/default-timezone | Set the merchant default timezone
 [**updatePbxHardwarePhone()**](ConversationApi.md#updatePbxHardwarePhone) | **PUT** /conversation/pbx/hardware_phone/{conversationPbxHardwarePhoneUuid} | Update pbx hardware phone
@@ -5319,6 +5320,47 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\ConversationPbxAudioResponse**](../Model/ConversationPbxAudioResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updatePbxCall()`
+
+```php
+updatePbxCall($call_uuid, $update_request): \ultracart\v2\models\ConversationPbxCallResponse
+```
+
+Update pbx call record
+
+Update the agent-authored fields (notes, finalize) on a PBX call record
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **call_uuid** | **string**|  |
+ **update_request** | [**\ultracart\v2\models\ConversationPbxCallUpdateRequest**](../Model/ConversationPbxCallUpdateRequest.md)| Update Request |
+
+### Return type
+
+[**\ultracart\v2\models\ConversationPbxCallResponse**](../Model/ConversationPbxCallResponse.md)
 
 ### Authorization
 

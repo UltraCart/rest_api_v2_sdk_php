@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.100"
+    "ultracart/rest_api_v2_sdk_php": "4.1.101"
   }
 }
 ```
@@ -278,6 +278,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**updatePbxAddress**](docs/Api/ConversationApi.md#updatepbxaddress) | **PUT** /conversation/pbx/address/{conversationPbxAddressUuid} | Update pbx address
 *ConversationApi* | [**updatePbxAgent**](docs/Api/ConversationApi.md#updatepbxagent) | **PUT** /conversation/pbx/agent/{conversationPbxAgentUuid} | Update pbx agent
 *ConversationApi* | [**updatePbxAudio**](docs/Api/ConversationApi.md#updatepbxaudio) | **PUT** /conversation/pbx/audio/{conversationPbxAudioUuid} | Update pbx audio
+*ConversationApi* | [**updatePbxCall**](docs/Api/ConversationApi.md#updatepbxcall) | **PUT** /conversation/pbx/call/{callUuid} | Update pbx call record
 *ConversationApi* | [**updatePbxClassOfService**](docs/Api/ConversationApi.md#updatepbxclassofservice) | **PUT** /conversation/pbx/class_of_service/{classOfServiceUuid} | Update pbx class of service
 *ConversationApi* | [**updatePbxDefaultTimezone**](docs/Api/ConversationApi.md#updatepbxdefaulttimezone) | **PUT** /conversation/pbx/config/default-timezone | Set the merchant default timezone
 *ConversationApi* | [**updatePbxHardwarePhone**](docs/Api/ConversationApi.md#updatepbxhardwarephone) | **PUT** /conversation/pbx/hardware_phone/{conversationPbxHardwarePhoneUuid} | Update pbx hardware phone
@@ -950,6 +951,7 @@ Class | Method | HTTP request | Description
 - [ConversationPbxCallTranscript](docs/Model/ConversationPbxCallTranscript.md)
 - [ConversationPbxCallTranscriptSegment](docs/Model/ConversationPbxCallTranscriptSegment.md)
 - [ConversationPbxCallTransfer](docs/Model/ConversationPbxCallTransfer.md)
+- [ConversationPbxCallUpdateRequest](docs/Model/ConversationPbxCallUpdateRequest.md)
 - [ConversationPbxClassOfService](docs/Model/ConversationPbxClassOfService.md)
 - [ConversationPbxClassOfServiceResponse](docs/Model/ConversationPbxClassOfServiceResponse.md)
 - [ConversationPbxClassOfServicesResponse](docs/Model/ConversationPbxClassOfServicesResponse.md)
@@ -1807,6 +1809,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.101 | 06/10/2026 | conversation pbx call notes fields |
 | 4.1.100 | 06/05/2026 | webhook log summary filtering |
 | 4.1.99 | 06/05/2026 | added webhook name and merchant_comments |
 | 4.1.98 | 06/04/2026 | coupon - new coupon type for amount off items with free shipping |

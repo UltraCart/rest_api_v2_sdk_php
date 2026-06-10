@@ -21,6 +21,8 @@ Name | Type | Description | Notes
 **financial** | [**\ultracart\v2\models\ConversationPbxCallFinancial**](ConversationPbxCallFinancial.md) |  | [optional]
 **holds** | [**\ultracart\v2\models\ConversationPbxCallHold[]**](ConversationPbxCallHold.md) | List of hold events during the call | [optional]
 **merchant_id** | **string** | Merchant identifier | [optional]
+**notes** | **string** | Agent-authored notes for this call, captured during the call and after-call work | [optional]
+**notes_finalized_dts** | **string** | Timestamp when the agent finalized notes via Save &amp; finish; gates Zoho Desk ticket creation | [optional]
 **recording_sids** | **string[]** | List of all Twilio recording SIDs associated with this call | [optional]
 **recordings** | [**\ultracart\v2\models\ConversationPbxCallRecording[]**](ConversationPbxCallRecording.md) | List of recordings made during the call | [optional]
 **routing** | [**\ultracart\v2\models\ConversationPbxCallRouting**](ConversationPbxCallRouting.md) |  | [optional]

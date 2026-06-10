@@ -75,6 +75,8 @@ class ConversationPbxCall implements ModelInterface, ArrayAccess, \JsonSerializa
         'financial' => '\ultracart\v2\models\ConversationPbxCallFinancial',
         'holds' => '\ultracart\v2\models\ConversationPbxCallHold[]',
         'merchant_id' => 'string',
+        'notes' => 'string',
+        'notes_finalized_dts' => 'string',
         'recording_sids' => 'string[]',
         'recordings' => '\ultracart\v2\models\ConversationPbxCallRecording[]',
         'routing' => '\ultracart\v2\models\ConversationPbxCallRouting',
@@ -111,6 +113,8 @@ class ConversationPbxCall implements ModelInterface, ArrayAccess, \JsonSerializa
         'financial' => null,
         'holds' => null,
         'merchant_id' => null,
+        'notes' => null,
+        'notes_finalized_dts' => 'dateTime',
         'recording_sids' => null,
         'recordings' => null,
         'routing' => null,
@@ -166,6 +170,8 @@ class ConversationPbxCall implements ModelInterface, ArrayAccess, \JsonSerializa
         'financial' => 'financial',
         'holds' => 'holds',
         'merchant_id' => 'merchant_id',
+        'notes' => 'notes',
+        'notes_finalized_dts' => 'notes_finalized_dts',
         'recording_sids' => 'recording_sids',
         'recordings' => 'recordings',
         'routing' => 'routing',
@@ -200,6 +206,8 @@ class ConversationPbxCall implements ModelInterface, ArrayAccess, \JsonSerializa
         'financial' => 'setFinancial',
         'holds' => 'setHolds',
         'merchant_id' => 'setMerchantId',
+        'notes' => 'setNotes',
+        'notes_finalized_dts' => 'setNotesFinalizedDts',
         'recording_sids' => 'setRecordingSids',
         'recordings' => 'setRecordings',
         'routing' => 'setRouting',
@@ -234,6 +242,8 @@ class ConversationPbxCall implements ModelInterface, ArrayAccess, \JsonSerializa
         'financial' => 'getFinancial',
         'holds' => 'getHolds',
         'merchant_id' => 'getMerchantId',
+        'notes' => 'getNotes',
+        'notes_finalized_dts' => 'getNotesFinalizedDts',
         'recording_sids' => 'getRecordingSids',
         'recordings' => 'getRecordings',
         'routing' => 'getRouting',
@@ -319,6 +329,8 @@ class ConversationPbxCall implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['financial'] = $data['financial'] ?? null;
         $this->container['holds'] = $data['holds'] ?? null;
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
+        $this->container['notes'] = $data['notes'] ?? null;
+        $this->container['notes_finalized_dts'] = $data['notes_finalized_dts'] ?? null;
         $this->container['recording_sids'] = $data['recording_sids'] ?? null;
         $this->container['recordings'] = $data['recordings'] ?? null;
         $this->container['routing'] = $data['routing'] ?? null;
@@ -758,6 +770,54 @@ class ConversationPbxCall implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setMerchantId($merchant_id)
     {
         $this->container['merchant_id'] = $merchant_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets notes
+     *
+     * @return string|null
+     */
+    public function getNotes()
+    {
+        return $this->container['notes'];
+    }
+
+    /**
+     * Sets notes
+     *
+     * @param string|null $notes Agent-authored notes for this call, captured during the call and after-call work
+     *
+     * @return self
+     */
+    public function setNotes($notes)
+    {
+        $this->container['notes'] = $notes;
+
+        return $this;
+    }
+
+    /**
+     * Gets notes_finalized_dts
+     *
+     * @return string|null
+     */
+    public function getNotesFinalizedDts()
+    {
+        return $this->container['notes_finalized_dts'];
+    }
+
+    /**
+     * Sets notes_finalized_dts
+     *
+     * @param string|null $notes_finalized_dts Timestamp when the agent finalized notes via Save & finish; gates Zoho Desk ticket creation
+     *
+     * @return self
+     */
+    public function setNotesFinalizedDts($notes_finalized_dts)
+    {
+        $this->container['notes_finalized_dts'] = $notes_finalized_dts;
 
         return $this;
     }
