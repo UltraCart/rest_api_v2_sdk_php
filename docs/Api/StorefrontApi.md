@@ -32,6 +32,7 @@ Method | HTTP request | Description
 [**deleteScreenRecordingSegment()**](StorefrontApi.md#deleteScreenRecordingSegment) | **DELETE** /storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid} | Delete screen recording segment
 [**deleteTwilioAccount()**](StorefrontApi.md#deleteTwilioAccount) | **DELETE** /storefront/twilio/accounts/{esp_twilio_uuid} | delete Twilio account
 [**duplicateLibraryItem()**](StorefrontApi.md#duplicateLibraryItem) | **POST** /storefront/code_library/{library_item_oid}/duplicate | Duplicate library item.
+[**enrollCommseqCustomer()**](StorefrontApi.md#enrollCommseqCustomer) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/enroll | Enroll a customer into a communication sequence
 [**favoriteScreenRecording()**](StorefrontApi.md#favoriteScreenRecording) | **POST** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/favorite | Update favorite flag on screen recording
 [**geocodeAddress()**](StorefrontApi.md#geocodeAddress) | **POST** /storefront/{storefront_oid}/email/geocode | Obtain lat/long for an address
 [**getCountries()**](StorefrontApi.md#getCountries) | **GET** /storefront/{storefront_oid}/email/countries | Get countries
@@ -1296,6 +1297,48 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `enrollCommseqCustomer()`
+
+```php
+enrollCommseqCustomer($storefront_oid, $commseq_uuid, $email_commseq_enrollment_request): \ultracart\v2\models\EmailCommseqEnrollmentResponse
+```
+
+Enroll a customer into a communication sequence
+
+Enrolls a single real customer (by email) into the communication sequence.  A customer who is already enrolled will not be enrolled a second time.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **commseq_uuid** | **string**|  |
+ **email_commseq_enrollment_request** | [**\ultracart\v2\models\EmailCommseqEnrollmentRequest**](../Model/EmailCommseqEnrollmentRequest.md)| Commseq enrollment request |
+
+### Return type
+
+[**\ultracart\v2\models\EmailCommseqEnrollmentResponse**](../Model/EmailCommseqEnrollmentResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

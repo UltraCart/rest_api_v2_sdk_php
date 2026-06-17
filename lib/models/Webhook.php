@@ -359,6 +359,14 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
+        if (!is_null($this->container['merchant_comments']) && (mb_strlen($this->container['merchant_comments']) > 2000)) {
+            $invalidProperties[] = "invalid value for 'merchant_comments', the character length must be smaller than or equal to 2000.";
+        }
+
+        if (!is_null($this->container['name']) && (mb_strlen($this->container['name']) > 80)) {
+            $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 80.";
+        }
+
         return $invalidProperties;
     }
 
@@ -749,6 +757,10 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setMerchantComments($merchant_comments)
     {
+        if (!is_null($merchant_comments) && (mb_strlen($merchant_comments) > 2000)) {
+            throw new \InvalidArgumentException('invalid length for $merchant_comments when calling Webhook., must be smaller than or equal to 2000.');
+        }
+
         $this->container['merchant_comments'] = $merchant_comments;
 
         return $this;
@@ -797,6 +809,10 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setName($name)
     {
+        if (!is_null($name) && (mb_strlen($name) > 80)) {
+            throw new \InvalidArgumentException('invalid length for $name when calling Webhook., must be smaller than or equal to 80.');
+        }
+
         $this->container['name'] = $name;
 
         return $this;

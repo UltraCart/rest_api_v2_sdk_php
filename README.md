@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.101"
+    "ultracart/rest_api_v2_sdk_php": "4.1.102"
   }
 }
 ```
@@ -496,6 +496,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**deleteScreenRecordingSegment**](docs/Api/StorefrontApi.md#deletescreenrecordingsegment) | **DELETE** /storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid} | Delete screen recording segment
 *StorefrontApi* | [**deleteTwilioAccount**](docs/Api/StorefrontApi.md#deletetwilioaccount) | **DELETE** /storefront/twilio/accounts/{esp_twilio_uuid} | delete Twilio account
 *StorefrontApi* | [**duplicateLibraryItem**](docs/Api/StorefrontApi.md#duplicatelibraryitem) | **POST** /storefront/code_library/{library_item_oid}/duplicate | Duplicate library item.
+*StorefrontApi* | [**enrollCommseqCustomer**](docs/Api/StorefrontApi.md#enrollcommseqcustomer) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/enroll | Enroll a customer into a communication sequence
 *StorefrontApi* | [**favoriteScreenRecording**](docs/Api/StorefrontApi.md#favoritescreenrecording) | **POST** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/favorite | Update favorite flag on screen recording
 *StorefrontApi* | [**geocodeAddress**](docs/Api/StorefrontApi.md#geocodeaddress) | **POST** /storefront/{storefront_oid}/email/geocode | Obtain lat/long for an address
 *StorefrontApi* | [**getCountries**](docs/Api/StorefrontApi.md#getcountries) | **GET** /storefront/{storefront_oid}/email/countries | Get countries
@@ -1176,6 +1177,8 @@ Class | Method | HTTP request | Description
 - [EmailCommseqEmailSendTestResponse](docs/Model/EmailCommseqEmailSendTestResponse.md)
 - [EmailCommseqEmailsRequest](docs/Model/EmailCommseqEmailsRequest.md)
 - [EmailCommseqEmailsResponse](docs/Model/EmailCommseqEmailsResponse.md)
+- [EmailCommseqEnrollmentRequest](docs/Model/EmailCommseqEnrollmentRequest.md)
+- [EmailCommseqEnrollmentResponse](docs/Model/EmailCommseqEnrollmentResponse.md)
 - [EmailCommseqPostcard](docs/Model/EmailCommseqPostcard.md)
 - [EmailCommseqPostcardResponse](docs/Model/EmailCommseqPostcardResponse.md)
 - [EmailCommseqPostcardSendTestRequest](docs/Model/EmailCommseqPostcardSendTestRequest.md)
@@ -1809,6 +1812,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.102 | 06/17/2026 | storefront communications - new single email enrollment method |
 | 4.1.101 | 06/10/2026 | conversation pbx call notes fields |
 | 4.1.100 | 06/05/2026 | webhook log summary filtering |
 | 4.1.99 | 06/05/2026 | added webhook name and merchant_comments |

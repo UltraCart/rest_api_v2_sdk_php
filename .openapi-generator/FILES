@@ -491,6 +491,8 @@ docs/Model/EmailCommseqEmailSendTestRequest.md
 docs/Model/EmailCommseqEmailSendTestResponse.md
 docs/Model/EmailCommseqEmailsRequest.md
 docs/Model/EmailCommseqEmailsResponse.md
+docs/Model/EmailCommseqEnrollmentRequest.md
+docs/Model/EmailCommseqEnrollmentResponse.md
 docs/Model/EmailCommseqPostcard.md
 docs/Model/EmailCommseqPostcardResponse.md
 docs/Model/EmailCommseqPostcardSendTestRequest.md
@@ -1522,6 +1524,8 @@ lib/models/EmailCommseqEmailSendTestRequest.php
 lib/models/EmailCommseqEmailSendTestResponse.php
 lib/models/EmailCommseqEmailsRequest.php
 lib/models/EmailCommseqEmailsResponse.php
+lib/models/EmailCommseqEnrollmentRequest.php
+lib/models/EmailCommseqEnrollmentResponse.php
 lib/models/EmailCommseqPostcard.php
 lib/models/EmailCommseqPostcardResponse.php
 lib/models/EmailCommseqPostcardSendTestRequest.php

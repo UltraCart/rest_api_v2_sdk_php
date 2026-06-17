@@ -67,6 +67,8 @@ class AutoOrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'arbitrary_unit_cost_remaining_orders' => 'int',
         'auto_order_item_oid' => 'int',
         'calculated_next_shipment_dts' => 'string',
+        'cancel_dts' => 'string',
+        'cancel_reason' => 'string',
         'first_order_dts' => 'string',
         'frequency' => 'string',
         'future_schedules' => '\ultracart\v2\models\AutoOrderItemFutureSchedule[]',
@@ -107,6 +109,8 @@ class AutoOrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'arbitrary_unit_cost_remaining_orders' => 'int32',
         'auto_order_item_oid' => 'int32',
         'calculated_next_shipment_dts' => 'dateTime',
+        'cancel_dts' => 'dateTime',
+        'cancel_reason' => null,
         'first_order_dts' => 'dateTime',
         'frequency' => null,
         'future_schedules' => null,
@@ -166,6 +170,8 @@ class AutoOrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'arbitrary_unit_cost_remaining_orders' => 'arbitrary_unit_cost_remaining_orders',
         'auto_order_item_oid' => 'auto_order_item_oid',
         'calculated_next_shipment_dts' => 'calculated_next_shipment_dts',
+        'cancel_dts' => 'cancel_dts',
+        'cancel_reason' => 'cancel_reason',
         'first_order_dts' => 'first_order_dts',
         'frequency' => 'frequency',
         'future_schedules' => 'future_schedules',
@@ -204,6 +210,8 @@ class AutoOrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'arbitrary_unit_cost_remaining_orders' => 'setArbitraryUnitCostRemainingOrders',
         'auto_order_item_oid' => 'setAutoOrderItemOid',
         'calculated_next_shipment_dts' => 'setCalculatedNextShipmentDts',
+        'cancel_dts' => 'setCancelDts',
+        'cancel_reason' => 'setCancelReason',
         'first_order_dts' => 'setFirstOrderDts',
         'frequency' => 'setFrequency',
         'future_schedules' => 'setFutureSchedules',
@@ -242,6 +250,8 @@ class AutoOrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'arbitrary_unit_cost_remaining_orders' => 'getArbitraryUnitCostRemainingOrders',
         'auto_order_item_oid' => 'getAutoOrderItemOid',
         'calculated_next_shipment_dts' => 'getCalculatedNextShipmentDts',
+        'cancel_dts' => 'getCancelDts',
+        'cancel_reason' => 'getCancelReason',
         'first_order_dts' => 'getFirstOrderDts',
         'frequency' => 'getFrequency',
         'future_schedules' => 'getFutureSchedules',
@@ -376,6 +386,8 @@ class AutoOrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['arbitrary_unit_cost_remaining_orders'] = $data['arbitrary_unit_cost_remaining_orders'] ?? null;
         $this->container['auto_order_item_oid'] = $data['auto_order_item_oid'] ?? null;
         $this->container['calculated_next_shipment_dts'] = $data['calculated_next_shipment_dts'] ?? null;
+        $this->container['cancel_dts'] = $data['cancel_dts'] ?? null;
+        $this->container['cancel_reason'] = $data['cancel_reason'] ?? null;
         $this->container['first_order_dts'] = $data['first_order_dts'] ?? null;
         $this->container['frequency'] = $data['frequency'] ?? null;
         $this->container['future_schedules'] = $data['future_schedules'] ?? null;
@@ -644,6 +656,54 @@ class AutoOrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCalculatedNextShipmentDts($calculated_next_shipment_dts)
     {
         $this->container['calculated_next_shipment_dts'] = $calculated_next_shipment_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets cancel_dts
+     *
+     * @return string|null
+     */
+    public function getCancelDts()
+    {
+        return $this->container['cancel_dts'];
+    }
+
+    /**
+     * Sets cancel_dts
+     *
+     * @param string|null $cancel_dts Date/time this item was cancelled (companion to cancel_reason).  On update, null leaves the existing value unchanged; pass an empty string to clear it.
+     *
+     * @return self
+     */
+    public function setCancelDts($cancel_dts)
+    {
+        $this->container['cancel_dts'] = $cancel_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets cancel_reason
+     *
+     * @return string|null
+     */
+    public function getCancelReason()
+    {
+        return $this->container['cancel_reason'];
+    }
+
+    /**
+     * Sets cancel_reason
+     *
+     * @param string|null $cancel_reason Reason this item was cancelled, captured when the item was cancelled by the customer or merchant.  On update, null leaves the existing value unchanged; pass an empty string to clear it.
+     *
+     * @return self
+     */
+    public function setCancelReason($cancel_reason)
+    {
+        $this->container['cancel_reason'] = $cancel_reason;
 
         return $this;
     }
