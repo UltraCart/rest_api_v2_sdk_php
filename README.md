@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.102"
+    "ultracart/rest_api_v2_sdk_php": "4.1.103"
   }
 }
 ```
@@ -97,8 +97,13 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AffiliateApi* | [**deleteAffiliate**](docs/Api/AffiliateApi.md#deleteaffiliate) | **DELETE** /affiliate/affiliates/{affiliate_oid} | Delete an affiliate
+*AffiliateApi* | [**getAffiliate**](docs/Api/AffiliateApi.md#getaffiliate) | **GET** /affiliate/affiliates/{affiliate_oid} | Retrieve an affiliate
+*AffiliateApi* | [**getAffiliatesByQuery**](docs/Api/AffiliateApi.md#getaffiliatesbyquery) | **POST** /affiliate/affiliates/query | Retrieve affiliates
 *AffiliateApi* | [**getClicksByQuery**](docs/Api/AffiliateApi.md#getclicksbyquery) | **POST** /affiliate/clicks/query | Retrieve clicks
 *AffiliateApi* | [**getLedgersByQuery**](docs/Api/AffiliateApi.md#getledgersbyquery) | **POST** /affiliate/ledgers/query | Retrieve ledger entries
+*AffiliateApi* | [**insertAffiliate**](docs/Api/AffiliateApi.md#insertaffiliate) | **POST** /affiliate/affiliates | Insert an affiliate
+*AffiliateApi* | [**updateAffiliate**](docs/Api/AffiliateApi.md#updateaffiliate) | **PUT** /affiliate/affiliates/{affiliate_oid} | Update an affiliate
 *AutoOrderApi* | [**cancelAutoOrderItemByReferenceOrderId**](docs/Api/AutoOrderApi.md#cancelautoorderitembyreferenceorderid) | **POST** /auto_order/auto_orders/reference_order_id/{reference_order_id}/items/original/{original_item_id}/cancel | Cancel a single item on an auto order
 *AutoOrderApi* | [**consolidateAutoOrders**](docs/Api/AutoOrderApi.md#consolidateautoorders) | **PUT** /auto_order/auto_orders/{auto_order_oid}/consolidate | Consolidates multiple auto orders
 *AutoOrderApi* | [**establishAutoOrderByReferenceOrderId**](docs/Api/AutoOrderApi.md#establishautoorderbyreferenceorderid) | **POST** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Establish an auto order by referencing a regular order id
@@ -723,6 +728,8 @@ Class | Method | HTTP request | Description
 - [AddLibraryItemRequest](docs/Model/AddLibraryItemRequest.md)
 - [AdjustInternalCertificateRequest](docs/Model/AdjustInternalCertificateRequest.md)
 - [AdjustInternalCertificateResponse](docs/Model/AdjustInternalCertificateResponse.md)
+- [Affiliate](docs/Model/Affiliate.md)
+- [AffiliateAttribute](docs/Model/AffiliateAttribute.md)
 - [AffiliateClick](docs/Model/AffiliateClick.md)
 - [AffiliateClickQuery](docs/Model/AffiliateClickQuery.md)
 - [AffiliateClicksResponse](docs/Model/AffiliateClicksResponse.md)
@@ -730,6 +737,11 @@ Class | Method | HTTP request | Description
 - [AffiliateLedgerQuery](docs/Model/AffiliateLedgerQuery.md)
 - [AffiliateLedgersResponse](docs/Model/AffiliateLedgersResponse.md)
 - [AffiliateLink](docs/Model/AffiliateLink.md)
+- [AffiliateMarketingStrategy](docs/Model/AffiliateMarketingStrategy.md)
+- [AffiliateQuery](docs/Model/AffiliateQuery.md)
+- [AffiliateResponse](docs/Model/AffiliateResponse.md)
+- [AffiliateTierRelationship](docs/Model/AffiliateTierRelationship.md)
+- [AffiliatesResponse](docs/Model/AffiliatesResponse.md)
 - [AgentSummary](docs/Model/AgentSummary.md)
 - [ApiUserApplicationProfile](docs/Model/ApiUserApplicationProfile.md)
 - [ApplyLibraryItemRequest](docs/Model/ApplyLibraryItemRequest.md)
@@ -1812,6 +1824,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.103 | 06/18/2026 | affiliate api alpha |
 | 4.1.102 | 06/17/2026 | storefront communications - new single email enrollment method |
 | 4.1.101 | 06/10/2026 | conversation pbx call notes fields |
 | 4.1.100 | 06/05/2026 | webhook log summary filtering |

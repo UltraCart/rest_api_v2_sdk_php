@@ -37,6 +37,8 @@ docs/Model/Activity.md
 docs/Model/AddLibraryItemRequest.md
 docs/Model/AdjustInternalCertificateRequest.md
 docs/Model/AdjustInternalCertificateResponse.md
+docs/Model/Affiliate.md
+docs/Model/AffiliateAttribute.md
 docs/Model/AffiliateClick.md
 docs/Model/AffiliateClickQuery.md
 docs/Model/AffiliateClicksResponse.md
@@ -44,6 +46,11 @@ docs/Model/AffiliateLedger.md
 docs/Model/AffiliateLedgerQuery.md
 docs/Model/AffiliateLedgersResponse.md
 docs/Model/AffiliateLink.md
+docs/Model/AffiliateMarketingStrategy.md
+docs/Model/AffiliateQuery.md
+docs/Model/AffiliateResponse.md
+docs/Model/AffiliateTierRelationship.md
+docs/Model/AffiliatesResponse.md
 docs/Model/AgentSummary.md
 docs/Model/ApiUserApplicationProfile.md
 docs/Model/ApplyLibraryItemRequest.md
@@ -1070,6 +1077,8 @@ lib/models/Activity.php
 lib/models/AddLibraryItemRequest.php
 lib/models/AdjustInternalCertificateRequest.php
 lib/models/AdjustInternalCertificateResponse.php
+lib/models/Affiliate.php
+lib/models/AffiliateAttribute.php
 lib/models/AffiliateClick.php
 lib/models/AffiliateClickQuery.php
 lib/models/AffiliateClicksResponse.php
@@ -1077,6 +1086,11 @@ lib/models/AffiliateLedger.php
 lib/models/AffiliateLedgerQuery.php
 lib/models/AffiliateLedgersResponse.php
 lib/models/AffiliateLink.php
+lib/models/AffiliateMarketingStrategy.php
+lib/models/AffiliateQuery.php
+lib/models/AffiliateResponse.php
+lib/models/AffiliateTierRelationship.php
+lib/models/AffiliatesResponse.php
 lib/models/AgentSummary.php
 lib/models/ApiUserApplicationProfile.php
 lib/models/ApplyLibraryItemRequest.php
