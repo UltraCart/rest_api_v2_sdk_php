@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.103"
+    "ultracart/rest_api_v2_sdk_php": "4.1.104"
   }
 }
 ```
@@ -1729,6 +1729,7 @@ Class | Method | HTTP request | Description
 - [WorkflowUser](docs/Model/WorkflowUser.md)
 - [WorkflowUserResponse](docs/Model/WorkflowUserResponse.md)
 - [WorkflowUsersResponse](docs/Model/WorkflowUsersResponse.md)
+- [ZohoDeskTicketSummary](docs/Model/ZohoDeskTicketSummary.md)
 
 ## Authorization
 
@@ -1824,6 +1825,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.104 | 06/30/2026 | conversations - customer snapshot zoho desk tickets included |
 | 4.1.103 | 06/18/2026 | affiliate api alpha |
 | 4.1.102 | 06/17/2026 | storefront communications - new single email enrollment method |
 | 4.1.101 | 06/10/2026 | conversation pbx call notes fields |

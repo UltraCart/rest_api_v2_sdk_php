@@ -64,7 +64,8 @@ class ConversationPbxCustomerSnapshotResponse implements ModelInterface, ArrayAc
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
         'orders' => '\ultracart\v2\models\Order[]',
         'success' => 'bool',
-        'warning' => '\ultracart\v2\models\Warning'
+        'warning' => '\ultracart\v2\models\Warning',
+        'zoho_desk_tickets' => '\ultracart\v2\models\ZohoDeskTicketSummary[]'
     ];
 
     /**
@@ -81,7 +82,8 @@ class ConversationPbxCustomerSnapshotResponse implements ModelInterface, ArrayAc
         'metadata' => null,
         'orders' => null,
         'success' => null,
-        'warning' => null
+        'warning' => null,
+        'zoho_desk_tickets' => null
     ];
 
     /**
@@ -117,7 +119,8 @@ class ConversationPbxCustomerSnapshotResponse implements ModelInterface, ArrayAc
         'metadata' => 'metadata',
         'orders' => 'orders',
         'success' => 'success',
-        'warning' => 'warning'
+        'warning' => 'warning',
+        'zoho_desk_tickets' => 'zoho_desk_tickets'
     ];
 
     /**
@@ -132,7 +135,8 @@ class ConversationPbxCustomerSnapshotResponse implements ModelInterface, ArrayAc
         'metadata' => 'setMetadata',
         'orders' => 'setOrders',
         'success' => 'setSuccess',
-        'warning' => 'setWarning'
+        'warning' => 'setWarning',
+        'zoho_desk_tickets' => 'setZohoDeskTickets'
     ];
 
     /**
@@ -147,7 +151,8 @@ class ConversationPbxCustomerSnapshotResponse implements ModelInterface, ArrayAc
         'metadata' => 'getMetadata',
         'orders' => 'getOrders',
         'success' => 'getSuccess',
-        'warning' => 'getWarning'
+        'warning' => 'getWarning',
+        'zoho_desk_tickets' => 'getZohoDeskTickets'
     ];
 
     /**
@@ -214,6 +219,7 @@ class ConversationPbxCustomerSnapshotResponse implements ModelInterface, ArrayAc
         $this->container['orders'] = $data['orders'] ?? null;
         $this->container['success'] = $data['success'] ?? null;
         $this->container['warning'] = $data['warning'] ?? null;
+        $this->container['zoho_desk_tickets'] = $data['zoho_desk_tickets'] ?? null;
     }
 
     /**
@@ -404,6 +410,30 @@ class ConversationPbxCustomerSnapshotResponse implements ModelInterface, ArrayAc
     public function setWarning($warning)
     {
         $this->container['warning'] = $warning;
+
+        return $this;
+    }
+
+    /**
+     * Gets zoho_desk_tickets
+     *
+     * @return \ultracart\v2\models\ZohoDeskTicketSummary[]|null
+     */
+    public function getZohoDeskTickets()
+    {
+        return $this->container['zoho_desk_tickets'];
+    }
+
+    /**
+     * Sets zoho_desk_tickets
+     *
+     * @param \ultracart\v2\models\ZohoDeskTicketSummary[]|null $zoho_desk_tickets zoho_desk_tickets
+     *
+     * @return self
+     */
+    public function setZohoDeskTickets($zoho_desk_tickets)
+    {
+        $this->container['zoho_desk_tickets'] = $zoho_desk_tickets;
 
         return $this;
     }

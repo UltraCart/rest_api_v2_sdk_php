@@ -65,6 +65,7 @@ class ConversationPbxCustomerSnapshotRequest implements ModelInterface, ArrayAcc
         'order_expand' => 'string',
         'phone_number' => 'string',
         'search_linked_accounts' => 'bool',
+        'search_zoho_desk_tickets' => 'bool',
         'success' => 'bool',
         'warning' => '\ultracart\v2\models\Warning'
     ];
@@ -84,6 +85,7 @@ class ConversationPbxCustomerSnapshotRequest implements ModelInterface, ArrayAcc
         'order_expand' => null,
         'phone_number' => null,
         'search_linked_accounts' => null,
+        'search_zoho_desk_tickets' => null,
         'success' => null,
         'warning' => null
     ];
@@ -122,6 +124,7 @@ class ConversationPbxCustomerSnapshotRequest implements ModelInterface, ArrayAcc
         'order_expand' => 'order_expand',
         'phone_number' => 'phone_number',
         'search_linked_accounts' => 'search_linked_accounts',
+        'search_zoho_desk_tickets' => 'search_zoho_desk_tickets',
         'success' => 'success',
         'warning' => 'warning'
     ];
@@ -139,6 +142,7 @@ class ConversationPbxCustomerSnapshotRequest implements ModelInterface, ArrayAcc
         'order_expand' => 'setOrderExpand',
         'phone_number' => 'setPhoneNumber',
         'search_linked_accounts' => 'setSearchLinkedAccounts',
+        'search_zoho_desk_tickets' => 'setSearchZohoDeskTickets',
         'success' => 'setSuccess',
         'warning' => 'setWarning'
     ];
@@ -156,6 +160,7 @@ class ConversationPbxCustomerSnapshotRequest implements ModelInterface, ArrayAcc
         'order_expand' => 'getOrderExpand',
         'phone_number' => 'getPhoneNumber',
         'search_linked_accounts' => 'getSearchLinkedAccounts',
+        'search_zoho_desk_tickets' => 'getSearchZohoDeskTickets',
         'success' => 'getSuccess',
         'warning' => 'getWarning'
     ];
@@ -224,6 +229,7 @@ class ConversationPbxCustomerSnapshotRequest implements ModelInterface, ArrayAcc
         $this->container['order_expand'] = $data['order_expand'] ?? null;
         $this->container['phone_number'] = $data['phone_number'] ?? null;
         $this->container['search_linked_accounts'] = $data['search_linked_accounts'] ?? null;
+        $this->container['search_zoho_desk_tickets'] = $data['search_zoho_desk_tickets'] ?? null;
         $this->container['success'] = $data['success'] ?? null;
         $this->container['warning'] = $data['warning'] ?? null;
     }
@@ -416,6 +422,30 @@ class ConversationPbxCustomerSnapshotRequest implements ModelInterface, ArrayAcc
     public function setSearchLinkedAccounts($search_linked_accounts)
     {
         $this->container['search_linked_accounts'] = $search_linked_accounts;
+
+        return $this;
+    }
+
+    /**
+     * Gets search_zoho_desk_tickets
+     *
+     * @return bool|null
+     */
+    public function getSearchZohoDeskTickets()
+    {
+        return $this->container['search_zoho_desk_tickets'];
+    }
+
+    /**
+     * Sets search_zoho_desk_tickets
+     *
+     * @param bool|null $search_zoho_desk_tickets search_zoho_desk_tickets
+     *
+     * @return self
+     */
+    public function setSearchZohoDeskTickets($search_zoho_desk_tickets)
+    {
+        $this->container['search_zoho_desk_tickets'] = $search_zoho_desk_tickets;
 
         return $this;
     }

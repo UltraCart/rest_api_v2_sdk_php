@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **order_expand** | **string** |  | [optional]
 **phone_number** | **string** |  | [optional]
 **search_linked_accounts** | **bool** |  | [optional]
+**search_zoho_desk_tickets** | **bool** |  | [optional]
 **success** | **bool** | Indicates if API call was successful | [optional]
 **warning** | [**\ultracart\v2\models\Warning**](Warning.md) |  | [optional]
 

@@ -1038,6 +1038,7 @@ docs/Model/WorkflowTasksResponse.md
 docs/Model/WorkflowUser.md
 docs/Model/WorkflowUserResponse.md
 docs/Model/WorkflowUsersResponse.md
+docs/Model/ZohoDeskTicketSummary.md
 git_push.sh
 lib/ApiException.php
 lib/Configuration.php
@@ -2079,4 +2080,5 @@ lib/models/WorkflowTasksResponse.php
 lib/models/WorkflowUser.php
 lib/models/WorkflowUserResponse.php
 lib/models/WorkflowUsersResponse.php
+lib/models/ZohoDeskTicketSummary.php
 phpunit.xml.dist

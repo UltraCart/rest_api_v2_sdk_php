@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **orders** | [**\ultracart\v2\models\Order[]**](Order.md) |  | [optional]
 **success** | **bool** | Indicates if API call was successful | [optional]
 **warning** | [**\ultracart\v2\models\Warning**](Warning.md) |  | [optional]
+**zoho_desk_tickets** | [**\ultracart\v2\models\ZohoDeskTicketSummary[]**](ZohoDeskTicketSummary.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
