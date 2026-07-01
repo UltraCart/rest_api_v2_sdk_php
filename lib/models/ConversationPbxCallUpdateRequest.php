@@ -59,7 +59,9 @@ class ConversationPbxCallUpdateRequest implements ModelInterface, ArrayAccess, \
       */
     protected static $openAPITypes = [
         'finalize' => 'bool',
-        'notes' => 'string'
+        'notes' => 'string',
+        'zoho_desk_ticket_id' => 'string',
+        'zoho_desk_ticket_url' => 'string'
     ];
 
     /**
@@ -71,7 +73,9 @@ class ConversationPbxCallUpdateRequest implements ModelInterface, ArrayAccess, \
       */
     protected static $openAPIFormats = [
         'finalize' => null,
-        'notes' => null
+        'notes' => null,
+        'zoho_desk_ticket_id' => null,
+        'zoho_desk_ticket_url' => null
     ];
 
     /**
@@ -102,7 +106,9 @@ class ConversationPbxCallUpdateRequest implements ModelInterface, ArrayAccess, \
      */
     protected static $attributeMap = [
         'finalize' => 'finalize',
-        'notes' => 'notes'
+        'notes' => 'notes',
+        'zoho_desk_ticket_id' => 'zoho_desk_ticket_id',
+        'zoho_desk_ticket_url' => 'zoho_desk_ticket_url'
     ];
 
     /**
@@ -112,7 +118,9 @@ class ConversationPbxCallUpdateRequest implements ModelInterface, ArrayAccess, \
      */
     protected static $setters = [
         'finalize' => 'setFinalize',
-        'notes' => 'setNotes'
+        'notes' => 'setNotes',
+        'zoho_desk_ticket_id' => 'setZohoDeskTicketId',
+        'zoho_desk_ticket_url' => 'setZohoDeskTicketUrl'
     ];
 
     /**
@@ -122,7 +130,9 @@ class ConversationPbxCallUpdateRequest implements ModelInterface, ArrayAccess, \
      */
     protected static $getters = [
         'finalize' => 'getFinalize',
-        'notes' => 'getNotes'
+        'notes' => 'getNotes',
+        'zoho_desk_ticket_id' => 'getZohoDeskTicketId',
+        'zoho_desk_ticket_url' => 'getZohoDeskTicketUrl'
     ];
 
     /**
@@ -184,6 +194,8 @@ class ConversationPbxCallUpdateRequest implements ModelInterface, ArrayAccess, \
     {
         $this->container['finalize'] = $data['finalize'] ?? null;
         $this->container['notes'] = $data['notes'] ?? null;
+        $this->container['zoho_desk_ticket_id'] = $data['zoho_desk_ticket_id'] ?? null;
+        $this->container['zoho_desk_ticket_url'] = $data['zoho_desk_ticket_url'] ?? null;
     }
 
     /**
@@ -254,6 +266,54 @@ class ConversationPbxCallUpdateRequest implements ModelInterface, ArrayAccess, \
     public function setNotes($notes)
     {
         $this->container['notes'] = $notes;
+
+        return $this;
+    }
+
+    /**
+     * Gets zoho_desk_ticket_id
+     *
+     * @return string|null
+     */
+    public function getZohoDeskTicketId()
+    {
+        return $this->container['zoho_desk_ticket_id'];
+    }
+
+    /**
+     * Sets zoho_desk_ticket_id
+     *
+     * @param string|null $zoho_desk_ticket_id Existing zoho desk ticket id to associate this call with.
+     *
+     * @return self
+     */
+    public function setZohoDeskTicketId($zoho_desk_ticket_id)
+    {
+        $this->container['zoho_desk_ticket_id'] = $zoho_desk_ticket_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets zoho_desk_ticket_url
+     *
+     * @return string|null
+     */
+    public function getZohoDeskTicketUrl()
+    {
+        return $this->container['zoho_desk_ticket_url'];
+    }
+
+    /**
+     * Sets zoho_desk_ticket_url
+     *
+     * @param string|null $zoho_desk_ticket_url Existing zoho desk ticket URL
+     *
+     * @return self
+     */
+    public function setZohoDeskTicketUrl($zoho_desk_ticket_url)
+    {
+        $this->container['zoho_desk_ticket_url'] = $zoho_desk_ticket_url;
 
         return $this;
     }
