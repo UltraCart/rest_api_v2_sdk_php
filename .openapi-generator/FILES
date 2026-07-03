@@ -5,6 +5,7 @@ README.md
 composer.json
 docs/Api/AffiliateApi.md
 docs/Api/AutoOrderApi.md
+docs/Api/BulkApi.md
 docs/Api/ChannelPartnerApi.md
 docs/Api/CheckoutApi.md
 docs/Api/ConversationApi.md
@@ -84,6 +85,13 @@ docs/Model/Browser.md
 docs/Model/BrowserDevice.md
 docs/Model/BrowserOS.md
 docs/Model/BrowserUserAgent.md
+docs/Model/BulkJob.md
+docs/Model/BulkJobRequest.md
+docs/Model/BulkJobResponse.md
+docs/Model/BulkJobsResponse.md
+docs/Model/BulkRecord.md
+docs/Model/BulkRecordsResponse.md
+docs/Model/BulkUploadUrlResponse.md
 docs/Model/Cart.md
 docs/Model/CartAffiliate.md
 docs/Model/CartAffirmCheckoutResponse.md
@@ -1046,6 +1054,7 @@ lib/HeaderSelector.php
 lib/ObjectSerializer.php
 lib/api/AffiliateApi.php
 lib/api/AutoOrderApi.php
+lib/api/BulkApi.php
 lib/api/ChannelPartnerApi.php
 lib/api/CheckoutApi.php
 lib/api/ConversationApi.php
@@ -1125,6 +1134,13 @@ lib/models/Browser.php
 lib/models/BrowserDevice.php
 lib/models/BrowserOS.php
 lib/models/BrowserUserAgent.php
+lib/models/BulkJob.php
+lib/models/BulkJobRequest.php
+lib/models/BulkJobResponse.php
+lib/models/BulkJobsResponse.php
+lib/models/BulkRecord.php
+lib/models/BulkRecordsResponse.php
+lib/models/BulkUploadUrlResponse.php
 lib/models/Cart.php
 lib/models/CartAffiliate.php
 lib/models/CartAffirmCheckoutResponse.php

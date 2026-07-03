@@ -1,0 +1,14 @@
+# # CartGift
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**gift** | **bool** | True if this order is a gift | [optional]
+**gift_charge** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional]
+**gift_email** | **string** | Email address of the gift recipient | [optional]
+**gift_message** | **string** | Message to the gift recipient | [optional]
+**gift_wrap_cost** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional]
+**gift_wrap_title** | **string** | Title of the selected gift wrap | [optional]
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
