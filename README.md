@@ -6,6 +6,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.108 | 07/03/2026 | bulk import endpoints (alpha) |
 | 4.1.107 | 07/03/2026 | bulk import endpoints (alpha) |
 | 4.1.106 | 07/03/2026 | bulk import endpoints (alpha) |
 | 4.1.105 | 07/01/2026 | conversation - updatePbxCall support additional zoho desk values |
