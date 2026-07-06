@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.109"
+    "ultracart/rest_api_v2_sdk_php": "4.1.110"
   }
 }
 ```
@@ -1838,6 +1838,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.110 | 07/06/2026 | Conversation - CRM message type constant for tool call |
 | 4.1.109 | 07/03/2026 | bulk import endpoints (alpha) |
 | 4.1.108 | 07/03/2026 | bulk import endpoints (alpha) |
 | 4.1.107 | 07/03/2026 | bulk import endpoints (alpha) |
