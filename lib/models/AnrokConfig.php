@@ -59,6 +59,7 @@ class AnrokConfig implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'api_key' => 'string',
+        'default_product_id' => 'string',
         'estimate_only' => 'bool',
         'last_test_dts' => 'string',
         'test_results' => 'string'
@@ -73,6 +74,7 @@ class AnrokConfig implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'api_key' => null,
+        'default_product_id' => null,
         'estimate_only' => null,
         'last_test_dts' => 'dateTime',
         'test_results' => null
@@ -106,6 +108,7 @@ class AnrokConfig implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'api_key' => 'api_key',
+        'default_product_id' => 'default_product_id',
         'estimate_only' => 'estimate_only',
         'last_test_dts' => 'last_test_dts',
         'test_results' => 'test_results'
@@ -118,6 +121,7 @@ class AnrokConfig implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'api_key' => 'setApiKey',
+        'default_product_id' => 'setDefaultProductId',
         'estimate_only' => 'setEstimateOnly',
         'last_test_dts' => 'setLastTestDts',
         'test_results' => 'setTestResults'
@@ -130,6 +134,7 @@ class AnrokConfig implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'api_key' => 'getApiKey',
+        'default_product_id' => 'getDefaultProductId',
         'estimate_only' => 'getEstimateOnly',
         'last_test_dts' => 'getLastTestDts',
         'test_results' => 'getTestResults'
@@ -193,6 +198,7 @@ class AnrokConfig implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->container['api_key'] = $data['api_key'] ?? null;
+        $this->container['default_product_id'] = $data['default_product_id'] ?? null;
         $this->container['estimate_only'] = $data['estimate_only'] ?? null;
         $this->container['last_test_dts'] = $data['last_test_dts'] ?? null;
         $this->container['test_results'] = $data['test_results'] ?? null;
@@ -242,6 +248,30 @@ class AnrokConfig implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setApiKey($api_key)
     {
         $this->container['api_key'] = $api_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets default_product_id
+     *
+     * @return string|null
+     */
+    public function getDefaultProductId()
+    {
+        return $this->container['default_product_id'];
+    }
+
+    /**
+     * Sets default_product_id
+     *
+     * @param string|null $default_product_id Default Anrok Product ID, used for cart items that do not have their own Anrok Product ID assigned
+     *
+     * @return self
+     */
+    public function setDefaultProductId($default_product_id)
+    {
+        $this->container['default_product_id'] = $default_product_id;
 
         return $this;
     }
