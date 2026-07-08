@@ -56,10 +56,12 @@ Method | HTTP request | Description
 [**getEmailCommseqStepWaiting()**](StorefrontApi.md#getEmailCommseqStepWaiting) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/waiting | Get email communication sequence customers waiting at each requested step
 [**getEmailCommseqWebhookEditorValues()**](StorefrontApi.md#getEmailCommseqWebhookEditorValues) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/webhookEditorValues | Get email webhook editor values
 [**getEmailCommseqs()**](StorefrontApi.md#getEmailCommseqs) | **GET** /storefront/{storefront_oid}/email/commseqs | Get email commseqs
+[**getEmailCustomerDispatchLogs()**](StorefrontApi.md#getEmailCustomerDispatchLogs) | **GET** /storefront/{storefront_oid}/email/customers/{email_customer_uuid}/dispatch_logs | Get a customer&#39;s dispatch-log journey across all flows/campaigns
 [**getEmailCustomerEditorUrl()**](StorefrontApi.md#getEmailCustomerEditorUrl) | **GET** /storefront/{storefront_oid}/email/customers/{email_customer_uuid}/editor_url | Get customers editor URL
 [**getEmailCustomers()**](StorefrontApi.md#getEmailCustomers) | **GET** /storefront/{storefront_oid}/email/customers | Get email customers
 [**getEmailDashboardActivity()**](StorefrontApi.md#getEmailDashboardActivity) | **GET** /storefront/{storefront_oid}/email/dashboard_activity | Get email dashboard activity
 [**getEmailDashboardStats()**](StorefrontApi.md#getEmailDashboardStats) | **GET** /storefront/{storefront_oid}/email/dashboard_stats | Get dashboard stats
+[**getEmailDispatchLogCustomerLookup()**](StorefrontApi.md#getEmailDispatchLogCustomerLookup) | **GET** /storefront/{storefront_oid}/email/dispatch_logs/customer_lookup | Resolve a customer email to its ESP customer UUID
 [**getEmailDispatchLogs()**](StorefrontApi.md#getEmailDispatchLogs) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/logs | Get email dispatch logs
 [**getEmailEmail()**](StorefrontApi.md#getEmailEmail) | **GET** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Get email email
 [**getEmailEmailClicks()**](StorefrontApi.md#getEmailEmailClicks) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/emails/{commseq_email_uuid}/clicks | Get email email clicks
@@ -93,6 +95,8 @@ Method | HTTP request | Description
 [**getEmailSendingDomains()**](StorefrontApi.md#getEmailSendingDomains) | **GET** /storefront/email/sending_domains | Get email sending domains
 [**getEmailSettings()**](StorefrontApi.md#getEmailSettings) | **GET** /storefront/{storefront_oid}/email/settings | Get email settings
 [**getEmailSmsOrders()**](StorefrontApi.md#getEmailSmsOrders) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/sms/orders | Get email sms orders
+[**getEmailStepDispatchLogDetail()**](StorefrontApi.md#getEmailStepDispatchLogDetail) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/dispatch_logs/detail | Get the full detail of a single dispatch-log record
+[**getEmailStepDispatchLogs()**](StorefrontApi.md#getEmailStepDispatchLogs) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/dispatch_logs | Get a paginated, date-boundable dispatch-log feed for a step
 [**getEmailTemplate()**](StorefrontApi.md#getEmailTemplate) | **GET** /storefront/{storefront_oid}/email/templates/{email_template_oid} | Get email template
 [**getEmailTemplates()**](StorefrontApi.md#getEmailTemplates) | **GET** /storefront/{storefront_oid}/email/templates | Get email templates
 [**getEmailThirdPartyProviders()**](StorefrontApi.md#getEmailThirdPartyProviders) | **GET** /storefront/{storefront_oid}/email/third_party_providers | Get a list of third party email providers
@@ -2268,6 +2272,52 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getEmailCustomerDispatchLogs()`
+
+```php
+getEmailCustomerDispatchLogs($storefront_oid, $email_customer_uuid, $since, $until, $page_number, $page_size, $scan_forward): \ultracart\v2\models\EmailDispatchLogsResponse
+```
+
+Get a customer's dispatch-log journey across all flows/campaigns
+
+Paginated, date-boundable journey of every flow/campaign step a customer moved through (AP1/AP2), time-sorted. Rows are lean; fetch a row's detail via getEmailStepDispatchLogDetail. scanForward=false (default) returns recent-first; true returns chronological progression. Page forward until 'more' is false.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **email_customer_uuid** | **string**|  |
+ **since** | **string**|  | [optional]
+ **until** | **string**|  | [optional]
+ **page_number** | **int**|  | [optional]
+ **page_size** | **int**|  | [optional]
+ **scan_forward** | **bool**|  | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\EmailDispatchLogsResponse**](../Model/EmailDispatchLogsResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getEmailCustomerEditorUrl()`
 
 ```php
@@ -2416,6 +2466,47 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\EmailDashboardStatsResponse**](../Model/EmailDashboardStatsResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getEmailDispatchLogCustomerLookup()`
+
+```php
+getEmailDispatchLogCustomerLookup($storefront_oid, $email): \ultracart\v2\models\EmailCustomerLookupResponse
+```
+
+Resolve a customer email to its ESP customer UUID
+
+Entry-hop resolver for the customer-journey screen (AP0). Returns the esp_customer_uuid for a merchant's customer email, or a null uuid when the email is not on file.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **email** | **string**|  | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\EmailCustomerLookupResponse**](../Model/EmailCustomerLookupResponse.md)
 
 ### Authorization
 
@@ -3734,6 +3825,96 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\EmailSmsOrdersResponse**](../Model/EmailSmsOrdersResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getEmailStepDispatchLogDetail()`
+
+```php
+getEmailStepDispatchLogDetail($storefront_oid, $commseq_uuid, $commseq_step_uuid, $log_dts, $esp_customer_uuid): \ultracart\v2\models\EmailDispatchLogDetailResponse
+```
+
+Get the full detail of a single dispatch-log record
+
+Fetches and gunzips the full detail payload of one dispatch-log record (AP5 drill-down), identified by its step plus the log_dts and esp_customer_uuid shown on the list row.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **commseq_uuid** | **string**|  |
+ **commseq_step_uuid** | **string**|  |
+ **log_dts** | **string**|  | [optional]
+ **esp_customer_uuid** | **string**|  | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\EmailDispatchLogDetailResponse**](../Model/EmailDispatchLogDetailResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getEmailStepDispatchLogs()`
+
+```php
+getEmailStepDispatchLogs($storefront_oid, $commseq_uuid, $commseq_step_uuid, $since, $until, $page_number, $page_size): \ultracart\v2\models\EmailDispatchLogsResponse
+```
+
+Get a paginated, date-boundable dispatch-log feed for a step
+
+Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean, rendered from the DynamoDB keys; fetch a row's full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response 'more' flag is false. since/until are inclusive ISO-8601 bounds on log_dts.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **commseq_uuid** | **string**|  |
+ **commseq_step_uuid** | **string**|  |
+ **since** | **string**|  | [optional]
+ **until** | **string**|  | [optional]
+ **page_number** | **int**|  | [optional]
+ **page_size** | **int**|  | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\EmailDispatchLogsResponse**](../Model/EmailDispatchLogsResponse.md)
 
 ### Authorization
 
