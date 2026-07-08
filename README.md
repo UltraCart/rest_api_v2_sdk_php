@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.113"
+    "ultracart/rest_api_v2_sdk_php": "4.1.114"
   }
 }
 ```
@@ -1852,6 +1852,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.114 | 07/08/2026 | tax - anrok tax provider |
 | 4.1.113 | 07/08/2026 | tax - anrok tax provider |
 | 4.1.112 | 07/08/2026 | tax - added anrok tax provider |
 | 4.1.111 | 07/08/2026 | storefront - additional email dispatch log methods |

@@ -62,6 +62,7 @@ class AnrokConfig implements ModelInterface, ArrayAccess, \JsonSerializable
         'default_product_id' => 'string',
         'estimate_only' => 'bool',
         'last_test_dts' => 'string',
+        'shipping_product_id' => 'string',
         'test_results' => 'string'
     ];
 
@@ -77,6 +78,7 @@ class AnrokConfig implements ModelInterface, ArrayAccess, \JsonSerializable
         'default_product_id' => null,
         'estimate_only' => null,
         'last_test_dts' => 'dateTime',
+        'shipping_product_id' => null,
         'test_results' => null
     ];
 
@@ -111,6 +113,7 @@ class AnrokConfig implements ModelInterface, ArrayAccess, \JsonSerializable
         'default_product_id' => 'default_product_id',
         'estimate_only' => 'estimate_only',
         'last_test_dts' => 'last_test_dts',
+        'shipping_product_id' => 'shipping_product_id',
         'test_results' => 'test_results'
     ];
 
@@ -124,6 +127,7 @@ class AnrokConfig implements ModelInterface, ArrayAccess, \JsonSerializable
         'default_product_id' => 'setDefaultProductId',
         'estimate_only' => 'setEstimateOnly',
         'last_test_dts' => 'setLastTestDts',
+        'shipping_product_id' => 'setShippingProductId',
         'test_results' => 'setTestResults'
     ];
 
@@ -137,6 +141,7 @@ class AnrokConfig implements ModelInterface, ArrayAccess, \JsonSerializable
         'default_product_id' => 'getDefaultProductId',
         'estimate_only' => 'getEstimateOnly',
         'last_test_dts' => 'getLastTestDts',
+        'shipping_product_id' => 'getShippingProductId',
         'test_results' => 'getTestResults'
     ];
 
@@ -201,6 +206,7 @@ class AnrokConfig implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['default_product_id'] = $data['default_product_id'] ?? null;
         $this->container['estimate_only'] = $data['estimate_only'] ?? null;
         $this->container['last_test_dts'] = $data['last_test_dts'] ?? null;
+        $this->container['shipping_product_id'] = $data['shipping_product_id'] ?? null;
         $this->container['test_results'] = $data['test_results'] ?? null;
     }
 
@@ -320,6 +326,30 @@ class AnrokConfig implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setLastTestDts($last_test_dts)
     {
         $this->container['last_test_dts'] = $last_test_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipping_product_id
+     *
+     * @return string|null
+     */
+    public function getShippingProductId()
+    {
+        return $this->container['shipping_product_id'];
+    }
+
+    /**
+     * Sets shipping_product_id
+     *
+     * @param string|null $shipping_product_id Anrok Product ID used to classify shipping/handling charges; must be created in Anrok and mapped to the Shipping cost tax category
+     *
+     * @return self
+     */
+    public function setShippingProductId($shipping_product_id)
+    {
+        $this->container['shipping_product_id'] = $shipping_product_id;
 
         return $this;
     }
