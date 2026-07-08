@@ -1,6 +1,6 @@
 <?php
 /**
- * TaxProvidersResponse
+ * TaxProviderAnrok
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * TaxProvidersResponse Class Doc Comment
+ * TaxProviderAnrok Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TaxProvidersResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class TaxProviderAnrok implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       *
       * @var string
       */
-    protected static $openAPIModelName = 'TaxProvidersResponse';
+    protected static $openAPIModelName = 'TaxProviderAnrok';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,16 +58,10 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'anrok' => '\ultracart\v2\models\TaxProviderAnrok',
-        'avalara' => '\ultracart\v2\models\TaxProviderAvalara',
-        'error' => '\ultracart\v2\models\Error',
-        'metadata' => '\ultracart\v2\models\ResponseMetadata',
-        'self' => '\ultracart\v2\models\TaxProviderSelf',
-        'sovos' => '\ultracart\v2\models\TaxProviderSovos',
-        'success' => 'bool',
-        'taxjar' => '\ultracart\v2\models\TaxProviderTaxJar',
-        'ultracart' => '\ultracart\v2\models\TaxProviderUltraCart',
-        'warning' => '\ultracart\v2\models\Warning'
+        'configuration' => '\ultracart\v2\models\AnrokConfig',
+        'description' => 'string',
+        'selected' => 'bool',
+        'title' => 'string'
     ];
 
     /**
@@ -78,16 +72,10 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'anrok' => null,
-        'avalara' => null,
-        'error' => null,
-        'metadata' => null,
-        'self' => null,
-        'sovos' => null,
-        'success' => null,
-        'taxjar' => null,
-        'ultracart' => null,
-        'warning' => null
+        'configuration' => null,
+        'description' => null,
+        'selected' => null,
+        'title' => null
     ];
 
     /**
@@ -117,16 +105,10 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'anrok' => 'anrok',
-        'avalara' => 'avalara',
-        'error' => 'error',
-        'metadata' => 'metadata',
-        'self' => 'self',
-        'sovos' => 'sovos',
-        'success' => 'success',
-        'taxjar' => 'taxjar',
-        'ultracart' => 'ultracart',
-        'warning' => 'warning'
+        'configuration' => 'configuration',
+        'description' => 'description',
+        'selected' => 'selected',
+        'title' => 'title'
     ];
 
     /**
@@ -135,16 +117,10 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'anrok' => 'setAnrok',
-        'avalara' => 'setAvalara',
-        'error' => 'setError',
-        'metadata' => 'setMetadata',
-        'self' => 'setSelf',
-        'sovos' => 'setSovos',
-        'success' => 'setSuccess',
-        'taxjar' => 'setTaxjar',
-        'ultracart' => 'setUltracart',
-        'warning' => 'setWarning'
+        'configuration' => 'setConfiguration',
+        'description' => 'setDescription',
+        'selected' => 'setSelected',
+        'title' => 'setTitle'
     ];
 
     /**
@@ -153,16 +129,10 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'anrok' => 'getAnrok',
-        'avalara' => 'getAvalara',
-        'error' => 'getError',
-        'metadata' => 'getMetadata',
-        'self' => 'getSelf',
-        'sovos' => 'getSovos',
-        'success' => 'getSuccess',
-        'taxjar' => 'getTaxjar',
-        'ultracart' => 'getUltracart',
-        'warning' => 'getWarning'
+        'configuration' => 'getConfiguration',
+        'description' => 'getDescription',
+        'selected' => 'getSelected',
+        'title' => 'getTitle'
     ];
 
     /**
@@ -222,16 +192,10 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
-        $this->container['anrok'] = $data['anrok'] ?? null;
-        $this->container['avalara'] = $data['avalara'] ?? null;
-        $this->container['error'] = $data['error'] ?? null;
-        $this->container['metadata'] = $data['metadata'] ?? null;
-        $this->container['self'] = $data['self'] ?? null;
-        $this->container['sovos'] = $data['sovos'] ?? null;
-        $this->container['success'] = $data['success'] ?? null;
-        $this->container['taxjar'] = $data['taxjar'] ?? null;
-        $this->container['ultracart'] = $data['ultracart'] ?? null;
-        $this->container['warning'] = $data['warning'] ?? null;
+        $this->container['configuration'] = $data['configuration'] ?? null;
+        $this->container['description'] = $data['description'] ?? null;
+        $this->container['selected'] = $data['selected'] ?? null;
+        $this->container['title'] = $data['title'] ?? null;
     }
 
     /**
@@ -259,241 +223,97 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
 
 
     /**
-     * Gets anrok
+     * Gets configuration
      *
-     * @return \ultracart\v2\models\TaxProviderAnrok|null
+     * @return \ultracart\v2\models\AnrokConfig|null
      */
-    public function getAnrok()
+    public function getConfiguration()
     {
-        return $this->container['anrok'];
+        return $this->container['configuration'];
     }
 
     /**
-     * Sets anrok
+     * Sets configuration
      *
-     * @param \ultracart\v2\models\TaxProviderAnrok|null $anrok anrok
+     * @param \ultracart\v2\models\AnrokConfig|null $configuration configuration
      *
      * @return self
      */
-    public function setAnrok($anrok)
+    public function setConfiguration($configuration)
     {
-        $this->container['anrok'] = $anrok;
+        $this->container['configuration'] = $configuration;
 
         return $this;
     }
 
     /**
-     * Gets avalara
+     * Gets description
      *
-     * @return \ultracart\v2\models\TaxProviderAvalara|null
+     * @return string|null
      */
-    public function getAvalara()
+    public function getDescription()
     {
-        return $this->container['avalara'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets avalara
+     * Sets description
      *
-     * @param \ultracart\v2\models\TaxProviderAvalara|null $avalara avalara
+     * @param string|null $description Description
      *
      * @return self
      */
-    public function setAvalara($avalara)
+    public function setDescription($description)
     {
-        $this->container['avalara'] = $avalara;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets error
-     *
-     * @return \ultracart\v2\models\Error|null
-     */
-    public function getError()
-    {
-        return $this->container['error'];
-    }
-
-    /**
-     * Sets error
-     *
-     * @param \ultracart\v2\models\Error|null $error error
-     *
-     * @return self
-     */
-    public function setError($error)
-    {
-        $this->container['error'] = $error;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return \ultracart\v2\models\ResponseMetadata|null
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param \ultracart\v2\models\ResponseMetadata|null $metadata metadata
-     *
-     * @return self
-     */
-    public function setMetadata($metadata)
-    {
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets self
-     *
-     * @return \ultracart\v2\models\TaxProviderSelf|null
-     */
-    public function getSelf()
-    {
-        return $this->container['self'];
-    }
-
-    /**
-     * Sets self
-     *
-     * @param \ultracart\v2\models\TaxProviderSelf|null $self self
-     *
-     * @return self
-     */
-    public function setSelf($self)
-    {
-        $this->container['self'] = $self;
-
-        return $this;
-    }
-
-    /**
-     * Gets sovos
-     *
-     * @return \ultracart\v2\models\TaxProviderSovos|null
-     */
-    public function getSovos()
-    {
-        return $this->container['sovos'];
-    }
-
-    /**
-     * Sets sovos
-     *
-     * @param \ultracart\v2\models\TaxProviderSovos|null $sovos sovos
-     *
-     * @return self
-     */
-    public function setSovos($sovos)
-    {
-        $this->container['sovos'] = $sovos;
-
-        return $this;
-    }
-
-    /**
-     * Gets success
+     * Gets selected
      *
      * @return bool|null
      */
-    public function getSuccess()
+    public function getSelected()
     {
-        return $this->container['success'];
+        return $this->container['selected'];
     }
 
     /**
-     * Sets success
+     * Sets selected
      *
-     * @param bool|null $success Indicates if API call was successful
+     * @param bool|null $selected Selected
      *
      * @return self
      */
-    public function setSuccess($success)
+    public function setSelected($selected)
     {
-        $this->container['success'] = $success;
+        $this->container['selected'] = $selected;
 
         return $this;
     }
 
     /**
-     * Gets taxjar
+     * Gets title
      *
-     * @return \ultracart\v2\models\TaxProviderTaxJar|null
+     * @return string|null
      */
-    public function getTaxjar()
+    public function getTitle()
     {
-        return $this->container['taxjar'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets taxjar
+     * Sets title
      *
-     * @param \ultracart\v2\models\TaxProviderTaxJar|null $taxjar taxjar
+     * @param string|null $title Title
      *
      * @return self
      */
-    public function setTaxjar($taxjar)
+    public function setTitle($title)
     {
-        $this->container['taxjar'] = $taxjar;
-
-        return $this;
-    }
-
-    /**
-     * Gets ultracart
-     *
-     * @return \ultracart\v2\models\TaxProviderUltraCart|null
-     */
-    public function getUltracart()
-    {
-        return $this->container['ultracart'];
-    }
-
-    /**
-     * Sets ultracart
-     *
-     * @param \ultracart\v2\models\TaxProviderUltraCart|null $ultracart ultracart
-     *
-     * @return self
-     */
-    public function setUltracart($ultracart)
-    {
-        $this->container['ultracart'] = $ultracart;
-
-        return $this;
-    }
-
-    /**
-     * Gets warning
-     *
-     * @return \ultracart\v2\models\Warning|null
-     */
-    public function getWarning()
-    {
-        return $this->container['warning'];
-    }
-
-    /**
-     * Sets warning
-     *
-     * @param \ultracart\v2\models\Warning|null $warning warning
-     *
-     * @return self
-     */
-    public function setWarning($warning)
-    {
-        $this->container['warning'] = $warning;
+        $this->container['title'] = $title;
 
         return $this;
     }

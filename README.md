@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.111"
+    "ultracart/rest_api_v2_sdk_php": "4.1.112"
   }
 }
 ```
@@ -668,6 +668,8 @@ Class | Method | HTTP request | Description
 *TaxApi* | [**deleteTaxProviderSelfCounty**](docs/Api/TaxApi.md#deletetaxproviderselfcounty) | **DELETE** /tax/providers/self/county/{county} | Deletes a Self tax provider county
 *TaxApi* | [**deleteTaxProviderSelfPostalCode**](docs/Api/TaxApi.md#deletetaxproviderselfpostalcode) | **DELETE** /tax/providers/self/postalCode/{postal_code} | Deletes a Self tax provider postalCode
 *TaxApi* | [**deleteTaxProviderSelfState**](docs/Api/TaxApi.md#deletetaxproviderselfstate) | **DELETE** /tax/providers/self/state/{stateCode} | Deletes a Self tax provider state
+*TaxApi* | [**getTaxProviderAnrok**](docs/Api/TaxApi.md#gettaxprovideranrok) | **GET** /tax/providers/anrok | Retrieve the Anrok tax provider
+*TaxApi* | [**getTaxProviderAnrokTest**](docs/Api/TaxApi.md#gettaxprovideranroktest) | **GET** /tax/providers/anrok/test | Attempts to connect to Anrok and returns back the response
 *TaxApi* | [**getTaxProviderAvalara**](docs/Api/TaxApi.md#gettaxprovideravalara) | **GET** /tax/providers/avalara | Retrieve the Avalara tax provider
 *TaxApi* | [**getTaxProviderAvalaraCompanies**](docs/Api/TaxApi.md#gettaxprovideravalaracompanies) | **POST** /tax/providers/avalara/companies | Returns Avalara Tax companies configured by the merchant
 *TaxApi* | [**getTaxProviderAvalaraTest**](docs/Api/TaxApi.md#gettaxprovideravalaratest) | **GET** /tax/providers/avalara/test | Attempts to connect to Avalara and returns back the response
@@ -681,6 +683,7 @@ Class | Method | HTTP request | Description
 *TaxApi* | [**getTaxProviderUltraCart**](docs/Api/TaxApi.md#gettaxproviderultracart) | **GET** /tax/providers/ultracart | Retrieve the UltraCart tax provider
 *TaxApi* | [**getTaxProviders**](docs/Api/TaxApi.md#gettaxproviders) | **GET** /tax/providers | Retrieve tax methods
 *TaxApi* | [**setActiveTaxProvider**](docs/Api/TaxApi.md#setactivetaxprovider) | **POST** /tax/providers/setActive/{providerName} | Toggle a tax provider to active
+*TaxApi* | [**updateTaxProviderAnrok**](docs/Api/TaxApi.md#updatetaxprovideranrok) | **POST** /tax/providers/anrok | Update the Anrok tax provider
 *TaxApi* | [**updateTaxProviderAvalara**](docs/Api/TaxApi.md#updatetaxprovideravalara) | **POST** /tax/providers/avalara | Update the Avalara tax provider
 *TaxApi* | [**updateTaxProviderSelf**](docs/Api/TaxApi.md#updatetaxproviderself) | **POST** /tax/providers/self | Update the Self tax provider
 *TaxApi* | [**updateTaxProviderSelfCity**](docs/Api/TaxApi.md#updatetaxproviderselfcity) | **POST** /tax/providers/self/city/{city} | Updates a Self tax provider city
@@ -753,6 +756,7 @@ Class | Method | HTTP request | Description
 - [AffiliateTierRelationship](docs/Model/AffiliateTierRelationship.md)
 - [AffiliatesResponse](docs/Model/AffiliatesResponse.md)
 - [AgentSummary](docs/Model/AgentSummary.md)
+- [AnrokConfig](docs/Model/AnrokConfig.md)
 - [ApiUserApplicationProfile](docs/Model/ApiUserApplicationProfile.md)
 - [ApplyLibraryItemRequest](docs/Model/ApplyLibraryItemRequest.md)
 - [ApplyLibraryItemResponse](docs/Model/ApplyLibraryItemResponse.md)
@@ -1683,6 +1687,7 @@ Class | Method | HTTP request | Description
 - [TaxJarConfig](docs/Model/TaxJarConfig.md)
 - [TaxPostalCode](docs/Model/TaxPostalCode.md)
 - [TaxProviderActivateResult](docs/Model/TaxProviderActivateResult.md)
+- [TaxProviderAnrok](docs/Model/TaxProviderAnrok.md)
 - [TaxProviderAvalara](docs/Model/TaxProviderAvalara.md)
 - [TaxProviderAvalaraCompaniesResult](docs/Model/TaxProviderAvalaraCompaniesResult.md)
 - [TaxProviderAvalaraCompany](docs/Model/TaxProviderAvalaraCompany.md)
@@ -1847,6 +1852,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.112 | 07/08/2026 | tax - added anrok tax provider |
 | 4.1.111 | 07/08/2026 | storefront - additional email dispatch log methods |
 | 4.1.110 | 07/06/2026 | Conversation - CRM message type constant for tool call |
 | 4.1.109 | 07/03/2026 | bulk import endpoints (alpha) |

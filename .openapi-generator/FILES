@@ -53,6 +53,7 @@ docs/Model/AffiliateResponse.md
 docs/Model/AffiliateTierRelationship.md
 docs/Model/AffiliatesResponse.md
 docs/Model/AgentSummary.md
+docs/Model/AnrokConfig.md
 docs/Model/ApiUserApplicationProfile.md
 docs/Model/ApplyLibraryItemRequest.md
 docs/Model/ApplyLibraryItemResponse.md
@@ -983,6 +984,7 @@ docs/Model/TaxCounty.md
 docs/Model/TaxJarConfig.md
 docs/Model/TaxPostalCode.md
 docs/Model/TaxProviderActivateResult.md
+docs/Model/TaxProviderAnrok.md
 docs/Model/TaxProviderAvalara.md
 docs/Model/TaxProviderAvalaraCompaniesResult.md
 docs/Model/TaxProviderAvalaraCompany.md
@@ -1107,6 +1109,7 @@ lib/models/AffiliateResponse.php
 lib/models/AffiliateTierRelationship.php
 lib/models/AffiliatesResponse.php
 lib/models/AgentSummary.php
+lib/models/AnrokConfig.php
 lib/models/ApiUserApplicationProfile.php
 lib/models/ApplyLibraryItemRequest.php
 lib/models/ApplyLibraryItemResponse.php
@@ -2038,6 +2041,7 @@ lib/models/TaxCounty.php
 lib/models/TaxJarConfig.php
 lib/models/TaxPostalCode.php
 lib/models/TaxProviderActivateResult.php
+lib/models/TaxProviderAnrok.php
 lib/models/TaxProviderAvalara.php
 lib/models/TaxProviderAvalaraCompaniesResult.php
 lib/models/TaxProviderAvalaraCompany.php

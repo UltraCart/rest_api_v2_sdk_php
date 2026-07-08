@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**anrok** | [**\ultracart\v2\models\TaxProviderAnrok**](TaxProviderAnrok.md) |  | [optional]
 **avalara** | [**\ultracart\v2\models\TaxProviderAvalara**](TaxProviderAvalara.md) |  | [optional]
 **error** | [**\ultracart\v2\models\Error**](Error.md) |  | [optional]
 **metadata** | [**\ultracart\v2\models\ResponseMetadata**](ResponseMetadata.md) |  | [optional]
