@@ -71,6 +71,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         'auto_approve_purchase_order' => 'bool',
         'automatic_merchant_notes' => 'string',
         'billing' => '\ultracart\v2\models\CustomerBilling[]',
+        'birth_date' => 'string',
         'business_notes' => 'string',
         'cards' => '\ultracart\v2\models\CustomerCard[]',
         'cc_emails' => '\ultracart\v2\models\CustomerEmail[]',
@@ -104,6 +105,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         'qb_class' => 'string',
         'qb_code' => 'string',
         'qb_tax_exemption_reason_code' => 'int',
+        'quickbooks_online_customer_id' => 'string',
         'quotes' => '\ultracart\v2\models\Order[]',
         'quotes_summary' => '\ultracart\v2\models\CustomerQuotesSummary',
         'referral_source' => 'string',
@@ -146,6 +148,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         'auto_approve_purchase_order' => null,
         'automatic_merchant_notes' => null,
         'billing' => null,
+        'birth_date' => 'dateTime',
         'business_notes' => null,
         'cards' => null,
         'cc_emails' => null,
@@ -179,6 +182,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         'qb_class' => null,
         'qb_code' => null,
         'qb_tax_exemption_reason_code' => 'int32',
+        'quickbooks_online_customer_id' => null,
         'quotes' => null,
         'quotes_summary' => null,
         'referral_source' => null,
@@ -240,6 +244,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         'auto_approve_purchase_order' => 'auto_approve_purchase_order',
         'automatic_merchant_notes' => 'automatic_merchant_notes',
         'billing' => 'billing',
+        'birth_date' => 'birth_date',
         'business_notes' => 'business_notes',
         'cards' => 'cards',
         'cc_emails' => 'cc_emails',
@@ -273,6 +278,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         'qb_class' => 'qb_class',
         'qb_code' => 'qb_code',
         'qb_tax_exemption_reason_code' => 'qb_tax_exemption_reason_code',
+        'quickbooks_online_customer_id' => 'quickbooks_online_customer_id',
         'quotes' => 'quotes',
         'quotes_summary' => 'quotes_summary',
         'referral_source' => 'referral_source',
@@ -313,6 +319,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         'auto_approve_purchase_order' => 'setAutoApprovePurchaseOrder',
         'automatic_merchant_notes' => 'setAutomaticMerchantNotes',
         'billing' => 'setBilling',
+        'birth_date' => 'setBirthDate',
         'business_notes' => 'setBusinessNotes',
         'cards' => 'setCards',
         'cc_emails' => 'setCcEmails',
@@ -346,6 +353,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         'qb_class' => 'setQbClass',
         'qb_code' => 'setQbCode',
         'qb_tax_exemption_reason_code' => 'setQbTaxExemptionReasonCode',
+        'quickbooks_online_customer_id' => 'setQuickbooksOnlineCustomerId',
         'quotes' => 'setQuotes',
         'quotes_summary' => 'setQuotesSummary',
         'referral_source' => 'setReferralSource',
@@ -386,6 +394,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         'auto_approve_purchase_order' => 'getAutoApprovePurchaseOrder',
         'automatic_merchant_notes' => 'getAutomaticMerchantNotes',
         'billing' => 'getBilling',
+        'birth_date' => 'getBirthDate',
         'business_notes' => 'getBusinessNotes',
         'cards' => 'getCards',
         'cc_emails' => 'getCcEmails',
@@ -419,6 +428,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         'qb_class' => 'getQbClass',
         'qb_code' => 'getQbCode',
         'qb_tax_exemption_reason_code' => 'getQbTaxExemptionReasonCode',
+        'quickbooks_online_customer_id' => 'getQuickbooksOnlineCustomerId',
         'quotes' => 'getQuotes',
         'quotes_summary' => 'getQuotesSummary',
         'referral_source' => 'getReferralSource',
@@ -510,6 +520,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['auto_approve_purchase_order'] = $data['auto_approve_purchase_order'] ?? null;
         $this->container['automatic_merchant_notes'] = $data['automatic_merchant_notes'] ?? null;
         $this->container['billing'] = $data['billing'] ?? null;
+        $this->container['birth_date'] = $data['birth_date'] ?? null;
         $this->container['business_notes'] = $data['business_notes'] ?? null;
         $this->container['cards'] = $data['cards'] ?? null;
         $this->container['cc_emails'] = $data['cc_emails'] ?? null;
@@ -543,6 +554,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['qb_class'] = $data['qb_class'] ?? null;
         $this->container['qb_code'] = $data['qb_code'] ?? null;
         $this->container['qb_tax_exemption_reason_code'] = $data['qb_tax_exemption_reason_code'] ?? null;
+        $this->container['quickbooks_online_customer_id'] = $data['quickbooks_online_customer_id'] ?? null;
         $this->container['quotes'] = $data['quotes'] ?? null;
         $this->container['quotes_summary'] = $data['quotes_summary'] ?? null;
         $this->container['referral_source'] = $data['referral_source'] ?? null;
@@ -599,6 +611,10 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
 
         if (!is_null($this->container['password']) && (mb_strlen($this->container['password']) > 30)) {
             $invalidProperties[] = "invalid value for 'password', the character length must be smaller than or equal to 30.";
+        }
+
+        if (!is_null($this->container['quickbooks_online_customer_id']) && (mb_strlen($this->container['quickbooks_online_customer_id']) > 50)) {
+            $invalidProperties[] = "invalid value for 'quickbooks_online_customer_id', the character length must be smaller than or equal to 50.";
         }
 
         if (!is_null($this->container['referral_source']) && (mb_strlen($this->container['referral_source']) > 50)) {
@@ -944,6 +960,30 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setBilling($billing)
     {
         $this->container['billing'] = $billing;
+
+        return $this;
+    }
+
+    /**
+     * Gets birth_date
+     *
+     * @return string|null
+     */
+    public function getBirthDate()
+    {
+        return $this->container['birth_date'];
+    }
+
+    /**
+     * Sets birth_date
+     *
+     * @param string|null $birth_date Customer birthday
+     *
+     * @return self
+     */
+    public function setBirthDate($birth_date)
+    {
+        $this->container['birth_date'] = $birth_date;
 
         return $this;
     }
@@ -1764,6 +1804,34 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setQbTaxExemptionReasonCode($qb_tax_exemption_reason_code)
     {
         $this->container['qb_tax_exemption_reason_code'] = $qb_tax_exemption_reason_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets quickbooks_online_customer_id
+     *
+     * @return string|null
+     */
+    public function getQuickbooksOnlineCustomerId()
+    {
+        return $this->container['quickbooks_online_customer_id'];
+    }
+
+    /**
+     * Sets quickbooks_online_customer_id
+     *
+     * @param string|null $quickbooks_online_customer_id QuickBooks Online customer ID used to lock this customer 1:1 with QuickBooks Online
+     *
+     * @return self
+     */
+    public function setQuickbooksOnlineCustomerId($quickbooks_online_customer_id)
+    {
+        if (!is_null($quickbooks_online_customer_id) && (mb_strlen($quickbooks_online_customer_id) > 50)) {
+            throw new \InvalidArgumentException('invalid length for $quickbooks_online_customer_id when calling Customer., must be smaller than or equal to 50.');
+        }
+
+        $this->container['quickbooks_online_customer_id'] = $quickbooks_online_customer_id;
 
         return $this;
     }
