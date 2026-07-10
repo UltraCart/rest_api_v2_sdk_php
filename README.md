@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.115"
+    "ultracart/rest_api_v2_sdk_php": "4.1.116"
   }
 }
 ```
@@ -341,6 +341,7 @@ Class | Method | HTTP request | Description
 *CustomerApi* | [**getCustomersForDataTables**](docs/Api/CustomerApi.md#getcustomersfordatatables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
 *CustomerApi* | [**getEmailVerificationToken**](docs/Api/CustomerApi.md#getemailverificationtoken) | **POST** /customer/customers/email_verify/get_token | Create a token that can be used to verify a customer email address
 *CustomerApi* | [**getMagicLink**](docs/Api/CustomerApi.md#getmagiclink) | **PUT** /customer/customers/{customer_profile_oid}/magic_link/{storefront_host_name} | getMagicLink
+*CustomerApi* | [**getQuickBooksOnlineCustomers**](docs/Api/CustomerApi.md#getquickbooksonlinecustomers) | **GET** /customer/quickbooks_online/customers | Search the merchant&#39;s QuickBooks Online customers
 *CustomerApi* | [**insertCustomer**](docs/Api/CustomerApi.md#insertcustomer) | **POST** /customer/customers | Insert a customer
 *CustomerApi* | [**insertWishListItem**](docs/Api/CustomerApi.md#insertwishlistitem) | **POST** /customer/customers/{customer_profile_oid}/wishlist | Insert a customer wishlist item
 *CustomerApi* | [**mergeCustomer**](docs/Api/CustomerApi.md#mergecustomer) | **PUT** /customer/customers/{customer_profile_oid}/merge | Merge customer into this customer
@@ -1584,6 +1585,8 @@ Class | Method | HTTP request | Description
 - [PricingTiersResponse](docs/Model/PricingTiersResponse.md)
 - [Property](docs/Model/Property.md)
 - [PublishLibraryItemRequest](docs/Model/PublishLibraryItemRequest.md)
+- [QuickBooksOnlineCustomer](docs/Model/QuickBooksOnlineCustomer.md)
+- [QuickBooksOnlineCustomersResponse](docs/Model/QuickBooksOnlineCustomersResponse.md)
 - [RegisterAffiliateClickRequest](docs/Model/RegisterAffiliateClickRequest.md)
 - [RegisterAffiliateClickResponse](docs/Model/RegisterAffiliateClickResponse.md)
 - [ReplaceOrderItemIdRequest](docs/Model/ReplaceOrderItemIdRequest.md)
@@ -1852,6 +1855,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.116 | 07/10/2026 | customer - method to search quickbooks online customers |
 | 4.1.115 | 07/10/2026 | customer profile birthday |
 | 4.1.114 | 07/08/2026 | tax - anrok tax provider |
 | 4.1.113 | 07/08/2026 | tax - anrok tax provider |

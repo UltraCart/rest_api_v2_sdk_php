@@ -881,6 +881,8 @@ docs/Model/PricingTierNotification.md
 docs/Model/PricingTiersResponse.md
 docs/Model/Property.md
 docs/Model/PublishLibraryItemRequest.md
+docs/Model/QuickBooksOnlineCustomer.md
+docs/Model/QuickBooksOnlineCustomersResponse.md
 docs/Model/RegisterAffiliateClickRequest.md
 docs/Model/RegisterAffiliateClickResponse.md
 docs/Model/ReplaceOrderItemIdRequest.md
@@ -1938,6 +1940,8 @@ lib/models/PricingTierNotification.php
 lib/models/PricingTiersResponse.php
 lib/models/Property.php
 lib/models/PublishLibraryItemRequest.php
+lib/models/QuickBooksOnlineCustomer.php
+lib/models/QuickBooksOnlineCustomersResponse.php
 lib/models/RegisterAffiliateClickRequest.php
 lib/models/RegisterAffiliateClickResponse.php
 lib/models/ReplaceOrderItemIdRequest.php

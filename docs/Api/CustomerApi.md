@@ -20,6 +20,7 @@ Method | HTTP request | Description
 [**getCustomersForDataTables()**](CustomerApi.md#getCustomersForDataTables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
 [**getEmailVerificationToken()**](CustomerApi.md#getEmailVerificationToken) | **POST** /customer/customers/email_verify/get_token | Create a token that can be used to verify a customer email address
 [**getMagicLink()**](CustomerApi.md#getMagicLink) | **PUT** /customer/customers/{customer_profile_oid}/magic_link/{storefront_host_name} | getMagicLink
+[**getQuickBooksOnlineCustomers()**](CustomerApi.md#getQuickBooksOnlineCustomers) | **GET** /customer/quickbooks_online/customers | Search the merchant&#39;s QuickBooks Online customers
 [**insertCustomer()**](CustomerApi.md#insertCustomer) | **POST** /customer/customers | Insert a customer
 [**insertWishListItem()**](CustomerApi.md#insertWishListItem) | **POST** /customer/customers/{customer_profile_oid}/wishlist | Insert a customer wishlist item
 [**mergeCustomer()**](CustomerApi.md#mergeCustomer) | **PUT** /customer/customers/{customer_profile_oid}/merge | Merge customer into this customer
@@ -1498,6 +1499,46 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\CustomerMagicLinkResponse**](../Model/CustomerMagicLinkResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getQuickBooksOnlineCustomers()`
+
+```php
+getQuickBooksOnlineCustomers($q): \ultracart\v2\models\QuickBooksOnlineCustomersResponse
+```
+
+Search the merchant's QuickBooks Online customers
+
+Typeahead search of the merchant's QuickBooks Online customers by display name.  Used by the customer profile editor to link a profile 1:1 to a QuickBooks Online customer.  Returns up to 100 matches.  If QuickBooks Online is not connected the list will be empty.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **q** | **string**| Search query matched against the QuickBooks Online customer display name | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\QuickBooksOnlineCustomersResponse**](../Model/QuickBooksOnlineCustomersResponse.md)
 
 ### Authorization
 
