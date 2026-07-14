@@ -60,7 +60,8 @@ class ConversationStartRequest implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $openAPITypes = [
         'add_conversation_participant_arns' => 'string[]',
         'conversation_arn' => 'string',
-        'conversation_webchat_queue_uuid' => 'string'
+        'conversation_webchat_queue_uuid' => 'string',
+        'resolve_only' => 'bool'
     ];
 
     /**
@@ -73,7 +74,8 @@ class ConversationStartRequest implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $openAPIFormats = [
         'add_conversation_participant_arns' => null,
         'conversation_arn' => null,
-        'conversation_webchat_queue_uuid' => null
+        'conversation_webchat_queue_uuid' => null,
+        'resolve_only' => null
     ];
 
     /**
@@ -105,7 +107,8 @@ class ConversationStartRequest implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $attributeMap = [
         'add_conversation_participant_arns' => 'add_conversation_participant_arns',
         'conversation_arn' => 'conversation_arn',
-        'conversation_webchat_queue_uuid' => 'conversation_webchat_queue_uuid'
+        'conversation_webchat_queue_uuid' => 'conversation_webchat_queue_uuid',
+        'resolve_only' => 'resolve_only'
     ];
 
     /**
@@ -116,7 +119,8 @@ class ConversationStartRequest implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $setters = [
         'add_conversation_participant_arns' => 'setAddConversationParticipantArns',
         'conversation_arn' => 'setConversationArn',
-        'conversation_webchat_queue_uuid' => 'setConversationWebchatQueueUuid'
+        'conversation_webchat_queue_uuid' => 'setConversationWebchatQueueUuid',
+        'resolve_only' => 'setResolveOnly'
     ];
 
     /**
@@ -127,7 +131,8 @@ class ConversationStartRequest implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $getters = [
         'add_conversation_participant_arns' => 'getAddConversationParticipantArns',
         'conversation_arn' => 'getConversationArn',
-        'conversation_webchat_queue_uuid' => 'getConversationWebchatQueueUuid'
+        'conversation_webchat_queue_uuid' => 'getConversationWebchatQueueUuid',
+        'resolve_only' => 'getResolveOnly'
     ];
 
     /**
@@ -190,6 +195,7 @@ class ConversationStartRequest implements ModelInterface, ArrayAccess, \JsonSeri
         $this->container['add_conversation_participant_arns'] = $data['add_conversation_participant_arns'] ?? null;
         $this->container['conversation_arn'] = $data['conversation_arn'] ?? null;
         $this->container['conversation_webchat_queue_uuid'] = $data['conversation_webchat_queue_uuid'] ?? null;
+        $this->container['resolve_only'] = $data['resolve_only'] ?? null;
     }
 
     /**
@@ -284,6 +290,30 @@ class ConversationStartRequest implements ModelInterface, ArrayAccess, \JsonSeri
     public function setConversationWebchatQueueUuid($conversation_webchat_queue_uuid)
     {
         $this->container['conversation_webchat_queue_uuid'] = $conversation_webchat_queue_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets resolve_only
+     *
+     * @return bool|null
+     */
+    public function getResolveOnly()
+    {
+        return $this->container['resolve_only'];
+    }
+
+    /**
+     * Sets resolve_only
+     *
+     * @param bool|null $resolve_only resolve_only
+     *
+     * @return self
+     */
+    public function setResolveOnly($resolve_only)
+    {
+        $this->container['resolve_only'] = $resolve_only;
 
         return $this;
     }

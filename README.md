@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.116"
+    "ultracart/rest_api_v2_sdk_php": "4.1.117"
   }
 }
 ```
@@ -1855,6 +1855,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.117 | 07/14/2026 | conversation - join method resolve_only flag added |
 | 4.1.116 | 07/10/2026 | customer - method to search quickbooks online customers |
 | 4.1.115 | 07/10/2026 | customer profile birthday |
 | 4.1.114 | 07/08/2026 | tax - anrok tax provider |
