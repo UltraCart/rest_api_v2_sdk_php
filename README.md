@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.118"
+    "ultracart/rest_api_v2_sdk_php": "4.1.119"
   }
 }
 ```
@@ -103,6 +103,7 @@ Class | Method | HTTP request | Description
 *AffiliateApi* | [**getClicksByQuery**](docs/Api/AffiliateApi.md#getclicksbyquery) | **POST** /affiliate/clicks/query | Retrieve clicks
 *AffiliateApi* | [**getLedgersByQuery**](docs/Api/AffiliateApi.md#getledgersbyquery) | **POST** /affiliate/ledgers/query | Retrieve ledger entries
 *AffiliateApi* | [**insertAffiliate**](docs/Api/AffiliateApi.md#insertaffiliate) | **POST** /affiliate/affiliates | Insert an affiliate
+*AffiliateApi* | [**sendAffiliateWelcomeEmail**](docs/Api/AffiliateApi.md#sendaffiliatewelcomeemail) | **POST** /affiliate/affiliates/{affiliate_oid}/welcome_email | Send a welcome email to an affiliate
 *AffiliateApi* | [**updateAffiliate**](docs/Api/AffiliateApi.md#updateaffiliate) | **PUT** /affiliate/affiliates/{affiliate_oid} | Update an affiliate
 *AutoOrderApi* | [**cancelAutoOrderItemByReferenceOrderId**](docs/Api/AutoOrderApi.md#cancelautoorderitembyreferenceorderid) | **POST** /auto_order/auto_orders/reference_order_id/{reference_order_id}/items/original/{original_item_id}/cancel | Cancel a single item on an auto order
 *AutoOrderApi* | [**consolidateAutoOrders**](docs/Api/AutoOrderApi.md#consolidateautoorders) | **PUT** /auto_order/auto_orders/{auto_order_oid}/consolidate | Consolidates multiple auto orders
@@ -1555,6 +1556,7 @@ Class | Method | HTTP request | Description
 - [OrderProperty](docs/Model/OrderProperty.md)
 - [OrderQuery](docs/Model/OrderQuery.md)
 - [OrderQueryBatch](docs/Model/OrderQueryBatch.md)
+- [OrderQueryPaymentTransactionFilter](docs/Model/OrderQueryPaymentTransactionFilter.md)
 - [OrderQuote](docs/Model/OrderQuote.md)
 - [OrderReason](docs/Model/OrderReason.md)
 - [OrderRefundableResponse](docs/Model/OrderRefundableResponse.md)
@@ -1855,6 +1857,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.119 | 07/15/2026 | order api - query transaction details for cache target |
 | 4.1.118 | 07/14/2026 | affiliate - send welcome letter method |
 | 4.1.117 | 07/14/2026 | conversation - join method resolve_only flag added |
 | 4.1.116 | 07/10/2026 | customer - method to search quickbooks online customers |

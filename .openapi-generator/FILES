@@ -851,6 +851,7 @@ docs/Model/OrderProcessPaymentResponse.md
 docs/Model/OrderProperty.md
 docs/Model/OrderQuery.md
 docs/Model/OrderQueryBatch.md
+docs/Model/OrderQueryPaymentTransactionFilter.md
 docs/Model/OrderQuote.md
 docs/Model/OrderReason.md
 docs/Model/OrderRefundableResponse.md
@@ -1910,6 +1911,7 @@ lib/models/OrderProcessPaymentResponse.php
 lib/models/OrderProperty.php
 lib/models/OrderQuery.php
 lib/models/OrderQueryBatch.php
+lib/models/OrderQueryPaymentTransactionFilter.php
 lib/models/OrderQuote.php
 lib/models/OrderReason.php
 lib/models/OrderRefundableResponse.php

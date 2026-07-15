@@ -86,6 +86,7 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
         'payment_date_begin' => 'string',
         'payment_date_end' => 'string',
         'payment_method' => 'string',
+        'payment_transaction_filters' => '\ultracart\v2\models\OrderQueryPaymentTransactionFilter[]',
         'phone' => 'string',
         'postal_code' => 'string',
         'purchase_order_number' => 'string',
@@ -139,6 +140,7 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
         'payment_date_begin' => 'dateTime',
         'payment_date_end' => 'dateTime',
         'payment_method' => null,
+        'payment_transaction_filters' => null,
         'phone' => null,
         'postal_code' => null,
         'purchase_order_number' => null,
@@ -211,6 +213,7 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
         'payment_date_begin' => 'payment_date_begin',
         'payment_date_end' => 'payment_date_end',
         'payment_method' => 'payment_method',
+        'payment_transaction_filters' => 'payment_transaction_filters',
         'phone' => 'phone',
         'postal_code' => 'postal_code',
         'purchase_order_number' => 'purchase_order_number',
@@ -262,6 +265,7 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
         'payment_date_begin' => 'setPaymentDateBegin',
         'payment_date_end' => 'setPaymentDateEnd',
         'payment_method' => 'setPaymentMethod',
+        'payment_transaction_filters' => 'setPaymentTransactionFilters',
         'phone' => 'setPhone',
         'postal_code' => 'setPostalCode',
         'purchase_order_number' => 'setPurchaseOrderNumber',
@@ -313,6 +317,7 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
         'payment_date_begin' => 'getPaymentDateBegin',
         'payment_date_end' => 'getPaymentDateEnd',
         'payment_method' => 'getPaymentMethod',
+        'payment_transaction_filters' => 'getPaymentTransactionFilters',
         'phone' => 'getPhone',
         'postal_code' => 'getPostalCode',
         'purchase_order_number' => 'getPurchaseOrderNumber',
@@ -512,6 +517,7 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['payment_date_begin'] = $data['payment_date_begin'] ?? null;
         $this->container['payment_date_end'] = $data['payment_date_end'] ?? null;
         $this->container['payment_method'] = $data['payment_method'] ?? null;
+        $this->container['payment_transaction_filters'] = $data['payment_transaction_filters'] ?? null;
         $this->container['phone'] = $data['phone'] ?? null;
         $this->container['postal_code'] = $data['postal_code'] ?? null;
         $this->container['purchase_order_number'] = $data['purchase_order_number'] ?? null;
@@ -1344,6 +1350,30 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['payment_method'] = $payment_method;
+
+        return $this;
+    }
+
+    /**
+     * Gets payment_transaction_filters
+     *
+     * @return \ultracart\v2\models\OrderQueryPaymentTransactionFilter[]|null
+     */
+    public function getPaymentTransactionFilters()
+    {
+        return $this->container['payment_transaction_filters'];
+    }
+
+    /**
+     * Sets payment_transaction_filters
+     *
+     * @param \ultracart\v2\models\OrderQueryPaymentTransactionFilter[]|null $payment_transaction_filters Exact-match filters on the detail name/value pairs of a single payment transaction, AND-ed against the same transaction. Requires query_target=cache which uses the ElasticSearch cache. The origin or database path cannot search transaction details. The rotating gateway is just another pair, name equals rotatingTransactionGatewayCode or rotatingTransactionGatewayName.
+     *
+     * @return self
+     */
+    public function setPaymentTransactionFilters($payment_transaction_filters)
+    {
+        $this->container['payment_transaction_filters'] = $payment_transaction_filters;
 
         return $this;
     }

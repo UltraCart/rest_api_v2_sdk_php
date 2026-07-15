@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**getClicksByQuery()**](AffiliateApi.md#getClicksByQuery) | **POST** /affiliate/clicks/query | Retrieve clicks
 [**getLedgersByQuery()**](AffiliateApi.md#getLedgersByQuery) | **POST** /affiliate/ledgers/query | Retrieve ledger entries
 [**insertAffiliate()**](AffiliateApi.md#insertAffiliate) | **POST** /affiliate/affiliates | Insert an affiliate
+[**sendAffiliateWelcomeEmail()**](AffiliateApi.md#sendAffiliateWelcomeEmail) | **POST** /affiliate/affiliates/{affiliate_oid}/welcome_email | Send a welcome email to an affiliate
 [**updateAffiliate()**](AffiliateApi.md#updateAffiliate) | **PUT** /affiliate/affiliates/{affiliate_oid} | Update an affiliate
 
 
@@ -228,7 +229,7 @@ Name | Type | Description  | Notes
 ## `insertAffiliate()`
 
 ```php
-insertAffiliate($affiliate, $_expand): \ultracart\v2\models\AffiliateResponse
+insertAffiliate($affiliate, $send_welcome_email, $_expand): \ultracart\v2\models\AffiliateResponse
 ```
 
 Insert an affiliate
@@ -247,6 +248,7 @@ Insert an affiliate on the UltraCart account.  The affiliate is created within t
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **affiliate** | [**\ultracart\v2\models\Affiliate**](../Model/Affiliate.md)| Affiliate to insert |
+ **send_welcome_email** | **bool**| Whether to send a welcome email to the affiliate after it is created.  Defaults to false. | [optional] [default to false]
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
@@ -260,6 +262,46 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `sendAffiliateWelcomeEmail()`
+
+```php
+sendAffiliateWelcomeEmail($affiliate_oid)
+```
+
+Send a welcome email to an affiliate
+
+Sends a welcome email to the specified affiliate using the welcome letter configured on the merchant's active affiliate program.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **affiliate_oid** | **int**| The affiliate oid to send the welcome email to. |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

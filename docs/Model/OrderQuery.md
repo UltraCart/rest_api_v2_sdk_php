@@ -32,6 +32,7 @@ Name | Type | Description | Notes
 **payment_date_begin** | **string** | Date/time that the order was successfully processed | [optional]
 **payment_date_end** | **string** | Date/time that the order was successfully processed | [optional]
 **payment_method** | **string** | Payment method | [optional]
+**payment_transaction_filters** | [**\ultracart\v2\models\OrderQueryPaymentTransactionFilter[]**](OrderQueryPaymentTransactionFilter.md) | Exact-match filters on the detail name/value pairs of a single payment transaction, AND-ed against the same transaction. Requires query_target&#x3D;cache which uses the ElasticSearch cache. The origin or database path cannot search transaction details. The rotating gateway is just another pair, name equals rotatingTransactionGatewayCode or rotatingTransactionGatewayName. | [optional]
 **phone** | **string** | Phone | [optional]
 **postal_code** | **string** | Postal code | [optional]
 **purchase_order_number** | **string** | Purchase order number | [optional]
