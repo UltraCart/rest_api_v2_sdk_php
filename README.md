@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.119"
+    "ultracart/rest_api_v2_sdk_php": "4.1.120"
   }
 }
 ```
@@ -1857,6 +1857,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.120 | 07/15/2026 | storefront - parameter to include details on dispatch log methods |
 | 4.1.119 | 07/15/2026 | order api - query transaction details for cache target |
 | 4.1.118 | 07/14/2026 | affiliate - send welcome letter method |
 | 4.1.117 | 07/14/2026 | conversation - join method resolve_only flag added |
