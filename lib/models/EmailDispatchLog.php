@@ -58,6 +58,7 @@ class EmailDispatchLog implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'detail' => 'string',
         'email' => 'string',
         'esp_commseq_step_uuid' => 'string',
         'esp_commseq_uuid' => 'string',
@@ -73,6 +74,7 @@ class EmailDispatchLog implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'detail' => null,
         'email' => null,
         'esp_commseq_step_uuid' => null,
         'esp_commseq_uuid' => null,
@@ -107,6 +109,7 @@ class EmailDispatchLog implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'detail' => 'detail',
         'email' => 'email',
         'esp_commseq_step_uuid' => 'esp_commseq_step_uuid',
         'esp_commseq_uuid' => 'esp_commseq_uuid',
@@ -120,6 +123,7 @@ class EmailDispatchLog implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'detail' => 'setDetail',
         'email' => 'setEmail',
         'esp_commseq_step_uuid' => 'setEspCommseqStepUuid',
         'esp_commseq_uuid' => 'setEspCommseqUuid',
@@ -133,6 +137,7 @@ class EmailDispatchLog implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'detail' => 'getDetail',
         'email' => 'getEmail',
         'esp_commseq_step_uuid' => 'getEspCommseqStepUuid',
         'esp_commseq_uuid' => 'getEspCommseqUuid',
@@ -197,6 +202,7 @@ class EmailDispatchLog implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->container['detail'] = $data['detail'] ?? null;
         $this->container['email'] = $data['email'] ?? null;
         $this->container['esp_commseq_step_uuid'] = $data['esp_commseq_step_uuid'] ?? null;
         $this->container['esp_commseq_uuid'] = $data['esp_commseq_uuid'] ?? null;
@@ -227,6 +233,30 @@ class EmailDispatchLog implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets detail
+     *
+     * @return string|null
+     */
+    public function getDetail()
+    {
+        return $this->container['detail'];
+    }
+
+    /**
+     * Sets detail
+     *
+     * @param string|null $detail Dispatch detail text (free-form log of how the customer moved through the step)
+     *
+     * @return self
+     */
+    public function setDetail($detail)
+    {
+        $this->container['detail'] = $detail;
+
+        return $this;
+    }
 
     /**
      * Gets email

@@ -23492,14 +23492,15 @@ class StorefrontApi
      * @param  int $page_number page_number (optional)
      * @param  int $page_size page_size (optional)
      * @param  bool $scan_forward scan_forward (optional)
+     * @param  bool $include_detail include_detail (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ultracart\v2\models\EmailDispatchLogsResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
      */
-    public function getEmailCustomerDispatchLogs($storefront_oid, $email_customer_uuid, $since = null, $until = null, $page_number = null, $page_size = null, $scan_forward = null)
+    public function getEmailCustomerDispatchLogs($storefront_oid, $email_customer_uuid, $since = null, $until = null, $page_number = null, $page_size = null, $scan_forward = null, $include_detail = null)
     {
-        list($response) = $this->getEmailCustomerDispatchLogsWithHttpInfo($storefront_oid, $email_customer_uuid, $since, $until, $page_number, $page_size, $scan_forward);
+        list($response) = $this->getEmailCustomerDispatchLogsWithHttpInfo($storefront_oid, $email_customer_uuid, $since, $until, $page_number, $page_size, $scan_forward, $include_detail);
         return $response;
     }
 
@@ -23515,14 +23516,15 @@ class StorefrontApi
      * @param  int $page_number (optional)
      * @param  int $page_size (optional)
      * @param  bool $scan_forward (optional)
+     * @param  bool $include_detail (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\EmailDispatchLogsResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEmailCustomerDispatchLogsWithHttpInfo($storefront_oid, $email_customer_uuid, $since = null, $until = null, $page_number = null, $page_size = null, $scan_forward = null)
+    public function getEmailCustomerDispatchLogsWithHttpInfo($storefront_oid, $email_customer_uuid, $since = null, $until = null, $page_number = null, $page_size = null, $scan_forward = null, $include_detail = null)
     {
-        return $this->getEmailCustomerDispatchLogsWithHttpInfoRetry(true ,   $storefront_oid,   $email_customer_uuid,   $since,   $until,   $page_number,   $page_size,   $scan_forward);
+        return $this->getEmailCustomerDispatchLogsWithHttpInfoRetry(true ,   $storefront_oid,   $email_customer_uuid,   $since,   $until,   $page_number,   $page_size,   $scan_forward,   $include_detail);
     }
 
 
@@ -23540,15 +23542,16 @@ class StorefrontApi
      * @param  int $page_number (optional)
      * @param  int $page_size (optional)
      * @param  bool $scan_forward (optional)
+     * @param  bool $include_detail (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\EmailDispatchLogsResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEmailCustomerDispatchLogsWithHttpInfoRetry($retry , $storefront_oid, $email_customer_uuid, $since = null, $until = null, $page_number = null, $page_size = null, $scan_forward = null)
+    public function getEmailCustomerDispatchLogsWithHttpInfoRetry($retry , $storefront_oid, $email_customer_uuid, $since = null, $until = null, $page_number = null, $page_size = null, $scan_forward = null, $include_detail = null)
     {
         $returnType = '\ultracart\v2\models\EmailDispatchLogsResponse';
-        $request = $this->getEmailCustomerDispatchLogsRequest($storefront_oid, $email_customer_uuid, $since, $until, $page_number, $page_size, $scan_forward);
+        $request = $this->getEmailCustomerDispatchLogsRequest($storefront_oid, $email_customer_uuid, $since, $until, $page_number, $page_size, $scan_forward, $include_detail);
 
         try {
             $options = $this->createHttpClientOption();
@@ -23567,7 +23570,7 @@ class StorefrontApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->getEmailCustomerDispatchLogsWithHttpInfoRetry(false ,   $storefront_oid,   $email_customer_uuid,   $since,   $until,   $page_number,   $page_size,   $scan_forward);
+                        return $this->getEmailCustomerDispatchLogsWithHttpInfoRetry(false ,   $storefront_oid,   $email_customer_uuid,   $since,   $until,   $page_number,   $page_size,   $scan_forward,   $include_detail);
                     }
                 }
 
@@ -23781,13 +23784,14 @@ class StorefrontApi
      * @param  int $page_number (optional)
      * @param  int $page_size (optional)
      * @param  bool $scan_forward (optional)
+     * @param  bool $include_detail (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmailCustomerDispatchLogsAsync($storefront_oid, $email_customer_uuid, $since = null, $until = null, $page_number = null, $page_size = null, $scan_forward = null)
+    public function getEmailCustomerDispatchLogsAsync($storefront_oid, $email_customer_uuid, $since = null, $until = null, $page_number = null, $page_size = null, $scan_forward = null, $include_detail = null)
     {
-        return $this->getEmailCustomerDispatchLogsAsyncWithHttpInfo($storefront_oid, $email_customer_uuid, $since, $until, $page_number, $page_size, $scan_forward)
+        return $this->getEmailCustomerDispatchLogsAsyncWithHttpInfo($storefront_oid, $email_customer_uuid, $since, $until, $page_number, $page_size, $scan_forward, $include_detail)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -23807,14 +23811,15 @@ class StorefrontApi
      * @param  int $page_number (optional)
      * @param  int $page_size (optional)
      * @param  bool $scan_forward (optional)
+     * @param  bool $include_detail (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmailCustomerDispatchLogsAsyncWithHttpInfo($storefront_oid, $email_customer_uuid, $since = null, $until = null, $page_number = null, $page_size = null, $scan_forward = null)
+    public function getEmailCustomerDispatchLogsAsyncWithHttpInfo($storefront_oid, $email_customer_uuid, $since = null, $until = null, $page_number = null, $page_size = null, $scan_forward = null, $include_detail = null)
     {
         $returnType = '\ultracart\v2\models\EmailDispatchLogsResponse';
-        $request = $this->getEmailCustomerDispatchLogsRequest($storefront_oid, $email_customer_uuid, $since, $until, $page_number, $page_size, $scan_forward);
+        $request = $this->getEmailCustomerDispatchLogsRequest($storefront_oid, $email_customer_uuid, $since, $until, $page_number, $page_size, $scan_forward, $include_detail);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -23862,11 +23867,12 @@ class StorefrontApi
      * @param  int $page_number (optional)
      * @param  int $page_size (optional)
      * @param  bool $scan_forward (optional)
+     * @param  bool $include_detail (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getEmailCustomerDispatchLogsRequest($storefront_oid, $email_customer_uuid, $since = null, $until = null, $page_number = null, $page_size = null, $scan_forward = null)
+    public function getEmailCustomerDispatchLogsRequest($storefront_oid, $email_customer_uuid, $since = null, $until = null, $page_number = null, $page_size = null, $scan_forward = null, $include_detail = null)
     {
         // verify the required parameter 'storefront_oid' is set
         if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
@@ -23928,6 +23934,15 @@ class StorefrontApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $scan_forward,
             'scanForward', // param base name
+            'boolean', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $include_detail,
+            'includeDetail', // param base name
             'boolean', // openApiType
             '', // style
             false, // explode
@@ -42348,14 +42363,15 @@ class StorefrontApi
      * @param  string $until until (optional)
      * @param  int $page_number page_number (optional)
      * @param  int $page_size page_size (optional)
+     * @param  bool $include_detail include_detail (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ultracart\v2\models\EmailDispatchLogsResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
      */
-    public function getEmailStepDispatchLogs($storefront_oid, $commseq_uuid, $commseq_step_uuid, $since = null, $until = null, $page_number = null, $page_size = null)
+    public function getEmailStepDispatchLogs($storefront_oid, $commseq_uuid, $commseq_step_uuid, $since = null, $until = null, $page_number = null, $page_size = null, $include_detail = null)
     {
-        list($response) = $this->getEmailStepDispatchLogsWithHttpInfo($storefront_oid, $commseq_uuid, $commseq_step_uuid, $since, $until, $page_number, $page_size);
+        list($response) = $this->getEmailStepDispatchLogsWithHttpInfo($storefront_oid, $commseq_uuid, $commseq_step_uuid, $since, $until, $page_number, $page_size, $include_detail);
         return $response;
     }
 
@@ -42371,14 +42387,15 @@ class StorefrontApi
      * @param  string $until (optional)
      * @param  int $page_number (optional)
      * @param  int $page_size (optional)
+     * @param  bool $include_detail (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\EmailDispatchLogsResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEmailStepDispatchLogsWithHttpInfo($storefront_oid, $commseq_uuid, $commseq_step_uuid, $since = null, $until = null, $page_number = null, $page_size = null)
+    public function getEmailStepDispatchLogsWithHttpInfo($storefront_oid, $commseq_uuid, $commseq_step_uuid, $since = null, $until = null, $page_number = null, $page_size = null, $include_detail = null)
     {
-        return $this->getEmailStepDispatchLogsWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_uuid,   $commseq_step_uuid,   $since,   $until,   $page_number,   $page_size);
+        return $this->getEmailStepDispatchLogsWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_uuid,   $commseq_step_uuid,   $since,   $until,   $page_number,   $page_size,   $include_detail);
     }
 
 
@@ -42396,15 +42413,16 @@ class StorefrontApi
      * @param  string $until (optional)
      * @param  int $page_number (optional)
      * @param  int $page_size (optional)
+     * @param  bool $include_detail (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\EmailDispatchLogsResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEmailStepDispatchLogsWithHttpInfoRetry($retry , $storefront_oid, $commseq_uuid, $commseq_step_uuid, $since = null, $until = null, $page_number = null, $page_size = null)
+    public function getEmailStepDispatchLogsWithHttpInfoRetry($retry , $storefront_oid, $commseq_uuid, $commseq_step_uuid, $since = null, $until = null, $page_number = null, $page_size = null, $include_detail = null)
     {
         $returnType = '\ultracart\v2\models\EmailDispatchLogsResponse';
-        $request = $this->getEmailStepDispatchLogsRequest($storefront_oid, $commseq_uuid, $commseq_step_uuid, $since, $until, $page_number, $page_size);
+        $request = $this->getEmailStepDispatchLogsRequest($storefront_oid, $commseq_uuid, $commseq_step_uuid, $since, $until, $page_number, $page_size, $include_detail);
 
         try {
             $options = $this->createHttpClientOption();
@@ -42423,7 +42441,7 @@ class StorefrontApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->getEmailStepDispatchLogsWithHttpInfoRetry(false ,   $storefront_oid,   $commseq_uuid,   $commseq_step_uuid,   $since,   $until,   $page_number,   $page_size);
+                        return $this->getEmailStepDispatchLogsWithHttpInfoRetry(false ,   $storefront_oid,   $commseq_uuid,   $commseq_step_uuid,   $since,   $until,   $page_number,   $page_size,   $include_detail);
                     }
                 }
 
@@ -42637,13 +42655,14 @@ class StorefrontApi
      * @param  string $until (optional)
      * @param  int $page_number (optional)
      * @param  int $page_size (optional)
+     * @param  bool $include_detail (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmailStepDispatchLogsAsync($storefront_oid, $commseq_uuid, $commseq_step_uuid, $since = null, $until = null, $page_number = null, $page_size = null)
+    public function getEmailStepDispatchLogsAsync($storefront_oid, $commseq_uuid, $commseq_step_uuid, $since = null, $until = null, $page_number = null, $page_size = null, $include_detail = null)
     {
-        return $this->getEmailStepDispatchLogsAsyncWithHttpInfo($storefront_oid, $commseq_uuid, $commseq_step_uuid, $since, $until, $page_number, $page_size)
+        return $this->getEmailStepDispatchLogsAsyncWithHttpInfo($storefront_oid, $commseq_uuid, $commseq_step_uuid, $since, $until, $page_number, $page_size, $include_detail)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -42663,14 +42682,15 @@ class StorefrontApi
      * @param  string $until (optional)
      * @param  int $page_number (optional)
      * @param  int $page_size (optional)
+     * @param  bool $include_detail (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmailStepDispatchLogsAsyncWithHttpInfo($storefront_oid, $commseq_uuid, $commseq_step_uuid, $since = null, $until = null, $page_number = null, $page_size = null)
+    public function getEmailStepDispatchLogsAsyncWithHttpInfo($storefront_oid, $commseq_uuid, $commseq_step_uuid, $since = null, $until = null, $page_number = null, $page_size = null, $include_detail = null)
     {
         $returnType = '\ultracart\v2\models\EmailDispatchLogsResponse';
-        $request = $this->getEmailStepDispatchLogsRequest($storefront_oid, $commseq_uuid, $commseq_step_uuid, $since, $until, $page_number, $page_size);
+        $request = $this->getEmailStepDispatchLogsRequest($storefront_oid, $commseq_uuid, $commseq_step_uuid, $since, $until, $page_number, $page_size, $include_detail);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -42718,11 +42738,12 @@ class StorefrontApi
      * @param  string $until (optional)
      * @param  int $page_number (optional)
      * @param  int $page_size (optional)
+     * @param  bool $include_detail (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getEmailStepDispatchLogsRequest($storefront_oid, $commseq_uuid, $commseq_step_uuid, $since = null, $until = null, $page_number = null, $page_size = null)
+    public function getEmailStepDispatchLogsRequest($storefront_oid, $commseq_uuid, $commseq_step_uuid, $since = null, $until = null, $page_number = null, $page_size = null, $include_detail = null)
     {
         // verify the required parameter 'storefront_oid' is set
         if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
@@ -42782,6 +42803,15 @@ class StorefrontApi
             $page_size,
             'pageSize', // param base name
             'integer', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $include_detail,
+            'includeDetail', // param base name
+            'boolean', // openApiType
             '', // style
             false, // explode
             false // required
