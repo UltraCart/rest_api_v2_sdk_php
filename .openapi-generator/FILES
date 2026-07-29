@@ -73,10 +73,12 @@ docs/Model/AutoOrderItemOption.md
 docs/Model/AutoOrderItemSimpleSchedule.md
 docs/Model/AutoOrderLog.md
 docs/Model/AutoOrderManagement.md
+docs/Model/AutoOrderPaymentUpdateRequest.md
 docs/Model/AutoOrderPropertiesUpdateRequest.md
 docs/Model/AutoOrderProperty.md
 docs/Model/AutoOrderQuery.md
 docs/Model/AutoOrderQueryBatch.md
+docs/Model/AutoOrderRebillResponse.md
 docs/Model/AutoOrderResponse.md
 docs/Model/AutoOrdersRequest.md
 docs/Model/AutoOrdersResponse.md
@@ -1132,10 +1134,12 @@ lib/models/AutoOrderItemOption.php
 lib/models/AutoOrderItemSimpleSchedule.php
 lib/models/AutoOrderLog.php
 lib/models/AutoOrderManagement.php
+lib/models/AutoOrderPaymentUpdateRequest.php
 lib/models/AutoOrderPropertiesUpdateRequest.php
 lib/models/AutoOrderProperty.php
 lib/models/AutoOrderQuery.php
 lib/models/AutoOrderQueryBatch.php
+lib/models/AutoOrderRebillResponse.php
 lib/models/AutoOrderResponse.php
 lib/models/AutoOrdersRequest.php
 lib/models/AutoOrdersResponse.php

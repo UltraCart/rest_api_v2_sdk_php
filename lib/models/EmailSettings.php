@@ -61,6 +61,7 @@ class EmailSettings implements ModelInterface, ArrayAccess, \JsonSerializable
         'emails_per_day' => 'int',
         'emails_per_hour' => 'int',
         'emails_per_month' => 'int',
+        'machine_open_ignore' => 'bool',
         'marketing_esp_domain_user' => 'string',
         'marketing_esp_domain_uuid' => 'string',
         'marketing_esp_friendly_name' => 'string',
@@ -90,6 +91,7 @@ class EmailSettings implements ModelInterface, ArrayAccess, \JsonSerializable
         'emails_per_day' => 'int32',
         'emails_per_hour' => 'int32',
         'emails_per_month' => 'int32',
+        'machine_open_ignore' => null,
         'marketing_esp_domain_user' => null,
         'marketing_esp_domain_uuid' => null,
         'marketing_esp_friendly_name' => null,
@@ -138,6 +140,7 @@ class EmailSettings implements ModelInterface, ArrayAccess, \JsonSerializable
         'emails_per_day' => 'emails_per_day',
         'emails_per_hour' => 'emails_per_hour',
         'emails_per_month' => 'emails_per_month',
+        'machine_open_ignore' => 'machine_open_ignore',
         'marketing_esp_domain_user' => 'marketing_esp_domain_user',
         'marketing_esp_domain_uuid' => 'marketing_esp_domain_uuid',
         'marketing_esp_friendly_name' => 'marketing_esp_friendly_name',
@@ -165,6 +168,7 @@ class EmailSettings implements ModelInterface, ArrayAccess, \JsonSerializable
         'emails_per_day' => 'setEmailsPerDay',
         'emails_per_hour' => 'setEmailsPerHour',
         'emails_per_month' => 'setEmailsPerMonth',
+        'machine_open_ignore' => 'setMachineOpenIgnore',
         'marketing_esp_domain_user' => 'setMarketingEspDomainUser',
         'marketing_esp_domain_uuid' => 'setMarketingEspDomainUuid',
         'marketing_esp_friendly_name' => 'setMarketingEspFriendlyName',
@@ -192,6 +196,7 @@ class EmailSettings implements ModelInterface, ArrayAccess, \JsonSerializable
         'emails_per_day' => 'getEmailsPerDay',
         'emails_per_hour' => 'getEmailsPerHour',
         'emails_per_month' => 'getEmailsPerMonth',
+        'machine_open_ignore' => 'getMachineOpenIgnore',
         'marketing_esp_domain_user' => 'getMarketingEspDomainUser',
         'marketing_esp_domain_uuid' => 'getMarketingEspDomainUuid',
         'marketing_esp_friendly_name' => 'getMarketingEspFriendlyName',
@@ -270,6 +275,7 @@ class EmailSettings implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['emails_per_day'] = $data['emails_per_day'] ?? null;
         $this->container['emails_per_hour'] = $data['emails_per_hour'] ?? null;
         $this->container['emails_per_month'] = $data['emails_per_month'] ?? null;
+        $this->container['machine_open_ignore'] = $data['machine_open_ignore'] ?? null;
         $this->container['marketing_esp_domain_user'] = $data['marketing_esp_domain_user'] ?? null;
         $this->container['marketing_esp_domain_uuid'] = $data['marketing_esp_domain_uuid'] ?? null;
         $this->container['marketing_esp_friendly_name'] = $data['marketing_esp_friendly_name'] ?? null;
@@ -380,6 +386,30 @@ class EmailSettings implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setEmailsPerMonth($emails_per_month)
     {
         $this->container['emails_per_month'] = $emails_per_month;
+
+        return $this;
+    }
+
+    /**
+     * Gets machine_open_ignore
+     *
+     * @return bool|null
+     */
+    public function getMachineOpenIgnore()
+    {
+        return $this->container['machine_open_ignore'];
+    }
+
+    /**
+     * Sets machine_open_ignore
+     *
+     * @param bool|null $machine_open_ignore If machine open should be ignored
+     *
+     * @return self
+     */
+    public function setMachineOpenIgnore($machine_open_ignore)
+    {
+        $this->container['machine_open_ignore'] = $machine_open_ignore;
 
         return $this;
     }

@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.121"
+    "ultracart/rest_api_v2_sdk_php": "4.1.122"
   }
 }
 ```
@@ -105,6 +105,7 @@ Class | Method | HTTP request | Description
 *AffiliateApi* | [**insertAffiliate**](docs/Api/AffiliateApi.md#insertaffiliate) | **POST** /affiliate/affiliates | Insert an affiliate
 *AffiliateApi* | [**sendAffiliateWelcomeEmail**](docs/Api/AffiliateApi.md#sendaffiliatewelcomeemail) | **POST** /affiliate/affiliates/{affiliate_oid}/welcome_email | Send a welcome email to an affiliate
 *AffiliateApi* | [**updateAffiliate**](docs/Api/AffiliateApi.md#updateaffiliate) | **PUT** /affiliate/affiliates/{affiliate_oid} | Update an affiliate
+*AutoOrderApi* | [**attemptAutoOrderRebill**](docs/Api/AutoOrderApi.md#attemptautoorderrebill) | **POST** /auto_order/auto_orders/{auto_order_oid}/rebill | Attempt a failed rebill on an auto order
 *AutoOrderApi* | [**cancelAutoOrderItemByReferenceOrderId**](docs/Api/AutoOrderApi.md#cancelautoorderitembyreferenceorderid) | **POST** /auto_order/auto_orders/reference_order_id/{reference_order_id}/items/original/{original_item_id}/cancel | Cancel a single item on an auto order
 *AutoOrderApi* | [**consolidateAutoOrders**](docs/Api/AutoOrderApi.md#consolidateautoorders) | **PUT** /auto_order/auto_orders/{auto_order_oid}/consolidate | Consolidates multiple auto orders
 *AutoOrderApi* | [**establishAutoOrderByReferenceOrderId**](docs/Api/AutoOrderApi.md#establishautoorderbyreferenceorderid) | **POST** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Establish an auto order by referencing a regular order id
@@ -120,6 +121,7 @@ Class | Method | HTTP request | Description
 *AutoOrderApi* | [**updateAutoOrder**](docs/Api/AutoOrderApi.md#updateautoorder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
 *AutoOrderApi* | [**updateAutoOrderItemAddOns**](docs/Api/AutoOrderApi.md#updateautoorderitemaddons) | **PUT** /auto_order/auto_orders/{auto_order_oid}/items/{auto_order_item_oid}/add_ons | Update an auto order item add ons
 *AutoOrderApi* | [**updateAutoOrderItemProperties**](docs/Api/AutoOrderApi.md#updateautoorderitemproperties) | **PUT** /auto_order/auto_orders/{auto_order_oid}/items/{auto_order_item_oid}/properties | Update an auto order item properties
+*AutoOrderApi* | [**updateAutoOrderPayment**](docs/Api/AutoOrderApi.md#updateautoorderpayment) | **PUT** /auto_order/auto_orders/{auto_order_oid}/payment | Update the payment information on an auto order
 *AutoOrderApi* | [**updateAutoOrderProperties**](docs/Api/AutoOrderApi.md#updateautoorderproperties) | **PUT** /auto_order/auto_orders/{auto_order_oid}/properties | Update an auto order properties
 *AutoOrderApi* | [**updateAutoOrdersBatch**](docs/Api/AutoOrderApi.md#updateautoordersbatch) | **PUT** /auto_order/auto_orders/batch | Update multiple auto orders
 *BulkApi* | [**bulkCancelJob**](docs/Api/BulkApi.md#bulkcanceljob) | **DELETE** /bulk/{object}/{job_id} | Request cancellation of a bulk job
@@ -778,10 +780,12 @@ Class | Method | HTTP request | Description
 - [AutoOrderItemSimpleSchedule](docs/Model/AutoOrderItemSimpleSchedule.md)
 - [AutoOrderLog](docs/Model/AutoOrderLog.md)
 - [AutoOrderManagement](docs/Model/AutoOrderManagement.md)
+- [AutoOrderPaymentUpdateRequest](docs/Model/AutoOrderPaymentUpdateRequest.md)
 - [AutoOrderPropertiesUpdateRequest](docs/Model/AutoOrderPropertiesUpdateRequest.md)
 - [AutoOrderProperty](docs/Model/AutoOrderProperty.md)
 - [AutoOrderQuery](docs/Model/AutoOrderQuery.md)
 - [AutoOrderQueryBatch](docs/Model/AutoOrderQueryBatch.md)
+- [AutoOrderRebillResponse](docs/Model/AutoOrderRebillResponse.md)
 - [AutoOrderResponse](docs/Model/AutoOrderResponse.md)
 - [AutoOrdersRequest](docs/Model/AutoOrdersRequest.md)
 - [AutoOrdersResponse](docs/Model/AutoOrdersResponse.md)
@@ -1857,6 +1861,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.122 | 07/29/2026 | auto order api - new methods for payment information and rebill |
 | 4.1.121 | 07/15/2026 | storefront - parameter to include details on dispatch log methods |
 | 4.1.120 | 07/15/2026 | storefront - parameter to include details on dispatch log methods |
 | 4.1.119 | 07/15/2026 | order api - query transaction details for cache target |
