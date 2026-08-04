@@ -1,0 +1,10 @@
+# # CustomReportAnalysisRequest
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**png_url** | **string** |  | [optional]
+**result_url** | **string** |  | [optional]
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

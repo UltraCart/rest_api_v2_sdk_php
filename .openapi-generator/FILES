@@ -464,6 +464,9 @@ docs/Model/CustomerEDI.md
 docs/Model/CustomerEditorValues.md
 docs/Model/CustomerEmail.md
 docs/Model/CustomerEmailListChanges.md
+docs/Model/CustomerEmailSuppressionRequest.md
+docs/Model/CustomerEmailSuppressionResponse.md
+docs/Model/CustomerEmailSuppressionResult.md
 docs/Model/CustomerLoyalty.md
 docs/Model/CustomerLoyaltyLedger.md
 docs/Model/CustomerLoyaltyRedemption.md
@@ -611,6 +614,7 @@ docs/Model/EmailStepStatRequest.md
 docs/Model/EmailStepStatResponse.md
 docs/Model/EmailStepWaitingRequest.md
 docs/Model/EmailStepWaitingResponse.md
+docs/Model/EmailSuppressionSurfaces.md
 docs/Model/EmailTemplate.md
 docs/Model/EmailTemplatesResponse.md
 docs/Model/EmailThirdPartyList.md
@@ -1525,6 +1529,9 @@ lib/models/CustomerEDI.php
 lib/models/CustomerEditorValues.php
 lib/models/CustomerEmail.php
 lib/models/CustomerEmailListChanges.php
+lib/models/CustomerEmailSuppressionRequest.php
+lib/models/CustomerEmailSuppressionResponse.php
+lib/models/CustomerEmailSuppressionResult.php
 lib/models/CustomerLoyalty.php
 lib/models/CustomerLoyaltyLedger.php
 lib/models/CustomerLoyaltyRedemption.php
@@ -1672,6 +1679,7 @@ lib/models/EmailStepStatRequest.php
 lib/models/EmailStepStatResponse.php
 lib/models/EmailStepWaitingRequest.php
 lib/models/EmailStepWaitingResponse.php
+lib/models/EmailSuppressionSurfaces.php
 lib/models/EmailTemplate.php
 lib/models/EmailTemplatesResponse.php
 lib/models/EmailThirdPartyList.php
