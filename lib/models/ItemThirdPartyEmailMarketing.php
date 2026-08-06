@@ -192,7 +192,6 @@ class ItemThirdPartyEmailMarketing implements ModelInterface, ArrayAccess, \Json
     public const PROVIDER_NAME_LYRIS = 'Lyris';
     public const PROVIDER_NAME_LYRIS_HQ = 'LyrisHQ';
     public const PROVIDER_NAME_MAIL_CHIMP = 'MailChimp';
-    public const PROVIDER_NAME_SILVER_POP = 'SilverPop';
 
     /**
      * Gets allowable values of the enum
@@ -213,7 +212,6 @@ class ItemThirdPartyEmailMarketing implements ModelInterface, ArrayAccess, \Json
             self::PROVIDER_NAME_LYRIS,
             self::PROVIDER_NAME_LYRIS_HQ,
             self::PROVIDER_NAME_MAIL_CHIMP,
-            self::PROVIDER_NAME_SILVER_POP,
         ];
     }
 

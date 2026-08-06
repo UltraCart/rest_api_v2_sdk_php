@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**card_bin** | **string** | First six digits (BIN) of the credit card number.  Must be specified together with card_last4 and a payment_date_begin/payment_date_end range.  Requires query_target&#x3D;cache. | [optional]
+**card_last4** | **string** | Last four digits of the credit card number.  Must be specified together with card_bin and a payment_date_begin/payment_date_end range.  Always supply four digits, including for American Express.  Requires query_target&#x3D;cache. | [optional]
 **cc_email** | **string** | CC Email | [optional]
 **channel_partner_code** | **string** | The code of the channel partner | [optional]
 **channel_partner_order_id** | **string** | The order ID assigned by the channel partner for this order | [optional]
@@ -32,7 +34,7 @@ Name | Type | Description | Notes
 **payment_date_begin** | **string** | Date/time that the order was successfully processed | [optional]
 **payment_date_end** | **string** | Date/time that the order was successfully processed | [optional]
 **payment_method** | **string** | Payment method | [optional]
-**payment_transaction_filters** | [**\ultracart\v2\models\OrderQueryPaymentTransactionFilter[]**](OrderQueryPaymentTransactionFilter.md) | Exact-match filters on the detail name/value pairs of a single payment transaction, AND-ed against the same transaction. Requires query_target&#x3D;cache which uses the ElasticSearch cache. The origin or database path cannot search transaction details. The rotating gateway is just another pair, name equals rotatingTransactionGatewayCode or rotatingTransactionGatewayName. | [optional]
+**payment_transaction_filters** | [**\ultracart\v2\models\OrderQueryPaymentTransactionFilter[]**](OrderQueryPaymentTransactionFilter.md) | Exact-match filters on the detail name/value pairs of a single payment transaction, AND-ed against the same transaction. Requires query_target&#x3D;cache. The origin or database path cannot search transaction details. The rotating gateway is just another pair, name equals rotatingTransactionGatewayCode or rotatingTransactionGatewayName. | [optional]
 **phone** | **string** | Phone | [optional]
 **postal_code** | **string** | Postal code | [optional]
 **purchase_order_number** | **string** | Purchase order number | [optional]

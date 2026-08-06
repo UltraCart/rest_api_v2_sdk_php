@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.124"
+    "ultracart/rest_api_v2_sdk_php": "4.1.125"
   }
 }
 ```
@@ -1866,6 +1866,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.125 | 08/06/2026 | order api - ability to query by bin and last 4 in unlimited scenarios for chargeback order association |
 | 4.1.124 | 08/04/2026 | customer - method to remove customer profile from email suppression |
 | 4.1.123 | 08/04/2026 | customer - method to remove customer profile from email suppression |
 | 4.1.122 | 07/29/2026 | auto order api - new methods for payment information and rebill |

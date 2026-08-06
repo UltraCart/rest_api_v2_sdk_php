@@ -58,6 +58,8 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'card_bin' => 'string',
+        'card_last4' => 'string',
         'cc_email' => 'string',
         'channel_partner_code' => 'string',
         'channel_partner_order_id' => 'string',
@@ -112,6 +114,8 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'card_bin' => null,
+        'card_last4' => null,
         'cc_email' => null,
         'channel_partner_code' => null,
         'channel_partner_order_id' => null,
@@ -185,6 +189,8 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'card_bin' => 'card_bin',
+        'card_last4' => 'card_last4',
         'cc_email' => 'cc_email',
         'channel_partner_code' => 'channel_partner_code',
         'channel_partner_order_id' => 'channel_partner_order_id',
@@ -237,6 +243,8 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'card_bin' => 'setCardBin',
+        'card_last4' => 'setCardLast4',
         'cc_email' => 'setCcEmail',
         'channel_partner_code' => 'setChannelPartnerCode',
         'channel_partner_order_id' => 'setChannelPartnerOrderId',
@@ -289,6 +297,8 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'card_bin' => 'getCardBin',
+        'card_last4' => 'getCardLast4',
         'cc_email' => 'getCcEmail',
         'channel_partner_code' => 'getChannelPartnerCode',
         'channel_partner_order_id' => 'getChannelPartnerOrderId',
@@ -489,6 +499,8 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->container['card_bin'] = $data['card_bin'] ?? null;
+        $this->container['card_last4'] = $data['card_last4'] ?? null;
         $this->container['cc_email'] = $data['cc_email'] ?? null;
         $this->container['channel_partner_code'] = $data['channel_partner_code'] ?? null;
         $this->container['channel_partner_order_id'] = $data['channel_partner_order_id'] ?? null;
@@ -543,6 +555,14 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['card_bin']) && (mb_strlen($this->container['card_bin']) > 6)) {
+            $invalidProperties[] = "invalid value for 'card_bin', the character length must be smaller than or equal to 6.";
+        }
+
+        if (!is_null($this->container['card_last4']) && (mb_strlen($this->container['card_last4']) > 4)) {
+            $invalidProperties[] = "invalid value for 'card_last4', the character length must be smaller than or equal to 4.";
+        }
 
         if (!is_null($this->container['cc_email']) && (mb_strlen($this->container['cc_email']) > 100)) {
             $invalidProperties[] = "invalid value for 'cc_email', the character length must be smaller than or equal to 100.";
@@ -633,6 +653,62 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets card_bin
+     *
+     * @return string|null
+     */
+    public function getCardBin()
+    {
+        return $this->container['card_bin'];
+    }
+
+    /**
+     * Sets card_bin
+     *
+     * @param string|null $card_bin First six digits (BIN) of the credit card number.  Must be specified together with card_last4 and a payment_date_begin/payment_date_end range.  Requires query_target=cache.
+     *
+     * @return self
+     */
+    public function setCardBin($card_bin)
+    {
+        if (!is_null($card_bin) && (mb_strlen($card_bin) > 6)) {
+            throw new \InvalidArgumentException('invalid length for $card_bin when calling OrderQuery., must be smaller than or equal to 6.');
+        }
+
+        $this->container['card_bin'] = $card_bin;
+
+        return $this;
+    }
+
+    /**
+     * Gets card_last4
+     *
+     * @return string|null
+     */
+    public function getCardLast4()
+    {
+        return $this->container['card_last4'];
+    }
+
+    /**
+     * Sets card_last4
+     *
+     * @param string|null $card_last4 Last four digits of the credit card number.  Must be specified together with card_bin and a payment_date_begin/payment_date_end range.  Always supply four digits, including for American Express.  Requires query_target=cache.
+     *
+     * @return self
+     */
+    public function setCardLast4($card_last4)
+    {
+        if (!is_null($card_last4) && (mb_strlen($card_last4) > 4)) {
+            throw new \InvalidArgumentException('invalid length for $card_last4 when calling OrderQuery., must be smaller than or equal to 4.');
+        }
+
+        $this->container['card_last4'] = $card_last4;
+
+        return $this;
+    }
 
     /**
      * Gets cc_email
@@ -1367,7 +1443,7 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets payment_transaction_filters
      *
-     * @param \ultracart\v2\models\OrderQueryPaymentTransactionFilter[]|null $payment_transaction_filters Exact-match filters on the detail name/value pairs of a single payment transaction, AND-ed against the same transaction. Requires query_target=cache which uses the ElasticSearch cache. The origin or database path cannot search transaction details. The rotating gateway is just another pair, name equals rotatingTransactionGatewayCode or rotatingTransactionGatewayName.
+     * @param \ultracart\v2\models\OrderQueryPaymentTransactionFilter[]|null $payment_transaction_filters Exact-match filters on the detail name/value pairs of a single payment transaction, AND-ed against the same transaction. Requires query_target=cache. The origin or database path cannot search transaction details. The rotating gateway is just another pair, name equals rotatingTransactionGatewayCode or rotatingTransactionGatewayName.
      *
      * @return self
      */
