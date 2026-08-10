@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.125"
+    "ultracart/rest_api_v2_sdk_php": "4.1.126"
   }
 }
 ```
@@ -441,6 +441,7 @@ Class | Method | HTTP request | Description
 *ItemApi* | [**uploadTemporaryMultimedia**](docs/Api/ItemApi.md#uploadtemporarymultimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
 *OauthApi* | [**oauthAccessToken**](docs/Api/OauthApi.md#oauthaccesstoken) | **POST** /oauth/token | Exchange authorization code for access token.
 *OauthApi* | [**oauthDeviceAuthorize**](docs/Api/OauthApi.md#oauthdeviceauthorize) | **POST** /oauth/device/authorize | Initiate a device authorization flow.
+*OauthApi* | [**oauthMe**](docs/Api/OauthApi.md#oauthme) | **GET** /oauth/me | Identify the merchant account this access token belongs to.
 *OauthApi* | [**oauthRevoke**](docs/Api/OauthApi.md#oauthrevoke) | **POST** /oauth/revoke | Revoke this OAuth application.
 *OrderApi* | [**adjustOrderTotal**](docs/Api/OrderApi.md#adjustordertotal) | **POST** /order/orders/{order_id}/adjust_order_total/{desired_total} | Adjusts an order total
 *OrderApi* | [**assignToAffiliate**](docs/Api/OrderApi.md#assigntoaffiliate) | **POST** /order/orders/{order_id}/assignToAffiliate | Assigns an order to an affiliate
@@ -1503,6 +1504,7 @@ Class | Method | HTTP request | Description
 - [Metric](docs/Model/Metric.md)
 - [Notification](docs/Model/Notification.md)
 - [OauthDeviceAuthorizationResponse](docs/Model/OauthDeviceAuthorizationResponse.md)
+- [OauthMeResponse](docs/Model/OauthMeResponse.md)
 - [OauthRevokeSuccessResponse](docs/Model/OauthRevokeSuccessResponse.md)
 - [OauthTokenResponse](docs/Model/OauthTokenResponse.md)
 - [Order](docs/Model/Order.md)
@@ -1866,6 +1868,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.126 | 08/10/2026 | oauth - add /oauth/me method to assist application in indentifying the connected account |
 | 4.1.125 | 08/06/2026 | order api - ability to query by bin and last 4 in unlimited scenarios for chargeback order association |
 | 4.1.124 | 08/04/2026 | customer - method to remove customer profile from email suppression |
 | 4.1.123 | 08/04/2026 | customer - method to remove customer profile from email suppression |

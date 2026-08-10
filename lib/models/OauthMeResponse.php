@@ -1,6 +1,6 @@
 <?php
 /**
- * OauthTokenResponse
+ * OauthMeResponse
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * OauthTokenResponse Class Doc Comment
+ * OauthMeResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class OauthMeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       *
       * @var string
       */
-    protected static $openAPIModelName = 'OauthTokenResponse';
+    protected static $openAPIModelName = 'OauthMeResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,15 +58,11 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'access_token' => 'string',
-        'error' => 'string',
-        'error_description' => 'string',
-        'error_uri' => 'string',
-        'expires_in' => 'string',
+        'application_name' => 'string',
+        'client_id' => 'string',
         'merchant_id' => 'string',
-        'refresh_token' => 'string',
-        'scope' => 'string',
-        'token_type' => 'string'
+        'merchant_name' => 'string',
+        'scopes' => 'string[]'
     ];
 
     /**
@@ -77,15 +73,11 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'access_token' => null,
-        'error' => null,
-        'error_description' => null,
-        'error_uri' => null,
-        'expires_in' => null,
+        'application_name' => null,
+        'client_id' => null,
         'merchant_id' => null,
-        'refresh_token' => null,
-        'scope' => null,
-        'token_type' => null
+        'merchant_name' => null,
+        'scopes' => null
     ];
 
     /**
@@ -115,15 +107,11 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'access_token' => 'access_token',
-        'error' => 'error',
-        'error_description' => 'error_description',
-        'error_uri' => 'error_uri',
-        'expires_in' => 'expires_in',
+        'application_name' => 'application_name',
+        'client_id' => 'client_id',
         'merchant_id' => 'merchant_id',
-        'refresh_token' => 'refresh_token',
-        'scope' => 'scope',
-        'token_type' => 'token_type'
+        'merchant_name' => 'merchant_name',
+        'scopes' => 'scopes'
     ];
 
     /**
@@ -132,15 +120,11 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'access_token' => 'setAccessToken',
-        'error' => 'setError',
-        'error_description' => 'setErrorDescription',
-        'error_uri' => 'setErrorUri',
-        'expires_in' => 'setExpiresIn',
+        'application_name' => 'setApplicationName',
+        'client_id' => 'setClientId',
         'merchant_id' => 'setMerchantId',
-        'refresh_token' => 'setRefreshToken',
-        'scope' => 'setScope',
-        'token_type' => 'setTokenType'
+        'merchant_name' => 'setMerchantName',
+        'scopes' => 'setScopes'
     ];
 
     /**
@@ -149,15 +133,11 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'access_token' => 'getAccessToken',
-        'error' => 'getError',
-        'error_description' => 'getErrorDescription',
-        'error_uri' => 'getErrorUri',
-        'expires_in' => 'getExpiresIn',
+        'application_name' => 'getApplicationName',
+        'client_id' => 'getClientId',
         'merchant_id' => 'getMerchantId',
-        'refresh_token' => 'getRefreshToken',
-        'scope' => 'getScope',
-        'token_type' => 'getTokenType'
+        'merchant_name' => 'getMerchantName',
+        'scopes' => 'getScopes'
     ];
 
     /**
@@ -201,19 +181,6 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         return self::$openAPIModelName;
     }
 
-    public const TOKEN_TYPE_BEARER = 'bearer';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTokenTypeAllowableValues()
-    {
-        return [
-            self::TOKEN_TYPE_BEARER,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -230,15 +197,11 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->container['access_token'] = $data['access_token'] ?? null;
-        $this->container['error'] = $data['error'] ?? null;
-        $this->container['error_description'] = $data['error_description'] ?? null;
-        $this->container['error_uri'] = $data['error_uri'] ?? null;
-        $this->container['expires_in'] = $data['expires_in'] ?? null;
+        $this->container['application_name'] = $data['application_name'] ?? null;
+        $this->container['client_id'] = $data['client_id'] ?? null;
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
-        $this->container['refresh_token'] = $data['refresh_token'] ?? null;
-        $this->container['scope'] = $data['scope'] ?? null;
-        $this->container['token_type'] = $data['token_type'] ?? null;
+        $this->container['merchant_name'] = $data['merchant_name'] ?? null;
+        $this->container['scopes'] = $data['scopes'] ?? null;
     }
 
     /**
@@ -249,15 +212,6 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getTokenTypeAllowableValues();
-        if (!is_null($this->container['token_type']) && !in_array($this->container['token_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'token_type', must be one of '%s'",
-                $this->container['token_type'],
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -275,121 +229,49 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets access_token
+     * Gets application_name
      *
      * @return string|null
      */
-    public function getAccessToken()
+    public function getApplicationName()
     {
-        return $this->container['access_token'];
+        return $this->container['application_name'];
     }
 
     /**
-     * Sets access_token
+     * Sets application_name
      *
-     * @param string|null $access_token Access token to use in OAuth authenticated API call
+     * @param string|null $application_name The name of your application as the merchant approved it.
      *
      * @return self
      */
-    public function setAccessToken($access_token)
+    public function setApplicationName($application_name)
     {
-        $this->container['access_token'] = $access_token;
+        $this->container['application_name'] = $application_name;
 
         return $this;
     }
 
     /**
-     * Gets error
+     * Gets client_id
      *
      * @return string|null
      */
-    public function getError()
+    public function getClientId()
     {
-        return $this->container['error'];
+        return $this->container['client_id'];
     }
 
     /**
-     * Sets error
+     * Sets client_id
      *
-     * @param string|null $error error
+     * @param string|null $client_id Your application's client_id.  Null when authenticating with a simple key, which is not tied to an application.
      *
      * @return self
      */
-    public function setError($error)
+    public function setClientId($client_id)
     {
-        $this->container['error'] = $error;
-
-        return $this;
-    }
-
-    /**
-     * Gets error_description
-     *
-     * @return string|null
-     */
-    public function getErrorDescription()
-    {
-        return $this->container['error_description'];
-    }
-
-    /**
-     * Sets error_description
-     *
-     * @param string|null $error_description error_description
-     *
-     * @return self
-     */
-    public function setErrorDescription($error_description)
-    {
-        $this->container['error_description'] = $error_description;
-
-        return $this;
-    }
-
-    /**
-     * Gets error_uri
-     *
-     * @return string|null
-     */
-    public function getErrorUri()
-    {
-        return $this->container['error_uri'];
-    }
-
-    /**
-     * Sets error_uri
-     *
-     * @param string|null $error_uri error_uri
-     *
-     * @return self
-     */
-    public function setErrorUri($error_uri)
-    {
-        $this->container['error_uri'] = $error_uri;
-
-        return $this;
-    }
-
-    /**
-     * Gets expires_in
-     *
-     * @return string|null
-     */
-    public function getExpiresIn()
-    {
-        return $this->container['expires_in'];
-    }
-
-    /**
-     * Sets expires_in
-     *
-     * @param string|null $expires_in The number of seconds since issuance when the access token will expire and need to be refreshed using the refresh token
-     *
-     * @return self
-     */
-    public function setExpiresIn($expires_in)
-    {
-        $this->container['expires_in'] = $expires_in;
+        $this->container['client_id'] = $client_id;
 
         return $this;
     }
@@ -407,7 +289,7 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets merchant_id
      *
-     * @param string|null $merchant_id The UltraCart merchant account that authorized this token.  Use it to map the token to the merchant within your own system.  Also returned by GET /oauth/me along with the account name.
+     * @param string|null $merchant_id The UltraCart merchant account that authorized your application.  Stable, and the value to key your own records on.
      *
      * @return self
      */
@@ -419,83 +301,49 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets refresh_token
+     * Gets merchant_name
      *
      * @return string|null
      */
-    public function getRefreshToken()
+    public function getMerchantName()
     {
-        return $this->container['refresh_token'];
+        return $this->container['merchant_name'];
     }
 
     /**
-     * Sets refresh_token
+     * Sets merchant_name
      *
-     * @param string|null $refresh_token The refresh token that should be used to fetch a new access token when the expiration occurs
+     * @param string|null $merchant_name The account's company name, suitable for displaying to your user.  The merchant can change this, so display it rather than storing it as an identifier.
      *
      * @return self
      */
-    public function setRefreshToken($refresh_token)
+    public function setMerchantName($merchant_name)
     {
-        $this->container['refresh_token'] = $refresh_token;
+        $this->container['merchant_name'] = $merchant_name;
 
         return $this;
     }
 
     /**
-     * Gets scope
+     * Gets scopes
      *
-     * @return string|null
+     * @return string[]|null
      */
-    public function getScope()
+    public function getScopes()
     {
-        return $this->container['scope'];
+        return $this->container['scopes'];
     }
 
     /**
-     * Sets scope
+     * Sets scopes
      *
-     * @param string|null $scope The scope of permissions associated with teh access token
+     * @param string[]|null $scopes The permissions the merchant granted.  May be narrower than the permissions your application currently requests.
      *
      * @return self
      */
-    public function setScope($scope)
+    public function setScopes($scopes)
     {
-        $this->container['scope'] = $scope;
-
-        return $this;
-    }
-
-    /**
-     * Gets token_type
-     *
-     * @return string|null
-     */
-    public function getTokenType()
-    {
-        return $this->container['token_type'];
-    }
-
-    /**
-     * Sets token_type
-     *
-     * @param string|null $token_type Type of token
-     *
-     * @return self
-     */
-    public function setTokenType($token_type)
-    {
-        $allowedValues = $this->getTokenTypeAllowableValues();
-        if (!is_null($token_type) && !in_array($token_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'token_type', must be one of '%s'",
-                    $token_type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['token_type'] = $token_type;
+        $this->container['scopes'] = $scopes;
 
         return $this;
     }
