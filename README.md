@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.126"
+    "ultracart/rest_api_v2_sdk_php": "4.1.127"
   }
 }
 ```
@@ -1796,8 +1796,6 @@ Class | Method | HTTP request | Description
     - **auto_order_write**: Allows you to write auto order information.
     - **channel_partner_read**: Allows you to read channel partner information.
     - **channel_partner_write**: Allows you to write channel partner information.
-    - **chargeback_read**: Allows you to read chargeback information.
-    - **chargeback_write**: Allows you to write chargeback information.
     - **checkout_read**: Allows you to read checkout information.
     - **checkout_write**: Allows you to write checkout information.
     - **configuration_read**: Allows you to read configuration information.
@@ -1868,6 +1866,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.127 | 08/13/2026 | added arbitrary discounts to order creation for historical imports |
 | 4.1.126 | 08/10/2026 | oauth - add /oauth/me method to assist application in indentifying the connected account |
 | 4.1.125 | 08/06/2026 | order api - ability to query by bin and last 4 in unlimited scenarios for chargeback order association |
 | 4.1.124 | 08/04/2026 | customer - method to remove customer profile from email suppression |

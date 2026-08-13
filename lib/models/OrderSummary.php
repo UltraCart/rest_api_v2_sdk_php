@@ -66,6 +66,8 @@ class OrderSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'actual_profit_review' => 'bool',
         'actual_shipping' => '\ultracart\v2\models\Currency',
         'arbitrary_shipping_handling_total' => '\ultracart\v2\models\Currency',
+        'arbitrary_subtotal_discount' => '\ultracart\v2\models\Currency',
+        'arbitrary_taxable_subtotal_discount' => '\ultracart\v2\models\Currency',
         'health_benefit_card_amount' => '\ultracart\v2\models\Currency',
         'health_benefit_card_refunded' => '\ultracart\v2\models\Currency',
         'internal_gift_certificate_amount' => '\ultracart\v2\models\Currency',
@@ -102,6 +104,8 @@ class OrderSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'actual_profit_review' => null,
         'actual_shipping' => null,
         'arbitrary_shipping_handling_total' => null,
+        'arbitrary_subtotal_discount' => null,
+        'arbitrary_taxable_subtotal_discount' => null,
         'health_benefit_card_amount' => null,
         'health_benefit_card_refunded' => null,
         'internal_gift_certificate_amount' => null,
@@ -157,6 +161,8 @@ class OrderSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'actual_profit_review' => 'actual_profit_review',
         'actual_shipping' => 'actual_shipping',
         'arbitrary_shipping_handling_total' => 'arbitrary_shipping_handling_total',
+        'arbitrary_subtotal_discount' => 'arbitrary_subtotal_discount',
+        'arbitrary_taxable_subtotal_discount' => 'arbitrary_taxable_subtotal_discount',
         'health_benefit_card_amount' => 'health_benefit_card_amount',
         'health_benefit_card_refunded' => 'health_benefit_card_refunded',
         'internal_gift_certificate_amount' => 'internal_gift_certificate_amount',
@@ -191,6 +197,8 @@ class OrderSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'actual_profit_review' => 'setActualProfitReview',
         'actual_shipping' => 'setActualShipping',
         'arbitrary_shipping_handling_total' => 'setArbitraryShippingHandlingTotal',
+        'arbitrary_subtotal_discount' => 'setArbitrarySubtotalDiscount',
+        'arbitrary_taxable_subtotal_discount' => 'setArbitraryTaxableSubtotalDiscount',
         'health_benefit_card_amount' => 'setHealthBenefitCardAmount',
         'health_benefit_card_refunded' => 'setHealthBenefitCardRefunded',
         'internal_gift_certificate_amount' => 'setInternalGiftCertificateAmount',
@@ -225,6 +233,8 @@ class OrderSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'actual_profit_review' => 'getActualProfitReview',
         'actual_shipping' => 'getActualShipping',
         'arbitrary_shipping_handling_total' => 'getArbitraryShippingHandlingTotal',
+        'arbitrary_subtotal_discount' => 'getArbitrarySubtotalDiscount',
+        'arbitrary_taxable_subtotal_discount' => 'getArbitraryTaxableSubtotalDiscount',
         'health_benefit_card_amount' => 'getHealthBenefitCardAmount',
         'health_benefit_card_refunded' => 'getHealthBenefitCardRefunded',
         'internal_gift_certificate_amount' => 'getInternalGiftCertificateAmount',
@@ -310,6 +320,8 @@ class OrderSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['actual_profit_review'] = $data['actual_profit_review'] ?? null;
         $this->container['actual_shipping'] = $data['actual_shipping'] ?? null;
         $this->container['arbitrary_shipping_handling_total'] = $data['arbitrary_shipping_handling_total'] ?? null;
+        $this->container['arbitrary_subtotal_discount'] = $data['arbitrary_subtotal_discount'] ?? null;
+        $this->container['arbitrary_taxable_subtotal_discount'] = $data['arbitrary_taxable_subtotal_discount'] ?? null;
         $this->container['health_benefit_card_amount'] = $data['health_benefit_card_amount'] ?? null;
         $this->container['health_benefit_card_refunded'] = $data['health_benefit_card_refunded'] ?? null;
         $this->container['internal_gift_certificate_amount'] = $data['internal_gift_certificate_amount'] ?? null;
@@ -542,6 +554,54 @@ class OrderSummary implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setArbitraryShippingHandlingTotal($arbitrary_shipping_handling_total)
     {
         $this->container['arbitrary_shipping_handling_total'] = $arbitrary_shipping_handling_total;
+
+        return $this;
+    }
+
+    /**
+     * Gets arbitrary_subtotal_discount
+     *
+     * @return \ultracart\v2\models\Currency|null
+     */
+    public function getArbitrarySubtotalDiscount()
+    {
+        return $this->container['arbitrary_subtotal_discount'];
+    }
+
+    /**
+     * Sets arbitrary_subtotal_discount
+     *
+     * @param \ultracart\v2\models\Currency|null $arbitrary_subtotal_discount arbitrary_subtotal_discount
+     *
+     * @return self
+     */
+    public function setArbitrarySubtotalDiscount($arbitrary_subtotal_discount)
+    {
+        $this->container['arbitrary_subtotal_discount'] = $arbitrary_subtotal_discount;
+
+        return $this;
+    }
+
+    /**
+     * Gets arbitrary_taxable_subtotal_discount
+     *
+     * @return \ultracart\v2\models\Currency|null
+     */
+    public function getArbitraryTaxableSubtotalDiscount()
+    {
+        return $this->container['arbitrary_taxable_subtotal_discount'];
+    }
+
+    /**
+     * Sets arbitrary_taxable_subtotal_discount
+     *
+     * @param \ultracart\v2\models\Currency|null $arbitrary_taxable_subtotal_discount arbitrary_taxable_subtotal_discount
+     *
+     * @return self
+     */
+    public function setArbitraryTaxableSubtotalDiscount($arbitrary_taxable_subtotal_discount)
+    {
+        $this->container['arbitrary_taxable_subtotal_discount'] = $arbitrary_taxable_subtotal_discount;
 
         return $this;
     }
