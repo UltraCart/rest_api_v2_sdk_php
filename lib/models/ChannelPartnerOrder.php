@@ -144,6 +144,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'shipto_postal_code' => 'string',
         'shipto_state_region' => 'string',
         'shipto_title' => 'string',
+        'skip_auto_order_setup' => 'bool',
         'skip_payment_processing' => 'bool',
         'special_instructions' => 'string',
         'store_completed' => 'bool',
@@ -250,6 +251,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'shipto_postal_code' => null,
         'shipto_state_region' => null,
         'shipto_title' => null,
+        'skip_auto_order_setup' => null,
         'skip_payment_processing' => null,
         'special_instructions' => null,
         'store_completed' => null,
@@ -375,6 +377,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'shipto_postal_code' => 'shipto_postal_code',
         'shipto_state_region' => 'shipto_state_region',
         'shipto_title' => 'shipto_title',
+        'skip_auto_order_setup' => 'skip_auto_order_setup',
         'skip_payment_processing' => 'skip_payment_processing',
         'special_instructions' => 'special_instructions',
         'store_completed' => 'store_completed',
@@ -479,6 +482,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'shipto_postal_code' => 'setShiptoPostalCode',
         'shipto_state_region' => 'setShiptoStateRegion',
         'shipto_title' => 'setShiptoTitle',
+        'skip_auto_order_setup' => 'setSkipAutoOrderSetup',
         'skip_payment_processing' => 'setSkipPaymentProcessing',
         'special_instructions' => 'setSpecialInstructions',
         'store_completed' => 'setStoreCompleted',
@@ -583,6 +587,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'shipto_postal_code' => 'getShiptoPostalCode',
         'shipto_state_region' => 'getShiptoStateRegion',
         'shipto_title' => 'getShiptoTitle',
+        'skip_auto_order_setup' => 'getSkipAutoOrderSetup',
         'skip_payment_processing' => 'getSkipPaymentProcessing',
         'special_instructions' => 'getSpecialInstructions',
         'store_completed' => 'getStoreCompleted',
@@ -805,6 +810,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['shipto_postal_code'] = $data['shipto_postal_code'] ?? null;
         $this->container['shipto_state_region'] = $data['shipto_state_region'] ?? null;
         $this->container['shipto_title'] = $data['shipto_title'] ?? null;
+        $this->container['skip_auto_order_setup'] = $data['skip_auto_order_setup'] ?? null;
         $this->container['skip_payment_processing'] = $data['skip_payment_processing'] ?? null;
         $this->container['special_instructions'] = $data['special_instructions'] ?? null;
         $this->container['store_completed'] = $data['store_completed'] ?? null;
@@ -3250,6 +3256,30 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         }
 
         $this->container['shipto_title'] = $shipto_title;
+
+        return $this;
+    }
+
+    /**
+     * Gets skip_auto_order_setup
+     *
+     * @return bool|null
+     */
+    public function getSkipAutoOrderSetup()
+    {
+        return $this->container['skip_auto_order_setup'];
+    }
+
+    /**
+     * Sets skip_auto_order_setup
+     *
+     * @param bool|null $skip_auto_order_setup If true the setup of the auto order record is skipped
+     *
+     * @return self
+     */
+    public function setSkipAutoOrderSetup($skip_auto_order_setup)
+    {
+        $this->container['skip_auto_order_setup'] = $skip_auto_order_setup;
 
         return $this;
     }

@@ -65,6 +65,7 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess, \JsonSerializa
         'channel_partner_order_id' => 'string',
         'ignore_invalid_shipping_method' => 'bool',
         'no_realtime_payment_processing' => 'bool',
+        'skip_auto_order_setup' => 'bool',
         'skip_payment_processing' => 'bool',
         'store_completed' => 'bool',
         'store_if_payment_declines' => 'bool',
@@ -86,6 +87,7 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess, \JsonSerializa
         'channel_partner_order_id' => null,
         'ignore_invalid_shipping_method' => null,
         'no_realtime_payment_processing' => null,
+        'skip_auto_order_setup' => null,
         'skip_payment_processing' => null,
         'store_completed' => null,
         'store_if_payment_declines' => null,
@@ -126,6 +128,7 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess, \JsonSerializa
         'channel_partner_order_id' => 'channel_partner_order_id',
         'ignore_invalid_shipping_method' => 'ignore_invalid_shipping_method',
         'no_realtime_payment_processing' => 'no_realtime_payment_processing',
+        'skip_auto_order_setup' => 'skip_auto_order_setup',
         'skip_payment_processing' => 'skip_payment_processing',
         'store_completed' => 'store_completed',
         'store_if_payment_declines' => 'store_if_payment_declines',
@@ -145,6 +148,7 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess, \JsonSerializa
         'channel_partner_order_id' => 'setChannelPartnerOrderId',
         'ignore_invalid_shipping_method' => 'setIgnoreInvalidShippingMethod',
         'no_realtime_payment_processing' => 'setNoRealtimePaymentProcessing',
+        'skip_auto_order_setup' => 'setSkipAutoOrderSetup',
         'skip_payment_processing' => 'setSkipPaymentProcessing',
         'store_completed' => 'setStoreCompleted',
         'store_if_payment_declines' => 'setStoreIfPaymentDeclines',
@@ -164,6 +168,7 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess, \JsonSerializa
         'channel_partner_order_id' => 'getChannelPartnerOrderId',
         'ignore_invalid_shipping_method' => 'getIgnoreInvalidShippingMethod',
         'no_realtime_payment_processing' => 'getNoRealtimePaymentProcessing',
+        'skip_auto_order_setup' => 'getSkipAutoOrderSetup',
         'skip_payment_processing' => 'getSkipPaymentProcessing',
         'store_completed' => 'getStoreCompleted',
         'store_if_payment_declines' => 'getStoreIfPaymentDeclines',
@@ -234,6 +239,7 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['channel_partner_order_id'] = $data['channel_partner_order_id'] ?? null;
         $this->container['ignore_invalid_shipping_method'] = $data['ignore_invalid_shipping_method'] ?? null;
         $this->container['no_realtime_payment_processing'] = $data['no_realtime_payment_processing'] ?? null;
+        $this->container['skip_auto_order_setup'] = $data['skip_auto_order_setup'] ?? null;
         $this->container['skip_payment_processing'] = $data['skip_payment_processing'] ?? null;
         $this->container['store_completed'] = $data['store_completed'] ?? null;
         $this->container['store_if_payment_declines'] = $data['store_if_payment_declines'] ?? null;
@@ -436,6 +442,30 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setNoRealtimePaymentProcessing($no_realtime_payment_processing)
     {
         $this->container['no_realtime_payment_processing'] = $no_realtime_payment_processing;
+
+        return $this;
+    }
+
+    /**
+     * Gets skip_auto_order_setup
+     *
+     * @return bool|null
+     */
+    public function getSkipAutoOrderSetup()
+    {
+        return $this->container['skip_auto_order_setup'];
+    }
+
+    /**
+     * Sets skip_auto_order_setup
+     *
+     * @param bool|null $skip_auto_order_setup Instructs UltraCart to skip auto order setup.  Only applicable on inserting orders.
+     *
+     * @return self
+     */
+    public function setSkipAutoOrderSetup($skip_auto_order_setup)
+    {
+        $this->container['skip_auto_order_setup'] = $skip_auto_order_setup;
 
         return $this;
     }

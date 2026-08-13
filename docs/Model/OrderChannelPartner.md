@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **channel_partner_order_id** | **string** | The order ID assigned by the channel partner for this order. | [optional]
 **ignore_invalid_shipping_method** | **bool** | Set to true to ignore invalid shipping method being specified.  Only applicable on inserting orders. | [optional]
 **no_realtime_payment_processing** | **bool** | Indicates this order should be placed in Account Receivable for later payment processing | [optional]
+**skip_auto_order_setup** | **bool** | Instructs UltraCart to skip auto order setup.  Only applicable on inserting orders. | [optional]
 **skip_payment_processing** | **bool** | Indicates this order was already paid for via a channel purchase and no payment collection should be attempted | [optional]
 **store_completed** | **bool** | Instructs UltraCart to skip shipping department and mark this order as fully complete.  This flag defaults to true.  Set this flag to false to shipped product for this order. | [optional]
 **store_if_payment_declines** | **bool** | If true, any failed payment will place the order in Accounts Receivable rather than rejecting it. | [optional]
