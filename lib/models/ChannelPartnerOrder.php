@@ -62,9 +62,11 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'affiliate_id' => 'string',
         'affiliate_sub_id' => 'string',
         'arbitrary_shipping_handling_total' => 'float',
+        'arbitrary_subtotal_discount' => 'float',
         'arbitrary_tax' => 'float',
         'arbitrary_tax_rate' => 'float',
         'arbitrary_taxable_subtotal' => 'float',
+        'arbitrary_taxable_subtotal_discount' => 'float',
         'associate_with_customer_profile_if_present' => 'bool',
         'auto_approve_purchase_order' => 'bool',
         'billto_address1' => 'string',
@@ -166,9 +168,11 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'affiliate_id' => null,
         'affiliate_sub_id' => null,
         'arbitrary_shipping_handling_total' => null,
+        'arbitrary_subtotal_discount' => null,
         'arbitrary_tax' => null,
         'arbitrary_tax_rate' => null,
         'arbitrary_taxable_subtotal' => null,
+        'arbitrary_taxable_subtotal_discount' => null,
         'associate_with_customer_profile_if_present' => null,
         'auto_approve_purchase_order' => null,
         'billto_address1' => null,
@@ -289,9 +293,11 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'affiliate_id' => 'affiliate_id',
         'affiliate_sub_id' => 'affiliate_sub_id',
         'arbitrary_shipping_handling_total' => 'arbitrary_shipping_handling_total',
+        'arbitrary_subtotal_discount' => 'arbitrary_subtotal_discount',
         'arbitrary_tax' => 'arbitrary_tax',
         'arbitrary_tax_rate' => 'arbitrary_tax_rate',
         'arbitrary_taxable_subtotal' => 'arbitrary_taxable_subtotal',
+        'arbitrary_taxable_subtotal_discount' => 'arbitrary_taxable_subtotal_discount',
         'associate_with_customer_profile_if_present' => 'associate_with_customer_profile_if_present',
         'auto_approve_purchase_order' => 'auto_approve_purchase_order',
         'billto_address1' => 'billto_address1',
@@ -391,9 +397,11 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'affiliate_id' => 'setAffiliateId',
         'affiliate_sub_id' => 'setAffiliateSubId',
         'arbitrary_shipping_handling_total' => 'setArbitraryShippingHandlingTotal',
+        'arbitrary_subtotal_discount' => 'setArbitrarySubtotalDiscount',
         'arbitrary_tax' => 'setArbitraryTax',
         'arbitrary_tax_rate' => 'setArbitraryTaxRate',
         'arbitrary_taxable_subtotal' => 'setArbitraryTaxableSubtotal',
+        'arbitrary_taxable_subtotal_discount' => 'setArbitraryTaxableSubtotalDiscount',
         'associate_with_customer_profile_if_present' => 'setAssociateWithCustomerProfileIfPresent',
         'auto_approve_purchase_order' => 'setAutoApprovePurchaseOrder',
         'billto_address1' => 'setBilltoAddress1',
@@ -493,9 +501,11 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'affiliate_id' => 'getAffiliateId',
         'affiliate_sub_id' => 'getAffiliateSubId',
         'arbitrary_shipping_handling_total' => 'getArbitraryShippingHandlingTotal',
+        'arbitrary_subtotal_discount' => 'getArbitrarySubtotalDiscount',
         'arbitrary_tax' => 'getArbitraryTax',
         'arbitrary_tax_rate' => 'getArbitraryTaxRate',
         'arbitrary_taxable_subtotal' => 'getArbitraryTaxableSubtotal',
+        'arbitrary_taxable_subtotal_discount' => 'getArbitraryTaxableSubtotalDiscount',
         'associate_with_customer_profile_if_present' => 'getAssociateWithCustomerProfileIfPresent',
         'auto_approve_purchase_order' => 'getAutoApprovePurchaseOrder',
         'billto_address1' => 'getBilltoAddress1',
@@ -713,9 +723,11 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['affiliate_id'] = $data['affiliate_id'] ?? null;
         $this->container['affiliate_sub_id'] = $data['affiliate_sub_id'] ?? null;
         $this->container['arbitrary_shipping_handling_total'] = $data['arbitrary_shipping_handling_total'] ?? null;
+        $this->container['arbitrary_subtotal_discount'] = $data['arbitrary_subtotal_discount'] ?? null;
         $this->container['arbitrary_tax'] = $data['arbitrary_tax'] ?? null;
         $this->container['arbitrary_tax_rate'] = $data['arbitrary_tax_rate'] ?? null;
         $this->container['arbitrary_taxable_subtotal'] = $data['arbitrary_taxable_subtotal'] ?? null;
+        $this->container['arbitrary_taxable_subtotal_discount'] = $data['arbitrary_taxable_subtotal_discount'] ?? null;
         $this->container['associate_with_customer_profile_if_present'] = $data['associate_with_customer_profile_if_present'] ?? null;
         $this->container['auto_approve_purchase_order'] = $data['auto_approve_purchase_order'] ?? null;
         $this->container['billto_address1'] = $data['billto_address1'] ?? null;
@@ -1101,6 +1113,30 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
+     * Gets arbitrary_subtotal_discount
+     *
+     * @return float|null
+     */
+    public function getArbitrarySubtotalDiscount()
+    {
+        return $this->container['arbitrary_subtotal_discount'];
+    }
+
+    /**
+     * Sets arbitrary_subtotal_discount
+     *
+     * @param float|null $arbitrary_subtotal_discount Arbitrary subtotal discount for overriding the calculated subtotal discount.  Send the gross price in the item arbitrary unit cost and the discount here.
+     *
+     * @return self
+     */
+    public function setArbitrarySubtotalDiscount($arbitrary_subtotal_discount)
+    {
+        $this->container['arbitrary_subtotal_discount'] = $arbitrary_subtotal_discount;
+
+        return $this;
+    }
+
+    /**
      * Gets arbitrary_tax
      *
      * @return float|null
@@ -1168,6 +1204,30 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setArbitraryTaxableSubtotal($arbitrary_taxable_subtotal)
     {
         $this->container['arbitrary_taxable_subtotal'] = $arbitrary_taxable_subtotal;
+
+        return $this;
+    }
+
+    /**
+     * Gets arbitrary_taxable_subtotal_discount
+     *
+     * @return float|null
+     */
+    public function getArbitraryTaxableSubtotalDiscount()
+    {
+        return $this->container['arbitrary_taxable_subtotal_discount'];
+    }
+
+    /**
+     * Sets arbitrary_taxable_subtotal_discount
+     *
+     * @param float|null $arbitrary_taxable_subtotal_discount Arbitrary taxable subtotal discount.  If an arbitrary subtotal discount is supplied without this field, the arbitrary subtotal discount is used for both.
+     *
+     * @return self
+     */
+    public function setArbitraryTaxableSubtotalDiscount($arbitrary_taxable_subtotal_discount)
+    {
+        $this->container['arbitrary_taxable_subtotal_discount'] = $arbitrary_taxable_subtotal_discount;
 
         return $this;
     }
