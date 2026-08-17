@@ -533,7 +533,7 @@ class AutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets cancel_reason
      *
-     * @param string|null $cancel_reason The reason this auto order was canceled by either merchant or customer
+     * @param string|null $cancel_reason The reason this auto order was canceled by either merchant or customer. Supplying this when setting enabled to false records the change as a cancellation rather than a disable.
      *
      * @return self
      */
@@ -581,7 +581,7 @@ class AutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets canceled_by_user
      *
-     * @param string|null $canceled_by_user The user that canceled the auto order
+     * @param string|null $canceled_by_user The user that canceled the auto order. Supplying this when setting enabled to false records the change as a cancellation rather than a disable.
      *
      * @return self
      */
@@ -605,7 +605,7 @@ class AutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets canceled_dts
      *
-     * @param string|null $canceled_dts The date/time that the auto order was canceled
+     * @param string|null $canceled_dts The date/time that the auto order was canceled. Supply this to record an explicit cancellation time, otherwise it is stamped automatically when enabled is set to false along with cancel_reason or canceled_by_user.
      *
      * @return self
      */
@@ -677,7 +677,7 @@ class AutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets disabled_dts
      *
-     * @param string|null $disabled_dts The date/time the auto order was disabled due to failed rebills
+     * @param string|null $disabled_dts The date/time the auto order was disabled, either by a failed rebill or by setting enabled to false without a cancellation
      *
      * @return self
      */
@@ -725,7 +725,7 @@ class AutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets enabled
      *
-     * @param bool|null $enabled True if this auto order is enabled
+     * @param bool|null $enabled True if this auto order is enabled. Setting this to false along with cancel_reason or canceled_by_user records the change as a cancellation and fires the auto order cancel notifications. Setting it to false without either field records a disable instead.
      *
      * @return self
      */

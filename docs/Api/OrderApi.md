@@ -21,6 +21,7 @@ Method | HTTP request | Description
 [**getAccountsReceivableRetryStats()**](OrderApi.md#getAccountsReceivableRetryStats) | **GET** /order/accountsReceivableRetryConfig/stats | Retrieve A/R Retry Statistics
 [**getOrder()**](OrderApi.md#getOrder) | **GET** /order/orders/{order_id} | Retrieve an order
 [**getOrderByToken()**](OrderApi.md#getOrderByToken) | **POST** /order/orders/token | Retrieve an order using a token
+[**getOrderCustomerActivity()**](OrderApi.md#getOrderCustomerActivity) | **GET** /order/orders/{order_id}/customer_activity | Retrieve customer activity for this order.
 [**getOrderEdiDocuments()**](OrderApi.md#getOrderEdiDocuments) | **GET** /order/orders/{order_id}/edi | Retrieve EDI documents associated with this order.
 [**getOrderEmails()**](OrderApi.md#getOrderEmails) | **GET** /order/orders/{order_id}/emails | Retrieve email delivery information for this order.
 [**getOrderPageViewHistory()**](OrderApi.md#getOrderPageViewHistory) | **GET** /order/orders/{order_id}/page_view_history | Retrieve page view history for this order.
@@ -1222,6 +1223,46 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getOrderCustomerActivity()`
+
+```php
+getOrderCustomerActivity($order_id): \ultracart\v2\models\OrderCustomerActivityResponse
+```
+
+Retrieve customer activity for this order.
+
+Retrieves the customer activity associated with the email address on this order.  This includes email engagement history, email list and segment membership, lifetime metrics and email suppression status.  A customer profile is not required and is not consulted, so this method works for guest orders that have never had a customer profile established.  For the page views captured during the session that placed the order, see the page view history method instead.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **string**| The order id to retrieve customer activity for. |
+
+### Return type
+
+[**\ultracart\v2\models\OrderCustomerActivityResponse**](../Model/OrderCustomerActivityResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

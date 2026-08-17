@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.129"
+    "ultracart/rest_api_v2_sdk_php": "4.1.130"
   }
 }
 ```
@@ -460,6 +460,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**getAccountsReceivableRetryStats**](docs/Api/OrderApi.md#getaccountsreceivableretrystats) | **GET** /order/accountsReceivableRetryConfig/stats | Retrieve A/R Retry Statistics
 *OrderApi* | [**getOrder**](docs/Api/OrderApi.md#getorder) | **GET** /order/orders/{order_id} | Retrieve an order
 *OrderApi* | [**getOrderByToken**](docs/Api/OrderApi.md#getorderbytoken) | **POST** /order/orders/token | Retrieve an order using a token
+*OrderApi* | [**getOrderCustomerActivity**](docs/Api/OrderApi.md#getordercustomeractivity) | **GET** /order/orders/{order_id}/customer_activity | Retrieve customer activity for this order.
 *OrderApi* | [**getOrderEdiDocuments**](docs/Api/OrderApi.md#getorderedidocuments) | **GET** /order/orders/{order_id}/edi | Retrieve EDI documents associated with this order.
 *OrderApi* | [**getOrderEmails**](docs/Api/OrderApi.md#getorderemails) | **GET** /order/orders/{order_id}/emails | Retrieve email delivery information for this order.
 *OrderApi* | [**getOrderPageViewHistory**](docs/Api/OrderApi.md#getorderpageviewhistory) | **GET** /order/orders/{order_id}/page_view_history | Retrieve page view history for this order.
@@ -1520,6 +1521,7 @@ Class | Method | HTTP request | Description
 - [OrderCheckout](docs/Model/OrderCheckout.md)
 - [OrderCoupon](docs/Model/OrderCoupon.md)
 - [OrderCurrentStageHistory](docs/Model/OrderCurrentStageHistory.md)
+- [OrderCustomerActivityResponse](docs/Model/OrderCustomerActivityResponse.md)
 - [OrderDigitalItem](docs/Model/OrderDigitalItem.md)
 - [OrderDigitalOrder](docs/Model/OrderDigitalOrder.md)
 - [OrderEdi](docs/Model/OrderEdi.md)
@@ -1866,6 +1868,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.130 | 08/17/2026 | order api - new method to obtain customer activity similar to the customer endpoint for a profile |
 | 4.1.129 | 08/13/2026 | ChannelPartnerOrder and OrderChannelPartner were missing a property |
 | 4.1.128 | 08/13/2026 | channel partner - added arbitrary discount to ChannelPartnerOrder |
 | 4.1.127 | 08/13/2026 | added arbitrary discounts to order creation for historical imports |
