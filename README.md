@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.130"
+    "ultracart/rest_api_v2_sdk_php": "4.1.131"
   }
 }
 ```
@@ -1868,6 +1868,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.131 | 08/18/2026 | customer activity now returns the SF communications active flag and last_activity_dts |
 | 4.1.130 | 08/17/2026 | order api - new method to obtain customer activity similar to the customer endpoint for a profile |
 | 4.1.129 | 08/13/2026 | ChannelPartnerOrder and OrderChannelPartner were missing a property |
 | 4.1.128 | 08/13/2026 | channel partner - added arbitrary discount to ChannelPartnerOrder |
