@@ -4,9 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**active** | **bool** |  | [optional]
 **activities** | [**\ultracart\v2\models\Activity[]**](Activity.md) |  | [optional]
 **global_unsubscribed** | **bool** |  | [optional]
 **global_unsubscribed_dts** | **string** |  | [optional]
+**last_activity_dts** | **string** |  | [optional]
 **memberships** | [**\ultracart\v2\models\ListSegmentMembership[]**](ListSegmentMembership.md) |  | [optional]
 **metrics** | [**\ultracart\v2\models\Metric[]**](Metric.md) |  | [optional]
 **properties_list** | [**\ultracart\v2\models\Property[]**](Property.md) |  | [optional]

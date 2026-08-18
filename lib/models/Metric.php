@@ -58,12 +58,10 @@ class Metric implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'active' => 'bool',
         'all_time' => 'float',
         'all_time_formatted' => 'string',
         'last_30' => 'float',
         'last_30_formatted' => 'string',
-        'last_activity_dts' => 'string',
         'name' => 'string',
         'prior_30' => 'float',
         'prior_30_formatted' => 'string',
@@ -78,12 +76,10 @@ class Metric implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'active' => null,
         'all_time' => null,
         'all_time_formatted' => null,
         'last_30' => null,
         'last_30_formatted' => null,
-        'last_activity_dts' => null,
         'name' => null,
         'prior_30' => null,
         'prior_30_formatted' => null,
@@ -117,12 +113,10 @@ class Metric implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'active' => 'active',
         'all_time' => 'all_time',
         'all_time_formatted' => 'all_time_formatted',
         'last_30' => 'last_30',
         'last_30_formatted' => 'last_30_formatted',
-        'last_activity_dts' => 'last_activity_dts',
         'name' => 'name',
         'prior_30' => 'prior_30',
         'prior_30_formatted' => 'prior_30_formatted',
@@ -135,12 +129,10 @@ class Metric implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'active' => 'setActive',
         'all_time' => 'setAllTime',
         'all_time_formatted' => 'setAllTimeFormatted',
         'last_30' => 'setLast30',
         'last_30_formatted' => 'setLast30Formatted',
-        'last_activity_dts' => 'setLastActivityDts',
         'name' => 'setName',
         'prior_30' => 'setPrior30',
         'prior_30_formatted' => 'setPrior30Formatted',
@@ -153,12 +145,10 @@ class Metric implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'active' => 'getActive',
         'all_time' => 'getAllTime',
         'all_time_formatted' => 'getAllTimeFormatted',
         'last_30' => 'getLast30',
         'last_30_formatted' => 'getLast30Formatted',
-        'last_activity_dts' => 'getLastActivityDts',
         'name' => 'getName',
         'prior_30' => 'getPrior30',
         'prior_30_formatted' => 'getPrior30Formatted',
@@ -222,12 +212,10 @@ class Metric implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['active'] = $data['active'] ?? null;
         $this->container['all_time'] = $data['all_time'] ?? null;
         $this->container['all_time_formatted'] = $data['all_time_formatted'] ?? null;
         $this->container['last_30'] = $data['last_30'] ?? null;
         $this->container['last_30_formatted'] = $data['last_30_formatted'] ?? null;
-        $this->container['last_activity_dts'] = $data['last_activity_dts'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['prior_30'] = $data['prior_30'] ?? null;
         $this->container['prior_30_formatted'] = $data['prior_30_formatted'] ?? null;
@@ -257,30 +245,6 @@ class Metric implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets active
-     *
-     * @return bool|null
-     */
-    public function getActive()
-    {
-        return $this->container['active'];
-    }
-
-    /**
-     * Sets active
-     *
-     * @param bool|null $active active
-     *
-     * @return self
-     */
-    public function setActive($active)
-    {
-        $this->container['active'] = $active;
-
-        return $this;
-    }
 
     /**
      * Gets all_time
@@ -374,30 +338,6 @@ class Metric implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setLast30Formatted($last_30_formatted)
     {
         $this->container['last_30_formatted'] = $last_30_formatted;
-
-        return $this;
-    }
-
-    /**
-     * Gets last_activity_dts
-     *
-     * @return string|null
-     */
-    public function getLastActivityDts()
-    {
-        return $this->container['last_activity_dts'];
-    }
-
-    /**
-     * Sets last_activity_dts
-     *
-     * @param string|null $last_activity_dts last_activity_dts
-     *
-     * @return self
-     */
-    public function setLastActivityDts($last_activity_dts)
-    {
-        $this->container['last_activity_dts'] = $last_activity_dts;
 
         return $this;
     }

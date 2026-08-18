@@ -58,9 +58,11 @@ class CustomerActivity implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'active' => 'bool',
         'activities' => '\ultracart\v2\models\Activity[]',
         'global_unsubscribed' => 'bool',
         'global_unsubscribed_dts' => 'string',
+        'last_activity_dts' => 'string',
         'memberships' => '\ultracart\v2\models\ListSegmentMembership[]',
         'metrics' => '\ultracart\v2\models\Metric[]',
         'properties_list' => '\ultracart\v2\models\Property[]',
@@ -78,9 +80,11 @@ class CustomerActivity implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'active' => null,
         'activities' => null,
         'global_unsubscribed' => null,
         'global_unsubscribed_dts' => null,
+        'last_activity_dts' => null,
         'memberships' => null,
         'metrics' => null,
         'properties_list' => null,
@@ -117,9 +121,11 @@ class CustomerActivity implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'active' => 'active',
         'activities' => 'activities',
         'global_unsubscribed' => 'global_unsubscribed',
         'global_unsubscribed_dts' => 'global_unsubscribed_dts',
+        'last_activity_dts' => 'last_activity_dts',
         'memberships' => 'memberships',
         'metrics' => 'metrics',
         'properties_list' => 'properties_list',
@@ -135,9 +141,11 @@ class CustomerActivity implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'active' => 'setActive',
         'activities' => 'setActivities',
         'global_unsubscribed' => 'setGlobalUnsubscribed',
         'global_unsubscribed_dts' => 'setGlobalUnsubscribedDts',
+        'last_activity_dts' => 'setLastActivityDts',
         'memberships' => 'setMemberships',
         'metrics' => 'setMetrics',
         'properties_list' => 'setPropertiesList',
@@ -153,9 +161,11 @@ class CustomerActivity implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'active' => 'getActive',
         'activities' => 'getActivities',
         'global_unsubscribed' => 'getGlobalUnsubscribed',
         'global_unsubscribed_dts' => 'getGlobalUnsubscribedDts',
+        'last_activity_dts' => 'getLastActivityDts',
         'memberships' => 'getMemberships',
         'metrics' => 'getMetrics',
         'properties_list' => 'getPropertiesList',
@@ -222,9 +232,11 @@ class CustomerActivity implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->container['active'] = $data['active'] ?? null;
         $this->container['activities'] = $data['activities'] ?? null;
         $this->container['global_unsubscribed'] = $data['global_unsubscribed'] ?? null;
         $this->container['global_unsubscribed_dts'] = $data['global_unsubscribed_dts'] ?? null;
+        $this->container['last_activity_dts'] = $data['last_activity_dts'] ?? null;
         $this->container['memberships'] = $data['memberships'] ?? null;
         $this->container['metrics'] = $data['metrics'] ?? null;
         $this->container['properties_list'] = $data['properties_list'] ?? null;
@@ -257,6 +269,30 @@ class CustomerActivity implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets active
+     *
+     * @return bool|null
+     */
+    public function getActive()
+    {
+        return $this->container['active'];
+    }
+
+    /**
+     * Sets active
+     *
+     * @param bool|null $active active
+     *
+     * @return self
+     */
+    public function setActive($active)
+    {
+        $this->container['active'] = $active;
+
+        return $this;
+    }
 
     /**
      * Gets activities
@@ -326,6 +362,30 @@ class CustomerActivity implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setGlobalUnsubscribedDts($global_unsubscribed_dts)
     {
         $this->container['global_unsubscribed_dts'] = $global_unsubscribed_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_activity_dts
+     *
+     * @return string|null
+     */
+    public function getLastActivityDts()
+    {
+        return $this->container['last_activity_dts'];
+    }
+
+    /**
+     * Sets last_activity_dts
+     *
+     * @param string|null $last_activity_dts last_activity_dts
+     *
+     * @return self
+     */
+    public function setLastActivityDts($last_activity_dts)
+    {
+        $this->container['last_activity_dts'] = $last_activity_dts;
 
         return $this;
     }
