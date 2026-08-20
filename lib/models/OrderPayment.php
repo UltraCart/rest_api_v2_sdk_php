@@ -927,7 +927,7 @@ class OrderPayment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets transactions
      *
-     * @param \ultracart\v2\models\OrderPaymentTransaction[]|null $transactions Transactions associated with processing this payment
+     * @param \ultracart\v2\models\OrderPaymentTransaction[]|null $transactions Transactions associated with processing this payment.  Accepted on insert to carry the payment history of an order captured outside the system.
      *
      * @return self
      */

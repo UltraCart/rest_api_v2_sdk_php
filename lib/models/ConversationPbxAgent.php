@@ -78,7 +78,9 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
         'unavailable_say' => 'string',
         'unavailable_say_voice' => 'string',
         'user_id' => 'int',
-        'voicemail' => 'bool'
+        'voicemail' => 'bool',
+        'zoho_desk_outbound_department_id' => 'string',
+        'zoho_desk_outbound_ticket_enabled' => 'bool'
     ];
 
     /**
@@ -109,7 +111,9 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
         'unavailable_say' => null,
         'unavailable_say_voice' => null,
         'user_id' => 'int32',
-        'voicemail' => null
+        'voicemail' => null,
+        'zoho_desk_outbound_department_id' => null,
+        'zoho_desk_outbound_ticket_enabled' => null
     ];
 
     /**
@@ -159,7 +163,9 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
         'unavailable_say' => 'unavailable_say',
         'unavailable_say_voice' => 'unavailable_say_voice',
         'user_id' => 'user_id',
-        'voicemail' => 'voicemail'
+        'voicemail' => 'voicemail',
+        'zoho_desk_outbound_department_id' => 'zoho_desk_outbound_department_id',
+        'zoho_desk_outbound_ticket_enabled' => 'zoho_desk_outbound_ticket_enabled'
     ];
 
     /**
@@ -188,7 +194,9 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
         'unavailable_say' => 'setUnavailableSay',
         'unavailable_say_voice' => 'setUnavailableSayVoice',
         'user_id' => 'setUserId',
-        'voicemail' => 'setVoicemail'
+        'voicemail' => 'setVoicemail',
+        'zoho_desk_outbound_department_id' => 'setZohoDeskOutboundDepartmentId',
+        'zoho_desk_outbound_ticket_enabled' => 'setZohoDeskOutboundTicketEnabled'
     ];
 
     /**
@@ -217,7 +225,9 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
         'unavailable_say' => 'getUnavailableSay',
         'unavailable_say_voice' => 'getUnavailableSayVoice',
         'user_id' => 'getUserId',
-        'voicemail' => 'getVoicemail'
+        'voicemail' => 'getVoicemail',
+        'zoho_desk_outbound_department_id' => 'getZohoDeskOutboundDepartmentId',
+        'zoho_desk_outbound_ticket_enabled' => 'getZohoDeskOutboundTicketEnabled'
     ];
 
     /**
@@ -330,6 +340,8 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->container['unavailable_say_voice'] = $data['unavailable_say_voice'] ?? null;
         $this->container['user_id'] = $data['user_id'] ?? null;
         $this->container['voicemail'] = $data['voicemail'] ?? null;
+        $this->container['zoho_desk_outbound_department_id'] = $data['zoho_desk_outbound_department_id'] ?? null;
+        $this->container['zoho_desk_outbound_ticket_enabled'] = $data['zoho_desk_outbound_ticket_enabled'] ?? null;
     }
 
     /**
@@ -385,6 +397,10 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
 
         if (!is_null($this->container['unavailable_say_voice']) && (mb_strlen($this->container['unavailable_say_voice']) > 50)) {
             $invalidProperties[] = "invalid value for 'unavailable_say_voice', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['zoho_desk_outbound_department_id']) && (mb_strlen($this->container['zoho_desk_outbound_department_id']) > 50)) {
+            $invalidProperties[] = "invalid value for 'zoho_desk_outbound_department_id', the character length must be smaller than or equal to 50.";
         }
 
         return $invalidProperties;
@@ -950,6 +966,58 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setVoicemail($voicemail)
     {
         $this->container['voicemail'] = $voicemail;
+
+        return $this;
+    }
+
+    /**
+     * Gets zoho_desk_outbound_department_id
+     *
+     * @return string|null
+     */
+    public function getZohoDeskOutboundDepartmentId()
+    {
+        return $this->container['zoho_desk_outbound_department_id'];
+    }
+
+    /**
+     * Sets zoho_desk_outbound_department_id
+     *
+     * @param string|null $zoho_desk_outbound_department_id Zoho Desk department ID to create outbound-call tickets in for this agent
+     *
+     * @return self
+     */
+    public function setZohoDeskOutboundDepartmentId($zoho_desk_outbound_department_id)
+    {
+        if (!is_null($zoho_desk_outbound_department_id) && (mb_strlen($zoho_desk_outbound_department_id) > 50)) {
+            throw new \InvalidArgumentException('invalid length for $zoho_desk_outbound_department_id when calling ConversationPbxAgent., must be smaller than or equal to 50.');
+        }
+
+        $this->container['zoho_desk_outbound_department_id'] = $zoho_desk_outbound_department_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets zoho_desk_outbound_ticket_enabled
+     *
+     * @return bool|null
+     */
+    public function getZohoDeskOutboundTicketEnabled()
+    {
+        return $this->container['zoho_desk_outbound_ticket_enabled'];
+    }
+
+    /**
+     * Sets zoho_desk_outbound_ticket_enabled
+     *
+     * @param bool|null $zoho_desk_outbound_ticket_enabled If true, a Zoho Desk ticket is automatically created for outbound calls placed by this agent
+     *
+     * @return self
+     */
+    public function setZohoDeskOutboundTicketEnabled($zoho_desk_outbound_ticket_enabled)
+    {
+        $this->container['zoho_desk_outbound_ticket_enabled'] = $zoho_desk_outbound_ticket_enabled;
 
         return $this;
     }

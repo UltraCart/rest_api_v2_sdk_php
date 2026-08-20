@@ -1195,7 +1195,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets properties
      *
-     * @param \ultracart\v2\models\OrderProperty[]|null $properties Properties, available only through update, not through insert due to the nature of how properties are handled internally
+     * @param \ultracart\v2\models\OrderProperty[]|null $properties Properties associated with the order
      *
      * @return self
      */

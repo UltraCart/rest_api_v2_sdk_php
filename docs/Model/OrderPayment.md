@@ -23,6 +23,6 @@ Name | Type | Description | Notes
 **surcharge_transaction_fee** | **float** | Surcharge transaction fee | [optional]
 **surcharge_transaction_percentage** | **float** | Surcharge transaction percentage | [optional]
 **test_order** | **bool** | True if this is a test order | [optional]
-**transactions** | [**\ultracart\v2\models\OrderPaymentTransaction[]**](OrderPaymentTransaction.md) | Transactions associated with processing this payment | [optional]
+**transactions** | [**\ultracart\v2\models\OrderPaymentTransaction[]**](OrderPaymentTransaction.md) | Transactions associated with processing this payment.  Accepted on insert to carry the payment history of an order captured outside the system. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
