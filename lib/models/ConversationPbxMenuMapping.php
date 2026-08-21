@@ -61,6 +61,7 @@ class ConversationPbxMenuMapping implements ModelInterface, ArrayAccess, \JsonSe
         'action' => 'string',
         'action_target' => 'string',
         'digits' => 'int',
+        'sms_from_number' => 'string',
         'speech' => 'string',
         'text_message' => 'string'
     ];
@@ -76,6 +77,7 @@ class ConversationPbxMenuMapping implements ModelInterface, ArrayAccess, \JsonSe
         'action' => null,
         'action_target' => null,
         'digits' => 'int32',
+        'sms_from_number' => null,
         'speech' => null,
         'text_message' => null
     ];
@@ -110,6 +112,7 @@ class ConversationPbxMenuMapping implements ModelInterface, ArrayAccess, \JsonSe
         'action' => 'action',
         'action_target' => 'action_target',
         'digits' => 'digits',
+        'sms_from_number' => 'sms_from_number',
         'speech' => 'speech',
         'text_message' => 'text_message'
     ];
@@ -123,6 +126,7 @@ class ConversationPbxMenuMapping implements ModelInterface, ArrayAccess, \JsonSe
         'action' => 'setAction',
         'action_target' => 'setActionTarget',
         'digits' => 'setDigits',
+        'sms_from_number' => 'setSmsFromNumber',
         'speech' => 'setSpeech',
         'text_message' => 'setTextMessage'
     ];
@@ -136,6 +140,7 @@ class ConversationPbxMenuMapping implements ModelInterface, ArrayAccess, \JsonSe
         'action' => 'getAction',
         'action_target' => 'getActionTarget',
         'digits' => 'getDigits',
+        'sms_from_number' => 'getSmsFromNumber',
         'speech' => 'getSpeech',
         'text_message' => 'getTextMessage'
     ];
@@ -223,6 +228,7 @@ class ConversationPbxMenuMapping implements ModelInterface, ArrayAccess, \JsonSe
         $this->container['action'] = $data['action'] ?? null;
         $this->container['action_target'] = $data['action_target'] ?? null;
         $this->container['digits'] = $data['digits'] ?? null;
+        $this->container['sms_from_number'] = $data['sms_from_number'] ?? null;
         $this->container['speech'] = $data['speech'] ?? null;
         $this->container['text_message'] = $data['text_message'] ?? null;
     }
@@ -251,6 +257,10 @@ class ConversationPbxMenuMapping implements ModelInterface, ArrayAccess, \JsonSe
 
         if (!is_null($this->container['action_target']) && (mb_strlen($this->container['action_target']) > 50)) {
             $invalidProperties[] = "invalid value for 'action_target', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['sms_from_number']) && (mb_strlen($this->container['sms_from_number']) > 25)) {
+            $invalidProperties[] = "invalid value for 'sms_from_number', the character length must be smaller than or equal to 25.";
         }
 
         if (!is_null($this->container['text_message']) && (mb_strlen($this->container['text_message']) > 1600)) {
@@ -358,6 +368,34 @@ class ConversationPbxMenuMapping implements ModelInterface, ArrayAccess, \JsonSe
     public function setDigits($digits)
     {
         $this->container['digits'] = $digits;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_from_number
+     *
+     * @return string|null
+     */
+    public function getSmsFromNumber()
+    {
+        return $this->container['sms_from_number'];
+    }
+
+    /**
+     * Sets sms_from_number
+     *
+     * @param string|null $sms_from_number Optional phone number to send the text message from.  Must be a phone number configured on this merchant account and SMS enabled.  Defaults to the number the caller dialed.  Only used when the action is 'send text'.
+     *
+     * @return self
+     */
+    public function setSmsFromNumber($sms_from_number)
+    {
+        if (!is_null($sms_from_number) && (mb_strlen($sms_from_number) > 25)) {
+            throw new \InvalidArgumentException('invalid length for $sms_from_number when calling ConversationPbxMenuMapping., must be smaller than or equal to 25.');
+        }
+
+        $this->container['sms_from_number'] = $sms_from_number;
 
         return $this;
     }

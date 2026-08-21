@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.134"
+    "ultracart/rest_api_v2_sdk_php": "4.1.135"
   }
 }
 ```
@@ -1868,6 +1868,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.135 | 08/21/2026 | conversation pbx - support send text operation as a menu item froma different phone number |
 | 4.1.134 | 08/21/2026 | conversation - pbx menu mapping for send text |
 | 4.1.133 | 08/20/2026 | conversations - pbx agent setting for creating tickets in zoho desk for outgoing calls |
 | 4.1.132 | 08/18/2026 | customer activity bug fix |
