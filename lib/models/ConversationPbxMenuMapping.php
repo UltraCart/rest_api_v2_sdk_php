@@ -61,7 +61,8 @@ class ConversationPbxMenuMapping implements ModelInterface, ArrayAccess, \JsonSe
         'action' => 'string',
         'action_target' => 'string',
         'digits' => 'int',
-        'speech' => 'string'
+        'speech' => 'string',
+        'text_message' => 'string'
     ];
 
     /**
@@ -75,7 +76,8 @@ class ConversationPbxMenuMapping implements ModelInterface, ArrayAccess, \JsonSe
         'action' => null,
         'action_target' => null,
         'digits' => 'int32',
-        'speech' => null
+        'speech' => null,
+        'text_message' => null
     ];
 
     /**
@@ -108,7 +110,8 @@ class ConversationPbxMenuMapping implements ModelInterface, ArrayAccess, \JsonSe
         'action' => 'action',
         'action_target' => 'action_target',
         'digits' => 'digits',
-        'speech' => 'speech'
+        'speech' => 'speech',
+        'text_message' => 'text_message'
     ];
 
     /**
@@ -120,7 +123,8 @@ class ConversationPbxMenuMapping implements ModelInterface, ArrayAccess, \JsonSe
         'action' => 'setAction',
         'action_target' => 'setActionTarget',
         'digits' => 'setDigits',
-        'speech' => 'setSpeech'
+        'speech' => 'setSpeech',
+        'text_message' => 'setTextMessage'
     ];
 
     /**
@@ -132,7 +136,8 @@ class ConversationPbxMenuMapping implements ModelInterface, ArrayAccess, \JsonSe
         'action' => 'getAction',
         'action_target' => 'getActionTarget',
         'digits' => 'getDigits',
-        'speech' => 'getSpeech'
+        'speech' => 'getSpeech',
+        'text_message' => 'getTextMessage'
     ];
 
     /**
@@ -181,6 +186,7 @@ class ConversationPbxMenuMapping implements ModelInterface, ArrayAccess, \JsonSe
     public const ACTION_QUEUE = 'queue';
     public const ACTION_VOICEMAIL = 'voicemail';
     public const ACTION_AGENT = 'agent';
+    public const ACTION_SEND_TEXT = 'send text';
 
     /**
      * Gets allowable values of the enum
@@ -195,6 +201,7 @@ class ConversationPbxMenuMapping implements ModelInterface, ArrayAccess, \JsonSe
             self::ACTION_QUEUE,
             self::ACTION_VOICEMAIL,
             self::ACTION_AGENT,
+            self::ACTION_SEND_TEXT,
         ];
     }
 
@@ -217,6 +224,7 @@ class ConversationPbxMenuMapping implements ModelInterface, ArrayAccess, \JsonSe
         $this->container['action_target'] = $data['action_target'] ?? null;
         $this->container['digits'] = $data['digits'] ?? null;
         $this->container['speech'] = $data['speech'] ?? null;
+        $this->container['text_message'] = $data['text_message'] ?? null;
     }
 
     /**
@@ -243,6 +251,10 @@ class ConversationPbxMenuMapping implements ModelInterface, ArrayAccess, \JsonSe
 
         if (!is_null($this->container['action_target']) && (mb_strlen($this->container['action_target']) > 50)) {
             $invalidProperties[] = "invalid value for 'action_target', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['text_message']) && (mb_strlen($this->container['text_message']) > 1600)) {
+            $invalidProperties[] = "invalid value for 'text_message', the character length must be smaller than or equal to 1600.";
         }
 
         return $invalidProperties;
@@ -370,6 +382,34 @@ class ConversationPbxMenuMapping implements ModelInterface, ArrayAccess, \JsonSe
     public function setSpeech($speech)
     {
         $this->container['speech'] = $speech;
+
+        return $this;
+    }
+
+    /**
+     * Gets text_message
+     *
+     * @return string|null
+     */
+    public function getTextMessage()
+    {
+        return $this->container['text_message'];
+    }
+
+    /**
+     * Sets text_message
+     *
+     * @param string|null $text_message Text message body sent to the caller when the action is 'send text'.  Ignored for all other actions.
+     *
+     * @return self
+     */
+    public function setTextMessage($text_message)
+    {
+        if (!is_null($text_message) && (mb_strlen($text_message) > 1600)) {
+            throw new \InvalidArgumentException('invalid length for $text_message when calling ConversationPbxMenuMapping., must be smaller than or equal to 1600.');
+        }
+
+        $this->container['text_message'] = $text_message;
 
         return $this;
     }

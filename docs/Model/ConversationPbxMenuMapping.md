@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **action_target** | **string** | Action target.  This is the UUID associated with the configuration object of that particular type. | [optional]
 **digits** | **int** | Digits | [optional]
 **speech** | **string** | Speech | [optional]
+**text_message** | **string** | Text message body sent to the caller when the action is &#39;send text&#39;.  Ignored for all other actions. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
