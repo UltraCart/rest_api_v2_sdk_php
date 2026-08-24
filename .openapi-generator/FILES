@@ -38,6 +38,8 @@ docs/Model/Activity.md
 docs/Model/AddLibraryItemRequest.md
 docs/Model/AdjustInternalCertificateRequest.md
 docs/Model/AdjustInternalCertificateResponse.md
+docs/Model/AdjustLoyaltyPointsRequest.md
+docs/Model/AdjustLoyaltyPointsResponse.md
 docs/Model/Affiliate.md
 docs/Model/AffiliateAttribute.md
 docs/Model/AffiliateClick.md
@@ -470,6 +472,7 @@ docs/Model/CustomerEmailSuppressionResult.md
 docs/Model/CustomerLoyalty.md
 docs/Model/CustomerLoyaltyLedger.md
 docs/Model/CustomerLoyaltyRedemption.md
+docs/Model/CustomerLoyaltyResponse.md
 docs/Model/CustomerMagicLinkResponse.md
 docs/Model/CustomerMergeRequest.md
 docs/Model/CustomerOrdersSummary.md
@@ -1105,6 +1108,8 @@ lib/models/Activity.php
 lib/models/AddLibraryItemRequest.php
 lib/models/AdjustInternalCertificateRequest.php
 lib/models/AdjustInternalCertificateResponse.php
+lib/models/AdjustLoyaltyPointsRequest.php
+lib/models/AdjustLoyaltyPointsResponse.php
 lib/models/Affiliate.php
 lib/models/AffiliateAttribute.php
 lib/models/AffiliateClick.php
@@ -1537,6 +1542,7 @@ lib/models/CustomerEmailSuppressionResult.php
 lib/models/CustomerLoyalty.php
 lib/models/CustomerLoyaltyLedger.php
 lib/models/CustomerLoyaltyRedemption.php
+lib/models/CustomerLoyaltyResponse.php
 lib/models/CustomerMagicLinkResponse.php
 lib/models/CustomerMergeRequest.php
 lib/models/CustomerOrdersSummary.php

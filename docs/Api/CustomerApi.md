@@ -6,12 +6,14 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addCustomerStoreCredit()**](CustomerApi.md#addCustomerStoreCredit) | **POST** /customer/customers/{customer_profile_oid}/store_credit | Adds store credit to a customer
 [**adjustInternalCertificate()**](CustomerApi.md#adjustInternalCertificate) | **POST** /customer/customers/{customer_profile_oid}/adjust_cashback_balance | Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed.
+[**adjustLoyaltyPoints()**](CustomerApi.md#adjustLoyaltyPoints) | **POST** /customer/customers/{customer_profile_oid}/adjust_loyalty_points | Adjusts the loyalty points for a customer by adding a record to the loyalty ledger.
 [**deleteCustomer()**](CustomerApi.md#deleteCustomer) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
 [**deleteWishListItem()**](CustomerApi.md#deleteWishListItem) | **DELETE** /customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid} | Delete a customer wishlist item
 [**getCustomer()**](CustomerApi.md#getCustomer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 [**getCustomerByEmail()**](CustomerApi.md#getCustomerByEmail) | **GET** /customer/customers/by_email/{email} | Retrieve a customer by Email
 [**getCustomerEditorValues()**](CustomerApi.md#getCustomerEditorValues) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
 [**getCustomerEmailLists()**](CustomerApi.md#getCustomerEmailLists) | **GET** /customer/email_lists | Retrieve all email lists across all storefronts
+[**getCustomerLoyalty()**](CustomerApi.md#getCustomerLoyalty) | **GET** /customer/customers/{customer_profile_oid}/loyalty | Retrieve the loyalty points, ledger and redemptions for a customer
 [**getCustomerStoreCredit()**](CustomerApi.md#getCustomerStoreCredit) | **GET** /customer/customers/{customer_profile_oid}/store_credit | Retrieve the customer store credit accumulated through loyalty programs
 [**getCustomerWishList()**](CustomerApi.md#getCustomerWishList) | **GET** /customer/customers/{customer_profile_oid}/wishlist | Retrieve wishlist items for customer
 [**getCustomerWishListItem()**](CustomerApi.md#getCustomerWishListItem) | **GET** /customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid} | Retrieve wishlist item for customer
@@ -204,6 +206,47 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\AdjustInternalCertificateResponse**](../Model/AdjustInternalCertificateResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `adjustLoyaltyPoints()`
+
+```php
+adjustLoyaltyPoints($customer_profile_oid, $adjust_loyalty_points_request): \ultracart\v2\models\AdjustLoyaltyPointsResponse
+```
+
+Adjusts the loyalty points for a customer by adding a record to the loyalty ledger.
+
+Adjusts the loyalty points for a customer by adding a record to the loyalty ledger.  The loyalty ledger is append only.  Records are never updated or deleted, so a correction is made by posting a second adjustment with the opposite sign.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer_profile_oid** | **int**| The customer profile oid |
+ **adjust_loyalty_points_request** | [**\ultracart\v2\models\AdjustLoyaltyPointsRequest**](../Model/AdjustLoyaltyPointsRequest.md)| adjustLoyaltyPointsRequest |
+
+### Return type
+
+[**\ultracart\v2\models\AdjustLoyaltyPointsResponse**](../Model/AdjustLoyaltyPointsResponse.md)
 
 ### Authorization
 
@@ -622,6 +665,46 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**\ultracart\v2\models\EmailListsResponse**](../Model/EmailListsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getCustomerLoyalty()`
+
+```php
+getCustomerLoyalty($customer_profile_oid): \ultracart\v2\models\CustomerLoyaltyResponse
+```
+
+Retrieve the loyalty points, ledger and redemptions for a customer
+
+Retrieve the loyalty points, ledger and redemptions for a customer.  This is a convenience method that returns the same information as expanding loyalty on the customer object, without having to retrieve the entire customer.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer_profile_oid** | **int**| The customer oid to retrieve. |
+
+### Return type
+
+[**\ultracart\v2\models\CustomerLoyaltyResponse**](../Model/CustomerLoyaltyResponse.md)
 
 ### Authorization
 

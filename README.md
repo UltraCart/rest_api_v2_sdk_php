@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.135"
+    "ultracart/rest_api_v2_sdk_php": "4.1.136"
   }
 }
 ```
@@ -330,12 +330,14 @@ Class | Method | HTTP request | Description
 *CouponApi* | [**uploadCouponCodes**](docs/Api/CouponApi.md#uploadcouponcodes) | **POST** /coupon/coupons/{coupon_oid}/upload_codes | Upload one-time codes for a coupon
 *CustomerApi* | [**addCustomerStoreCredit**](docs/Api/CustomerApi.md#addcustomerstorecredit) | **POST** /customer/customers/{customer_profile_oid}/store_credit | Adds store credit to a customer
 *CustomerApi* | [**adjustInternalCertificate**](docs/Api/CustomerApi.md#adjustinternalcertificate) | **POST** /customer/customers/{customer_profile_oid}/adjust_cashback_balance | Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed.
+*CustomerApi* | [**adjustLoyaltyPoints**](docs/Api/CustomerApi.md#adjustloyaltypoints) | **POST** /customer/customers/{customer_profile_oid}/adjust_loyalty_points | Adjusts the loyalty points for a customer by adding a record to the loyalty ledger.
 *CustomerApi* | [**deleteCustomer**](docs/Api/CustomerApi.md#deletecustomer) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
 *CustomerApi* | [**deleteWishListItem**](docs/Api/CustomerApi.md#deletewishlistitem) | **DELETE** /customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid} | Delete a customer wishlist item
 *CustomerApi* | [**getCustomer**](docs/Api/CustomerApi.md#getcustomer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 *CustomerApi* | [**getCustomerByEmail**](docs/Api/CustomerApi.md#getcustomerbyemail) | **GET** /customer/customers/by_email/{email} | Retrieve a customer by Email
 *CustomerApi* | [**getCustomerEditorValues**](docs/Api/CustomerApi.md#getcustomereditorvalues) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
 *CustomerApi* | [**getCustomerEmailLists**](docs/Api/CustomerApi.md#getcustomeremaillists) | **GET** /customer/email_lists | Retrieve all email lists across all storefronts
+*CustomerApi* | [**getCustomerLoyalty**](docs/Api/CustomerApi.md#getcustomerloyalty) | **GET** /customer/customers/{customer_profile_oid}/loyalty | Retrieve the loyalty points, ledger and redemptions for a customer
 *CustomerApi* | [**getCustomerStoreCredit**](docs/Api/CustomerApi.md#getcustomerstorecredit) | **GET** /customer/customers/{customer_profile_oid}/store_credit | Retrieve the customer store credit accumulated through loyalty programs
 *CustomerApi* | [**getCustomerWishList**](docs/Api/CustomerApi.md#getcustomerwishlist) | **GET** /customer/customers/{customer_profile_oid}/wishlist | Retrieve wishlist items for customer
 *CustomerApi* | [**getCustomerWishListItem**](docs/Api/CustomerApi.md#getcustomerwishlistitem) | **GET** /customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid} | Retrieve wishlist item for customer
@@ -748,6 +750,8 @@ Class | Method | HTTP request | Description
 - [AddLibraryItemRequest](docs/Model/AddLibraryItemRequest.md)
 - [AdjustInternalCertificateRequest](docs/Model/AdjustInternalCertificateRequest.md)
 - [AdjustInternalCertificateResponse](docs/Model/AdjustInternalCertificateResponse.md)
+- [AdjustLoyaltyPointsRequest](docs/Model/AdjustLoyaltyPointsRequest.md)
+- [AdjustLoyaltyPointsResponse](docs/Model/AdjustLoyaltyPointsResponse.md)
 - [Affiliate](docs/Model/Affiliate.md)
 - [AffiliateAttribute](docs/Model/AffiliateAttribute.md)
 - [AffiliateClick](docs/Model/AffiliateClick.md)
@@ -1180,6 +1184,7 @@ Class | Method | HTTP request | Description
 - [CustomerLoyalty](docs/Model/CustomerLoyalty.md)
 - [CustomerLoyaltyLedger](docs/Model/CustomerLoyaltyLedger.md)
 - [CustomerLoyaltyRedemption](docs/Model/CustomerLoyaltyRedemption.md)
+- [CustomerLoyaltyResponse](docs/Model/CustomerLoyaltyResponse.md)
 - [CustomerMagicLinkResponse](docs/Model/CustomerMagicLinkResponse.md)
 - [CustomerMergeRequest](docs/Model/CustomerMergeRequest.md)
 - [CustomerOrdersSummary](docs/Model/CustomerOrdersSummary.md)
@@ -1868,6 +1873,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.136 | 08/24/2026 | customer api - adjust method for loyalty points |
 | 4.1.135 | 08/21/2026 | conversation pbx - support send text operation as a menu item froma different phone number |
 | 4.1.134 | 08/21/2026 | conversation - pbx menu mapping for send text |
 | 4.1.133 | 08/20/2026 | conversations - pbx agent setting for creating tickets in zoho desk for outgoing calls |
