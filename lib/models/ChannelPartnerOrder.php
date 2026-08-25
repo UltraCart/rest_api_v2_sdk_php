@@ -61,6 +61,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'advertising_source' => 'string',
         'affiliate_id' => 'string',
         'affiliate_sub_id' => 'string',
+        'arbitrary_pricing_tier_names' => 'string[]',
         'arbitrary_shipping_handling_total' => 'float',
         'arbitrary_subtotal_discount' => 'float',
         'arbitrary_tax' => 'float',
@@ -168,6 +169,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'advertising_source' => null,
         'affiliate_id' => null,
         'affiliate_sub_id' => null,
+        'arbitrary_pricing_tier_names' => null,
         'arbitrary_shipping_handling_total' => null,
         'arbitrary_subtotal_discount' => null,
         'arbitrary_tax' => null,
@@ -294,6 +296,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'advertising_source' => 'advertisingSource',
         'affiliate_id' => 'affiliate_id',
         'affiliate_sub_id' => 'affiliate_sub_id',
+        'arbitrary_pricing_tier_names' => 'arbitrary_pricing_tier_names',
         'arbitrary_shipping_handling_total' => 'arbitrary_shipping_handling_total',
         'arbitrary_subtotal_discount' => 'arbitrary_subtotal_discount',
         'arbitrary_tax' => 'arbitrary_tax',
@@ -399,6 +402,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'advertising_source' => 'setAdvertisingSource',
         'affiliate_id' => 'setAffiliateId',
         'affiliate_sub_id' => 'setAffiliateSubId',
+        'arbitrary_pricing_tier_names' => 'setArbitraryPricingTierNames',
         'arbitrary_shipping_handling_total' => 'setArbitraryShippingHandlingTotal',
         'arbitrary_subtotal_discount' => 'setArbitrarySubtotalDiscount',
         'arbitrary_tax' => 'setArbitraryTax',
@@ -504,6 +508,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         'advertising_source' => 'getAdvertisingSource',
         'affiliate_id' => 'getAffiliateId',
         'affiliate_sub_id' => 'getAffiliateSubId',
+        'arbitrary_pricing_tier_names' => 'getArbitraryPricingTierNames',
         'arbitrary_shipping_handling_total' => 'getArbitraryShippingHandlingTotal',
         'arbitrary_subtotal_discount' => 'getArbitrarySubtotalDiscount',
         'arbitrary_tax' => 'getArbitraryTax',
@@ -727,6 +732,7 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['advertising_source'] = $data['advertising_source'] ?? null;
         $this->container['affiliate_id'] = $data['affiliate_id'] ?? null;
         $this->container['affiliate_sub_id'] = $data['affiliate_sub_id'] ?? null;
+        $this->container['arbitrary_pricing_tier_names'] = $data['arbitrary_pricing_tier_names'] ?? null;
         $this->container['arbitrary_shipping_handling_total'] = $data['arbitrary_shipping_handling_total'] ?? null;
         $this->container['arbitrary_subtotal_discount'] = $data['arbitrary_subtotal_discount'] ?? null;
         $this->container['arbitrary_tax'] = $data['arbitrary_tax'] ?? null;
@@ -1090,6 +1096,30 @@ class ChannelPartnerOrder implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setAffiliateSubId($affiliate_sub_id)
     {
         $this->container['affiliate_sub_id'] = $affiliate_sub_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets arbitrary_pricing_tier_names
+     *
+     * @return string[]|null
+     */
+    public function getArbitraryPricingTierNames()
+    {
+        return $this->container['arbitrary_pricing_tier_names'];
+    }
+
+    /**
+     * Sets arbitrary_pricing_tier_names
+     *
+     * @param string[]|null $arbitrary_pricing_tier_names Names of pricing tiers to price this order against, without associating a customer profile.  An unknown tier name will fail the import.  An item that also supplies arbitrary_unit_cost keeps that cost and ignores the tier.  If a customer profile is attached to this order during checkout, these tiers are granted to that profile permanently.
+     *
+     * @return self
+     */
+    public function setArbitraryPricingTierNames($arbitrary_pricing_tier_names)
+    {
+        $this->container['arbitrary_pricing_tier_names'] = $arbitrary_pricing_tier_names;
 
         return $this;
     }

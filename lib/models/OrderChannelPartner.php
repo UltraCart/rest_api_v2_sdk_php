@@ -58,6 +58,7 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
+        'arbitrary_pricing_tier_names' => 'string[]',
         'auto_approve_purchase_order' => 'bool',
         'channel_partner_code' => 'string',
         'channel_partner_data' => 'string',
@@ -80,6 +81,7 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'arbitrary_pricing_tier_names' => null,
         'auto_approve_purchase_order' => null,
         'channel_partner_code' => null,
         'channel_partner_data' => null,
@@ -121,6 +123,7 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
+        'arbitrary_pricing_tier_names' => 'arbitrary_pricing_tier_names',
         'auto_approve_purchase_order' => 'auto_approve_purchase_order',
         'channel_partner_code' => 'channel_partner_code',
         'channel_partner_data' => 'channel_partner_data',
@@ -141,6 +144,7 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
+        'arbitrary_pricing_tier_names' => 'setArbitraryPricingTierNames',
         'auto_approve_purchase_order' => 'setAutoApprovePurchaseOrder',
         'channel_partner_code' => 'setChannelPartnerCode',
         'channel_partner_data' => 'setChannelPartnerData',
@@ -161,6 +165,7 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
+        'arbitrary_pricing_tier_names' => 'getArbitraryPricingTierNames',
         'auto_approve_purchase_order' => 'getAutoApprovePurchaseOrder',
         'channel_partner_code' => 'getChannelPartnerCode',
         'channel_partner_data' => 'getChannelPartnerData',
@@ -232,6 +237,7 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
+        $this->container['arbitrary_pricing_tier_names'] = $data['arbitrary_pricing_tier_names'] ?? null;
         $this->container['auto_approve_purchase_order'] = $data['auto_approve_purchase_order'] ?? null;
         $this->container['channel_partner_code'] = $data['channel_partner_code'] ?? null;
         $this->container['channel_partner_data'] = $data['channel_partner_data'] ?? null;
@@ -273,6 +279,30 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess, \JsonSerializa
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets arbitrary_pricing_tier_names
+     *
+     * @return string[]|null
+     */
+    public function getArbitraryPricingTierNames()
+    {
+        return $this->container['arbitrary_pricing_tier_names'];
+    }
+
+    /**
+     * Sets arbitrary_pricing_tier_names
+     *
+     * @param string[]|null $arbitrary_pricing_tier_names Names of pricing tiers to price this order against, without associating a customer profile.  An unknown tier name will fail the import.  An item that also supplies arbitrary_unit_cost keeps that cost and ignores the tier.  If a customer profile is attached to this order during checkout, these tiers are granted to that profile permanently.  Only applicable on inserting orders.
+     *
+     * @return self
+     */
+    public function setArbitraryPricingTierNames($arbitrary_pricing_tier_names)
+    {
+        $this->container['arbitrary_pricing_tier_names'] = $arbitrary_pricing_tier_names;
+
+        return $this;
+    }
 
     /**
      * Gets auto_approve_purchase_order

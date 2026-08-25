@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **advertising_source** | **string** | advertising_source | [optional]
 **affiliate_id** | **string** | Affiliate Id | [optional]
 **affiliate_sub_id** | **string** | Affiliate Sub Id | [optional]
+**arbitrary_pricing_tier_names** | **string[]** | Names of pricing tiers to price this order against, without associating a customer profile.  An unknown tier name will fail the import.  An item that also supplies arbitrary_unit_cost keeps that cost and ignores the tier.  If a customer profile is attached to this order during checkout, these tiers are granted to that profile permanently. | [optional]
 **arbitrary_shipping_handling_total** | **float** | Arbitrary shipping handling total | [optional]
 **arbitrary_subtotal_discount** | **float** | Arbitrary subtotal discount for overriding the calculated subtotal discount.  Send the gross price in the item arbitrary unit cost and the discount here. | [optional]
 **arbitrary_tax** | **float** | Arbitrary tax for overriding calculated taxes | [optional]

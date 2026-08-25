@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.136"
+    "ultracart/rest_api_v2_sdk_php": "4.1.137"
   }
 }
 ```
@@ -1873,6 +1873,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.137 | 08/24/2026 | order api - arbitrary pricing tier for order creation |
 | 4.1.136 | 08/24/2026 | customer api - adjust method for loyalty points |
 | 4.1.135 | 08/21/2026 | conversation pbx - support send text operation as a menu item froma different phone number |
 | 4.1.134 | 08/21/2026 | conversation - pbx menu mapping for send text |
