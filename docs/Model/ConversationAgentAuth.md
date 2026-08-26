@@ -1,0 +1,30 @@
+# # ConversationAgentAuth
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**chat_admin** | **bool** |  | [optional]
+**chat_user** | **bool** |  | [optional]
+**conversation_participant_arn** | **string** |  | [optional]
+**conversation_participant_name** | **string** |  | [optional]
+**customer_profile** | **bool** |  | [optional]
+**default_phone_number** | **string** | The default phone number this agent should use when making an outbound call. | [optional]
+**group_ids** | **int[]** | UltraCart Groups this user belongs to | [optional]
+**jwt** | **string** |  | [optional]
+**merchant_id** | **string** |  | [optional]
+**merchants** | [**\ultracart\v2\models\ConversationAgentAuthMerchant[]**](ConversationAgentAuthMerchant.md) | List of merchants in this linked merchant group | [optional]
+**parent_merchant_id** | **string** | The parent merchant ID for PBX. For non-linked merchants, equals merchant_id. | [optional]
+**pbx_admin** | **bool** |  | [optional]
+**pbx_jwt** | **string** |  | [optional]
+**pbx_supervisor** | **bool** |  | [optional]
+**pbx_user** | **bool** |  | [optional]
+**pbx_voice_identity** | **string** |  | [optional]
+**pbx_voice_token** | **string** |  | [optional]
+**pbx_worker_token** | **string** |  | [optional]
+**pbx_worker_token_v2** | **string** |  | [optional]
+**twilio_accounts** | [**\ultracart\v2\models\ConversationTwilioAccount[]**](ConversationTwilioAccount.md) |  | [optional]
+**user_id** | **int** | UltraCart User ID | [optional]
+**websocket_url** | **string** |  | [optional]
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
