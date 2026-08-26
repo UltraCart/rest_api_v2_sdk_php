@@ -6,6 +6,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.139 | 08/26/2026 | sfvb - internal testing |
 | 4.1.138 | 08/26/2026 | sfvb - internal testing |
 | 4.1.137 | 08/24/2026 | order api - arbitrary pricing tier for order creation |
 | 4.1.136 | 08/24/2026 | customer api - adjust method for loyalty points |
