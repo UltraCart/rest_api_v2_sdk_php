@@ -61,6 +61,9 @@ class SfvbWhoamiResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'acting_as_user' => 'bool',
         'application_name' => 'string',
         'authentication_type' => 'string',
+        'can_publish' => 'bool',
+        'can_read' => 'bool',
+        'can_write' => 'bool',
         'device_scope' => 'string',
         'login' => 'string',
         'merchant_id' => 'string',
@@ -81,6 +84,9 @@ class SfvbWhoamiResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'acting_as_user' => null,
         'application_name' => null,
         'authentication_type' => null,
+        'can_publish' => null,
+        'can_read' => null,
+        'can_write' => null,
         'device_scope' => null,
         'login' => null,
         'merchant_id' => null,
@@ -120,6 +126,9 @@ class SfvbWhoamiResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'acting_as_user' => 'actingAsUser',
         'application_name' => 'applicationName',
         'authentication_type' => 'authenticationType',
+        'can_publish' => 'canPublish',
+        'can_read' => 'canRead',
+        'can_write' => 'canWrite',
         'device_scope' => 'deviceScope',
         'login' => 'login',
         'merchant_id' => 'merchantId',
@@ -138,6 +147,9 @@ class SfvbWhoamiResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'acting_as_user' => 'setActingAsUser',
         'application_name' => 'setApplicationName',
         'authentication_type' => 'setAuthenticationType',
+        'can_publish' => 'setCanPublish',
+        'can_read' => 'setCanRead',
+        'can_write' => 'setCanWrite',
         'device_scope' => 'setDeviceScope',
         'login' => 'setLogin',
         'merchant_id' => 'setMerchantId',
@@ -156,6 +168,9 @@ class SfvbWhoamiResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'acting_as_user' => 'getActingAsUser',
         'application_name' => 'getApplicationName',
         'authentication_type' => 'getAuthenticationType',
+        'can_publish' => 'getCanPublish',
+        'can_read' => 'getCanRead',
+        'can_write' => 'getCanWrite',
         'device_scope' => 'getDeviceScope',
         'login' => 'getLogin',
         'merchant_id' => 'getMerchantId',
@@ -225,6 +240,9 @@ class SfvbWhoamiResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->container['acting_as_user'] = $data['acting_as_user'] ?? null;
         $this->container['application_name'] = $data['application_name'] ?? null;
         $this->container['authentication_type'] = $data['authentication_type'] ?? null;
+        $this->container['can_publish'] = $data['can_publish'] ?? null;
+        $this->container['can_read'] = $data['can_read'] ?? null;
+        $this->container['can_write'] = $data['can_write'] ?? null;
         $this->container['device_scope'] = $data['device_scope'] ?? null;
         $this->container['login'] = $data['login'] ?? null;
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
@@ -326,6 +344,78 @@ class SfvbWhoamiResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setAuthenticationType($authentication_type)
     {
         $this->container['authentication_type'] = $authentication_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets can_publish
+     *
+     * @return bool|null
+     */
+    public function getCanPublish()
+    {
+        return $this->container['can_publish'];
+    }
+
+    /**
+     * Sets can_publish
+     *
+     * @param bool|null $can_publish True when this token may write a target that is currently live - an active upsell offer, an email on a delivering flow, the active theme, the storefront root.  Never infer this; it is the difference between a draft edit and a shopper visible change.
+     *
+     * @return self
+     */
+    public function setCanPublish($can_publish)
+    {
+        $this->container['can_publish'] = $can_publish;
+
+        return $this;
+    }
+
+    /**
+     * Gets can_read
+     *
+     * @return bool|null
+     */
+    public function getCanRead()
+    {
+        return $this->container['can_read'];
+    }
+
+    /**
+     * Sets can_read
+     *
+     * @param bool|null $can_read True when this token may read.  Do not infer this from the requested scope name.
+     *
+     * @return self
+     */
+    public function setCanRead($can_read)
+    {
+        $this->container['can_read'] = $can_read;
+
+        return $this;
+    }
+
+    /**
+     * Gets can_write
+     *
+     * @return bool|null
+     */
+    public function getCanWrite()
+    {
+        return $this->container['can_write'];
+    }
+
+    /**
+     * Sets can_write
+     *
+     * @param bool|null $can_write True when this token may write.  Writing a target that is not currently live needs only this.
+     *
+     * @return self
+     */
+    public function setCanWrite($can_write)
+    {
+        $this->container['can_write'] = $can_write;
 
         return $this;
     }
