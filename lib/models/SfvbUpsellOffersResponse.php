@@ -99,7 +99,7 @@ class SfvbUpsellOffersResponse implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'upsell_offers' => 'upsellOffers'
+        'upsell_offers' => 'upsell_offers'
     ];
 
     /**

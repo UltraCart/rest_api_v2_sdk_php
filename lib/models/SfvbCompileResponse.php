@@ -109,10 +109,10 @@ class SfvbCompileResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'container_id' => 'containerId',
+        'container_id' => 'container_id',
         'directives' => 'directives',
         'success' => 'success',
-        'used_elements' => 'usedElements',
+        'used_elements' => 'used_elements',
         'validation' => 'validation',
         'velocity' => 'velocity'
     ];

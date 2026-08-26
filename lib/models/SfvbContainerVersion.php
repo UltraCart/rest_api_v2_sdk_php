@@ -123,15 +123,15 @@ class SfvbContainerVersion implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $attributeMap = [
         'cjson' => 'cjson',
         'comment' => 'comment',
-        'container_history_oid' => 'containerHistoryOid',
-        'container_name' => 'containerName',
-        'created_dts' => 'createdDts',
+        'container_history_oid' => 'container_history_oid',
+        'container_name' => 'container_name',
+        'created_dts' => 'created_dts',
         'current' => 'current',
-        'edited_by' => 'editedBy',
-        'hash_sha256' => 'hashSha256',
+        'edited_by' => 'edited_by',
+        'hash_sha256' => 'hash_sha256',
         'operation' => 'operation',
-        'owner_object_id' => 'ownerObjectId',
-        'owner_type' => 'ownerType',
+        'owner_object_id' => 'owner_object_id',
+        'owner_type' => 'owner_type',
         'size' => 'size'
     ];
 

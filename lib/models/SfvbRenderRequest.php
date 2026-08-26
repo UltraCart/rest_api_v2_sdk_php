@@ -121,17 +121,17 @@ class SfvbRenderRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'ancestors_cjson' => 'ancestorsCjson',
-        'child_containers_json' => 'childContainersJson',
+        'ancestors_cjson' => 'ancestors_cjson',
+        'child_containers_json' => 'child_containers_json',
         'cjson' => 'cjson',
-        'context_affiliate_oid' => 'contextAffiliateOid',
-        'context_blog_post_oid' => 'contextBlogPostOid',
-        'context_group_path' => 'contextGroupPath',
-        'context_item_id' => 'contextItemId',
-        'context_order_id' => 'contextOrderId',
-        'context_page_number' => 'contextPageNumber',
-        'context_upsell_offer_oid' => 'contextUpsellOfferOid',
-        'language_iso_code' => 'languageIsoCode',
+        'context_affiliate_oid' => 'context_affiliate_oid',
+        'context_blog_post_oid' => 'context_blog_post_oid',
+        'context_group_path' => 'context_group_path',
+        'context_item_id' => 'context_item_id',
+        'context_order_id' => 'context_order_id',
+        'context_page_number' => 'context_page_number',
+        'context_upsell_offer_oid' => 'context_upsell_offer_oid',
+        'language_iso_code' => 'language_iso_code',
         'uri' => 'uri'
     ];
 

@@ -103,7 +103,7 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'display_name' => 'displayName',
+        'display_name' => 'display_name',
         'name' => 'name',
         'options' => 'options'
     ];

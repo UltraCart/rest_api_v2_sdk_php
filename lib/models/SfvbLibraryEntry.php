@@ -122,14 +122,14 @@ class SfvbLibraryEntry implements ModelInterface, ArrayAccess, \JsonSerializable
         'bookmarked' => 'bookmarked',
         'cjson' => 'cjson',
         'description' => 'description',
-        'library_oid' => 'libraryOid',
+        'library_oid' => 'library_oid',
         'name' => 'name',
         'owned' => 'owned',
-        'referenced_files' => 'referencedFiles',
-        'screenshot_key' => 'screenshotKey',
-        'share_with_account' => 'shareWithAccount',
-        'thumbnail_key' => 'thumbnailKey',
-        'widget_type' => 'widgetType'
+        'referenced_files' => 'referenced_files',
+        'screenshot_key' => 'screenshot_key',
+        'share_with_account' => 'share_with_account',
+        'thumbnail_key' => 'thumbnail_key',
+        'widget_type' => 'widget_type'
     ];
 
     /**

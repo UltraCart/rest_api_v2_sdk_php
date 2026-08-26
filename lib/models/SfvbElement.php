@@ -101,7 +101,7 @@ class SfvbElement implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'schema_available' => 'schemaAvailable',
+        'schema_available' => 'schema_available',
         'type' => 'type'
     ];
 

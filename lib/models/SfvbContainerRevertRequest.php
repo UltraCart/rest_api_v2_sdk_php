@@ -102,7 +102,7 @@ class SfvbContainerRevertRequest implements ModelInterface, ArrayAccess, \JsonSe
      */
     protected static $attributeMap = [
         'comment' => 'comment',
-        'container_history_oid' => 'containerHistoryOid'
+        'container_history_oid' => 'container_history_oid'
     ];
 
     /**

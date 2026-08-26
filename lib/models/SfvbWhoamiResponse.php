@@ -123,19 +123,19 @@ class SfvbWhoamiResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'acting_as_user' => 'actingAsUser',
-        'application_name' => 'applicationName',
-        'authentication_type' => 'authenticationType',
-        'can_publish' => 'canPublish',
-        'can_read' => 'canRead',
-        'can_write' => 'canWrite',
-        'device_scope' => 'deviceScope',
+        'acting_as_user' => 'acting_as_user',
+        'application_name' => 'application_name',
+        'authentication_type' => 'authentication_type',
+        'can_publish' => 'can_publish',
+        'can_read' => 'can_read',
+        'can_write' => 'can_write',
+        'device_scope' => 'device_scope',
         'login' => 'login',
-        'merchant_id' => 'merchantId',
+        'merchant_id' => 'merchant_id',
         'scopes' => 'scopes',
         'storefronts' => 'storefronts',
-        'storefronts_withheld' => 'storefrontsWithheld',
-        'user_name' => 'userName'
+        'storefronts_withheld' => 'storefronts_withheld',
+        'user_name' => 'user_name'
     ];
 
     /**

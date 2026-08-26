@@ -103,7 +103,7 @@ class SfvbFileVersionsResponse implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'fs_file_oid' => 'fsFileOid',
+        'fs_file_oid' => 'fs_file_oid',
         'path' => 'path',
         'versions' => 'versions'
     ];

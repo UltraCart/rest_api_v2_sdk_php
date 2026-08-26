@@ -116,14 +116,14 @@ class SfvbUpsellOffer implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'active' => 'active',
-        'active_overall' => 'activeOverall',
-        'cjson_size' => 'cjsonSize',
-        'has_container' => 'hasContainer',
+        'active_overall' => 'active_overall',
+        'cjson_size' => 'cjson_size',
+        'has_container' => 'has_container',
         'name' => 'name',
-        'path_name' => 'pathName',
-        'storefront_oid' => 'storefrontOid',
-        'test_only' => 'testOnly',
-        'upsell_offer_oid' => 'upsellOfferOid'
+        'path_name' => 'path_name',
+        'storefront_oid' => 'storefront_oid',
+        'test_only' => 'test_only',
+        'upsell_offer_oid' => 'upsell_offer_oid'
     ];
 
     /**

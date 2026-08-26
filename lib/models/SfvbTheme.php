@@ -119,12 +119,12 @@ class SfvbTheme implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'active' => 'active',
         'description' => 'description',
-        'fs_directory_oid' => 'fsDirectoryOid',
+        'fs_directory_oid' => 'fs_directory_oid',
         'path' => 'path',
-        'storefront_oid' => 'storefrontOid',
-        'theme_name' => 'themeName',
-        'theme_oid' => 'themeOid',
-        'upgrade_available' => 'upgradeAvailable',
+        'storefront_oid' => 'storefront_oid',
+        'theme_name' => 'theme_name',
+        'theme_oid' => 'theme_oid',
+        'upgrade_available' => 'upgrade_available',
         'valid' => 'valid',
         'version' => 'version'
     ];

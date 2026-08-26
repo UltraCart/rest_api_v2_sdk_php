@@ -117,15 +117,15 @@ class SfvbVersionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'container_manager_version' => 'containerManagerVersion',
-        'container_versions_retained' => 'containerVersionsRetained',
-        'element_count' => 'elementCount',
-        'max_cjson_bytes' => 'maxCjsonBytes',
-        'max_preview_session_bytes' => 'maxPreviewSessionBytes',
-        'max_search_results' => 'maxSearchResults',
-        'max_template_bytes' => 'maxTemplateBytes',
-        'max_widget_ids_per_request' => 'maxWidgetIdsPerRequest',
-        'preview_session_ttl_seconds' => 'previewSessionTtlSeconds',
+        'container_manager_version' => 'container_manager_version',
+        'container_versions_retained' => 'container_versions_retained',
+        'element_count' => 'element_count',
+        'max_cjson_bytes' => 'max_cjson_bytes',
+        'max_preview_session_bytes' => 'max_preview_session_bytes',
+        'max_search_results' => 'max_search_results',
+        'max_template_bytes' => 'max_template_bytes',
+        'max_widget_ids_per_request' => 'max_widget_ids_per_request',
+        'preview_session_ttl_seconds' => 'preview_session_ttl_seconds',
         'release' => 'release'
     ];
 

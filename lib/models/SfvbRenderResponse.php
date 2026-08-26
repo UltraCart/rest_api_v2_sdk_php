@@ -111,7 +111,7 @@ class SfvbRenderResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $attributeMap = [
         'errors' => 'errors',
         'html' => 'html',
-        'pending_translation_count' => 'pendingTranslationCount',
+        'pending_translation_count' => 'pending_translation_count',
         'success' => 'success',
         'truncated' => 'truncated',
         'warnings' => 'warnings'

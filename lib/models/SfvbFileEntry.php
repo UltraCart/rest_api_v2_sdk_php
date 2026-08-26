@@ -127,18 +127,18 @@ class SfvbFileEntry implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'auto_compiled' => 'autoCompiled',
+        'auto_compiled' => 'auto_compiled',
         'directory' => 'directory',
-        'fs_directory_oid' => 'fsDirectoryOid',
-        'fs_file_oid' => 'fsFileOid',
-        'hash_sha256' => 'hashSha256',
-        'i18n_violation' => 'i18nViolation',
-        'last_modified' => 'lastModified',
-        'merge_conflict' => 'mergeConflict',
-        'mime_type' => 'mimeType',
+        'fs_directory_oid' => 'fs_directory_oid',
+        'fs_file_oid' => 'fs_file_oid',
+        'hash_sha256' => 'hash_sha256',
+        'i18n_violation' => 'i18n_violation',
+        'last_modified' => 'last_modified',
+        'merge_conflict' => 'merge_conflict',
+        'mime_type' => 'mime_type',
         'name' => 'name',
         'path' => 'path',
-        'read_only' => 'readOnly',
+        'read_only' => 'read_only',
         'size' => 'size',
         'valid' => 'valid',
         'version' => 'version'

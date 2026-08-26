@@ -109,11 +109,11 @@ class SfvbFileWriteResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'compiled_path' => 'compiledPath',
+        'compiled_path' => 'compiled_path',
         'file' => 'file',
-        'hash_sha256' => 'hashSha256',
+        'hash_sha256' => 'hash_sha256',
         'validation' => 'validation',
-        'velocity_errors' => 'velocityErrors',
+        'velocity_errors' => 'velocity_errors',
         'version' => 'version'
     ];
 

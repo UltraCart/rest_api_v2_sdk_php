@@ -106,7 +106,7 @@ class SfvbValidationResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $attributeMap = [
         'errors' => 'errors',
-        'used_elements' => 'usedElements',
+        'used_elements' => 'used_elements',
         'valid' => 'valid',
         'warnings' => 'warnings'
     ];

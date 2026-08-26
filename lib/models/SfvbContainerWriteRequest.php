@@ -105,10 +105,10 @@ class SfvbContainerWriteRequest implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
-        'allow_warnings' => 'allowWarnings',
+        'allow_warnings' => 'allow_warnings',
         'cjson' => 'cjson',
         'comment' => 'comment',
-        'marketing_email' => 'marketingEmail'
+        'marketing_email' => 'marketing_email'
     ];
 
     /**

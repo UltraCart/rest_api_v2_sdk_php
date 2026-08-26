@@ -129,21 +129,21 @@ class SfvbFileSearchRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'case_sensitive' => 'caseSensitive',
-        'dynamic_html' => 'dynamicHtml',
-        'file_name' => 'fileName',
-        'i18n_violations' => 'i18nViolations',
+        'case_sensitive' => 'case_sensitive',
+        'dynamic_html' => 'dynamic_html',
+        'file_name' => 'file_name',
+        'i18n_violations' => 'i18n_violations',
         'invalid' => 'invalid',
-        'max_results' => 'maxResults',
-        'merge_conflicts' => 'mergeConflicts',
-        'mime_type' => 'mimeType',
-        'modified_max' => 'modifiedMax',
-        'modified_min' => 'modifiedMin',
+        'max_results' => 'max_results',
+        'merge_conflicts' => 'merge_conflicts',
+        'mime_type' => 'mime_type',
+        'modified_max' => 'modified_max',
+        'modified_min' => 'modified_min',
         'offset' => 'offset',
         'path' => 'path',
-        'size_max' => 'sizeMax',
-        'size_min' => 'sizeMin',
-        'sub_directories' => 'subDirectories',
+        'size_max' => 'size_max',
+        'size_min' => 'size_min',
+        'sub_directories' => 'sub_directories',
         'text' => 'text'
     ];
 

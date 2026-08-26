@@ -102,7 +102,7 @@ class SfvbPreviewSessionRequest implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $attributeMap = [
         'containers' => 'containers',
-        'theme_oid' => 'themeOid'
+        'theme_oid' => 'theme_oid'
     ];
 
     /**

@@ -101,7 +101,7 @@ class SfvbThemesResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'active_theme_oid' => 'activeThemeOid',
+        'active_theme_oid' => 'active_theme_oid',
         'themes' => 'themes'
     ];
 

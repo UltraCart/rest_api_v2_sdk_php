@@ -104,7 +104,7 @@ class SfvbWidgetIdsResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     protected static $attributeMap = [
         'count' => 'count',
-        'first_id' => 'firstId',
+        'first_id' => 'first_id',
         'ids' => 'ids'
     ];
 

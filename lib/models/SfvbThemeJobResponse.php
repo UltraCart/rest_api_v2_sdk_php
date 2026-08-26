@@ -123,16 +123,16 @@ class SfvbThemeJobResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $attributeMap = [
         'complete' => 'complete',
         'description' => 'description',
-        'error_message' => 'errorMessage',
-        'finished_dts' => 'finishedDts',
-        'job_id' => 'jobId',
+        'error_message' => 'error_message',
+        'finished_dts' => 'finished_dts',
+        'job_id' => 'job_id',
         'progress' => 'progress',
-        'progress_description' => 'progressDescription',
-        'started_dts' => 'startedDts',
+        'progress_description' => 'progress_description',
+        'started_dts' => 'started_dts',
         'status' => 'status',
-        'submitted_dts' => 'submittedDts',
+        'submitted_dts' => 'submitted_dts',
         'success' => 'success',
-        'target_path' => 'targetPath'
+        'target_path' => 'target_path'
     ];
 
     /**

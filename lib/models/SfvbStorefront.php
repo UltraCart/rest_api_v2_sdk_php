@@ -103,9 +103,9 @@ class SfvbStorefront implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'active_theme_oid' => 'activeThemeOid',
-        'host_name' => 'hostName',
-        'storefront_oid' => 'storefrontOid'
+        'active_theme_oid' => 'active_theme_oid',
+        'host_name' => 'host_name',
+        'storefront_oid' => 'storefront_oid'
     ];
 
     /**

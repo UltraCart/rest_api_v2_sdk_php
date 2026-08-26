@@ -103,7 +103,7 @@ class SfvbElementsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'element_count' => 'elementCount',
+        'element_count' => 'element_count',
         'elements' => 'elements',
         'version' => 'version'
     ];

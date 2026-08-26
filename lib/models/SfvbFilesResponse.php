@@ -110,9 +110,9 @@ class SfvbFilesResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $attributeMap = [
         'files' => 'files',
-        'fs_directory_oid' => 'fsDirectoryOid',
-        'omitted_count' => 'omittedCount',
-        'parent_fs_directory_oid' => 'parentFsDirectoryOid',
+        'fs_directory_oid' => 'fs_directory_oid',
+        'omitted_count' => 'omitted_count',
+        'parent_fs_directory_oid' => 'parent_fs_directory_oid',
         'path' => 'path',
         'truncated' => 'truncated'
     ];
