@@ -1,6 +1,6 @@
 <?php
 /**
- * SfvbFileWriteResponse
+ * SfvbFileUploadRequest
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * SfvbFileWriteResponse Class Doc Comment
+ * SfvbFileUploadRequest Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SfvbFileWriteResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class SfvbFileUploadRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SfvbFileWriteResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SfvbFileWriteResponse';
+    protected static $openAPIModelName = 'SfvbFileUploadRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,13 +58,10 @@ class SfvbFileWriteResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'compiled_path' => 'string',
-        'file' => '\ultracart\v2\models\SfvbFileEntry',
-        'hash_sha256' => 'string',
-        'public_url' => 'string',
-        'validation' => '\ultracart\v2\models\SfvbValidationResponse',
-        'velocity_errors' => 'string',
-        'version' => 'int'
+        'comment' => 'string',
+        'create_if_missing' => 'bool',
+        'key' => 'string',
+        'path' => 'string'
     ];
 
     /**
@@ -75,13 +72,10 @@ class SfvbFileWriteResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'compiled_path' => null,
-        'file' => null,
-        'hash_sha256' => null,
-        'public_url' => null,
-        'validation' => null,
-        'velocity_errors' => null,
-        'version' => 'int32'
+        'comment' => null,
+        'create_if_missing' => null,
+        'key' => null,
+        'path' => null
     ];
 
     /**
@@ -111,13 +105,10 @@ class SfvbFileWriteResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'compiled_path' => 'compiled_path',
-        'file' => 'file',
-        'hash_sha256' => 'hash_sha256',
-        'public_url' => 'public_url',
-        'validation' => 'validation',
-        'velocity_errors' => 'velocity_errors',
-        'version' => 'version'
+        'comment' => 'comment',
+        'create_if_missing' => 'create_if_missing',
+        'key' => 'key',
+        'path' => 'path'
     ];
 
     /**
@@ -126,13 +117,10 @@ class SfvbFileWriteResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'compiled_path' => 'setCompiledPath',
-        'file' => 'setFile',
-        'hash_sha256' => 'setHashSha256',
-        'public_url' => 'setPublicUrl',
-        'validation' => 'setValidation',
-        'velocity_errors' => 'setVelocityErrors',
-        'version' => 'setVersion'
+        'comment' => 'setComment',
+        'create_if_missing' => 'setCreateIfMissing',
+        'key' => 'setKey',
+        'path' => 'setPath'
     ];
 
     /**
@@ -141,13 +129,10 @@ class SfvbFileWriteResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'compiled_path' => 'getCompiledPath',
-        'file' => 'getFile',
-        'hash_sha256' => 'getHashSha256',
-        'public_url' => 'getPublicUrl',
-        'validation' => 'getValidation',
-        'velocity_errors' => 'getVelocityErrors',
-        'version' => 'getVersion'
+        'comment' => 'getComment',
+        'create_if_missing' => 'getCreateIfMissing',
+        'key' => 'getKey',
+        'path' => 'getPath'
     ];
 
     /**
@@ -207,13 +192,10 @@ class SfvbFileWriteResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(array $data = null)
     {
-        $this->container['compiled_path'] = $data['compiled_path'] ?? null;
-        $this->container['file'] = $data['file'] ?? null;
-        $this->container['hash_sha256'] = $data['hash_sha256'] ?? null;
-        $this->container['public_url'] = $data['public_url'] ?? null;
-        $this->container['validation'] = $data['validation'] ?? null;
-        $this->container['velocity_errors'] = $data['velocity_errors'] ?? null;
-        $this->container['version'] = $data['version'] ?? null;
+        $this->container['comment'] = $data['comment'] ?? null;
+        $this->container['create_if_missing'] = $data['create_if_missing'] ?? null;
+        $this->container['key'] = $data['key'] ?? null;
+        $this->container['path'] = $data['path'] ?? null;
     }
 
     /**
@@ -241,169 +223,97 @@ class SfvbFileWriteResponse implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
-     * Gets compiled_path
+     * Gets comment
      *
      * @return string|null
      */
-    public function getCompiledPath()
+    public function getComment()
     {
-        return $this->container['compiled_path'];
+        return $this->container['comment'];
     }
 
     /**
-     * Sets compiled_path
+     * Sets comment
      *
-     * @param string|null $compiled_path Path of the compiled output, when writing a .cjson under a theme triggered a compile.
+     * @param string|null $comment Optional comment recorded against the version this write creates.
      *
      * @return self
      */
-    public function setCompiledPath($compiled_path)
+    public function setComment($comment)
     {
-        $this->container['compiled_path'] = $compiled_path;
+        $this->container['comment'] = $comment;
 
         return $this;
     }
 
     /**
-     * Gets file
+     * Gets create_if_missing
      *
-     * @return \ultracart\v2\models\SfvbFileEntry|null
+     * @return bool|null
      */
-    public function getFile()
+    public function getCreateIfMissing()
     {
-        return $this->container['file'];
+        return $this->container['create_if_missing'];
     }
 
     /**
-     * Sets file
+     * Sets create_if_missing
      *
-     * @param \ultracart\v2\models\SfvbFileEntry|null $file file
+     * @param bool|null $create_if_missing Create the file if it does not exist.  Defaults to true.
      *
      * @return self
      */
-    public function setFile($file)
+    public function setCreateIfMissing($create_if_missing)
     {
-        $this->container['file'] = $file;
+        $this->container['create_if_missing'] = $create_if_missing;
 
         return $this;
     }
 
     /**
-     * Gets hash_sha256
+     * Gets key
      *
      * @return string|null
      */
-    public function getHashSha256()
+    public function getKey()
     {
-        return $this->container['hash_sha256'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets hash_sha256
+     * Sets key
      *
-     * @param string|null $hash_sha256 New SHA-256.  Use as the next If-Match value.
+     * @param string|null $key The key returned when the upload URL was issued.
      *
      * @return self
      */
-    public function setHashSha256($hash_sha256)
+    public function setKey($key)
     {
-        $this->container['hash_sha256'] = $hash_sha256;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets public_url
+     * Gets path
      *
      * @return string|null
      */
-    public function getPublicUrl()
+    public function getPath()
     {
-        return $this->container['public_url'];
+        return $this->container['path'];
     }
 
     /**
-     * Sets public_url
+     * Sets path
      *
-     * @param string|null $public_url Where a shopper's browser will fetch this file, for use in an img src or a background image.  Present only for a path outside /themes/, which is served straight off the storefront root.  A file inside a theme is absent here because its public URL depends on which theme is active, and guessing it would be worse than omitting it.
+     * @param string|null $path Storefront path to write, for example /assets/imgs/hero.jpg.  The extension must match the one the upload URL was issued for, and must match the bytes.
      *
      * @return self
      */
-    public function setPublicUrl($public_url)
+    public function setPath($path)
     {
-        $this->container['public_url'] = $public_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets validation
-     *
-     * @return \ultracart\v2\models\SfvbValidationResponse|null
-     */
-    public function getValidation()
-    {
-        return $this->container['validation'];
-    }
-
-    /**
-     * Sets validation
-     *
-     * @param \ultracart\v2\models\SfvbValidationResponse|null $validation validation
-     *
-     * @return self
-     */
-    public function setValidation($validation)
-    {
-        $this->container['validation'] = $validation;
-
-        return $this;
-    }
-
-    /**
-     * Gets velocity_errors
-     *
-     * @return string|null
-     */
-    public function getVelocityErrors()
-    {
-        return $this->container['velocity_errors'];
-    }
-
-    /**
-     * Sets velocity_errors
-     *
-     * @param string|null $velocity_errors Velocity errors recorded by the store.  Present means the file was written but is not valid.
-     *
-     * @return self
-     */
-    public function setVelocityErrors($velocity_errors)
-    {
-        $this->container['velocity_errors'] = $velocity_errors;
-
-        return $this;
-    }
-
-    /**
-     * Gets version
-     *
-     * @return int|null
-     */
-    public function getVersion()
-    {
-        return $this->container['version'];
-    }
-
-    /**
-     * Sets version
-     *
-     * @param int|null $version New version number.
-     *
-     * @return self
-     */
-    public function setVersion($version)
-    {
-        $this->container['version'] = $version;
+        $this->container['path'] = $path;
 
         return $this;
     }

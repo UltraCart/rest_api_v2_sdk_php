@@ -349,7 +349,7 @@ class SfvbFileContentResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets hash_sha256
      *
-     * @param string|null $hash_sha256 SHA-256 of the content.  Also returned as the ETag header; send it back as If-Match when writing.
+     * @param string|null $hash_sha256 SHA-256 of the content.  Send this back as If-Match when writing.  The ETag header carries the same hash, but a compressing proxy may append a suffix such as -gzip to it, so this body value is the authoritative one.  Both forms are accepted on write.
      *
      * @return self
      */

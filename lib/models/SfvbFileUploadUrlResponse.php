@@ -1,6 +1,6 @@
 <?php
 /**
- * SfvbFileWriteResponse
+ * SfvbFileUploadUrlResponse
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * SfvbFileWriteResponse Class Doc Comment
+ * SfvbFileUploadUrlResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SfvbFileWriteResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class SfvbFileUploadUrlResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SfvbFileWriteResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SfvbFileWriteResponse';
+    protected static $openAPIModelName = 'SfvbFileUploadUrlResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,13 +58,10 @@ class SfvbFileWriteResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'compiled_path' => 'string',
-        'file' => '\ultracart\v2\models\SfvbFileEntry',
-        'hash_sha256' => 'string',
-        'public_url' => 'string',
-        'validation' => '\ultracart\v2\models\SfvbValidationResponse',
-        'velocity_errors' => 'string',
-        'version' => 'int'
+        'expires_in_seconds' => 'int',
+        'http_method' => 'string',
+        'key' => 'string',
+        'upload_url' => 'string'
     ];
 
     /**
@@ -75,13 +72,10 @@ class SfvbFileWriteResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'compiled_path' => null,
-        'file' => null,
-        'hash_sha256' => null,
-        'public_url' => null,
-        'validation' => null,
-        'velocity_errors' => null,
-        'version' => 'int32'
+        'expires_in_seconds' => 'int32',
+        'http_method' => null,
+        'key' => null,
+        'upload_url' => null
     ];
 
     /**
@@ -111,13 +105,10 @@ class SfvbFileWriteResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'compiled_path' => 'compiled_path',
-        'file' => 'file',
-        'hash_sha256' => 'hash_sha256',
-        'public_url' => 'public_url',
-        'validation' => 'validation',
-        'velocity_errors' => 'velocity_errors',
-        'version' => 'version'
+        'expires_in_seconds' => 'expires_in_seconds',
+        'http_method' => 'http_method',
+        'key' => 'key',
+        'upload_url' => 'upload_url'
     ];
 
     /**
@@ -126,13 +117,10 @@ class SfvbFileWriteResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'compiled_path' => 'setCompiledPath',
-        'file' => 'setFile',
-        'hash_sha256' => 'setHashSha256',
-        'public_url' => 'setPublicUrl',
-        'validation' => 'setValidation',
-        'velocity_errors' => 'setVelocityErrors',
-        'version' => 'setVersion'
+        'expires_in_seconds' => 'setExpiresInSeconds',
+        'http_method' => 'setHttpMethod',
+        'key' => 'setKey',
+        'upload_url' => 'setUploadUrl'
     ];
 
     /**
@@ -141,13 +129,10 @@ class SfvbFileWriteResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'compiled_path' => 'getCompiledPath',
-        'file' => 'getFile',
-        'hash_sha256' => 'getHashSha256',
-        'public_url' => 'getPublicUrl',
-        'validation' => 'getValidation',
-        'velocity_errors' => 'getVelocityErrors',
-        'version' => 'getVersion'
+        'expires_in_seconds' => 'getExpiresInSeconds',
+        'http_method' => 'getHttpMethod',
+        'key' => 'getKey',
+        'upload_url' => 'getUploadUrl'
     ];
 
     /**
@@ -207,13 +192,10 @@ class SfvbFileWriteResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(array $data = null)
     {
-        $this->container['compiled_path'] = $data['compiled_path'] ?? null;
-        $this->container['file'] = $data['file'] ?? null;
-        $this->container['hash_sha256'] = $data['hash_sha256'] ?? null;
-        $this->container['public_url'] = $data['public_url'] ?? null;
-        $this->container['validation'] = $data['validation'] ?? null;
-        $this->container['velocity_errors'] = $data['velocity_errors'] ?? null;
-        $this->container['version'] = $data['version'] ?? null;
+        $this->container['expires_in_seconds'] = $data['expires_in_seconds'] ?? null;
+        $this->container['http_method'] = $data['http_method'] ?? null;
+        $this->container['key'] = $data['key'] ?? null;
+        $this->container['upload_url'] = $data['upload_url'] ?? null;
     }
 
     /**
@@ -241,169 +223,97 @@ class SfvbFileWriteResponse implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
-     * Gets compiled_path
-     *
-     * @return string|null
-     */
-    public function getCompiledPath()
-    {
-        return $this->container['compiled_path'];
-    }
-
-    /**
-     * Sets compiled_path
-     *
-     * @param string|null $compiled_path Path of the compiled output, when writing a .cjson under a theme triggered a compile.
-     *
-     * @return self
-     */
-    public function setCompiledPath($compiled_path)
-    {
-        $this->container['compiled_path'] = $compiled_path;
-
-        return $this;
-    }
-
-    /**
-     * Gets file
-     *
-     * @return \ultracart\v2\models\SfvbFileEntry|null
-     */
-    public function getFile()
-    {
-        return $this->container['file'];
-    }
-
-    /**
-     * Sets file
-     *
-     * @param \ultracart\v2\models\SfvbFileEntry|null $file file
-     *
-     * @return self
-     */
-    public function setFile($file)
-    {
-        $this->container['file'] = $file;
-
-        return $this;
-    }
-
-    /**
-     * Gets hash_sha256
-     *
-     * @return string|null
-     */
-    public function getHashSha256()
-    {
-        return $this->container['hash_sha256'];
-    }
-
-    /**
-     * Sets hash_sha256
-     *
-     * @param string|null $hash_sha256 New SHA-256.  Use as the next If-Match value.
-     *
-     * @return self
-     */
-    public function setHashSha256($hash_sha256)
-    {
-        $this->container['hash_sha256'] = $hash_sha256;
-
-        return $this;
-    }
-
-    /**
-     * Gets public_url
-     *
-     * @return string|null
-     */
-    public function getPublicUrl()
-    {
-        return $this->container['public_url'];
-    }
-
-    /**
-     * Sets public_url
-     *
-     * @param string|null $public_url Where a shopper's browser will fetch this file, for use in an img src or a background image.  Present only for a path outside /themes/, which is served straight off the storefront root.  A file inside a theme is absent here because its public URL depends on which theme is active, and guessing it would be worse than omitting it.
-     *
-     * @return self
-     */
-    public function setPublicUrl($public_url)
-    {
-        $this->container['public_url'] = $public_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets validation
-     *
-     * @return \ultracart\v2\models\SfvbValidationResponse|null
-     */
-    public function getValidation()
-    {
-        return $this->container['validation'];
-    }
-
-    /**
-     * Sets validation
-     *
-     * @param \ultracart\v2\models\SfvbValidationResponse|null $validation validation
-     *
-     * @return self
-     */
-    public function setValidation($validation)
-    {
-        $this->container['validation'] = $validation;
-
-        return $this;
-    }
-
-    /**
-     * Gets velocity_errors
-     *
-     * @return string|null
-     */
-    public function getVelocityErrors()
-    {
-        return $this->container['velocity_errors'];
-    }
-
-    /**
-     * Sets velocity_errors
-     *
-     * @param string|null $velocity_errors Velocity errors recorded by the store.  Present means the file was written but is not valid.
-     *
-     * @return self
-     */
-    public function setVelocityErrors($velocity_errors)
-    {
-        $this->container['velocity_errors'] = $velocity_errors;
-
-        return $this;
-    }
-
-    /**
-     * Gets version
+     * Gets expires_in_seconds
      *
      * @return int|null
      */
-    public function getVersion()
+    public function getExpiresInSeconds()
     {
-        return $this->container['version'];
+        return $this->container['expires_in_seconds'];
     }
 
     /**
-     * Sets version
+     * Sets expires_in_seconds
      *
-     * @param int|null $version New version number.
+     * @param int|null $expires_in_seconds Seconds until the upload URL stops working.  Ask for a new one rather than holding this across a long job.
      *
      * @return self
      */
-    public function setVersion($version)
+    public function setExpiresInSeconds($expires_in_seconds)
     {
-        $this->container['version'] = $version;
+        $this->container['expires_in_seconds'] = $expires_in_seconds;
+
+        return $this;
+    }
+
+    /**
+     * Gets http_method
+     *
+     * @return string|null
+     */
+    public function getHttpMethod()
+    {
+        return $this->container['http_method'];
+    }
+
+    /**
+     * Sets http_method
+     *
+     * @param string|null $http_method HTTP method the upload URL expects.
+     *
+     * @return self
+     */
+    public function setHttpMethod($http_method)
+    {
+        $this->container['http_method'] = $http_method;
+
+        return $this;
+    }
+
+    /**
+     * Gets key
+     *
+     * @return string|null
+     */
+    public function getKey()
+    {
+        return $this->container['key'];
+    }
+
+    /**
+     * Sets key
+     *
+     * @param string|null $key Quote this back to the upload endpoint once the bytes are in place.  It identifies the uploaded object and is bound to your account.
+     *
+     * @return self
+     */
+    public function setKey($key)
+    {
+        $this->container['key'] = $key;
+
+        return $this;
+    }
+
+    /**
+     * Gets upload_url
+     *
+     * @return string|null
+     */
+    public function getUploadUrl()
+    {
+        return $this->container['upload_url'];
+    }
+
+    /**
+     * Sets upload_url
+     *
+     * @param string|null $upload_url Send the raw bytes to this URL.  It is short lived and single use, and it is not part of this API - do not send an Authorization header with it.
+     *
+     * @return self
+     */
+    public function setUploadUrl($upload_url)
+    {
+        $this->container['upload_url'] = $upload_url;
 
         return $this;
     }

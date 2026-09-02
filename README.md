@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.143"
+    "ultracart/rest_api_v2_sdk_php": "4.1.144"
   }
 }
 ```
@@ -489,12 +489,14 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**createSfvbPreviewSession**](docs/Api/SfvbApi.md#createsfvbpreviewsession) | **POST** /sfvb/storefronts/{storefront_oid}/preview_sessions | Create a preview session
 *SfvbApi* | [**deleteSfvbFile**](docs/Api/SfvbApi.md#deletesfvbfile) | **DELETE** /sfvb/storefronts/{storefront_oid}/files | Delete a storefront file
 *SfvbApi* | [**deleteSfvbPreviewSession**](docs/Api/SfvbApi.md#deletesfvbpreviewsession) | **DELETE** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Delete a preview session
+*SfvbApi* | [**downloadSfvbFile**](docs/Api/SfvbApi.md#downloadsfvbfile) | **GET** /sfvb/storefronts/{storefront_oid}/files/download | Read a storefront file&#39;s raw bytes
 *SfvbApi* | [**duplicateSfvbTheme**](docs/Api/SfvbApi.md#duplicatesfvbtheme) | **POST** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/duplicate | Duplicate a theme
 *SfvbApi* | [**getSfvbCjsonUsedElements**](docs/Api/SfvbApi.md#getsfvbcjsonusedelements) | **POST** /sfvb/cjson/elements | Element types used by a container
 *SfvbApi* | [**getSfvbContainer**](docs/Api/SfvbApi.md#getsfvbcontainer) | **GET** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Read a container stored outside the file system
 *SfvbApi* | [**getSfvbContainerVersion**](docs/Api/SfvbApi.md#getsfvbcontainerversion) | **GET** /sfvb/storefronts/{storefront_oid}/container_versions/{container_history_oid} | Read the CJSON stored in one container history entry
 *SfvbApi* | [**getSfvbElement**](docs/Api/SfvbApi.md#getsfvbelement) | **GET** /sfvb/elements/{element_type} | Configuration schema for one element type
 *SfvbApi* | [**getSfvbFileContent**](docs/Api/SfvbApi.md#getsfvbfilecontent) | **GET** /sfvb/storefronts/{storefront_oid}/files/content | Read a storefront file
+*SfvbApi* | [**getSfvbFileUploadUrl**](docs/Api/SfvbApi.md#getsfvbfileuploadurl) | **GET** /sfvb/storefronts/{storefront_oid}/files/upload_url/{extension} | Get a URL to upload a binary asset to
 *SfvbApi* | [**getSfvbLibraryEntry**](docs/Api/SfvbApi.md#getsfvblibraryentry) | **GET** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Read one library entry including its CJSON
 *SfvbApi* | [**getSfvbPreviewUrl**](docs/Api/SfvbApi.md#getsfvbpreviewurl) | **GET** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id}/url | URL that renders a preview session
 *SfvbApi* | [**getSfvbTheme**](docs/Api/SfvbApi.md#getsfvbtheme) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid} | Get a theme
@@ -518,6 +520,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**revertSfvbFile**](docs/Api/SfvbApi.md#revertsfvbfile) | **POST** /sfvb/storefronts/{storefront_oid}/files/revert | Revert a storefront file to an earlier version
 *SfvbApi* | [**searchSfvbFiles**](docs/Api/SfvbApi.md#searchsfvbfiles) | **POST** /sfvb/storefronts/{storefront_oid}/files/search | Search storefront files
 *SfvbApi* | [**searchSfvbLibrary**](docs/Api/SfvbApi.md#searchsfvblibrary) | **GET** /sfvb/storefronts/{storefront_oid}/library | Search the element library
+*SfvbApi* | [**uploadSfvbFile**](docs/Api/SfvbApi.md#uploadsfvbfile) | **POST** /sfvb/storefronts/{storefront_oid}/files/upload | Store a binary asset that was already uploaded
 *SfvbApi* | [**validateSfvbCjson**](docs/Api/SfvbApi.md#validatesfvbcjson) | **POST** /sfvb/cjson/validate | Validate CJSON
 *SfvbApi* | [**validateSfvbVelocity**](docs/Api/SfvbApi.md#validatesfvbvelocity) | **POST** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/velocity/validate | Validate a Velocity template against a theme
 *SsoApi* | [**getSsoSessionUser**](docs/Api/SsoApi.md#getssosessionuser) | **GET** /sso/session/user | Get single sign on session user
@@ -1746,6 +1749,8 @@ Class | Method | HTTP request | Description
 - [SfvbFileRevertRequest](docs/Model/SfvbFileRevertRequest.md)
 - [SfvbFileSearchRequest](docs/Model/SfvbFileSearchRequest.md)
 - [SfvbFileSearchResponse](docs/Model/SfvbFileSearchResponse.md)
+- [SfvbFileUploadRequest](docs/Model/SfvbFileUploadRequest.md)
+- [SfvbFileUploadUrlResponse](docs/Model/SfvbFileUploadUrlResponse.md)
 - [SfvbFileVersion](docs/Model/SfvbFileVersion.md)
 - [SfvbFileVersionsResponse](docs/Model/SfvbFileVersionsResponse.md)
 - [SfvbFileWriteRequest](docs/Model/SfvbFileWriteRequest.md)
@@ -1954,6 +1959,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.144 | 09/02/2026 | sfvb - internal testing |
 | 4.1.143 | 09/02/2026 | sfvb - internal development |
 | 4.1.142 | 08/26/2026 | sfvb - internal test |
 | 4.1.141 | 08/26/2026 | sfvb - internal testing |

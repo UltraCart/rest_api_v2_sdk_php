@@ -999,6 +999,8 @@ docs/Model/SfvbFileEntry.md
 docs/Model/SfvbFileRevertRequest.md
 docs/Model/SfvbFileSearchRequest.md
 docs/Model/SfvbFileSearchResponse.md
+docs/Model/SfvbFileUploadRequest.md
+docs/Model/SfvbFileUploadUrlResponse.md
 docs/Model/SfvbFileVersion.md
 docs/Model/SfvbFileVersionsResponse.md
 docs/Model/SfvbFileWriteRequest.md
@@ -2116,6 +2118,8 @@ lib/models/SfvbFileEntry.php
 lib/models/SfvbFileRevertRequest.php
 lib/models/SfvbFileSearchRequest.php
 lib/models/SfvbFileSearchResponse.php
+lib/models/SfvbFileUploadRequest.php
+lib/models/SfvbFileUploadUrlResponse.php
 lib/models/SfvbFileVersion.php
 lib/models/SfvbFileVersionsResponse.php
 lib/models/SfvbFileWriteRequest.php
