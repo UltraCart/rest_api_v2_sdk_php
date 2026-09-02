@@ -385,7 +385,7 @@ class SfvbContainerVersion implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets container_history_oid
      *
-     * @param int|null $container_history_oid History record oid.  Pass to the revert operation on the owning container.
+     * @param int|null $container_history_oid History record oid.  Pass to the revert operation on the owning container.  Absent on the entry marked current, which holds the value stored right now, has no history row of its own, and so cannot be fetched or reverted to.
      *
      * @return self
      */

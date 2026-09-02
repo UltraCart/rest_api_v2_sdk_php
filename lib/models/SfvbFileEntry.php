@@ -373,7 +373,7 @@ class SfvbFileEntry implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets fs_file_oid
      *
-     * @param int|null $fs_file_oid StoreFront file system file oid.
+     * @param int|null $fs_file_oid StoreFront file system file oid.  Absent on a directory entry, which has no file oid.
      *
      * @return self
      */
@@ -637,7 +637,7 @@ class SfvbFileEntry implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets version
      *
-     * @param int|null $version Current version number of the file.
+     * @param int|null $version Current version number of the file.  Absent on a directory entry, which is not versioned.
      *
      * @return self
      */
