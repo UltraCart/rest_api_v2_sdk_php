@@ -58,16 +58,12 @@ class SfvbContainerResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'active_theme' => 'bool',
         'cjson' => 'string',
-        'container_id' => 'string',
         'container_name' => 'string',
         'hash_sha256' => 'string',
         'last_modified' => 'string',
         'owner_object_id' => 'string',
-        'owner_type' => 'string',
-        'path' => 'string',
-        'version' => 'int'
+        'owner_type' => 'string'
     ];
 
     /**
@@ -78,16 +74,12 @@ class SfvbContainerResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'active_theme' => null,
         'cjson' => null,
-        'container_id' => null,
         'container_name' => null,
         'hash_sha256' => null,
         'last_modified' => null,
         'owner_object_id' => null,
-        'owner_type' => null,
-        'path' => null,
-        'version' => 'int32'
+        'owner_type' => null
     ];
 
     /**
@@ -117,16 +109,12 @@ class SfvbContainerResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'active_theme' => 'active_theme',
         'cjson' => 'cjson',
-        'container_id' => 'container_id',
         'container_name' => 'container_name',
         'hash_sha256' => 'hash_sha256',
         'last_modified' => 'last_modified',
         'owner_object_id' => 'owner_object_id',
-        'owner_type' => 'owner_type',
-        'path' => 'path',
-        'version' => 'version'
+        'owner_type' => 'owner_type'
     ];
 
     /**
@@ -135,16 +123,12 @@ class SfvbContainerResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'active_theme' => 'setActiveTheme',
         'cjson' => 'setCjson',
-        'container_id' => 'setContainerId',
         'container_name' => 'setContainerName',
         'hash_sha256' => 'setHashSha256',
         'last_modified' => 'setLastModified',
         'owner_object_id' => 'setOwnerObjectId',
-        'owner_type' => 'setOwnerType',
-        'path' => 'setPath',
-        'version' => 'setVersion'
+        'owner_type' => 'setOwnerType'
     ];
 
     /**
@@ -153,16 +137,12 @@ class SfvbContainerResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'active_theme' => 'getActiveTheme',
         'cjson' => 'getCjson',
-        'container_id' => 'getContainerId',
         'container_name' => 'getContainerName',
         'hash_sha256' => 'getHashSha256',
         'last_modified' => 'getLastModified',
         'owner_object_id' => 'getOwnerObjectId',
-        'owner_type' => 'getOwnerType',
-        'path' => 'getPath',
-        'version' => 'getVersion'
+        'owner_type' => 'getOwnerType'
     ];
 
     /**
@@ -245,16 +225,12 @@ class SfvbContainerResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(array $data = null)
     {
-        $this->container['active_theme'] = $data['active_theme'] ?? null;
         $this->container['cjson'] = $data['cjson'] ?? null;
-        $this->container['container_id'] = $data['container_id'] ?? null;
         $this->container['container_name'] = $data['container_name'] ?? null;
         $this->container['hash_sha256'] = $data['hash_sha256'] ?? null;
         $this->container['last_modified'] = $data['last_modified'] ?? null;
         $this->container['owner_object_id'] = $data['owner_object_id'] ?? null;
         $this->container['owner_type'] = $data['owner_type'] ?? null;
-        $this->container['path'] = $data['path'] ?? null;
-        $this->container['version'] = $data['version'] ?? null;
     }
 
     /**
@@ -291,30 +267,6 @@ class SfvbContainerResponse implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
-     * Gets active_theme
-     *
-     * @return bool|null
-     */
-    public function getActiveTheme()
-    {
-        return $this->container['active_theme'];
-    }
-
-    /**
-     * Sets active_theme
-     *
-     * @param bool|null $active_theme True when this container lives in the theme currently serving live traffic.  Writing to it requires the sfvb_publish scope.
-     *
-     * @return self
-     */
-    public function setActiveTheme($active_theme)
-    {
-        $this->container['active_theme'] = $active_theme;
-
-        return $this;
-    }
-
-    /**
      * Gets cjson
      *
      * @return string|null
@@ -334,30 +286,6 @@ class SfvbContainerResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setCjson($cjson)
     {
         $this->container['cjson'] = $cjson;
-
-        return $this;
-    }
-
-    /**
-     * Gets container_id
-     *
-     * @return string|null
-     */
-    public function getContainerId()
-    {
-        return $this->container['container_id'];
-    }
-
-    /**
-     * Sets container_id
-     *
-     * @param string|null $container_id Container id as the compiler will derive it.
-     *
-     * @return self
-     */
-    public function setContainerId($container_id)
-    {
-        $this->container['container_id'] = $container_id;
 
         return $this;
     }
@@ -423,7 +351,7 @@ class SfvbContainerResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets last_modified
      *
-     * @param string|null $last_modified When the container was last modified, where the store records it.
+     * @param string|null $last_modified When the container was last modified, in the store's own record of it.  Present for email, postcardfront and postcardback.  Absent for upsell and item, because those tables carry no modification timestamp at all - for those two, read created_dts on the current entry of container_versions, which records when this API last wrote the container.  Note that a postcard keeps one timestamp for both of its sides, so writing the front moves the value the back reports.
      *
      * @return self
      */
@@ -488,54 +416,6 @@ class SfvbContainerResponse implements ModelInterface, ArrayAccess, \JsonSeriali
             );
         }
         $this->container['owner_type'] = $owner_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets path
-     *
-     * @return string|null
-     */
-    public function getPath()
-    {
-        return $this->container['path'];
-    }
-
-    /**
-     * Sets path
-     *
-     * @param string|null $path File path, for theme and page containers only.
-     *
-     * @return self
-     */
-    public function setPath($path)
-    {
-        $this->container['path'] = $path;
-
-        return $this;
-    }
-
-    /**
-     * Gets version
-     *
-     * @return int|null
-     */
-    public function getVersion()
-    {
-        return $this->container['version'];
-    }
-
-    /**
-     * Sets version
-     *
-     * @param int|null $version File version, for theme and page containers only.
-     *
-     * @return self
-     */
-    public function setVersion($version)
-    {
-        $this->container['version'] = $version;
 
         return $this;
     }
