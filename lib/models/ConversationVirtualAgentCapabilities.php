@@ -61,7 +61,7 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
         'access_custom_collections' => 'bool',
         'access_storefront_and_item' => 'bool',
         'cancel_subscription' => 'bool',
-        'custom_collection_oids' => 'object',
+        'custom_collection_oids' => 'int[]',
         'custom_collections' => '\ultracart\v2\models\ConversationVirtualAgentCapabilityCustomCollection[]',
         'delay_subscription' => 'bool',
         'generate_coupon' => 'bool',
@@ -415,7 +415,7 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
     /**
      * Gets custom_collection_oids
      *
-     * @return object|null
+     * @return int[]|null
      */
     public function getCustomCollectionOids()
     {
@@ -425,7 +425,7 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
     /**
      * Sets custom_collection_oids
      *
-     * @param object|null $custom_collection_oids The custom collections this Agent is allowed to search.  Empty means none, even when access_custom_collections is true.
+     * @param int[]|null $custom_collection_oids The custom collections this Agent is allowed to search.  Empty means none, even when access_custom_collections is true.
      *
      * @return self
      */
