@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.149"
+    "ultracart/rest_api_v2_sdk_php": "4.1.150"
   }
 }
 ```
@@ -1960,6 +1960,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.150 | 09/04/2026 | conversations - add ai agent capabilities |
 | 4.1.149 | 09/04/2026 | conversations - added ai agent capabilities |
 | 4.1.148 | 09/04/2026 | conversations - added ai agent capabilities |
 | 4.1.147 | 09/04/2026 | sfvb - internal testing |
