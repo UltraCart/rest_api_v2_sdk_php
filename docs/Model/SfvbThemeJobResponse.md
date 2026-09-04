@@ -15,6 +15,6 @@ Name | Type | Description | Notes
 **status** | **string** | Raw job status. | [optional]
 **submitted_dts** | **string** | When the job was queued. | [optional]
 **success** | **bool** | True only when the job finished successfully.  Check complete first. | [optional]
-**target_path** | **string** | Path the new theme was created at.  Returned when the job is started; the theme oid itself is NOT returned, because the job&#39;s product is a plain text report rather than a structured result.  Once the job completes, list themes and match on this path. | [optional]
+**target_path** | **string** | Path the new theme is being created at.  Returned when the job is started and on every poll, so you do not have to keep the response that started it.  The theme oid itself is NOT returned, so once the job completes you list themes and match on this path.  It is also what success is checked against - a finished job whose theme is not here reports success false rather than pretending. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

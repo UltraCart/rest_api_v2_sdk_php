@@ -61,10 +61,16 @@ class SfvbVersionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'container_manager_version' => 'string',
         'container_versions_retained' => 'int',
         'element_count' => 'int',
+        'max_asset_bytes' => 'int',
         'max_cjson_bytes' => 'int',
+        'max_directory_entries' => 'int',
+        'max_library_results_per_page' => 'int',
         'max_preview_session_bytes' => 'int',
+        'max_revertable_bytes' => 'int',
         'max_search_results' => 'int',
         'max_template_bytes' => 'int',
+        'max_text_read_bytes' => 'int',
+        'max_video_bytes' => 'int',
         'max_widget_ids_per_request' => 'int',
         'preview_session_ttl_seconds' => 'int',
         'release' => 'string'
@@ -81,10 +87,16 @@ class SfvbVersionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'container_manager_version' => null,
         'container_versions_retained' => 'int32',
         'element_count' => 'int32',
+        'max_asset_bytes' => 'int64',
         'max_cjson_bytes' => 'int32',
+        'max_directory_entries' => 'int32',
+        'max_library_results_per_page' => 'int32',
         'max_preview_session_bytes' => 'int32',
+        'max_revertable_bytes' => 'int32',
         'max_search_results' => 'int32',
         'max_template_bytes' => 'int32',
+        'max_text_read_bytes' => 'int32',
+        'max_video_bytes' => 'int64',
         'max_widget_ids_per_request' => 'int32',
         'preview_session_ttl_seconds' => 'int32',
         'release' => null
@@ -120,10 +132,16 @@ class SfvbVersionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'container_manager_version' => 'container_manager_version',
         'container_versions_retained' => 'container_versions_retained',
         'element_count' => 'element_count',
+        'max_asset_bytes' => 'max_asset_bytes',
         'max_cjson_bytes' => 'max_cjson_bytes',
+        'max_directory_entries' => 'max_directory_entries',
+        'max_library_results_per_page' => 'max_library_results_per_page',
         'max_preview_session_bytes' => 'max_preview_session_bytes',
+        'max_revertable_bytes' => 'max_revertable_bytes',
         'max_search_results' => 'max_search_results',
         'max_template_bytes' => 'max_template_bytes',
+        'max_text_read_bytes' => 'max_text_read_bytes',
+        'max_video_bytes' => 'max_video_bytes',
         'max_widget_ids_per_request' => 'max_widget_ids_per_request',
         'preview_session_ttl_seconds' => 'preview_session_ttl_seconds',
         'release' => 'release'
@@ -138,10 +156,16 @@ class SfvbVersionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'container_manager_version' => 'setContainerManagerVersion',
         'container_versions_retained' => 'setContainerVersionsRetained',
         'element_count' => 'setElementCount',
+        'max_asset_bytes' => 'setMaxAssetBytes',
         'max_cjson_bytes' => 'setMaxCjsonBytes',
+        'max_directory_entries' => 'setMaxDirectoryEntries',
+        'max_library_results_per_page' => 'setMaxLibraryResultsPerPage',
         'max_preview_session_bytes' => 'setMaxPreviewSessionBytes',
+        'max_revertable_bytes' => 'setMaxRevertableBytes',
         'max_search_results' => 'setMaxSearchResults',
         'max_template_bytes' => 'setMaxTemplateBytes',
+        'max_text_read_bytes' => 'setMaxTextReadBytes',
+        'max_video_bytes' => 'setMaxVideoBytes',
         'max_widget_ids_per_request' => 'setMaxWidgetIdsPerRequest',
         'preview_session_ttl_seconds' => 'setPreviewSessionTtlSeconds',
         'release' => 'setRelease'
@@ -156,10 +180,16 @@ class SfvbVersionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'container_manager_version' => 'getContainerManagerVersion',
         'container_versions_retained' => 'getContainerVersionsRetained',
         'element_count' => 'getElementCount',
+        'max_asset_bytes' => 'getMaxAssetBytes',
         'max_cjson_bytes' => 'getMaxCjsonBytes',
+        'max_directory_entries' => 'getMaxDirectoryEntries',
+        'max_library_results_per_page' => 'getMaxLibraryResultsPerPage',
         'max_preview_session_bytes' => 'getMaxPreviewSessionBytes',
+        'max_revertable_bytes' => 'getMaxRevertableBytes',
         'max_search_results' => 'getMaxSearchResults',
         'max_template_bytes' => 'getMaxTemplateBytes',
+        'max_text_read_bytes' => 'getMaxTextReadBytes',
+        'max_video_bytes' => 'getMaxVideoBytes',
         'max_widget_ids_per_request' => 'getMaxWidgetIdsPerRequest',
         'preview_session_ttl_seconds' => 'getPreviewSessionTtlSeconds',
         'release' => 'getRelease'
@@ -242,10 +272,16 @@ class SfvbVersionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['container_manager_version'] = $data['container_manager_version'] ?? null;
         $this->container['container_versions_retained'] = $data['container_versions_retained'] ?? null;
         $this->container['element_count'] = $data['element_count'] ?? null;
+        $this->container['max_asset_bytes'] = $data['max_asset_bytes'] ?? null;
         $this->container['max_cjson_bytes'] = $data['max_cjson_bytes'] ?? null;
+        $this->container['max_directory_entries'] = $data['max_directory_entries'] ?? null;
+        $this->container['max_library_results_per_page'] = $data['max_library_results_per_page'] ?? null;
         $this->container['max_preview_session_bytes'] = $data['max_preview_session_bytes'] ?? null;
+        $this->container['max_revertable_bytes'] = $data['max_revertable_bytes'] ?? null;
         $this->container['max_search_results'] = $data['max_search_results'] ?? null;
         $this->container['max_template_bytes'] = $data['max_template_bytes'] ?? null;
+        $this->container['max_text_read_bytes'] = $data['max_text_read_bytes'] ?? null;
+        $this->container['max_video_bytes'] = $data['max_video_bytes'] ?? null;
         $this->container['max_widget_ids_per_request'] = $data['max_widget_ids_per_request'] ?? null;
         $this->container['preview_session_ttl_seconds'] = $data['preview_session_ttl_seconds'] ?? null;
         $this->container['release'] = $data['release'] ?? null;
@@ -357,6 +393,30 @@ class SfvbVersionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
+     * Gets max_asset_bytes
+     *
+     * @return int|null
+     */
+    public function getMaxAssetBytes()
+    {
+        return $this->container['max_asset_bytes'];
+    }
+
+    /**
+     * Sets max_asset_bytes
+     *
+     * @param int|null $max_asset_bytes Largest binary asset that can be uploaded, in bytes, for every accepted type except video.
+     *
+     * @return self
+     */
+    public function setMaxAssetBytes($max_asset_bytes)
+    {
+        $this->container['max_asset_bytes'] = $max_asset_bytes;
+
+        return $this;
+    }
+
+    /**
      * Gets max_cjson_bytes
      *
      * @return int|null
@@ -381,6 +441,54 @@ class SfvbVersionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
+     * Gets max_directory_entries
+     *
+     * @return int|null
+     */
+    public function getMaxDirectoryEntries()
+    {
+        return $this->container['max_directory_entries'];
+    }
+
+    /**
+     * Sets max_directory_entries
+     *
+     * @param int|null $max_directory_entries Most entries one directory listing returns.  Asking for more is silently reduced to this rather than refused, so compare against it instead of trusting that you got what you asked for.  The listing does set a truncated flag when it drops entries.
+     *
+     * @return self
+     */
+    public function setMaxDirectoryEntries($max_directory_entries)
+    {
+        $this->container['max_directory_entries'] = $max_directory_entries;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_library_results_per_page
+     *
+     * @return int|null
+     */
+    public function getMaxLibraryResultsPerPage()
+    {
+        return $this->container['max_library_results_per_page'];
+    }
+
+    /**
+     * Sets max_library_results_per_page
+     *
+     * @param int|null $max_library_results_per_page Most element library results one page returns.  Asking for more is silently reduced to this, and unlike the directory listing there is no truncation flag on the response, so this number is the only way to know a larger request was cut.
+     *
+     * @return self
+     */
+    public function setMaxLibraryResultsPerPage($max_library_results_per_page)
+    {
+        $this->container['max_library_results_per_page'] = $max_library_results_per_page;
+
+        return $this;
+    }
+
+    /**
      * Gets max_preview_session_bytes
      *
      * @return int|null
@@ -400,6 +508,30 @@ class SfvbVersionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setMaxPreviewSessionBytes($max_preview_session_bytes)
     {
         $this->container['max_preview_session_bytes'] = $max_preview_session_bytes;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_revertable_bytes
+     *
+     * @return int|null
+     */
+    public function getMaxRevertableBytes()
+    {
+        return $this->container['max_revertable_bytes'];
+    }
+
+    /**
+     * Sets max_revertable_bytes
+     *
+     * @param int|null $max_revertable_bytes Largest historical version files/revert will restore, in bytes.  Higher than max_text_read_bytes deliberately - putting back a version that is already stored is cheaper than serving it as JSON, so a version too large to read can still be reverted to.
+     *
+     * @return self
+     */
+    public function setMaxRevertableBytes($max_revertable_bytes)
+    {
+        $this->container['max_revertable_bytes'] = $max_revertable_bytes;
 
         return $this;
     }
@@ -441,13 +573,61 @@ class SfvbVersionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets max_template_bytes
      *
-     * @param int|null $max_template_bytes Largest template file that can be written, in bytes.
+     * @param int|null $max_template_bytes Largest .vm template that can be written, in bytes.  Narrow on purpose - it gates writes, only for files ending in .vm, and it is not the ceiling on reading a file back.  Use max_text_read_bytes for that.
      *
      * @return self
      */
     public function setMaxTemplateBytes($max_template_bytes)
     {
         $this->container['max_template_bytes'] = $max_template_bytes;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_text_read_bytes
+     *
+     * @return int|null
+     */
+    public function getMaxTextReadBytes()
+    {
+        return $this->container['max_text_read_bytes'];
+    }
+
+    /**
+     * Sets max_text_read_bytes
+     *
+     * @param int|null $max_text_read_bytes Largest file files/content will return as text, in bytes.  A file above this is refused with sfvb.too_large however small its history versions are.  Bigger than max_template_bytes, so a file can be readable here and still be too large to write back as a template.  Anything above this is still readable in full through files/download, which returns raw bytes and applies no ceiling.
+     *
+     * @return self
+     */
+    public function setMaxTextReadBytes($max_text_read_bytes)
+    {
+        $this->container['max_text_read_bytes'] = $max_text_read_bytes;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_video_bytes
+     *
+     * @return int|null
+     */
+    public function getMaxVideoBytes()
+    {
+        return $this->container['max_video_bytes'];
+    }
+
+    /**
+     * Sets max_video_bytes
+     *
+     * @param int|null $max_video_bytes Largest video that can be uploaded, in bytes.  Video is the one type allowed past max_asset_bytes.
+     *
+     * @return self
+     */
+    public function setMaxVideoBytes($max_video_bytes)
+    {
+        $this->container['max_video_bytes'] = $max_video_bytes;
 
         return $this;
     }
