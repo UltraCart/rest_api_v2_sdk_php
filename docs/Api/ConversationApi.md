@@ -107,6 +107,7 @@ Method | HTTP request | Description
 [**insertPbxTimeRange()**](ConversationApi.md#insertPbxTimeRange) | **POST** /conversation/pbx/time_range | Insert pbx timeRange
 [**insertPbxVoicemailMailbox()**](ConversationApi.md#insertPbxVoicemailMailbox) | **POST** /conversation/pbx/voicemail_mailbox | Insert pbx voicemailMailbox
 [**insertUserPbxAudio()**](ConversationApi.md#insertUserPbxAudio) | **POST** /conversation/pbx/audio/user | Insert user pbx audio
+[**joinAgentTestSession()**](ConversationApi.md#joinAgentTestSession) | **PUT** /conversation/agent/profiles/{user_id}/test_session/{conversation_uuid}/join | Join a test conversation as the simulated customer
 [**joinConversation()**](ConversationApi.md#joinConversation) | **PUT** /conversation/conversations/{conversation_uuid}/join | Join a conversation
 [**leaveConversation()**](ConversationApi.md#leaveConversation) | **DELETE** /conversation/conversations/{conversation_uuid}/leave | Leave a conversation
 [**listenedPbxAgentVoicemail()**](ConversationApi.md#listenedPbxAgentVoicemail) | **GET** /conversation/pbx/agent/voicemails/{recording_sid}/listened | Listened Agent Voicemail
@@ -122,6 +123,7 @@ Method | HTTP request | Description
 [**searchPbxAvailablePhoneNumbers()**](ConversationApi.md#searchPbxAvailablePhoneNumbers) | **GET** /conversation/pbx/phone_number/search | Search for available phone numbers
 [**searchPbxCalls()**](ConversationApi.md#searchPbxCalls) | **POST** /conversation/pbx/call/search | Search pbx call records
 [**smsUnsubscribeConversation()**](ConversationApi.md#smsUnsubscribeConversation) | **PUT** /conversation/conversations/{conversation_uuid}/sms_unsubscribe | Unsubscribe any SMS participants in this conversation
+[**startAgentTestSession()**](ConversationApi.md#startAgentTestSession) | **PUT** /conversation/agent/profiles/{user_id}/test_session | Start a test conversation with this AI agent
 [**startConversation()**](ConversationApi.md#startConversation) | **PUT** /conversation/conversations | Start a conversation
 [**updateAgentProfile()**](ConversationApi.md#updateAgentProfile) | **PUT** /conversation/agent/profile | Update agent profile
 [**updateAgentProfileMcp()**](ConversationApi.md#updateAgentProfileMcp) | **POST** /conversation/agent/profiles/{user_id}/mcps/{mcp_server_uuid} | Update an agent MCP server
@@ -4293,6 +4295,48 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `joinAgentTestSession()`
+
+```php
+joinAgentTestSession($user_id, $conversation_uuid, $join_request)
+```
+
+Join a test conversation as the simulated customer
+
+Joins the simulated customer to the conversation the agent opened for a test session.  This mirrors what the storefront webchat widget does after an agent picks up its queue entry, and it is what gives the conversation a customer participant.  Requires a logged in user with conversations admin; an API key or OAuth application cannot call this.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**|  |
+ **conversation_uuid** | **string**|  |
+ **join_request** | [**\ultracart\v2\models\ConversationAgentTestSessionJoinRequest**](../Model/ConversationAgentTestSessionJoinRequest.md)| Test session join request |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `joinConversation()`
 
 ```php
@@ -4909,6 +4953,47 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `startAgentTestSession()`
+
+```php
+startAgentTestSession($user_id, $test_session_request): \ultracart\v2\models\ConversationAgentTestSessionResponse
+```
+
+Start a test conversation with this AI agent
+
+Opens a webchat conversation against this specific AI agent as if the given customer had started it from the storefront, so the agent can be tried out before it is put in front of anyone.  The session runs against live data: the cart is real, the customer is real, and anything the agent does during the conversation actually happens.  Requires a logged in user with conversations admin; an API key or OAuth application cannot call this.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**|  |
+ **test_session_request** | [**\ultracart\v2\models\ConversationAgentTestSessionRequest**](../Model/ConversationAgentTestSessionRequest.md)| Test session request |
+
+### Return type
+
+[**\ultracart\v2\models\ConversationAgentTestSessionResponse**](../Model/ConversationAgentTestSessionResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

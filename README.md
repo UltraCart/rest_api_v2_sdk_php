@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.150"
+    "ultracart/rest_api_v2_sdk_php": "4.1.151"
   }
 }
 ```
@@ -267,6 +267,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**insertPbxTimeRange**](docs/Api/ConversationApi.md#insertpbxtimerange) | **POST** /conversation/pbx/time_range | Insert pbx timeRange
 *ConversationApi* | [**insertPbxVoicemailMailbox**](docs/Api/ConversationApi.md#insertpbxvoicemailmailbox) | **POST** /conversation/pbx/voicemail_mailbox | Insert pbx voicemailMailbox
 *ConversationApi* | [**insertUserPbxAudio**](docs/Api/ConversationApi.md#insertuserpbxaudio) | **POST** /conversation/pbx/audio/user | Insert user pbx audio
+*ConversationApi* | [**joinAgentTestSession**](docs/Api/ConversationApi.md#joinagenttestsession) | **PUT** /conversation/agent/profiles/{user_id}/test_session/{conversation_uuid}/join | Join a test conversation as the simulated customer
 *ConversationApi* | [**joinConversation**](docs/Api/ConversationApi.md#joinconversation) | **PUT** /conversation/conversations/{conversation_uuid}/join | Join a conversation
 *ConversationApi* | [**leaveConversation**](docs/Api/ConversationApi.md#leaveconversation) | **DELETE** /conversation/conversations/{conversation_uuid}/leave | Leave a conversation
 *ConversationApi* | [**listenedPbxAgentVoicemail**](docs/Api/ConversationApi.md#listenedpbxagentvoicemail) | **GET** /conversation/pbx/agent/voicemails/{recording_sid}/listened | Listened Agent Voicemail
@@ -282,6 +283,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**searchPbxAvailablePhoneNumbers**](docs/Api/ConversationApi.md#searchpbxavailablephonenumbers) | **GET** /conversation/pbx/phone_number/search | Search for available phone numbers
 *ConversationApi* | [**searchPbxCalls**](docs/Api/ConversationApi.md#searchpbxcalls) | **POST** /conversation/pbx/call/search | Search pbx call records
 *ConversationApi* | [**smsUnsubscribeConversation**](docs/Api/ConversationApi.md#smsunsubscribeconversation) | **PUT** /conversation/conversations/{conversation_uuid}/sms_unsubscribe | Unsubscribe any SMS participants in this conversation
+*ConversationApi* | [**startAgentTestSession**](docs/Api/ConversationApi.md#startagenttestsession) | **PUT** /conversation/agent/profiles/{user_id}/test_session | Start a test conversation with this AI agent
 *ConversationApi* | [**startConversation**](docs/Api/ConversationApi.md#startconversation) | **PUT** /conversation/conversations | Start a conversation
 *ConversationApi* | [**updateAgentProfile**](docs/Api/ConversationApi.md#updateagentprofile) | **PUT** /conversation/agent/profile | Update agent profile
 *ConversationApi* | [**updateAgentProfileMcp**](docs/Api/ConversationApi.md#updateagentprofilemcp) | **POST** /conversation/agent/profiles/{user_id}/mcps/{mcp_server_uuid} | Update an agent MCP server
@@ -955,6 +957,9 @@ Class | Method | HTTP request | Description
 - [ConversationAgentStatusRollupSearchResponse](docs/Model/ConversationAgentStatusRollupSearchResponse.md)
 - [ConversationAgentStatusSummaryResponse](docs/Model/ConversationAgentStatusSummaryResponse.md)
 - [ConversationAgentStatusTimelineResponse](docs/Model/ConversationAgentStatusTimelineResponse.md)
+- [ConversationAgentTestSessionJoinRequest](docs/Model/ConversationAgentTestSessionJoinRequest.md)
+- [ConversationAgentTestSessionRequest](docs/Model/ConversationAgentTestSessionRequest.md)
+- [ConversationAgentTestSessionResponse](docs/Model/ConversationAgentTestSessionResponse.md)
 - [ConversationAutocompleteRequest](docs/Model/ConversationAutocompleteRequest.md)
 - [ConversationAutocompleteResponse](docs/Model/ConversationAutocompleteResponse.md)
 - [ConversationAutocompleteValue](docs/Model/ConversationAutocompleteValue.md)
@@ -962,6 +967,7 @@ Class | Method | HTTP request | Description
 - [ConversationCannedMessageResponse](docs/Model/ConversationCannedMessageResponse.md)
 - [ConversationCannedMessagesResponse](docs/Model/ConversationCannedMessagesResponse.md)
 - [ConversationCannedMessagesSearch](docs/Model/ConversationCannedMessagesSearch.md)
+- [ConversationCustomerAuth](docs/Model/ConversationCustomerAuth.md)
 - [ConversationDeleteKnowledgeBaseDocumentResponse](docs/Model/ConversationDeleteKnowledgeBaseDocumentResponse.md)
 - [ConversationDepartment](docs/Model/ConversationDepartment.md)
 - [ConversationDepartmentMember](docs/Model/ConversationDepartmentMember.md)
@@ -1960,6 +1966,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.151 | 09/04/2026 | conversations - added ai agent capabilities |
 | 4.1.150 | 09/04/2026 | conversations - add ai agent capabilities |
 | 4.1.149 | 09/04/2026 | conversations - added ai agent capabilities |
 | 4.1.148 | 09/04/2026 | conversations - added ai agent capabilities |

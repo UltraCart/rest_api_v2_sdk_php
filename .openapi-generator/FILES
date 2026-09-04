@@ -205,6 +205,9 @@ docs/Model/ConversationAgentStatusRollupSearchRequest.md
 docs/Model/ConversationAgentStatusRollupSearchResponse.md
 docs/Model/ConversationAgentStatusSummaryResponse.md
 docs/Model/ConversationAgentStatusTimelineResponse.md
+docs/Model/ConversationAgentTestSessionJoinRequest.md
+docs/Model/ConversationAgentTestSessionRequest.md
+docs/Model/ConversationAgentTestSessionResponse.md
 docs/Model/ConversationAutocompleteRequest.md
 docs/Model/ConversationAutocompleteResponse.md
 docs/Model/ConversationAutocompleteValue.md
@@ -212,6 +215,7 @@ docs/Model/ConversationCannedMessage.md
 docs/Model/ConversationCannedMessageResponse.md
 docs/Model/ConversationCannedMessagesResponse.md
 docs/Model/ConversationCannedMessagesSearch.md
+docs/Model/ConversationCustomerAuth.md
 docs/Model/ConversationDeleteKnowledgeBaseDocumentResponse.md
 docs/Model/ConversationDepartment.md
 docs/Model/ConversationDepartmentMember.md
@@ -1324,6 +1328,9 @@ lib/models/ConversationAgentStatusRollupSearchRequest.php
 lib/models/ConversationAgentStatusRollupSearchResponse.php
 lib/models/ConversationAgentStatusSummaryResponse.php
 lib/models/ConversationAgentStatusTimelineResponse.php
+lib/models/ConversationAgentTestSessionJoinRequest.php
+lib/models/ConversationAgentTestSessionRequest.php
+lib/models/ConversationAgentTestSessionResponse.php
 lib/models/ConversationAutocompleteRequest.php
 lib/models/ConversationAutocompleteResponse.php
 lib/models/ConversationAutocompleteValue.php
@@ -1331,6 +1338,7 @@ lib/models/ConversationCannedMessage.php
 lib/models/ConversationCannedMessageResponse.php
 lib/models/ConversationCannedMessagesResponse.php
 lib/models/ConversationCannedMessagesSearch.php
+lib/models/ConversationCustomerAuth.php
 lib/models/ConversationDeleteKnowledgeBaseDocumentResponse.php
 lib/models/ConversationDepartment.php
 lib/models/ConversationDepartmentMember.php
