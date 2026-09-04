@@ -4,8 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**access_custom_collections** | **bool** | Permission flag to allow this Agent to search the merchant&#39;s custom Typesense collections. | [optional]
 **access_storefront_and_item** | **bool** | Permission flag to allow this Agent access to the storefront and item information. | [optional]
 **cancel_subscription** | **bool** |  | [optional]
+**custom_collection_oids** | **object** | The custom collections this Agent is allowed to search.  Empty means none, even when access_custom_collections is true. | [optional]
+**custom_collections** | [**\ultracart\v2\models\ConversationVirtualAgentCapabilityCustomCollection[]**](ConversationVirtualAgentCapabilityCustomCollection.md) | Read only.  All of the merchant&#39;s custom collections, to populate the selection list for custom_collection_oids.  Changes here are ignored. | [optional]
 **delay_subscription** | **bool** |  | [optional]
 **generate_coupon** | **bool** | Permission flag to allow this Agent to generate coupons based upon the agent prompt instructions | [optional]
 **lookup_order_information** | **bool** |  | [optional]

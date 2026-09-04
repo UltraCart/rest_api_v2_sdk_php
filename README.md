@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.147"
+    "ultracart/rest_api_v2_sdk_php": "4.1.148"
   }
 }
 ```
@@ -1098,6 +1098,7 @@ Class | Method | HTTP request | Description
 - [ConversationVirtualAgentBudgetResponse](docs/Model/ConversationVirtualAgentBudgetResponse.md)
 - [ConversationVirtualAgentCapabilities](docs/Model/ConversationVirtualAgentCapabilities.md)
 - [ConversationVirtualAgentCapabilitiesResponse](docs/Model/ConversationVirtualAgentCapabilitiesResponse.md)
+- [ConversationVirtualAgentCapabilityCustomCollection](docs/Model/ConversationVirtualAgentCapabilityCustomCollection.md)
 - [ConversationVirtualAgentCapabilityZohoDeskDepartment](docs/Model/ConversationVirtualAgentCapabilityZohoDeskDepartment.md)
 - [ConversationWebchatContext](docs/Model/ConversationWebchatContext.md)
 - [ConversationWebchatQueueStatus](docs/Model/ConversationWebchatQueueStatus.md)
@@ -1959,6 +1960,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.148 | 09/04/2026 | conversations - added ai agent capabilities |
 | 4.1.147 | 09/04/2026 | sfvb - internal testing |
 | 4.1.146 | 09/03/2026 | sfvb - internal testing |
 | 4.1.145 | 09/02/2026 | sfvb - internal testing |

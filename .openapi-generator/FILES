@@ -348,6 +348,7 @@ docs/Model/ConversationVirtualAgentBudget.md
 docs/Model/ConversationVirtualAgentBudgetResponse.md
 docs/Model/ConversationVirtualAgentCapabilities.md
 docs/Model/ConversationVirtualAgentCapabilitiesResponse.md
+docs/Model/ConversationVirtualAgentCapabilityCustomCollection.md
 docs/Model/ConversationVirtualAgentCapabilityZohoDeskDepartment.md
 docs/Model/ConversationWebchatContext.md
 docs/Model/ConversationWebchatQueueStatus.md
@@ -1466,6 +1467,7 @@ lib/models/ConversationVirtualAgentBudget.php
 lib/models/ConversationVirtualAgentBudgetResponse.php
 lib/models/ConversationVirtualAgentCapabilities.php
 lib/models/ConversationVirtualAgentCapabilitiesResponse.php
+lib/models/ConversationVirtualAgentCapabilityCustomCollection.php
 lib/models/ConversationVirtualAgentCapabilityZohoDeskDepartment.php
 lib/models/ConversationWebchatContext.php
 lib/models/ConversationWebchatQueueStatus.php

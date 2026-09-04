@@ -58,8 +58,11 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $openAPITypes = [
+        'access_custom_collections' => 'bool',
         'access_storefront_and_item' => 'bool',
         'cancel_subscription' => 'bool',
+        'custom_collection_oids' => 'object',
+        'custom_collections' => '\ultracart\v2\models\ConversationVirtualAgentCapabilityCustomCollection[]',
         'delay_subscription' => 'bool',
         'generate_coupon' => 'bool',
         'lookup_order_information' => 'bool',
@@ -84,8 +87,11 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'access_custom_collections' => null,
         'access_storefront_and_item' => null,
         'cancel_subscription' => null,
+        'custom_collection_oids' => null,
+        'custom_collections' => null,
         'delay_subscription' => null,
         'generate_coupon' => null,
         'lookup_order_information' => null,
@@ -129,8 +135,11 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
+        'access_custom_collections' => 'access_custom_collections',
         'access_storefront_and_item' => 'access_storefront_and_item',
         'cancel_subscription' => 'cancel_subscription',
+        'custom_collection_oids' => 'custom_collection_oids',
+        'custom_collections' => 'custom_collections',
         'delay_subscription' => 'delay_subscription',
         'generate_coupon' => 'generate_coupon',
         'lookup_order_information' => 'lookup_order_information',
@@ -153,8 +162,11 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
+        'access_custom_collections' => 'setAccessCustomCollections',
         'access_storefront_and_item' => 'setAccessStorefrontAndItem',
         'cancel_subscription' => 'setCancelSubscription',
+        'custom_collection_oids' => 'setCustomCollectionOids',
+        'custom_collections' => 'setCustomCollections',
         'delay_subscription' => 'setDelaySubscription',
         'generate_coupon' => 'setGenerateCoupon',
         'lookup_order_information' => 'setLookupOrderInformation',
@@ -177,8 +189,11 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
+        'access_custom_collections' => 'getAccessCustomCollections',
         'access_storefront_and_item' => 'getAccessStorefrontAndItem',
         'cancel_subscription' => 'getCancelSubscription',
+        'custom_collection_oids' => 'getCustomCollectionOids',
+        'custom_collections' => 'getCustomCollections',
         'delay_subscription' => 'getDelaySubscription',
         'generate_coupon' => 'getGenerateCoupon',
         'lookup_order_information' => 'getLookupOrderInformation',
@@ -271,8 +286,11 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
      */
     public function __construct(array $data = null)
     {
+        $this->container['access_custom_collections'] = $data['access_custom_collections'] ?? null;
         $this->container['access_storefront_and_item'] = $data['access_storefront_and_item'] ?? null;
         $this->container['cancel_subscription'] = $data['cancel_subscription'] ?? null;
+        $this->container['custom_collection_oids'] = $data['custom_collection_oids'] ?? null;
+        $this->container['custom_collections'] = $data['custom_collections'] ?? null;
         $this->container['delay_subscription'] = $data['delay_subscription'] ?? null;
         $this->container['generate_coupon'] = $data['generate_coupon'] ?? null;
         $this->container['lookup_order_information'] = $data['lookup_order_information'] ?? null;
@@ -323,6 +341,30 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
 
 
     /**
+     * Gets access_custom_collections
+     *
+     * @return bool|null
+     */
+    public function getAccessCustomCollections()
+    {
+        return $this->container['access_custom_collections'];
+    }
+
+    /**
+     * Sets access_custom_collections
+     *
+     * @param bool|null $access_custom_collections Permission flag to allow this Agent to search the merchant's custom Typesense collections.
+     *
+     * @return self
+     */
+    public function setAccessCustomCollections($access_custom_collections)
+    {
+        $this->container['access_custom_collections'] = $access_custom_collections;
+
+        return $this;
+    }
+
+    /**
      * Gets access_storefront_and_item
      *
      * @return bool|null
@@ -366,6 +408,54 @@ class ConversationVirtualAgentCapabilities implements ModelInterface, ArrayAcces
     public function setCancelSubscription($cancel_subscription)
     {
         $this->container['cancel_subscription'] = $cancel_subscription;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_collection_oids
+     *
+     * @return object|null
+     */
+    public function getCustomCollectionOids()
+    {
+        return $this->container['custom_collection_oids'];
+    }
+
+    /**
+     * Sets custom_collection_oids
+     *
+     * @param object|null $custom_collection_oids The custom collections this Agent is allowed to search.  Empty means none, even when access_custom_collections is true.
+     *
+     * @return self
+     */
+    public function setCustomCollectionOids($custom_collection_oids)
+    {
+        $this->container['custom_collection_oids'] = $custom_collection_oids;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_collections
+     *
+     * @return \ultracart\v2\models\ConversationVirtualAgentCapabilityCustomCollection[]|null
+     */
+    public function getCustomCollections()
+    {
+        return $this->container['custom_collections'];
+    }
+
+    /**
+     * Sets custom_collections
+     *
+     * @param \ultracart\v2\models\ConversationVirtualAgentCapabilityCustomCollection[]|null $custom_collections Read only.  All of the merchant's custom collections, to populate the selection list for custom_collection_oids.  Changes here are ignored.
+     *
+     * @return self
+     */
+    public function setCustomCollections($custom_collections)
+    {
+        $this->container['custom_collections'] = $custom_collections;
 
         return $this;
     }
