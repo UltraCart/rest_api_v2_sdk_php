@@ -1022,7 +1022,13 @@ docs/Model/SfvbRenderResponse.md
 docs/Model/SfvbStorefront.md
 docs/Model/SfvbStorefrontsResponse.md
 docs/Model/SfvbTheme.md
+docs/Model/SfvbThemeAttribute.md
+docs/Model/SfvbThemeAttributeUpdate.md
+docs/Model/SfvbThemeAttributeUpdateRequest.md
+docs/Model/SfvbThemeAttributesResponse.md
 docs/Model/SfvbThemeDuplicateRequest.md
+docs/Model/SfvbThemeFont.md
+docs/Model/SfvbThemeFontFamily.md
 docs/Model/SfvbThemeJobResponse.md
 docs/Model/SfvbThemesResponse.md
 docs/Model/SfvbUpsellOffer.md
@@ -2146,7 +2152,13 @@ lib/models/SfvbRenderResponse.php
 lib/models/SfvbStorefront.php
 lib/models/SfvbStorefrontsResponse.php
 lib/models/SfvbTheme.php
+lib/models/SfvbThemeAttribute.php
+lib/models/SfvbThemeAttributeUpdate.php
+lib/models/SfvbThemeAttributeUpdateRequest.php
+lib/models/SfvbThemeAttributesResponse.php
 lib/models/SfvbThemeDuplicateRequest.php
+lib/models/SfvbThemeFont.php
+lib/models/SfvbThemeFontFamily.php
 lib/models/SfvbThemeJobResponse.php
 lib/models/SfvbThemesResponse.php
 lib/models/SfvbUpsellOffer.php

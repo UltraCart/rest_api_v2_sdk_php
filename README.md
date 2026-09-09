@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.151"
+    "ultracart/rest_api_v2_sdk_php": "4.1.152"
   }
 }
 ```
@@ -502,6 +502,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbLibraryEntry**](docs/Api/SfvbApi.md#getsfvblibraryentry) | **GET** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Read one library entry including its CJSON
 *SfvbApi* | [**getSfvbPreviewUrl**](docs/Api/SfvbApi.md#getsfvbpreviewurl) | **GET** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id}/url | URL that renders a preview session
 *SfvbApi* | [**getSfvbTheme**](docs/Api/SfvbApi.md#getsfvbtheme) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid} | Get a theme
+*SfvbApi* | [**getSfvbThemeAttributes**](docs/Api/SfvbApi.md#getsfvbthemeattributes) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Read a theme&#39;s colors, fonts and settings
 *SfvbApi* | [**getSfvbThemeJob**](docs/Api/SfvbApi.md#getsfvbthemejob) | **GET** /sfvb/storefronts/{storefront_oid}/theme_jobs/{job_id} | Status of an asynchronous theme job
 *SfvbApi* | [**getSfvbVersion**](docs/Api/SfvbApi.md#getsfvbversion) | **GET** /sfvb/version | Compiler version for this merchant
 *SfvbApi* | [**getSfvbWhoami**](docs/Api/SfvbApi.md#getsfvbwhoami) | **GET** /sfvb/whoami | Who this token is
@@ -516,6 +517,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**putSfvbContainer**](docs/Api/SfvbApi.md#putsfvbcontainer) | **PUT** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Write a container stored outside the file system
 *SfvbApi* | [**putSfvbFileContent**](docs/Api/SfvbApi.md#putsfvbfilecontent) | **PUT** /sfvb/storefronts/{storefront_oid}/files/content | Write a storefront file
 *SfvbApi* | [**putSfvbPreviewSession**](docs/Api/SfvbApi.md#putsfvbpreviewsession) | **PUT** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Push containers into a preview session
+*SfvbApi* | [**putSfvbThemeAttributes**](docs/Api/SfvbApi.md#putsfvbthemeattributes) | **PUT** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Change a theme&#39;s colors, fonts and settings
 *SfvbApi* | [**renderSfvbWidgets**](docs/Api/SfvbApi.md#rendersfvbwidgets) | **POST** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/render | Render a CJSON node to HTML
 *SfvbApi* | [**reserveSfvbWidgetIds**](docs/Api/SfvbApi.md#reservesfvbwidgetids) | **POST** /sfvb/storefronts/{storefront_oid}/widget_ids | Reserve a block of widget ids
 *SfvbApi* | [**revertSfvbContainer**](docs/Api/SfvbApi.md#revertsfvbcontainer) | **POST** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id}/revert | Revert a container stored outside the file system
@@ -1774,7 +1776,13 @@ Class | Method | HTTP request | Description
 - [SfvbStorefront](docs/Model/SfvbStorefront.md)
 - [SfvbStorefrontsResponse](docs/Model/SfvbStorefrontsResponse.md)
 - [SfvbTheme](docs/Model/SfvbTheme.md)
+- [SfvbThemeAttribute](docs/Model/SfvbThemeAttribute.md)
+- [SfvbThemeAttributeUpdate](docs/Model/SfvbThemeAttributeUpdate.md)
+- [SfvbThemeAttributeUpdateRequest](docs/Model/SfvbThemeAttributeUpdateRequest.md)
+- [SfvbThemeAttributesResponse](docs/Model/SfvbThemeAttributesResponse.md)
 - [SfvbThemeDuplicateRequest](docs/Model/SfvbThemeDuplicateRequest.md)
+- [SfvbThemeFont](docs/Model/SfvbThemeFont.md)
+- [SfvbThemeFontFamily](docs/Model/SfvbThemeFontFamily.md)
 - [SfvbThemeJobResponse](docs/Model/SfvbThemeJobResponse.md)
 - [SfvbThemesResponse](docs/Model/SfvbThemesResponse.md)
 - [SfvbUpsellOffer](docs/Model/SfvbUpsellOffer.md)
@@ -1966,6 +1974,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.152 | 09/09/2026 | sfvb - internal testing |
 | 4.1.151 | 09/04/2026 | conversations - added ai agent capabilities |
 | 4.1.150 | 09/04/2026 | conversations - add ai agent capabilities |
 | 4.1.149 | 09/04/2026 | conversations - added ai agent capabilities |
