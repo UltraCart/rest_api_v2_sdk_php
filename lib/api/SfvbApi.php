@@ -4345,7 +4345,7 @@ class SfvbApi
     /**
      * Operation getSfvbElement
      *
-     * Configuration schema for one element type
+     * Configuration schema and field card for one element type
      *
      * @param  string $element_type element_type (required)
      *
@@ -4362,7 +4362,7 @@ class SfvbApi
     /**
      * Operation getSfvbElementWithHttpInfo
      *
-     * Configuration schema for one element type
+     * Configuration schema and field card for one element type
      *
      * @param  string $element_type (required)
      *
@@ -4380,7 +4380,7 @@ class SfvbApi
     /**
      * Operation getSfvbElementWithHttpInfoRetry
      *
-     * Configuration schema for one element type
+     * Configuration schema and field card for one element type
      *
      * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
      * @param  string $element_type (required)
@@ -4593,7 +4593,7 @@ class SfvbApi
     /**
      * Operation getSfvbElementAsync
      *
-     * Configuration schema for one element type
+     * Configuration schema and field card for one element type
      *
      * @param  string $element_type (required)
      *
@@ -4613,7 +4613,7 @@ class SfvbApi
     /**
      * Operation getSfvbElementAsyncWithHttpInfo
      *
-     * Configuration schema for one element type
+     * Configuration schema and field card for one element type
      *
      * @param  string $element_type (required)
      *

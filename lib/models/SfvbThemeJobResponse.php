@@ -361,7 +361,7 @@ class SfvbThemeJobResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets error_message
      *
-     * @param string|null $error_message Failure detail.  Populated only when status is error.
+     * @param string|null $error_message What to do next when the job did not produce a theme.  The internal cause is not returned; it is recorded against the job id in the server log.
      *
      * @return self
      */

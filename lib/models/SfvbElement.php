@@ -58,6 +58,7 @@ class SfvbElement implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'doc_available' => 'bool',
         'schema_available' => 'bool',
         'type' => 'string'
     ];
@@ -70,6 +71,7 @@ class SfvbElement implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'doc_available' => null,
         'schema_available' => null,
         'type' => null
     ];
@@ -101,6 +103,7 @@ class SfvbElement implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'doc_available' => 'doc_available',
         'schema_available' => 'schema_available',
         'type' => 'type'
     ];
@@ -111,6 +114,7 @@ class SfvbElement implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'doc_available' => 'setDocAvailable',
         'schema_available' => 'setSchemaAvailable',
         'type' => 'setType'
     ];
@@ -121,6 +125,7 @@ class SfvbElement implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'doc_available' => 'getDocAvailable',
         'schema_available' => 'getSchemaAvailable',
         'type' => 'getType'
     ];
@@ -182,6 +187,7 @@ class SfvbElement implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->container['doc_available'] = $data['doc_available'] ?? null;
         $this->container['schema_available'] = $data['schema_available'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
     }
@@ -209,6 +215,30 @@ class SfvbElement implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets doc_available
+     *
+     * @return bool|null
+     */
+    public function getDocAvailable()
+    {
+        return $this->container['doc_available'];
+    }
+
+    /**
+     * Sets doc_available
+     *
+     * @param bool|null $doc_available True when a markdown field card for this element is available from elements/{element_type}.
+     *
+     * @return self
+     */
+    public function setDocAvailable($doc_available)
+    {
+        $this->container['doc_available'] = $doc_available;
+
+        return $this;
+    }
 
     /**
      * Gets schema_available

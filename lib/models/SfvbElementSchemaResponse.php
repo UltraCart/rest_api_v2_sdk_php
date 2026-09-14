@@ -58,6 +58,7 @@ class SfvbElementSchemaResponse implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
+        'doc' => 'string',
         'schema' => 'string',
         'type' => 'string'
     ];
@@ -70,6 +71,7 @@ class SfvbElementSchemaResponse implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'doc' => null,
         'schema' => null,
         'type' => null
     ];
@@ -101,6 +103,7 @@ class SfvbElementSchemaResponse implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
+        'doc' => 'doc',
         'schema' => 'schema',
         'type' => 'type'
     ];
@@ -111,6 +114,7 @@ class SfvbElementSchemaResponse implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
+        'doc' => 'setDoc',
         'schema' => 'setSchema',
         'type' => 'setType'
     ];
@@ -121,6 +125,7 @@ class SfvbElementSchemaResponse implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
+        'doc' => 'getDoc',
         'schema' => 'getSchema',
         'type' => 'getType'
     ];
@@ -182,6 +187,7 @@ class SfvbElementSchemaResponse implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function __construct(array $data = null)
     {
+        $this->container['doc'] = $data['doc'] ?? null;
         $this->container['schema'] = $data['schema'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
     }
@@ -211,6 +217,30 @@ class SfvbElementSchemaResponse implements ModelInterface, ArrayAccess, \JsonSer
 
 
     /**
+     * Gets doc
+     *
+     * @return string|null
+     */
+    public function getDoc()
+    {
+        return $this->container['doc'];
+    }
+
+    /**
+     * Sets doc
+     *
+     * @param string|null $doc Markdown field card for this element, as a string.  Omitted when no field card has been published for this element.
+     *
+     * @return self
+     */
+    public function setDoc($doc)
+    {
+        $this->container['doc'] = $doc;
+
+        return $this;
+    }
+
+    /**
      * Gets schema
      *
      * @return string|null
@@ -223,7 +253,7 @@ class SfvbElementSchemaResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets schema
      *
-     * @param string|null $schema JSON schema for this element's config object, as a JSON string.  Null when no schema has been published for this element yet.
+     * @param string|null $schema Draft-07 JSON schema for this element's config object, as a JSON string.  Omitted when no schema has been published for this element.
      *
      * @return self
      */
