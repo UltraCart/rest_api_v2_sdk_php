@@ -1014,6 +1014,12 @@ docs/Model/SfvbFilesResponse.md
 docs/Model/SfvbLibraryEntry.md
 docs/Model/SfvbLibraryFacet.md
 docs/Model/SfvbLibraryResponse.md
+docs/Model/SfvbPageAttribute.md
+docs/Model/SfvbPageAttributeUpdate.md
+docs/Model/SfvbPageAttributeUpdateRequest.md
+docs/Model/SfvbPageMultimedia.md
+docs/Model/SfvbPageMultimediaRequest.md
+docs/Model/SfvbPageResponse.md
 docs/Model/SfvbPreviewSessionRequest.md
 docs/Model/SfvbPreviewSessionResponse.md
 docs/Model/SfvbPreviewUrlResponse.md
@@ -2144,6 +2150,12 @@ lib/models/SfvbFilesResponse.php
 lib/models/SfvbLibraryEntry.php
 lib/models/SfvbLibraryFacet.php
 lib/models/SfvbLibraryResponse.php
+lib/models/SfvbPageAttribute.php
+lib/models/SfvbPageAttributeUpdate.php
+lib/models/SfvbPageAttributeUpdateRequest.php
+lib/models/SfvbPageMultimedia.php
+lib/models/SfvbPageMultimediaRequest.php
+lib/models/SfvbPageResponse.php
 lib/models/SfvbPreviewSessionRequest.php
 lib/models/SfvbPreviewSessionResponse.php
 lib/models/SfvbPreviewUrlResponse.php
