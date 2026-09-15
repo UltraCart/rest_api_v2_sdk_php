@@ -1020,6 +1020,8 @@ docs/Model/SfvbPageAttributeUpdateRequest.md
 docs/Model/SfvbPageMultimedia.md
 docs/Model/SfvbPageMultimediaRequest.md
 docs/Model/SfvbPageResponse.md
+docs/Model/SfvbPreviewAccessRequest.md
+docs/Model/SfvbPreviewAccessResponse.md
 docs/Model/SfvbPreviewSessionRequest.md
 docs/Model/SfvbPreviewSessionResponse.md
 docs/Model/SfvbPreviewUrlResponse.md
@@ -2156,6 +2158,8 @@ lib/models/SfvbPageAttributeUpdateRequest.php
 lib/models/SfvbPageMultimedia.php
 lib/models/SfvbPageMultimediaRequest.php
 lib/models/SfvbPageResponse.php
+lib/models/SfvbPreviewAccessRequest.php
+lib/models/SfvbPreviewAccessResponse.php
 lib/models/SfvbPreviewSessionRequest.php
 lib/models/SfvbPreviewSessionResponse.php
 lib/models/SfvbPreviewUrlResponse.php

@@ -5,6 +5,7 @@ All URIs are relative to https://secure.ultracart.com/rest/v2.
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**compileSfvbCjson()**](SfvbApi.md#compileSfvbCjson) | **POST** /sfvb/cjson/compile | Compile CJSON to Velocity
+[**createSfvbPreviewAccess()**](SfvbApi.md#createSfvbPreviewAccess) | **POST** /sfvb/storefronts/{storefront_oid}/preview_access | One time link that opens a preview in a browser with no UltraCart login
 [**createSfvbPreviewSession()**](SfvbApi.md#createSfvbPreviewSession) | **POST** /sfvb/storefronts/{storefront_oid}/preview_sessions | Create a preview session
 [**deleteSfvbFile()**](SfvbApi.md#deleteSfvbFile) | **DELETE** /sfvb/storefronts/{storefront_oid}/files | Delete a storefront file
 [**deleteSfvbPageMultimedia()**](SfvbApi.md#deleteSfvbPageMultimedia) | **DELETE** /sfvb/storefronts/{storefront_oid}/pages/multimedia | Detach an image from a page
@@ -76,6 +77,47 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\SfvbCompileResponse**](../Model/SfvbCompileResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `createSfvbPreviewAccess()`
+
+```php
+createSfvbPreviewAccess($storefront_oid, $preview_access): \ultracart\v2\models\SfvbPreviewAccessResponse
+```
+
+One time link that opens a preview in a browser with no UltraCart login
+
+The preview URL only works in a browser already signed in to UltraCart on the storefront's own host, and an agent's built in browser never is.  This returns a single use access_url on the storefront host instead.  Opening it gets past the storefront lock, shows the requested theme and applies the requested preview session for the rest of that browser session, then redirects to path.  It expires two minutes after issue or on first use.  Pages opened afterwards carry an X-UltraCart-Preview header of applied or not-applied.  Requires a token that resolves to a user, so use the device authorization flow.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **preview_access** | [**\ultracart\v2\models\SfvbPreviewAccessRequest**](../Model/SfvbPreviewAccessRequest.md)| What the browser should see | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\SfvbPreviewAccessResponse**](../Model/SfvbPreviewAccessResponse.md)
 
 ### Authorization
 

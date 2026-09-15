@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.154"
+    "ultracart/rest_api_v2_sdk_php": "4.1.155"
   }
 }
 ```
@@ -488,6 +488,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**updateOrder**](docs/Api/OrderApi.md#updateorder) | **PUT** /order/orders/{order_id} | Update an order
 *OrderApi* | [**validateOrder**](docs/Api/OrderApi.md#validateorder) | **POST** /order/validate | Validate
 *SfvbApi* | [**compileSfvbCjson**](docs/Api/SfvbApi.md#compilesfvbcjson) | **POST** /sfvb/cjson/compile | Compile CJSON to Velocity
+*SfvbApi* | [**createSfvbPreviewAccess**](docs/Api/SfvbApi.md#createsfvbpreviewaccess) | **POST** /sfvb/storefronts/{storefront_oid}/preview_access | One time link that opens a preview in a browser with no UltraCart login
 *SfvbApi* | [**createSfvbPreviewSession**](docs/Api/SfvbApi.md#createsfvbpreviewsession) | **POST** /sfvb/storefronts/{storefront_oid}/preview_sessions | Create a preview session
 *SfvbApi* | [**deleteSfvbFile**](docs/Api/SfvbApi.md#deletesfvbfile) | **DELETE** /sfvb/storefronts/{storefront_oid}/files | Delete a storefront file
 *SfvbApi* | [**deleteSfvbPageMultimedia**](docs/Api/SfvbApi.md#deletesfvbpagemultimedia) | **DELETE** /sfvb/storefronts/{storefront_oid}/pages/multimedia | Detach an image from a page
@@ -1778,6 +1779,8 @@ Class | Method | HTTP request | Description
 - [SfvbPageMultimedia](docs/Model/SfvbPageMultimedia.md)
 - [SfvbPageMultimediaRequest](docs/Model/SfvbPageMultimediaRequest.md)
 - [SfvbPageResponse](docs/Model/SfvbPageResponse.md)
+- [SfvbPreviewAccessRequest](docs/Model/SfvbPreviewAccessRequest.md)
+- [SfvbPreviewAccessResponse](docs/Model/SfvbPreviewAccessResponse.md)
 - [SfvbPreviewSessionRequest](docs/Model/SfvbPreviewSessionRequest.md)
 - [SfvbPreviewSessionResponse](docs/Model/SfvbPreviewSessionResponse.md)
 - [SfvbPreviewUrlResponse](docs/Model/SfvbPreviewUrlResponse.md)
@@ -1984,6 +1987,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.155 | 09/15/2026 | sfvb internal testing |
 | 4.1.154 | 09/14/2026 | sfvb internal testing |
 | 4.1.153 | 09/14/2026 | sfvb internal testing |
 | 4.1.152 | 09/09/2026 | sfvb - internal testing |
