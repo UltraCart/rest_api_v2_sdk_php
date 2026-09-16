@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.155"
+    "ultracart/rest_api_v2_sdk_php": "4.1.156"
   }
 }
 ```
@@ -502,6 +502,8 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbFileContent**](docs/Api/SfvbApi.md#getsfvbfilecontent) | **GET** /sfvb/storefronts/{storefront_oid}/files/content | Read a storefront file
 *SfvbApi* | [**getSfvbFileUploadUrl**](docs/Api/SfvbApi.md#getsfvbfileuploadurl) | **GET** /sfvb/storefronts/{storefront_oid}/files/upload_url/{extension} | Get a URL to upload a binary asset to
 *SfvbApi* | [**getSfvbLibraryEntry**](docs/Api/SfvbApi.md#getsfvblibraryentry) | **GET** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Read one library entry including its CJSON
+*SfvbApi* | [**getSfvbMenu**](docs/Api/SfvbApi.md#getsfvbmenu) | **GET** /sfvb/storefronts/{storefront_oid}/menus/{code} | Read one store menu and its entries
+*SfvbApi* | [**getSfvbMenus**](docs/Api/SfvbApi.md#getsfvbmenus) | **GET** /sfvb/storefronts/{storefront_oid}/menus | List a storefront&#39;s store menus
 *SfvbApi* | [**getSfvbPage**](docs/Api/SfvbApi.md#getsfvbpage) | **GET** /sfvb/storefronts/{storefront_oid}/pages | Read a page&#39;s attributes and images
 *SfvbApi* | [**getSfvbPreviewUrl**](docs/Api/SfvbApi.md#getsfvbpreviewurl) | **GET** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id}/url | URL that renders a preview session
 *SfvbApi* | [**getSfvbTheme**](docs/Api/SfvbApi.md#getsfvbtheme) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid} | Get a theme
@@ -519,6 +521,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**listSfvbUpsellOffers**](docs/Api/SfvbApi.md#listsfvbupselloffers) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_offers | List upsell offers
 *SfvbApi* | [**putSfvbContainer**](docs/Api/SfvbApi.md#putsfvbcontainer) | **PUT** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Write a container stored outside the file system
 *SfvbApi* | [**putSfvbFileContent**](docs/Api/SfvbApi.md#putsfvbfilecontent) | **PUT** /sfvb/storefronts/{storefront_oid}/files/content | Write a storefront file
+*SfvbApi* | [**putSfvbMenu**](docs/Api/SfvbApi.md#putsfvbmenu) | **PUT** /sfvb/storefronts/{storefront_oid}/menus/{code} | Replace a store menu&#39;s entries
 *SfvbApi* | [**putSfvbPageAttributes**](docs/Api/SfvbApi.md#putsfvbpageattributes) | **PUT** /sfvb/storefronts/{storefront_oid}/pages/attributes | Change a page&#39;s attributes
 *SfvbApi* | [**putSfvbPageMultimedia**](docs/Api/SfvbApi.md#putsfvbpagemultimedia) | **PUT** /sfvb/storefronts/{storefront_oid}/pages/multimedia | Attach an image to a page
 *SfvbApi* | [**putSfvbPreviewSession**](docs/Api/SfvbApi.md#putsfvbpreviewsession) | **PUT** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Push containers into a preview session
@@ -1773,6 +1776,10 @@ Class | Method | HTTP request | Description
 - [SfvbLibraryEntry](docs/Model/SfvbLibraryEntry.md)
 - [SfvbLibraryFacet](docs/Model/SfvbLibraryFacet.md)
 - [SfvbLibraryResponse](docs/Model/SfvbLibraryResponse.md)
+- [SfvbMenu](docs/Model/SfvbMenu.md)
+- [SfvbMenuItem](docs/Model/SfvbMenuItem.md)
+- [SfvbMenuWriteRequest](docs/Model/SfvbMenuWriteRequest.md)
+- [SfvbMenusResponse](docs/Model/SfvbMenusResponse.md)
 - [SfvbPageAttribute](docs/Model/SfvbPageAttribute.md)
 - [SfvbPageAttributeUpdate](docs/Model/SfvbPageAttributeUpdate.md)
 - [SfvbPageAttributeUpdateRequest](docs/Model/SfvbPageAttributeUpdateRequest.md)
@@ -1987,6 +1994,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.156 | 09/16/2026 | sfvb internal testing |
 | 4.1.155 | 09/15/2026 | sfvb internal testing |
 | 4.1.154 | 09/14/2026 | sfvb internal testing |
 | 4.1.153 | 09/14/2026 | sfvb internal testing |

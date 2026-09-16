@@ -1,6 +1,6 @@
 <?php
 /**
- * SfvbPreviewAccessResponse
+ * SfvbMenu
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * SfvbPreviewAccessResponse Class Doc Comment
+ * SfvbMenu Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SfvbPreviewAccessResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class SfvbMenu implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SfvbPreviewAccessResponse implements ModelInterface, ArrayAccess, \JsonSer
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SfvbPreviewAccessResponse';
+    protected static $openAPIModelName = 'SfvbMenu';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,14 +58,13 @@ class SfvbPreviewAccessResponse implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'access_url' => 'string',
-        'expires_in_seconds' => 'int',
-        'path' => 'string',
-        'preview_session_id' => 'string',
-        'session_lifetime_seconds' => 'int',
-        'single_use' => 'bool',
-        'theme_oid' => 'int',
-        'usage_note' => 'string'
+        'code' => 'string',
+        'hash_sha256' => 'string',
+        'item_count' => 'int',
+        'items' => '\ultracart\v2\models\SfvbMenuItem[]',
+        'title' => 'string',
+        'unconfigured' => 'bool',
+        'undeclared' => 'bool'
     ];
 
     /**
@@ -76,14 +75,13 @@ class SfvbPreviewAccessResponse implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'access_url' => null,
-        'expires_in_seconds' => 'int32',
-        'path' => null,
-        'preview_session_id' => null,
-        'session_lifetime_seconds' => 'int32',
-        'single_use' => null,
-        'theme_oid' => 'int32',
-        'usage_note' => null
+        'code' => null,
+        'hash_sha256' => null,
+        'item_count' => 'int32',
+        'items' => null,
+        'title' => null,
+        'unconfigured' => null,
+        'undeclared' => null
     ];
 
     /**
@@ -113,14 +111,13 @@ class SfvbPreviewAccessResponse implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
-        'access_url' => 'access_url',
-        'expires_in_seconds' => 'expires_in_seconds',
-        'path' => 'path',
-        'preview_session_id' => 'preview_session_id',
-        'session_lifetime_seconds' => 'session_lifetime_seconds',
-        'single_use' => 'single_use',
-        'theme_oid' => 'theme_oid',
-        'usage_note' => 'usage_note'
+        'code' => 'code',
+        'hash_sha256' => 'hash_sha256',
+        'item_count' => 'item_count',
+        'items' => 'items',
+        'title' => 'title',
+        'unconfigured' => 'unconfigured',
+        'undeclared' => 'undeclared'
     ];
 
     /**
@@ -129,14 +126,13 @@ class SfvbPreviewAccessResponse implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
-        'access_url' => 'setAccessUrl',
-        'expires_in_seconds' => 'setExpiresInSeconds',
-        'path' => 'setPath',
-        'preview_session_id' => 'setPreviewSessionId',
-        'session_lifetime_seconds' => 'setSessionLifetimeSeconds',
-        'single_use' => 'setSingleUse',
-        'theme_oid' => 'setThemeOid',
-        'usage_note' => 'setUsageNote'
+        'code' => 'setCode',
+        'hash_sha256' => 'setHashSha256',
+        'item_count' => 'setItemCount',
+        'items' => 'setItems',
+        'title' => 'setTitle',
+        'unconfigured' => 'setUnconfigured',
+        'undeclared' => 'setUndeclared'
     ];
 
     /**
@@ -145,14 +141,13 @@ class SfvbPreviewAccessResponse implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
-        'access_url' => 'getAccessUrl',
-        'expires_in_seconds' => 'getExpiresInSeconds',
-        'path' => 'getPath',
-        'preview_session_id' => 'getPreviewSessionId',
-        'session_lifetime_seconds' => 'getSessionLifetimeSeconds',
-        'single_use' => 'getSingleUse',
-        'theme_oid' => 'getThemeOid',
-        'usage_note' => 'getUsageNote'
+        'code' => 'getCode',
+        'hash_sha256' => 'getHashSha256',
+        'item_count' => 'getItemCount',
+        'items' => 'getItems',
+        'title' => 'getTitle',
+        'unconfigured' => 'getUnconfigured',
+        'undeclared' => 'getUndeclared'
     ];
 
     /**
@@ -212,14 +207,13 @@ class SfvbPreviewAccessResponse implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function __construct(array $data = null)
     {
-        $this->container['access_url'] = $data['access_url'] ?? null;
-        $this->container['expires_in_seconds'] = $data['expires_in_seconds'] ?? null;
-        $this->container['path'] = $data['path'] ?? null;
-        $this->container['preview_session_id'] = $data['preview_session_id'] ?? null;
-        $this->container['session_lifetime_seconds'] = $data['session_lifetime_seconds'] ?? null;
-        $this->container['single_use'] = $data['single_use'] ?? null;
-        $this->container['theme_oid'] = $data['theme_oid'] ?? null;
-        $this->container['usage_note'] = $data['usage_note'] ?? null;
+        $this->container['code'] = $data['code'] ?? null;
+        $this->container['hash_sha256'] = $data['hash_sha256'] ?? null;
+        $this->container['item_count'] = $data['item_count'] ?? null;
+        $this->container['items'] = $data['items'] ?? null;
+        $this->container['title'] = $data['title'] ?? null;
+        $this->container['unconfigured'] = $data['unconfigured'] ?? null;
+        $this->container['undeclared'] = $data['undeclared'] ?? null;
     }
 
     /**
@@ -247,193 +241,169 @@ class SfvbPreviewAccessResponse implements ModelInterface, ArrayAccess, \JsonSer
 
 
     /**
-     * Gets access_url
+     * Gets code
      *
      * @return string|null
      */
-    public function getAccessUrl()
+    public function getCode()
     {
-        return $this->container['access_url'];
+        return $this->container['code'];
     }
 
     /**
-     * Sets access_url
+     * Sets code
      *
-     * @param string|null $access_url One time link on the storefront's own host.  Opening it in any browser, including an agent's built in browser with no UltraCart login, gets past the storefront lock and applies the preview session and theme for the rest of that browser's session, then redirects to path.  It is a credential until used, so do not paste it anywhere other than the browser that should open it.
+     * @param string|null $code The menu's code, which is the value a menu element's menuName refers to.  Compare case insensitively.
      *
      * @return self
      */
-    public function setAccessUrl($access_url)
+    public function setCode($code)
     {
-        $this->container['access_url'] = $access_url;
+        $this->container['code'] = $code;
 
         return $this;
     }
 
     /**
-     * Gets expires_in_seconds
+     * Gets hash_sha256
+     *
+     * @return string|null
+     */
+    public function getHashSha256()
+    {
+        return $this->container['hash_sha256'];
+    }
+
+    /**
+     * Sets hash_sha256
+     *
+     * @param string|null $hash_sha256 Content hash of the menu as stored.  Send it back as If-Match when writing.
+     *
+     * @return self
+     */
+    public function setHashSha256($hash_sha256)
+    {
+        $this->container['hash_sha256'] = $hash_sha256;
+
+        return $this;
+    }
+
+    /**
+     * Gets item_count
      *
      * @return int|null
      */
-    public function getExpiresInSeconds()
+    public function getItemCount()
     {
-        return $this->container['expires_in_seconds'];
+        return $this->container['item_count'];
     }
 
     /**
-     * Sets expires_in_seconds
+     * Sets item_count
      *
-     * @param int|null $expires_in_seconds Seconds left to open access_url.  It stops working after that, and after its first use.
+     * @param int|null $item_count How many entries the menu holds in total, counting every level of the tree.
      *
      * @return self
      */
-    public function setExpiresInSeconds($expires_in_seconds)
+    public function setItemCount($item_count)
     {
-        $this->container['expires_in_seconds'] = $expires_in_seconds;
+        $this->container['item_count'] = $item_count;
 
         return $this;
     }
 
     /**
-     * Gets path
+     * Gets items
+     *
+     * @return \ultracart\v2\models\SfvbMenuItem[]|null
+     */
+    public function getItems()
+    {
+        return $this->container['items'];
+    }
+
+    /**
+     * Sets items
+     *
+     * @param \ultracart\v2\models\SfvbMenuItem[]|null $items The menu's entries, in the order they render.  Omitted from the list endpoint, which returns each menu's identity and counts only.
+     *
+     * @return self
+     */
+    public function setItems($items)
+    {
+        $this->container['items'] = $items;
+
+        return $this;
+    }
+
+    /**
+     * Gets title
      *
      * @return string|null
      */
-    public function getPath()
+    public function getTitle()
     {
-        return $this->container['path'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets path
+     * Sets title
      *
-     * @param string|null $path Storefront path the browser lands on, after reserved preview parameters are removed.
+     * @param string|null $title The menu's own label, shown in the store admin rather than on the storefront.  Trimmed to 250 characters.
      *
      * @return self
      */
-    public function setPath($path)
+    public function setTitle($title)
     {
-        $this->container['path'] = $path;
+        $this->container['title'] = $title;
 
         return $this;
     }
 
     /**
-     * Gets preview_session_id
-     *
-     * @return string|null
-     */
-    public function getPreviewSessionId()
-    {
-        return $this->container['preview_session_id'];
-    }
-
-    /**
-     * Sets preview_session_id
-     *
-     * @param string|null $preview_session_id The preview session applied, when one was requested.
-     *
-     * @return self
-     */
-    public function setPreviewSessionId($preview_session_id)
-    {
-        $this->container['preview_session_id'] = $preview_session_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets session_lifetime_seconds
-     *
-     * @return int|null
-     */
-    public function getSessionLifetimeSeconds()
-    {
-        return $this->container['session_lifetime_seconds'];
-    }
-
-    /**
-     * Sets session_lifetime_seconds
-     *
-     * @param int|null $session_lifetime_seconds How long the browser stays in preview once access_url is opened.  The remaining life of the preview session, or eight hours when none was given.  Ending the preview session ends preview in that browser at its next page.  The user and their storefront permission are checked again on every page, so removing either ends it sooner.
-     *
-     * @return self
-     */
-    public function setSessionLifetimeSeconds($session_lifetime_seconds)
-    {
-        $this->container['session_lifetime_seconds'] = $session_lifetime_seconds;
-
-        return $this;
-    }
-
-    /**
-     * Gets single_use
+     * Gets unconfigured
      *
      * @return bool|null
      */
-    public function getSingleUse()
+    public function getUnconfigured()
     {
-        return $this->container['single_use'];
+        return $this->container['unconfigured'];
     }
 
     /**
-     * Sets single_use
+     * Sets unconfigured
      *
-     * @param bool|null $single_use Always true.  A second open of access_url returns 410.
+     * @param bool|null $unconfigured True when a template names this code but no menu has been created for it.  Such a code renders an empty list today.  Write it to create it.
      *
      * @return self
      */
-    public function setSingleUse($single_use)
+    public function setUnconfigured($unconfigured)
     {
-        $this->container['single_use'] = $single_use;
+        $this->container['unconfigured'] = $unconfigured;
 
         return $this;
     }
 
     /**
-     * Gets theme_oid
+     * Gets undeclared
      *
-     * @return int|null
+     * @return bool|null
      */
-    public function getThemeOid()
+    public function getUndeclared()
     {
-        return $this->container['theme_oid'];
+        return $this->container['undeclared'];
     }
 
     /**
-     * Sets theme_oid
+     * Sets undeclared
      *
-     * @param int|null $theme_oid The theme shown, when one was requested.
+     * @param bool|null $undeclared True when no template on the storefront names this code.  The menu is stored and editable, but nothing renders it, which usually means a menu element's menuName is misspelled.
      *
      * @return self
      */
-    public function setThemeOid($theme_oid)
+    public function setUndeclared($undeclared)
     {
-        $this->container['theme_oid'] = $theme_oid;
-
-        return $this;
-    }
-
-    /**
-     * Gets usage_note
-     *
-     * @return string|null
-     */
-    public function getUsageNote()
-    {
-        return $this->container['usage_note'];
-    }
-
-    /**
-     * Sets usage_note
-     *
-     * @param string|null $usage_note Plain language instructions, safe to show a user.
-     *
-     * @return self
-     */
-    public function setUsageNote($usage_note)
-    {
-        $this->container['usage_note'] = $usage_note;
+        $this->container['undeclared'] = $undeclared;
 
         return $this;
     }

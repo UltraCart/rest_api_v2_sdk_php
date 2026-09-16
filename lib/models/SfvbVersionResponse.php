@@ -65,6 +65,8 @@ class SfvbVersionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'max_cjson_bytes' => 'int',
         'max_directory_entries' => 'int',
         'max_library_results_per_page' => 'int',
+        'max_menu_depth' => 'int',
+        'max_menu_items' => 'int',
         'max_preview_session_bytes' => 'int',
         'max_revertable_bytes' => 'int',
         'max_search_results' => 'int',
@@ -91,6 +93,8 @@ class SfvbVersionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'max_cjson_bytes' => 'int32',
         'max_directory_entries' => 'int32',
         'max_library_results_per_page' => 'int32',
+        'max_menu_depth' => 'int32',
+        'max_menu_items' => 'int32',
         'max_preview_session_bytes' => 'int32',
         'max_revertable_bytes' => 'int32',
         'max_search_results' => 'int32',
@@ -136,6 +140,8 @@ class SfvbVersionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'max_cjson_bytes' => 'max_cjson_bytes',
         'max_directory_entries' => 'max_directory_entries',
         'max_library_results_per_page' => 'max_library_results_per_page',
+        'max_menu_depth' => 'max_menu_depth',
+        'max_menu_items' => 'max_menu_items',
         'max_preview_session_bytes' => 'max_preview_session_bytes',
         'max_revertable_bytes' => 'max_revertable_bytes',
         'max_search_results' => 'max_search_results',
@@ -160,6 +166,8 @@ class SfvbVersionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'max_cjson_bytes' => 'setMaxCjsonBytes',
         'max_directory_entries' => 'setMaxDirectoryEntries',
         'max_library_results_per_page' => 'setMaxLibraryResultsPerPage',
+        'max_menu_depth' => 'setMaxMenuDepth',
+        'max_menu_items' => 'setMaxMenuItems',
         'max_preview_session_bytes' => 'setMaxPreviewSessionBytes',
         'max_revertable_bytes' => 'setMaxRevertableBytes',
         'max_search_results' => 'setMaxSearchResults',
@@ -184,6 +192,8 @@ class SfvbVersionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'max_cjson_bytes' => 'getMaxCjsonBytes',
         'max_directory_entries' => 'getMaxDirectoryEntries',
         'max_library_results_per_page' => 'getMaxLibraryResultsPerPage',
+        'max_menu_depth' => 'getMaxMenuDepth',
+        'max_menu_items' => 'getMaxMenuItems',
         'max_preview_session_bytes' => 'getMaxPreviewSessionBytes',
         'max_revertable_bytes' => 'getMaxRevertableBytes',
         'max_search_results' => 'getMaxSearchResults',
@@ -276,6 +286,8 @@ class SfvbVersionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['max_cjson_bytes'] = $data['max_cjson_bytes'] ?? null;
         $this->container['max_directory_entries'] = $data['max_directory_entries'] ?? null;
         $this->container['max_library_results_per_page'] = $data['max_library_results_per_page'] ?? null;
+        $this->container['max_menu_depth'] = $data['max_menu_depth'] ?? null;
+        $this->container['max_menu_items'] = $data['max_menu_items'] ?? null;
         $this->container['max_preview_session_bytes'] = $data['max_preview_session_bytes'] ?? null;
         $this->container['max_revertable_bytes'] = $data['max_revertable_bytes'] ?? null;
         $this->container['max_search_results'] = $data['max_search_results'] ?? null;
@@ -484,6 +496,54 @@ class SfvbVersionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setMaxLibraryResultsPerPage($max_library_results_per_page)
     {
         $this->container['max_library_results_per_page'] = $max_library_results_per_page;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_menu_depth
+     *
+     * @return int|null
+     */
+    public function getMaxMenuDepth()
+    {
+        return $this->container['max_menu_depth'];
+    }
+
+    /**
+     * Sets max_menu_depth
+     *
+     * @param int|null $max_menu_depth How deeply store menu entries can nest.
+     *
+     * @return self
+     */
+    public function setMaxMenuDepth($max_menu_depth)
+    {
+        $this->container['max_menu_depth'] = $max_menu_depth;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_menu_items
+     *
+     * @return int|null
+     */
+    public function getMaxMenuItems()
+    {
+        return $this->container['max_menu_items'];
+    }
+
+    /**
+     * Sets max_menu_items
+     *
+     * @param int|null $max_menu_items Most entries one store menu can hold, counting every level of the tree.  A menu is navigation that renders on every page, so this is deliberately far below what the storage would physically accept.
+     *
+     * @return self
+     */
+    public function setMaxMenuItems($max_menu_items)
+    {
+        $this->container['max_menu_items'] = $max_menu_items;
 
         return $this;
     }
