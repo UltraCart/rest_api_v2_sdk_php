@@ -62,6 +62,7 @@ class SfvbContainerResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         'container_name' => 'string',
         'hash_sha256' => 'string',
         'last_modified' => 'string',
+        'merchant_item_id' => 'string',
         'owner_object_id' => 'string',
         'owner_type' => 'string'
     ];
@@ -78,6 +79,7 @@ class SfvbContainerResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         'container_name' => null,
         'hash_sha256' => null,
         'last_modified' => null,
+        'merchant_item_id' => null,
         'owner_object_id' => null,
         'owner_type' => null
     ];
@@ -113,6 +115,7 @@ class SfvbContainerResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         'container_name' => 'container_name',
         'hash_sha256' => 'hash_sha256',
         'last_modified' => 'last_modified',
+        'merchant_item_id' => 'merchant_item_id',
         'owner_object_id' => 'owner_object_id',
         'owner_type' => 'owner_type'
     ];
@@ -127,6 +130,7 @@ class SfvbContainerResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         'container_name' => 'setContainerName',
         'hash_sha256' => 'setHashSha256',
         'last_modified' => 'setLastModified',
+        'merchant_item_id' => 'setMerchantItemId',
         'owner_object_id' => 'setOwnerObjectId',
         'owner_type' => 'setOwnerType'
     ];
@@ -141,6 +145,7 @@ class SfvbContainerResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         'container_name' => 'getContainerName',
         'hash_sha256' => 'getHashSha256',
         'last_modified' => 'getLastModified',
+        'merchant_item_id' => 'getMerchantItemId',
         'owner_object_id' => 'getOwnerObjectId',
         'owner_type' => 'getOwnerType'
     ];
@@ -229,6 +234,7 @@ class SfvbContainerResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->container['container_name'] = $data['container_name'] ?? null;
         $this->container['hash_sha256'] = $data['hash_sha256'] ?? null;
         $this->container['last_modified'] = $data['last_modified'] ?? null;
+        $this->container['merchant_item_id'] = $data['merchant_item_id'] ?? null;
         $this->container['owner_object_id'] = $data['owner_object_id'] ?? null;
         $this->container['owner_type'] = $data['owner_type'] ?? null;
     }
@@ -358,6 +364,30 @@ class SfvbContainerResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setLastModified($last_modified)
     {
         $this->container['last_modified'] = $last_modified;
+
+        return $this;
+    }
+
+    /**
+     * Gets merchant_item_id
+     *
+     * @return string|null
+     */
+    public function getMerchantItemId()
+    {
+        return $this->container['merchant_item_id'];
+    }
+
+    /**
+     * Sets merchant_item_id
+     *
+     * @param string|null $merchant_item_id The merchant item id of the owning item, for item containers only and absent for every other owner type.  owner_object_id is the item oid, which appears nowhere on a rendered storefront, so this is how a caller confirms which item an oid actually reached.  It is read fresh on every call and so reflects a renamed item.  A container's own id embeds this value, which is what a preview session keys an item container on.
+     *
+     * @return self
+     */
+    public function setMerchantItemId($merchant_item_id)
+    {
+        $this->container['merchant_item_id'] = $merchant_item_id;
 
         return $this;
     }
