@@ -1,6 +1,6 @@
 <?php
 /**
- * SfvbPageResponse
+ * SfvbTemplate
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * SfvbPageResponse Class Doc Comment
+ * SfvbTemplate Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class SfvbTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SfvbPageResponse';
+    protected static $openAPIModelName = 'SfvbTemplate';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,15 +58,16 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'attributes' => '\ultracart\v2\models\SfvbPageAttribute[]',
-        'exclude_from_sitemap' => 'bool',
-        'group_template' => 'string',
-        'item_template' => 'string',
-        'multimedia' => '\ultracart\v2\models\SfvbPageMultimedia[]',
-        'path' => 'string',
-        'title' => 'string',
-        'visible' => 'bool',
-        'visible_dts' => 'string'
+        'display_blog_posts' => 'bool',
+        'display_items' => 'bool',
+        'display_subgroups' => 'bool',
+        'metadata_available' => 'bool',
+        'name' => 'string',
+        'page_type' => 'string',
+        'pagination' => 'bool',
+        'system' => 'bool',
+        'theme_relative_path' => 'string',
+        'visual_builder' => 'bool'
     ];
 
     /**
@@ -77,15 +78,16 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'attributes' => null,
-        'exclude_from_sitemap' => null,
-        'group_template' => null,
-        'item_template' => null,
-        'multimedia' => null,
-        'path' => null,
-        'title' => null,
-        'visible' => null,
-        'visible_dts' => null
+        'display_blog_posts' => null,
+        'display_items' => null,
+        'display_subgroups' => null,
+        'metadata_available' => null,
+        'name' => null,
+        'page_type' => null,
+        'pagination' => null,
+        'system' => null,
+        'theme_relative_path' => null,
+        'visual_builder' => null
     ];
 
     /**
@@ -115,15 +117,16 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'attributes' => 'attributes',
-        'exclude_from_sitemap' => 'exclude_from_sitemap',
-        'group_template' => 'group_template',
-        'item_template' => 'item_template',
-        'multimedia' => 'multimedia',
-        'path' => 'path',
-        'title' => 'title',
-        'visible' => 'visible',
-        'visible_dts' => 'visible_dts'
+        'display_blog_posts' => 'display_blog_posts',
+        'display_items' => 'display_items',
+        'display_subgroups' => 'display_subgroups',
+        'metadata_available' => 'metadata_available',
+        'name' => 'name',
+        'page_type' => 'page_type',
+        'pagination' => 'pagination',
+        'system' => 'system',
+        'theme_relative_path' => 'theme_relative_path',
+        'visual_builder' => 'visual_builder'
     ];
 
     /**
@@ -132,15 +135,16 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'attributes' => 'setAttributes',
-        'exclude_from_sitemap' => 'setExcludeFromSitemap',
-        'group_template' => 'setGroupTemplate',
-        'item_template' => 'setItemTemplate',
-        'multimedia' => 'setMultimedia',
-        'path' => 'setPath',
-        'title' => 'setTitle',
-        'visible' => 'setVisible',
-        'visible_dts' => 'setVisibleDts'
+        'display_blog_posts' => 'setDisplayBlogPosts',
+        'display_items' => 'setDisplayItems',
+        'display_subgroups' => 'setDisplaySubgroups',
+        'metadata_available' => 'setMetadataAvailable',
+        'name' => 'setName',
+        'page_type' => 'setPageType',
+        'pagination' => 'setPagination',
+        'system' => 'setSystem',
+        'theme_relative_path' => 'setThemeRelativePath',
+        'visual_builder' => 'setVisualBuilder'
     ];
 
     /**
@@ -149,15 +153,16 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'attributes' => 'getAttributes',
-        'exclude_from_sitemap' => 'getExcludeFromSitemap',
-        'group_template' => 'getGroupTemplate',
-        'item_template' => 'getItemTemplate',
-        'multimedia' => 'getMultimedia',
-        'path' => 'getPath',
-        'title' => 'getTitle',
-        'visible' => 'getVisible',
-        'visible_dts' => 'getVisibleDts'
+        'display_blog_posts' => 'getDisplayBlogPosts',
+        'display_items' => 'getDisplayItems',
+        'display_subgroups' => 'getDisplaySubgroups',
+        'metadata_available' => 'getMetadataAvailable',
+        'name' => 'getName',
+        'page_type' => 'getPageType',
+        'pagination' => 'getPagination',
+        'system' => 'getSystem',
+        'theme_relative_path' => 'getThemeRelativePath',
+        'visual_builder' => 'getVisualBuilder'
     ];
 
     /**
@@ -217,15 +222,16 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['attributes'] = $data['attributes'] ?? null;
-        $this->container['exclude_from_sitemap'] = $data['exclude_from_sitemap'] ?? null;
-        $this->container['group_template'] = $data['group_template'] ?? null;
-        $this->container['item_template'] = $data['item_template'] ?? null;
-        $this->container['multimedia'] = $data['multimedia'] ?? null;
-        $this->container['path'] = $data['path'] ?? null;
-        $this->container['title'] = $data['title'] ?? null;
-        $this->container['visible'] = $data['visible'] ?? null;
-        $this->container['visible_dts'] = $data['visible_dts'] ?? null;
+        $this->container['display_blog_posts'] = $data['display_blog_posts'] ?? null;
+        $this->container['display_items'] = $data['display_items'] ?? null;
+        $this->container['display_subgroups'] = $data['display_subgroups'] ?? null;
+        $this->container['metadata_available'] = $data['metadata_available'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
+        $this->container['page_type'] = $data['page_type'] ?? null;
+        $this->container['pagination'] = $data['pagination'] ?? null;
+        $this->container['system'] = $data['system'] ?? null;
+        $this->container['theme_relative_path'] = $data['theme_relative_path'] ?? null;
+        $this->container['visual_builder'] = $data['visual_builder'] ?? null;
     }
 
     /**
@@ -253,217 +259,241 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets attributes
-     *
-     * @return \ultracart\v2\models\SfvbPageAttribute[]|null
-     */
-    public function getAttributes()
-    {
-        return $this->container['attributes'];
-    }
-
-    /**
-     * Sets attributes
-     *
-     * @param \ultracart\v2\models\SfvbPageAttribute[]|null $attributes Every attribute this page has, including ones a template declares but nothing has set yet.  These are what the pageattribute element renders.  Sorted by name.
-     *
-     * @return self
-     */
-    public function setAttributes($attributes)
-    {
-        $this->container['attributes'] = $attributes;
-
-        return $this;
-    }
-
-    /**
-     * Gets exclude_from_sitemap
+     * Gets display_blog_posts
      *
      * @return bool|null
      */
-    public function getExcludeFromSitemap()
+    public function getDisplayBlogPosts()
     {
-        return $this->container['exclude_from_sitemap'];
+        return $this->container['display_blog_posts'];
     }
 
     /**
-     * Sets exclude_from_sitemap
+     * Sets display_blog_posts
      *
-     * @param bool|null $exclude_from_sitemap True when the page is left out of the sitemap and marked noindex.
+     * @param bool|null $display_blog_posts True when the template shows the page's blog posts.
      *
      * @return self
      */
-    public function setExcludeFromSitemap($exclude_from_sitemap)
+    public function setDisplayBlogPosts($display_blog_posts)
     {
-        $this->container['exclude_from_sitemap'] = $exclude_from_sitemap;
+        $this->container['display_blog_posts'] = $display_blog_posts;
 
         return $this;
     }
 
     /**
-     * Gets group_template
-     *
-     * @return string|null
-     */
-    public function getGroupTemplate()
-    {
-        return $this->container['group_template'];
-    }
-
-    /**
-     * Sets group_template
-     *
-     * @param string|null $group_template Template file that renders the page itself, a bare .vm name found anywhere in the active theme.
-     *
-     * @return self
-     */
-    public function setGroupTemplate($group_template)
-    {
-        $this->container['group_template'] = $group_template;
-
-        return $this;
-    }
-
-    /**
-     * Gets item_template
-     *
-     * @return string|null
-     */
-    public function getItemTemplate()
-    {
-        return $this->container['item_template'];
-    }
-
-    /**
-     * Sets item_template
-     *
-     * @param string|null $item_template Template file that renders the item pages under this page.
-     *
-     * @return self
-     */
-    public function setItemTemplate($item_template)
-    {
-        $this->container['item_template'] = $item_template;
-
-        return $this;
-    }
-
-    /**
-     * Gets multimedia
-     *
-     * @return \ultracart\v2\models\SfvbPageMultimedia[]|null
-     */
-    public function getMultimedia()
-    {
-        return $this->container['multimedia'];
-    }
-
-    /**
-     * Sets multimedia
-     *
-     * @param \ultracart\v2\models\SfvbPageMultimedia[]|null $multimedia The page's images, including codes a template declares but nothing has attached yet.  These are what the pageimage element renders - the default image when pageImageCode is empty, otherwise the image with that code.  The default image comes first.
-     *
-     * @return self
-     */
-    public function setMultimedia($multimedia)
-    {
-        $this->container['multimedia'] = $multimedia;
-
-        return $this;
-    }
-
-    /**
-     * Gets path
-     *
-     * @return string|null
-     */
-    public function getPath()
-    {
-        return $this->container['path'];
-    }
-
-    /**
-     * Sets path
-     *
-     * @param string|null $path The page path, normalized to begin and end with a slash.
-     *
-     * @return self
-     */
-    public function setPath($path)
-    {
-        $this->container['path'] = $path;
-
-        return $this;
-    }
-
-    /**
-     * Gets title
-     *
-     * @return string|null
-     */
-    public function getTitle()
-    {
-        return $this->container['title'];
-    }
-
-    /**
-     * Sets title
-     *
-     * @param string|null $title The page title.
-     *
-     * @return self
-     */
-    public function setTitle($title)
-    {
-        $this->container['title'] = $title;
-
-        return $this;
-    }
-
-    /**
-     * Gets visible
+     * Gets display_items
      *
      * @return bool|null
      */
-    public function getVisible()
+    public function getDisplayItems()
     {
-        return $this->container['visible'];
+        return $this->container['display_items'];
     }
 
     /**
-     * Sets visible
+     * Sets display_items
      *
-     * @param bool|null $visible False when the page is hidden.  A hidden page answers 404 to shoppers.
+     * @param bool|null $display_items True when the template shows the page's items.
      *
      * @return self
      */
-    public function setVisible($visible)
+    public function setDisplayItems($display_items)
     {
-        $this->container['visible'] = $visible;
+        $this->container['display_items'] = $display_items;
 
         return $this;
     }
 
     /**
-     * Gets visible_dts
+     * Gets display_subgroups
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getVisibleDts()
+    public function getDisplaySubgroups()
     {
-        return $this->container['visible_dts'];
+        return $this->container['display_subgroups'];
     }
 
     /**
-     * Sets visible_dts
+     * Sets display_subgroups
      *
-     * @param string|null $visible_dts When set, the page stays hidden until this time (ISO 8601, UTC).
+     * @param bool|null $display_subgroups True when the template shows the pages under this one.
      *
      * @return self
      */
-    public function setVisibleDts($visible_dts)
+    public function setDisplaySubgroups($display_subgroups)
     {
-        $this->container['visible_dts'] = $visible_dts;
+        $this->container['display_subgroups'] = $display_subgroups;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata_available
+     *
+     * @return bool|null
+     */
+    public function getMetadataAvailable()
+    {
+        return $this->container['metadata_available'];
+    }
+
+    /**
+     * Sets metadata_available
+     *
+     * @param bool|null $metadata_available False when the template has no metadata, so the capability flags below are unknown.
+     *
+     * @return self
+     */
+    public function setMetadataAvailable($metadata_available)
+    {
+        $this->container['metadata_available'] = $metadata_available;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name The bare file name.  This is the value a page's group_template or item_template holds.
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_type
+     *
+     * @return string|null
+     */
+    public function getPageType()
+    {
+        return $this->container['page_type'];
+    }
+
+    /**
+     * Sets page_type
+     *
+     * @param string|null $page_type The page type the template declares, such as group, item or static.  system for the fixed templates the storefront itself uses, such as checkout and my account.  Null when the template has no metadata.
+     *
+     * @return self
+     */
+    public function setPageType($page_type)
+    {
+        $this->container['page_type'] = $page_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets pagination
+     *
+     * @return bool|null
+     */
+    public function getPagination()
+    {
+        return $this->container['pagination'];
+    }
+
+    /**
+     * Sets pagination
+     *
+     * @param bool|null $pagination True when the template pages through a long list of items.
+     *
+     * @return self
+     */
+    public function setPagination($pagination)
+    {
+        $this->container['pagination'] = $pagination;
+
+        return $this;
+    }
+
+    /**
+     * Gets system
+     *
+     * @return bool|null
+     */
+    public function getSystem()
+    {
+        return $this->container['system'];
+    }
+
+    /**
+     * Sets system
+     *
+     * @param bool|null $system True for the fixed templates the storefront itself uses.  Never assign one to a page.
+     *
+     * @return self
+     */
+    public function setSystem($system)
+    {
+        $this->container['system'] = $system;
+
+        return $this;
+    }
+
+    /**
+     * Gets theme_relative_path
+     *
+     * @return string|null
+     */
+    public function getThemeRelativePath()
+    {
+        return $this->container['theme_relative_path'];
+    }
+
+    /**
+     * Sets theme_relative_path
+     *
+     * @param string|null $theme_relative_path Where the file sits inside the theme.
+     *
+     * @return self
+     */
+    public function setThemeRelativePath($theme_relative_path)
+    {
+        $this->container['theme_relative_path'] = $theme_relative_path;
+
+        return $this;
+    }
+
+    /**
+     * Gets visual_builder
+     *
+     * @return bool|null
+     */
+    public function getVisualBuilder()
+    {
+        return $this->container['visual_builder'];
+    }
+
+    /**
+     * Sets visual_builder
+     *
+     * @param bool|null $visual_builder True when the template renders visual builder containers.
+     *
+     * @return self
+     */
+    public function setVisualBuilder($visual_builder)
+    {
+        $this->container['visual_builder'] = $visual_builder;
 
         return $this;
     }

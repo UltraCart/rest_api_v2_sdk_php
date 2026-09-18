@@ -1,6 +1,6 @@
 <?php
 /**
- * SfvbPageResponse
+ * SfvbExperimentStartRequest
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * SfvbPageResponse Class Doc Comment
+ * SfvbExperimentStartRequest Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class SfvbExperimentStartRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SfvbPageResponse';
+    protected static $openAPIModelName = 'SfvbExperimentStartRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,15 +58,18 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'attributes' => '\ultracart\v2\models\SfvbPageAttribute[]',
-        'exclude_from_sitemap' => 'bool',
-        'group_template' => 'string',
-        'item_template' => 'string',
-        'multimedia' => '\ultracart\v2\models\SfvbPageMultimedia[]',
+        'duration_days' => 'int',
+        'equal_weighting' => 'bool',
+        'name' => 'string',
+        'notes' => 'string',
+        'objective' => 'string',
+        'objective_parameter' => 'string',
+        'optimization_type' => 'string',
         'path' => 'string',
-        'title' => 'string',
-        'visible' => 'bool',
-        'visible_dts' => 'string'
+        'slot' => 'string',
+        'type' => 'string',
+        'variations' => '\ultracart\v2\models\SfvbExperimentStartVariation[]',
+        'widget_id' => 'string'
     ];
 
     /**
@@ -77,15 +80,18 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'attributes' => null,
-        'exclude_from_sitemap' => null,
-        'group_template' => null,
-        'item_template' => null,
-        'multimedia' => null,
+        'duration_days' => 'int32',
+        'equal_weighting' => null,
+        'name' => null,
+        'notes' => null,
+        'objective' => null,
+        'objective_parameter' => null,
+        'optimization_type' => null,
         'path' => null,
-        'title' => null,
-        'visible' => null,
-        'visible_dts' => null
+        'slot' => null,
+        'type' => null,
+        'variations' => null,
+        'widget_id' => null
     ];
 
     /**
@@ -115,15 +121,18 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'attributes' => 'attributes',
-        'exclude_from_sitemap' => 'exclude_from_sitemap',
-        'group_template' => 'group_template',
-        'item_template' => 'item_template',
-        'multimedia' => 'multimedia',
+        'duration_days' => 'duration_days',
+        'equal_weighting' => 'equal_weighting',
+        'name' => 'name',
+        'notes' => 'notes',
+        'objective' => 'objective',
+        'objective_parameter' => 'objective_parameter',
+        'optimization_type' => 'optimization_type',
         'path' => 'path',
-        'title' => 'title',
-        'visible' => 'visible',
-        'visible_dts' => 'visible_dts'
+        'slot' => 'slot',
+        'type' => 'type',
+        'variations' => 'variations',
+        'widget_id' => 'widget_id'
     ];
 
     /**
@@ -132,15 +141,18 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'attributes' => 'setAttributes',
-        'exclude_from_sitemap' => 'setExcludeFromSitemap',
-        'group_template' => 'setGroupTemplate',
-        'item_template' => 'setItemTemplate',
-        'multimedia' => 'setMultimedia',
+        'duration_days' => 'setDurationDays',
+        'equal_weighting' => 'setEqualWeighting',
+        'name' => 'setName',
+        'notes' => 'setNotes',
+        'objective' => 'setObjective',
+        'objective_parameter' => 'setObjectiveParameter',
+        'optimization_type' => 'setOptimizationType',
         'path' => 'setPath',
-        'title' => 'setTitle',
-        'visible' => 'setVisible',
-        'visible_dts' => 'setVisibleDts'
+        'slot' => 'setSlot',
+        'type' => 'setType',
+        'variations' => 'setVariations',
+        'widget_id' => 'setWidgetId'
     ];
 
     /**
@@ -149,15 +161,18 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'attributes' => 'getAttributes',
-        'exclude_from_sitemap' => 'getExcludeFromSitemap',
-        'group_template' => 'getGroupTemplate',
-        'item_template' => 'getItemTemplate',
-        'multimedia' => 'getMultimedia',
+        'duration_days' => 'getDurationDays',
+        'equal_weighting' => 'getEqualWeighting',
+        'name' => 'getName',
+        'notes' => 'getNotes',
+        'objective' => 'getObjective',
+        'objective_parameter' => 'getObjectiveParameter',
+        'optimization_type' => 'getOptimizationType',
         'path' => 'getPath',
-        'title' => 'getTitle',
-        'visible' => 'getVisible',
-        'visible_dts' => 'getVisibleDts'
+        'slot' => 'getSlot',
+        'type' => 'getType',
+        'variations' => 'getVariations',
+        'widget_id' => 'getWidgetId'
     ];
 
     /**
@@ -217,15 +232,18 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['attributes'] = $data['attributes'] ?? null;
-        $this->container['exclude_from_sitemap'] = $data['exclude_from_sitemap'] ?? null;
-        $this->container['group_template'] = $data['group_template'] ?? null;
-        $this->container['item_template'] = $data['item_template'] ?? null;
-        $this->container['multimedia'] = $data['multimedia'] ?? null;
+        $this->container['duration_days'] = $data['duration_days'] ?? null;
+        $this->container['equal_weighting'] = $data['equal_weighting'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
+        $this->container['notes'] = $data['notes'] ?? null;
+        $this->container['objective'] = $data['objective'] ?? null;
+        $this->container['objective_parameter'] = $data['objective_parameter'] ?? null;
+        $this->container['optimization_type'] = $data['optimization_type'] ?? null;
         $this->container['path'] = $data['path'] ?? null;
-        $this->container['title'] = $data['title'] ?? null;
-        $this->container['visible'] = $data['visible'] ?? null;
-        $this->container['visible_dts'] = $data['visible_dts'] ?? null;
+        $this->container['slot'] = $data['slot'] ?? null;
+        $this->container['type'] = $data['type'] ?? null;
+        $this->container['variations'] = $data['variations'] ?? null;
+        $this->container['widget_id'] = $data['widget_id'] ?? null;
     }
 
     /**
@@ -253,121 +271,169 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets attributes
+     * Gets duration_days
      *
-     * @return \ultracart\v2\models\SfvbPageAttribute[]|null
+     * @return int|null
      */
-    public function getAttributes()
+    public function getDurationDays()
     {
-        return $this->container['attributes'];
+        return $this->container['duration_days'];
     }
 
     /**
-     * Sets attributes
+     * Sets duration_days
      *
-     * @param \ultracart\v2\models\SfvbPageAttribute[]|null $attributes Every attribute this page has, including ones a template declares but nothing has set yet.  These are what the pageattribute element renders.  Sorted by name.
+     * @param int|null $duration_days url - 3 to 90.  A url experiment always ends by itself after this many days.
      *
      * @return self
      */
-    public function setAttributes($attributes)
+    public function setDurationDays($duration_days)
     {
-        $this->container['attributes'] = $attributes;
+        $this->container['duration_days'] = $duration_days;
 
         return $this;
     }
 
     /**
-     * Gets exclude_from_sitemap
+     * Gets equal_weighting
      *
      * @return bool|null
      */
-    public function getExcludeFromSitemap()
+    public function getEqualWeighting()
     {
-        return $this->container['exclude_from_sitemap'];
+        return $this->container['equal_weighting'];
     }
 
     /**
-     * Sets exclude_from_sitemap
+     * Sets equal_weighting
      *
-     * @param bool|null $exclude_from_sitemap True when the page is left out of the sitemap and marked noindex.
+     * @param bool|null $equal_weighting url - true keeps the split fixed.  false shifts traffic toward the leader as the experiment runs.  Defaults to true.
      *
      * @return self
      */
-    public function setExcludeFromSitemap($exclude_from_sitemap)
+    public function setEqualWeighting($equal_weighting)
     {
-        $this->container['exclude_from_sitemap'] = $exclude_from_sitemap;
+        $this->container['equal_weighting'] = $equal_weighting;
 
         return $this;
     }
 
     /**
-     * Gets group_template
+     * Gets name
      *
      * @return string|null
      */
-    public function getGroupTemplate()
+    public function getName()
     {
-        return $this->container['group_template'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets group_template
+     * Sets name
      *
-     * @param string|null $group_template Template file that renders the page itself, a bare .vm name found anywhere in the active theme.
+     * @param string|null $name url - experiment name.
      *
      * @return self
      */
-    public function setGroupTemplate($group_template)
+    public function setName($name)
     {
-        $this->container['group_template'] = $group_template;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets item_template
+     * Gets notes
      *
      * @return string|null
      */
-    public function getItemTemplate()
+    public function getNotes()
     {
-        return $this->container['item_template'];
+        return $this->container['notes'];
     }
 
     /**
-     * Sets item_template
+     * Sets notes
      *
-     * @param string|null $item_template Template file that renders the item pages under this page.
+     * @param string|null $notes url - notes, such as the hypothesis being tested.
      *
      * @return self
      */
-    public function setItemTemplate($item_template)
+    public function setNotes($notes)
     {
-        $this->container['item_template'] = $item_template;
+        $this->container['notes'] = $notes;
 
         return $this;
     }
 
     /**
-     * Gets multimedia
+     * Gets objective
      *
-     * @return \ultracart\v2\models\SfvbPageMultimedia[]|null
+     * @return string|null
      */
-    public function getMultimedia()
+    public function getObjective()
     {
-        return $this->container['multimedia'];
+        return $this->container['objective'];
     }
 
     /**
-     * Sets multimedia
+     * Sets objective
      *
-     * @param \ultracart\v2\models\SfvbPageMultimedia[]|null $multimedia The page's images, including codes a template declares but nothing has attached yet.  These are what the pageimage element renders - the default image when pageImageCode is empty, otherwise the image with that code.  The default image comes first.
+     * @param string|null $objective url - one of the objectives from the objective list.
      *
      * @return self
      */
-    public function setMultimedia($multimedia)
+    public function setObjective($objective)
     {
-        $this->container['multimedia'] = $multimedia;
+        $this->container['objective'] = $objective;
+
+        return $this;
+    }
+
+    /**
+     * Gets objective_parameter
+     *
+     * @return string|null
+     */
+    public function getObjectiveParameter()
+    {
+        return $this->container['objective_parameter'];
+    }
+
+    /**
+     * Sets objective_parameter
+     *
+     * @param string|null $objective_parameter url - the event name, when the objective is Events.
+     *
+     * @return self
+     */
+    public function setObjectiveParameter($objective_parameter)
+    {
+        $this->container['objective_parameter'] = $objective_parameter;
+
+        return $this;
+    }
+
+    /**
+     * Gets optimization_type
+     *
+     * @return string|null
+     */
+    public function getOptimizationType()
+    {
+        return $this->container['optimization_type'];
+    }
+
+    /**
+     * Sets optimization_type
+     *
+     * @param string|null $optimization_type url - MAXIMUM or MINIMUM.
+     *
+     * @return self
+     */
+    public function setOptimizationType($optimization_type)
+    {
+        $this->container['optimization_type'] = $optimization_type;
 
         return $this;
     }
@@ -385,7 +451,7 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets path
      *
-     * @param string|null $path The page path, normalized to begin and end with a slash.
+     * @param string|null $path page - path of the page whose body holds the experiment element.
      *
      * @return self
      */
@@ -397,73 +463,97 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets title
+     * Gets slot
      *
      * @return string|null
      */
-    public function getTitle()
+    public function getSlot()
     {
-        return $this->container['title'];
+        return $this->container['slot'];
     }
 
     /**
-     * Sets title
+     * Sets slot
      *
-     * @param string|null $title The page title.
+     * @param string|null $slot page - the body file's name without .cjson.  Defaults to body.
      *
      * @return self
      */
-    public function setTitle($title)
+    public function setSlot($slot)
     {
-        $this->container['title'] = $title;
+        $this->container['slot'] = $slot;
 
         return $this;
     }
 
     /**
-     * Gets visible
+     * Gets type
      *
-     * @return bool|null
+     * @return string|null
      */
-    public function getVisible()
+    public function getType()
     {
-        return $this->container['visible'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets visible
+     * Sets type
      *
-     * @param bool|null $visible False when the page is hidden.  A hidden page answers 404 to shoppers.
+     * @param string|null $type page or url.
      *
      * @return self
      */
-    public function setVisible($visible)
+    public function setType($type)
     {
-        $this->container['visible'] = $visible;
+        $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets visible_dts
+     * Gets variations
      *
-     * @return string|null
+     * @return \ultracart\v2\models\SfvbExperimentStartVariation[]|null
      */
-    public function getVisibleDts()
+    public function getVariations()
     {
-        return $this->container['visible_dts'];
+        return $this->container['variations'];
     }
 
     /**
-     * Sets visible_dts
+     * Sets variations
      *
-     * @param string|null $visible_dts When set, the page stays hidden until this time (ISO 8601, UTC).
+     * @param \ultracart\v2\models\SfvbExperimentStartVariation[]|null $variations url - 2 to 5 pages.  The first is the control.
      *
      * @return self
      */
-    public function setVisibleDts($visible_dts)
+    public function setVariations($variations)
     {
-        $this->container['visible_dts'] = $visible_dts;
+        $this->container['variations'] = $variations;
+
+        return $this;
+    }
+
+    /**
+     * Gets widget_id
+     *
+     * @return string|null
+     */
+    public function getWidgetId()
+    {
+        return $this->container['widget_id'];
+    }
+
+    /**
+     * Sets widget_id
+     *
+     * @param string|null $widget_id page - id of the experiment element in that body.
+     *
+     * @return self
+     */
+    public function setWidgetId($widget_id)
+    {
+        $this->container['widget_id'] = $widget_id;
 
         return $this;
     }

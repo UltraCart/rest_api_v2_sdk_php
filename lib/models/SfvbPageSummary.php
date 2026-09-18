@@ -1,6 +1,6 @@
 <?php
 /**
- * SfvbPageResponse
+ * SfvbPageSummary
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * SfvbPageResponse Class Doc Comment
+ * SfvbPageSummary Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class SfvbPageSummary implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SfvbPageResponse';
+    protected static $openAPIModelName = 'SfvbPageSummary';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,13 +58,18 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'attributes' => '\ultracart\v2\models\SfvbPageAttribute[]',
+        'child_count' => 'int',
         'exclude_from_sitemap' => 'bool',
         'group_template' => 'string',
+        'item_count' => 'int',
         'item_template' => 'string',
-        'multimedia' => '\ultracart\v2\models\SfvbPageMultimedia[]',
+        'page_type' => 'string',
+        'parent_path' => 'string',
         'path' => 'string',
+        'root' => 'bool',
+        'sort_order' => 'int',
         'title' => 'string',
+        'uses_selectors' => 'bool',
         'visible' => 'bool',
         'visible_dts' => 'string'
     ];
@@ -77,13 +82,18 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'attributes' => null,
+        'child_count' => 'int32',
         'exclude_from_sitemap' => null,
         'group_template' => null,
+        'item_count' => 'int32',
         'item_template' => null,
-        'multimedia' => null,
+        'page_type' => null,
+        'parent_path' => null,
         'path' => null,
+        'root' => null,
+        'sort_order' => 'int32',
         'title' => null,
+        'uses_selectors' => null,
         'visible' => null,
         'visible_dts' => null
     ];
@@ -115,13 +125,18 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'attributes' => 'attributes',
+        'child_count' => 'child_count',
         'exclude_from_sitemap' => 'exclude_from_sitemap',
         'group_template' => 'group_template',
+        'item_count' => 'item_count',
         'item_template' => 'item_template',
-        'multimedia' => 'multimedia',
+        'page_type' => 'page_type',
+        'parent_path' => 'parent_path',
         'path' => 'path',
+        'root' => 'root',
+        'sort_order' => 'sort_order',
         'title' => 'title',
+        'uses_selectors' => 'uses_selectors',
         'visible' => 'visible',
         'visible_dts' => 'visible_dts'
     ];
@@ -132,13 +147,18 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'attributes' => 'setAttributes',
+        'child_count' => 'setChildCount',
         'exclude_from_sitemap' => 'setExcludeFromSitemap',
         'group_template' => 'setGroupTemplate',
+        'item_count' => 'setItemCount',
         'item_template' => 'setItemTemplate',
-        'multimedia' => 'setMultimedia',
+        'page_type' => 'setPageType',
+        'parent_path' => 'setParentPath',
         'path' => 'setPath',
+        'root' => 'setRoot',
+        'sort_order' => 'setSortOrder',
         'title' => 'setTitle',
+        'uses_selectors' => 'setUsesSelectors',
         'visible' => 'setVisible',
         'visible_dts' => 'setVisibleDts'
     ];
@@ -149,13 +169,18 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'attributes' => 'getAttributes',
+        'child_count' => 'getChildCount',
         'exclude_from_sitemap' => 'getExcludeFromSitemap',
         'group_template' => 'getGroupTemplate',
+        'item_count' => 'getItemCount',
         'item_template' => 'getItemTemplate',
-        'multimedia' => 'getMultimedia',
+        'page_type' => 'getPageType',
+        'parent_path' => 'getParentPath',
         'path' => 'getPath',
+        'root' => 'getRoot',
+        'sort_order' => 'getSortOrder',
         'title' => 'getTitle',
+        'uses_selectors' => 'getUsesSelectors',
         'visible' => 'getVisible',
         'visible_dts' => 'getVisibleDts'
     ];
@@ -217,13 +242,18 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['attributes'] = $data['attributes'] ?? null;
+        $this->container['child_count'] = $data['child_count'] ?? null;
         $this->container['exclude_from_sitemap'] = $data['exclude_from_sitemap'] ?? null;
         $this->container['group_template'] = $data['group_template'] ?? null;
+        $this->container['item_count'] = $data['item_count'] ?? null;
         $this->container['item_template'] = $data['item_template'] ?? null;
-        $this->container['multimedia'] = $data['multimedia'] ?? null;
+        $this->container['page_type'] = $data['page_type'] ?? null;
+        $this->container['parent_path'] = $data['parent_path'] ?? null;
         $this->container['path'] = $data['path'] ?? null;
+        $this->container['root'] = $data['root'] ?? null;
+        $this->container['sort_order'] = $data['sort_order'] ?? null;
         $this->container['title'] = $data['title'] ?? null;
+        $this->container['uses_selectors'] = $data['uses_selectors'] ?? null;
         $this->container['visible'] = $data['visible'] ?? null;
         $this->container['visible_dts'] = $data['visible_dts'] ?? null;
     }
@@ -253,25 +283,25 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets attributes
+     * Gets child_count
      *
-     * @return \ultracart\v2\models\SfvbPageAttribute[]|null
+     * @return int|null
      */
-    public function getAttributes()
+    public function getChildCount()
     {
-        return $this->container['attributes'];
+        return $this->container['child_count'];
     }
 
     /**
-     * Sets attributes
+     * Sets child_count
      *
-     * @param \ultracart\v2\models\SfvbPageAttribute[]|null $attributes Every attribute this page has, including ones a template declares but nothing has set yet.  These are what the pageattribute element renders.  Sorted by name.
+     * @param int|null $child_count Number of pages directly under this one.
      *
      * @return self
      */
-    public function setAttributes($attributes)
+    public function setChildCount($child_count)
     {
-        $this->container['attributes'] = $attributes;
+        $this->container['child_count'] = $child_count;
 
         return $this;
     }
@@ -325,6 +355,30 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets item_count
+     *
+     * @return int|null
+     */
+    public function getItemCount()
+    {
+        return $this->container['item_count'];
+    }
+
+    /**
+     * Sets item_count
+     *
+     * @param int|null $item_count Number of items assigned to the page.  The catalog stops counting at its per-page item ceiling.
+     *
+     * @return self
+     */
+    public function setItemCount($item_count)
+    {
+        $this->container['item_count'] = $item_count;
+
+        return $this;
+    }
+
+    /**
      * Gets item_template
      *
      * @return string|null
@@ -349,25 +403,49 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets multimedia
+     * Gets page_type
      *
-     * @return \ultracart\v2\models\SfvbPageMultimedia[]|null
+     * @return string|null
      */
-    public function getMultimedia()
+    public function getPageType()
     {
-        return $this->container['multimedia'];
+        return $this->container['page_type'];
     }
 
     /**
-     * Sets multimedia
+     * Sets page_type
      *
-     * @param \ultracart\v2\models\SfvbPageMultimedia[]|null $multimedia The page's images, including codes a template declares but nothing has attached yet.  These are what the pageimage element renders - the default image when pageImageCode is empty, otherwise the image with that code.  The default image comes first.
+     * @param string|null $page_type S for a static page, D for a dynamic one.
      *
      * @return self
      */
-    public function setMultimedia($multimedia)
+    public function setPageType($page_type)
     {
-        $this->container['multimedia'] = $multimedia;
+        $this->container['page_type'] = $page_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets parent_path
+     *
+     * @return string|null
+     */
+    public function getParentPath()
+    {
+        return $this->container['parent_path'];
+    }
+
+    /**
+     * Sets parent_path
+     *
+     * @param string|null $parent_path Path of the page this one sits under.  Empty for the root page.
+     *
+     * @return self
+     */
+    public function setParentPath($parent_path)
+    {
+        $this->container['parent_path'] = $parent_path;
 
         return $this;
     }
@@ -385,13 +463,61 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets path
      *
-     * @param string|null $path The page path, normalized to begin and end with a slash.
+     * @param string|null $path The page path, beginning and ending with a slash.  The root page is /.
      *
      * @return self
      */
     public function setPath($path)
     {
         $this->container['path'] = $path;
+
+        return $this;
+    }
+
+    /**
+     * Gets root
+     *
+     * @return bool|null
+     */
+    public function getRoot()
+    {
+        return $this->container['root'];
+    }
+
+    /**
+     * Sets root
+     *
+     * @param bool|null $root True for the storefront's home page.
+     *
+     * @return self
+     */
+    public function setRoot($root)
+    {
+        $this->container['root'] = $root;
+
+        return $this;
+    }
+
+    /**
+     * Gets sort_order
+     *
+     * @return int|null
+     */
+    public function getSortOrder()
+    {
+        return $this->container['sort_order'];
+    }
+
+    /**
+     * Sets sort_order
+     *
+     * @param int|null $sort_order Position among its siblings when the parent sorts child pages by a custom order.
+     *
+     * @return self
+     */
+    public function setSortOrder($sort_order)
+    {
+        $this->container['sort_order'] = $sort_order;
 
         return $this;
     }
@@ -416,6 +542,30 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setTitle($title)
     {
         $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets uses_selectors
+     *
+     * @return bool|null
+     */
+    public function getUsesSelectors()
+    {
+        return $this->container['uses_selectors'];
+    }
+
+    /**
+     * Sets uses_selectors
+     *
+     * @param bool|null $uses_selectors True when the page's items or blog posts are chosen by selectors rather than assigned by hand.
+     *
+     * @return self
+     */
+    public function setUsesSelectors($uses_selectors)
+    {
+        $this->container['uses_selectors'] = $uses_selectors;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * SfvbPageResponse
+ * SfvbPageBlogPostSelector
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * SfvbPageResponse Class Doc Comment
+ * SfvbPageBlogPostSelector Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class SfvbPageBlogPostSelector implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SfvbPageResponse';
+    protected static $openAPIModelName = 'SfvbPageBlogPostSelector';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,15 +58,11 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'attributes' => '\ultracart\v2\models\SfvbPageAttribute[]',
-        'exclude_from_sitemap' => 'bool',
-        'group_template' => 'string',
-        'item_template' => 'string',
-        'multimedia' => '\ultracart\v2\models\SfvbPageMultimedia[]',
-        'path' => 'string',
-        'title' => 'string',
-        'visible' => 'bool',
-        'visible_dts' => 'string'
+        'attribute_name' => 'string',
+        'attribute_value' => 'string',
+        'author_name' => 'string',
+        'tag' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -77,15 +73,11 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'attributes' => null,
-        'exclude_from_sitemap' => null,
-        'group_template' => null,
-        'item_template' => null,
-        'multimedia' => null,
-        'path' => null,
-        'title' => null,
-        'visible' => null,
-        'visible_dts' => null
+        'attribute_name' => null,
+        'attribute_value' => null,
+        'author_name' => null,
+        'tag' => null,
+        'type' => null
     ];
 
     /**
@@ -115,15 +107,11 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'attributes' => 'attributes',
-        'exclude_from_sitemap' => 'exclude_from_sitemap',
-        'group_template' => 'group_template',
-        'item_template' => 'item_template',
-        'multimedia' => 'multimedia',
-        'path' => 'path',
-        'title' => 'title',
-        'visible' => 'visible',
-        'visible_dts' => 'visible_dts'
+        'attribute_name' => 'attribute_name',
+        'attribute_value' => 'attribute_value',
+        'author_name' => 'author_name',
+        'tag' => 'tag',
+        'type' => 'type'
     ];
 
     /**
@@ -132,15 +120,11 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'attributes' => 'setAttributes',
-        'exclude_from_sitemap' => 'setExcludeFromSitemap',
-        'group_template' => 'setGroupTemplate',
-        'item_template' => 'setItemTemplate',
-        'multimedia' => 'setMultimedia',
-        'path' => 'setPath',
-        'title' => 'setTitle',
-        'visible' => 'setVisible',
-        'visible_dts' => 'setVisibleDts'
+        'attribute_name' => 'setAttributeName',
+        'attribute_value' => 'setAttributeValue',
+        'author_name' => 'setAuthorName',
+        'tag' => 'setTag',
+        'type' => 'setType'
     ];
 
     /**
@@ -149,15 +133,11 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'attributes' => 'getAttributes',
-        'exclude_from_sitemap' => 'getExcludeFromSitemap',
-        'group_template' => 'getGroupTemplate',
-        'item_template' => 'getItemTemplate',
-        'multimedia' => 'getMultimedia',
-        'path' => 'getPath',
-        'title' => 'getTitle',
-        'visible' => 'getVisible',
-        'visible_dts' => 'getVisibleDts'
+        'attribute_name' => 'getAttributeName',
+        'attribute_value' => 'getAttributeValue',
+        'author_name' => 'getAuthorName',
+        'tag' => 'getTag',
+        'type' => 'getType'
     ];
 
     /**
@@ -217,15 +197,11 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['attributes'] = $data['attributes'] ?? null;
-        $this->container['exclude_from_sitemap'] = $data['exclude_from_sitemap'] ?? null;
-        $this->container['group_template'] = $data['group_template'] ?? null;
-        $this->container['item_template'] = $data['item_template'] ?? null;
-        $this->container['multimedia'] = $data['multimedia'] ?? null;
-        $this->container['path'] = $data['path'] ?? null;
-        $this->container['title'] = $data['title'] ?? null;
-        $this->container['visible'] = $data['visible'] ?? null;
-        $this->container['visible_dts'] = $data['visible_dts'] ?? null;
+        $this->container['attribute_name'] = $data['attribute_name'] ?? null;
+        $this->container['attribute_value'] = $data['attribute_value'] ?? null;
+        $this->container['author_name'] = $data['author_name'] ?? null;
+        $this->container['tag'] = $data['tag'] ?? null;
+        $this->container['type'] = $data['type'] ?? null;
     }
 
     /**
@@ -253,217 +229,121 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets attributes
-     *
-     * @return \ultracart\v2\models\SfvbPageAttribute[]|null
-     */
-    public function getAttributes()
-    {
-        return $this->container['attributes'];
-    }
-
-    /**
-     * Sets attributes
-     *
-     * @param \ultracart\v2\models\SfvbPageAttribute[]|null $attributes Every attribute this page has, including ones a template declares but nothing has set yet.  These are what the pageattribute element renders.  Sorted by name.
-     *
-     * @return self
-     */
-    public function setAttributes($attributes)
-    {
-        $this->container['attributes'] = $attributes;
-
-        return $this;
-    }
-
-    /**
-     * Gets exclude_from_sitemap
-     *
-     * @return bool|null
-     */
-    public function getExcludeFromSitemap()
-    {
-        return $this->container['exclude_from_sitemap'];
-    }
-
-    /**
-     * Sets exclude_from_sitemap
-     *
-     * @param bool|null $exclude_from_sitemap True when the page is left out of the sitemap and marked noindex.
-     *
-     * @return self
-     */
-    public function setExcludeFromSitemap($exclude_from_sitemap)
-    {
-        $this->container['exclude_from_sitemap'] = $exclude_from_sitemap;
-
-        return $this;
-    }
-
-    /**
-     * Gets group_template
+     * Gets attribute_name
      *
      * @return string|null
      */
-    public function getGroupTemplate()
+    public function getAttributeName()
     {
-        return $this->container['group_template'];
+        return $this->container['attribute_name'];
     }
 
     /**
-     * Sets group_template
+     * Sets attribute_name
      *
-     * @param string|null $group_template Template file that renders the page itself, a bare .vm name found anywhere in the active theme.
+     * @param string|null $attribute_name attribute - the blog post attribute name.  Required with attribute_value.
      *
      * @return self
      */
-    public function setGroupTemplate($group_template)
+    public function setAttributeName($attribute_name)
     {
-        $this->container['group_template'] = $group_template;
+        $this->container['attribute_name'] = $attribute_name;
 
         return $this;
     }
 
     /**
-     * Gets item_template
+     * Gets attribute_value
      *
      * @return string|null
      */
-    public function getItemTemplate()
+    public function getAttributeValue()
     {
-        return $this->container['item_template'];
+        return $this->container['attribute_value'];
     }
 
     /**
-     * Sets item_template
+     * Sets attribute_value
      *
-     * @param string|null $item_template Template file that renders the item pages under this page.
+     * @param string|null $attribute_value attribute - the value to match.
      *
      * @return self
      */
-    public function setItemTemplate($item_template)
+    public function setAttributeValue($attribute_value)
     {
-        $this->container['item_template'] = $item_template;
+        $this->container['attribute_value'] = $attribute_value;
 
         return $this;
     }
 
     /**
-     * Gets multimedia
-     *
-     * @return \ultracart\v2\models\SfvbPageMultimedia[]|null
-     */
-    public function getMultimedia()
-    {
-        return $this->container['multimedia'];
-    }
-
-    /**
-     * Sets multimedia
-     *
-     * @param \ultracart\v2\models\SfvbPageMultimedia[]|null $multimedia The page's images, including codes a template declares but nothing has attached yet.  These are what the pageimage element renders - the default image when pageImageCode is empty, otherwise the image with that code.  The default image comes first.
-     *
-     * @return self
-     */
-    public function setMultimedia($multimedia)
-    {
-        $this->container['multimedia'] = $multimedia;
-
-        return $this;
-    }
-
-    /**
-     * Gets path
+     * Gets author_name
      *
      * @return string|null
      */
-    public function getPath()
+    public function getAuthorName()
     {
-        return $this->container['path'];
+        return $this->container['author_name'];
     }
 
     /**
-     * Sets path
+     * Sets author_name
      *
-     * @param string|null $path The page path, normalized to begin and end with a slash.
+     * @param string|null $author_name author name - required.
      *
      * @return self
      */
-    public function setPath($path)
+    public function setAuthorName($author_name)
     {
-        $this->container['path'] = $path;
+        $this->container['author_name'] = $author_name;
 
         return $this;
     }
 
     /**
-     * Gets title
+     * Gets tag
      *
      * @return string|null
      */
-    public function getTitle()
+    public function getTag()
     {
-        return $this->container['title'];
+        return $this->container['tag'];
     }
 
     /**
-     * Sets title
+     * Sets tag
      *
-     * @param string|null $title The page title.
+     * @param string|null $tag tag - required.
      *
      * @return self
      */
-    public function setTitle($title)
+    public function setTag($tag)
     {
-        $this->container['title'] = $title;
+        $this->container['tag'] = $tag;
 
         return $this;
     }
 
     /**
-     * Gets visible
-     *
-     * @return bool|null
-     */
-    public function getVisible()
-    {
-        return $this->container['visible'];
-    }
-
-    /**
-     * Sets visible
-     *
-     * @param bool|null $visible False when the page is hidden.  A hidden page answers 404 to shoppers.
-     *
-     * @return self
-     */
-    public function setVisible($visible)
-    {
-        $this->container['visible'] = $visible;
-
-        return $this;
-    }
-
-    /**
-     * Gets visible_dts
+     * Gets type
      *
      * @return string|null
      */
-    public function getVisibleDts()
+    public function getType()
     {
-        return $this->container['visible_dts'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets visible_dts
+     * Sets type
      *
-     * @param string|null $visible_dts When set, the page stays hidden until this time (ISO 8601, UTC).
+     * @param string|null $type One of all, author name, attribute, tag.
      *
      * @return self
      */
-    public function setVisibleDts($visible_dts)
+    public function setType($type)
     {
-        $this->container['visible_dts'] = $visible_dts;
+        $this->container['type'] = $type;
 
         return $this;
     }

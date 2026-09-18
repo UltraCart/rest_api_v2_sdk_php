@@ -1,6 +1,6 @@
 <?php
 /**
- * SfvbPageResponse
+ * SfvbExperimentStartVariation
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * SfvbPageResponse Class Doc Comment
+ * SfvbExperimentStartVariation Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class SfvbExperimentStartVariation implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SfvbPageResponse';
+    protected static $openAPIModelName = 'SfvbExperimentStartVariation';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,15 +58,9 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'attributes' => '\ultracart\v2\models\SfvbPageAttribute[]',
-        'exclude_from_sitemap' => 'bool',
-        'group_template' => 'string',
-        'item_template' => 'string',
-        'multimedia' => '\ultracart\v2\models\SfvbPageMultimedia[]',
+        'name' => 'string',
         'path' => 'string',
-        'title' => 'string',
-        'visible' => 'bool',
-        'visible_dts' => 'string'
+        'traffic_percentage' => 'int'
     ];
 
     /**
@@ -77,15 +71,9 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'attributes' => null,
-        'exclude_from_sitemap' => null,
-        'group_template' => null,
-        'item_template' => null,
-        'multimedia' => null,
+        'name' => null,
         'path' => null,
-        'title' => null,
-        'visible' => null,
-        'visible_dts' => null
+        'traffic_percentage' => 'int32'
     ];
 
     /**
@@ -115,15 +103,9 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'attributes' => 'attributes',
-        'exclude_from_sitemap' => 'exclude_from_sitemap',
-        'group_template' => 'group_template',
-        'item_template' => 'item_template',
-        'multimedia' => 'multimedia',
+        'name' => 'name',
         'path' => 'path',
-        'title' => 'title',
-        'visible' => 'visible',
-        'visible_dts' => 'visible_dts'
+        'traffic_percentage' => 'traffic_percentage'
     ];
 
     /**
@@ -132,15 +114,9 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'attributes' => 'setAttributes',
-        'exclude_from_sitemap' => 'setExcludeFromSitemap',
-        'group_template' => 'setGroupTemplate',
-        'item_template' => 'setItemTemplate',
-        'multimedia' => 'setMultimedia',
+        'name' => 'setName',
         'path' => 'setPath',
-        'title' => 'setTitle',
-        'visible' => 'setVisible',
-        'visible_dts' => 'setVisibleDts'
+        'traffic_percentage' => 'setTrafficPercentage'
     ];
 
     /**
@@ -149,15 +125,9 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'attributes' => 'getAttributes',
-        'exclude_from_sitemap' => 'getExcludeFromSitemap',
-        'group_template' => 'getGroupTemplate',
-        'item_template' => 'getItemTemplate',
-        'multimedia' => 'getMultimedia',
+        'name' => 'getName',
         'path' => 'getPath',
-        'title' => 'getTitle',
-        'visible' => 'getVisible',
-        'visible_dts' => 'getVisibleDts'
+        'traffic_percentage' => 'getTrafficPercentage'
     ];
 
     /**
@@ -217,15 +187,9 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['attributes'] = $data['attributes'] ?? null;
-        $this->container['exclude_from_sitemap'] = $data['exclude_from_sitemap'] ?? null;
-        $this->container['group_template'] = $data['group_template'] ?? null;
-        $this->container['item_template'] = $data['item_template'] ?? null;
-        $this->container['multimedia'] = $data['multimedia'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
         $this->container['path'] = $data['path'] ?? null;
-        $this->container['title'] = $data['title'] ?? null;
-        $this->container['visible'] = $data['visible'] ?? null;
-        $this->container['visible_dts'] = $data['visible_dts'] ?? null;
+        $this->container['traffic_percentage'] = $data['traffic_percentage'] ?? null;
     }
 
     /**
@@ -253,121 +217,25 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets attributes
-     *
-     * @return \ultracart\v2\models\SfvbPageAttribute[]|null
-     */
-    public function getAttributes()
-    {
-        return $this->container['attributes'];
-    }
-
-    /**
-     * Sets attributes
-     *
-     * @param \ultracart\v2\models\SfvbPageAttribute[]|null $attributes Every attribute this page has, including ones a template declares but nothing has set yet.  These are what the pageattribute element renders.  Sorted by name.
-     *
-     * @return self
-     */
-    public function setAttributes($attributes)
-    {
-        $this->container['attributes'] = $attributes;
-
-        return $this;
-    }
-
-    /**
-     * Gets exclude_from_sitemap
-     *
-     * @return bool|null
-     */
-    public function getExcludeFromSitemap()
-    {
-        return $this->container['exclude_from_sitemap'];
-    }
-
-    /**
-     * Sets exclude_from_sitemap
-     *
-     * @param bool|null $exclude_from_sitemap True when the page is left out of the sitemap and marked noindex.
-     *
-     * @return self
-     */
-    public function setExcludeFromSitemap($exclude_from_sitemap)
-    {
-        $this->container['exclude_from_sitemap'] = $exclude_from_sitemap;
-
-        return $this;
-    }
-
-    /**
-     * Gets group_template
+     * Gets name
      *
      * @return string|null
      */
-    public function getGroupTemplate()
+    public function getName()
     {
-        return $this->container['group_template'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets group_template
+     * Sets name
      *
-     * @param string|null $group_template Template file that renders the page itself, a bare .vm name found anywhere in the active theme.
+     * @param string|null $name Variation name, shown in the statistics.
      *
      * @return self
      */
-    public function setGroupTemplate($group_template)
+    public function setName($name)
     {
-        $this->container['group_template'] = $group_template;
-
-        return $this;
-    }
-
-    /**
-     * Gets item_template
-     *
-     * @return string|null
-     */
-    public function getItemTemplate()
-    {
-        return $this->container['item_template'];
-    }
-
-    /**
-     * Sets item_template
-     *
-     * @param string|null $item_template Template file that renders the item pages under this page.
-     *
-     * @return self
-     */
-    public function setItemTemplate($item_template)
-    {
-        $this->container['item_template'] = $item_template;
-
-        return $this;
-    }
-
-    /**
-     * Gets multimedia
-     *
-     * @return \ultracart\v2\models\SfvbPageMultimedia[]|null
-     */
-    public function getMultimedia()
-    {
-        return $this->container['multimedia'];
-    }
-
-    /**
-     * Sets multimedia
-     *
-     * @param \ultracart\v2\models\SfvbPageMultimedia[]|null $multimedia The page's images, including codes a template declares but nothing has attached yet.  These are what the pageimage element renders - the default image when pageImageCode is empty, otherwise the image with that code.  The default image comes first.
-     *
-     * @return self
-     */
-    public function setMultimedia($multimedia)
-    {
-        $this->container['multimedia'] = $multimedia;
+        $this->container['name'] = $name;
 
         return $this;
     }
@@ -385,7 +253,7 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets path
      *
-     * @param string|null $path The page path, normalized to begin and end with a slash.
+     * @param string|null $path Path of an existing page on this storefront, for example /lp/spring-sale-b/.
      *
      * @return self
      */
@@ -397,73 +265,25 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets title
+     * Gets traffic_percentage
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getTitle()
+    public function getTrafficPercentage()
     {
-        return $this->container['title'];
+        return $this->container['traffic_percentage'];
     }
 
     /**
-     * Sets title
+     * Sets traffic_percentage
      *
-     * @param string|null $title The page title.
+     * @param int|null $traffic_percentage Starting share of traffic, 1 to 100.  Set it on every variation, adding up to 100, or on none for an even split.
      *
      * @return self
      */
-    public function setTitle($title)
+    public function setTrafficPercentage($traffic_percentage)
     {
-        $this->container['title'] = $title;
-
-        return $this;
-    }
-
-    /**
-     * Gets visible
-     *
-     * @return bool|null
-     */
-    public function getVisible()
-    {
-        return $this->container['visible'];
-    }
-
-    /**
-     * Sets visible
-     *
-     * @param bool|null $visible False when the page is hidden.  A hidden page answers 404 to shoppers.
-     *
-     * @return self
-     */
-    public function setVisible($visible)
-    {
-        $this->container['visible'] = $visible;
-
-        return $this;
-    }
-
-    /**
-     * Gets visible_dts
-     *
-     * @return string|null
-     */
-    public function getVisibleDts()
-    {
-        return $this->container['visible_dts'];
-    }
-
-    /**
-     * Sets visible_dts
-     *
-     * @param string|null $visible_dts When set, the page stays hidden until this time (ISO 8601, UTC).
-     *
-     * @return self
-     */
-    public function setVisibleDts($visible_dts)
-    {
-        $this->container['visible_dts'] = $visible_dts;
+        $this->container['traffic_percentage'] = $traffic_percentage;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * SfvbPageResponse
+ * SfvbPageCreateRequest
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * SfvbPageResponse Class Doc Comment
+ * SfvbPageCreateRequest Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class SfvbPageCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SfvbPageResponse';
+    protected static $openAPIModelName = 'SfvbPageCreateRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,11 +58,11 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'attributes' => '\ultracart\v2\models\SfvbPageAttribute[]',
+        'description' => 'string',
         'exclude_from_sitemap' => 'bool',
         'group_template' => 'string',
         'item_template' => 'string',
-        'multimedia' => '\ultracart\v2\models\SfvbPageMultimedia[]',
+        'page_type' => 'string',
         'path' => 'string',
         'title' => 'string',
         'visible' => 'bool',
@@ -77,11 +77,11 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'attributes' => null,
+        'description' => null,
         'exclude_from_sitemap' => null,
         'group_template' => null,
         'item_template' => null,
-        'multimedia' => null,
+        'page_type' => null,
         'path' => null,
         'title' => null,
         'visible' => null,
@@ -115,11 +115,11 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'attributes' => 'attributes',
+        'description' => 'description',
         'exclude_from_sitemap' => 'exclude_from_sitemap',
         'group_template' => 'group_template',
         'item_template' => 'item_template',
-        'multimedia' => 'multimedia',
+        'page_type' => 'page_type',
         'path' => 'path',
         'title' => 'title',
         'visible' => 'visible',
@@ -132,11 +132,11 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'attributes' => 'setAttributes',
+        'description' => 'setDescription',
         'exclude_from_sitemap' => 'setExcludeFromSitemap',
         'group_template' => 'setGroupTemplate',
         'item_template' => 'setItemTemplate',
-        'multimedia' => 'setMultimedia',
+        'page_type' => 'setPageType',
         'path' => 'setPath',
         'title' => 'setTitle',
         'visible' => 'setVisible',
@@ -149,11 +149,11 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'attributes' => 'getAttributes',
+        'description' => 'getDescription',
         'exclude_from_sitemap' => 'getExcludeFromSitemap',
         'group_template' => 'getGroupTemplate',
         'item_template' => 'getItemTemplate',
-        'multimedia' => 'getMultimedia',
+        'page_type' => 'getPageType',
         'path' => 'getPath',
         'title' => 'getTitle',
         'visible' => 'getVisible',
@@ -217,11 +217,11 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['attributes'] = $data['attributes'] ?? null;
+        $this->container['description'] = $data['description'] ?? null;
         $this->container['exclude_from_sitemap'] = $data['exclude_from_sitemap'] ?? null;
         $this->container['group_template'] = $data['group_template'] ?? null;
         $this->container['item_template'] = $data['item_template'] ?? null;
-        $this->container['multimedia'] = $data['multimedia'] ?? null;
+        $this->container['page_type'] = $data['page_type'] ?? null;
         $this->container['path'] = $data['path'] ?? null;
         $this->container['title'] = $data['title'] ?? null;
         $this->container['visible'] = $data['visible'] ?? null;
@@ -253,25 +253,25 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets attributes
+     * Gets description
      *
-     * @return \ultracart\v2\models\SfvbPageAttribute[]|null
+     * @return string|null
      */
-    public function getAttributes()
+    public function getDescription()
     {
-        return $this->container['attributes'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets attributes
+     * Sets description
      *
-     * @param \ultracart\v2\models\SfvbPageAttribute[]|null $attributes Every attribute this page has, including ones a template declares but nothing has set yet.  These are what the pageattribute element renders.  Sorted by name.
+     * @param string|null $description The page description, for templates that show one.
      *
      * @return self
      */
-    public function setAttributes($attributes)
+    public function setDescription($description)
     {
-        $this->container['attributes'] = $attributes;
+        $this->container['description'] = $description;
 
         return $this;
     }
@@ -289,7 +289,7 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets exclude_from_sitemap
      *
-     * @param bool|null $exclude_from_sitemap True when the page is left out of the sitemap and marked noindex.
+     * @param bool|null $exclude_from_sitemap Leave the page out of the sitemap and mark it noindex.  Usual for ad landing pages.
      *
      * @return self
      */
@@ -313,7 +313,7 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets group_template
      *
-     * @param string|null $group_template Template file that renders the page itself, a bare .vm name found anywhere in the active theme.
+     * @param string|null $group_template Template that renders the page, a name from the template list.  When omitted the page inherits its parent's templates, or catalog_group.vm directly under the root.
      *
      * @return self
      */
@@ -337,7 +337,7 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets item_template
      *
-     * @param string|null $item_template Template file that renders the item pages under this page.
+     * @param string|null $item_template Template that renders the item pages under this page.  Inherited or defaulted like group_template.
      *
      * @return self
      */
@@ -349,25 +349,25 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets multimedia
+     * Gets page_type
      *
-     * @return \ultracart\v2\models\SfvbPageMultimedia[]|null
+     * @return string|null
      */
-    public function getMultimedia()
+    public function getPageType()
     {
-        return $this->container['multimedia'];
+        return $this->container['page_type'];
     }
 
     /**
-     * Sets multimedia
+     * Sets page_type
      *
-     * @param \ultracart\v2\models\SfvbPageMultimedia[]|null $multimedia The page's images, including codes a template declares but nothing has attached yet.  These are what the pageimage element renders - the default image when pageImageCode is empty, otherwise the image with that code.  The default image comes first.
+     * @param string|null $page_type S for a static page, D for a dynamic one.  Defaults to D, as in the admin.
      *
      * @return self
      */
-    public function setMultimedia($multimedia)
+    public function setPageType($page_type)
     {
-        $this->container['multimedia'] = $multimedia;
+        $this->container['page_type'] = $page_type;
 
         return $this;
     }
@@ -385,7 +385,7 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets path
      *
-     * @param string|null $path The page path, normalized to begin and end with a slash.
+     * @param string|null $path Path of the new page, for example /lp/spring-sale/.  The parent page must already exist, and the last part may only contain letters, digits, hyphens and underscores.
      *
      * @return self
      */
@@ -433,7 +433,7 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets visible
      *
-     * @param bool|null $visible False when the page is hidden.  A hidden page answers 404 to shoppers.
+     * @param bool|null $visible False creates the page hidden, so it answers 404 to shoppers until it is shown.
      *
      * @return self
      */
@@ -457,7 +457,7 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets visible_dts
      *
-     * @param string|null $visible_dts When set, the page stays hidden until this time (ISO 8601, UTC).
+     * @param string|null $visible_dts Keep the page hidden until this time (ISO 8601).
      *
      * @return self
      */
