@@ -1031,6 +1031,10 @@ docs/Model/SfvbPreviewSessionResponse.md
 docs/Model/SfvbPreviewUrlResponse.md
 docs/Model/SfvbRenderRequest.md
 docs/Model/SfvbRenderResponse.md
+docs/Model/SfvbSiteAttribute.md
+docs/Model/SfvbSiteAttributeUpdate.md
+docs/Model/SfvbSiteAttributeUpdateRequest.md
+docs/Model/SfvbSiteAttributesResponse.md
 docs/Model/SfvbStorefront.md
 docs/Model/SfvbStorefrontsResponse.md
 docs/Model/SfvbTheme.md
@@ -2173,6 +2177,10 @@ lib/models/SfvbPreviewSessionResponse.php
 lib/models/SfvbPreviewUrlResponse.php
 lib/models/SfvbRenderRequest.php
 lib/models/SfvbRenderResponse.php
+lib/models/SfvbSiteAttribute.php
+lib/models/SfvbSiteAttributeUpdate.php
+lib/models/SfvbSiteAttributeUpdateRequest.php
+lib/models/SfvbSiteAttributesResponse.php
 lib/models/SfvbStorefront.php
 lib/models/SfvbStorefrontsResponse.php
 lib/models/SfvbTheme.php

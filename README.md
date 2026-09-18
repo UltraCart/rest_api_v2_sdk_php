@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.157"
+    "ultracart/rest_api_v2_sdk_php": "4.1.158"
   }
 }
 ```
@@ -506,6 +506,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbMenus**](docs/Api/SfvbApi.md#getsfvbmenus) | **GET** /sfvb/storefronts/{storefront_oid}/menus | List a storefront&#39;s store menus
 *SfvbApi* | [**getSfvbPage**](docs/Api/SfvbApi.md#getsfvbpage) | **GET** /sfvb/storefronts/{storefront_oid}/pages | Read a page&#39;s attributes and images
 *SfvbApi* | [**getSfvbPreviewUrl**](docs/Api/SfvbApi.md#getsfvbpreviewurl) | **GET** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id}/url | URL that renders a preview session
+*SfvbApi* | [**getSfvbSiteAttributes**](docs/Api/SfvbApi.md#getsfvbsiteattributes) | **GET** /sfvb/storefronts/{storefront_oid}/attributes | Read a storefront&#39;s site attributes
 *SfvbApi* | [**getSfvbTheme**](docs/Api/SfvbApi.md#getsfvbtheme) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid} | Get a theme
 *SfvbApi* | [**getSfvbThemeAttributes**](docs/Api/SfvbApi.md#getsfvbthemeattributes) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Read a theme&#39;s colors, fonts and settings
 *SfvbApi* | [**getSfvbThemeJob**](docs/Api/SfvbApi.md#getsfvbthemejob) | **GET** /sfvb/storefronts/{storefront_oid}/theme_jobs/{job_id} | Status of an asynchronous theme job
@@ -525,6 +526,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**putSfvbPageAttributes**](docs/Api/SfvbApi.md#putsfvbpageattributes) | **PUT** /sfvb/storefronts/{storefront_oid}/pages/attributes | Change a page&#39;s attributes
 *SfvbApi* | [**putSfvbPageMultimedia**](docs/Api/SfvbApi.md#putsfvbpagemultimedia) | **PUT** /sfvb/storefronts/{storefront_oid}/pages/multimedia | Attach an image to a page
 *SfvbApi* | [**putSfvbPreviewSession**](docs/Api/SfvbApi.md#putsfvbpreviewsession) | **PUT** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Push containers into a preview session
+*SfvbApi* | [**putSfvbSiteAttributes**](docs/Api/SfvbApi.md#putsfvbsiteattributes) | **PUT** /sfvb/storefronts/{storefront_oid}/attributes | Change a storefront&#39;s site attributes
 *SfvbApi* | [**putSfvbThemeAttributes**](docs/Api/SfvbApi.md#putsfvbthemeattributes) | **PUT** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Change a theme&#39;s colors, fonts and settings
 *SfvbApi* | [**renderSfvbWidgets**](docs/Api/SfvbApi.md#rendersfvbwidgets) | **POST** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/render | Render a CJSON node to HTML
 *SfvbApi* | [**reserveSfvbWidgetIds**](docs/Api/SfvbApi.md#reservesfvbwidgetids) | **POST** /sfvb/storefronts/{storefront_oid}/widget_ids | Reserve a block of widget ids
@@ -1793,6 +1795,10 @@ Class | Method | HTTP request | Description
 - [SfvbPreviewUrlResponse](docs/Model/SfvbPreviewUrlResponse.md)
 - [SfvbRenderRequest](docs/Model/SfvbRenderRequest.md)
 - [SfvbRenderResponse](docs/Model/SfvbRenderResponse.md)
+- [SfvbSiteAttribute](docs/Model/SfvbSiteAttribute.md)
+- [SfvbSiteAttributeUpdate](docs/Model/SfvbSiteAttributeUpdate.md)
+- [SfvbSiteAttributeUpdateRequest](docs/Model/SfvbSiteAttributeUpdateRequest.md)
+- [SfvbSiteAttributesResponse](docs/Model/SfvbSiteAttributesResponse.md)
 - [SfvbStorefront](docs/Model/SfvbStorefront.md)
 - [SfvbStorefrontsResponse](docs/Model/SfvbStorefrontsResponse.md)
 - [SfvbTheme](docs/Model/SfvbTheme.md)
@@ -1994,6 +2000,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.158 | 09/18/2026 | sfvb internal testing |
 | 4.1.157 | 09/18/2026 | sfvb internal testing |
 | 4.1.156 | 09/16/2026 | sfvb internal testing |
 | 4.1.155 | 09/15/2026 | sfvb internal testing |
