@@ -1242,8 +1242,55 @@ Retrieves the customer activity associated with the email address on this order.
 
 ### Example
 
+```php
+<?php
 
-(No example for this operation).
+ini_set('display_errors', 1);
+
+use ultracart\v2\api\OrderApi;
+
+require_once '../vendor/autoload.php';
+require_once '../constants.php';
+
+/*
+    getOrderCustomerActivity returns the customer activity associated with the email address on an order.
+    This includes email engagement history, email list and segment membership, lifetime metrics and email
+    suppression status.
+
+    A customer profile is NOT required and is not consulted.  The activity is keyed off the email address
+    on the order, so this works for guest orders that have never had a customer profile established.  For
+    the page views captured during the session that placed the order, use getOrderPageViewHistory instead.
+
+    If the order has no valid email address, email and customer_activity both come back null.  That is a
+    successful response rather than an error - without an email there is no activity record to find.
+
+    Note: activity ts is a unix timestamp in milliseconds, not an ISO 8601 string like most dates in this API.
+
+    Possible Errors:
+    order_id does not start with the merchant id -> "Path parameter 'order_id' does not start with the merchant id.  Check your parameter value and call log."
+
+ */
+
+
+$order_api = OrderApi::usingApiKey(Constants::API_KEY, false, false);
+
+
+$order_id = 'DEMO-0009104976';
+$response = $order_api->getOrderCustomerActivity($order_id);
+
+$customer_activity = $response->getCustomerActivity();
+
+echo '<html lang="en"><body><pre>';
+echo 'Customer activity for: ' . $response->getEmail() . "\n\n";
+
+if ($customer_activity === null) {
+    echo 'No customer activity found for this order.';
+} else {
+    var_dump($customer_activity->getActivities());
+}
+
+echo '</pre></body></html>';
+```
 
 
 ### Parameters
@@ -1349,8 +1396,56 @@ Retrieves email delivery records associated with the specified order id.
 
 ### Example
 
+```php
+<?php
 
-(No example for this operation).
+ini_set('display_errors', 1);
+
+use ultracart\v2\api\OrderApi;
+
+require_once '../vendor/autoload.php';
+require_once '../constants.php';
+
+/*
+    getOrderEmails returns the delivery records for every email UltraCart sent regarding an order, oldest
+    first.  Each record carries the subject and send time plus delivery, open, click and bounce status,
+    which makes this useful evidence that a customer was notified about their order.
+
+    A customer profile is NOT required.  These records are tied to the order id itself.
+
+    An order with no email history, or one whose emails were all suppressed, comes back with an empty
+    emails array.  That is a successful response rather than an error.
+
+    The internal flag marks messages sent to merchant staff rather than to the customer.  Filter those out
+    if you only want what the customer actually received.
+
+    Possible Errors:
+    order_id does not start with the merchant id -> "Path parameter 'order_id' does not start with the merchant id.  Check your parameter value and call log."
+
+ */
+
+
+$order_api = OrderApi::usingApiKey(Constants::API_KEY, false, false);
+
+
+$order_id = 'DEMO-0009104976';
+$emails = $order_api->getOrderEmails($order_id)->getEmails();
+
+echo '<html lang="en"><body><pre>';
+
+if (empty($emails)) {
+    echo 'No emails were sent for this order.';
+} else {
+    foreach ($emails as $email) {
+        echo $email->getSendDts() . ' - ' . $email->getEmail() . ' - ' . $email->getSubject() . "\n";
+    }
+
+    echo "\n";
+    var_dump($emails);
+}
+
+echo '</pre></body></html>';
+```
 
 
 ### Parameters
@@ -1389,8 +1484,61 @@ Retrieves the page views captured during the session that placed this order.
 
 ### Example
 
+```php
+<?php
 
-(No example for this operation).
+ini_set('display_errors', 1);
+
+use ultracart\v2\api\OrderApi;
+
+require_once '../vendor/autoload.php';
+require_once '../constants.php';
+
+/*
+    getOrderPageViewHistory returns the page views captured during the session that placed an order,
+    along with the referrer that started that session.
+
+    A customer profile is NOT required.  These page views are keyed off an analytics client id stored on
+    the order itself, so this works for guest orders.  For the email engagement side of customer activity,
+    use getOrderCustomerActivity instead.
+
+    An order placed outside the storefront, such as a phone order or an order imported from a channel
+    partner, will have no analytics session attached.  In that case page_views comes back empty.  That is
+    a successful response rather than an error.
+
+    Note: view_dts is an ISO 8601 string here.  Be aware that the ts field on getOrderCustomerActivity is
+    unix milliseconds instead, so do not assume the two methods format dates the same way.
+
+    Possible Errors:
+    order_id does not start with the merchant id -> "Path parameter 'order_id' does not start with the merchant id.  Check your parameter value and call log."
+
+ */
+
+
+$order_api = OrderApi::usingApiKey(Constants::API_KEY, false, false);
+
+
+$order_id = 'DEMO-0009104976';
+$response = $order_api->getOrderPageViewHistory($order_id);
+
+$page_views = $response->getPageViews();
+
+echo '<html lang="en"><body><pre>';
+echo 'Session referrer: ' . ($response->getReferrer() ?: '(none captured)') . "\n\n";
+
+if (empty($page_views)) {
+    echo 'No page views were captured for this order.';
+} else {
+    foreach ($page_views as $page_view) {
+        echo $page_view->getViewDts() . ' - ' . $page_view->getUrl() . "\n";
+    }
+
+    echo "\n";
+    var_dump($page_views);
+}
+
+echo '</pre></body></html>';
+```
 
 
 ### Parameters
@@ -1429,8 +1577,9 @@ Creates a new cart using cloned information from the order, but with a specific 
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -1913,8 +2062,9 @@ This method adds items to an order in the hold stage and releases it
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -1955,8 +2105,9 @@ This method releases an order from the hold stage
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters

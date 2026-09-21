@@ -48,8 +48,9 @@ Removes every gated access code currently configured for the item.
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -146,8 +147,9 @@ Delete a specific gated access code by its OID.
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -317,8 +319,9 @@ Returns randomly generated codes using a profanity-safe charset (vowel-free, 0/1
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -602,8 +605,9 @@ Retrieve all unredeemed gated access codes configured for an item.
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -1522,8 +1526,9 @@ Insert a single gated access code; the server assigns the OID and created_dts.
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -1822,8 +1827,9 @@ Existing codes not present in the request body are deleted. New codes are insert
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters

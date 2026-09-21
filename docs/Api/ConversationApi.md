@@ -245,8 +245,9 @@ Sets active=false on the row and the DDB sync record. The Twilio Activity is pre
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -408,8 +409,9 @@ Delete a pbx address
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -530,8 +532,9 @@ Delete a class of service
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -570,8 +573,9 @@ Delete a pbx hardware phone
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -898,8 +902,9 @@ Delete a pbx audio file owned by the authenticated user
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -1216,8 +1221,9 @@ Returns all custom statuses (active and soft-deactivated) for the merchant.
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -1254,8 +1260,9 @@ Returns ECharts-shaped agent x hour grid for the requested metric (availability,
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -1294,8 +1301,9 @@ Top-line summary: total_agents, avg_available_pct, status_breakdown, per-agent r
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -1337,8 +1345,9 @@ Returns merged status events + PBX calls + chat conversations for the agent on t
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -1700,8 +1709,9 @@ Retrieve an item with sparse variations populated
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -2190,8 +2200,9 @@ Retrieve a pbx address
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -2230,8 +2241,9 @@ Retrieve pbx addresses
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -2549,8 +2561,9 @@ Retrieve a single PBX call record with full details
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -2589,8 +2602,9 @@ Retrieve a single class of service
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -2629,8 +2643,9 @@ Retrieve all classes of service for the merchant
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -2667,8 +2682,9 @@ Retrieve audit log entries for class of service enforcement
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -2710,8 +2726,9 @@ Returns the merchant's stored default timezone (IANA name). Falls back to Americ
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -2748,8 +2765,9 @@ Retrieve a pbx hardware phone
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -2788,8 +2806,9 @@ Retrieve pbx hardware phone manufacturers and models for auto-provisioning
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -2826,8 +2845,9 @@ Retrieve pbx hardware phones
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -3385,8 +3405,9 @@ Retrieve voicemail notification capabilities including available channels
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -3503,8 +3524,9 @@ Retrieve a pbx audio file owned by the authenticated user
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -3543,8 +3565,9 @@ Retrieve pbx audio files owned by the authenticated user
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -3581,8 +3604,9 @@ Retrieve virtual agent budget
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -3619,8 +3643,9 @@ Retrieve virtual agent capabilities
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -3739,8 +3764,9 @@ Create a custom status. Enforces a 20-active-status-per-merchant cap and the 50-
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -3902,8 +3928,9 @@ Insert a pbx address
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -3983,8 +4010,9 @@ Create a new class of service
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -4023,8 +4051,9 @@ Insert a pbx hardware phone
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -4268,8 +4297,9 @@ Insert a pbx audio file for the authenticated user
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -4557,8 +4587,9 @@ Protect a pbx phoneNumber from deletion. This is a one-way operation and cannot 
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -4597,8 +4628,9 @@ Purchase a phone number from Twilio. The phone_number must be from the available
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -4637,8 +4669,9 @@ Update a pbx hardware phone
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -4719,8 +4752,9 @@ Paginated search over conversation_agent_status_events_all. Filters: agent_user_
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -4761,8 +4795,9 @@ Aggregated over conversation_agent_status_events_all via date_histogram + terms.
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -4842,8 +4877,9 @@ Search for available phone numbers from Twilio that can be purchased
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -4888,8 +4924,9 @@ Search and list PBX call records with filtering, sorting, and pagination
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -5137,8 +5174,9 @@ Update a custom status. Renaming flows through to the Twilio Activity.
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -5346,8 +5384,9 @@ Update a pbx address
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -5512,8 +5551,9 @@ Update an existing class of service
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -5553,8 +5593,9 @@ Persists the IANA timezone on the Config#<merchant_id>/default DDB record (creat
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -5593,8 +5634,9 @@ Update a pbx hardware phone
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -5886,8 +5928,9 @@ Update a pbx audio file owned by the authenticated user
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -5927,8 +5970,9 @@ Update virtual agent budget
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -5967,8 +6011,9 @@ Update virtual agent capabilities
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters

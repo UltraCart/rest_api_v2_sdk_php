@@ -171,8 +171,9 @@ Delete a custom report on the UltraCart account.
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -293,8 +294,9 @@ Execute a custom report on the UltraCart account.
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -533,8 +535,9 @@ Retrieve a custom report
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -573,8 +576,9 @@ Retrieve a custom report account configuration
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -651,8 +655,9 @@ Retrieve a custom reports
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -972,8 +977,9 @@ Create a new custom report on the UltraCart account.
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -1136,8 +1142,9 @@ Update a custom report on the UltraCart account.
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -1177,8 +1184,9 @@ Update custom report account config.
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters

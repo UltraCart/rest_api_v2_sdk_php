@@ -564,8 +564,9 @@ Create email sending domain for various providers
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -602,8 +603,9 @@ Create file manager directory
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters
@@ -6511,8 +6513,9 @@ Sequence test
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters

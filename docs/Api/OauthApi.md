@@ -129,8 +129,9 @@ Initiates the device authorization flow by returning a device code and user code
 
 ### Example
 
+```php
 
-(No example for this operation).
+```
 
 
 ### Parameters

@@ -233,8 +233,95 @@ Adjusts the loyalty points for a customer by adding a record to the loyalty ledg
 
 ### Example
 
+```php
+<?php
 
-(No example for this operation).
+use ultracart\v2\ApiException;
+use ultracart\v2\models\AdjustLoyaltyPointsRequest;
+
+require_once '../vendor/autoload.php';
+require_once '../samples.php';
+require_once './customer_functions.php'; // <-- see this file for details
+
+/*
+    adjustLoyaltyPoints adds a record to a customer's loyalty points ledger.
+
+    Loyalty points are not a field you can edit on the customer object.  They are the running sum of a
+    ledger, so the loyalty properties on Customer are read only.  This method is how you change them.
+
+    The ledger is append only.  Records are never updated or deleted.  To correct a mistake, post a
+    second adjustment with the opposite sign.  Both entries remain in the ledger as an audit trail.
+
+    This method is for merchants running a POINTS loyalty program.  If you run a CASHBACK program,
+    call adjustInternalCertificate() instead.  Calling this method on a cashback account returns an error.
+
+    Possible Errors:
+    Merchant has no loyalty program -> "This merchant is not setup for Loyalty so no adjustments can be made..."
+    Merchant runs cashback, not points -> "This merchant is running a cashback loyalty program, not a points program..."
+    Missing points -> "adjust_loyalty_points_request.loyalty_points is required and was missing"
+    Zero points -> "adjust_loyalty_points_request.loyalty_points may not be zero"
+ */
+
+try {
+
+    $customer_api = Samples::getCustomerApi();
+
+    // create a customer
+    $customer_oid = insertSampleCustomer();
+
+    // Credit points that are usable right away.
+    $creditRequest = new AdjustLoyaltyPointsRequest();
+    $creditRequest->setLoyaltyPoints(500);
+    $creditRequest->setDescription('Customer called to complain about a late shipment.');
+    $creditRequest->setVestingDays(0); // 0 means immediately available.  null means use the merchant default.
+    $creditRequest->setOrderId(null);  // or supply an order id to tie the adjustment to a particular order.
+
+    $api_response = $customer_api->adjustLoyaltyPoints($customer_oid, $creditRequest);
+
+    echo 'Adjustment: ' . $api_response->getLoyaltyPoints() . "\n";
+    echo 'Current Points: ' . $api_response->getCurrentPoints() . "\n";
+    echo 'Pending Points: ' . $api_response->getPendingPoints() . "\n";
+
+
+    // Credit points that have to vest before the customer can spend them.  Points carrying a vesting
+    // date count toward pending_points, not current_points, until that date passes.
+    $vestingRequest = new AdjustLoyaltyPointsRequest();
+    $vestingRequest->setLoyaltyPoints(250);
+    $vestingRequest->setDescription('Promotional bonus, vests in 30 days.');
+    $vestingRequest->setVestingDays(30);
+
+    $api_response = $customer_api->adjustLoyaltyPoints($customer_oid, $vestingRequest);
+
+    echo 'Adjustment: ' . $api_response->getLoyaltyPoints() . "\n";
+    echo 'Current Points: ' . $api_response->getCurrentPoints() . "\n";
+    echo 'Pending Points: ' . $api_response->getPendingPoints() . "\n"; // <-- the 250 lands here, not in current
+
+
+    // Debit points by sending a negative number.  This does not delete the credits above.  It writes a
+    // third ledger record for -100.  Note the balance is allowed to go negative if you debit more than
+    // the customer has, so validate the amount yourself if that matters to you.
+    $debitRequest = new AdjustLoyaltyPointsRequest();
+    $debitRequest->setLoyaltyPoints(-100);
+    $debitRequest->setDescription('Correcting a duplicate credit issued earlier.');
+    $debitRequest->setVestingDays(0);
+
+    $api_response = $customer_api->adjustLoyaltyPoints($customer_oid, $debitRequest);
+
+    echo 'Adjustment: ' . $api_response->getLoyaltyPoints() . "\n";
+    echo 'Current Points: ' . $api_response->getCurrentPoints() . "\n";
+    echo 'Pending Points: ' . $api_response->getPendingPoints() . "\n";
+
+    var_dump($api_response);
+
+    // clean up this sample.
+    deleteSampleCustomer($customer_oid);
+
+} catch (ApiException $e) {
+    echo 'An ApiException occurred.  Please review the following error:';
+    var_dump($e); // <-- change_me: handle gracefully
+    die(1);
+}
+```
 
 
 ### Parameters
@@ -692,8 +779,70 @@ Retrieve the loyalty points, ledger and redemptions for a customer.  This is a c
 
 ### Example
 
+```php
+<?php
 
-(No example for this operation).
+use ultracart\v2\ApiException;
+use ultracart\v2\models\AdjustLoyaltyPointsRequest;
+
+require_once '../vendor/autoload.php';
+require_once '../samples.php';
+require_once './customer_functions.php'; // <-- see this file for details
+
+/*
+    getCustomerLoyalty returns the loyalty information for a single customer, which includes:
+    currentPoints - vested points the customer can spend right now
+    pendingPoints - points that carry a vesting date still in the future
+    ledgerEntries - the full points ledger, the append only history behind those two numbers
+    redemptions - rewards the customer has already redeemed
+    loyaltyTierOid / loyaltyTierName / loyaltyTierExpirationDts - the customer's tier, if any
+    internalGiftCertificate - cashback balance, for merchants running a cashback program
+
+    This is a convenience method.  It returns the same object you get by expanding 'loyalty' on the
+    customer, but without retrieving the entire customer record.  Use it to refresh loyalty numbers
+    after calling adjustLoyaltyPoints().
+ */
+
+try {
+
+    $customer_api = Samples::getCustomerApi();
+
+    // create a customer
+    $customer_oid = insertSampleCustomer();
+
+    // give them some points so the ledger below is not empty.
+    $adjustRequest = new AdjustLoyaltyPointsRequest();
+    $adjustRequest->setLoyaltyPoints(750);
+    $adjustRequest->setDescription('Welcome bonus');
+    $adjustRequest->setVestingDays(0);
+    $customer_api->adjustLoyaltyPoints($customer_oid, $adjustRequest);
+
+
+    $api_response = $customer_api->getCustomerLoyalty($customer_oid);
+    $loyalty = $api_response->getCustomerLoyalty();
+
+    echo 'Current Points: ' . $loyalty->getCurrentPoints() . "\n";
+    echo 'Pending Points: ' . $loyalty->getPendingPoints() . "\n";
+
+    // The ledger is the source of truth.  currentPoints and pendingPoints are just sums of it.
+    foreach ($loyalty->getLedgerEntries() as $entry) {
+        echo $entry->getLedgerDts() . ' | '
+            . $entry->getLoyaltyPoints() . ' points | '
+            . $entry->getCreatedBy() . ' | '
+            . $entry->getDescription() . "\n";
+    }
+
+    var_dump($loyalty); // <-- There's a lot of information inside this object.
+
+    // clean up this sample.
+    deleteSampleCustomer($customer_oid);
+
+} catch (ApiException $e) {
+    echo 'An ApiException occurred.  Please review the following error:';
+    var_dump($e); // <-- change_me: handle gracefully
+    die(1);
+}
+```
 
 
 ### Parameters
