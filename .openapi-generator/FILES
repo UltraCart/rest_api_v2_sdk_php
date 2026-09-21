@@ -519,6 +519,10 @@ docs/Model/EmailClicksResponse.md
 docs/Model/EmailCommseq.md
 docs/Model/EmailCommseqEmail.md
 docs/Model/EmailCommseqEmailResponse.md
+docs/Model/EmailCommseqEmailReviewStatus.md
+docs/Model/EmailCommseqEmailReviewStatusResponse.md
+docs/Model/EmailCommseqEmailReviewStatusesRequest.md
+docs/Model/EmailCommseqEmailReviewStatusesResponse.md
 docs/Model/EmailCommseqEmailSendTestRequest.md
 docs/Model/EmailCommseqEmailSendTestResponse.md
 docs/Model/EmailCommseqEmailsRequest.md
@@ -1690,6 +1694,10 @@ lib/models/EmailClicksResponse.php
 lib/models/EmailCommseq.php
 lib/models/EmailCommseqEmail.php
 lib/models/EmailCommseqEmailResponse.php
+lib/models/EmailCommseqEmailReviewStatus.php
+lib/models/EmailCommseqEmailReviewStatusResponse.php
+lib/models/EmailCommseqEmailReviewStatusesRequest.php
+lib/models/EmailCommseqEmailReviewStatusesResponse.php
 lib/models/EmailCommseqEmailSendTestRequest.php
 lib/models/EmailCommseqEmailSendTestResponse.php
 lib/models/EmailCommseqEmailsRequest.php

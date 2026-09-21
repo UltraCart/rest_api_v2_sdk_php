@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.164"
+    "ultracart/rest_api_v2_sdk_php": "4.1.166"
   }
 }
 ```
@@ -643,6 +643,8 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailPostcard**](docs/Api/StorefrontApi.md#getemailpostcard) | **GET** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid} | Get email postcard
 *StorefrontApi* | [**getEmailPostcards**](docs/Api/StorefrontApi.md#getemailpostcards) | **GET** /storefront/{storefront_oid}/email/postcards | Get email postcards
 *StorefrontApi* | [**getEmailPostcardsMultiple**](docs/Api/StorefrontApi.md#getemailpostcardsmultiple) | **POST** /storefront/{storefront_oid}/email/postcards/multiple | Get email postcards multiple
+*StorefrontApi* | [**getEmailReviewStatus**](docs/Api/StorefrontApi.md#getemailreviewstatus) | **GET** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/review_status | Get the review status of an email
+*StorefrontApi* | [**getEmailReviewStatusesMultiple**](docs/Api/StorefrontApi.md#getemailreviewstatusesmultiple) | **POST** /storefront/{storefront_oid}/email/emails/review_status/multiple | Get the review status of multiple emails
 *StorefrontApi* | [**getEmailSegment**](docs/Api/StorefrontApi.md#getemailsegment) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid} | Get email segment
 *StorefrontApi* | [**getEmailSegmentCustomerEditorUrl**](docs/Api/StorefrontApi.md#getemailsegmentcustomereditorurl) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/customers/{email_customer_uuid}/editor_url | Get email segment customers editor URL
 *StorefrontApi* | [**getEmailSegmentCustomers**](docs/Api/StorefrontApi.md#getemailsegmentcustomers) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/customers | Get email segment customers
@@ -1303,6 +1305,10 @@ Class | Method | HTTP request | Description
 - [EmailCommseq](docs/Model/EmailCommseq.md)
 - [EmailCommseqEmail](docs/Model/EmailCommseqEmail.md)
 - [EmailCommseqEmailResponse](docs/Model/EmailCommseqEmailResponse.md)
+- [EmailCommseqEmailReviewStatus](docs/Model/EmailCommseqEmailReviewStatus.md)
+- [EmailCommseqEmailReviewStatusResponse](docs/Model/EmailCommseqEmailReviewStatusResponse.md)
+- [EmailCommseqEmailReviewStatusesRequest](docs/Model/EmailCommseqEmailReviewStatusesRequest.md)
+- [EmailCommseqEmailReviewStatusesResponse](docs/Model/EmailCommseqEmailReviewStatusesResponse.md)
 - [EmailCommseqEmailSendTestRequest](docs/Model/EmailCommseqEmailSendTestRequest.md)
 - [EmailCommseqEmailSendTestResponse](docs/Model/EmailCommseqEmailSendTestResponse.md)
 - [EmailCommseqEmailsRequest](docs/Model/EmailCommseqEmailsRequest.md)
@@ -2046,6 +2052,8 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.166 | 09/21/2026 | sfvb internal testing |
+| 4.1.165 | 09/21/2026 | automation testing |
 | 4.1.164 | 09/20/2026 | automation testing |
 | 4.1.163 | 09/20/2026 | automation testing |
 | 4.1.162 | 09/18/2026 | sdk automation testing |

@@ -86,6 +86,8 @@ Method | HTTP request | Description
 [**getEmailPostcard()**](StorefrontApi.md#getEmailPostcard) | **GET** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid} | Get email postcard
 [**getEmailPostcards()**](StorefrontApi.md#getEmailPostcards) | **GET** /storefront/{storefront_oid}/email/postcards | Get email postcards
 [**getEmailPostcardsMultiple()**](StorefrontApi.md#getEmailPostcardsMultiple) | **POST** /storefront/{storefront_oid}/email/postcards/multiple | Get email postcards multiple
+[**getEmailReviewStatus()**](StorefrontApi.md#getEmailReviewStatus) | **GET** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/review_status | Get the review status of an email
+[**getEmailReviewStatusesMultiple()**](StorefrontApi.md#getEmailReviewStatusesMultiple) | **POST** /storefront/{storefront_oid}/email/emails/review_status/multiple | Get the review status of multiple emails
 [**getEmailSegment()**](StorefrontApi.md#getEmailSegment) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid} | Get email segment
 [**getEmailSegmentCustomerEditorUrl()**](StorefrontApi.md#getEmailSegmentCustomerEditorUrl) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/customers/{email_customer_uuid}/editor_url | Get email segment customers editor URL
 [**getEmailSegmentCustomers()**](StorefrontApi.md#getEmailSegmentCustomers) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/customers | Get email segment customers
@@ -3468,6 +3470,86 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\EmailCommseqPostcardsResponse**](../Model/EmailCommseqPostcardsResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getEmailReviewStatus()`
+
+```php
+getEmailReviewStatus($storefront_oid, $commseq_email_uuid): \ultracart\v2\models\EmailCommseqEmailReviewStatusResponse
+```
+
+Get the review status of an email
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **commseq_email_uuid** | **string**|  |
+
+### Return type
+
+[**\ultracart\v2\models\EmailCommseqEmailReviewStatusResponse**](../Model/EmailCommseqEmailReviewStatusResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getEmailReviewStatusesMultiple()`
+
+```php
+getEmailReviewStatusesMultiple($storefront_oid, $email_commseq_email_review_statuses_request): \ultracart\v2\models\EmailCommseqEmailReviewStatusesResponse
+```
+
+Get the review status of multiple emails
+
+Returns one entry per requested email, in the order requested, so a caller polling a campaign does not have to reconcile a short response.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **email_commseq_email_review_statuses_request** | [**\ultracart\v2\models\EmailCommseqEmailReviewStatusesRequest**](../Model/EmailCommseqEmailReviewStatusesRequest.md)| Request of email uuids |
+
+### Return type
+
+[**\ultracart\v2\models\EmailCommseqEmailReviewStatusesResponse**](../Model/EmailCommseqEmailReviewStatusesResponse.md)
 
 ### Authorization
 
