@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.168"
+    "ultracart/rest_api_v2_sdk_php": "4.1.169"
   }
 }
 ```
@@ -529,6 +529,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**listSfvbExperiments**](docs/Api/SfvbApi.md#listsfvbexperiments) | **GET** /sfvb/storefronts/{storefront_oid}/experiments | List the storefront&#39;s experiments
 *SfvbApi* | [**listSfvbFileVersions**](docs/Api/SfvbApi.md#listsfvbfileversions) | **GET** /sfvb/storefronts/{storefront_oid}/files/versions | Version history for a storefront file
 *SfvbApi* | [**listSfvbFiles**](docs/Api/SfvbApi.md#listsfvbfiles) | **GET** /sfvb/storefronts/{storefront_oid}/files | List a storefront directory
+*SfvbApi* | [**listSfvbItemContainers**](docs/Api/SfvbApi.md#listsfvbitemcontainers) | **GET** /sfvb/storefronts/{storefront_oid}/item_containers | List the item containers on the account
 *SfvbApi* | [**listSfvbPages**](docs/Api/SfvbApi.md#listsfvbpages) | **GET** /sfvb/storefronts/{storefront_oid}/pages/list | List the storefront&#39;s pages
 *SfvbApi* | [**listSfvbStorefronts**](docs/Api/SfvbApi.md#listsfvbstorefronts) | **GET** /sfvb/storefronts | List storefronts
 *SfvbApi* | [**listSfvbTemplates**](docs/Api/SfvbApi.md#listsfvbtemplates) | **GET** /sfvb/storefronts/{storefront_oid}/templates | List the active theme&#39;s templates
@@ -1811,6 +1812,8 @@ Class | Method | HTTP request | Description
 - [SfvbFileWriteRequest](docs/Model/SfvbFileWriteRequest.md)
 - [SfvbFileWriteResponse](docs/Model/SfvbFileWriteResponse.md)
 - [SfvbFilesResponse](docs/Model/SfvbFilesResponse.md)
+- [SfvbItemContainer](docs/Model/SfvbItemContainer.md)
+- [SfvbItemContainersResponse](docs/Model/SfvbItemContainersResponse.md)
 - [SfvbLibraryEntry](docs/Model/SfvbLibraryEntry.md)
 - [SfvbLibraryFacet](docs/Model/SfvbLibraryFacet.md)
 - [SfvbLibraryResponse](docs/Model/SfvbLibraryResponse.md)
@@ -2054,6 +2057,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.169 | 09/22/2026 | sfvb builder |
 | 4.1.168 | 09/21/2026 | further automation testing |
 | 4.1.167 | 09/21/2026 | automation test |
 | 4.1.165 | 09/21/2026 | automation testing |
