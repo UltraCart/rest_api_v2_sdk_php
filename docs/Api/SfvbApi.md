@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**createSfvbPreviewAccess()**](SfvbApi.md#createSfvbPreviewAccess) | **POST** /sfvb/storefronts/{storefront_oid}/preview_access | One time link that opens a preview in a browser with no UltraCart login
 [**createSfvbPreviewSession()**](SfvbApi.md#createSfvbPreviewSession) | **POST** /sfvb/storefronts/{storefront_oid}/preview_sessions | Create a preview session
 [**deleteSfvbFile()**](SfvbApi.md#deleteSfvbFile) | **DELETE** /sfvb/storefronts/{storefront_oid}/files | Delete a storefront file
+[**deleteSfvbItemMultimedia()**](SfvbApi.md#deleteSfvbItemMultimedia) | **DELETE** /sfvb/storefronts/{storefront_oid}/items/multimedia | Detach an image from an item
 [**deleteSfvbPageMultimedia()**](SfvbApi.md#deleteSfvbPageMultimedia) | **DELETE** /sfvb/storefronts/{storefront_oid}/pages/multimedia | Detach an image from a page
 [**deleteSfvbPreviewSession()**](SfvbApi.md#deleteSfvbPreviewSession) | **DELETE** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Delete a preview session
 [**downloadSfvbFile()**](SfvbApi.md#downloadSfvbFile) | **GET** /sfvb/storefronts/{storefront_oid}/files/download | Read a storefront file&#39;s raw bytes
@@ -24,6 +25,7 @@ Method | HTTP request | Description
 [**getSfvbExperimentObjectives()**](SfvbApi.md#getSfvbExperimentObjectives) | **GET** /sfvb/storefronts/{storefront_oid}/experiments/objectives | List the objectives an experiment can optimize
 [**getSfvbFileContent()**](SfvbApi.md#getSfvbFileContent) | **GET** /sfvb/storefronts/{storefront_oid}/files/content | Read a storefront file
 [**getSfvbFileUploadUrl()**](SfvbApi.md#getSfvbFileUploadUrl) | **GET** /sfvb/storefronts/{storefront_oid}/files/upload_url/{extension} | Get a URL to upload a binary asset to
+[**getSfvbItem()**](SfvbApi.md#getSfvbItem) | **GET** /sfvb/storefronts/{storefront_oid}/items | Read an item&#39;s storefront facing content
 [**getSfvbLibraryEntry()**](SfvbApi.md#getSfvbLibraryEntry) | **GET** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Read one library entry including its CJSON
 [**getSfvbMenu()**](SfvbApi.md#getSfvbMenu) | **GET** /sfvb/storefronts/{storefront_oid}/menus/{code} | Read one store menu and its entries
 [**getSfvbMenus()**](SfvbApi.md#getSfvbMenus) | **GET** /sfvb/storefronts/{storefront_oid}/menus | List a storefront&#39;s store menus
@@ -55,6 +57,10 @@ Method | HTTP request | Description
 [**putSfvbContainer()**](SfvbApi.md#putSfvbContainer) | **PUT** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Write a container stored outside the file system
 [**putSfvbExperimentVariation()**](SfvbApi.md#putSfvbExperimentVariation) | **PUT** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}/variations/{variation_number} | Pause or resume a variation
 [**putSfvbFileContent()**](SfvbApi.md#putSfvbFileContent) | **PUT** /sfvb/storefronts/{storefront_oid}/files/content | Write a storefront file
+[**putSfvbItemAttributes()**](SfvbApi.md#putSfvbItemAttributes) | **PUT** /sfvb/storefronts/{storefront_oid}/items/attributes | Change some of an item&#39;s attributes
+[**putSfvbItemContent()**](SfvbApi.md#putSfvbItemContent) | **PUT** /sfvb/storefronts/{storefront_oid}/items/content | Change an item&#39;s title or long description
+[**putSfvbItemMultimedia()**](SfvbApi.md#putSfvbItemMultimedia) | **PUT** /sfvb/storefronts/{storefront_oid}/items/multimedia | Attach an image to an item
+[**putSfvbItemSeo()**](SfvbApi.md#putSfvbItemSeo) | **PUT** /sfvb/storefronts/{storefront_oid}/items/seo | Change an item&#39;s search metadata
 [**putSfvbMenu()**](SfvbApi.md#putSfvbMenu) | **PUT** /sfvb/storefronts/{storefront_oid}/menus/{code} | Replace a store menu&#39;s entries
 [**putSfvbPageAttributes()**](SfvbApi.md#putSfvbPageAttributes) | **PUT** /sfvb/storefronts/{storefront_oid}/pages/attributes | Change a page&#39;s attributes
 [**putSfvbPageMultimedia()**](SfvbApi.md#putSfvbPageMultimedia) | **PUT** /sfvb/storefronts/{storefront_oid}/pages/multimedia | Attach an image to a page
@@ -310,6 +316,50 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteSfvbItemMultimedia()`
+
+```php
+deleteSfvbItemMultimedia($storefront_oid, $merchant_item_id, $merchant_item_oid, $code, $default): \ultracart\v2\models\SfvbItemResponse
+```
+
+Detach an image from an item
+
+Removes the item's copy of the image in one slot.  The file you uploaded is left where it is, so the same source can be attached again or used elsewhere.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **merchant_item_id** | **string**|  | [optional]
+ **merchant_item_oid** | **int**|  | [optional]
+ **code** | **string**| The image code to detach | [optional]
+ **default** | **bool**| Detach the default image instead of a coded one | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\SfvbItemResponse**](../Model/SfvbItemResponse.md)
 
 ### Authorization
 
@@ -890,6 +940,48 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\SfvbFileUploadUrlResponse**](../Model/SfvbFileUploadUrlResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getSfvbItem()`
+
+```php
+getSfvbItem($storefront_oid, $merchant_item_id, $merchant_item_oid): \ultracart\v2\models\SfvbItemResponse
+```
+
+Read an item's storefront facing content
+
+The attributes, images, title, description and search metadata a StoreFront element can render, reconciled against the templates behind the pages this item sits on.  An attribute a template declares but nothing has set comes back present with an empty value, which is how you discover what the page is asking for.  Pricing, shipping, inventory, tax, variants and kit structure are not here because no element reads them; use the item API for those.  Address by merchant_item_id, the value data-context-item-id carries, or by merchant_item_oid.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **merchant_item_id** | **string**| The merchant item id, as a storefront carries it | [optional]
+ **merchant_item_oid** | **int**| The item oid.  Send this or merchant_item_id, not both | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\SfvbItemResponse**](../Model/SfvbItemResponse.md)
 
 ### Authorization
 
@@ -2163,6 +2255,178 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\SfvbFileWriteResponse**](../Model/SfvbFileWriteResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `putSfvbItemAttributes()`
+
+```php
+putSfvbItemAttributes($storefront_oid, $item_attribute_update_request, $merchant_item_id, $merchant_item_oid): \ultracart\v2\models\SfvbItemResponse
+```
+
+Change some of an item's attributes
+
+Partial - only the attributes named change, and an empty value clears one.  Every entry is validated before any is written, so a refusal leaves the item untouched.  The list types are checked against the shape their renderer actually parses, which matters more than it sounds: a definition list is a bare array with one letter keys, a video list is a wrapper object with keys spelled out, and an item set is comma separated text rather than JSON.  A shape the renderer cannot read is not reported at render time - it renders exactly like an attribute nobody ever set.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **item_attribute_update_request** | [**\ultracart\v2\models\SfvbItemAttributeUpdateRequest**](../Model/SfvbItemAttributeUpdateRequest.md)| Attributes to change |
+ **merchant_item_id** | **string**|  | [optional]
+ **merchant_item_oid** | **int**|  | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\SfvbItemResponse**](../Model/SfvbItemResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `putSfvbItemContent()`
+
+```php
+putSfvbItemContent($storefront_oid, $item_content_request, $merchant_item_id, $merchant_item_oid): \ultracart\v2\models\SfvbItemResponse
+```
+
+Change an item's title or long description
+
+Partial - a field left out is untouched, a field sent empty is cleared, and those are different things.  These are what itemtitle and itemdescription render.  Writing the matching config keys into a container does nothing, because they are dialog buffers bound to the item and the render never reads them.  Both are the catalog's own fields, so a change here reaches the item everywhere, not only on this storefront.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **item_content_request** | [**\ultracart\v2\models\SfvbItemContentRequest**](../Model/SfvbItemContentRequest.md)| Title and description to change |
+ **merchant_item_id** | **string**|  | [optional]
+ **merchant_item_oid** | **int**|  | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\SfvbItemResponse**](../Model/SfvbItemResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `putSfvbItemMultimedia()`
+
+```php
+putSfvbItemMultimedia($storefront_oid, $item_multimedia_request, $merchant_item_id, $merchant_item_oid): \ultracart\v2\models\SfvbItemResponse
+```
+
+Attach an image to an item
+
+One slot at a time - the default image or one code - and every other image on the item is left alone.  That is the difference from the item API, where images are reachable only through a full item update whose multimedia array is reconciled destructively, so adding one means resending the rest or losing them.  Upload the file with files/upload first and name its storefront path here; unlike a page image it does not have to live in any particular folder, because the bytes are copied into the item's own storage on attach.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **item_multimedia_request** | [**\ultracart\v2\models\SfvbItemMultimediaRequest**](../Model/SfvbItemMultimediaRequest.md)| Image to attach |
+ **merchant_item_id** | **string**|  | [optional]
+ **merchant_item_oid** | **int**|  | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\SfvbItemResponse**](../Model/SfvbItemResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `putSfvbItemSeo()`
+
+```php
+putSfvbItemSeo($storefront_oid, $item_seo_request, $merchant_item_id, $merchant_item_oid): \ultracart\v2\models\SfvbItemResponse
+```
+
+Change an item's search metadata
+
+Partial - a field left out is untouched, a field sent empty is cleared and the page falls back to what it fell back to before.  Underneath these are three item attributes with reserved names, so this and the attributes endpoint reach the same storage; it exists separately because the names are not discoverable from the templates.  Two things worth knowing.  A title set here changes the document title only - og:title and twitter:title render the item's description either way.  And there is no canonical or noindex field, because both are site wide switches rather than per item values.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **item_seo_request** | [**\ultracart\v2\models\SfvbItemSeoRequest**](../Model/SfvbItemSeoRequest.md)| Search metadata to change |
+ **merchant_item_id** | **string**|  | [optional]
+ **merchant_item_oid** | **int**|  | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\SfvbItemResponse**](../Model/SfvbItemResponse.md)
 
 ### Authorization
 

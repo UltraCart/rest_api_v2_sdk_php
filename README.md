@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.169"
+    "ultracart/rest_api_v2_sdk_php": "4.1.170"
   }
 }
 ```
@@ -493,6 +493,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**createSfvbPreviewAccess**](docs/Api/SfvbApi.md#createsfvbpreviewaccess) | **POST** /sfvb/storefronts/{storefront_oid}/preview_access | One time link that opens a preview in a browser with no UltraCart login
 *SfvbApi* | [**createSfvbPreviewSession**](docs/Api/SfvbApi.md#createsfvbpreviewsession) | **POST** /sfvb/storefronts/{storefront_oid}/preview_sessions | Create a preview session
 *SfvbApi* | [**deleteSfvbFile**](docs/Api/SfvbApi.md#deletesfvbfile) | **DELETE** /sfvb/storefronts/{storefront_oid}/files | Delete a storefront file
+*SfvbApi* | [**deleteSfvbItemMultimedia**](docs/Api/SfvbApi.md#deletesfvbitemmultimedia) | **DELETE** /sfvb/storefronts/{storefront_oid}/items/multimedia | Detach an image from an item
 *SfvbApi* | [**deleteSfvbPageMultimedia**](docs/Api/SfvbApi.md#deletesfvbpagemultimedia) | **DELETE** /sfvb/storefronts/{storefront_oid}/pages/multimedia | Detach an image from a page
 *SfvbApi* | [**deleteSfvbPreviewSession**](docs/Api/SfvbApi.md#deletesfvbpreviewsession) | **DELETE** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Delete a preview session
 *SfvbApi* | [**downloadSfvbFile**](docs/Api/SfvbApi.md#downloadsfvbfile) | **GET** /sfvb/storefronts/{storefront_oid}/files/download | Read a storefront file&#39;s raw bytes
@@ -507,6 +508,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbExperimentObjectives**](docs/Api/SfvbApi.md#getsfvbexperimentobjectives) | **GET** /sfvb/storefronts/{storefront_oid}/experiments/objectives | List the objectives an experiment can optimize
 *SfvbApi* | [**getSfvbFileContent**](docs/Api/SfvbApi.md#getsfvbfilecontent) | **GET** /sfvb/storefronts/{storefront_oid}/files/content | Read a storefront file
 *SfvbApi* | [**getSfvbFileUploadUrl**](docs/Api/SfvbApi.md#getsfvbfileuploadurl) | **GET** /sfvb/storefronts/{storefront_oid}/files/upload_url/{extension} | Get a URL to upload a binary asset to
+*SfvbApi* | [**getSfvbItem**](docs/Api/SfvbApi.md#getsfvbitem) | **GET** /sfvb/storefronts/{storefront_oid}/items | Read an item&#39;s storefront facing content
 *SfvbApi* | [**getSfvbLibraryEntry**](docs/Api/SfvbApi.md#getsfvblibraryentry) | **GET** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Read one library entry including its CJSON
 *SfvbApi* | [**getSfvbMenu**](docs/Api/SfvbApi.md#getsfvbmenu) | **GET** /sfvb/storefronts/{storefront_oid}/menus/{code} | Read one store menu and its entries
 *SfvbApi* | [**getSfvbMenus**](docs/Api/SfvbApi.md#getsfvbmenus) | **GET** /sfvb/storefronts/{storefront_oid}/menus | List a storefront&#39;s store menus
@@ -538,6 +540,10 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**putSfvbContainer**](docs/Api/SfvbApi.md#putsfvbcontainer) | **PUT** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Write a container stored outside the file system
 *SfvbApi* | [**putSfvbExperimentVariation**](docs/Api/SfvbApi.md#putsfvbexperimentvariation) | **PUT** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}/variations/{variation_number} | Pause or resume a variation
 *SfvbApi* | [**putSfvbFileContent**](docs/Api/SfvbApi.md#putsfvbfilecontent) | **PUT** /sfvb/storefronts/{storefront_oid}/files/content | Write a storefront file
+*SfvbApi* | [**putSfvbItemAttributes**](docs/Api/SfvbApi.md#putsfvbitemattributes) | **PUT** /sfvb/storefronts/{storefront_oid}/items/attributes | Change some of an item&#39;s attributes
+*SfvbApi* | [**putSfvbItemContent**](docs/Api/SfvbApi.md#putsfvbitemcontent) | **PUT** /sfvb/storefronts/{storefront_oid}/items/content | Change an item&#39;s title or long description
+*SfvbApi* | [**putSfvbItemMultimedia**](docs/Api/SfvbApi.md#putsfvbitemmultimedia) | **PUT** /sfvb/storefronts/{storefront_oid}/items/multimedia | Attach an image to an item
+*SfvbApi* | [**putSfvbItemSeo**](docs/Api/SfvbApi.md#putsfvbitemseo) | **PUT** /sfvb/storefronts/{storefront_oid}/items/seo | Change an item&#39;s search metadata
 *SfvbApi* | [**putSfvbMenu**](docs/Api/SfvbApi.md#putsfvbmenu) | **PUT** /sfvb/storefronts/{storefront_oid}/menus/{code} | Replace a store menu&#39;s entries
 *SfvbApi* | [**putSfvbPageAttributes**](docs/Api/SfvbApi.md#putsfvbpageattributes) | **PUT** /sfvb/storefronts/{storefront_oid}/pages/attributes | Change a page&#39;s attributes
 *SfvbApi* | [**putSfvbPageMultimedia**](docs/Api/SfvbApi.md#putsfvbpagemultimedia) | **PUT** /sfvb/storefronts/{storefront_oid}/pages/multimedia | Attach an image to a page
@@ -1812,8 +1818,17 @@ Class | Method | HTTP request | Description
 - [SfvbFileWriteRequest](docs/Model/SfvbFileWriteRequest.md)
 - [SfvbFileWriteResponse](docs/Model/SfvbFileWriteResponse.md)
 - [SfvbFilesResponse](docs/Model/SfvbFilesResponse.md)
+- [SfvbItemAttribute](docs/Model/SfvbItemAttribute.md)
+- [SfvbItemAttributeUpdate](docs/Model/SfvbItemAttributeUpdate.md)
+- [SfvbItemAttributeUpdateRequest](docs/Model/SfvbItemAttributeUpdateRequest.md)
 - [SfvbItemContainer](docs/Model/SfvbItemContainer.md)
 - [SfvbItemContainersResponse](docs/Model/SfvbItemContainersResponse.md)
+- [SfvbItemContentRequest](docs/Model/SfvbItemContentRequest.md)
+- [SfvbItemMultimedia](docs/Model/SfvbItemMultimedia.md)
+- [SfvbItemMultimediaRequest](docs/Model/SfvbItemMultimediaRequest.md)
+- [SfvbItemResponse](docs/Model/SfvbItemResponse.md)
+- [SfvbItemSeo](docs/Model/SfvbItemSeo.md)
+- [SfvbItemSeoRequest](docs/Model/SfvbItemSeoRequest.md)
 - [SfvbLibraryEntry](docs/Model/SfvbLibraryEntry.md)
 - [SfvbLibraryFacet](docs/Model/SfvbLibraryFacet.md)
 - [SfvbLibraryResponse](docs/Model/SfvbLibraryResponse.md)
@@ -2057,6 +2072,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.170 | 09/22/2026 | sfvb internal testing |
 | 4.1.169 | 09/22/2026 | sfvb builder |
 | 4.1.168 | 09/21/2026 | further automation testing |
 | 4.1.167 | 09/21/2026 | automation test |
