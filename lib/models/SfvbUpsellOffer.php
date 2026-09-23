@@ -60,12 +60,67 @@ class SfvbUpsellOffer implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'active' => 'bool',
         'active_overall' => 'bool',
+        'add_accessory_item_ids' => 'string[]',
+        'adjust_trigger_item_option' => 'string',
+        'allow_upsell_item_in_cart_already' => 'bool',
+        'arbitrary_unit_cost' => 'float',
+        'arbitrary_unit_cost_friday' => 'float',
+        'arbitrary_unit_cost_monday' => 'float',
+        'arbitrary_unit_cost_saturday' => 'float',
+        'arbitrary_unit_cost_sunday' => 'float',
+        'arbitrary_unit_cost_thursday' => 'float',
+        'arbitrary_unit_cost_tuesday' => 'float',
+        'arbitrary_unit_cost_wednesday' => 'float',
         'cjson_size' => 'int',
+        'end_date' => 'string',
+        'everflow_advertiser_event_id' => 'string',
+        'first_time_item' => 'bool',
+        'first_time_store' => 'bool',
+        'free_shipping' => 'bool',
         'has_container' => 'bool',
+        'has_everflow_configured' => 'bool',
+        'has_loyalty_configured' => 'bool',
+        'has_towerdata_configured' => 'bool',
+        'hash_sha256' => 'string',
+        'item_logic_suppression' => '\ultracart\v2\models\SfvbUpsellItemLogic',
+        'item_logic_trigger' => '\ultracart\v2\models\SfvbUpsellItemLogic',
+        'lock_shipping' => 'bool',
+        'max_quantity' => 'int',
+        'migrate_accessory_item_ids_from' => 'string[]',
+        'migrate_accessory_item_ids_to' => 'string[]',
         'name' => 'string',
+        'offsite_content_url' => 'string',
+        'out_of_stock_upsell_item_ids' => 'string[]',
         'path_name' => 'string',
+        'record_as_regular_item' => 'bool',
+        'referenced_by_path_oids' => 'int[]',
+        'removable_on_confirmation' => 'bool',
+        'remove_accessory_item_ids' => 'string[]',
+        'remove_trigger_item' => 'bool',
+        'skip_previous_customers' => 'bool',
+        'start_date' => 'string',
+        'stats' => '\ultracart\v2\models\SfvbUpsellStats',
         'storefront_oid' => 'int',
+        'suppress_large' => 'bool',
+        'suppress_medium' => 'bool',
+        'suppress_small' => 'bool',
+        'suppression_country_codes' => 'string[]',
+        'suppression_loyalty_tier_oids' => 'int[]',
+        'suppression_payment_methods' => 'string[]',
+        'suppression_shipping_methods' => 'string[]',
+        'suppression_state_codes' => 'string[]',
+        'suppression_tags' => 'string[]',
         'test_only' => 'bool',
+        'trigger_ages' => 'string[]',
+        'trigger_country_codes' => 'string[]',
+        'trigger_genders' => 'string[]',
+        'trigger_loyalty_tier_oids' => 'int[]',
+        'trigger_payment_methods' => 'string[]',
+        'trigger_shipping_methods' => 'string[]',
+        'trigger_state_codes' => 'string[]',
+        'trigger_tags' => 'string[]',
+        'upsell_item_id_javascript' => 'string',
+        'upsell_item_ids' => 'string[]',
         'upsell_offer_oid' => 'int'
     ];
 
@@ -79,12 +134,67 @@ class SfvbUpsellOffer implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'active' => null,
         'active_overall' => null,
+        'add_accessory_item_ids' => null,
+        'adjust_trigger_item_option' => null,
+        'allow_upsell_item_in_cart_already' => null,
+        'arbitrary_unit_cost' => null,
+        'arbitrary_unit_cost_friday' => null,
+        'arbitrary_unit_cost_monday' => null,
+        'arbitrary_unit_cost_saturday' => null,
+        'arbitrary_unit_cost_sunday' => null,
+        'arbitrary_unit_cost_thursday' => null,
+        'arbitrary_unit_cost_tuesday' => null,
+        'arbitrary_unit_cost_wednesday' => null,
         'cjson_size' => 'int32',
+        'end_date' => null,
+        'everflow_advertiser_event_id' => null,
+        'first_time_item' => null,
+        'first_time_store' => null,
+        'free_shipping' => null,
         'has_container' => null,
+        'has_everflow_configured' => null,
+        'has_loyalty_configured' => null,
+        'has_towerdata_configured' => null,
+        'hash_sha256' => null,
+        'item_logic_suppression' => null,
+        'item_logic_trigger' => null,
+        'lock_shipping' => null,
+        'max_quantity' => 'int32',
+        'migrate_accessory_item_ids_from' => null,
+        'migrate_accessory_item_ids_to' => null,
         'name' => null,
+        'offsite_content_url' => null,
+        'out_of_stock_upsell_item_ids' => null,
         'path_name' => null,
+        'record_as_regular_item' => null,
+        'referenced_by_path_oids' => null,
+        'removable_on_confirmation' => null,
+        'remove_accessory_item_ids' => null,
+        'remove_trigger_item' => null,
+        'skip_previous_customers' => null,
+        'start_date' => null,
+        'stats' => null,
         'storefront_oid' => 'int32',
+        'suppress_large' => null,
+        'suppress_medium' => null,
+        'suppress_small' => null,
+        'suppression_country_codes' => null,
+        'suppression_loyalty_tier_oids' => null,
+        'suppression_payment_methods' => null,
+        'suppression_shipping_methods' => null,
+        'suppression_state_codes' => null,
+        'suppression_tags' => null,
         'test_only' => null,
+        'trigger_ages' => null,
+        'trigger_country_codes' => null,
+        'trigger_genders' => null,
+        'trigger_loyalty_tier_oids' => null,
+        'trigger_payment_methods' => null,
+        'trigger_shipping_methods' => null,
+        'trigger_state_codes' => null,
+        'trigger_tags' => null,
+        'upsell_item_id_javascript' => null,
+        'upsell_item_ids' => null,
         'upsell_offer_oid' => 'int32'
     ];
 
@@ -117,12 +227,67 @@ class SfvbUpsellOffer implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'active' => 'active',
         'active_overall' => 'active_overall',
+        'add_accessory_item_ids' => 'add_accessory_item_ids',
+        'adjust_trigger_item_option' => 'adjust_trigger_item_option',
+        'allow_upsell_item_in_cart_already' => 'allow_upsell_item_in_cart_already',
+        'arbitrary_unit_cost' => 'arbitrary_unit_cost',
+        'arbitrary_unit_cost_friday' => 'arbitrary_unit_cost_friday',
+        'arbitrary_unit_cost_monday' => 'arbitrary_unit_cost_monday',
+        'arbitrary_unit_cost_saturday' => 'arbitrary_unit_cost_saturday',
+        'arbitrary_unit_cost_sunday' => 'arbitrary_unit_cost_sunday',
+        'arbitrary_unit_cost_thursday' => 'arbitrary_unit_cost_thursday',
+        'arbitrary_unit_cost_tuesday' => 'arbitrary_unit_cost_tuesday',
+        'arbitrary_unit_cost_wednesday' => 'arbitrary_unit_cost_wednesday',
         'cjson_size' => 'cjson_size',
+        'end_date' => 'end_date',
+        'everflow_advertiser_event_id' => 'everflow_advertiser_event_id',
+        'first_time_item' => 'first_time_item',
+        'first_time_store' => 'first_time_store',
+        'free_shipping' => 'free_shipping',
         'has_container' => 'has_container',
+        'has_everflow_configured' => 'has_everflow_configured',
+        'has_loyalty_configured' => 'has_loyalty_configured',
+        'has_towerdata_configured' => 'has_towerdata_configured',
+        'hash_sha256' => 'hash_sha256',
+        'item_logic_suppression' => 'item_logic_suppression',
+        'item_logic_trigger' => 'item_logic_trigger',
+        'lock_shipping' => 'lock_shipping',
+        'max_quantity' => 'max_quantity',
+        'migrate_accessory_item_ids_from' => 'migrate_accessory_item_ids_from',
+        'migrate_accessory_item_ids_to' => 'migrate_accessory_item_ids_to',
         'name' => 'name',
+        'offsite_content_url' => 'offsite_content_url',
+        'out_of_stock_upsell_item_ids' => 'out_of_stock_upsell_item_ids',
         'path_name' => 'path_name',
+        'record_as_regular_item' => 'record_as_regular_item',
+        'referenced_by_path_oids' => 'referenced_by_path_oids',
+        'removable_on_confirmation' => 'removable_on_confirmation',
+        'remove_accessory_item_ids' => 'remove_accessory_item_ids',
+        'remove_trigger_item' => 'remove_trigger_item',
+        'skip_previous_customers' => 'skip_previous_customers',
+        'start_date' => 'start_date',
+        'stats' => 'stats',
         'storefront_oid' => 'storefront_oid',
+        'suppress_large' => 'suppress_large',
+        'suppress_medium' => 'suppress_medium',
+        'suppress_small' => 'suppress_small',
+        'suppression_country_codes' => 'suppression_country_codes',
+        'suppression_loyalty_tier_oids' => 'suppression_loyalty_tier_oids',
+        'suppression_payment_methods' => 'suppression_payment_methods',
+        'suppression_shipping_methods' => 'suppression_shipping_methods',
+        'suppression_state_codes' => 'suppression_state_codes',
+        'suppression_tags' => 'suppression_tags',
         'test_only' => 'test_only',
+        'trigger_ages' => 'trigger_ages',
+        'trigger_country_codes' => 'trigger_country_codes',
+        'trigger_genders' => 'trigger_genders',
+        'trigger_loyalty_tier_oids' => 'trigger_loyalty_tier_oids',
+        'trigger_payment_methods' => 'trigger_payment_methods',
+        'trigger_shipping_methods' => 'trigger_shipping_methods',
+        'trigger_state_codes' => 'trigger_state_codes',
+        'trigger_tags' => 'trigger_tags',
+        'upsell_item_id_javascript' => 'upsell_item_id_javascript',
+        'upsell_item_ids' => 'upsell_item_ids',
         'upsell_offer_oid' => 'upsell_offer_oid'
     ];
 
@@ -134,12 +299,67 @@ class SfvbUpsellOffer implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'active' => 'setActive',
         'active_overall' => 'setActiveOverall',
+        'add_accessory_item_ids' => 'setAddAccessoryItemIds',
+        'adjust_trigger_item_option' => 'setAdjustTriggerItemOption',
+        'allow_upsell_item_in_cart_already' => 'setAllowUpsellItemInCartAlready',
+        'arbitrary_unit_cost' => 'setArbitraryUnitCost',
+        'arbitrary_unit_cost_friday' => 'setArbitraryUnitCostFriday',
+        'arbitrary_unit_cost_monday' => 'setArbitraryUnitCostMonday',
+        'arbitrary_unit_cost_saturday' => 'setArbitraryUnitCostSaturday',
+        'arbitrary_unit_cost_sunday' => 'setArbitraryUnitCostSunday',
+        'arbitrary_unit_cost_thursday' => 'setArbitraryUnitCostThursday',
+        'arbitrary_unit_cost_tuesday' => 'setArbitraryUnitCostTuesday',
+        'arbitrary_unit_cost_wednesday' => 'setArbitraryUnitCostWednesday',
         'cjson_size' => 'setCjsonSize',
+        'end_date' => 'setEndDate',
+        'everflow_advertiser_event_id' => 'setEverflowAdvertiserEventId',
+        'first_time_item' => 'setFirstTimeItem',
+        'first_time_store' => 'setFirstTimeStore',
+        'free_shipping' => 'setFreeShipping',
         'has_container' => 'setHasContainer',
+        'has_everflow_configured' => 'setHasEverflowConfigured',
+        'has_loyalty_configured' => 'setHasLoyaltyConfigured',
+        'has_towerdata_configured' => 'setHasTowerdataConfigured',
+        'hash_sha256' => 'setHashSha256',
+        'item_logic_suppression' => 'setItemLogicSuppression',
+        'item_logic_trigger' => 'setItemLogicTrigger',
+        'lock_shipping' => 'setLockShipping',
+        'max_quantity' => 'setMaxQuantity',
+        'migrate_accessory_item_ids_from' => 'setMigrateAccessoryItemIdsFrom',
+        'migrate_accessory_item_ids_to' => 'setMigrateAccessoryItemIdsTo',
         'name' => 'setName',
+        'offsite_content_url' => 'setOffsiteContentUrl',
+        'out_of_stock_upsell_item_ids' => 'setOutOfStockUpsellItemIds',
         'path_name' => 'setPathName',
+        'record_as_regular_item' => 'setRecordAsRegularItem',
+        'referenced_by_path_oids' => 'setReferencedByPathOids',
+        'removable_on_confirmation' => 'setRemovableOnConfirmation',
+        'remove_accessory_item_ids' => 'setRemoveAccessoryItemIds',
+        'remove_trigger_item' => 'setRemoveTriggerItem',
+        'skip_previous_customers' => 'setSkipPreviousCustomers',
+        'start_date' => 'setStartDate',
+        'stats' => 'setStats',
         'storefront_oid' => 'setStorefrontOid',
+        'suppress_large' => 'setSuppressLarge',
+        'suppress_medium' => 'setSuppressMedium',
+        'suppress_small' => 'setSuppressSmall',
+        'suppression_country_codes' => 'setSuppressionCountryCodes',
+        'suppression_loyalty_tier_oids' => 'setSuppressionLoyaltyTierOids',
+        'suppression_payment_methods' => 'setSuppressionPaymentMethods',
+        'suppression_shipping_methods' => 'setSuppressionShippingMethods',
+        'suppression_state_codes' => 'setSuppressionStateCodes',
+        'suppression_tags' => 'setSuppressionTags',
         'test_only' => 'setTestOnly',
+        'trigger_ages' => 'setTriggerAges',
+        'trigger_country_codes' => 'setTriggerCountryCodes',
+        'trigger_genders' => 'setTriggerGenders',
+        'trigger_loyalty_tier_oids' => 'setTriggerLoyaltyTierOids',
+        'trigger_payment_methods' => 'setTriggerPaymentMethods',
+        'trigger_shipping_methods' => 'setTriggerShippingMethods',
+        'trigger_state_codes' => 'setTriggerStateCodes',
+        'trigger_tags' => 'setTriggerTags',
+        'upsell_item_id_javascript' => 'setUpsellItemIdJavascript',
+        'upsell_item_ids' => 'setUpsellItemIds',
         'upsell_offer_oid' => 'setUpsellOfferOid'
     ];
 
@@ -151,12 +371,67 @@ class SfvbUpsellOffer implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'active' => 'getActive',
         'active_overall' => 'getActiveOverall',
+        'add_accessory_item_ids' => 'getAddAccessoryItemIds',
+        'adjust_trigger_item_option' => 'getAdjustTriggerItemOption',
+        'allow_upsell_item_in_cart_already' => 'getAllowUpsellItemInCartAlready',
+        'arbitrary_unit_cost' => 'getArbitraryUnitCost',
+        'arbitrary_unit_cost_friday' => 'getArbitraryUnitCostFriday',
+        'arbitrary_unit_cost_monday' => 'getArbitraryUnitCostMonday',
+        'arbitrary_unit_cost_saturday' => 'getArbitraryUnitCostSaturday',
+        'arbitrary_unit_cost_sunday' => 'getArbitraryUnitCostSunday',
+        'arbitrary_unit_cost_thursday' => 'getArbitraryUnitCostThursday',
+        'arbitrary_unit_cost_tuesday' => 'getArbitraryUnitCostTuesday',
+        'arbitrary_unit_cost_wednesday' => 'getArbitraryUnitCostWednesday',
         'cjson_size' => 'getCjsonSize',
+        'end_date' => 'getEndDate',
+        'everflow_advertiser_event_id' => 'getEverflowAdvertiserEventId',
+        'first_time_item' => 'getFirstTimeItem',
+        'first_time_store' => 'getFirstTimeStore',
+        'free_shipping' => 'getFreeShipping',
         'has_container' => 'getHasContainer',
+        'has_everflow_configured' => 'getHasEverflowConfigured',
+        'has_loyalty_configured' => 'getHasLoyaltyConfigured',
+        'has_towerdata_configured' => 'getHasTowerdataConfigured',
+        'hash_sha256' => 'getHashSha256',
+        'item_logic_suppression' => 'getItemLogicSuppression',
+        'item_logic_trigger' => 'getItemLogicTrigger',
+        'lock_shipping' => 'getLockShipping',
+        'max_quantity' => 'getMaxQuantity',
+        'migrate_accessory_item_ids_from' => 'getMigrateAccessoryItemIdsFrom',
+        'migrate_accessory_item_ids_to' => 'getMigrateAccessoryItemIdsTo',
         'name' => 'getName',
+        'offsite_content_url' => 'getOffsiteContentUrl',
+        'out_of_stock_upsell_item_ids' => 'getOutOfStockUpsellItemIds',
         'path_name' => 'getPathName',
+        'record_as_regular_item' => 'getRecordAsRegularItem',
+        'referenced_by_path_oids' => 'getReferencedByPathOids',
+        'removable_on_confirmation' => 'getRemovableOnConfirmation',
+        'remove_accessory_item_ids' => 'getRemoveAccessoryItemIds',
+        'remove_trigger_item' => 'getRemoveTriggerItem',
+        'skip_previous_customers' => 'getSkipPreviousCustomers',
+        'start_date' => 'getStartDate',
+        'stats' => 'getStats',
         'storefront_oid' => 'getStorefrontOid',
+        'suppress_large' => 'getSuppressLarge',
+        'suppress_medium' => 'getSuppressMedium',
+        'suppress_small' => 'getSuppressSmall',
+        'suppression_country_codes' => 'getSuppressionCountryCodes',
+        'suppression_loyalty_tier_oids' => 'getSuppressionLoyaltyTierOids',
+        'suppression_payment_methods' => 'getSuppressionPaymentMethods',
+        'suppression_shipping_methods' => 'getSuppressionShippingMethods',
+        'suppression_state_codes' => 'getSuppressionStateCodes',
+        'suppression_tags' => 'getSuppressionTags',
         'test_only' => 'getTestOnly',
+        'trigger_ages' => 'getTriggerAges',
+        'trigger_country_codes' => 'getTriggerCountryCodes',
+        'trigger_genders' => 'getTriggerGenders',
+        'trigger_loyalty_tier_oids' => 'getTriggerLoyaltyTierOids',
+        'trigger_payment_methods' => 'getTriggerPaymentMethods',
+        'trigger_shipping_methods' => 'getTriggerShippingMethods',
+        'trigger_state_codes' => 'getTriggerStateCodes',
+        'trigger_tags' => 'getTriggerTags',
+        'upsell_item_id_javascript' => 'getUpsellItemIdJavascript',
+        'upsell_item_ids' => 'getUpsellItemIds',
         'upsell_offer_oid' => 'getUpsellOfferOid'
     ];
 
@@ -219,12 +494,67 @@ class SfvbUpsellOffer implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->container['active'] = $data['active'] ?? null;
         $this->container['active_overall'] = $data['active_overall'] ?? null;
+        $this->container['add_accessory_item_ids'] = $data['add_accessory_item_ids'] ?? null;
+        $this->container['adjust_trigger_item_option'] = $data['adjust_trigger_item_option'] ?? null;
+        $this->container['allow_upsell_item_in_cart_already'] = $data['allow_upsell_item_in_cart_already'] ?? null;
+        $this->container['arbitrary_unit_cost'] = $data['arbitrary_unit_cost'] ?? null;
+        $this->container['arbitrary_unit_cost_friday'] = $data['arbitrary_unit_cost_friday'] ?? null;
+        $this->container['arbitrary_unit_cost_monday'] = $data['arbitrary_unit_cost_monday'] ?? null;
+        $this->container['arbitrary_unit_cost_saturday'] = $data['arbitrary_unit_cost_saturday'] ?? null;
+        $this->container['arbitrary_unit_cost_sunday'] = $data['arbitrary_unit_cost_sunday'] ?? null;
+        $this->container['arbitrary_unit_cost_thursday'] = $data['arbitrary_unit_cost_thursday'] ?? null;
+        $this->container['arbitrary_unit_cost_tuesday'] = $data['arbitrary_unit_cost_tuesday'] ?? null;
+        $this->container['arbitrary_unit_cost_wednesday'] = $data['arbitrary_unit_cost_wednesday'] ?? null;
         $this->container['cjson_size'] = $data['cjson_size'] ?? null;
+        $this->container['end_date'] = $data['end_date'] ?? null;
+        $this->container['everflow_advertiser_event_id'] = $data['everflow_advertiser_event_id'] ?? null;
+        $this->container['first_time_item'] = $data['first_time_item'] ?? null;
+        $this->container['first_time_store'] = $data['first_time_store'] ?? null;
+        $this->container['free_shipping'] = $data['free_shipping'] ?? null;
         $this->container['has_container'] = $data['has_container'] ?? null;
+        $this->container['has_everflow_configured'] = $data['has_everflow_configured'] ?? null;
+        $this->container['has_loyalty_configured'] = $data['has_loyalty_configured'] ?? null;
+        $this->container['has_towerdata_configured'] = $data['has_towerdata_configured'] ?? null;
+        $this->container['hash_sha256'] = $data['hash_sha256'] ?? null;
+        $this->container['item_logic_suppression'] = $data['item_logic_suppression'] ?? null;
+        $this->container['item_logic_trigger'] = $data['item_logic_trigger'] ?? null;
+        $this->container['lock_shipping'] = $data['lock_shipping'] ?? null;
+        $this->container['max_quantity'] = $data['max_quantity'] ?? null;
+        $this->container['migrate_accessory_item_ids_from'] = $data['migrate_accessory_item_ids_from'] ?? null;
+        $this->container['migrate_accessory_item_ids_to'] = $data['migrate_accessory_item_ids_to'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
+        $this->container['offsite_content_url'] = $data['offsite_content_url'] ?? null;
+        $this->container['out_of_stock_upsell_item_ids'] = $data['out_of_stock_upsell_item_ids'] ?? null;
         $this->container['path_name'] = $data['path_name'] ?? null;
+        $this->container['record_as_regular_item'] = $data['record_as_regular_item'] ?? null;
+        $this->container['referenced_by_path_oids'] = $data['referenced_by_path_oids'] ?? null;
+        $this->container['removable_on_confirmation'] = $data['removable_on_confirmation'] ?? null;
+        $this->container['remove_accessory_item_ids'] = $data['remove_accessory_item_ids'] ?? null;
+        $this->container['remove_trigger_item'] = $data['remove_trigger_item'] ?? null;
+        $this->container['skip_previous_customers'] = $data['skip_previous_customers'] ?? null;
+        $this->container['start_date'] = $data['start_date'] ?? null;
+        $this->container['stats'] = $data['stats'] ?? null;
         $this->container['storefront_oid'] = $data['storefront_oid'] ?? null;
+        $this->container['suppress_large'] = $data['suppress_large'] ?? null;
+        $this->container['suppress_medium'] = $data['suppress_medium'] ?? null;
+        $this->container['suppress_small'] = $data['suppress_small'] ?? null;
+        $this->container['suppression_country_codes'] = $data['suppression_country_codes'] ?? null;
+        $this->container['suppression_loyalty_tier_oids'] = $data['suppression_loyalty_tier_oids'] ?? null;
+        $this->container['suppression_payment_methods'] = $data['suppression_payment_methods'] ?? null;
+        $this->container['suppression_shipping_methods'] = $data['suppression_shipping_methods'] ?? null;
+        $this->container['suppression_state_codes'] = $data['suppression_state_codes'] ?? null;
+        $this->container['suppression_tags'] = $data['suppression_tags'] ?? null;
         $this->container['test_only'] = $data['test_only'] ?? null;
+        $this->container['trigger_ages'] = $data['trigger_ages'] ?? null;
+        $this->container['trigger_country_codes'] = $data['trigger_country_codes'] ?? null;
+        $this->container['trigger_genders'] = $data['trigger_genders'] ?? null;
+        $this->container['trigger_loyalty_tier_oids'] = $data['trigger_loyalty_tier_oids'] ?? null;
+        $this->container['trigger_payment_methods'] = $data['trigger_payment_methods'] ?? null;
+        $this->container['trigger_shipping_methods'] = $data['trigger_shipping_methods'] ?? null;
+        $this->container['trigger_state_codes'] = $data['trigger_state_codes'] ?? null;
+        $this->container['trigger_tags'] = $data['trigger_tags'] ?? null;
+        $this->container['upsell_item_id_javascript'] = $data['upsell_item_id_javascript'] ?? null;
+        $this->container['upsell_item_ids'] = $data['upsell_item_ids'] ?? null;
         $this->container['upsell_offer_oid'] = $data['upsell_offer_oid'] ?? null;
     }
 
@@ -265,7 +595,7 @@ class SfvbUpsellOffer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets active
      *
-     * @param bool|null $active Whether the offer is switched on.
+     * @param bool|null $active Whether the offer is switched on.  Setting it true, or changing an offer that is active overall, needs the sfvb_publish scope.
      *
      * @return self
      */
@@ -289,13 +619,277 @@ class SfvbUpsellOffer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets active_overall
      *
-     * @param bool|null $active_overall Whether the offer is active once its date window and daily pricing are taken into account.  This is the one that says whether shoppers are actually seeing it.
+     * @param bool|null $active_overall Read only.  Whether the offer is active once its date window and daily pricing are taken into account.  This is the one that says whether shoppers are actually seeing it.
      *
      * @return self
      */
     public function setActiveOverall($active_overall)
     {
         $this->container['active_overall'] = $active_overall;
+
+        return $this;
+    }
+
+    /**
+     * Gets add_accessory_item_ids
+     *
+     * @return string[]|null
+     */
+    public function getAddAccessoryItemIds()
+    {
+        return $this->container['add_accessory_item_ids'];
+    }
+
+    /**
+     * Sets add_accessory_item_ids
+     *
+     * @param string[]|null $add_accessory_item_ids Accessory items added when the offer is accepted.
+     *
+     * @return self
+     */
+    public function setAddAccessoryItemIds($add_accessory_item_ids)
+    {
+        $this->container['add_accessory_item_ids'] = $add_accessory_item_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets adjust_trigger_item_option
+     *
+     * @return string|null
+     */
+    public function getAdjustTriggerItemOption()
+    {
+        return $this->container['adjust_trigger_item_option'];
+    }
+
+    /**
+     * Sets adjust_trigger_item_option
+     *
+     * @param string|null $adjust_trigger_item_option Option on the trigger item to adjust when the offer is accepted.  Omitted or null for none.
+     *
+     * @return self
+     */
+    public function setAdjustTriggerItemOption($adjust_trigger_item_option)
+    {
+        $this->container['adjust_trigger_item_option'] = $adjust_trigger_item_option;
+
+        return $this;
+    }
+
+    /**
+     * Gets allow_upsell_item_in_cart_already
+     *
+     * @return bool|null
+     */
+    public function getAllowUpsellItemInCartAlready()
+    {
+        return $this->container['allow_upsell_item_in_cart_already'];
+    }
+
+    /**
+     * Sets allow_upsell_item_in_cart_already
+     *
+     * @param bool|null $allow_upsell_item_in_cart_already Whether to show the offer when the upsell item is already in the cart.
+     *
+     * @return self
+     */
+    public function setAllowUpsellItemInCartAlready($allow_upsell_item_in_cart_already)
+    {
+        $this->container['allow_upsell_item_in_cart_already'] = $allow_upsell_item_in_cart_already;
+
+        return $this;
+    }
+
+    /**
+     * Gets arbitrary_unit_cost
+     *
+     * @return float|null
+     */
+    public function getArbitraryUnitCost()
+    {
+        return $this->container['arbitrary_unit_cost'];
+    }
+
+    /**
+     * Sets arbitrary_unit_cost
+     *
+     * @param float|null $arbitrary_unit_cost Price per unit when the offer is accepted.  Omitted or null to charge the item's own price.
+     *
+     * @return self
+     */
+    public function setArbitraryUnitCost($arbitrary_unit_cost)
+    {
+        $this->container['arbitrary_unit_cost'] = $arbitrary_unit_cost;
+
+        return $this;
+    }
+
+    /**
+     * Gets arbitrary_unit_cost_friday
+     *
+     * @return float|null
+     */
+    public function getArbitraryUnitCostFriday()
+    {
+        return $this->container['arbitrary_unit_cost_friday'];
+    }
+
+    /**
+     * Sets arbitrary_unit_cost_friday
+     *
+     * @param float|null $arbitrary_unit_cost_friday Price on Fridays, overriding arbitrary_unit_cost.
+     *
+     * @return self
+     */
+    public function setArbitraryUnitCostFriday($arbitrary_unit_cost_friday)
+    {
+        $this->container['arbitrary_unit_cost_friday'] = $arbitrary_unit_cost_friday;
+
+        return $this;
+    }
+
+    /**
+     * Gets arbitrary_unit_cost_monday
+     *
+     * @return float|null
+     */
+    public function getArbitraryUnitCostMonday()
+    {
+        return $this->container['arbitrary_unit_cost_monday'];
+    }
+
+    /**
+     * Sets arbitrary_unit_cost_monday
+     *
+     * @param float|null $arbitrary_unit_cost_monday Price on Mondays, overriding arbitrary_unit_cost.  Omitted or null for no override.
+     *
+     * @return self
+     */
+    public function setArbitraryUnitCostMonday($arbitrary_unit_cost_monday)
+    {
+        $this->container['arbitrary_unit_cost_monday'] = $arbitrary_unit_cost_monday;
+
+        return $this;
+    }
+
+    /**
+     * Gets arbitrary_unit_cost_saturday
+     *
+     * @return float|null
+     */
+    public function getArbitraryUnitCostSaturday()
+    {
+        return $this->container['arbitrary_unit_cost_saturday'];
+    }
+
+    /**
+     * Sets arbitrary_unit_cost_saturday
+     *
+     * @param float|null $arbitrary_unit_cost_saturday Price on Saturdays, overriding arbitrary_unit_cost.
+     *
+     * @return self
+     */
+    public function setArbitraryUnitCostSaturday($arbitrary_unit_cost_saturday)
+    {
+        $this->container['arbitrary_unit_cost_saturday'] = $arbitrary_unit_cost_saturday;
+
+        return $this;
+    }
+
+    /**
+     * Gets arbitrary_unit_cost_sunday
+     *
+     * @return float|null
+     */
+    public function getArbitraryUnitCostSunday()
+    {
+        return $this->container['arbitrary_unit_cost_sunday'];
+    }
+
+    /**
+     * Sets arbitrary_unit_cost_sunday
+     *
+     * @param float|null $arbitrary_unit_cost_sunday Price on Sundays, overriding arbitrary_unit_cost.
+     *
+     * @return self
+     */
+    public function setArbitraryUnitCostSunday($arbitrary_unit_cost_sunday)
+    {
+        $this->container['arbitrary_unit_cost_sunday'] = $arbitrary_unit_cost_sunday;
+
+        return $this;
+    }
+
+    /**
+     * Gets arbitrary_unit_cost_thursday
+     *
+     * @return float|null
+     */
+    public function getArbitraryUnitCostThursday()
+    {
+        return $this->container['arbitrary_unit_cost_thursday'];
+    }
+
+    /**
+     * Sets arbitrary_unit_cost_thursday
+     *
+     * @param float|null $arbitrary_unit_cost_thursday Price on Thursdays, overriding arbitrary_unit_cost.
+     *
+     * @return self
+     */
+    public function setArbitraryUnitCostThursday($arbitrary_unit_cost_thursday)
+    {
+        $this->container['arbitrary_unit_cost_thursday'] = $arbitrary_unit_cost_thursday;
+
+        return $this;
+    }
+
+    /**
+     * Gets arbitrary_unit_cost_tuesday
+     *
+     * @return float|null
+     */
+    public function getArbitraryUnitCostTuesday()
+    {
+        return $this->container['arbitrary_unit_cost_tuesday'];
+    }
+
+    /**
+     * Sets arbitrary_unit_cost_tuesday
+     *
+     * @param float|null $arbitrary_unit_cost_tuesday Price on Tuesdays, overriding arbitrary_unit_cost.
+     *
+     * @return self
+     */
+    public function setArbitraryUnitCostTuesday($arbitrary_unit_cost_tuesday)
+    {
+        $this->container['arbitrary_unit_cost_tuesday'] = $arbitrary_unit_cost_tuesday;
+
+        return $this;
+    }
+
+    /**
+     * Gets arbitrary_unit_cost_wednesday
+     *
+     * @return float|null
+     */
+    public function getArbitraryUnitCostWednesday()
+    {
+        return $this->container['arbitrary_unit_cost_wednesday'];
+    }
+
+    /**
+     * Sets arbitrary_unit_cost_wednesday
+     *
+     * @param float|null $arbitrary_unit_cost_wednesday Price on Wednesdays, overriding arbitrary_unit_cost.
+     *
+     * @return self
+     */
+    public function setArbitraryUnitCostWednesday($arbitrary_unit_cost_wednesday)
+    {
+        $this->container['arbitrary_unit_cost_wednesday'] = $arbitrary_unit_cost_wednesday;
 
         return $this;
     }
@@ -313,13 +907,133 @@ class SfvbUpsellOffer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets cjson_size
      *
-     * @param int|null $cjson_size Size of the offer's container JSON in bytes.  A large value here alongside a low element count is the signature of a hand pasted HTML dump.
+     * @param int|null $cjson_size Read only.  Size of the offer's container JSON in bytes.  A large value here alongside a low element count is the signature of a hand pasted HTML dump.
      *
      * @return self
      */
     public function setCjsonSize($cjson_size)
     {
         $this->container['cjson_size'] = $cjson_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets end_date
+     *
+     * @return string|null
+     */
+    public function getEndDate()
+    {
+        return $this->container['end_date'];
+    }
+
+    /**
+     * Sets end_date
+     *
+     * @param string|null $end_date Last day the offer runs, as YYYY-MM-DD, inclusive.  Omitted or null for no end.
+     *
+     * @return self
+     */
+    public function setEndDate($end_date)
+    {
+        $this->container['end_date'] = $end_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets everflow_advertiser_event_id
+     *
+     * @return string|null
+     */
+    public function getEverflowAdvertiserEventId()
+    {
+        return $this->container['everflow_advertiser_event_id'];
+    }
+
+    /**
+     * Sets everflow_advertiser_event_id
+     *
+     * @param string|null $everflow_advertiser_event_id Everflow advertiser event id recorded when the offer is accepted.  Omitted or null for none.
+     *
+     * @return self
+     */
+    public function setEverflowAdvertiserEventId($everflow_advertiser_event_id)
+    {
+        $this->container['everflow_advertiser_event_id'] = $everflow_advertiser_event_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets first_time_item
+     *
+     * @return bool|null
+     */
+    public function getFirstTimeItem()
+    {
+        return $this->container['first_time_item'];
+    }
+
+    /**
+     * Sets first_time_item
+     *
+     * @param bool|null $first_time_item Show only to shoppers who have not bought the upsell item before.
+     *
+     * @return self
+     */
+    public function setFirstTimeItem($first_time_item)
+    {
+        $this->container['first_time_item'] = $first_time_item;
+
+        return $this;
+    }
+
+    /**
+     * Gets first_time_store
+     *
+     * @return bool|null
+     */
+    public function getFirstTimeStore()
+    {
+        return $this->container['first_time_store'];
+    }
+
+    /**
+     * Sets first_time_store
+     *
+     * @param bool|null $first_time_store Show only to shoppers buying from this store for the first time.
+     *
+     * @return self
+     */
+    public function setFirstTimeStore($first_time_store)
+    {
+        $this->container['first_time_store'] = $first_time_store;
+
+        return $this;
+    }
+
+    /**
+     * Gets free_shipping
+     *
+     * @return bool|null
+     */
+    public function getFreeShipping()
+    {
+        return $this->container['free_shipping'];
+    }
+
+    /**
+     * Sets free_shipping
+     *
+     * @param bool|null $free_shipping Whether the upsell item ships free.
+     *
+     * @return self
+     */
+    public function setFreeShipping($free_shipping)
+    {
+        $this->container['free_shipping'] = $free_shipping;
 
         return $this;
     }
@@ -337,13 +1051,253 @@ class SfvbUpsellOffer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets has_container
      *
-     * @param bool|null $has_container Whether a container has been authored for this offer.
+     * @param bool|null $has_container Read only.  Whether a container has been authored for this offer.
      *
      * @return self
      */
     public function setHasContainer($has_container)
     {
         $this->container['has_container'] = $has_container;
+
+        return $this;
+    }
+
+    /**
+     * Gets has_everflow_configured
+     *
+     * @return bool|null
+     */
+    public function getHasEverflowConfigured()
+    {
+        return $this->container['has_everflow_configured'];
+    }
+
+    /**
+     * Sets has_everflow_configured
+     *
+     * @param bool|null $has_everflow_configured Read only.  Whether the merchant has Everflow set up.
+     *
+     * @return self
+     */
+    public function setHasEverflowConfigured($has_everflow_configured)
+    {
+        $this->container['has_everflow_configured'] = $has_everflow_configured;
+
+        return $this;
+    }
+
+    /**
+     * Gets has_loyalty_configured
+     *
+     * @return bool|null
+     */
+    public function getHasLoyaltyConfigured()
+    {
+        return $this->container['has_loyalty_configured'];
+    }
+
+    /**
+     * Sets has_loyalty_configured
+     *
+     * @param bool|null $has_loyalty_configured Read only.  Whether the merchant has loyalty set up, so the loyalty tier lists apply.
+     *
+     * @return self
+     */
+    public function setHasLoyaltyConfigured($has_loyalty_configured)
+    {
+        $this->container['has_loyalty_configured'] = $has_loyalty_configured;
+
+        return $this;
+    }
+
+    /**
+     * Gets has_towerdata_configured
+     *
+     * @return bool|null
+     */
+    public function getHasTowerdataConfigured()
+    {
+        return $this->container['has_towerdata_configured'];
+    }
+
+    /**
+     * Sets has_towerdata_configured
+     *
+     * @param bool|null $has_towerdata_configured Read only.  Whether the merchant has TowerData set up, so the age and gender lists apply.
+     *
+     * @return self
+     */
+    public function setHasTowerdataConfigured($has_towerdata_configured)
+    {
+        $this->container['has_towerdata_configured'] = $has_towerdata_configured;
+
+        return $this;
+    }
+
+    /**
+     * Gets hash_sha256
+     *
+     * @return string|null
+     */
+    public function getHashSha256()
+    {
+        return $this->container['hash_sha256'];
+    }
+
+    /**
+     * Sets hash_sha256
+     *
+     * @param string|null $hash_sha256 Read only.  Hash of the offer's writable fields.  Send it in If-Match on an update.
+     *
+     * @return self
+     */
+    public function setHashSha256($hash_sha256)
+    {
+        $this->container['hash_sha256'] = $hash_sha256;
+
+        return $this;
+    }
+
+    /**
+     * Gets item_logic_suppression
+     *
+     * @return \ultracart\v2\models\SfvbUpsellItemLogic|null
+     */
+    public function getItemLogicSuppression()
+    {
+        return $this->container['item_logic_suppression'];
+    }
+
+    /**
+     * Sets item_logic_suppression
+     *
+     * @param \ultracart\v2\models\SfvbUpsellItemLogic|null $item_logic_suppression item_logic_suppression
+     *
+     * @return self
+     */
+    public function setItemLogicSuppression($item_logic_suppression)
+    {
+        $this->container['item_logic_suppression'] = $item_logic_suppression;
+
+        return $this;
+    }
+
+    /**
+     * Gets item_logic_trigger
+     *
+     * @return \ultracart\v2\models\SfvbUpsellItemLogic|null
+     */
+    public function getItemLogicTrigger()
+    {
+        return $this->container['item_logic_trigger'];
+    }
+
+    /**
+     * Sets item_logic_trigger
+     *
+     * @param \ultracart\v2\models\SfvbUpsellItemLogic|null $item_logic_trigger item_logic_trigger
+     *
+     * @return self
+     */
+    public function setItemLogicTrigger($item_logic_trigger)
+    {
+        $this->container['item_logic_trigger'] = $item_logic_trigger;
+
+        return $this;
+    }
+
+    /**
+     * Gets lock_shipping
+     *
+     * @return bool|null
+     */
+    public function getLockShipping()
+    {
+        return $this->container['lock_shipping'];
+    }
+
+    /**
+     * Sets lock_shipping
+     *
+     * @param bool|null $lock_shipping Whether the shipping method is locked once the offer is accepted.
+     *
+     * @return self
+     */
+    public function setLockShipping($lock_shipping)
+    {
+        $this->container['lock_shipping'] = $lock_shipping;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_quantity
+     *
+     * @return int|null
+     */
+    public function getMaxQuantity()
+    {
+        return $this->container['max_quantity'];
+    }
+
+    /**
+     * Sets max_quantity
+     *
+     * @param int|null $max_quantity Most units a shopper can take.  Omitted or null for no limit.
+     *
+     * @return self
+     */
+    public function setMaxQuantity($max_quantity)
+    {
+        $this->container['max_quantity'] = $max_quantity;
+
+        return $this;
+    }
+
+    /**
+     * Gets migrate_accessory_item_ids_from
+     *
+     * @return string[]|null
+     */
+    public function getMigrateAccessoryItemIdsFrom()
+    {
+        return $this->container['migrate_accessory_item_ids_from'];
+    }
+
+    /**
+     * Sets migrate_accessory_item_ids_from
+     *
+     * @param string[]|null $migrate_accessory_item_ids_from Accessory items to migrate from, paired by position with migrate_accessory_item_ids_to.
+     *
+     * @return self
+     */
+    public function setMigrateAccessoryItemIdsFrom($migrate_accessory_item_ids_from)
+    {
+        $this->container['migrate_accessory_item_ids_from'] = $migrate_accessory_item_ids_from;
+
+        return $this;
+    }
+
+    /**
+     * Gets migrate_accessory_item_ids_to
+     *
+     * @return string[]|null
+     */
+    public function getMigrateAccessoryItemIdsTo()
+    {
+        return $this->container['migrate_accessory_item_ids_to'];
+    }
+
+    /**
+     * Sets migrate_accessory_item_ids_to
+     *
+     * @param string[]|null $migrate_accessory_item_ids_to Accessory items to migrate to, paired by position with migrate_accessory_item_ids_from.
+     *
+     * @return self
+     */
+    public function setMigrateAccessoryItemIdsTo($migrate_accessory_item_ids_to)
+    {
+        $this->container['migrate_accessory_item_ids_to'] = $migrate_accessory_item_ids_to;
 
         return $this;
     }
@@ -361,13 +1315,61 @@ class SfvbUpsellOffer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name Offer name.
+     * @param string|null $name Offer name, at most 50 characters.
      *
      * @return self
      */
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets offsite_content_url
+     *
+     * @return string|null
+     */
+    public function getOffsiteContentUrl()
+    {
+        return $this->container['offsite_content_url'];
+    }
+
+    /**
+     * Sets offsite_content_url
+     *
+     * @param string|null $offsite_content_url URL of offsite content shown instead of the container.  Omitted or null for none.
+     *
+     * @return self
+     */
+    public function setOffsiteContentUrl($offsite_content_url)
+    {
+        $this->container['offsite_content_url'] = $offsite_content_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets out_of_stock_upsell_item_ids
+     *
+     * @return string[]|null
+     */
+    public function getOutOfStockUpsellItemIds()
+    {
+        return $this->container['out_of_stock_upsell_item_ids'];
+    }
+
+    /**
+     * Sets out_of_stock_upsell_item_ids
+     *
+     * @param string[]|null $out_of_stock_upsell_item_ids Read only.  Upsell items that are out of stock now, so the offer would not be shown.
+     *
+     * @return self
+     */
+    public function setOutOfStockUpsellItemIds($out_of_stock_upsell_item_ids)
+    {
+        $this->container['out_of_stock_upsell_item_ids'] = $out_of_stock_upsell_item_ids;
 
         return $this;
     }
@@ -385,13 +1387,205 @@ class SfvbUpsellOffer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets path_name
      *
-     * @param string|null $path_name Name of the upsell path this offer sits on.
+     * @param string|null $path_name Read only.  Name of the upsell path this offer was last served on.  Written by checkout traffic, so it is empty until shoppers have seen the offer and can be stale.  Use referenced_by_path_oids for the configured answer.
      *
      * @return self
      */
     public function setPathName($path_name)
     {
         $this->container['path_name'] = $path_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets record_as_regular_item
+     *
+     * @return bool|null
+     */
+    public function getRecordAsRegularItem()
+    {
+        return $this->container['record_as_regular_item'];
+    }
+
+    /**
+     * Sets record_as_regular_item
+     *
+     * @param bool|null $record_as_regular_item Whether the accepted item is recorded as a regular item rather than an upsell.
+     *
+     * @return self
+     */
+    public function setRecordAsRegularItem($record_as_regular_item)
+    {
+        $this->container['record_as_regular_item'] = $record_as_regular_item;
+
+        return $this;
+    }
+
+    /**
+     * Gets referenced_by_path_oids
+     *
+     * @return int[]|null
+     */
+    public function getReferencedByPathOids()
+    {
+        return $this->container['referenced_by_path_oids'];
+    }
+
+    /**
+     * Sets referenced_by_path_oids
+     *
+     * @param int[]|null $referenced_by_path_oids Read only.  The storefront's upsell paths whose steps use this offer, as an offer or a downsell.
+     *
+     * @return self
+     */
+    public function setReferencedByPathOids($referenced_by_path_oids)
+    {
+        $this->container['referenced_by_path_oids'] = $referenced_by_path_oids;
+
+        return $this;
+    }
+
+    /**
+     * Gets removable_on_confirmation
+     *
+     * @return bool|null
+     */
+    public function getRemovableOnConfirmation()
+    {
+        return $this->container['removable_on_confirmation'];
+    }
+
+    /**
+     * Sets removable_on_confirmation
+     *
+     * @param bool|null $removable_on_confirmation Whether the shopper can remove the accepted item on the confirmation step.
+     *
+     * @return self
+     */
+    public function setRemovableOnConfirmation($removable_on_confirmation)
+    {
+        $this->container['removable_on_confirmation'] = $removable_on_confirmation;
+
+        return $this;
+    }
+
+    /**
+     * Gets remove_accessory_item_ids
+     *
+     * @return string[]|null
+     */
+    public function getRemoveAccessoryItemIds()
+    {
+        return $this->container['remove_accessory_item_ids'];
+    }
+
+    /**
+     * Sets remove_accessory_item_ids
+     *
+     * @param string[]|null $remove_accessory_item_ids Accessory items removed when the offer is accepted.
+     *
+     * @return self
+     */
+    public function setRemoveAccessoryItemIds($remove_accessory_item_ids)
+    {
+        $this->container['remove_accessory_item_ids'] = $remove_accessory_item_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets remove_trigger_item
+     *
+     * @return bool|null
+     */
+    public function getRemoveTriggerItem()
+    {
+        return $this->container['remove_trigger_item'];
+    }
+
+    /**
+     * Sets remove_trigger_item
+     *
+     * @param bool|null $remove_trigger_item Whether accepting the offer removes the item that triggered it (a swap rather than an add).
+     *
+     * @return self
+     */
+    public function setRemoveTriggerItem($remove_trigger_item)
+    {
+        $this->container['remove_trigger_item'] = $remove_trigger_item;
+
+        return $this;
+    }
+
+    /**
+     * Gets skip_previous_customers
+     *
+     * @return bool|null
+     */
+    public function getSkipPreviousCustomers()
+    {
+        return $this->container['skip_previous_customers'];
+    }
+
+    /**
+     * Sets skip_previous_customers
+     *
+     * @param bool|null $skip_previous_customers Do not show to previous customers.
+     *
+     * @return self
+     */
+    public function setSkipPreviousCustomers($skip_previous_customers)
+    {
+        $this->container['skip_previous_customers'] = $skip_previous_customers;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_date
+     *
+     * @return string|null
+     */
+    public function getStartDate()
+    {
+        return $this->container['start_date'];
+    }
+
+    /**
+     * Sets start_date
+     *
+     * @param string|null $start_date First day the offer runs, as YYYY-MM-DD.  Omitted or null for no start.
+     *
+     * @return self
+     */
+    public function setStartDate($start_date)
+    {
+        $this->container['start_date'] = $start_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets stats
+     *
+     * @return \ultracart\v2\models\SfvbUpsellStats|null
+     */
+    public function getStats()
+    {
+        return $this->container['stats'];
+    }
+
+    /**
+     * Sets stats
+     *
+     * @param \ultracart\v2\models\SfvbUpsellStats|null $stats stats
+     *
+     * @return self
+     */
+    public function setStats($stats)
+    {
+        $this->container['stats'] = $stats;
 
         return $this;
     }
@@ -409,13 +1603,229 @@ class SfvbUpsellOffer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets storefront_oid
      *
-     * @param int|null $storefront_oid Storefront oid.
+     * @param int|null $storefront_oid Read only.  Storefront oid.
      *
      * @return self
      */
     public function setStorefrontOid($storefront_oid)
     {
         $this->container['storefront_oid'] = $storefront_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets suppress_large
+     *
+     * @return bool|null
+     */
+    public function getSuppressLarge()
+    {
+        return $this->container['suppress_large'];
+    }
+
+    /**
+     * Sets suppress_large
+     *
+     * @param bool|null $suppress_large Do not show on large screens.
+     *
+     * @return self
+     */
+    public function setSuppressLarge($suppress_large)
+    {
+        $this->container['suppress_large'] = $suppress_large;
+
+        return $this;
+    }
+
+    /**
+     * Gets suppress_medium
+     *
+     * @return bool|null
+     */
+    public function getSuppressMedium()
+    {
+        return $this->container['suppress_medium'];
+    }
+
+    /**
+     * Sets suppress_medium
+     *
+     * @param bool|null $suppress_medium Do not show on medium screens.
+     *
+     * @return self
+     */
+    public function setSuppressMedium($suppress_medium)
+    {
+        $this->container['suppress_medium'] = $suppress_medium;
+
+        return $this;
+    }
+
+    /**
+     * Gets suppress_small
+     *
+     * @return bool|null
+     */
+    public function getSuppressSmall()
+    {
+        return $this->container['suppress_small'];
+    }
+
+    /**
+     * Sets suppress_small
+     *
+     * @param bool|null $suppress_small Do not show on small screens.
+     *
+     * @return self
+     */
+    public function setSuppressSmall($suppress_small)
+    {
+        $this->container['suppress_small'] = $suppress_small;
+
+        return $this;
+    }
+
+    /**
+     * Gets suppression_country_codes
+     *
+     * @return string[]|null
+     */
+    public function getSuppressionCountryCodes()
+    {
+        return $this->container['suppression_country_codes'];
+    }
+
+    /**
+     * Sets suppression_country_codes
+     *
+     * @param string[]|null $suppression_country_codes Shipping countries that stop the offer from showing.
+     *
+     * @return self
+     */
+    public function setSuppressionCountryCodes($suppression_country_codes)
+    {
+        $this->container['suppression_country_codes'] = $suppression_country_codes;
+
+        return $this;
+    }
+
+    /**
+     * Gets suppression_loyalty_tier_oids
+     *
+     * @return int[]|null
+     */
+    public function getSuppressionLoyaltyTierOids()
+    {
+        return $this->container['suppression_loyalty_tier_oids'];
+    }
+
+    /**
+     * Sets suppression_loyalty_tier_oids
+     *
+     * @param int[]|null $suppression_loyalty_tier_oids Loyalty tiers that stop the offer from showing.
+     *
+     * @return self
+     */
+    public function setSuppressionLoyaltyTierOids($suppression_loyalty_tier_oids)
+    {
+        $this->container['suppression_loyalty_tier_oids'] = $suppression_loyalty_tier_oids;
+
+        return $this;
+    }
+
+    /**
+     * Gets suppression_payment_methods
+     *
+     * @return string[]|null
+     */
+    public function getSuppressionPaymentMethods()
+    {
+        return $this->container['suppression_payment_methods'];
+    }
+
+    /**
+     * Sets suppression_payment_methods
+     *
+     * @param string[]|null $suppression_payment_methods Payment methods that stop the offer from showing.
+     *
+     * @return self
+     */
+    public function setSuppressionPaymentMethods($suppression_payment_methods)
+    {
+        $this->container['suppression_payment_methods'] = $suppression_payment_methods;
+
+        return $this;
+    }
+
+    /**
+     * Gets suppression_shipping_methods
+     *
+     * @return string[]|null
+     */
+    public function getSuppressionShippingMethods()
+    {
+        return $this->container['suppression_shipping_methods'];
+    }
+
+    /**
+     * Sets suppression_shipping_methods
+     *
+     * @param string[]|null $suppression_shipping_methods Shipping methods that stop the offer from showing.
+     *
+     * @return self
+     */
+    public function setSuppressionShippingMethods($suppression_shipping_methods)
+    {
+        $this->container['suppression_shipping_methods'] = $suppression_shipping_methods;
+
+        return $this;
+    }
+
+    /**
+     * Gets suppression_state_codes
+     *
+     * @return string[]|null
+     */
+    public function getSuppressionStateCodes()
+    {
+        return $this->container['suppression_state_codes'];
+    }
+
+    /**
+     * Sets suppression_state_codes
+     *
+     * @param string[]|null $suppression_state_codes Shipping states that stop the offer from showing.
+     *
+     * @return self
+     */
+    public function setSuppressionStateCodes($suppression_state_codes)
+    {
+        $this->container['suppression_state_codes'] = $suppression_state_codes;
+
+        return $this;
+    }
+
+    /**
+     * Gets suppression_tags
+     *
+     * @return string[]|null
+     */
+    public function getSuppressionTags()
+    {
+        return $this->container['suppression_tags'];
+    }
+
+    /**
+     * Sets suppression_tags
+     *
+     * @param string[]|null $suppression_tags Customer tags that stop the offer from showing.
+     *
+     * @return self
+     */
+    public function setSuppressionTags($suppression_tags)
+    {
+        $this->container['suppression_tags'] = $suppression_tags;
 
         return $this;
     }
@@ -445,6 +1855,246 @@ class SfvbUpsellOffer implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets trigger_ages
+     *
+     * @return string[]|null
+     */
+    public function getTriggerAges()
+    {
+        return $this->container['trigger_ages'];
+    }
+
+    /**
+     * Sets trigger_ages
+     *
+     * @param string[]|null $trigger_ages TowerData age bands the offer is shown to.  18-20, 21-24, 25-34, 35-44, 45-54, 55-64, 65+ or Unknown.
+     *
+     * @return self
+     */
+    public function setTriggerAges($trigger_ages)
+    {
+        $this->container['trigger_ages'] = $trigger_ages;
+
+        return $this;
+    }
+
+    /**
+     * Gets trigger_country_codes
+     *
+     * @return string[]|null
+     */
+    public function getTriggerCountryCodes()
+    {
+        return $this->container['trigger_country_codes'];
+    }
+
+    /**
+     * Sets trigger_country_codes
+     *
+     * @param string[]|null $trigger_country_codes Shipping countries (ISO 3166 two letter codes) that trigger the offer.
+     *
+     * @return self
+     */
+    public function setTriggerCountryCodes($trigger_country_codes)
+    {
+        $this->container['trigger_country_codes'] = $trigger_country_codes;
+
+        return $this;
+    }
+
+    /**
+     * Gets trigger_genders
+     *
+     * @return string[]|null
+     */
+    public function getTriggerGenders()
+    {
+        return $this->container['trigger_genders'];
+    }
+
+    /**
+     * Sets trigger_genders
+     *
+     * @param string[]|null $trigger_genders TowerData genders the offer is shown to.  Male, Female or Unknown.
+     *
+     * @return self
+     */
+    public function setTriggerGenders($trigger_genders)
+    {
+        $this->container['trigger_genders'] = $trigger_genders;
+
+        return $this;
+    }
+
+    /**
+     * Gets trigger_loyalty_tier_oids
+     *
+     * @return int[]|null
+     */
+    public function getTriggerLoyaltyTierOids()
+    {
+        return $this->container['trigger_loyalty_tier_oids'];
+    }
+
+    /**
+     * Sets trigger_loyalty_tier_oids
+     *
+     * @param int[]|null $trigger_loyalty_tier_oids Loyalty tiers that trigger the offer.  Each must be one of the merchant's loyalty tiers.
+     *
+     * @return self
+     */
+    public function setTriggerLoyaltyTierOids($trigger_loyalty_tier_oids)
+    {
+        $this->container['trigger_loyalty_tier_oids'] = $trigger_loyalty_tier_oids;
+
+        return $this;
+    }
+
+    /**
+     * Gets trigger_payment_methods
+     *
+     * @return string[]|null
+     */
+    public function getTriggerPaymentMethods()
+    {
+        return $this->container['trigger_payment_methods'];
+    }
+
+    /**
+     * Sets trigger_payment_methods
+     *
+     * @param string[]|null $trigger_payment_methods Payment methods that trigger the offer.  Each must be one of the merchant's payment methods.
+     *
+     * @return self
+     */
+    public function setTriggerPaymentMethods($trigger_payment_methods)
+    {
+        $this->container['trigger_payment_methods'] = $trigger_payment_methods;
+
+        return $this;
+    }
+
+    /**
+     * Gets trigger_shipping_methods
+     *
+     * @return string[]|null
+     */
+    public function getTriggerShippingMethods()
+    {
+        return $this->container['trigger_shipping_methods'];
+    }
+
+    /**
+     * Sets trigger_shipping_methods
+     *
+     * @param string[]|null $trigger_shipping_methods Shipping methods that trigger the offer.  Each must be one of the merchant's shipping methods.
+     *
+     * @return self
+     */
+    public function setTriggerShippingMethods($trigger_shipping_methods)
+    {
+        $this->container['trigger_shipping_methods'] = $trigger_shipping_methods;
+
+        return $this;
+    }
+
+    /**
+     * Gets trigger_state_codes
+     *
+     * @return string[]|null
+     */
+    public function getTriggerStateCodes()
+    {
+        return $this->container['trigger_state_codes'];
+    }
+
+    /**
+     * Sets trigger_state_codes
+     *
+     * @param string[]|null $trigger_state_codes Shipping states that trigger the offer.
+     *
+     * @return self
+     */
+    public function setTriggerStateCodes($trigger_state_codes)
+    {
+        $this->container['trigger_state_codes'] = $trigger_state_codes;
+
+        return $this;
+    }
+
+    /**
+     * Gets trigger_tags
+     *
+     * @return string[]|null
+     */
+    public function getTriggerTags()
+    {
+        return $this->container['trigger_tags'];
+    }
+
+    /**
+     * Sets trigger_tags
+     *
+     * @param string[]|null $trigger_tags Customer tags that trigger the offer.
+     *
+     * @return self
+     */
+    public function setTriggerTags($trigger_tags)
+    {
+        $this->container['trigger_tags'] = $trigger_tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets upsell_item_id_javascript
+     *
+     * @return string|null
+     */
+    public function getUpsellItemIdJavascript()
+    {
+        return $this->container['upsell_item_id_javascript'];
+    }
+
+    /**
+     * Sets upsell_item_id_javascript
+     *
+     * @param string|null $upsell_item_id_javascript JavaScript that chooses the upsell item at runtime.  Omitted or null for none.
+     *
+     * @return self
+     */
+    public function setUpsellItemIdJavascript($upsell_item_id_javascript)
+    {
+        $this->container['upsell_item_id_javascript'] = $upsell_item_id_javascript;
+
+        return $this;
+    }
+
+    /**
+     * Gets upsell_item_ids
+     *
+     * @return string[]|null
+     */
+    public function getUpsellItemIds()
+    {
+        return $this->container['upsell_item_ids'];
+    }
+
+    /**
+     * Sets upsell_item_ids
+     *
+     * @param string[]|null $upsell_item_ids The items offered.  Every item id must exist on the merchant account.
+     *
+     * @return self
+     */
+    public function setUpsellItemIds($upsell_item_ids)
+    {
+        $this->container['upsell_item_ids'] = $upsell_item_ids;
+
+        return $this;
+    }
+
+    /**
      * Gets upsell_offer_oid
      *
      * @return int|null
@@ -457,7 +2107,7 @@ class SfvbUpsellOffer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets upsell_offer_oid
      *
-     * @param int|null $upsell_offer_oid Upsell offer oid.
+     * @param int|null $upsell_offer_oid Read only.  Upsell offer oid.
      *
      * @return self
      */

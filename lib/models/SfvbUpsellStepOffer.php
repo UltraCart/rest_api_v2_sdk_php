@@ -1,6 +1,6 @@
 <?php
 /**
- * SfvbPageResponse
+ * SfvbUpsellStepOffer
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * SfvbPageResponse Class Doc Comment
+ * SfvbUpsellStepOffer Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class SfvbUpsellStepOffer implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SfvbPageResponse';
+    protected static $openAPIModelName = 'SfvbUpsellStepOffer';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,16 +58,14 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'attributes' => '\ultracart\v2\models\SfvbPageAttribute[]',
-        'description' => 'string',
-        'exclude_from_sitemap' => 'bool',
-        'group_template' => 'string',
-        'item_template' => 'string',
-        'multimedia' => '\ultracart\v2\models\SfvbPageMultimedia[]',
-        'path' => 'string',
-        'title' => 'string',
-        'visible' => 'bool',
-        'visible_dts' => 'string'
+        'downsell_offer_active' => 'bool',
+        'downsell_offer_name' => 'string',
+        'downsell_offer_oid' => 'int',
+        'downsell_offer_stats' => '\ultracart\v2\models\SfvbUpsellStats',
+        'offer_active' => 'bool',
+        'offer_name' => 'string',
+        'offer_oid' => 'int',
+        'offer_stats' => '\ultracart\v2\models\SfvbUpsellStats'
     ];
 
     /**
@@ -78,16 +76,14 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'attributes' => null,
-        'description' => null,
-        'exclude_from_sitemap' => null,
-        'group_template' => null,
-        'item_template' => null,
-        'multimedia' => null,
-        'path' => null,
-        'title' => null,
-        'visible' => null,
-        'visible_dts' => null
+        'downsell_offer_active' => null,
+        'downsell_offer_name' => null,
+        'downsell_offer_oid' => 'int32',
+        'downsell_offer_stats' => null,
+        'offer_active' => null,
+        'offer_name' => null,
+        'offer_oid' => 'int32',
+        'offer_stats' => null
     ];
 
     /**
@@ -117,16 +113,14 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'attributes' => 'attributes',
-        'description' => 'description',
-        'exclude_from_sitemap' => 'exclude_from_sitemap',
-        'group_template' => 'group_template',
-        'item_template' => 'item_template',
-        'multimedia' => 'multimedia',
-        'path' => 'path',
-        'title' => 'title',
-        'visible' => 'visible',
-        'visible_dts' => 'visible_dts'
+        'downsell_offer_active' => 'downsell_offer_active',
+        'downsell_offer_name' => 'downsell_offer_name',
+        'downsell_offer_oid' => 'downsell_offer_oid',
+        'downsell_offer_stats' => 'downsell_offer_stats',
+        'offer_active' => 'offer_active',
+        'offer_name' => 'offer_name',
+        'offer_oid' => 'offer_oid',
+        'offer_stats' => 'offer_stats'
     ];
 
     /**
@@ -135,16 +129,14 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'attributes' => 'setAttributes',
-        'description' => 'setDescription',
-        'exclude_from_sitemap' => 'setExcludeFromSitemap',
-        'group_template' => 'setGroupTemplate',
-        'item_template' => 'setItemTemplate',
-        'multimedia' => 'setMultimedia',
-        'path' => 'setPath',
-        'title' => 'setTitle',
-        'visible' => 'setVisible',
-        'visible_dts' => 'setVisibleDts'
+        'downsell_offer_active' => 'setDownsellOfferActive',
+        'downsell_offer_name' => 'setDownsellOfferName',
+        'downsell_offer_oid' => 'setDownsellOfferOid',
+        'downsell_offer_stats' => 'setDownsellOfferStats',
+        'offer_active' => 'setOfferActive',
+        'offer_name' => 'setOfferName',
+        'offer_oid' => 'setOfferOid',
+        'offer_stats' => 'setOfferStats'
     ];
 
     /**
@@ -153,16 +145,14 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'attributes' => 'getAttributes',
-        'description' => 'getDescription',
-        'exclude_from_sitemap' => 'getExcludeFromSitemap',
-        'group_template' => 'getGroupTemplate',
-        'item_template' => 'getItemTemplate',
-        'multimedia' => 'getMultimedia',
-        'path' => 'getPath',
-        'title' => 'getTitle',
-        'visible' => 'getVisible',
-        'visible_dts' => 'getVisibleDts'
+        'downsell_offer_active' => 'getDownsellOfferActive',
+        'downsell_offer_name' => 'getDownsellOfferName',
+        'downsell_offer_oid' => 'getDownsellOfferOid',
+        'downsell_offer_stats' => 'getDownsellOfferStats',
+        'offer_active' => 'getOfferActive',
+        'offer_name' => 'getOfferName',
+        'offer_oid' => 'getOfferOid',
+        'offer_stats' => 'getOfferStats'
     ];
 
     /**
@@ -222,16 +212,14 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['attributes'] = $data['attributes'] ?? null;
-        $this->container['description'] = $data['description'] ?? null;
-        $this->container['exclude_from_sitemap'] = $data['exclude_from_sitemap'] ?? null;
-        $this->container['group_template'] = $data['group_template'] ?? null;
-        $this->container['item_template'] = $data['item_template'] ?? null;
-        $this->container['multimedia'] = $data['multimedia'] ?? null;
-        $this->container['path'] = $data['path'] ?? null;
-        $this->container['title'] = $data['title'] ?? null;
-        $this->container['visible'] = $data['visible'] ?? null;
-        $this->container['visible_dts'] = $data['visible_dts'] ?? null;
+        $this->container['downsell_offer_active'] = $data['downsell_offer_active'] ?? null;
+        $this->container['downsell_offer_name'] = $data['downsell_offer_name'] ?? null;
+        $this->container['downsell_offer_oid'] = $data['downsell_offer_oid'] ?? null;
+        $this->container['downsell_offer_stats'] = $data['downsell_offer_stats'] ?? null;
+        $this->container['offer_active'] = $data['offer_active'] ?? null;
+        $this->container['offer_name'] = $data['offer_name'] ?? null;
+        $this->container['offer_oid'] = $data['offer_oid'] ?? null;
+        $this->container['offer_stats'] = $data['offer_stats'] ?? null;
     }
 
     /**
@@ -259,241 +247,193 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets attributes
-     *
-     * @return \ultracart\v2\models\SfvbPageAttribute[]|null
-     */
-    public function getAttributes()
-    {
-        return $this->container['attributes'];
-    }
-
-    /**
-     * Sets attributes
-     *
-     * @param \ultracart\v2\models\SfvbPageAttribute[]|null $attributes Every attribute this page has, including ones a template declares but nothing has set yet.  These are what the pageattribute element renders.  Sorted by name.
-     *
-     * @return self
-     */
-    public function setAttributes($attributes)
-    {
-        $this->container['attributes'] = $attributes;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description The page description, the text a page template renders as the page's description.  Omitted when empty.
-     *
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets exclude_from_sitemap
+     * Gets downsell_offer_active
      *
      * @return bool|null
      */
-    public function getExcludeFromSitemap()
+    public function getDownsellOfferActive()
     {
-        return $this->container['exclude_from_sitemap'];
+        return $this->container['downsell_offer_active'];
     }
 
     /**
-     * Sets exclude_from_sitemap
+     * Sets downsell_offer_active
      *
-     * @param bool|null $exclude_from_sitemap True when the page is left out of the sitemap and marked noindex.
+     * @param bool|null $downsell_offer_active Read only.  Whether the downsell offer is switched on.
      *
      * @return self
      */
-    public function setExcludeFromSitemap($exclude_from_sitemap)
+    public function setDownsellOfferActive($downsell_offer_active)
     {
-        $this->container['exclude_from_sitemap'] = $exclude_from_sitemap;
+        $this->container['downsell_offer_active'] = $downsell_offer_active;
 
         return $this;
     }
 
     /**
-     * Gets group_template
+     * Gets downsell_offer_name
      *
      * @return string|null
      */
-    public function getGroupTemplate()
+    public function getDownsellOfferName()
     {
-        return $this->container['group_template'];
+        return $this->container['downsell_offer_name'];
     }
 
     /**
-     * Sets group_template
+     * Sets downsell_offer_name
      *
-     * @param string|null $group_template Template file that renders the page itself, a bare .vm name found anywhere in the active theme.
+     * @param string|null $downsell_offer_name Read only.  The downsell offer's name.
      *
      * @return self
      */
-    public function setGroupTemplate($group_template)
+    public function setDownsellOfferName($downsell_offer_name)
     {
-        $this->container['group_template'] = $group_template;
+        $this->container['downsell_offer_name'] = $downsell_offer_name;
 
         return $this;
     }
 
     /**
-     * Gets item_template
+     * Gets downsell_offer_oid
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getItemTemplate()
+    public function getDownsellOfferOid()
     {
-        return $this->container['item_template'];
+        return $this->container['downsell_offer_oid'];
     }
 
     /**
-     * Sets item_template
+     * Sets downsell_offer_oid
      *
-     * @param string|null $item_template Template file that renders the item pages under this page.
+     * @param int|null $downsell_offer_oid The offer shown when the shopper declines offer_oid.  Omitted or null for no downsell.  Must be an offer of this storefront.
      *
      * @return self
      */
-    public function setItemTemplate($item_template)
+    public function setDownsellOfferOid($downsell_offer_oid)
     {
-        $this->container['item_template'] = $item_template;
+        $this->container['downsell_offer_oid'] = $downsell_offer_oid;
 
         return $this;
     }
 
     /**
-     * Gets multimedia
+     * Gets downsell_offer_stats
      *
-     * @return \ultracart\v2\models\SfvbPageMultimedia[]|null
+     * @return \ultracart\v2\models\SfvbUpsellStats|null
      */
-    public function getMultimedia()
+    public function getDownsellOfferStats()
     {
-        return $this->container['multimedia'];
+        return $this->container['downsell_offer_stats'];
     }
 
     /**
-     * Sets multimedia
+     * Sets downsell_offer_stats
      *
-     * @param \ultracart\v2\models\SfvbPageMultimedia[]|null $multimedia The page's images, including codes a template declares but nothing has attached yet.  These are what the pageimage element renders - the default image when pageImageCode is empty, otherwise the image with that code.  The default image comes first.
+     * @param \ultracart\v2\models\SfvbUpsellStats|null $downsell_offer_stats downsell_offer_stats
      *
      * @return self
      */
-    public function setMultimedia($multimedia)
+    public function setDownsellOfferStats($downsell_offer_stats)
     {
-        $this->container['multimedia'] = $multimedia;
+        $this->container['downsell_offer_stats'] = $downsell_offer_stats;
 
         return $this;
     }
 
     /**
-     * Gets path
-     *
-     * @return string|null
-     */
-    public function getPath()
-    {
-        return $this->container['path'];
-    }
-
-    /**
-     * Sets path
-     *
-     * @param string|null $path The page path, normalized to begin and end with a slash.
-     *
-     * @return self
-     */
-    public function setPath($path)
-    {
-        $this->container['path'] = $path;
-
-        return $this;
-    }
-
-    /**
-     * Gets title
-     *
-     * @return string|null
-     */
-    public function getTitle()
-    {
-        return $this->container['title'];
-    }
-
-    /**
-     * Sets title
-     *
-     * @param string|null $title The page title.
-     *
-     * @return self
-     */
-    public function setTitle($title)
-    {
-        $this->container['title'] = $title;
-
-        return $this;
-    }
-
-    /**
-     * Gets visible
+     * Gets offer_active
      *
      * @return bool|null
      */
-    public function getVisible()
+    public function getOfferActive()
     {
-        return $this->container['visible'];
+        return $this->container['offer_active'];
     }
 
     /**
-     * Sets visible
+     * Sets offer_active
      *
-     * @param bool|null $visible False when the page is hidden.  A hidden page answers 404 to shoppers.
+     * @param bool|null $offer_active Read only.  Whether the offer is switched on.
      *
      * @return self
      */
-    public function setVisible($visible)
+    public function setOfferActive($offer_active)
     {
-        $this->container['visible'] = $visible;
+        $this->container['offer_active'] = $offer_active;
 
         return $this;
     }
 
     /**
-     * Gets visible_dts
+     * Gets offer_name
      *
      * @return string|null
      */
-    public function getVisibleDts()
+    public function getOfferName()
     {
-        return $this->container['visible_dts'];
+        return $this->container['offer_name'];
     }
 
     /**
-     * Sets visible_dts
+     * Sets offer_name
      *
-     * @param string|null $visible_dts When set, the page stays hidden until this time (ISO 8601, UTC).
+     * @param string|null $offer_name Read only.  The offer's name.
      *
      * @return self
      */
-    public function setVisibleDts($visible_dts)
+    public function setOfferName($offer_name)
     {
-        $this->container['visible_dts'] = $visible_dts;
+        $this->container['offer_name'] = $offer_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets offer_oid
+     *
+     * @return int|null
+     */
+    public function getOfferOid()
+    {
+        return $this->container['offer_oid'];
+    }
+
+    /**
+     * Sets offer_oid
+     *
+     * @param int|null $offer_oid The offer shown at this step.  Must be an offer of this storefront.
+     *
+     * @return self
+     */
+    public function setOfferOid($offer_oid)
+    {
+        $this->container['offer_oid'] = $offer_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets offer_stats
+     *
+     * @return \ultracart\v2\models\SfvbUpsellStats|null
+     */
+    public function getOfferStats()
+    {
+        return $this->container['offer_stats'];
+    }
+
+    /**
+     * Sets offer_stats
+     *
+     * @param \ultracart\v2\models\SfvbUpsellStats|null $offer_stats offer_stats
+     *
+     * @return self
+     */
+    public function setOfferStats($offer_stats)
+    {
+        $this->container['offer_stats'] = $offer_stats;
 
         return $this;
     }
