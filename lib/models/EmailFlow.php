@@ -78,6 +78,8 @@ class EmailFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant_id' => 'string',
         'name' => 'string',
         'open_rate_formatted' => 'string',
+        'reentry_delay_days' => 'int',
+        'reentry_policy' => 'string',
         'revenue_formatted' => 'string',
         'revenue_per_customer_formatted' => 'string',
         'screenshot_large_full_url' => 'string',
@@ -119,6 +121,8 @@ class EmailFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant_id' => null,
         'name' => null,
         'open_rate_formatted' => null,
+        'reentry_delay_days' => 'int32',
+        'reentry_policy' => null,
         'revenue_formatted' => null,
         'revenue_per_customer_formatted' => null,
         'screenshot_large_full_url' => null,
@@ -179,6 +183,8 @@ class EmailFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant_id' => 'merchant_id',
         'name' => 'name',
         'open_rate_formatted' => 'open_rate_formatted',
+        'reentry_delay_days' => 'reentry_delay_days',
+        'reentry_policy' => 'reentry_policy',
         'revenue_formatted' => 'revenue_formatted',
         'revenue_per_customer_formatted' => 'revenue_per_customer_formatted',
         'screenshot_large_full_url' => 'screenshot_large_full_url',
@@ -218,6 +224,8 @@ class EmailFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant_id' => 'setMerchantId',
         'name' => 'setName',
         'open_rate_formatted' => 'setOpenRateFormatted',
+        'reentry_delay_days' => 'setReentryDelayDays',
+        'reentry_policy' => 'setReentryPolicy',
         'revenue_formatted' => 'setRevenueFormatted',
         'revenue_per_customer_formatted' => 'setRevenuePerCustomerFormatted',
         'screenshot_large_full_url' => 'setScreenshotLargeFullUrl',
@@ -257,6 +265,8 @@ class EmailFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant_id' => 'getMerchantId',
         'name' => 'getName',
         'open_rate_formatted' => 'getOpenRateFormatted',
+        'reentry_delay_days' => 'getReentryDelayDays',
+        'reentry_policy' => 'getReentryPolicy',
         'revenue_formatted' => 'getRevenueFormatted',
         'revenue_per_customer_formatted' => 'getRevenuePerCustomerFormatted',
         'screenshot_large_full_url' => 'getScreenshotLargeFullUrl',
@@ -311,6 +321,23 @@ class EmailFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const REENTRY_POLICY_ANYTIME = 'anytime';
+    public const REENTRY_POLICY_AFTER_DAYS = 'after_days';
+    public const REENTRY_POLICY_NEVER = 'never';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getReentryPolicyAllowableValues()
+    {
+        return [
+            self::REENTRY_POLICY_ANYTIME,
+            self::REENTRY_POLICY_AFTER_DAYS,
+            self::REENTRY_POLICY_NEVER,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -347,6 +374,8 @@ class EmailFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['open_rate_formatted'] = $data['open_rate_formatted'] ?? null;
+        $this->container['reentry_delay_days'] = $data['reentry_delay_days'] ?? null;
+        $this->container['reentry_policy'] = $data['reentry_policy'] ?? null;
         $this->container['revenue_formatted'] = $data['revenue_formatted'] ?? null;
         $this->container['revenue_per_customer_formatted'] = $data['revenue_per_customer_formatted'] ?? null;
         $this->container['screenshot_large_full_url'] = $data['screenshot_large_full_url'] ?? null;
@@ -371,6 +400,15 @@ class EmailFlow implements ModelInterface, ArrayAccess, \JsonSerializable
 
         if (!is_null($this->container['name']) && (mb_strlen($this->container['name']) > 250)) {
             $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 250.";
+        }
+
+        $allowedValues = $this->getReentryPolicyAllowableValues();
+        if (!is_null($this->container['reentry_policy']) && !in_array($this->container['reentry_policy'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'reentry_policy', must be one of '%s'",
+                $this->container['reentry_policy'],
+                implode("', '", $allowedValues)
+            );
         }
 
         return $invalidProperties;
@@ -868,6 +906,64 @@ class EmailFlow implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setOpenRateFormatted($open_rate_formatted)
     {
         $this->container['open_rate_formatted'] = $open_rate_formatted;
+
+        return $this;
+    }
+
+    /**
+     * Gets reentry_delay_days
+     *
+     * @return int|null
+     */
+    public function getReentryDelayDays()
+    {
+        return $this->container['reentry_delay_days'];
+    }
+
+    /**
+     * Sets reentry_delay_days
+     *
+     * @param int|null $reentry_delay_days Number of days after the last enrollment before a customer may enter this flow again.  Only used when reentry_policy is after_days.  Maximum 1095.
+     *
+     * @return self
+     */
+    public function setReentryDelayDays($reentry_delay_days)
+    {
+        $this->container['reentry_delay_days'] = $reentry_delay_days;
+
+        return $this;
+    }
+
+    /**
+     * Gets reentry_policy
+     *
+     * @return string|null
+     */
+    public function getReentryPolicy()
+    {
+        return $this->container['reentry_policy'];
+    }
+
+    /**
+     * Sets reentry_policy
+     *
+     * @param string|null $reentry_policy Whether a customer may enter this flow again after a previous enrollment.  anytime (default), after_days (see reentry_delay_days), or never.  Enrollment history is kept for 3 years, so never means not within 3 years of the last enrollment.
+     *
+     * @return self
+     */
+    public function setReentryPolicy($reentry_policy)
+    {
+        $allowedValues = $this->getReentryPolicyAllowableValues();
+        if (!is_null($reentry_policy) && !in_array($reentry_policy, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'reentry_policy', must be one of '%s'",
+                    $reentry_policy,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['reentry_policy'] = $reentry_policy;
 
         return $this;
     }
