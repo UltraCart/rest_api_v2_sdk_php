@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.173"
+    "ultracart/rest_api_v2_sdk_php": "4.1.174"
   }
 }
 ```
@@ -568,6 +568,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**removeSfvbPageItems**](docs/Api/SfvbApi.md#removesfvbpageitems) | **POST** /sfvb/storefronts/{storefront_oid}/pages/items/remove | Take items off a page
 *SfvbApi* | [**renderSfvbWidgets**](docs/Api/SfvbApi.md#rendersfvbwidgets) | **POST** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/render | Render a CJSON node to HTML
 *SfvbApi* | [**reserveSfvbWidgetIds**](docs/Api/SfvbApi.md#reservesfvbwidgetids) | **POST** /sfvb/storefronts/{storefront_oid}/widget_ids | Reserve a block of widget ids
+*SfvbApi* | [**resolveSfvbTemplate**](docs/Api/SfvbApi.md#resolvesfvbtemplate) | **GET** /sfvb/storefronts/{storefront_oid}/templates/resolve | Resolve a template name to the file a page renders
 *SfvbApi* | [**revertSfvbContainer**](docs/Api/SfvbApi.md#revertsfvbcontainer) | **POST** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id}/revert | Revert a container stored outside the file system
 *SfvbApi* | [**revertSfvbFile**](docs/Api/SfvbApi.md#revertsfvbfile) | **POST** /sfvb/storefronts/{storefront_oid}/files/revert | Revert a storefront file to an earlier version
 *SfvbApi* | [**searchSfvbFiles**](docs/Api/SfvbApi.md#searchsfvbfiles) | **POST** /sfvb/storefronts/{storefront_oid}/files/search | Search storefront files
@@ -1885,6 +1886,9 @@ Class | Method | HTTP request | Description
 - [SfvbStorefront](docs/Model/SfvbStorefront.md)
 - [SfvbStorefrontsResponse](docs/Model/SfvbStorefrontsResponse.md)
 - [SfvbTemplate](docs/Model/SfvbTemplate.md)
+- [SfvbTemplateResolveCandidate](docs/Model/SfvbTemplateResolveCandidate.md)
+- [SfvbTemplateResolvePath](docs/Model/SfvbTemplateResolvePath.md)
+- [SfvbTemplateResolveResponse](docs/Model/SfvbTemplateResolveResponse.md)
 - [SfvbTemplatesResponse](docs/Model/SfvbTemplatesResponse.md)
 - [SfvbTheme](docs/Model/SfvbTheme.md)
 - [SfvbThemeAttribute](docs/Model/SfvbThemeAttribute.md)
@@ -2098,6 +2102,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.174 | 09/25/2026 | sfvb internal testing |
 | 4.1.173 | 09/24/2026 | storefront communications flow re-entry setting |
 | 4.1.172 | 09/24/2026 | storefront communications flow re-entry setting |
 | 4.1.171 | 09/23/2026 | sfvb internal testing |

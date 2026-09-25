@@ -1077,6 +1077,9 @@ docs/Model/SfvbSiteAttributesResponse.md
 docs/Model/SfvbStorefront.md
 docs/Model/SfvbStorefrontsResponse.md
 docs/Model/SfvbTemplate.md
+docs/Model/SfvbTemplateResolveCandidate.md
+docs/Model/SfvbTemplateResolvePath.md
+docs/Model/SfvbTemplateResolveResponse.md
 docs/Model/SfvbTemplatesResponse.md
 docs/Model/SfvbTheme.md
 docs/Model/SfvbThemeAttribute.md
@@ -2275,6 +2278,9 @@ lib/models/SfvbSiteAttributesResponse.php
 lib/models/SfvbStorefront.php
 lib/models/SfvbStorefrontsResponse.php
 lib/models/SfvbTemplate.php
+lib/models/SfvbTemplateResolveCandidate.php
+lib/models/SfvbTemplateResolvePath.php
+lib/models/SfvbTemplateResolveResponse.php
 lib/models/SfvbTemplatesResponse.php
 lib/models/SfvbTheme.php
 lib/models/SfvbThemeAttribute.php
