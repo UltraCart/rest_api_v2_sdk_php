@@ -1124,6 +1124,7 @@ docs/Model/StoreFront.md
 docs/Model/StoreFrontPageContentAttribute.md
 docs/Model/StoreFrontsResponse.md
 docs/Model/TaxCity.md
+docs/Model/TaxCloudConfig.md
 docs/Model/TaxCountry.md
 docs/Model/TaxCountryCode.md
 docs/Model/TaxCounty.md
@@ -1131,6 +1132,8 @@ docs/Model/TaxJarConfig.md
 docs/Model/TaxPostalCode.md
 docs/Model/TaxProviderActivateResult.md
 docs/Model/TaxProviderAnrok.md
+docs/Model/TaxProviderAnrokProduct.md
+docs/Model/TaxProviderAnrokTestResult.md
 docs/Model/TaxProviderAvalara.md
 docs/Model/TaxProviderAvalaraCompaniesResult.md
 docs/Model/TaxProviderAvalaraCompany.md
@@ -1138,6 +1141,7 @@ docs/Model/TaxProviderSelf.md
 docs/Model/TaxProviderSelfCountriesResponse.md
 docs/Model/TaxProviderSelfRegionsResponse.md
 docs/Model/TaxProviderSovos.md
+docs/Model/TaxProviderTaxCloud.md
 docs/Model/TaxProviderTaxJar.md
 docs/Model/TaxProviderTestResult.md
 docs/Model/TaxProviderUltraCart.md
@@ -2327,6 +2331,7 @@ lib/models/StoreFront.php
 lib/models/StoreFrontPageContentAttribute.php
 lib/models/StoreFrontsResponse.php
 lib/models/TaxCity.php
+lib/models/TaxCloudConfig.php
 lib/models/TaxCountry.php
 lib/models/TaxCountryCode.php
 lib/models/TaxCounty.php
@@ -2334,6 +2339,8 @@ lib/models/TaxJarConfig.php
 lib/models/TaxPostalCode.php
 lib/models/TaxProviderActivateResult.php
 lib/models/TaxProviderAnrok.php
+lib/models/TaxProviderAnrokProduct.php
+lib/models/TaxProviderAnrokTestResult.php
 lib/models/TaxProviderAvalara.php
 lib/models/TaxProviderAvalaraCompaniesResult.php
 lib/models/TaxProviderAvalaraCompany.php
@@ -2341,6 +2348,7 @@ lib/models/TaxProviderSelf.php
 lib/models/TaxProviderSelfCountriesResponse.php
 lib/models/TaxProviderSelfRegionsResponse.php
 lib/models/TaxProviderSovos.php
+lib/models/TaxProviderTaxCloud.php
 lib/models/TaxProviderTaxJar.php
 lib/models/TaxProviderTestResult.php
 lib/models/TaxProviderUltraCart.php

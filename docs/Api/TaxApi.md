@@ -19,6 +19,8 @@ Method | HTTP request | Description
 [**getTaxProviderSelfRegionsByCountryCode()**](TaxApi.md#getTaxProviderSelfRegionsByCountryCode) | **GET** /tax/providers/self/regions/{countryCode} | Retrieve the Self tax provider regions for a given country code
 [**getTaxProviderSovos()**](TaxApi.md#getTaxProviderSovos) | **GET** /tax/providers/sovos | Retrieve the Sovos tax provider
 [**getTaxProviderSovosTest()**](TaxApi.md#getTaxProviderSovosTest) | **GET** /tax/providers/sovos/test | Attempts to connect to Sovos and returns back the response
+[**getTaxProviderTaxCloud()**](TaxApi.md#getTaxProviderTaxCloud) | **GET** /tax/providers/taxcloud | Retrieve the TaxCloud tax provider
+[**getTaxProviderTaxCloudTest()**](TaxApi.md#getTaxProviderTaxCloudTest) | **GET** /tax/providers/taxcloud/test | Attempts to connect to TaxCloud and returns back the response
 [**getTaxProviderTaxJar()**](TaxApi.md#getTaxProviderTaxJar) | **GET** /tax/providers/taxjar | Retrieve the TaxJar tax provider
 [**getTaxProviderTaxJarTest()**](TaxApi.md#getTaxProviderTaxJarTest) | **GET** /tax/providers/taxjar/test | Attempts to connect to TaxJar and returns back the response
 [**getTaxProviderUltraCart()**](TaxApi.md#getTaxProviderUltraCart) | **GET** /tax/providers/ultracart | Retrieve the UltraCart tax provider
@@ -33,6 +35,7 @@ Method | HTTP request | Description
 [**updateTaxProviderSelfPostalCode()**](TaxApi.md#updateTaxProviderSelfPostalCode) | **POST** /tax/providers/self/postalCode/{postal_code} | Updates a Self tax provider postalCode
 [**updateTaxProviderSelfState()**](TaxApi.md#updateTaxProviderSelfState) | **POST** /tax/providers/self/state/{stateCode} | Updates a Self tax provider state
 [**updateTaxProviderSovos()**](TaxApi.md#updateTaxProviderSovos) | **POST** /tax/providers/sovos | Update the Sovos tax provider
+[**updateTaxProviderTaxCloud()**](TaxApi.md#updateTaxProviderTaxCloud) | **POST** /tax/providers/taxcloud | Update the TaxCloud tax provider
 [**updateTaxProviderTaxJar()**](TaxApi.md#updateTaxProviderTaxJar) | **POST** /tax/providers/taxjar | Update the TaxJar tax provider
 [**updateTaxProviderUltraCart()**](TaxApi.md#updateTaxProviderUltraCart) | **POST** /tax/providers/ultracart | Update the UltraCart tax provider
 
@@ -318,12 +321,12 @@ This endpoint does not need any parameter.
 ## `getTaxProviderAnrokTest()`
 
 ```php
-getTaxProviderAnrokTest(): \ultracart\v2\models\TaxProviderTestResult
+getTaxProviderAnrokTest(): \ultracart\v2\models\TaxProviderAnrokTestResult
 ```
 
 Attempts to connect to Anrok and returns back the response
 
-Attempts to connect to Anrok and returns back the response.
+Attempts to connect to Anrok and returns back the response, including the products configured on the merchant's Anrok account.
 
 
 ### Example
@@ -338,7 +341,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\ultracart\v2\models\TaxProviderTestResult**](../Model/TaxProviderTestResult.md)
+[**\ultracart\v2\models\TaxProviderAnrokTestResult**](../Model/TaxProviderAnrokTestResult.md)
 
 ### Authorization
 
@@ -694,6 +697,82 @@ Attempts to connect to Sovos and returns back the response.
 // We're not including any examples for using the Tax Api, but if you find yourself needing it for some reason,
 // contact us and we'll assist.  But again, we doubt merchants will ever have a need for this API.
 ```
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\ultracart\v2\models\TaxProviderTestResult**](../Model/TaxProviderTestResult.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getTaxProviderTaxCloud()`
+
+```php
+getTaxProviderTaxCloud(): \ultracart\v2\models\TaxProviderTaxCloud
+```
+
+Retrieve the TaxCloud tax provider
+
+Retrieves the TaxCloud tax provider.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\ultracart\v2\models\TaxProviderTaxCloud**](../Model/TaxProviderTaxCloud.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getTaxProviderTaxCloudTest()`
+
+```php
+getTaxProviderTaxCloudTest(): \ultracart\v2\models\TaxProviderTestResult
+```
+
+Attempts to connect to TaxCloud and returns back the response
+
+Attempts to connect to TaxCloud with the saved API key and Connection ID and returns back the response.
+
+
+### Example
+
+
+(No example for this operation).
 
 
 ### Parameters
@@ -1355,6 +1434,46 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\TaxProviderSovos**](../Model/TaxProviderSovos.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateTaxProviderTaxCloud()`
+
+```php
+updateTaxProviderTaxCloud($tax_provider_taxcloud): \ultracart\v2\models\TaxProviderTaxCloud
+```
+
+Update the TaxCloud tax provider
+
+Update the TaxCloud tax provider.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tax_provider_taxcloud** | [**\ultracart\v2\models\TaxProviderTaxCloud**](../Model/TaxProviderTaxCloud.md)| TaxProviderTaxCloud object |
+
+### Return type
+
+[**\ultracart\v2\models\TaxProviderTaxCloud**](../Model/TaxProviderTaxCloud.md)
 
 ### Authorization
 

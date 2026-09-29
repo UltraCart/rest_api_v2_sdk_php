@@ -65,6 +65,7 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'self' => '\ultracart\v2\models\TaxProviderSelf',
         'sovos' => '\ultracart\v2\models\TaxProviderSovos',
         'success' => 'bool',
+        'taxcloud' => '\ultracart\v2\models\TaxProviderTaxCloud',
         'taxjar' => '\ultracart\v2\models\TaxProviderTaxJar',
         'ultracart' => '\ultracart\v2\models\TaxProviderUltraCart',
         'warning' => '\ultracart\v2\models\Warning'
@@ -85,6 +86,7 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'self' => null,
         'sovos' => null,
         'success' => null,
+        'taxcloud' => null,
         'taxjar' => null,
         'ultracart' => null,
         'warning' => null
@@ -124,6 +126,7 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'self' => 'self',
         'sovos' => 'sovos',
         'success' => 'success',
+        'taxcloud' => 'taxcloud',
         'taxjar' => 'taxjar',
         'ultracart' => 'ultracart',
         'warning' => 'warning'
@@ -142,6 +145,7 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'self' => 'setSelf',
         'sovos' => 'setSovos',
         'success' => 'setSuccess',
+        'taxcloud' => 'setTaxcloud',
         'taxjar' => 'setTaxjar',
         'ultracart' => 'setUltracart',
         'warning' => 'setWarning'
@@ -160,6 +164,7 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'self' => 'getSelf',
         'sovos' => 'getSovos',
         'success' => 'getSuccess',
+        'taxcloud' => 'getTaxcloud',
         'taxjar' => 'getTaxjar',
         'ultracart' => 'getUltracart',
         'warning' => 'getWarning'
@@ -229,6 +234,7 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->container['self'] = $data['self'] ?? null;
         $this->container['sovos'] = $data['sovos'] ?? null;
         $this->container['success'] = $data['success'] ?? null;
+        $this->container['taxcloud'] = $data['taxcloud'] ?? null;
         $this->container['taxjar'] = $data['taxjar'] ?? null;
         $this->container['ultracart'] = $data['ultracart'] ?? null;
         $this->container['warning'] = $data['warning'] ?? null;
@@ -422,6 +428,30 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setSuccess($success)
     {
         $this->container['success'] = $success;
+
+        return $this;
+    }
+
+    /**
+     * Gets taxcloud
+     *
+     * @return \ultracart\v2\models\TaxProviderTaxCloud|null
+     */
+    public function getTaxcloud()
+    {
+        return $this->container['taxcloud'];
+    }
+
+    /**
+     * Sets taxcloud
+     *
+     * @param \ultracart\v2\models\TaxProviderTaxCloud|null $taxcloud taxcloud
+     *
+     * @return self
+     */
+    public function setTaxcloud($taxcloud)
+    {
+        $this->container['taxcloud'] = $taxcloud;
 
         return $this;
     }

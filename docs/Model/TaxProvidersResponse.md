@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **self** | [**\ultracart\v2\models\TaxProviderSelf**](TaxProviderSelf.md) |  | [optional]
 **sovos** | [**\ultracart\v2\models\TaxProviderSovos**](TaxProviderSovos.md) |  | [optional]
 **success** | **bool** | Indicates if API call was successful | [optional]
+**taxcloud** | [**\ultracart\v2\models\TaxProviderTaxCloud**](TaxProviderTaxCloud.md) |  | [optional]
 **taxjar** | [**\ultracart\v2\models\TaxProviderTaxJar**](TaxProviderTaxJar.md) |  | [optional]
 **ultracart** | [**\ultracart\v2\models\TaxProviderUltraCart**](TaxProviderUltraCart.md) |  | [optional]
 **warning** | [**\ultracart\v2\models\Warning**](Warning.md) |  | [optional]

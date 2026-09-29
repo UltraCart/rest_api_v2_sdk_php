@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.175"
+    "ultracart/rest_api_v2_sdk_php": "4.1.176"
   }
 }
 ```
@@ -786,6 +786,8 @@ Class | Method | HTTP request | Description
 *TaxApi* | [**getTaxProviderSelfRegionsByCountryCode**](docs/Api/TaxApi.md#gettaxproviderselfregionsbycountrycode) | **GET** /tax/providers/self/regions/{countryCode} | Retrieve the Self tax provider regions for a given country code
 *TaxApi* | [**getTaxProviderSovos**](docs/Api/TaxApi.md#gettaxprovidersovos) | **GET** /tax/providers/sovos | Retrieve the Sovos tax provider
 *TaxApi* | [**getTaxProviderSovosTest**](docs/Api/TaxApi.md#gettaxprovidersovostest) | **GET** /tax/providers/sovos/test | Attempts to connect to Sovos and returns back the response
+*TaxApi* | [**getTaxProviderTaxCloud**](docs/Api/TaxApi.md#gettaxprovidertaxcloud) | **GET** /tax/providers/taxcloud | Retrieve the TaxCloud tax provider
+*TaxApi* | [**getTaxProviderTaxCloudTest**](docs/Api/TaxApi.md#gettaxprovidertaxcloudtest) | **GET** /tax/providers/taxcloud/test | Attempts to connect to TaxCloud and returns back the response
 *TaxApi* | [**getTaxProviderTaxJar**](docs/Api/TaxApi.md#gettaxprovidertaxjar) | **GET** /tax/providers/taxjar | Retrieve the TaxJar tax provider
 *TaxApi* | [**getTaxProviderTaxJarTest**](docs/Api/TaxApi.md#gettaxprovidertaxjartest) | **GET** /tax/providers/taxjar/test | Attempts to connect to TaxJar and returns back the response
 *TaxApi* | [**getTaxProviderUltraCart**](docs/Api/TaxApi.md#gettaxproviderultracart) | **GET** /tax/providers/ultracart | Retrieve the UltraCart tax provider
@@ -800,6 +802,7 @@ Class | Method | HTTP request | Description
 *TaxApi* | [**updateTaxProviderSelfPostalCode**](docs/Api/TaxApi.md#updatetaxproviderselfpostalcode) | **POST** /tax/providers/self/postalCode/{postal_code} | Updates a Self tax provider postalCode
 *TaxApi* | [**updateTaxProviderSelfState**](docs/Api/TaxApi.md#updatetaxproviderselfstate) | **POST** /tax/providers/self/state/{stateCode} | Updates a Self tax provider state
 *TaxApi* | [**updateTaxProviderSovos**](docs/Api/TaxApi.md#updatetaxprovidersovos) | **POST** /tax/providers/sovos | Update the Sovos tax provider
+*TaxApi* | [**updateTaxProviderTaxCloud**](docs/Api/TaxApi.md#updatetaxprovidertaxcloud) | **POST** /tax/providers/taxcloud | Update the TaxCloud tax provider
 *TaxApi* | [**updateTaxProviderTaxJar**](docs/Api/TaxApi.md#updatetaxprovidertaxjar) | **POST** /tax/providers/taxjar | Update the TaxJar tax provider
 *TaxApi* | [**updateTaxProviderUltraCart**](docs/Api/TaxApi.md#updatetaxproviderultracart) | **POST** /tax/providers/ultracart | Update the UltraCart tax provider
 *UserApi* | [**deleteGroup**](docs/Api/UserApi.md#deletegroup) | **DELETE** /user/groups/{group_oid} | Delete a group
@@ -1934,6 +1937,7 @@ Class | Method | HTTP request | Description
 - [StoreFrontPageContentAttribute](docs/Model/StoreFrontPageContentAttribute.md)
 - [StoreFrontsResponse](docs/Model/StoreFrontsResponse.md)
 - [TaxCity](docs/Model/TaxCity.md)
+- [TaxCloudConfig](docs/Model/TaxCloudConfig.md)
 - [TaxCountry](docs/Model/TaxCountry.md)
 - [TaxCountryCode](docs/Model/TaxCountryCode.md)
 - [TaxCounty](docs/Model/TaxCounty.md)
@@ -1941,6 +1945,8 @@ Class | Method | HTTP request | Description
 - [TaxPostalCode](docs/Model/TaxPostalCode.md)
 - [TaxProviderActivateResult](docs/Model/TaxProviderActivateResult.md)
 - [TaxProviderAnrok](docs/Model/TaxProviderAnrok.md)
+- [TaxProviderAnrokProduct](docs/Model/TaxProviderAnrokProduct.md)
+- [TaxProviderAnrokTestResult](docs/Model/TaxProviderAnrokTestResult.md)
 - [TaxProviderAvalara](docs/Model/TaxProviderAvalara.md)
 - [TaxProviderAvalaraCompaniesResult](docs/Model/TaxProviderAvalaraCompaniesResult.md)
 - [TaxProviderAvalaraCompany](docs/Model/TaxProviderAvalaraCompany.md)
@@ -1948,6 +1954,7 @@ Class | Method | HTTP request | Description
 - [TaxProviderSelfCountriesResponse](docs/Model/TaxProviderSelfCountriesResponse.md)
 - [TaxProviderSelfRegionsResponse](docs/Model/TaxProviderSelfRegionsResponse.md)
 - [TaxProviderSovos](docs/Model/TaxProviderSovos.md)
+- [TaxProviderTaxCloud](docs/Model/TaxProviderTaxCloud.md)
 - [TaxProviderTaxJar](docs/Model/TaxProviderTaxJar.md)
 - [TaxProviderTestResult](docs/Model/TaxProviderTestResult.md)
 - [TaxProviderUltraCart](docs/Model/TaxProviderUltraCart.md)
@@ -2105,6 +2112,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.176 | 09/29/2026 | taxcloud tax provider testing |
 | 4.1.175 | 09/29/2026 | sfvb internal testing |
 | 4.1.174 | 09/25/2026 | sfvb internal testing |
 | 4.1.173 | 09/24/2026 | storefront communications flow re-entry setting |
