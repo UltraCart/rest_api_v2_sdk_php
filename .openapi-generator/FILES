@@ -1059,6 +1059,8 @@ docs/Model/SfvbPageItemsResponse.md
 docs/Model/SfvbPageListResponse.md
 docs/Model/SfvbPageMultimedia.md
 docs/Model/SfvbPageMultimediaRequest.md
+docs/Model/SfvbPageRefreshRequest.md
+docs/Model/SfvbPageRefreshResponse.md
 docs/Model/SfvbPageResponse.md
 docs/Model/SfvbPageSelectors.md
 docs/Model/SfvbPageSettingsRequest.md
@@ -2260,6 +2262,8 @@ lib/models/SfvbPageItemsResponse.php
 lib/models/SfvbPageListResponse.php
 lib/models/SfvbPageMultimedia.php
 lib/models/SfvbPageMultimediaRequest.php
+lib/models/SfvbPageRefreshRequest.php
+lib/models/SfvbPageRefreshResponse.php
 lib/models/SfvbPageResponse.php
 lib/models/SfvbPageSelectors.php
 lib/models/SfvbPageSettingsRequest.php

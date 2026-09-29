@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.174"
+    "ultracart/rest_api_v2_sdk_php": "4.1.175"
   }
 }
 ```
@@ -564,6 +564,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**putSfvbPreviewSession**](docs/Api/SfvbApi.md#putsfvbpreviewsession) | **PUT** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Push containers into a preview session
 *SfvbApi* | [**putSfvbSiteAttributes**](docs/Api/SfvbApi.md#putsfvbsiteattributes) | **PUT** /sfvb/storefronts/{storefront_oid}/attributes | Change a storefront&#39;s site attributes
 *SfvbApi* | [**putSfvbThemeAttributes**](docs/Api/SfvbApi.md#putsfvbthemeattributes) | **PUT** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Change a theme&#39;s colors, fonts and settings
+*SfvbApi* | [**refreshSfvbPage**](docs/Api/SfvbApi.md#refreshsfvbpage) | **POST** /sfvb/storefronts/{storefront_oid}/pages/refresh | Drop one page&#39;s cached copy
 *SfvbApi* | [**removeSfvbPageBlogPosts**](docs/Api/SfvbApi.md#removesfvbpageblogposts) | **POST** /sfvb/storefronts/{storefront_oid}/pages/blog_posts/remove | Take blog posts off a page
 *SfvbApi* | [**removeSfvbPageItems**](docs/Api/SfvbApi.md#removesfvbpageitems) | **POST** /sfvb/storefronts/{storefront_oid}/pages/items/remove | Take items off a page
 *SfvbApi* | [**renderSfvbWidgets**](docs/Api/SfvbApi.md#rendersfvbwidgets) | **POST** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/render | Render a CJSON node to HTML
@@ -1868,6 +1869,8 @@ Class | Method | HTTP request | Description
 - [SfvbPageListResponse](docs/Model/SfvbPageListResponse.md)
 - [SfvbPageMultimedia](docs/Model/SfvbPageMultimedia.md)
 - [SfvbPageMultimediaRequest](docs/Model/SfvbPageMultimediaRequest.md)
+- [SfvbPageRefreshRequest](docs/Model/SfvbPageRefreshRequest.md)
+- [SfvbPageRefreshResponse](docs/Model/SfvbPageRefreshResponse.md)
 - [SfvbPageResponse](docs/Model/SfvbPageResponse.md)
 - [SfvbPageSelectors](docs/Model/SfvbPageSelectors.md)
 - [SfvbPageSettingsRequest](docs/Model/SfvbPageSettingsRequest.md)
@@ -2102,6 +2105,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.175 | 09/29/2026 | sfvb internal testing |
 | 4.1.174 | 09/25/2026 | sfvb internal testing |
 | 4.1.173 | 09/24/2026 | storefront communications flow re-entry setting |
 | 4.1.172 | 09/24/2026 | storefront communications flow re-entry setting |
