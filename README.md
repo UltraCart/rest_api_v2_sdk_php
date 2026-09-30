@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.176"
+    "ultracart/rest_api_v2_sdk_php": "4.1.177"
   }
 }
 ```
@@ -490,14 +490,17 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**addSfvbPageBlogPosts**](docs/Api/SfvbApi.md#addsfvbpageblogposts) | **POST** /sfvb/storefronts/{storefront_oid}/pages/blog_posts/add | Assign blog posts to a page
 *SfvbApi* | [**addSfvbPageItems**](docs/Api/SfvbApi.md#addsfvbpageitems) | **POST** /sfvb/storefronts/{storefront_oid}/pages/items/add | Assign items to a page
 *SfvbApi* | [**archiveSfvbUpsellPath**](docs/Api/SfvbApi.md#archivesfvbupsellpath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/archive | Archive an upsell path
+*SfvbApi* | [**attachSfvbBlogPostImage**](docs/Api/SfvbApi.md#attachsfvbblogpostimage) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}/images/attach | Attach an image to a blog post
 *SfvbApi* | [**compileSfvbCjson**](docs/Api/SfvbApi.md#compilesfvbcjson) | **POST** /sfvb/cjson/compile | Compile CJSON to Velocity
 *SfvbApi* | [**createSfvbPreviewAccess**](docs/Api/SfvbApi.md#createsfvbpreviewaccess) | **POST** /sfvb/storefronts/{storefront_oid}/preview_access | One time link that opens a preview in a browser with no UltraCart login
 *SfvbApi* | [**createSfvbPreviewSession**](docs/Api/SfvbApi.md#createsfvbpreviewsession) | **POST** /sfvb/storefronts/{storefront_oid}/preview_sessions | Create a preview session
+*SfvbApi* | [**deleteSfvbBlogPost**](docs/Api/SfvbApi.md#deletesfvbblogpost) | **DELETE** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Delete a blog post
 *SfvbApi* | [**deleteSfvbFile**](docs/Api/SfvbApi.md#deletesfvbfile) | **DELETE** /sfvb/storefronts/{storefront_oid}/files | Delete a storefront file
 *SfvbApi* | [**deleteSfvbItemAttribute**](docs/Api/SfvbApi.md#deletesfvbitemattribute) | **DELETE** /sfvb/storefronts/{storefront_oid}/items/attributes | Delete an attribute from an item
 *SfvbApi* | [**deleteSfvbItemMultimedia**](docs/Api/SfvbApi.md#deletesfvbitemmultimedia) | **DELETE** /sfvb/storefronts/{storefront_oid}/items/multimedia | Detach an image from an item
 *SfvbApi* | [**deleteSfvbPageMultimedia**](docs/Api/SfvbApi.md#deletesfvbpagemultimedia) | **DELETE** /sfvb/storefronts/{storefront_oid}/pages/multimedia | Detach an image from a page
 *SfvbApi* | [**deleteSfvbPreviewSession**](docs/Api/SfvbApi.md#deletesfvbpreviewsession) | **DELETE** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Delete a preview session
+*SfvbApi* | [**detachSfvbBlogPostImage**](docs/Api/SfvbApi.md#detachsfvbblogpostimage) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}/images/detach | Detach an image from a blog post
 *SfvbApi* | [**disableSfvbUpsellOffer**](docs/Api/SfvbApi.md#disablesfvbupselloffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/disable | Disable an upsell offer
 *SfvbApi* | [**disableSfvbUpsellPath**](docs/Api/SfvbApi.md#disablesfvbupsellpath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/disable | Disable an upsell path
 *SfvbApi* | [**downloadSfvbFile**](docs/Api/SfvbApi.md#downloadsfvbfile) | **GET** /sfvb/storefronts/{storefront_oid}/files/download | Read a storefront file&#39;s raw bytes
@@ -506,6 +509,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**duplicateSfvbUpsellOffer**](docs/Api/SfvbApi.md#duplicatesfvbupselloffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/duplicate | Duplicate an upsell offer
 *SfvbApi* | [**duplicateSfvbUpsellPath**](docs/Api/SfvbApi.md#duplicatesfvbupsellpath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/duplicate | Duplicate an upsell path or one of its variations
 *SfvbApi* | [**endSfvbExperiment**](docs/Api/SfvbApi.md#endsfvbexperiment) | **POST** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}/end | End an experiment
+*SfvbApi* | [**getSfvbBlogPost**](docs/Api/SfvbApi.md#getsfvbblogpost) | **GET** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Read a blog post
 *SfvbApi* | [**getSfvbCjsonUsedElements**](docs/Api/SfvbApi.md#getsfvbcjsonusedelements) | **POST** /sfvb/cjson/elements | Element types used by a container
 *SfvbApi* | [**getSfvbContainer**](docs/Api/SfvbApi.md#getsfvbcontainer) | **GET** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Read a container stored outside the file system
 *SfvbApi* | [**getSfvbContainerVersion**](docs/Api/SfvbApi.md#getsfvbcontainerversion) | **GET** /sfvb/storefronts/{storefront_oid}/container_versions/{container_history_oid} | Read the CJSON stored in one container history entry
@@ -531,6 +535,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbUpsellPath**](docs/Api/SfvbApi.md#getsfvbupsellpath) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid} | Get an upsell path
 *SfvbApi* | [**getSfvbVersion**](docs/Api/SfvbApi.md#getsfvbversion) | **GET** /sfvb/version | Compiler version for this merchant
 *SfvbApi* | [**getSfvbWhoami**](docs/Api/SfvbApi.md#getsfvbwhoami) | **GET** /sfvb/whoami | Who this token is
+*SfvbApi* | [**insertSfvbBlogPost**](docs/Api/SfvbApi.md#insertsfvbblogpost) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts | Create a blog post
 *SfvbApi* | [**insertSfvbPage**](docs/Api/SfvbApi.md#insertsfvbpage) | **POST** /sfvb/storefronts/{storefront_oid}/pages | Create a page
 *SfvbApi* | [**insertSfvbUpsellOffer**](docs/Api/SfvbApi.md#insertsfvbupselloffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers | Create an upsell offer
 *SfvbApi* | [**insertSfvbUpsellPath**](docs/Api/SfvbApi.md#insertsfvbupsellpath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths | Create an upsell path
@@ -576,6 +581,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**searchSfvbLibrary**](docs/Api/SfvbApi.md#searchsfvblibrary) | **GET** /sfvb/storefronts/{storefront_oid}/library | Search the element library
 *SfvbApi* | [**startSfvbExperiment**](docs/Api/SfvbApi.md#startsfvbexperiment) | **POST** /sfvb/storefronts/{storefront_oid}/experiments | Start an experiment
 *SfvbApi* | [**unarchiveSfvbUpsellPath**](docs/Api/SfvbApi.md#unarchivesfvbupsellpath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/unarchive | Unarchive an upsell path
+*SfvbApi* | [**updateSfvbBlogPost**](docs/Api/SfvbApi.md#updatesfvbblogpost) | **PUT** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Change a blog post
 *SfvbApi* | [**updateSfvbUpsellOffer**](docs/Api/SfvbApi.md#updatesfvbupselloffer) | **PUT** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid} | Update an upsell offer
 *SfvbApi* | [**updateSfvbUpsellPath**](docs/Api/SfvbApi.md#updatesfvbupsellpath) | **PUT** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid} | Update an upsell path
 *SfvbApi* | [**uploadSfvbFile**](docs/Api/SfvbApi.md#uploadsfvbfile) | **POST** /sfvb/storefronts/{storefront_oid}/files/upload | Store a binary asset that was already uploaded
@@ -1806,6 +1812,10 @@ Class | Method | HTTP request | Description
 - [ScreenshotsResponse](docs/Model/ScreenshotsResponse.md)
 - [SelfConfig](docs/Model/SelfConfig.md)
 - [SfvbBlogPost](docs/Model/SfvbBlogPost.md)
+- [SfvbBlogPostDetail](docs/Model/SfvbBlogPostDetail.md)
+- [SfvbBlogPostImage](docs/Model/SfvbBlogPostImage.md)
+- [SfvbBlogPostImageRequest](docs/Model/SfvbBlogPostImageRequest.md)
+- [SfvbBlogPostRequest](docs/Model/SfvbBlogPostRequest.md)
 - [SfvbBlogPostsResponse](docs/Model/SfvbBlogPostsResponse.md)
 - [SfvbCompileRequest](docs/Model/SfvbCompileRequest.md)
 - [SfvbCompileResponse](docs/Model/SfvbCompileResponse.md)
@@ -2112,6 +2122,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.177 | 09/30/2026 | sfvb internal testing |
 | 4.1.176 | 09/29/2026 | taxcloud tax provider testing |
 | 4.1.175 | 09/29/2026 | sfvb internal testing |
 | 4.1.174 | 09/25/2026 | sfvb internal testing |

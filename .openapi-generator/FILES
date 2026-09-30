@@ -993,6 +993,10 @@ docs/Model/ScreenRecordingUserProperty.md
 docs/Model/ScreenshotsResponse.md
 docs/Model/SelfConfig.md
 docs/Model/SfvbBlogPost.md
+docs/Model/SfvbBlogPostDetail.md
+docs/Model/SfvbBlogPostImage.md
+docs/Model/SfvbBlogPostImageRequest.md
+docs/Model/SfvbBlogPostRequest.md
 docs/Model/SfvbBlogPostsResponse.md
 docs/Model/SfvbCompileRequest.md
 docs/Model/SfvbCompileResponse.md
@@ -2200,6 +2204,10 @@ lib/models/ScreenRecordingUserProperty.php
 lib/models/ScreenshotsResponse.php
 lib/models/SelfConfig.php
 lib/models/SfvbBlogPost.php
+lib/models/SfvbBlogPostDetail.php
+lib/models/SfvbBlogPostImage.php
+lib/models/SfvbBlogPostImageRequest.php
+lib/models/SfvbBlogPostRequest.php
 lib/models/SfvbBlogPostsResponse.php
 lib/models/SfvbCompileRequest.php
 lib/models/SfvbCompileResponse.php

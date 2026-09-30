@@ -1572,6 +1572,488 @@ class SfvbApi
     }
 
     /**
+     * Operation attachSfvbBlogPostImage
+     *
+     * Attach an image to a blog post
+     *
+     * @param  int $storefront_oid storefront_oid (required)
+     * @param  int $blog_post_oid blog_post_oid (required)
+     * @param  \ultracart\v2\models\SfvbBlogPostImageRequest $blog_post_image_request Image to attach (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\SfvbBlogPostDetail|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function attachSfvbBlogPostImage($storefront_oid, $blog_post_oid, $blog_post_image_request)
+    {
+        list($response) = $this->attachSfvbBlogPostImageWithHttpInfo($storefront_oid, $blog_post_oid, $blog_post_image_request);
+        return $response;
+    }
+
+    /**
+     * Operation attachSfvbBlogPostImageWithHttpInfo
+     *
+     * Attach an image to a blog post
+     *
+     * @param  int $storefront_oid (required)
+     * @param  int $blog_post_oid (required)
+     * @param  \ultracart\v2\models\SfvbBlogPostImageRequest $blog_post_image_request Image to attach (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbBlogPostDetail|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function attachSfvbBlogPostImageWithHttpInfo($storefront_oid, $blog_post_oid, $blog_post_image_request)
+    {
+        return $this->attachSfvbBlogPostImageWithHttpInfoRetry(true ,   $storefront_oid,   $blog_post_oid,   $blog_post_image_request);
+    }
+
+
+
+    /**
+     * Operation attachSfvbBlogPostImageWithHttpInfoRetry
+     *
+     * Attach an image to a blog post
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  int $blog_post_oid (required)
+     * @param  \ultracart\v2\models\SfvbBlogPostImageRequest $blog_post_image_request Image to attach (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbBlogPostDetail|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function attachSfvbBlogPostImageWithHttpInfoRetry($retry , $storefront_oid, $blog_post_oid, $blog_post_image_request)
+    {
+        $returnType = '\ultracart\v2\models\SfvbBlogPostDetail';
+        $request = $this->attachSfvbBlogPostImageRequest($storefront_oid, $blog_post_oid, $blog_post_image_request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->attachSfvbBlogPostImageWithHttpInfoRetry(false ,   $storefront_oid,   $blog_post_oid,   $blog_post_image_request);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\SfvbBlogPostDetail' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\SfvbBlogPostDetail' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\SfvbBlogPostDetail', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\SfvbBlogPostDetail';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\SfvbBlogPostDetail',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation attachSfvbBlogPostImageAsync
+     *
+     * Attach an image to a blog post
+     *
+     * @param  int $storefront_oid (required)
+     * @param  int $blog_post_oid (required)
+     * @param  \ultracart\v2\models\SfvbBlogPostImageRequest $blog_post_image_request Image to attach (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function attachSfvbBlogPostImageAsync($storefront_oid, $blog_post_oid, $blog_post_image_request)
+    {
+        return $this->attachSfvbBlogPostImageAsyncWithHttpInfo($storefront_oid, $blog_post_oid, $blog_post_image_request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation attachSfvbBlogPostImageAsyncWithHttpInfo
+     *
+     * Attach an image to a blog post
+     *
+     * @param  int $storefront_oid (required)
+     * @param  int $blog_post_oid (required)
+     * @param  \ultracart\v2\models\SfvbBlogPostImageRequest $blog_post_image_request Image to attach (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function attachSfvbBlogPostImageAsyncWithHttpInfo($storefront_oid, $blog_post_oid, $blog_post_image_request)
+    {
+        $returnType = '\ultracart\v2\models\SfvbBlogPostDetail';
+        $request = $this->attachSfvbBlogPostImageRequest($storefront_oid, $blog_post_oid, $blog_post_image_request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'attachSfvbBlogPostImage'
+     *
+     * @param  int $storefront_oid (required)
+     * @param  int $blog_post_oid (required)
+     * @param  \ultracart\v2\models\SfvbBlogPostImageRequest $blog_post_image_request Image to attach (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function attachSfvbBlogPostImageRequest($storefront_oid, $blog_post_oid, $blog_post_image_request)
+    {
+        // verify the required parameter 'storefront_oid' is set
+        if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $storefront_oid when calling attachSfvbBlogPostImage'
+            );
+        }
+        // verify the required parameter 'blog_post_oid' is set
+        if ($blog_post_oid === null || (is_array($blog_post_oid) && count($blog_post_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $blog_post_oid when calling attachSfvbBlogPostImage'
+            );
+        }
+        // verify the required parameter 'blog_post_image_request' is set
+        if ($blog_post_image_request === null || (is_array($blog_post_image_request) && count($blog_post_image_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $blog_post_image_request when calling attachSfvbBlogPostImage'
+            );
+        }
+
+        $resourcePath = '/sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}/images/attach';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($storefront_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'storefront_oid' . '}',
+                ObjectSerializer::toPathValue($storefront_oid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($blog_post_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'blog_post_oid' . '}',
+                ObjectSerializer::toPathValue($blog_post_oid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json; charset=UTF-8']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($blog_post_image_request)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($blog_post_image_request));
+            } else {
+                $httpBody = $blog_post_image_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation compileSfvbCjson
      *
      * Compile CJSON to Velocity
@@ -2884,6 +3366,341 @@ class SfvbApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteSfvbBlogPost
+     *
+     * Delete a blog post
+     *
+     * @param  int $storefront_oid storefront_oid (required)
+     * @param  int $blog_post_oid blog_post_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteSfvbBlogPost($storefront_oid, $blog_post_oid)
+    {
+        $this->deleteSfvbBlogPostWithHttpInfo($storefront_oid, $blog_post_oid);
+    }
+
+    /**
+     * Operation deleteSfvbBlogPostWithHttpInfo
+     *
+     * Delete a blog post
+     *
+     * @param  int $storefront_oid (required)
+     * @param  int $blog_post_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteSfvbBlogPostWithHttpInfo($storefront_oid, $blog_post_oid)
+    {
+        $this->deleteSfvbBlogPostWithHttpInfoRetry(true ,   $storefront_oid,   $blog_post_oid);
+    }
+
+
+
+    /**
+     * Operation deleteSfvbBlogPostWithHttpInfoRetry
+     *
+     * Delete a blog post
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  int $blog_post_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteSfvbBlogPostWithHttpInfoRetry($retry , $storefront_oid, $blog_post_oid)
+    {
+        $returnType = '';
+        $request = $this->deleteSfvbBlogPostRequest($storefront_oid, $blog_post_oid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        $this->deleteSfvbBlogPostWithHttpInfoRetry(false ,   $storefront_oid,   $blog_post_oid);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation deleteSfvbBlogPostAsync
+     *
+     * Delete a blog post
+     *
+     * @param  int $storefront_oid (required)
+     * @param  int $blog_post_oid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteSfvbBlogPostAsync($storefront_oid, $blog_post_oid)
+    {
+        return $this->deleteSfvbBlogPostAsyncWithHttpInfo($storefront_oid, $blog_post_oid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteSfvbBlogPostAsyncWithHttpInfo
+     *
+     * Delete a blog post
+     *
+     * @param  int $storefront_oid (required)
+     * @param  int $blog_post_oid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteSfvbBlogPostAsyncWithHttpInfo($storefront_oid, $blog_post_oid)
+    {
+        $returnType = '';
+        $request = $this->deleteSfvbBlogPostRequest($storefront_oid, $blog_post_oid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteSfvbBlogPost'
+     *
+     * @param  int $storefront_oid (required)
+     * @param  int $blog_post_oid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteSfvbBlogPostRequest($storefront_oid, $blog_post_oid)
+    {
+        // verify the required parameter 'storefront_oid' is set
+        if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $storefront_oid when calling deleteSfvbBlogPost'
+            );
+        }
+        // verify the required parameter 'blog_post_oid' is set
+        if ($blog_post_oid === null || (is_array($blog_post_oid) && count($blog_post_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $blog_post_oid when calling deleteSfvbBlogPost'
+            );
+        }
+
+        $resourcePath = '/sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($storefront_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'storefront_oid' . '}',
+                ObjectSerializer::toPathValue($storefront_oid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($blog_post_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'blog_post_oid' . '}',
+                ObjectSerializer::toPathValue($blog_post_oid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -5059,6 +5876,488 @@ class SfvbApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation detachSfvbBlogPostImage
+     *
+     * Detach an image from a blog post
+     *
+     * @param  int $storefront_oid storefront_oid (required)
+     * @param  int $blog_post_oid blog_post_oid (required)
+     * @param  \ultracart\v2\models\SfvbBlogPostImageRequest $blog_post_image_request Image to detach (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\SfvbBlogPostDetail|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function detachSfvbBlogPostImage($storefront_oid, $blog_post_oid, $blog_post_image_request)
+    {
+        list($response) = $this->detachSfvbBlogPostImageWithHttpInfo($storefront_oid, $blog_post_oid, $blog_post_image_request);
+        return $response;
+    }
+
+    /**
+     * Operation detachSfvbBlogPostImageWithHttpInfo
+     *
+     * Detach an image from a blog post
+     *
+     * @param  int $storefront_oid (required)
+     * @param  int $blog_post_oid (required)
+     * @param  \ultracart\v2\models\SfvbBlogPostImageRequest $blog_post_image_request Image to detach (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbBlogPostDetail|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function detachSfvbBlogPostImageWithHttpInfo($storefront_oid, $blog_post_oid, $blog_post_image_request)
+    {
+        return $this->detachSfvbBlogPostImageWithHttpInfoRetry(true ,   $storefront_oid,   $blog_post_oid,   $blog_post_image_request);
+    }
+
+
+
+    /**
+     * Operation detachSfvbBlogPostImageWithHttpInfoRetry
+     *
+     * Detach an image from a blog post
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  int $blog_post_oid (required)
+     * @param  \ultracart\v2\models\SfvbBlogPostImageRequest $blog_post_image_request Image to detach (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbBlogPostDetail|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function detachSfvbBlogPostImageWithHttpInfoRetry($retry , $storefront_oid, $blog_post_oid, $blog_post_image_request)
+    {
+        $returnType = '\ultracart\v2\models\SfvbBlogPostDetail';
+        $request = $this->detachSfvbBlogPostImageRequest($storefront_oid, $blog_post_oid, $blog_post_image_request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->detachSfvbBlogPostImageWithHttpInfoRetry(false ,   $storefront_oid,   $blog_post_oid,   $blog_post_image_request);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\SfvbBlogPostDetail' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\SfvbBlogPostDetail' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\SfvbBlogPostDetail', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\SfvbBlogPostDetail';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\SfvbBlogPostDetail',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation detachSfvbBlogPostImageAsync
+     *
+     * Detach an image from a blog post
+     *
+     * @param  int $storefront_oid (required)
+     * @param  int $blog_post_oid (required)
+     * @param  \ultracart\v2\models\SfvbBlogPostImageRequest $blog_post_image_request Image to detach (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function detachSfvbBlogPostImageAsync($storefront_oid, $blog_post_oid, $blog_post_image_request)
+    {
+        return $this->detachSfvbBlogPostImageAsyncWithHttpInfo($storefront_oid, $blog_post_oid, $blog_post_image_request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation detachSfvbBlogPostImageAsyncWithHttpInfo
+     *
+     * Detach an image from a blog post
+     *
+     * @param  int $storefront_oid (required)
+     * @param  int $blog_post_oid (required)
+     * @param  \ultracart\v2\models\SfvbBlogPostImageRequest $blog_post_image_request Image to detach (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function detachSfvbBlogPostImageAsyncWithHttpInfo($storefront_oid, $blog_post_oid, $blog_post_image_request)
+    {
+        $returnType = '\ultracart\v2\models\SfvbBlogPostDetail';
+        $request = $this->detachSfvbBlogPostImageRequest($storefront_oid, $blog_post_oid, $blog_post_image_request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'detachSfvbBlogPostImage'
+     *
+     * @param  int $storefront_oid (required)
+     * @param  int $blog_post_oid (required)
+     * @param  \ultracart\v2\models\SfvbBlogPostImageRequest $blog_post_image_request Image to detach (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function detachSfvbBlogPostImageRequest($storefront_oid, $blog_post_oid, $blog_post_image_request)
+    {
+        // verify the required parameter 'storefront_oid' is set
+        if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $storefront_oid when calling detachSfvbBlogPostImage'
+            );
+        }
+        // verify the required parameter 'blog_post_oid' is set
+        if ($blog_post_oid === null || (is_array($blog_post_oid) && count($blog_post_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $blog_post_oid when calling detachSfvbBlogPostImage'
+            );
+        }
+        // verify the required parameter 'blog_post_image_request' is set
+        if ($blog_post_image_request === null || (is_array($blog_post_image_request) && count($blog_post_image_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $blog_post_image_request when calling detachSfvbBlogPostImage'
+            );
+        }
+
+        $resourcePath = '/sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}/images/detach';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($storefront_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'storefront_oid' . '}',
+                ObjectSerializer::toPathValue($storefront_oid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($blog_post_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'blog_post_oid' . '}',
+                ObjectSerializer::toPathValue($blog_post_oid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json; charset=UTF-8']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($blog_post_image_request)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($blog_post_image_request));
+            } else {
+                $httpBody = $blog_post_image_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -8646,6 +9945,447 @@ class SfvbApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getSfvbBlogPost
+     *
+     * Read a blog post
+     *
+     * @param  int $storefront_oid storefront_oid (required)
+     * @param  int $blog_post_oid blog_post_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\SfvbBlogPostDetail|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function getSfvbBlogPost($storefront_oid, $blog_post_oid)
+    {
+        list($response) = $this->getSfvbBlogPostWithHttpInfo($storefront_oid, $blog_post_oid);
+        return $response;
+    }
+
+    /**
+     * Operation getSfvbBlogPostWithHttpInfo
+     *
+     * Read a blog post
+     *
+     * @param  int $storefront_oid (required)
+     * @param  int $blog_post_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbBlogPostDetail|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSfvbBlogPostWithHttpInfo($storefront_oid, $blog_post_oid)
+    {
+        return $this->getSfvbBlogPostWithHttpInfoRetry(true ,   $storefront_oid,   $blog_post_oid);
+    }
+
+
+
+    /**
+     * Operation getSfvbBlogPostWithHttpInfoRetry
+     *
+     * Read a blog post
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  int $blog_post_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbBlogPostDetail|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSfvbBlogPostWithHttpInfoRetry($retry , $storefront_oid, $blog_post_oid)
+    {
+        $returnType = '\ultracart\v2\models\SfvbBlogPostDetail';
+        $request = $this->getSfvbBlogPostRequest($storefront_oid, $blog_post_oid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getSfvbBlogPostWithHttpInfoRetry(false ,   $storefront_oid,   $blog_post_oid);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\SfvbBlogPostDetail' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\SfvbBlogPostDetail' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\SfvbBlogPostDetail', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\SfvbBlogPostDetail';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\SfvbBlogPostDetail',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation getSfvbBlogPostAsync
+     *
+     * Read a blog post
+     *
+     * @param  int $storefront_oid (required)
+     * @param  int $blog_post_oid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSfvbBlogPostAsync($storefront_oid, $blog_post_oid)
+    {
+        return $this->getSfvbBlogPostAsyncWithHttpInfo($storefront_oid, $blog_post_oid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getSfvbBlogPostAsyncWithHttpInfo
+     *
+     * Read a blog post
+     *
+     * @param  int $storefront_oid (required)
+     * @param  int $blog_post_oid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSfvbBlogPostAsyncWithHttpInfo($storefront_oid, $blog_post_oid)
+    {
+        $returnType = '\ultracart\v2\models\SfvbBlogPostDetail';
+        $request = $this->getSfvbBlogPostRequest($storefront_oid, $blog_post_oid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getSfvbBlogPost'
+     *
+     * @param  int $storefront_oid (required)
+     * @param  int $blog_post_oid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getSfvbBlogPostRequest($storefront_oid, $blog_post_oid)
+    {
+        // verify the required parameter 'storefront_oid' is set
+        if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $storefront_oid when calling getSfvbBlogPost'
+            );
+        }
+        // verify the required parameter 'blog_post_oid' is set
+        if ($blog_post_oid === null || (is_array($blog_post_oid) && count($blog_post_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $blog_post_oid when calling getSfvbBlogPost'
+            );
+        }
+
+        $resourcePath = '/sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($storefront_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'storefront_oid' . '}',
+                ObjectSerializer::toPathValue($storefront_oid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($blog_post_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'blog_post_oid' . '}',
+                ObjectSerializer::toPathValue($blog_post_oid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -19766,6 +21506,468 @@ class SfvbApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation insertSfvbBlogPost
+     *
+     * Create a blog post
+     *
+     * @param  int $storefront_oid storefront_oid (required)
+     * @param  \ultracart\v2\models\SfvbBlogPostRequest $blog_post_request The blog post to create (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\SfvbBlogPostDetail|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function insertSfvbBlogPost($storefront_oid, $blog_post_request)
+    {
+        list($response) = $this->insertSfvbBlogPostWithHttpInfo($storefront_oid, $blog_post_request);
+        return $response;
+    }
+
+    /**
+     * Operation insertSfvbBlogPostWithHttpInfo
+     *
+     * Create a blog post
+     *
+     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\SfvbBlogPostRequest $blog_post_request The blog post to create (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbBlogPostDetail|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertSfvbBlogPostWithHttpInfo($storefront_oid, $blog_post_request)
+    {
+        return $this->insertSfvbBlogPostWithHttpInfoRetry(true ,   $storefront_oid,   $blog_post_request);
+    }
+
+
+
+    /**
+     * Operation insertSfvbBlogPostWithHttpInfoRetry
+     *
+     * Create a blog post
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\SfvbBlogPostRequest $blog_post_request The blog post to create (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbBlogPostDetail|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertSfvbBlogPostWithHttpInfoRetry($retry , $storefront_oid, $blog_post_request)
+    {
+        $returnType = '\ultracart\v2\models\SfvbBlogPostDetail';
+        $request = $this->insertSfvbBlogPostRequest($storefront_oid, $blog_post_request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->insertSfvbBlogPostWithHttpInfoRetry(false ,   $storefront_oid,   $blog_post_request);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\SfvbBlogPostDetail' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\SfvbBlogPostDetail' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\SfvbBlogPostDetail', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\SfvbBlogPostDetail';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\SfvbBlogPostDetail',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation insertSfvbBlogPostAsync
+     *
+     * Create a blog post
+     *
+     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\SfvbBlogPostRequest $blog_post_request The blog post to create (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function insertSfvbBlogPostAsync($storefront_oid, $blog_post_request)
+    {
+        return $this->insertSfvbBlogPostAsyncWithHttpInfo($storefront_oid, $blog_post_request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation insertSfvbBlogPostAsyncWithHttpInfo
+     *
+     * Create a blog post
+     *
+     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\SfvbBlogPostRequest $blog_post_request The blog post to create (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function insertSfvbBlogPostAsyncWithHttpInfo($storefront_oid, $blog_post_request)
+    {
+        $returnType = '\ultracart\v2\models\SfvbBlogPostDetail';
+        $request = $this->insertSfvbBlogPostRequest($storefront_oid, $blog_post_request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'insertSfvbBlogPost'
+     *
+     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\SfvbBlogPostRequest $blog_post_request The blog post to create (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function insertSfvbBlogPostRequest($storefront_oid, $blog_post_request)
+    {
+        // verify the required parameter 'storefront_oid' is set
+        if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $storefront_oid when calling insertSfvbBlogPost'
+            );
+        }
+        // verify the required parameter 'blog_post_request' is set
+        if ($blog_post_request === null || (is_array($blog_post_request) && count($blog_post_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $blog_post_request when calling insertSfvbBlogPost'
+            );
+        }
+
+        $resourcePath = '/sfvb/storefronts/{storefront_oid}/blog_posts';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($storefront_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'storefront_oid' . '}',
+                ObjectSerializer::toPathValue($storefront_oid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json; charset=UTF-8']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($blog_post_request)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($blog_post_request));
+            } else {
+                $httpBody = $blog_post_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -41039,6 +43241,488 @@ class SfvbApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateSfvbBlogPost
+     *
+     * Change a blog post
+     *
+     * @param  int $storefront_oid storefront_oid (required)
+     * @param  int $blog_post_oid blog_post_oid (required)
+     * @param  \ultracart\v2\models\SfvbBlogPostRequest $blog_post_request The fields to change (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\SfvbBlogPostDetail|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function updateSfvbBlogPost($storefront_oid, $blog_post_oid, $blog_post_request)
+    {
+        list($response) = $this->updateSfvbBlogPostWithHttpInfo($storefront_oid, $blog_post_oid, $blog_post_request);
+        return $response;
+    }
+
+    /**
+     * Operation updateSfvbBlogPostWithHttpInfo
+     *
+     * Change a blog post
+     *
+     * @param  int $storefront_oid (required)
+     * @param  int $blog_post_oid (required)
+     * @param  \ultracart\v2\models\SfvbBlogPostRequest $blog_post_request The fields to change (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbBlogPostDetail|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateSfvbBlogPostWithHttpInfo($storefront_oid, $blog_post_oid, $blog_post_request)
+    {
+        return $this->updateSfvbBlogPostWithHttpInfoRetry(true ,   $storefront_oid,   $blog_post_oid,   $blog_post_request);
+    }
+
+
+
+    /**
+     * Operation updateSfvbBlogPostWithHttpInfoRetry
+     *
+     * Change a blog post
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  int $blog_post_oid (required)
+     * @param  \ultracart\v2\models\SfvbBlogPostRequest $blog_post_request The fields to change (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbBlogPostDetail|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateSfvbBlogPostWithHttpInfoRetry($retry , $storefront_oid, $blog_post_oid, $blog_post_request)
+    {
+        $returnType = '\ultracart\v2\models\SfvbBlogPostDetail';
+        $request = $this->updateSfvbBlogPostRequest($storefront_oid, $blog_post_oid, $blog_post_request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateSfvbBlogPostWithHttpInfoRetry(false ,   $storefront_oid,   $blog_post_oid,   $blog_post_request);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\SfvbBlogPostDetail' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\SfvbBlogPostDetail' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\SfvbBlogPostDetail', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\SfvbBlogPostDetail';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\SfvbBlogPostDetail',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation updateSfvbBlogPostAsync
+     *
+     * Change a blog post
+     *
+     * @param  int $storefront_oid (required)
+     * @param  int $blog_post_oid (required)
+     * @param  \ultracart\v2\models\SfvbBlogPostRequest $blog_post_request The fields to change (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateSfvbBlogPostAsync($storefront_oid, $blog_post_oid, $blog_post_request)
+    {
+        return $this->updateSfvbBlogPostAsyncWithHttpInfo($storefront_oid, $blog_post_oid, $blog_post_request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateSfvbBlogPostAsyncWithHttpInfo
+     *
+     * Change a blog post
+     *
+     * @param  int $storefront_oid (required)
+     * @param  int $blog_post_oid (required)
+     * @param  \ultracart\v2\models\SfvbBlogPostRequest $blog_post_request The fields to change (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateSfvbBlogPostAsyncWithHttpInfo($storefront_oid, $blog_post_oid, $blog_post_request)
+    {
+        $returnType = '\ultracart\v2\models\SfvbBlogPostDetail';
+        $request = $this->updateSfvbBlogPostRequest($storefront_oid, $blog_post_oid, $blog_post_request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateSfvbBlogPost'
+     *
+     * @param  int $storefront_oid (required)
+     * @param  int $blog_post_oid (required)
+     * @param  \ultracart\v2\models\SfvbBlogPostRequest $blog_post_request The fields to change (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateSfvbBlogPostRequest($storefront_oid, $blog_post_oid, $blog_post_request)
+    {
+        // verify the required parameter 'storefront_oid' is set
+        if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $storefront_oid when calling updateSfvbBlogPost'
+            );
+        }
+        // verify the required parameter 'blog_post_oid' is set
+        if ($blog_post_oid === null || (is_array($blog_post_oid) && count($blog_post_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $blog_post_oid when calling updateSfvbBlogPost'
+            );
+        }
+        // verify the required parameter 'blog_post_request' is set
+        if ($blog_post_request === null || (is_array($blog_post_request) && count($blog_post_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $blog_post_request when calling updateSfvbBlogPost'
+            );
+        }
+
+        $resourcePath = '/sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($storefront_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'storefront_oid' . '}',
+                ObjectSerializer::toPathValue($storefront_oid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($blog_post_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'blog_post_oid' . '}',
+                ObjectSerializer::toPathValue($blog_post_oid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json; charset=UTF-8']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($blog_post_request)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($blog_post_request));
+            } else {
+                $httpBody = $blog_post_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

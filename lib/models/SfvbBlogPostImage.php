@@ -1,6 +1,6 @@
 <?php
 /**
- * SfvbPageAttributeUpdate
+ * SfvbBlogPostImage
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * SfvbPageAttributeUpdate Class Doc Comment
+ * SfvbBlogPostImage Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SfvbPageAttributeUpdate implements ModelInterface, ArrayAccess, \JsonSerializable
+class SfvbBlogPostImage implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SfvbPageAttributeUpdate implements ModelInterface, ArrayAccess, \JsonSeria
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SfvbPageAttributeUpdate';
+    protected static $openAPIModelName = 'SfvbBlogPostImage';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,14 @@ class SfvbPageAttributeUpdate implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'type' => 'string',
-        'value' => 'string'
+        'blog_post_multimedia_oid' => 'int',
+        'code' => 'string',
+        'default_image' => 'bool',
+        'description' => 'string',
+        'filename' => 'string',
+        'height' => 'int',
+        'url' => 'string',
+        'width' => 'int'
     ];
 
     /**
@@ -71,9 +76,14 @@ class SfvbPageAttributeUpdate implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'type' => null,
-        'value' => null
+        'blog_post_multimedia_oid' => 'int32',
+        'code' => null,
+        'default_image' => null,
+        'description' => null,
+        'filename' => null,
+        'height' => 'int32',
+        'url' => null,
+        'width' => 'int32'
     ];
 
     /**
@@ -103,9 +113,14 @@ class SfvbPageAttributeUpdate implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'type' => 'type',
-        'value' => 'value'
+        'blog_post_multimedia_oid' => 'blog_post_multimedia_oid',
+        'code' => 'code',
+        'default_image' => 'default_image',
+        'description' => 'description',
+        'filename' => 'filename',
+        'height' => 'height',
+        'url' => 'url',
+        'width' => 'width'
     ];
 
     /**
@@ -114,9 +129,14 @@ class SfvbPageAttributeUpdate implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'type' => 'setType',
-        'value' => 'setValue'
+        'blog_post_multimedia_oid' => 'setBlogPostMultimediaOid',
+        'code' => 'setCode',
+        'default_image' => 'setDefaultImage',
+        'description' => 'setDescription',
+        'filename' => 'setFilename',
+        'height' => 'setHeight',
+        'url' => 'setUrl',
+        'width' => 'setWidth'
     ];
 
     /**
@@ -125,9 +145,14 @@ class SfvbPageAttributeUpdate implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'type' => 'getType',
-        'value' => 'getValue'
+        'blog_post_multimedia_oid' => 'getBlogPostMultimediaOid',
+        'code' => 'getCode',
+        'default_image' => 'getDefaultImage',
+        'description' => 'getDescription',
+        'filename' => 'getFilename',
+        'height' => 'getHeight',
+        'url' => 'getUrl',
+        'width' => 'getWidth'
     ];
 
     /**
@@ -171,31 +196,6 @@ class SfvbPageAttributeUpdate implements ModelInterface, ArrayAccess, \JsonSeria
         return self::$openAPIModelName;
     }
 
-    public const TYPE_STRING = 'string';
-    public const TYPE_MULTILINE = 'multiline';
-    public const TYPE_HTML = 'html';
-    public const TYPE_BOOLEAN = 'boolean';
-    public const TYPE_INTEGER = 'integer';
-    public const TYPE_COLOR = 'color';
-    public const TYPE_RGBA = 'rgba';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_STRING,
-            self::TYPE_MULTILINE,
-            self::TYPE_HTML,
-            self::TYPE_BOOLEAN,
-            self::TYPE_INTEGER,
-            self::TYPE_COLOR,
-            self::TYPE_RGBA,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -212,9 +212,14 @@ class SfvbPageAttributeUpdate implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = $data['name'] ?? null;
-        $this->container['type'] = $data['type'] ?? null;
-        $this->container['value'] = $data['value'] ?? null;
+        $this->container['blog_post_multimedia_oid'] = $data['blog_post_multimedia_oid'] ?? null;
+        $this->container['code'] = $data['code'] ?? null;
+        $this->container['default_image'] = $data['default_image'] ?? null;
+        $this->container['description'] = $data['description'] ?? null;
+        $this->container['filename'] = $data['filename'] ?? null;
+        $this->container['height'] = $data['height'] ?? null;
+        $this->container['url'] = $data['url'] ?? null;
+        $this->container['width'] = $data['width'] ?? null;
     }
 
     /**
@@ -225,15 +230,6 @@ class SfvbPageAttributeUpdate implements ModelInterface, ArrayAccess, \JsonSeria
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'type', must be one of '%s'",
-                $this->container['type'],
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -251,83 +247,193 @@ class SfvbPageAttributeUpdate implements ModelInterface, ArrayAccess, \JsonSeria
 
 
     /**
-     * Gets name
+     * Gets blog_post_multimedia_oid
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getName()
+    public function getBlogPostMultimediaOid()
     {
-        return $this->container['name'];
+        return $this->container['blog_post_multimedia_oid'];
     }
 
     /**
-     * Sets name
+     * Sets blog_post_multimedia_oid
      *
-     * @param string|null $name Attribute name.  Matched without regard to case against what the page already has, so you do not have to reproduce the exact casing.  A name nothing matches creates a new attribute.
+     * @param int|null $blog_post_multimedia_oid The image's oid.  Detach names it this way.
      *
      * @return self
      */
-    public function setName($name)
+    public function setBlogPostMultimediaOid($blog_post_multimedia_oid)
     {
-        $this->container['name'] = $name;
+        $this->container['blog_post_multimedia_oid'] = $blog_post_multimedia_oid;
 
         return $this;
     }
 
     /**
-     * Gets type
+     * Gets code
      *
      * @return string|null
      */
-    public function getType()
+    public function getCode()
     {
-        return $this->container['type'];
+        return $this->container['code'];
     }
 
     /**
-     * Sets type
+     * Sets code
      *
-     * @param string|null $type Only consulted when creating an attribute no template declares.  For a declared attribute the template's type always wins, because the templates decide it and not the caller.
+     * @param string|null $code The image code, or null for the default image and for an image used only in the body.
      *
      * @return self
      */
-    public function setType($type)
+    public function setCode($code)
     {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
+        $this->container['code'] = $code;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets default_image
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getValue()
+    public function getDefaultImage()
     {
-        return $this->container['value'];
+        return $this->container['default_image'];
     }
 
     /**
-     * Sets value
+     * Sets default_image
      *
-     * @param string|null $value The value to store.  An empty string clears it.  For html the markup is stored as given and rendered as given.  For boolean send the text true or false.  For itemset send a comma separated list of merchant item ids in display order, not JSON.  An id that does not resolve is dropped.
+     * @param bool|null $default_image True for the post's default image, which a blogpostimage element and og image use.
      *
      * @return self
      */
-    public function setValue($value)
+    public function setDefaultImage($default_image)
     {
-        $this->container['value'] = $value;
+        $this->container['default_image'] = $default_image;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description The description stored with the image, used as its alt text.
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets filename
+     *
+     * @return string|null
+     */
+    public function getFilename()
+    {
+        return $this->container['filename'];
+    }
+
+    /**
+     * Sets filename
+     *
+     * @param string|null $filename The image's file name.
+     *
+     * @return self
+     */
+    public function setFilename($filename)
+    {
+        $this->container['filename'] = $filename;
+
+        return $this;
+    }
+
+    /**
+     * Gets height
+     *
+     * @return int|null
+     */
+    public function getHeight()
+    {
+        return $this->container['height'];
+    }
+
+    /**
+     * Sets height
+     *
+     * @param int|null $height Height in pixels, when it could be measured.
+     *
+     * @return self
+     */
+    public function setHeight($height)
+    {
+        $this->container['height'] = $height;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
+     *
+     * @return string|null
+     */
+    public function getUrl()
+    {
+        return $this->container['url'];
+    }
+
+    /**
+     * Sets url
+     *
+     * @param string|null $url The address to use in the post body, for example in an img src.  The storefront serves it from its image CDN once the image has been copied there.
+     *
+     * @return self
+     */
+    public function setUrl($url)
+    {
+        $this->container['url'] = $url;
+
+        return $this;
+    }
+
+    /**
+     * Gets width
+     *
+     * @return int|null
+     */
+    public function getWidth()
+    {
+        return $this->container['width'];
+    }
+
+    /**
+     * Sets width
+     *
+     * @param int|null $width Width in pixels, when it could be measured.
+     *
+     * @return self
+     */
+    public function setWidth($width)
+    {
+        $this->container['width'] = $width;
 
         return $this;
     }
