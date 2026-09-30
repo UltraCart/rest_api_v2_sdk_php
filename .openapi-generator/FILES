@@ -1076,6 +1076,10 @@ docs/Model/SfvbPreviewSessionResponse.md
 docs/Model/SfvbPreviewUrlResponse.md
 docs/Model/SfvbRenderRequest.md
 docs/Model/SfvbRenderResponse.md
+docs/Model/SfvbServerLog.md
+docs/Model/SfvbServerLogDetail.md
+docs/Model/SfvbServerLogEntry.md
+docs/Model/SfvbServerLogsResponse.md
 docs/Model/SfvbSiteAttribute.md
 docs/Model/SfvbSiteAttributeUpdate.md
 docs/Model/SfvbSiteAttributeUpdateRequest.md
@@ -2287,6 +2291,10 @@ lib/models/SfvbPreviewSessionResponse.php
 lib/models/SfvbPreviewUrlResponse.php
 lib/models/SfvbRenderRequest.php
 lib/models/SfvbRenderResponse.php
+lib/models/SfvbServerLog.php
+lib/models/SfvbServerLogDetail.php
+lib/models/SfvbServerLogEntry.php
+lib/models/SfvbServerLogsResponse.php
 lib/models/SfvbSiteAttribute.php
 lib/models/SfvbSiteAttributeUpdate.php
 lib/models/SfvbSiteAttributeUpdateRequest.php
