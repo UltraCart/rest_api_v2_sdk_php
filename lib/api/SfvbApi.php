@@ -17988,6 +17988,931 @@ class SfvbApi
     }
 
     /**
+     * Operation getSfvbRecording
+     *
+     * Get a screen recording
+     *
+     * @param  int $storefront_oid storefront_oid (required)
+     * @param  string $screen_recording_uuid screen_recording_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\SfvbRecordingResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function getSfvbRecording($storefront_oid, $screen_recording_uuid)
+    {
+        list($response) = $this->getSfvbRecordingWithHttpInfo($storefront_oid, $screen_recording_uuid);
+        return $response;
+    }
+
+    /**
+     * Operation getSfvbRecordingWithHttpInfo
+     *
+     * Get a screen recording
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $screen_recording_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbRecordingResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSfvbRecordingWithHttpInfo($storefront_oid, $screen_recording_uuid)
+    {
+        return $this->getSfvbRecordingWithHttpInfoRetry(true ,   $storefront_oid,   $screen_recording_uuid);
+    }
+
+
+
+    /**
+     * Operation getSfvbRecordingWithHttpInfoRetry
+     *
+     * Get a screen recording
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $screen_recording_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbRecordingResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSfvbRecordingWithHttpInfoRetry($retry , $storefront_oid, $screen_recording_uuid)
+    {
+        $returnType = '\ultracart\v2\models\SfvbRecordingResponse';
+        $request = $this->getSfvbRecordingRequest($storefront_oid, $screen_recording_uuid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getSfvbRecordingWithHttpInfoRetry(false ,   $storefront_oid,   $screen_recording_uuid);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\SfvbRecordingResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\SfvbRecordingResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\SfvbRecordingResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\SfvbRecordingResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\SfvbRecordingResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation getSfvbRecordingAsync
+     *
+     * Get a screen recording
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $screen_recording_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSfvbRecordingAsync($storefront_oid, $screen_recording_uuid)
+    {
+        return $this->getSfvbRecordingAsyncWithHttpInfo($storefront_oid, $screen_recording_uuid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getSfvbRecordingAsyncWithHttpInfo
+     *
+     * Get a screen recording
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $screen_recording_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSfvbRecordingAsyncWithHttpInfo($storefront_oid, $screen_recording_uuid)
+    {
+        $returnType = '\ultracart\v2\models\SfvbRecordingResponse';
+        $request = $this->getSfvbRecordingRequest($storefront_oid, $screen_recording_uuid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getSfvbRecording'
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $screen_recording_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getSfvbRecordingRequest($storefront_oid, $screen_recording_uuid)
+    {
+        // verify the required parameter 'storefront_oid' is set
+        if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $storefront_oid when calling getSfvbRecording'
+            );
+        }
+        // verify the required parameter 'screen_recording_uuid' is set
+        if ($screen_recording_uuid === null || (is_array($screen_recording_uuid) && count($screen_recording_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $screen_recording_uuid when calling getSfvbRecording'
+            );
+        }
+
+        $resourcePath = '/sfvb/storefronts/{storefront_oid}/recordings/{screen_recording_uuid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($storefront_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'storefront_oid' . '}',
+                ObjectSerializer::toPathValue($storefront_oid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($screen_recording_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'screen_recording_uuid' . '}',
+                ObjectSerializer::toPathValue($screen_recording_uuid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getSfvbRecordingPageViewEvents
+     *
+     * Get one recorded page view&#39;s replay events
+     *
+     * @param  int $storefront_oid storefront_oid (required)
+     * @param  string $screen_recording_uuid screen_recording_uuid (required)
+     * @param  string $screen_recording_page_view_uuid screen_recording_page_view_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\SfvbRecordingEventsResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function getSfvbRecordingPageViewEvents($storefront_oid, $screen_recording_uuid, $screen_recording_page_view_uuid)
+    {
+        list($response) = $this->getSfvbRecordingPageViewEventsWithHttpInfo($storefront_oid, $screen_recording_uuid, $screen_recording_page_view_uuid);
+        return $response;
+    }
+
+    /**
+     * Operation getSfvbRecordingPageViewEventsWithHttpInfo
+     *
+     * Get one recorded page view&#39;s replay events
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $screen_recording_uuid (required)
+     * @param  string $screen_recording_page_view_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbRecordingEventsResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSfvbRecordingPageViewEventsWithHttpInfo($storefront_oid, $screen_recording_uuid, $screen_recording_page_view_uuid)
+    {
+        return $this->getSfvbRecordingPageViewEventsWithHttpInfoRetry(true ,   $storefront_oid,   $screen_recording_uuid,   $screen_recording_page_view_uuid);
+    }
+
+
+
+    /**
+     * Operation getSfvbRecordingPageViewEventsWithHttpInfoRetry
+     *
+     * Get one recorded page view&#39;s replay events
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $screen_recording_uuid (required)
+     * @param  string $screen_recording_page_view_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbRecordingEventsResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSfvbRecordingPageViewEventsWithHttpInfoRetry($retry , $storefront_oid, $screen_recording_uuid, $screen_recording_page_view_uuid)
+    {
+        $returnType = '\ultracart\v2\models\SfvbRecordingEventsResponse';
+        $request = $this->getSfvbRecordingPageViewEventsRequest($storefront_oid, $screen_recording_uuid, $screen_recording_page_view_uuid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getSfvbRecordingPageViewEventsWithHttpInfoRetry(false ,   $storefront_oid,   $screen_recording_uuid,   $screen_recording_page_view_uuid);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\SfvbRecordingEventsResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\SfvbRecordingEventsResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\SfvbRecordingEventsResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\SfvbRecordingEventsResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\SfvbRecordingEventsResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation getSfvbRecordingPageViewEventsAsync
+     *
+     * Get one recorded page view&#39;s replay events
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $screen_recording_uuid (required)
+     * @param  string $screen_recording_page_view_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSfvbRecordingPageViewEventsAsync($storefront_oid, $screen_recording_uuid, $screen_recording_page_view_uuid)
+    {
+        return $this->getSfvbRecordingPageViewEventsAsyncWithHttpInfo($storefront_oid, $screen_recording_uuid, $screen_recording_page_view_uuid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getSfvbRecordingPageViewEventsAsyncWithHttpInfo
+     *
+     * Get one recorded page view&#39;s replay events
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $screen_recording_uuid (required)
+     * @param  string $screen_recording_page_view_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSfvbRecordingPageViewEventsAsyncWithHttpInfo($storefront_oid, $screen_recording_uuid, $screen_recording_page_view_uuid)
+    {
+        $returnType = '\ultracart\v2\models\SfvbRecordingEventsResponse';
+        $request = $this->getSfvbRecordingPageViewEventsRequest($storefront_oid, $screen_recording_uuid, $screen_recording_page_view_uuid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getSfvbRecordingPageViewEvents'
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $screen_recording_uuid (required)
+     * @param  string $screen_recording_page_view_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getSfvbRecordingPageViewEventsRequest($storefront_oid, $screen_recording_uuid, $screen_recording_page_view_uuid)
+    {
+        // verify the required parameter 'storefront_oid' is set
+        if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $storefront_oid when calling getSfvbRecordingPageViewEvents'
+            );
+        }
+        // verify the required parameter 'screen_recording_uuid' is set
+        if ($screen_recording_uuid === null || (is_array($screen_recording_uuid) && count($screen_recording_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $screen_recording_uuid when calling getSfvbRecordingPageViewEvents'
+            );
+        }
+        // verify the required parameter 'screen_recording_page_view_uuid' is set
+        if ($screen_recording_page_view_uuid === null || (is_array($screen_recording_page_view_uuid) && count($screen_recording_page_view_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $screen_recording_page_view_uuid when calling getSfvbRecordingPageViewEvents'
+            );
+        }
+
+        $resourcePath = '/sfvb/storefronts/{storefront_oid}/recordings/{screen_recording_uuid}/page_views/{screen_recording_page_view_uuid}/events';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($storefront_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'storefront_oid' . '}',
+                ObjectSerializer::toPathValue($storefront_oid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($screen_recording_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'screen_recording_uuid' . '}',
+                ObjectSerializer::toPathValue($screen_recording_uuid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($screen_recording_page_view_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'screen_recording_page_view_uuid' . '}',
+                ObjectSerializer::toPathValue($screen_recording_page_view_uuid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getSfvbServerLog
      *
      * Get one storefront render log

@@ -44,6 +44,8 @@ Method | HTTP request | Description
 [**getSfvbPageItems()**](SfvbApi.md#getSfvbPageItems) | **GET** /sfvb/storefronts/{storefront_oid}/pages/items | Read the items assigned to a page
 [**getSfvbPageSelectors()**](SfvbApi.md#getSfvbPageSelectors) | **GET** /sfvb/storefronts/{storefront_oid}/pages/selectors | Read a page&#39;s selectors
 [**getSfvbPreviewUrl()**](SfvbApi.md#getSfvbPreviewUrl) | **GET** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id}/url | URL that renders a preview session
+[**getSfvbRecording()**](SfvbApi.md#getSfvbRecording) | **GET** /sfvb/storefronts/{storefront_oid}/recordings/{screen_recording_uuid} | Get a screen recording
+[**getSfvbRecordingPageViewEvents()**](SfvbApi.md#getSfvbRecordingPageViewEvents) | **GET** /sfvb/storefronts/{storefront_oid}/recordings/{screen_recording_uuid}/page_views/{screen_recording_page_view_uuid}/events | Get one recorded page view&#39;s replay events
 [**getSfvbServerLog()**](SfvbApi.md#getSfvbServerLog) | **GET** /sfvb/storefronts/{storefront_oid}/logs/{log_id} | Get one storefront render log
 [**getSfvbSiteAttributes()**](SfvbApi.md#getSfvbSiteAttributes) | **GET** /sfvb/storefronts/{storefront_oid}/attributes | Read a storefront&#39;s site attributes
 [**getSfvbTheme()**](SfvbApi.md#getSfvbTheme) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid} | Get a theme
@@ -1750,6 +1752,89 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\SfvbPreviewUrlResponse**](../Model/SfvbPreviewUrlResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getSfvbRecording()`
+
+```php
+getSfvbRecording($storefront_oid, $screen_recording_uuid): \ultracart\v2\models\SfvbRecordingResponse
+```
+
+Get a screen recording
+
+One recorded visitor session and its page views, with each page view's named events such as rage clicks, script errors and checkout errors, but without the replay data.  Fetch a page view's replay events separately.  Find recordings to look at from the heatmaps or the analytics warehouse.  The visitor's email, IP address and visitor id are not returned, nor what they typed into form fields.  Reading a recording does not mark it watched.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **screen_recording_uuid** | **string**|  |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbRecordingResponse**](../Model/SfvbRecordingResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getSfvbRecordingPageViewEvents()`
+
+```php
+getSfvbRecordingPageViewEvents($storefront_oid, $screen_recording_uuid, $screen_recording_page_view_uuid): \ultracart\v2\models\SfvbRecordingEventsResponse
+```
+
+Get one recorded page view's replay events
+
+The rrweb events for one page view, as a JSON array in a string, for replaying on the caller's own machine.  Card fields are masked by the recorder, but other text the visitor typed can appear.  Limited per account to 30 page views a minute, 300 an hour and 1000 a day.  Reading the events does not mark the recording watched.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **screen_recording_uuid** | **string**|  |
+ **screen_recording_page_view_uuid** | **string**|  |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbRecordingEventsResponse**](../Model/SfvbRecordingEventsResponse.md)
 
 ### Authorization
 

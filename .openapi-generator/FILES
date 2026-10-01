@@ -1074,6 +1074,12 @@ docs/Model/SfvbPreviewAccessResponse.md
 docs/Model/SfvbPreviewSessionRequest.md
 docs/Model/SfvbPreviewSessionResponse.md
 docs/Model/SfvbPreviewUrlResponse.md
+docs/Model/SfvbRecording.md
+docs/Model/SfvbRecordingEvent.md
+docs/Model/SfvbRecordingEventsResponse.md
+docs/Model/SfvbRecordingPageView.md
+docs/Model/SfvbRecordingParameter.md
+docs/Model/SfvbRecordingResponse.md
 docs/Model/SfvbRenderRequest.md
 docs/Model/SfvbRenderResponse.md
 docs/Model/SfvbServerLog.md
@@ -2289,6 +2295,12 @@ lib/models/SfvbPreviewAccessResponse.php
 lib/models/SfvbPreviewSessionRequest.php
 lib/models/SfvbPreviewSessionResponse.php
 lib/models/SfvbPreviewUrlResponse.php
+lib/models/SfvbRecording.php
+lib/models/SfvbRecordingEvent.php
+lib/models/SfvbRecordingEventsResponse.php
+lib/models/SfvbRecordingPageView.php
+lib/models/SfvbRecordingParameter.php
+lib/models/SfvbRecordingResponse.php
 lib/models/SfvbRenderRequest.php
 lib/models/SfvbRenderResponse.php
 lib/models/SfvbServerLog.php
