@@ -63,6 +63,9 @@ class SfvbBlogPostRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'body' => 'string',
         'excerpt' => 'string',
         'publication_dts' => 'string',
+        'seo_description' => 'string',
+        'seo_keywords' => 'string',
+        'seo_title' => 'string',
         'tags' => 'string[]',
         'title' => 'string',
         'url_part' => 'string',
@@ -82,6 +85,9 @@ class SfvbBlogPostRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'body' => null,
         'excerpt' => null,
         'publication_dts' => null,
+        'seo_description' => null,
+        'seo_keywords' => null,
+        'seo_title' => null,
         'tags' => null,
         'title' => null,
         'url_part' => null,
@@ -120,6 +126,9 @@ class SfvbBlogPostRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'body' => 'body',
         'excerpt' => 'excerpt',
         'publication_dts' => 'publication_dts',
+        'seo_description' => 'seo_description',
+        'seo_keywords' => 'seo_keywords',
+        'seo_title' => 'seo_title',
         'tags' => 'tags',
         'title' => 'title',
         'url_part' => 'url_part',
@@ -137,6 +146,9 @@ class SfvbBlogPostRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'body' => 'setBody',
         'excerpt' => 'setExcerpt',
         'publication_dts' => 'setPublicationDts',
+        'seo_description' => 'setSeoDescription',
+        'seo_keywords' => 'setSeoKeywords',
+        'seo_title' => 'setSeoTitle',
         'tags' => 'setTags',
         'title' => 'setTitle',
         'url_part' => 'setUrlPart',
@@ -154,6 +166,9 @@ class SfvbBlogPostRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'body' => 'getBody',
         'excerpt' => 'getExcerpt',
         'publication_dts' => 'getPublicationDts',
+        'seo_description' => 'getSeoDescription',
+        'seo_keywords' => 'getSeoKeywords',
+        'seo_title' => 'getSeoTitle',
         'tags' => 'getTags',
         'title' => 'getTitle',
         'url_part' => 'getUrlPart',
@@ -239,6 +254,9 @@ class SfvbBlogPostRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['body'] = $data['body'] ?? null;
         $this->container['excerpt'] = $data['excerpt'] ?? null;
         $this->container['publication_dts'] = $data['publication_dts'] ?? null;
+        $this->container['seo_description'] = $data['seo_description'] ?? null;
+        $this->container['seo_keywords'] = $data['seo_keywords'] ?? null;
+        $this->container['seo_title'] = $data['seo_title'] ?? null;
         $this->container['tags'] = $data['tags'] ?? null;
         $this->container['title'] = $data['title'] ?? null;
         $this->container['url_part'] = $data['url_part'] ?? null;
@@ -394,6 +412,78 @@ class SfvbBlogPostRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setPublicationDts($publication_dts)
     {
         $this->container['publication_dts'] = $publication_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets seo_description
+     *
+     * @return string|null
+     */
+    public function getSeoDescription()
+    {
+        return $this->container['seo_description'];
+    }
+
+    /**
+     * Sets seo_description
+     *
+     * @param string|null $seo_description The meta description (storefrontSEODescription), the search result snippet.  Plain text with no angle brackets or double quotes, up to 1000 characters.  Left out, it is unchanged; an empty string clears it, and the head falls back to the site's description.
+     *
+     * @return self
+     */
+    public function setSeoDescription($seo_description)
+    {
+        $this->container['seo_description'] = $seo_description;
+
+        return $this;
+    }
+
+    /**
+     * Gets seo_keywords
+     *
+     * @return string|null
+     */
+    public function getSeoKeywords()
+    {
+        return $this->container['seo_keywords'];
+    }
+
+    /**
+     * Sets seo_keywords
+     *
+     * @param string|null $seo_keywords The meta keywords (storefrontSEOKeywords).  Plain text with no angle brackets or double quotes, up to 1000 characters.  Left out, it is unchanged; an empty string clears it, and the head falls back to the site's keywords.
+     *
+     * @return self
+     */
+    public function setSeoKeywords($seo_keywords)
+    {
+        $this->container['seo_keywords'] = $seo_keywords;
+
+        return $this;
+    }
+
+    /**
+     * Gets seo_title
+     *
+     * @return string|null
+     */
+    public function getSeoTitle()
+    {
+        return $this->container['seo_title'];
+    }
+
+    /**
+     * Sets seo_title
+     *
+     * @param string|null $seo_title The page head title (storefrontSEOTitle), used in place of the post title in the browser tab and search results.  Plain text with no angle brackets or double quotes, up to 1000 characters.  Left out, it is unchanged; an empty string clears it, and the head falls back to the post title.
+     *
+     * @return self
+     */
+    public function setSeoTitle($seo_title)
+    {
+        $this->container['seo_title'] = $seo_title;
 
         return $this;
     }

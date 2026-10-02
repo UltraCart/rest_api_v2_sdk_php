@@ -67,6 +67,9 @@ class SfvbBlogPostDetail implements ModelInterface, ArrayAccess, \JsonSerializab
         'images' => '\ultracart\v2\models\SfvbBlogPostImage[]',
         'last_modified_dts' => 'string',
         'publication_dts' => 'string',
+        'seo_description' => 'string',
+        'seo_keywords' => 'string',
+        'seo_title' => 'string',
         'tags' => 'string[]',
         'title' => 'string',
         'unassigned' => 'bool',
@@ -92,6 +95,9 @@ class SfvbBlogPostDetail implements ModelInterface, ArrayAccess, \JsonSerializab
         'images' => null,
         'last_modified_dts' => null,
         'publication_dts' => null,
+        'seo_description' => null,
+        'seo_keywords' => null,
+        'seo_title' => null,
         'tags' => null,
         'title' => null,
         'unassigned' => null,
@@ -136,6 +142,9 @@ class SfvbBlogPostDetail implements ModelInterface, ArrayAccess, \JsonSerializab
         'images' => 'images',
         'last_modified_dts' => 'last_modified_dts',
         'publication_dts' => 'publication_dts',
+        'seo_description' => 'seo_description',
+        'seo_keywords' => 'seo_keywords',
+        'seo_title' => 'seo_title',
         'tags' => 'tags',
         'title' => 'title',
         'unassigned' => 'unassigned',
@@ -159,6 +168,9 @@ class SfvbBlogPostDetail implements ModelInterface, ArrayAccess, \JsonSerializab
         'images' => 'setImages',
         'last_modified_dts' => 'setLastModifiedDts',
         'publication_dts' => 'setPublicationDts',
+        'seo_description' => 'setSeoDescription',
+        'seo_keywords' => 'setSeoKeywords',
+        'seo_title' => 'setSeoTitle',
         'tags' => 'setTags',
         'title' => 'setTitle',
         'unassigned' => 'setUnassigned',
@@ -182,6 +194,9 @@ class SfvbBlogPostDetail implements ModelInterface, ArrayAccess, \JsonSerializab
         'images' => 'getImages',
         'last_modified_dts' => 'getLastModifiedDts',
         'publication_dts' => 'getPublicationDts',
+        'seo_description' => 'getSeoDescription',
+        'seo_keywords' => 'getSeoKeywords',
+        'seo_title' => 'getSeoTitle',
         'tags' => 'getTags',
         'title' => 'getTitle',
         'unassigned' => 'getUnassigned',
@@ -256,6 +271,9 @@ class SfvbBlogPostDetail implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->container['images'] = $data['images'] ?? null;
         $this->container['last_modified_dts'] = $data['last_modified_dts'] ?? null;
         $this->container['publication_dts'] = $data['publication_dts'] ?? null;
+        $this->container['seo_description'] = $data['seo_description'] ?? null;
+        $this->container['seo_keywords'] = $data['seo_keywords'] ?? null;
+        $this->container['seo_title'] = $data['seo_title'] ?? null;
         $this->container['tags'] = $data['tags'] ?? null;
         $this->container['title'] = $data['title'] ?? null;
         $this->container['unassigned'] = $data['unassigned'] ?? null;
@@ -301,7 +319,7 @@ class SfvbBlogPostDetail implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets allow_comments
      *
-     * @param bool|null $allow_comments Whether shoppers may comment.
+     * @param bool|null $allow_comments Whether shoppers may comment.  Like every false value here, false is left out of the response.
      *
      * @return self
      */
@@ -505,6 +523,78 @@ class SfvbBlogPostDetail implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
+     * Gets seo_description
+     *
+     * @return string|null
+     */
+    public function getSeoDescription()
+    {
+        return $this->container['seo_description'];
+    }
+
+    /**
+     * Sets seo_description
+     *
+     * @param string|null $seo_description The meta description (storefrontSEODescription).  Absent when not set.
+     *
+     * @return self
+     */
+    public function setSeoDescription($seo_description)
+    {
+        $this->container['seo_description'] = $seo_description;
+
+        return $this;
+    }
+
+    /**
+     * Gets seo_keywords
+     *
+     * @return string|null
+     */
+    public function getSeoKeywords()
+    {
+        return $this->container['seo_keywords'];
+    }
+
+    /**
+     * Sets seo_keywords
+     *
+     * @param string|null $seo_keywords The meta keywords (storefrontSEOKeywords).  Absent when not set.
+     *
+     * @return self
+     */
+    public function setSeoKeywords($seo_keywords)
+    {
+        $this->container['seo_keywords'] = $seo_keywords;
+
+        return $this;
+    }
+
+    /**
+     * Gets seo_title
+     *
+     * @return string|null
+     */
+    public function getSeoTitle()
+    {
+        return $this->container['seo_title'];
+    }
+
+    /**
+     * Sets seo_title
+     *
+     * @param string|null $seo_title The page head title (storefrontSEOTitle).  Absent when not set, and the head then uses the post title.
+     *
+     * @return self
+     */
+    public function setSeoTitle($seo_title)
+    {
+        $this->container['seo_title'] = $seo_title;
+
+        return $this;
+    }
+
+    /**
      * Gets tags
      *
      * @return string[]|null
@@ -517,7 +607,7 @@ class SfvbBlogPostDetail implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets tags
      *
-     * @param string[]|null $tags The post's tags.
+     * @param string[]|null $tags The post's tags, in alphabetical order.  The order they were sent in is not kept.
      *
      * @return self
      */

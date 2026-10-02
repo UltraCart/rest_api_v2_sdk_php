@@ -817,8 +817,10 @@ docs/Model/Order.md
 docs/Model/OrderAddItemsAndReleaseRequest.md
 docs/Model/OrderAffiliate.md
 docs/Model/OrderAffiliateLedger.md
+docs/Model/OrderAssignRmaRequest.md
 docs/Model/OrderAssignToAffiliateRequest.md
 docs/Model/OrderAutoOrder.md
+docs/Model/OrderAutoOrderUpdateBillingUrlResponse.md
 docs/Model/OrderBilling.md
 docs/Model/OrderBuysafe.md
 docs/Model/OrderByTokenQuery.md
@@ -2038,8 +2040,10 @@ lib/models/Order.php
 lib/models/OrderAddItemsAndReleaseRequest.php
 lib/models/OrderAffiliate.php
 lib/models/OrderAffiliateLedger.php
+lib/models/OrderAssignRmaRequest.php
 lib/models/OrderAssignToAffiliateRequest.php
 lib/models/OrderAutoOrder.php
+lib/models/OrderAutoOrderUpdateBillingUrlResponse.php
 lib/models/OrderBilling.php
 lib/models/OrderBuysafe.php
 lib/models/OrderByTokenQuery.php
