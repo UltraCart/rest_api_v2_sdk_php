@@ -68,6 +68,7 @@ class SfvbRenderRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'context_order_id' => 'string',
         'context_page_number' => 'string',
         'context_upsell_offer_oid' => 'int',
+        'edit_mode' => 'bool',
         'language_iso_code' => 'string',
         'uri' => 'string'
     ];
@@ -90,6 +91,7 @@ class SfvbRenderRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'context_order_id' => null,
         'context_page_number' => null,
         'context_upsell_offer_oid' => 'int32',
+        'edit_mode' => null,
         'language_iso_code' => null,
         'uri' => null
     ];
@@ -131,6 +133,7 @@ class SfvbRenderRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'context_order_id' => 'context_order_id',
         'context_page_number' => 'context_page_number',
         'context_upsell_offer_oid' => 'context_upsell_offer_oid',
+        'edit_mode' => 'edit_mode',
         'language_iso_code' => 'language_iso_code',
         'uri' => 'uri'
     ];
@@ -151,6 +154,7 @@ class SfvbRenderRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'context_order_id' => 'setContextOrderId',
         'context_page_number' => 'setContextPageNumber',
         'context_upsell_offer_oid' => 'setContextUpsellOfferOid',
+        'edit_mode' => 'setEditMode',
         'language_iso_code' => 'setLanguageIsoCode',
         'uri' => 'setUri'
     ];
@@ -171,6 +175,7 @@ class SfvbRenderRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'context_order_id' => 'getContextOrderId',
         'context_page_number' => 'getContextPageNumber',
         'context_upsell_offer_oid' => 'getContextUpsellOfferOid',
+        'edit_mode' => 'getEditMode',
         'language_iso_code' => 'getLanguageIsoCode',
         'uri' => 'getUri'
     ];
@@ -242,6 +247,7 @@ class SfvbRenderRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->container['context_order_id'] = $data['context_order_id'] ?? null;
         $this->container['context_page_number'] = $data['context_page_number'] ?? null;
         $this->container['context_upsell_offer_oid'] = $data['context_upsell_offer_oid'] ?? null;
+        $this->container['edit_mode'] = $data['edit_mode'] ?? null;
         $this->container['language_iso_code'] = $data['language_iso_code'] ?? null;
         $this->container['uri'] = $data['uri'] ?? null;
     }
@@ -506,6 +512,30 @@ class SfvbRenderRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setContextUpsellOfferOid($context_upsell_offer_oid)
     {
         $this->container['context_upsell_offer_oid'] = $context_upsell_offer_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets edit_mode
+     *
+     * @return bool|null
+     */
+    public function getEditMode()
+    {
+        return $this->container['edit_mode'];
+    }
+
+    /**
+     * Sets edit_mode
+     *
+     * @param bool|null $edit_mode True renders every branch the way the builder shows it, for styling content a shopper only sometimes sees.  Omitted or false renders what a shopper sees, with conditions, prices and sale state evaluated against the context item.
+     *
+     * @return self
+     */
+    public function setEditMode($edit_mode)
+    {
+        $this->container['edit_mode'] = $edit_mode;
 
         return $this;
     }
