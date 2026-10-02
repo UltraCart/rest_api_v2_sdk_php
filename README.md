@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.180"
+    "ultracart/rest_api_v2_sdk_php": "4.1.181"
   }
 }
 ```
@@ -533,6 +533,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbPreviewUrl**](docs/Api/SfvbApi.md#getsfvbpreviewurl) | **GET** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id}/url | URL that renders a preview session
 *SfvbApi* | [**getSfvbRecording**](docs/Api/SfvbApi.md#getsfvbrecording) | **GET** /sfvb/storefronts/{storefront_oid}/recordings/{screen_recording_uuid} | Get a screen recording
 *SfvbApi* | [**getSfvbRecordingPageViewEvents**](docs/Api/SfvbApi.md#getsfvbrecordingpageviewevents) | **GET** /sfvb/storefronts/{storefront_oid}/recordings/{screen_recording_uuid}/page_views/{screen_recording_page_view_uuid}/events | Get one recorded page view&#39;s replay events
+*SfvbApi* | [**getSfvbRecordingSettings**](docs/Api/SfvbApi.md#getsfvbrecordingsettings) | **GET** /sfvb/storefronts/{storefront_oid}/recording_settings | Get the storefront&#39;s screen recording settings
 *SfvbApi* | [**getSfvbServerLog**](docs/Api/SfvbApi.md#getsfvbserverlog) | **GET** /sfvb/storefronts/{storefront_oid}/logs/{log_id} | Get one storefront render log
 *SfvbApi* | [**getSfvbSiteAttributes**](docs/Api/SfvbApi.md#getsfvbsiteattributes) | **GET** /sfvb/storefronts/{storefront_oid}/attributes | Read a storefront&#39;s site attributes
 *SfvbApi* | [**getSfvbTheme**](docs/Api/SfvbApi.md#getsfvbtheme) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid} | Get a theme
@@ -575,6 +576,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**putSfvbPageSelectors**](docs/Api/SfvbApi.md#putsfvbpageselectors) | **PUT** /sfvb/storefronts/{storefront_oid}/pages/selectors | Replace a page&#39;s selectors
 *SfvbApi* | [**putSfvbPageSettings**](docs/Api/SfvbApi.md#putsfvbpagesettings) | **PUT** /sfvb/storefronts/{storefront_oid}/pages/settings | Change a page&#39;s settings
 *SfvbApi* | [**putSfvbPreviewSession**](docs/Api/SfvbApi.md#putsfvbpreviewsession) | **PUT** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Push containers into a preview session
+*SfvbApi* | [**putSfvbRecordingSettings**](docs/Api/SfvbApi.md#putsfvbrecordingsettings) | **PUT** /sfvb/storefronts/{storefront_oid}/recording_settings | Turn the storefront&#39;s screen recording on or off
 *SfvbApi* | [**putSfvbSiteAttributes**](docs/Api/SfvbApi.md#putsfvbsiteattributes) | **PUT** /sfvb/storefronts/{storefront_oid}/attributes | Change a storefront&#39;s site attributes
 *SfvbApi* | [**putSfvbThemeAttributes**](docs/Api/SfvbApi.md#putsfvbthemeattributes) | **PUT** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Change a theme&#39;s colors, fonts and settings
 *SfvbApi* | [**refreshSfvbPage**](docs/Api/SfvbApi.md#refreshsfvbpage) | **POST** /sfvb/storefronts/{storefront_oid}/pages/refresh | Drop one page&#39;s cached copy
@@ -1909,6 +1911,9 @@ Class | Method | HTTP request | Description
 - [SfvbRecordingPageView](docs/Model/SfvbRecordingPageView.md)
 - [SfvbRecordingParameter](docs/Model/SfvbRecordingParameter.md)
 - [SfvbRecordingResponse](docs/Model/SfvbRecordingResponse.md)
+- [SfvbRecordingSettings](docs/Model/SfvbRecordingSettings.md)
+- [SfvbRecordingSettingsRequest](docs/Model/SfvbRecordingSettingsRequest.md)
+- [SfvbRecordingSettingsResponse](docs/Model/SfvbRecordingSettingsResponse.md)
 - [SfvbRenderRequest](docs/Model/SfvbRenderRequest.md)
 - [SfvbRenderResponse](docs/Model/SfvbRenderResponse.md)
 - [SfvbServerLog](docs/Model/SfvbServerLog.md)
@@ -2142,6 +2147,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.181 | 10/02/2026 | sfvb internal testing |
 | 4.1.180 | 10/02/2026 | sfvb internal builder |
 | 4.1.179 | 10/01/2026 | sfvb internal testing |
 | 4.1.178 | 09/30/2026 | sfvb internal testing |

@@ -1082,6 +1082,9 @@ docs/Model/SfvbRecordingEventsResponse.md
 docs/Model/SfvbRecordingPageView.md
 docs/Model/SfvbRecordingParameter.md
 docs/Model/SfvbRecordingResponse.md
+docs/Model/SfvbRecordingSettings.md
+docs/Model/SfvbRecordingSettingsRequest.md
+docs/Model/SfvbRecordingSettingsResponse.md
 docs/Model/SfvbRenderRequest.md
 docs/Model/SfvbRenderResponse.md
 docs/Model/SfvbServerLog.md
@@ -2305,6 +2308,9 @@ lib/models/SfvbRecordingEventsResponse.php
 lib/models/SfvbRecordingPageView.php
 lib/models/SfvbRecordingParameter.php
 lib/models/SfvbRecordingResponse.php
+lib/models/SfvbRecordingSettings.php
+lib/models/SfvbRecordingSettingsRequest.php
+lib/models/SfvbRecordingSettingsResponse.php
 lib/models/SfvbRenderRequest.php
 lib/models/SfvbRenderResponse.php
 lib/models/SfvbServerLog.php
