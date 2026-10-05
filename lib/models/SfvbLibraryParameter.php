@@ -58,7 +58,7 @@ class SfvbLibraryParameter implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'default' => 'string',
+        'default_value' => 'string',
         'description' => 'string',
         'name' => 'string',
         'required' => 'bool',
@@ -73,7 +73,7 @@ class SfvbLibraryParameter implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'default' => null,
+        'default_value' => null,
         'description' => null,
         'name' => null,
         'required' => null,
@@ -107,7 +107,7 @@ class SfvbLibraryParameter implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'default' => 'default',
+        'default_value' => 'default_value',
         'description' => 'description',
         'name' => 'name',
         'required' => 'required',
@@ -120,7 +120,7 @@ class SfvbLibraryParameter implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'default' => 'setDefault',
+        'default_value' => 'setDefaultValue',
         'description' => 'setDescription',
         'name' => 'setName',
         'required' => 'setRequired',
@@ -133,7 +133,7 @@ class SfvbLibraryParameter implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'default' => 'getDefault',
+        'default_value' => 'getDefaultValue',
         'description' => 'getDescription',
         'name' => 'getName',
         'required' => 'getRequired',
@@ -197,7 +197,7 @@ class SfvbLibraryParameter implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
-        $this->container['default'] = $data['default'] ?? null;
+        $this->container['default_value'] = $data['default_value'] ?? null;
         $this->container['description'] = $data['description'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['required'] = $data['required'] ?? null;
@@ -229,25 +229,25 @@ class SfvbLibraryParameter implements ModelInterface, ArrayAccess, \JsonSerializ
 
 
     /**
-     * Gets default
+     * Gets default_value
      *
      * @return string|null
      */
-    public function getDefault()
+    public function getDefaultValue()
     {
-        return $this->container['default'];
+        return $this->container['default_value'];
     }
 
     /**
-     * Sets default
+     * Sets default_value
      *
-     * @param string|null $default The value used when none is supplied.
+     * @param string|null $default_value The value used when none is supplied.
      *
      * @return self
      */
-    public function setDefault($default)
+    public function setDefaultValue($default_value)
     {
-        $this->container['default'] = $default;
+        $this->container['default_value'] = $default_value;
 
         return $this;
     }
