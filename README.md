@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.185"
+    "ultracart/rest_api_v2_sdk_php": "4.1.186"
   }
 }
 ```
@@ -1900,6 +1900,7 @@ Class | Method | HTTP request | Description
 - [SfvbLibraryInstallRecord](docs/Model/SfvbLibraryInstallRecord.md)
 - [SfvbLibraryInstallRequest](docs/Model/SfvbLibraryInstallRequest.md)
 - [SfvbLibraryInstallsResponse](docs/Model/SfvbLibraryInstallsResponse.md)
+- [SfvbLibraryManifestFinding](docs/Model/SfvbLibraryManifestFinding.md)
 - [SfvbLibraryParameter](docs/Model/SfvbLibraryParameter.md)
 - [SfvbLibraryPublishRequest](docs/Model/SfvbLibraryPublishRequest.md)
 - [SfvbLibraryResponse](docs/Model/SfvbLibraryResponse.md)
@@ -1909,6 +1910,8 @@ Class | Method | HTTP request | Description
 - [SfvbLibraryShareTargetsResponse](docs/Model/SfvbLibraryShareTargetsResponse.md)
 - [SfvbLibraryTaxonomy](docs/Model/SfvbLibraryTaxonomy.md)
 - [SfvbLibraryTaxonomyCatalog](docs/Model/SfvbLibraryTaxonomyCatalog.md)
+- [SfvbLibraryTaxonomyDimension](docs/Model/SfvbLibraryTaxonomyDimension.md)
+- [SfvbLibraryTaxonomyTag](docs/Model/SfvbLibraryTaxonomyTag.md)
 - [SfvbLibraryUnshareResult](docs/Model/SfvbLibraryUnshareResult.md)
 - [SfvbMenu](docs/Model/SfvbMenu.md)
 - [SfvbMenuItem](docs/Model/SfvbMenuItem.md)
@@ -2183,6 +2186,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.186 | 10/05/2026 | sfvb internal testing |
 | 4.1.185 | 10/05/2026 | sfvb internal testing |
 | 4.1.184 | 10/05/2026 | sfvb internal testing |
 | 4.1.183 | 10/05/2026 | OrderApi rma endpoints |

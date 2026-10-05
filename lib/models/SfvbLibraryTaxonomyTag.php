@@ -1,6 +1,6 @@
 <?php
 /**
- * SfvbLibraryTaxonomyCatalog
+ * SfvbLibraryTaxonomyTag
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * SfvbLibraryTaxonomyCatalog Class Doc Comment
+ * SfvbLibraryTaxonomyTag Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SfvbLibraryTaxonomyCatalog implements ModelInterface, ArrayAccess, \JsonSerializable
+class SfvbLibraryTaxonomyTag implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SfvbLibraryTaxonomyCatalog implements ModelInterface, ArrayAccess, \JsonSe
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SfvbLibraryTaxonomyCatalog';
+    protected static $openAPIModelName = 'SfvbLibraryTaxonomyTag';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,8 @@ class SfvbLibraryTaxonomyCatalog implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'dimensions' => '\ultracart\v2\models\SfvbLibraryTaxonomyDimension[]'
+        'description' => 'string',
+        'slug' => 'string'
     ];
 
     /**
@@ -69,7 +70,8 @@ class SfvbLibraryTaxonomyCatalog implements ModelInterface, ArrayAccess, \JsonSe
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'dimensions' => null
+        'description' => null,
+        'slug' => null
     ];
 
     /**
@@ -99,7 +101,8 @@ class SfvbLibraryTaxonomyCatalog implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
-        'dimensions' => 'dimensions'
+        'description' => 'description',
+        'slug' => 'slug'
     ];
 
     /**
@@ -108,7 +111,8 @@ class SfvbLibraryTaxonomyCatalog implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
-        'dimensions' => 'setDimensions'
+        'description' => 'setDescription',
+        'slug' => 'setSlug'
     ];
 
     /**
@@ -117,7 +121,8 @@ class SfvbLibraryTaxonomyCatalog implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
-        'dimensions' => 'getDimensions'
+        'description' => 'getDescription',
+        'slug' => 'getSlug'
     ];
 
     /**
@@ -177,7 +182,8 @@ class SfvbLibraryTaxonomyCatalog implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(array $data = null)
     {
-        $this->container['dimensions'] = $data['dimensions'] ?? null;
+        $this->container['description'] = $data['description'] ?? null;
+        $this->container['slug'] = $data['slug'] ?? null;
     }
 
     /**
@@ -205,25 +211,49 @@ class SfvbLibraryTaxonomyCatalog implements ModelInterface, ArrayAccess, \JsonSe
 
 
     /**
-     * Gets dimensions
+     * Gets description
      *
-     * @return \ultracart\v2\models\SfvbLibraryTaxonomyDimension[]|null
+     * @return string|null
      */
-    public function getDimensions()
+    public function getDescription()
     {
-        return $this->container['dimensions'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets dimensions
+     * Sets description
      *
-     * @param \ultracart\v2\models\SfvbLibraryTaxonomyDimension[]|null $dimensions purpose, section, industry and style, each with its allowed tags.
+     * @param string|null $description When to use it.
      *
      * @return self
      */
-    public function setDimensions($dimensions)
+    public function setDescription($description)
     {
-        $this->container['dimensions'] = $dimensions;
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets slug
+     *
+     * @return string|null
+     */
+    public function getSlug()
+    {
+        return $this->container['slug'];
+    }
+
+    /**
+     * Sets slug
+     *
+     * @param string|null $slug The value to send in the entry's taxonomy.
+     *
+     * @return self
+     */
+    public function setSlug($slug)
+    {
+        $this->container['slug'] = $slug;
 
         return $this;
     }

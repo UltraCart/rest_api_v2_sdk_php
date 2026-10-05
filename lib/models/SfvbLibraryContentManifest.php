@@ -58,11 +58,11 @@ class SfvbLibraryContentManifest implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'absolute_asset_urls' => 'object',
+        'absolute_asset_urls' => '\ultracart\v2\models\SfvbLibraryManifestFinding[]',
         'ai_review' => '\ultracart\v2\models\SfvbLibraryAiReview',
-        'executable' => 'object',
-        'rejected' => 'object',
-        'secrets' => 'object'
+        'executable' => '\ultracart\v2\models\SfvbLibraryManifestFinding[]',
+        'rejected' => '\ultracart\v2\models\SfvbLibraryManifestFinding[]',
+        'secrets' => '\ultracart\v2\models\SfvbLibraryManifestFinding[]'
     ];
 
     /**
@@ -231,7 +231,7 @@ class SfvbLibraryContentManifest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets absolute_asset_urls
      *
-     * @return object|null
+     * @return \ultracart\v2\models\SfvbLibraryManifestFinding[]|null
      */
     public function getAbsoluteAssetUrls()
     {
@@ -241,7 +241,7 @@ class SfvbLibraryContentManifest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets absolute_asset_urls
      *
-     * @param object|null $absolute_asset_urls Images, fonts, stylesheets, scripts or media loaded from an absolute URL.  A shared or public entry must use relative paths so it never pulls files from another storefront or site.
+     * @param \ultracart\v2\models\SfvbLibraryManifestFinding[]|null $absolute_asset_urls Images, fonts, stylesheets, scripts or media loaded from an absolute URL.  A shared or public entry must use relative paths so it never pulls files from another storefront or site.
      *
      * @return self
      */
@@ -279,7 +279,7 @@ class SfvbLibraryContentManifest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets executable
      *
-     * @return object|null
+     * @return \ultracart\v2\models\SfvbLibraryManifestFinding[]|null
      */
     public function getExecutable()
     {
@@ -289,7 +289,7 @@ class SfvbLibraryContentManifest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets executable
      *
-     * @param object|null $executable Content that runs in a shopper's browser or on the server.  Script, html, embed, css and velocity elements, script in markup, Velocity, script bearing CSS and unsafe URL schemes.  An entry with any of these cannot be made public, and installing it needs an explicit acknowledgement.
+     * @param \ultracart\v2\models\SfvbLibraryManifestFinding[]|null $executable Content that runs in a shopper's browser or on the server.  Script, html, embed, css and velocity elements, script in markup, Velocity, script bearing CSS and unsafe URL schemes.  An entry with any of these cannot be made public, and installing it needs an explicit acknowledgement.
      *
      * @return self
      */
@@ -303,7 +303,7 @@ class SfvbLibraryContentManifest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets rejected
      *
-     * @return object|null
+     * @return \ultracart\v2\models\SfvbLibraryManifestFinding[]|null
      */
     public function getRejected()
     {
@@ -313,7 +313,7 @@ class SfvbLibraryContentManifest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets rejected
      *
-     * @param object|null $rejected Card skimming and obfuscation signals.  An entry with any is refused outright, whoever owns it.
+     * @param \ultracart\v2\models\SfvbLibraryManifestFinding[]|null $rejected Card skimming and obfuscation signals.  An entry with any is refused outright, whoever owns it.
      *
      * @return self
      */
@@ -327,7 +327,7 @@ class SfvbLibraryContentManifest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets secrets
      *
-     * @return object|null
+     * @return \ultracart\v2\models\SfvbLibraryManifestFinding[]|null
      */
     public function getSecrets()
     {
@@ -337,7 +337,7 @@ class SfvbLibraryContentManifest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets secrets
      *
-     * @param object|null $secrets Strings shaped like credentials, by kind only.  An entry with any cannot be shared or made public.
+     * @param \ultracart\v2\models\SfvbLibraryManifestFinding[]|null $secrets Strings shaped like credentials, by kind only.  An entry with any cannot be shared or made public.
      *
      * @return self
      */

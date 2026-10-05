@@ -1,6 +1,6 @@
 <?php
 /**
- * SfvbLibraryTaxonomyCatalog
+ * SfvbLibraryTaxonomyDimension
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * SfvbLibraryTaxonomyCatalog Class Doc Comment
+ * SfvbLibraryTaxonomyDimension Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SfvbLibraryTaxonomyCatalog implements ModelInterface, ArrayAccess, \JsonSerializable
+class SfvbLibraryTaxonomyDimension implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SfvbLibraryTaxonomyCatalog implements ModelInterface, ArrayAccess, \JsonSe
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SfvbLibraryTaxonomyCatalog';
+    protected static $openAPIModelName = 'SfvbLibraryTaxonomyDimension';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,9 @@ class SfvbLibraryTaxonomyCatalog implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'dimensions' => '\ultracart\v2\models\SfvbLibraryTaxonomyDimension[]'
+        'description' => 'string',
+        'name' => 'string',
+        'tags' => '\ultracart\v2\models\SfvbLibraryTaxonomyTag[]'
     ];
 
     /**
@@ -69,7 +71,9 @@ class SfvbLibraryTaxonomyCatalog implements ModelInterface, ArrayAccess, \JsonSe
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'dimensions' => null
+        'description' => null,
+        'name' => null,
+        'tags' => null
     ];
 
     /**
@@ -99,7 +103,9 @@ class SfvbLibraryTaxonomyCatalog implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
-        'dimensions' => 'dimensions'
+        'description' => 'description',
+        'name' => 'name',
+        'tags' => 'tags'
     ];
 
     /**
@@ -108,7 +114,9 @@ class SfvbLibraryTaxonomyCatalog implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
-        'dimensions' => 'setDimensions'
+        'description' => 'setDescription',
+        'name' => 'setName',
+        'tags' => 'setTags'
     ];
 
     /**
@@ -117,7 +125,9 @@ class SfvbLibraryTaxonomyCatalog implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
-        'dimensions' => 'getDimensions'
+        'description' => 'getDescription',
+        'name' => 'getName',
+        'tags' => 'getTags'
     ];
 
     /**
@@ -161,6 +171,25 @@ class SfvbLibraryTaxonomyCatalog implements ModelInterface, ArrayAccess, \JsonSe
         return self::$openAPIModelName;
     }
 
+    public const NAME_PURPOSE = 'purpose';
+    public const NAME_SECTION = 'section';
+    public const NAME_INDUSTRY = 'industry';
+    public const NAME_STYLE = 'style';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getNameAllowableValues()
+    {
+        return [
+            self::NAME_PURPOSE,
+            self::NAME_SECTION,
+            self::NAME_INDUSTRY,
+            self::NAME_STYLE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -177,7 +206,9 @@ class SfvbLibraryTaxonomyCatalog implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(array $data = null)
     {
-        $this->container['dimensions'] = $data['dimensions'] ?? null;
+        $this->container['description'] = $data['description'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
+        $this->container['tags'] = $data['tags'] ?? null;
     }
 
     /**
@@ -188,6 +219,15 @@ class SfvbLibraryTaxonomyCatalog implements ModelInterface, ArrayAccess, \JsonSe
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getNameAllowableValues();
+        if (!is_null($this->container['name']) && !in_array($this->container['name'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'name', must be one of '%s'",
+                $this->container['name'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -205,25 +245,83 @@ class SfvbLibraryTaxonomyCatalog implements ModelInterface, ArrayAccess, \JsonSe
 
 
     /**
-     * Gets dimensions
+     * Gets description
      *
-     * @return \ultracart\v2\models\SfvbLibraryTaxonomyDimension[]|null
+     * @return string|null
      */
-    public function getDimensions()
+    public function getDescription()
     {
-        return $this->container['dimensions'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets dimensions
+     * Sets description
      *
-     * @param \ultracart\v2\models\SfvbLibraryTaxonomyDimension[]|null $dimensions purpose, section, industry and style, each with its allowed tags.
+     * @param string|null $description What the dimension describes.
      *
      * @return self
      */
-    public function setDimensions($dimensions)
+    public function setDescription($description)
     {
-        $this->container['dimensions'] = $dimensions;
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name The taxonomy field this list applies to.
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        $allowedValues = $this->getNameAllowableValues();
+        if (!is_null($name) && !in_array($name, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'name', must be one of '%s'",
+                    $name,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \ultracart\v2\models\SfvbLibraryTaxonomyTag[]|null
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \ultracart\v2\models\SfvbLibraryTaxonomyTag[]|null $tags The allowed tags, in display order.
+     *
+     * @return self
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

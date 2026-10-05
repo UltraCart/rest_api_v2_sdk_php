@@ -1,6 +1,6 @@
 <?php
 /**
- * SfvbLibraryTaxonomyCatalog
+ * SfvbLibraryManifestFinding
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * SfvbLibraryTaxonomyCatalog Class Doc Comment
+ * SfvbLibraryManifestFinding Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SfvbLibraryTaxonomyCatalog implements ModelInterface, ArrayAccess, \JsonSerializable
+class SfvbLibraryManifestFinding implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SfvbLibraryTaxonomyCatalog implements ModelInterface, ArrayAccess, \JsonSe
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SfvbLibraryTaxonomyCatalog';
+    protected static $openAPIModelName = 'SfvbLibraryManifestFinding';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,9 @@ class SfvbLibraryTaxonomyCatalog implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'dimensions' => '\ultracart\v2\models\SfvbLibraryTaxonomyDimension[]'
+        'detail' => 'string',
+        'widget_id' => 'string',
+        'widget_type' => 'string'
     ];
 
     /**
@@ -69,7 +71,9 @@ class SfvbLibraryTaxonomyCatalog implements ModelInterface, ArrayAccess, \JsonSe
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'dimensions' => null
+        'detail' => null,
+        'widget_id' => null,
+        'widget_type' => null
     ];
 
     /**
@@ -99,7 +103,9 @@ class SfvbLibraryTaxonomyCatalog implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
-        'dimensions' => 'dimensions'
+        'detail' => 'detail',
+        'widget_id' => 'widget_id',
+        'widget_type' => 'widget_type'
     ];
 
     /**
@@ -108,7 +114,9 @@ class SfvbLibraryTaxonomyCatalog implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
-        'dimensions' => 'setDimensions'
+        'detail' => 'setDetail',
+        'widget_id' => 'setWidgetId',
+        'widget_type' => 'setWidgetType'
     ];
 
     /**
@@ -117,7 +125,9 @@ class SfvbLibraryTaxonomyCatalog implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
-        'dimensions' => 'getDimensions'
+        'detail' => 'getDetail',
+        'widget_id' => 'getWidgetId',
+        'widget_type' => 'getWidgetType'
     ];
 
     /**
@@ -177,7 +187,9 @@ class SfvbLibraryTaxonomyCatalog implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(array $data = null)
     {
-        $this->container['dimensions'] = $data['dimensions'] ?? null;
+        $this->container['detail'] = $data['detail'] ?? null;
+        $this->container['widget_id'] = $data['widget_id'] ?? null;
+        $this->container['widget_type'] = $data['widget_type'] ?? null;
     }
 
     /**
@@ -205,25 +217,73 @@ class SfvbLibraryTaxonomyCatalog implements ModelInterface, ArrayAccess, \JsonSe
 
 
     /**
-     * Gets dimensions
+     * Gets detail
      *
-     * @return \ultracart\v2\models\SfvbLibraryTaxonomyDimension[]|null
+     * @return string|null
      */
-    public function getDimensions()
+    public function getDetail()
     {
-        return $this->container['dimensions'];
+        return $this->container['detail'];
     }
 
     /**
-     * Sets dimensions
+     * Sets detail
      *
-     * @param \ultracart\v2\models\SfvbLibraryTaxonomyDimension[]|null $dimensions purpose, section, industry and style, each with its allowed tags.
+     * @param string|null $detail What was found.  For an absolute asset URL this is the URL.  For a credential it is only the kind of credential, never its value.
      *
      * @return self
      */
-    public function setDimensions($dimensions)
+    public function setDetail($detail)
     {
-        $this->container['dimensions'] = $dimensions;
+        $this->container['detail'] = $detail;
+
+        return $this;
+    }
+
+    /**
+     * Gets widget_id
+     *
+     * @return string|null
+     */
+    public function getWidgetId()
+    {
+        return $this->container['widget_id'];
+    }
+
+    /**
+     * Sets widget_id
+     *
+     * @param string|null $widget_id Id of the widget the finding is in.
+     *
+     * @return self
+     */
+    public function setWidgetId($widget_id)
+    {
+        $this->container['widget_id'] = $widget_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets widget_type
+     *
+     * @return string|null
+     */
+    public function getWidgetType()
+    {
+        return $this->container['widget_type'];
+    }
+
+    /**
+     * Sets widget_type
+     *
+     * @param string|null $widget_type Element type of that widget.
+     *
+     * @return self
+     */
+    public function setWidgetType($widget_type)
+    {
+        $this->container['widget_type'] = $widget_type;
 
         return $this;
     }

@@ -58,7 +58,7 @@ class SfvbLibraryAiReview implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'findings' => 'object',
+        'findings' => '\ultracart\v2\models\SfvbLibraryManifestFinding[]',
         'prompt_version' => 'string',
         'reviewed_dts' => 'string',
         'screenshot_sha256' => 'string',
@@ -265,7 +265,7 @@ class SfvbLibraryAiReview implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets findings
      *
-     * @return object|null
+     * @return \ultracart\v2\models\SfvbLibraryManifestFinding[]|null
      */
     public function getFindings()
     {
@@ -275,7 +275,7 @@ class SfvbLibraryAiReview implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets findings
      *
-     * @param object|null $findings What the reviewers found.  detail is the category followed by the quoted evidence.
+     * @param \ultracart\v2\models\SfvbLibraryManifestFinding[]|null $findings What the reviewers found.  detail is the category followed by the quoted evidence.
      *
      * @return self
      */

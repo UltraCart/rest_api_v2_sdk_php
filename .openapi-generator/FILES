@@ -1055,6 +1055,7 @@ docs/Model/SfvbLibraryInstallReceipt.md
 docs/Model/SfvbLibraryInstallRecord.md
 docs/Model/SfvbLibraryInstallRequest.md
 docs/Model/SfvbLibraryInstallsResponse.md
+docs/Model/SfvbLibraryManifestFinding.md
 docs/Model/SfvbLibraryParameter.md
 docs/Model/SfvbLibraryPublishRequest.md
 docs/Model/SfvbLibraryResponse.md
@@ -1064,6 +1065,8 @@ docs/Model/SfvbLibraryShareTarget.md
 docs/Model/SfvbLibraryShareTargetsResponse.md
 docs/Model/SfvbLibraryTaxonomy.md
 docs/Model/SfvbLibraryTaxonomyCatalog.md
+docs/Model/SfvbLibraryTaxonomyDimension.md
+docs/Model/SfvbLibraryTaxonomyTag.md
 docs/Model/SfvbLibraryUnshareResult.md
 docs/Model/SfvbMenu.md
 docs/Model/SfvbMenuItem.md
@@ -2301,6 +2304,7 @@ lib/models/SfvbLibraryInstallReceipt.php
 lib/models/SfvbLibraryInstallRecord.php
 lib/models/SfvbLibraryInstallRequest.php
 lib/models/SfvbLibraryInstallsResponse.php
+lib/models/SfvbLibraryManifestFinding.php
 lib/models/SfvbLibraryParameter.php
 lib/models/SfvbLibraryPublishRequest.php
 lib/models/SfvbLibraryResponse.php
@@ -2310,6 +2314,8 @@ lib/models/SfvbLibraryShareTarget.php
 lib/models/SfvbLibraryShareTargetsResponse.php
 lib/models/SfvbLibraryTaxonomy.php
 lib/models/SfvbLibraryTaxonomyCatalog.php
+lib/models/SfvbLibraryTaxonomyDimension.php
+lib/models/SfvbLibraryTaxonomyTag.php
 lib/models/SfvbLibraryUnshareResult.php
 lib/models/SfvbMenu.php
 lib/models/SfvbMenuItem.php

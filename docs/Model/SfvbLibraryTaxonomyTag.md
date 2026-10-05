@@ -1,9 +1,10 @@
-# # SfvbLibraryTaxonomyCatalog
+# # SfvbLibraryTaxonomyTag
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**dimensions** | [**\ultracart\v2\models\SfvbLibraryTaxonomyDimension[]**](SfvbLibraryTaxonomyDimension.md) | purpose, section, industry and style, each with its allowed tags. | [optional]
+**description** | **string** | When to use it. | [optional]
+**slug** | **string** | The value to send in the entry&#39;s taxonomy. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
