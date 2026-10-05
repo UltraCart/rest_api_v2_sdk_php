@@ -62,6 +62,7 @@ class SfvbWhoamiResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'application_name' => 'string',
         'authentication_type' => 'string',
         'can_publish' => 'bool',
+        'can_publish_public' => 'bool',
         'can_read' => 'bool',
         'can_write' => 'bool',
         'device_scope' => 'string',
@@ -85,6 +86,7 @@ class SfvbWhoamiResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'application_name' => null,
         'authentication_type' => null,
         'can_publish' => null,
+        'can_publish_public' => null,
         'can_read' => null,
         'can_write' => null,
         'device_scope' => null,
@@ -127,6 +129,7 @@ class SfvbWhoamiResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'application_name' => 'application_name',
         'authentication_type' => 'authentication_type',
         'can_publish' => 'can_publish',
+        'can_publish_public' => 'can_publish_public',
         'can_read' => 'can_read',
         'can_write' => 'can_write',
         'device_scope' => 'device_scope',
@@ -148,6 +151,7 @@ class SfvbWhoamiResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'application_name' => 'setApplicationName',
         'authentication_type' => 'setAuthenticationType',
         'can_publish' => 'setCanPublish',
+        'can_publish_public' => 'setCanPublishPublic',
         'can_read' => 'setCanRead',
         'can_write' => 'setCanWrite',
         'device_scope' => 'setDeviceScope',
@@ -169,6 +173,7 @@ class SfvbWhoamiResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'application_name' => 'getApplicationName',
         'authentication_type' => 'getAuthenticationType',
         'can_publish' => 'getCanPublish',
+        'can_publish_public' => 'getCanPublishPublic',
         'can_read' => 'getCanRead',
         'can_write' => 'getCanWrite',
         'device_scope' => 'getDeviceScope',
@@ -241,6 +246,7 @@ class SfvbWhoamiResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->container['application_name'] = $data['application_name'] ?? null;
         $this->container['authentication_type'] = $data['authentication_type'] ?? null;
         $this->container['can_publish'] = $data['can_publish'] ?? null;
+        $this->container['can_publish_public'] = $data['can_publish_public'] ?? null;
         $this->container['can_read'] = $data['can_read'] ?? null;
         $this->container['can_write'] = $data['can_write'] ?? null;
         $this->container['device_scope'] = $data['device_scope'] ?? null;
@@ -368,6 +374,30 @@ class SfvbWhoamiResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setCanPublish($can_publish)
     {
         $this->container['can_publish'] = $can_publish;
+
+        return $this;
+    }
+
+    /**
+     * Gets can_publish_public
+     *
+     * @return bool|null
+     */
+    public function getCanPublishPublic()
+    {
+        return $this->container['can_publish_public'];
+    }
+
+    /**
+     * Sets can_publish_public
+     *
+     * @param bool|null $can_publish_public True when this account may publish library entries to the public library.  Set by UltraCart staff only.
+     *
+     * @return self
+     */
+    public function setCanPublishPublic($can_publish_public)
+    {
+        $this->container['can_publish_public'] = $can_publish_public;
 
         return $this;
     }

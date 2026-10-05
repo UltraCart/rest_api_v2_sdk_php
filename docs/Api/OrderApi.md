@@ -131,8 +131,59 @@ Associates an RMA number with an order.  Any existing RMA on the order is replac
 
 ### Example
 
+```php
+<?php
 
-(No example for this operation).
+ini_set('display_errors', 1);
+
+/*
+ * OrderApi.assignRma() assigns an RMA (return merchandise authorization) number to an order.
+ *
+ * The rma value is required, may be at most 30 characters, and is trimmed by the server.
+ * Assigning an RMA replaces any RMA already on the order, and a merchant note is added to the order
+ * recording the change.  The optional expansion controls how much of the updated order is returned.
+ *
+ * Requires the order_write scope.
+ */
+
+use ultracart\v2\api\OrderApi;
+use ultracart\v2\ApiException;
+use ultracart\v2\models\OrderAssignRmaRequest;
+
+require_once '../vendor/autoload.php';
+require_once '../constants.php';
+
+
+$order_api = OrderApi::usingApiKey(Constants::API_KEY);
+
+$order_id = 'DEMO-0009104390';
+
+$assign_rma_request = new OrderAssignRmaRequest();
+$assign_rma_request->setRma('RMA-12345');
+
+// see www.ultracart.com/api/ for all the expansion fields available
+$expansion = "item,summary";
+
+try {
+    $api_response = $order_api->assignRma($order_id, $assign_rma_request, $expansion);
+} catch (ApiException $e) {
+    echo 'An ApiException occurred.  Please review the following error:';
+    var_dump($e); // <-- change_me: handle gracefully
+    die(1);
+}
+
+if ($api_response->getError() != null) {
+    error_log($api_response->getError()->getDeveloperMessage());
+    error_log($api_response->getError()->getUserMessage());
+    exit();
+}
+
+$order = $api_response->getOrder();
+
+echo '<html lang="en"><body><pre>';
+var_dump($order);
+echo '</pre></body></html>';
+```
 
 
 ### Parameters
@@ -2107,8 +2158,61 @@ Retrieves the orders associated with the specified RMA number.  The RMA must be 
 
 ### Example
 
+```php
+<?php
 
-(No example for this operation).
+ini_set('display_errors', 1);
+
+/*
+ * OrderApi.getOrdersByRma() retrieves the orders that have a given RMA (return merchandise authorization) number.
+ *
+ * The search is an exact match only.  Wildcards are not supported, and an rma containing * returns a 400 error.
+ * More than one order can share the same RMA, so the response contains a list of orders.
+ *
+ * This lookup is backed by the search index, so an RMA that was just assigned with OrderApi.assignRma()
+ * may take a short time to appear in the results.
+ *
+ * Requires the order_read scope.
+ */
+
+use ultracart\v2\api\OrderApi;
+use ultracart\v2\ApiException;
+
+require_once '../vendor/autoload.php';
+require_once '../constants.php';
+
+
+$order_api = OrderApi::usingApiKey(Constants::API_KEY);
+
+$rma = 'RMA-12345';
+
+// see www.ultracart.com/api/ for all the expansion fields available
+$expansion = "item,summary,billing,shipping";
+
+try {
+    $api_response = $order_api->getOrdersByRma($rma, $expansion);
+} catch (ApiException $e) {
+    echo 'An ApiException occurred.  Please review the following error:';
+    var_dump($e); // <-- change_me: handle gracefully
+    die(1);
+}
+
+if ($api_response->getError() != null) {
+    error_log($api_response->getError()->getDeveloperMessage());
+    error_log($api_response->getError()->getUserMessage());
+    exit();
+}
+
+$orders = $api_response->getOrders();
+
+echo '<html lang="en"><body><pre>';
+echo 'Orders found with RMA ' . $rma . ': ' . count($orders) . "\n";
+foreach ($orders as $order) {
+    echo $order->getOrderId() . "\n";
+}
+var_dump($orders);
+echo '</pre></body></html>';
+```
 
 
 ### Parameters
@@ -2148,8 +2252,56 @@ Generates the url a customer can use to update the billing information on the au
 
 ### Example
 
+```php
+<?php
 
-(No example for this operation).
+ini_set('display_errors', 1);
+
+/*
+ * OrderApi.getUpdateBillingUrl() returns the update billing url for the auto order an order belongs to.
+ *
+ * This is the same url that is sent to the customer in the auto order update billing email.  The order
+ * must belong to an auto order, otherwise a 400 error is returned.  Either the original order or any
+ * rebill order of the auto order may be used.
+ *
+ * Requires the order_write scope.  It is a write scope because the url carries a customer access token.
+ *
+ * WARNING: the update billing url grants access to the customer's billing information.  Do not log it
+ * or expose it publicly in production.  It is printed below only for demonstration.
+ */
+
+use ultracart\v2\api\OrderApi;
+use ultracart\v2\ApiException;
+
+require_once '../vendor/autoload.php';
+require_once '../constants.php';
+
+
+$order_api = OrderApi::usingApiKey(Constants::API_KEY);
+
+$order_id = 'DEMO-0009104390'; // must be an order that belongs to an auto order
+
+try {
+    $api_response = $order_api->getUpdateBillingUrl($order_id);
+} catch (ApiException $e) {
+    echo 'An ApiException occurred.  Please review the following error:';
+    var_dump($e); // <-- change_me: handle gracefully
+    die(1);
+}
+
+if ($api_response->getError() != null) {
+    error_log($api_response->getError()->getDeveloperMessage());
+    error_log($api_response->getError()->getUserMessage());
+    exit();
+}
+
+// Sensitive.  Do not log or expose this url publicly in production.
+$update_billing_url = $api_response->getUpdateBillingUrl();
+
+echo '<html lang="en"><body><pre>';
+echo 'Update Billing Url: ' . $update_billing_url . "\n";
+echo '</pre></body></html>';
+```
 
 
 ### Parameters

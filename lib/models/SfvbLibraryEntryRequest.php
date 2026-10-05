@@ -1,6 +1,6 @@
 <?php
 /**
- * SfvbLibraryFacet
+ * SfvbLibraryEntryRequest
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * SfvbLibraryFacet Class Doc Comment
+ * SfvbLibraryEntryRequest Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
+class SfvbLibraryEntryRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SfvbLibraryFacet';
+    protected static $openAPIModelName = 'SfvbLibraryEntryRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,13 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'display_name' => 'string',
+        'cjson' => 'string',
+        'description' => 'string',
         'name' => 'string',
-        'options' => 'string[]'
+        'parameters' => '\ultracart\v2\models\SfvbLibraryParameter[]',
+        'screenshot' => '\ultracart\v2\models\SfvbLibraryScreenshotRequest',
+        'share_with_account' => 'bool',
+        'taxonomy' => '\ultracart\v2\models\SfvbLibraryTaxonomy'
     ];
 
     /**
@@ -71,9 +75,13 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'display_name' => null,
+        'cjson' => null,
+        'description' => null,
         'name' => null,
-        'options' => null
+        'parameters' => null,
+        'screenshot' => null,
+        'share_with_account' => null,
+        'taxonomy' => null
     ];
 
     /**
@@ -103,9 +111,13 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'display_name' => 'display_name',
+        'cjson' => 'cjson',
+        'description' => 'description',
         'name' => 'name',
-        'options' => 'options'
+        'parameters' => 'parameters',
+        'screenshot' => 'screenshot',
+        'share_with_account' => 'share_with_account',
+        'taxonomy' => 'taxonomy'
     ];
 
     /**
@@ -114,9 +126,13 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'display_name' => 'setDisplayName',
+        'cjson' => 'setCjson',
+        'description' => 'setDescription',
         'name' => 'setName',
-        'options' => 'setOptions'
+        'parameters' => 'setParameters',
+        'screenshot' => 'setScreenshot',
+        'share_with_account' => 'setShareWithAccount',
+        'taxonomy' => 'setTaxonomy'
     ];
 
     /**
@@ -125,9 +141,13 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'display_name' => 'getDisplayName',
+        'cjson' => 'getCjson',
+        'description' => 'getDescription',
         'name' => 'getName',
-        'options' => 'getOptions'
+        'parameters' => 'getParameters',
+        'screenshot' => 'getScreenshot',
+        'share_with_account' => 'getShareWithAccount',
+        'taxonomy' => 'getTaxonomy'
     ];
 
     /**
@@ -187,9 +207,13 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['display_name'] = $data['display_name'] ?? null;
+        $this->container['cjson'] = $data['cjson'] ?? null;
+        $this->container['description'] = $data['description'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
-        $this->container['options'] = $data['options'] ?? null;
+        $this->container['parameters'] = $data['parameters'] ?? null;
+        $this->container['screenshot'] = $data['screenshot'] ?? null;
+        $this->container['share_with_account'] = $data['share_with_account'] ?? null;
+        $this->container['taxonomy'] = $data['taxonomy'] ?? null;
     }
 
     /**
@@ -217,25 +241,49 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets display_name
+     * Gets cjson
      *
      * @return string|null
      */
-    public function getDisplayName()
+    public function getCjson()
     {
-        return $this->container['display_name'];
+        return $this->container['cjson'];
     }
 
     /**
-     * Sets display_name
+     * Sets cjson
      *
-     * @param string|null $display_name Human readable facet name.
+     * @param string|null $cjson The fragment, one widget and its children.  Not a whole container.
      *
      * @return self
      */
-    public function setDisplayName($display_name)
+    public function setCjson($cjson)
     {
-        $this->container['display_name'] = $display_name;
+        $this->container['cjson'] = $cjson;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description What the fragment is for, at most 1024 characters.
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
 
         return $this;
     }
@@ -253,7 +301,7 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name Facet key, such as facet_purpose.  To select an option, add a query parameter named after the key whose value is the key, a colon and the option.
+     * @param string|null $name Entry name, at most 100 characters.
      *
      * @return self
      */
@@ -265,25 +313,97 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets options
+     * Gets parameters
      *
-     * @return string[]|null
+     * @return \ultracart\v2\models\SfvbLibraryParameter[]|null
      */
-    public function getOptions()
+    public function getParameters()
     {
-        return $this->container['options'];
+        return $this->container['parameters'];
     }
 
     /**
-     * Sets options
+     * Sets parameters
      *
-     * @param string[]|null $options Values present in the results.  A facet with only one value is left out unless it is selected.
+     * @param \ultracart\v2\models\SfvbLibraryParameter[]|null $parameters Named values the fragment expects its installer to supply.
      *
      * @return self
      */
-    public function setOptions($options)
+    public function setParameters($parameters)
     {
-        $this->container['options'] = $options;
+        $this->container['parameters'] = $parameters;
+
+        return $this;
+    }
+
+    /**
+     * Gets screenshot
+     *
+     * @return \ultracart\v2\models\SfvbLibraryScreenshotRequest|null
+     */
+    public function getScreenshot()
+    {
+        return $this->container['screenshot'];
+    }
+
+    /**
+     * Sets screenshot
+     *
+     * @param \ultracart\v2\models\SfvbLibraryScreenshotRequest|null $screenshot screenshot
+     *
+     * @return self
+     */
+    public function setScreenshot($screenshot)
+    {
+        $this->container['screenshot'] = $screenshot;
+
+        return $this;
+    }
+
+    /**
+     * Gets share_with_account
+     *
+     * @return bool|null
+     */
+    public function getShareWithAccount()
+    {
+        return $this->container['share_with_account'];
+    }
+
+    /**
+     * Sets share_with_account
+     *
+     * @param bool|null $share_with_account True to let the other users on this merchant account see the published revision.
+     *
+     * @return self
+     */
+    public function setShareWithAccount($share_with_account)
+    {
+        $this->container['share_with_account'] = $share_with_account;
+
+        return $this;
+    }
+
+    /**
+     * Gets taxonomy
+     *
+     * @return \ultracart\v2\models\SfvbLibraryTaxonomy|null
+     */
+    public function getTaxonomy()
+    {
+        return $this->container['taxonomy'];
+    }
+
+    /**
+     * Sets taxonomy
+     *
+     * @param \ultracart\v2\models\SfvbLibraryTaxonomy|null $taxonomy taxonomy
+     *
+     * @return self
+     */
+    public function setTaxonomy($taxonomy)
+    {
+        $this->container['taxonomy'] = $taxonomy;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * SfvbLibraryFacet
+ * SfvbLibraryUnshareResult
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * SfvbLibraryFacet Class Doc Comment
+ * SfvbLibraryUnshareResult Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
+class SfvbLibraryUnshareResult implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SfvbLibraryFacet';
+    protected static $openAPIModelName = 'SfvbLibraryUnshareResult';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,9 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'display_name' => 'string',
-        'name' => 'string',
-        'options' => 'string[]'
+        'existing_installs' => '\ultracart\v2\models\SfvbLibraryInstallRecord[]',
+        'library_oid' => 'int',
+        'merchant_id' => 'string'
     ];
 
     /**
@@ -71,9 +71,9 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'display_name' => null,
-        'name' => null,
-        'options' => null
+        'existing_installs' => null,
+        'library_oid' => 'int32',
+        'merchant_id' => null
     ];
 
     /**
@@ -103,9 +103,9 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'display_name' => 'display_name',
-        'name' => 'name',
-        'options' => 'options'
+        'existing_installs' => 'existing_installs',
+        'library_oid' => 'library_oid',
+        'merchant_id' => 'merchant_id'
     ];
 
     /**
@@ -114,9 +114,9 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'display_name' => 'setDisplayName',
-        'name' => 'setName',
-        'options' => 'setOptions'
+        'existing_installs' => 'setExistingInstalls',
+        'library_oid' => 'setLibraryOid',
+        'merchant_id' => 'setMerchantId'
     ];
 
     /**
@@ -125,9 +125,9 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'display_name' => 'getDisplayName',
-        'name' => 'getName',
-        'options' => 'getOptions'
+        'existing_installs' => 'getExistingInstalls',
+        'library_oid' => 'getLibraryOid',
+        'merchant_id' => 'getMerchantId'
     ];
 
     /**
@@ -187,9 +187,9 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['display_name'] = $data['display_name'] ?? null;
-        $this->container['name'] = $data['name'] ?? null;
-        $this->container['options'] = $data['options'] ?? null;
+        $this->container['existing_installs'] = $data['existing_installs'] ?? null;
+        $this->container['library_oid'] = $data['library_oid'] ?? null;
+        $this->container['merchant_id'] = $data['merchant_id'] ?? null;
     }
 
     /**
@@ -217,73 +217,73 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets display_name
+     * Gets existing_installs
      *
-     * @return string|null
+     * @return \ultracart\v2\models\SfvbLibraryInstallRecord[]|null
      */
-    public function getDisplayName()
+    public function getExistingInstalls()
     {
-        return $this->container['display_name'];
+        return $this->container['existing_installs'];
     }
 
     /**
-     * Sets display_name
+     * Sets existing_installs
      *
-     * @param string|null $display_name Human readable facet name.
+     * @param \ultracart\v2\models\SfvbLibraryInstallRecord[]|null $existing_installs That account's installs, which keep their copies.  Unsharing never reaches into a storefront.
      *
      * @return self
      */
-    public function setDisplayName($display_name)
+    public function setExistingInstalls($existing_installs)
     {
-        $this->container['display_name'] = $display_name;
+        $this->container['existing_installs'] = $existing_installs;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets library_oid
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getName()
+    public function getLibraryOid()
     {
-        return $this->container['name'];
+        return $this->container['library_oid'];
     }
 
     /**
-     * Sets name
+     * Sets library_oid
      *
-     * @param string|null $name Facet key, such as facet_purpose.  To select an option, add a query parameter named after the key whose value is the key, a colon and the option.
+     * @param int|null $library_oid The entry.
      *
      * @return self
      */
-    public function setName($name)
+    public function setLibraryOid($library_oid)
     {
-        $this->container['name'] = $name;
+        $this->container['library_oid'] = $library_oid;
 
         return $this;
     }
 
     /**
-     * Gets options
+     * Gets merchant_id
      *
-     * @return string[]|null
+     * @return string|null
      */
-    public function getOptions()
+    public function getMerchantId()
     {
-        return $this->container['options'];
+        return $this->container['merchant_id'];
     }
 
     /**
-     * Sets options
+     * Sets merchant_id
      *
-     * @param string[]|null $options Values present in the results.  A facet with only one value is left out unless it is selected.
+     * @param string|null $merchant_id The account the entry is no longer shared with.
      *
      * @return self
      */
-    public function setOptions($options)
+    public function setMerchantId($merchant_id)
     {
-        $this->container['options'] = $options;
+        $this->container['merchant_id'] = $merchant_id;
 
         return $this;
     }

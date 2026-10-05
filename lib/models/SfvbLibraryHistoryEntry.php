@@ -1,6 +1,6 @@
 <?php
 /**
- * SfvbLibraryFacet
+ * SfvbLibraryHistoryEntry
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * SfvbLibraryFacet Class Doc Comment
+ * SfvbLibraryHistoryEntry Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
+class SfvbLibraryHistoryEntry implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SfvbLibraryFacet';
+    protected static $openAPIModelName = 'SfvbLibraryHistoryEntry';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,10 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'display_name' => 'string',
-        'name' => 'string',
-        'options' => 'string[]'
+        'hash_sha256' => 'string',
+        'published_dts' => 'string',
+        'release_notes' => 'string',
+        'revision_number' => 'int'
     ];
 
     /**
@@ -71,9 +72,10 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'display_name' => null,
-        'name' => null,
-        'options' => null
+        'hash_sha256' => null,
+        'published_dts' => null,
+        'release_notes' => null,
+        'revision_number' => 'int32'
     ];
 
     /**
@@ -103,9 +105,10 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'display_name' => 'display_name',
-        'name' => 'name',
-        'options' => 'options'
+        'hash_sha256' => 'hash_sha256',
+        'published_dts' => 'published_dts',
+        'release_notes' => 'release_notes',
+        'revision_number' => 'revision_number'
     ];
 
     /**
@@ -114,9 +117,10 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'display_name' => 'setDisplayName',
-        'name' => 'setName',
-        'options' => 'setOptions'
+        'hash_sha256' => 'setHashSha256',
+        'published_dts' => 'setPublishedDts',
+        'release_notes' => 'setReleaseNotes',
+        'revision_number' => 'setRevisionNumber'
     ];
 
     /**
@@ -125,9 +129,10 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'display_name' => 'getDisplayName',
-        'name' => 'getName',
-        'options' => 'getOptions'
+        'hash_sha256' => 'getHashSha256',
+        'published_dts' => 'getPublishedDts',
+        'release_notes' => 'getReleaseNotes',
+        'revision_number' => 'getRevisionNumber'
     ];
 
     /**
@@ -187,9 +192,10 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['display_name'] = $data['display_name'] ?? null;
-        $this->container['name'] = $data['name'] ?? null;
-        $this->container['options'] = $data['options'] ?? null;
+        $this->container['hash_sha256'] = $data['hash_sha256'] ?? null;
+        $this->container['published_dts'] = $data['published_dts'] ?? null;
+        $this->container['release_notes'] = $data['release_notes'] ?? null;
+        $this->container['revision_number'] = $data['revision_number'] ?? null;
     }
 
     /**
@@ -217,73 +223,97 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets display_name
+     * Gets hash_sha256
      *
      * @return string|null
      */
-    public function getDisplayName()
+    public function getHashSha256()
     {
-        return $this->container['display_name'];
+        return $this->container['hash_sha256'];
     }
 
     /**
-     * Sets display_name
+     * Sets hash_sha256
      *
-     * @param string|null $display_name Human readable facet name.
+     * @param string|null $hash_sha256 Hash of the published revision.
      *
      * @return self
      */
-    public function setDisplayName($display_name)
+    public function setHashSha256($hash_sha256)
     {
-        $this->container['display_name'] = $display_name;
+        $this->container['hash_sha256'] = $hash_sha256;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets published_dts
      *
      * @return string|null
      */
-    public function getName()
+    public function getPublishedDts()
     {
-        return $this->container['name'];
+        return $this->container['published_dts'];
     }
 
     /**
-     * Sets name
+     * Sets published_dts
      *
-     * @param string|null $name Facet key, such as facet_purpose.  To select an option, add a query parameter named after the key whose value is the key, a colon and the option.
+     * @param string|null $published_dts When it was published, ISO 8601.
      *
      * @return self
      */
-    public function setName($name)
+    public function setPublishedDts($published_dts)
     {
-        $this->container['name'] = $name;
+        $this->container['published_dts'] = $published_dts;
 
         return $this;
     }
 
     /**
-     * Gets options
+     * Gets release_notes
      *
-     * @return string[]|null
+     * @return string|null
      */
-    public function getOptions()
+    public function getReleaseNotes()
     {
-        return $this->container['options'];
+        return $this->container['release_notes'];
     }
 
     /**
-     * Sets options
+     * Sets release_notes
      *
-     * @param string[]|null $options Values present in the results.  A facet with only one value is left out unless it is selected.
+     * @param string|null $release_notes What changed, as the publisher described it.
      *
      * @return self
      */
-    public function setOptions($options)
+    public function setReleaseNotes($release_notes)
     {
-        $this->container['options'] = $options;
+        $this->container['release_notes'] = $release_notes;
+
+        return $this;
+    }
+
+    /**
+     * Gets revision_number
+     *
+     * @return int|null
+     */
+    public function getRevisionNumber()
+    {
+        return $this->container['revision_number'];
+    }
+
+    /**
+     * Sets revision_number
+     *
+     * @param int|null $revision_number The revision that was published.
+     *
+     * @return self
+     */
+    public function setRevisionNumber($revision_number)
+    {
+        $this->container['revision_number'] = $revision_number;
 
         return $this;
     }

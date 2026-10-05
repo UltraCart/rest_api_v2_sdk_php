@@ -1,6 +1,6 @@
 <?php
 /**
- * SfvbLibraryFacet
+ * SfvbLibraryParameter
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * SfvbLibraryFacet Class Doc Comment
+ * SfvbLibraryParameter Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
+class SfvbLibraryParameter implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SfvbLibraryFacet';
+    protected static $openAPIModelName = 'SfvbLibraryParameter';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,11 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'display_name' => 'string',
+        'default' => 'string',
+        'description' => 'string',
         'name' => 'string',
-        'options' => 'string[]'
+        'required' => 'bool',
+        'type' => 'string'
     ];
 
     /**
@@ -71,9 +73,11 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'display_name' => null,
+        'default' => null,
+        'description' => null,
         'name' => null,
-        'options' => null
+        'required' => null,
+        'type' => null
     ];
 
     /**
@@ -103,9 +107,11 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'display_name' => 'display_name',
+        'default' => 'default',
+        'description' => 'description',
         'name' => 'name',
-        'options' => 'options'
+        'required' => 'required',
+        'type' => 'type'
     ];
 
     /**
@@ -114,9 +120,11 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'display_name' => 'setDisplayName',
+        'default' => 'setDefault',
+        'description' => 'setDescription',
         'name' => 'setName',
-        'options' => 'setOptions'
+        'required' => 'setRequired',
+        'type' => 'setType'
     ];
 
     /**
@@ -125,9 +133,11 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'display_name' => 'getDisplayName',
+        'default' => 'getDefault',
+        'description' => 'getDescription',
         'name' => 'getName',
-        'options' => 'getOptions'
+        'required' => 'getRequired',
+        'type' => 'getType'
     ];
 
     /**
@@ -187,9 +197,11 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['display_name'] = $data['display_name'] ?? null;
+        $this->container['default'] = $data['default'] ?? null;
+        $this->container['description'] = $data['description'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
-        $this->container['options'] = $data['options'] ?? null;
+        $this->container['required'] = $data['required'] ?? null;
+        $this->container['type'] = $data['type'] ?? null;
     }
 
     /**
@@ -217,25 +229,49 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets display_name
+     * Gets default
      *
      * @return string|null
      */
-    public function getDisplayName()
+    public function getDefault()
     {
-        return $this->container['display_name'];
+        return $this->container['default'];
     }
 
     /**
-     * Sets display_name
+     * Sets default
      *
-     * @param string|null $display_name Human readable facet name.
+     * @param string|null $default The value used when none is supplied.
      *
      * @return self
      */
-    public function setDisplayName($display_name)
+    public function setDefault($default)
     {
-        $this->container['display_name'] = $display_name;
+        $this->container['default'] = $default;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description What the value is used for.
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
 
         return $this;
     }
@@ -253,7 +289,7 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name Facet key, such as facet_purpose.  To select an option, add a query parameter named after the key whose value is the key, a colon and the option.
+     * @param string|null $name Parameter name, letters, digits, hyphens and underscores.
      *
      * @return self
      */
@@ -265,25 +301,49 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets options
+     * Gets required
      *
-     * @return string[]|null
+     * @return bool|null
      */
-    public function getOptions()
+    public function getRequired()
     {
-        return $this->container['options'];
+        return $this->container['required'];
     }
 
     /**
-     * Sets options
+     * Sets required
      *
-     * @param string[]|null $options Values present in the results.  A facet with only one value is left out unless it is selected.
+     * @param bool|null $required True when the fragment cannot be used without it.
      *
      * @return self
      */
-    public function setOptions($options)
+    public function setRequired($required)
     {
-        $this->container['options'] = $options;
+        $this->container['required'] = $required;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type What kind of value it takes, such as string, url, color or item.
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * SfvbLibraryFacet
+ * SfvbLibraryTaxonomy
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * SfvbLibraryFacet Class Doc Comment
+ * SfvbLibraryTaxonomy Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
+class SfvbLibraryTaxonomy implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SfvbLibraryFacet';
+    protected static $openAPIModelName = 'SfvbLibraryTaxonomy';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,10 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'display_name' => 'string',
-        'name' => 'string',
-        'options' => 'string[]'
+        'industry' => 'string[]',
+        'purpose' => 'string[]',
+        'section' => 'string[]',
+        'style' => 'string[]'
     ];
 
     /**
@@ -71,9 +72,10 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'display_name' => null,
-        'name' => null,
-        'options' => null
+        'industry' => null,
+        'purpose' => null,
+        'section' => null,
+        'style' => null
     ];
 
     /**
@@ -103,9 +105,10 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'display_name' => 'display_name',
-        'name' => 'name',
-        'options' => 'options'
+        'industry' => 'industry',
+        'purpose' => 'purpose',
+        'section' => 'section',
+        'style' => 'style'
     ];
 
     /**
@@ -114,9 +117,10 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'display_name' => 'setDisplayName',
-        'name' => 'setName',
-        'options' => 'setOptions'
+        'industry' => 'setIndustry',
+        'purpose' => 'setPurpose',
+        'section' => 'setSection',
+        'style' => 'setStyle'
     ];
 
     /**
@@ -125,9 +129,10 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'display_name' => 'getDisplayName',
-        'name' => 'getName',
-        'options' => 'getOptions'
+        'industry' => 'getIndustry',
+        'purpose' => 'getPurpose',
+        'section' => 'getSection',
+        'style' => 'getStyle'
     ];
 
     /**
@@ -187,9 +192,10 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['display_name'] = $data['display_name'] ?? null;
-        $this->container['name'] = $data['name'] ?? null;
-        $this->container['options'] = $data['options'] ?? null;
+        $this->container['industry'] = $data['industry'] ?? null;
+        $this->container['purpose'] = $data['purpose'] ?? null;
+        $this->container['section'] = $data['section'] ?? null;
+        $this->container['style'] = $data['style'] ?? null;
     }
 
     /**
@@ -217,73 +223,97 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets display_name
-     *
-     * @return string|null
-     */
-    public function getDisplayName()
-    {
-        return $this->container['display_name'];
-    }
-
-    /**
-     * Sets display_name
-     *
-     * @param string|null $display_name Human readable facet name.
-     *
-     * @return self
-     */
-    public function setDisplayName($display_name)
-    {
-        $this->container['display_name'] = $display_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name Facet key, such as facet_purpose.  To select an option, add a query parameter named after the key whose value is the key, a colon and the option.
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets options
+     * Gets industry
      *
      * @return string[]|null
      */
-    public function getOptions()
+    public function getIndustry()
     {
-        return $this->container['options'];
+        return $this->container['industry'];
     }
 
     /**
-     * Sets options
+     * Sets industry
      *
-     * @param string[]|null $options Values present in the results.  A facet with only one value is left out unless it is selected.
+     * @param string[]|null $industry Industries the fragment suits.
      *
      * @return self
      */
-    public function setOptions($options)
+    public function setIndustry($industry)
     {
-        $this->container['options'] = $options;
+        $this->container['industry'] = $industry;
+
+        return $this;
+    }
+
+    /**
+     * Gets purpose
+     *
+     * @return string[]|null
+     */
+    public function getPurpose()
+    {
+        return $this->container['purpose'];
+    }
+
+    /**
+     * Sets purpose
+     *
+     * @param string[]|null $purpose What the fragment is for, such as hero, social-proof or faq.  At least one is required.
+     *
+     * @return self
+     */
+    public function setPurpose($purpose)
+    {
+        $this->container['purpose'] = $purpose;
+
+        return $this;
+    }
+
+    /**
+     * Gets section
+     *
+     * @return string[]|null
+     */
+    public function getSection()
+    {
+        return $this->container['section'];
+    }
+
+    /**
+     * Sets section
+     *
+     * @param string[]|null $section Where the fragment goes, such as header, footer or product-detail.
+     *
+     * @return self
+     */
+    public function setSection($section)
+    {
+        $this->container['section'] = $section;
+
+        return $this;
+    }
+
+    /**
+     * Gets style
+     *
+     * @return string[]|null
+     */
+    public function getStyle()
+    {
+        return $this->container['style'];
+    }
+
+    /**
+     * Sets style
+     *
+     * @param string[]|null $style Visual styles the fragment has.
+     *
+     * @return self
+     */
+    public function setStyle($style)
+    {
+        $this->container['style'] = $style;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * SfvbLibraryFacet
+ * SfvbLibraryInstallRequest
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * SfvbLibraryFacet Class Doc Comment
+ * SfvbLibraryInstallRequest Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
+class SfvbLibraryInstallRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SfvbLibraryFacet';
+    protected static $openAPIModelName = 'SfvbLibraryInstallRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,9 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'display_name' => 'string',
-        'name' => 'string',
-        'options' => 'string[]'
+        'acknowledge_executable' => 'bool',
+        'on_conflict' => 'string',
+        'revision_number' => 'int'
     ];
 
     /**
@@ -71,9 +71,9 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'display_name' => null,
-        'name' => null,
-        'options' => null
+        'acknowledge_executable' => null,
+        'on_conflict' => null,
+        'revision_number' => 'int32'
     ];
 
     /**
@@ -103,9 +103,9 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'display_name' => 'display_name',
-        'name' => 'name',
-        'options' => 'options'
+        'acknowledge_executable' => 'acknowledge_executable',
+        'on_conflict' => 'on_conflict',
+        'revision_number' => 'revision_number'
     ];
 
     /**
@@ -114,9 +114,9 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'display_name' => 'setDisplayName',
-        'name' => 'setName',
-        'options' => 'setOptions'
+        'acknowledge_executable' => 'setAcknowledgeExecutable',
+        'on_conflict' => 'setOnConflict',
+        'revision_number' => 'setRevisionNumber'
     ];
 
     /**
@@ -125,9 +125,9 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'display_name' => 'getDisplayName',
-        'name' => 'getName',
-        'options' => 'getOptions'
+        'acknowledge_executable' => 'getAcknowledgeExecutable',
+        'on_conflict' => 'getOnConflict',
+        'revision_number' => 'getRevisionNumber'
     ];
 
     /**
@@ -171,6 +171,23 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const ON_CONFLICT_FAIL = 'fail';
+    public const ON_CONFLICT_SKIP = 'skip';
+    public const ON_CONFLICT_OVERWRITE = 'overwrite';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getOnConflictAllowableValues()
+    {
+        return [
+            self::ON_CONFLICT_FAIL,
+            self::ON_CONFLICT_SKIP,
+            self::ON_CONFLICT_OVERWRITE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -187,9 +204,9 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['display_name'] = $data['display_name'] ?? null;
-        $this->container['name'] = $data['name'] ?? null;
-        $this->container['options'] = $data['options'] ?? null;
+        $this->container['acknowledge_executable'] = $data['acknowledge_executable'] ?? null;
+        $this->container['on_conflict'] = $data['on_conflict'] ?? null;
+        $this->container['revision_number'] = $data['revision_number'] ?? null;
     }
 
     /**
@@ -200,6 +217,15 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getOnConflictAllowableValues();
+        if (!is_null($this->container['on_conflict']) && !in_array($this->container['on_conflict'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'on_conflict', must be one of '%s'",
+                $this->container['on_conflict'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -217,73 +243,83 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets display_name
+     * Gets acknowledge_executable
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getDisplayName()
+    public function getAcknowledgeExecutable()
     {
-        return $this->container['display_name'];
+        return $this->container['acknowledge_executable'];
     }
 
     /**
-     * Sets display_name
+     * Sets acknowledge_executable
      *
-     * @param string|null $display_name Human readable facet name.
+     * @param bool|null $acknowledge_executable Must be true to install an entry whose content_manifest lists executable content.  Read the manifest first.
      *
      * @return self
      */
-    public function setDisplayName($display_name)
+    public function setAcknowledgeExecutable($acknowledge_executable)
     {
-        $this->container['display_name'] = $display_name;
+        $this->container['acknowledge_executable'] = $acknowledge_executable;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets on_conflict
      *
      * @return string|null
      */
-    public function getName()
+    public function getOnConflict()
     {
-        return $this->container['name'];
+        return $this->container['on_conflict'];
     }
 
     /**
-     * Sets name
+     * Sets on_conflict
      *
-     * @param string|null $name Facet key, such as facet_purpose.  To select an option, add a query parameter named after the key whose value is the key, a colon and the option.
+     * @param string|null $on_conflict What to do when a file the entry installs already exists with different content.  fail refuses and writes nothing, skip keeps the existing file, overwrite replaces it.
      *
      * @return self
      */
-    public function setName($name)
+    public function setOnConflict($on_conflict)
     {
-        $this->container['name'] = $name;
+        $allowedValues = $this->getOnConflictAllowableValues();
+        if (!is_null($on_conflict) && !in_array($on_conflict, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'on_conflict', must be one of '%s'",
+                    $on_conflict,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['on_conflict'] = $on_conflict;
 
         return $this;
     }
 
     /**
-     * Gets options
+     * Gets revision_number
      *
-     * @return string[]|null
+     * @return int|null
      */
-    public function getOptions()
+    public function getRevisionNumber()
     {
-        return $this->container['options'];
+        return $this->container['revision_number'];
     }
 
     /**
-     * Sets options
+     * Sets revision_number
      *
-     * @param string[]|null $options Values present in the results.  A facet with only one value is left out unless it is selected.
+     * @param int|null $revision_number A published revision to install.  Defaults to the latest one, or the draft for the owner.
      *
      * @return self
      */
-    public function setOptions($options)
+    public function setRevisionNumber($revision_number)
     {
-        $this->container['options'] = $options;
+        $this->container['revision_number'] = $revision_number;
 
         return $this;
     }

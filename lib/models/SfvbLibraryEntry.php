@@ -60,14 +60,28 @@ class SfvbLibraryEntry implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'bookmarked' => 'bool',
         'cjson' => 'string',
+        'content_manifest' => '\ultracart\v2\models\SfvbLibraryContentManifest',
         'description' => 'string',
+        'hash_sha256' => 'string',
+        'last_modified_dts' => 'string',
         'library_oid' => 'int',
         'name' => 'string',
         'owned' => 'bool',
+        'parameters' => '\ultracart\v2\models\SfvbLibraryParameter[]',
+        'published_revision_number' => 'int',
         'referenced_files' => 'string[]',
+        'retired' => 'bool',
+        'revision_number' => 'int',
+        'screenshot_height' => 'int',
         'screenshot_key' => 'string',
+        'screenshot_sha256' => 'string',
+        'screenshot_stale' => 'bool',
+        'screenshot_width' => 'int',
         'share_with_account' => 'bool',
+        'shared_with' => '\ultracart\v2\models\SfvbLibraryShareTarget[]',
+        'taxonomy' => '\ultracart\v2\models\SfvbLibraryTaxonomy',
         'thumbnail_key' => 'string',
+        'visibility' => 'string',
         'widget_type' => 'string'
     ];
 
@@ -81,14 +95,28 @@ class SfvbLibraryEntry implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'bookmarked' => null,
         'cjson' => null,
+        'content_manifest' => null,
         'description' => null,
+        'hash_sha256' => null,
+        'last_modified_dts' => null,
         'library_oid' => 'int32',
         'name' => null,
         'owned' => null,
+        'parameters' => null,
+        'published_revision_number' => 'int32',
         'referenced_files' => null,
+        'retired' => null,
+        'revision_number' => 'int32',
+        'screenshot_height' => 'int32',
         'screenshot_key' => null,
+        'screenshot_sha256' => null,
+        'screenshot_stale' => null,
+        'screenshot_width' => 'int32',
         'share_with_account' => null,
+        'shared_with' => null,
+        'taxonomy' => null,
         'thumbnail_key' => null,
+        'visibility' => null,
         'widget_type' => null
     ];
 
@@ -121,14 +149,28 @@ class SfvbLibraryEntry implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'bookmarked' => 'bookmarked',
         'cjson' => 'cjson',
+        'content_manifest' => 'content_manifest',
         'description' => 'description',
+        'hash_sha256' => 'hash_sha256',
+        'last_modified_dts' => 'last_modified_dts',
         'library_oid' => 'library_oid',
         'name' => 'name',
         'owned' => 'owned',
+        'parameters' => 'parameters',
+        'published_revision_number' => 'published_revision_number',
         'referenced_files' => 'referenced_files',
+        'retired' => 'retired',
+        'revision_number' => 'revision_number',
+        'screenshot_height' => 'screenshot_height',
         'screenshot_key' => 'screenshot_key',
+        'screenshot_sha256' => 'screenshot_sha256',
+        'screenshot_stale' => 'screenshot_stale',
+        'screenshot_width' => 'screenshot_width',
         'share_with_account' => 'share_with_account',
+        'shared_with' => 'shared_with',
+        'taxonomy' => 'taxonomy',
         'thumbnail_key' => 'thumbnail_key',
+        'visibility' => 'visibility',
         'widget_type' => 'widget_type'
     ];
 
@@ -140,14 +182,28 @@ class SfvbLibraryEntry implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'bookmarked' => 'setBookmarked',
         'cjson' => 'setCjson',
+        'content_manifest' => 'setContentManifest',
         'description' => 'setDescription',
+        'hash_sha256' => 'setHashSha256',
+        'last_modified_dts' => 'setLastModifiedDts',
         'library_oid' => 'setLibraryOid',
         'name' => 'setName',
         'owned' => 'setOwned',
+        'parameters' => 'setParameters',
+        'published_revision_number' => 'setPublishedRevisionNumber',
         'referenced_files' => 'setReferencedFiles',
+        'retired' => 'setRetired',
+        'revision_number' => 'setRevisionNumber',
+        'screenshot_height' => 'setScreenshotHeight',
         'screenshot_key' => 'setScreenshotKey',
+        'screenshot_sha256' => 'setScreenshotSha256',
+        'screenshot_stale' => 'setScreenshotStale',
+        'screenshot_width' => 'setScreenshotWidth',
         'share_with_account' => 'setShareWithAccount',
+        'shared_with' => 'setSharedWith',
+        'taxonomy' => 'setTaxonomy',
         'thumbnail_key' => 'setThumbnailKey',
+        'visibility' => 'setVisibility',
         'widget_type' => 'setWidgetType'
     ];
 
@@ -159,14 +215,28 @@ class SfvbLibraryEntry implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'bookmarked' => 'getBookmarked',
         'cjson' => 'getCjson',
+        'content_manifest' => 'getContentManifest',
         'description' => 'getDescription',
+        'hash_sha256' => 'getHashSha256',
+        'last_modified_dts' => 'getLastModifiedDts',
         'library_oid' => 'getLibraryOid',
         'name' => 'getName',
         'owned' => 'getOwned',
+        'parameters' => 'getParameters',
+        'published_revision_number' => 'getPublishedRevisionNumber',
         'referenced_files' => 'getReferencedFiles',
+        'retired' => 'getRetired',
+        'revision_number' => 'getRevisionNumber',
+        'screenshot_height' => 'getScreenshotHeight',
         'screenshot_key' => 'getScreenshotKey',
+        'screenshot_sha256' => 'getScreenshotSha256',
+        'screenshot_stale' => 'getScreenshotStale',
+        'screenshot_width' => 'getScreenshotWidth',
         'share_with_account' => 'getShareWithAccount',
+        'shared_with' => 'getSharedWith',
+        'taxonomy' => 'getTaxonomy',
         'thumbnail_key' => 'getThumbnailKey',
+        'visibility' => 'getVisibility',
         'widget_type' => 'getWidgetType'
     ];
 
@@ -211,6 +281,23 @@ class SfvbLibraryEntry implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const VISIBILITY__PRIVATE = 'private';
+    public const VISIBILITY_SHARED = 'shared';
+    public const VISIBILITY__PUBLIC = 'public';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getVisibilityAllowableValues()
+    {
+        return [
+            self::VISIBILITY__PRIVATE,
+            self::VISIBILITY_SHARED,
+            self::VISIBILITY__PUBLIC,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -229,14 +316,28 @@ class SfvbLibraryEntry implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->container['bookmarked'] = $data['bookmarked'] ?? null;
         $this->container['cjson'] = $data['cjson'] ?? null;
+        $this->container['content_manifest'] = $data['content_manifest'] ?? null;
         $this->container['description'] = $data['description'] ?? null;
+        $this->container['hash_sha256'] = $data['hash_sha256'] ?? null;
+        $this->container['last_modified_dts'] = $data['last_modified_dts'] ?? null;
         $this->container['library_oid'] = $data['library_oid'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['owned'] = $data['owned'] ?? null;
+        $this->container['parameters'] = $data['parameters'] ?? null;
+        $this->container['published_revision_number'] = $data['published_revision_number'] ?? null;
         $this->container['referenced_files'] = $data['referenced_files'] ?? null;
+        $this->container['retired'] = $data['retired'] ?? null;
+        $this->container['revision_number'] = $data['revision_number'] ?? null;
+        $this->container['screenshot_height'] = $data['screenshot_height'] ?? null;
         $this->container['screenshot_key'] = $data['screenshot_key'] ?? null;
+        $this->container['screenshot_sha256'] = $data['screenshot_sha256'] ?? null;
+        $this->container['screenshot_stale'] = $data['screenshot_stale'] ?? null;
+        $this->container['screenshot_width'] = $data['screenshot_width'] ?? null;
         $this->container['share_with_account'] = $data['share_with_account'] ?? null;
+        $this->container['shared_with'] = $data['shared_with'] ?? null;
+        $this->container['taxonomy'] = $data['taxonomy'] ?? null;
         $this->container['thumbnail_key'] = $data['thumbnail_key'] ?? null;
+        $this->container['visibility'] = $data['visibility'] ?? null;
         $this->container['widget_type'] = $data['widget_type'] ?? null;
     }
 
@@ -248,6 +349,15 @@ class SfvbLibraryEntry implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getVisibilityAllowableValues();
+        if (!is_null($this->container['visibility']) && !in_array($this->container['visibility'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'visibility', must be one of '%s'",
+                $this->container['visibility'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -313,6 +423,30 @@ class SfvbLibraryEntry implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets content_manifest
+     *
+     * @return \ultracart\v2\models\SfvbLibraryContentManifest|null
+     */
+    public function getContentManifest()
+    {
+        return $this->container['content_manifest'];
+    }
+
+    /**
+     * Sets content_manifest
+     *
+     * @param \ultracart\v2\models\SfvbLibraryContentManifest|null $content_manifest content_manifest
+     *
+     * @return self
+     */
+    public function setContentManifest($content_manifest)
+    {
+        $this->container['content_manifest'] = $content_manifest;
+
+        return $this;
+    }
+
+    /**
      * Gets description
      *
      * @return string|null
@@ -332,6 +466,54 @@ class SfvbLibraryEntry implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets hash_sha256
+     *
+     * @return string|null
+     */
+    public function getHashSha256()
+    {
+        return $this->container['hash_sha256'];
+    }
+
+    /**
+     * Sets hash_sha256
+     *
+     * @param string|null $hash_sha256 Hash of the draft's writable fields.  Send it back as If-Match to update, delete or publish.  Present only for the owner.
+     *
+     * @return self
+     */
+    public function setHashSha256($hash_sha256)
+    {
+        $this->container['hash_sha256'] = $hash_sha256;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_modified_dts
+     *
+     * @return string|null
+     */
+    public function getLastModifiedDts()
+    {
+        return $this->container['last_modified_dts'];
+    }
+
+    /**
+     * Sets last_modified_dts
+     *
+     * @param string|null $last_modified_dts When the draft was last saved, ISO 8601.
+     *
+     * @return self
+     */
+    public function setLastModifiedDts($last_modified_dts)
+    {
+        $this->container['last_modified_dts'] = $last_modified_dts;
 
         return $this;
     }
@@ -409,6 +591,54 @@ class SfvbLibraryEntry implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets parameters
+     *
+     * @return \ultracart\v2\models\SfvbLibraryParameter[]|null
+     */
+    public function getParameters()
+    {
+        return $this->container['parameters'];
+    }
+
+    /**
+     * Sets parameters
+     *
+     * @param \ultracart\v2\models\SfvbLibraryParameter[]|null $parameters Named values the fragment expects the installer to supply.
+     *
+     * @return self
+     */
+    public function setParameters($parameters)
+    {
+        $this->container['parameters'] = $parameters;
+
+        return $this;
+    }
+
+    /**
+     * Gets published_revision_number
+     *
+     * @return int|null
+     */
+    public function getPublishedRevisionNumber()
+    {
+        return $this->container['published_revision_number'];
+    }
+
+    /**
+     * Sets published_revision_number
+     *
+     * @param int|null $published_revision_number The latest published revision, or null when the entry has never been published.
+     *
+     * @return self
+     */
+    public function setPublishedRevisionNumber($published_revision_number)
+    {
+        $this->container['published_revision_number'] = $published_revision_number;
+
+        return $this;
+    }
+
+    /**
      * Gets referenced_files
      *
      * @return string[]|null
@@ -428,6 +658,78 @@ class SfvbLibraryEntry implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setReferencedFiles($referenced_files)
     {
         $this->container['referenced_files'] = $referenced_files;
+
+        return $this;
+    }
+
+    /**
+     * Gets retired
+     *
+     * @return bool|null
+     */
+    public function getRetired()
+    {
+        return $this->container['retired'];
+    }
+
+    /**
+     * Sets retired
+     *
+     * @param bool|null $retired True when the owner deleted an entry that had been published or installed.  It is kept so existing installs still resolve, and it leaves search.
+     *
+     * @return self
+     */
+    public function setRetired($retired)
+    {
+        $this->container['retired'] = $retired;
+
+        return $this;
+    }
+
+    /**
+     * Gets revision_number
+     *
+     * @return int|null
+     */
+    public function getRevisionNumber()
+    {
+        return $this->container['revision_number'];
+    }
+
+    /**
+     * Sets revision_number
+     *
+     * @param int|null $revision_number The revision returned.  For the owner this is the draft, which every save increments.  For anyone else it is the published revision.
+     *
+     * @return self
+     */
+    public function setRevisionNumber($revision_number)
+    {
+        $this->container['revision_number'] = $revision_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets screenshot_height
+     *
+     * @return int|null
+     */
+    public function getScreenshotHeight()
+    {
+        return $this->container['screenshot_height'];
+    }
+
+    /**
+     * Sets screenshot_height
+     *
+     * @param int|null $screenshot_height Screenshot height in pixels.
+     *
+     * @return self
+     */
+    public function setScreenshotHeight($screenshot_height)
+    {
+        $this->container['screenshot_height'] = $screenshot_height;
 
         return $this;
     }
@@ -457,6 +759,78 @@ class SfvbLibraryEntry implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets screenshot_sha256
+     *
+     * @return string|null
+     */
+    public function getScreenshotSha256()
+    {
+        return $this->container['screenshot_sha256'];
+    }
+
+    /**
+     * Sets screenshot_sha256
+     *
+     * @param string|null $screenshot_sha256 Hash of the uploaded screenshot.
+     *
+     * @return self
+     */
+    public function setScreenshotSha256($screenshot_sha256)
+    {
+        $this->container['screenshot_sha256'] = $screenshot_sha256;
+
+        return $this;
+    }
+
+    /**
+     * Gets screenshot_stale
+     *
+     * @return bool|null
+     */
+    public function getScreenshotStale()
+    {
+        return $this->container['screenshot_stale'];
+    }
+
+    /**
+     * Sets screenshot_stale
+     *
+     * @param bool|null $screenshot_stale True on an update that changed the fragment of an entry with a screenshot.  Retake it and set it again with the library screenshot endpoint.
+     *
+     * @return self
+     */
+    public function setScreenshotStale($screenshot_stale)
+    {
+        $this->container['screenshot_stale'] = $screenshot_stale;
+
+        return $this;
+    }
+
+    /**
+     * Gets screenshot_width
+     *
+     * @return int|null
+     */
+    public function getScreenshotWidth()
+    {
+        return $this->container['screenshot_width'];
+    }
+
+    /**
+     * Sets screenshot_width
+     *
+     * @param int|null $screenshot_width Screenshot width in pixels.
+     *
+     * @return self
+     */
+    public function setScreenshotWidth($screenshot_width)
+    {
+        $this->container['screenshot_width'] = $screenshot_width;
+
+        return $this;
+    }
+
+    /**
      * Gets share_with_account
      *
      * @return bool|null
@@ -481,6 +855,54 @@ class SfvbLibraryEntry implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets shared_with
+     *
+     * @return \ultracart\v2\models\SfvbLibraryShareTarget[]|null
+     */
+    public function getSharedWith()
+    {
+        return $this->container['shared_with'];
+    }
+
+    /**
+     * Sets shared_with
+     *
+     * @param \ultracart\v2\models\SfvbLibraryShareTarget[]|null $shared_with Linked accounts the entry is shared with.  Present only for the owner.
+     *
+     * @return self
+     */
+    public function setSharedWith($shared_with)
+    {
+        $this->container['shared_with'] = $shared_with;
+
+        return $this;
+    }
+
+    /**
+     * Gets taxonomy
+     *
+     * @return \ultracart\v2\models\SfvbLibraryTaxonomy|null
+     */
+    public function getTaxonomy()
+    {
+        return $this->container['taxonomy'];
+    }
+
+    /**
+     * Sets taxonomy
+     *
+     * @param \ultracart\v2\models\SfvbLibraryTaxonomy|null $taxonomy taxonomy
+     *
+     * @return self
+     */
+    public function setTaxonomy($taxonomy)
+    {
+        $this->container['taxonomy'] = $taxonomy;
+
+        return $this;
+    }
+
+    /**
      * Gets thumbnail_key
      *
      * @return string|null
@@ -500,6 +922,40 @@ class SfvbLibraryEntry implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setThumbnailKey($thumbnail_key)
     {
         $this->container['thumbnail_key'] = $thumbnail_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets visibility
+     *
+     * @return string|null
+     */
+    public function getVisibility()
+    {
+        return $this->container['visibility'];
+    }
+
+    /**
+     * Sets visibility
+     *
+     * @param string|null $visibility private, shared or public.
+     *
+     * @return self
+     */
+    public function setVisibility($visibility)
+    {
+        $allowedValues = $this->getVisibilityAllowableValues();
+        if (!is_null($visibility) && !in_array($visibility, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'visibility', must be one of '%s'",
+                    $visibility,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['visibility'] = $visibility;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * SfvbLibraryFacet
+ * SfvbLibraryAiReview
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * SfvbLibraryFacet Class Doc Comment
+ * SfvbLibraryAiReview Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
+class SfvbLibraryAiReview implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SfvbLibraryFacet';
+    protected static $openAPIModelName = 'SfvbLibraryAiReview';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,12 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'display_name' => 'string',
-        'name' => 'string',
-        'options' => 'string[]'
+        'findings' => 'object',
+        'prompt_version' => 'string',
+        'reviewed_dts' => 'string',
+        'screenshot_sha256' => 'string',
+        'summary' => 'string',
+        'verdict' => 'string'
     ];
 
     /**
@@ -71,9 +74,12 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'display_name' => null,
-        'name' => null,
-        'options' => null
+        'findings' => null,
+        'prompt_version' => null,
+        'reviewed_dts' => null,
+        'screenshot_sha256' => null,
+        'summary' => null,
+        'verdict' => null
     ];
 
     /**
@@ -103,9 +109,12 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'display_name' => 'display_name',
-        'name' => 'name',
-        'options' => 'options'
+        'findings' => 'findings',
+        'prompt_version' => 'prompt_version',
+        'reviewed_dts' => 'reviewed_dts',
+        'screenshot_sha256' => 'screenshot_sha256',
+        'summary' => 'summary',
+        'verdict' => 'verdict'
     ];
 
     /**
@@ -114,9 +123,12 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'display_name' => 'setDisplayName',
-        'name' => 'setName',
-        'options' => 'setOptions'
+        'findings' => 'setFindings',
+        'prompt_version' => 'setPromptVersion',
+        'reviewed_dts' => 'setReviewedDts',
+        'screenshot_sha256' => 'setScreenshotSha256',
+        'summary' => 'setSummary',
+        'verdict' => 'setVerdict'
     ];
 
     /**
@@ -125,9 +137,12 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'display_name' => 'getDisplayName',
-        'name' => 'getName',
-        'options' => 'getOptions'
+        'findings' => 'getFindings',
+        'prompt_version' => 'getPromptVersion',
+        'reviewed_dts' => 'getReviewedDts',
+        'screenshot_sha256' => 'getScreenshotSha256',
+        'summary' => 'getSummary',
+        'verdict' => 'getVerdict'
     ];
 
     /**
@@ -171,6 +186,25 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const VERDICT_APPROVE = 'approve';
+    public const VERDICT_BLOCK = 'block';
+    public const VERDICT_HUMAN = 'human';
+    public const VERDICT_ERROR = 'error';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getVerdictAllowableValues()
+    {
+        return [
+            self::VERDICT_APPROVE,
+            self::VERDICT_BLOCK,
+            self::VERDICT_HUMAN,
+            self::VERDICT_ERROR,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -187,9 +221,12 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['display_name'] = $data['display_name'] ?? null;
-        $this->container['name'] = $data['name'] ?? null;
-        $this->container['options'] = $data['options'] ?? null;
+        $this->container['findings'] = $data['findings'] ?? null;
+        $this->container['prompt_version'] = $data['prompt_version'] ?? null;
+        $this->container['reviewed_dts'] = $data['reviewed_dts'] ?? null;
+        $this->container['screenshot_sha256'] = $data['screenshot_sha256'] ?? null;
+        $this->container['summary'] = $data['summary'] ?? null;
+        $this->container['verdict'] = $data['verdict'] ?? null;
     }
 
     /**
@@ -200,6 +237,15 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getVerdictAllowableValues();
+        if (!is_null($this->container['verdict']) && !in_array($this->container['verdict'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'verdict', must be one of '%s'",
+                $this->container['verdict'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -217,73 +263,155 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets display_name
+     * Gets findings
      *
-     * @return string|null
+     * @return object|null
      */
-    public function getDisplayName()
+    public function getFindings()
     {
-        return $this->container['display_name'];
+        return $this->container['findings'];
     }
 
     /**
-     * Sets display_name
+     * Sets findings
      *
-     * @param string|null $display_name Human readable facet name.
+     * @param object|null $findings What the reviewers found.  detail is the category followed by the quoted evidence.
      *
      * @return self
      */
-    public function setDisplayName($display_name)
+    public function setFindings($findings)
     {
-        $this->container['display_name'] = $display_name;
+        $this->container['findings'] = $findings;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets prompt_version
      *
      * @return string|null
      */
-    public function getName()
+    public function getPromptVersion()
     {
-        return $this->container['name'];
+        return $this->container['prompt_version'];
     }
 
     /**
-     * Sets name
+     * Sets prompt_version
      *
-     * @param string|null $name Facet key, such as facet_purpose.  To select an option, add a query parameter named after the key whose value is the key, a colon and the option.
+     * @param string|null $prompt_version Version of the review policy that produced this verdict.
      *
      * @return self
      */
-    public function setName($name)
+    public function setPromptVersion($prompt_version)
     {
-        $this->container['name'] = $name;
+        $this->container['prompt_version'] = $prompt_version;
 
         return $this;
     }
 
     /**
-     * Gets options
+     * Gets reviewed_dts
      *
-     * @return string[]|null
+     * @return string|null
      */
-    public function getOptions()
+    public function getReviewedDts()
     {
-        return $this->container['options'];
+        return $this->container['reviewed_dts'];
     }
 
     /**
-     * Sets options
+     * Sets reviewed_dts
      *
-     * @param string[]|null $options Values present in the results.  A facet with only one value is left out unless it is selected.
+     * @param string|null $reviewed_dts When the review ran, ISO 8601.
      *
      * @return self
      */
-    public function setOptions($options)
+    public function setReviewedDts($reviewed_dts)
     {
-        $this->container['options'] = $options;
+        $this->container['reviewed_dts'] = $reviewed_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets screenshot_sha256
+     *
+     * @return string|null
+     */
+    public function getScreenshotSha256()
+    {
+        return $this->container['screenshot_sha256'];
+    }
+
+    /**
+     * Sets screenshot_sha256
+     *
+     * @param string|null $screenshot_sha256 The screenshot the review looked at, or absent when there was none.
+     *
+     * @return self
+     */
+    public function setScreenshotSha256($screenshot_sha256)
+    {
+        $this->container['screenshot_sha256'] = $screenshot_sha256;
+
+        return $this;
+    }
+
+    /**
+     * Gets summary
+     *
+     * @return string|null
+     */
+    public function getSummary()
+    {
+        return $this->container['summary'];
+    }
+
+    /**
+     * Sets summary
+     *
+     * @param string|null $summary One or two sentences explaining the verdict.
+     *
+     * @return self
+     */
+    public function setSummary($summary)
+    {
+        $this->container['summary'] = $summary;
+
+        return $this;
+    }
+
+    /**
+     * Gets verdict
+     *
+     * @return string|null
+     */
+    public function getVerdict()
+    {
+        return $this->container['verdict'];
+    }
+
+    /**
+     * Sets verdict
+     *
+     * @param string|null $verdict approve, block, human or error.  block refuses any publish.  human or error refuses a public publish and is recorded on a shared one.
+     *
+     * @return self
+     */
+    public function setVerdict($verdict)
+    {
+        $allowedValues = $this->getVerdictAllowableValues();
+        if (!is_null($verdict) && !in_array($verdict, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'verdict', must be one of '%s'",
+                    $verdict,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['verdict'] = $verdict;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * SfvbLibraryFacet
+ * SfvbLibraryScreenshotRequest
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * SfvbLibraryFacet Class Doc Comment
+ * SfvbLibraryScreenshotRequest Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
+class SfvbLibraryScreenshotRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SfvbLibraryFacet';
+    protected static $openAPIModelName = 'SfvbLibraryScreenshotRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,9 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'display_name' => 'string',
-        'name' => 'string',
-        'options' => 'string[]'
+        'key' => 'string',
+        'sha256' => 'string',
+        'source' => 'string'
     ];
 
     /**
@@ -71,9 +71,9 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'display_name' => null,
-        'name' => null,
-        'options' => null
+        'key' => null,
+        'sha256' => null,
+        'source' => null
     ];
 
     /**
@@ -103,9 +103,9 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'display_name' => 'display_name',
-        'name' => 'name',
-        'options' => 'options'
+        'key' => 'key',
+        'sha256' => 'sha256',
+        'source' => 'source'
     ];
 
     /**
@@ -114,9 +114,9 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'display_name' => 'setDisplayName',
-        'name' => 'setName',
-        'options' => 'setOptions'
+        'key' => 'setKey',
+        'sha256' => 'setSha256',
+        'source' => 'setSource'
     ];
 
     /**
@@ -125,9 +125,9 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'display_name' => 'getDisplayName',
-        'name' => 'getName',
-        'options' => 'getOptions'
+        'key' => 'getKey',
+        'sha256' => 'getSha256',
+        'source' => 'getSource'
     ];
 
     /**
@@ -171,6 +171,23 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const SOURCE_OWN = 'own';
+    public const SOURCE_LICENSED = 'licensed';
+    public const SOURCE_STOCK = 'stock';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSourceAllowableValues()
+    {
+        return [
+            self::SOURCE_OWN,
+            self::SOURCE_LICENSED,
+            self::SOURCE_STOCK,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -187,9 +204,9 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['display_name'] = $data['display_name'] ?? null;
-        $this->container['name'] = $data['name'] ?? null;
-        $this->container['options'] = $data['options'] ?? null;
+        $this->container['key'] = $data['key'] ?? null;
+        $this->container['sha256'] = $data['sha256'] ?? null;
+        $this->container['source'] = $data['source'] ?? null;
     }
 
     /**
@@ -200,6 +217,15 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getSourceAllowableValues();
+        if (!is_null($this->container['source']) && !in_array($this->container['source'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'source', must be one of '%s'",
+                $this->container['source'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -217,73 +243,83 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets display_name
+     * Gets key
      *
      * @return string|null
      */
-    public function getDisplayName()
+    public function getKey()
     {
-        return $this->container['display_name'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets display_name
+     * Sets key
      *
-     * @param string|null $display_name Human readable facet name.
+     * @param string|null $key The staging key files/upload_url/png returned, after the PNG was PUT to its URL.  Redeemed once.
      *
      * @return self
      */
-    public function setDisplayName($display_name)
+    public function setKey($key)
     {
-        $this->container['display_name'] = $display_name;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets sha256
      *
      * @return string|null
      */
-    public function getName()
+    public function getSha256()
     {
-        return $this->container['name'];
+        return $this->container['sha256'];
     }
 
     /**
-     * Sets name
+     * Sets sha256
      *
-     * @param string|null $name Facet key, such as facet_purpose.  To select an option, add a query parameter named after the key whose value is the key, a colon and the option.
+     * @param string|null $sha256 SHA-256 of the PNG bytes uploaded, lower case hex.  The upload is refused if it does not match.
      *
      * @return self
      */
-    public function setName($name)
+    public function setSha256($sha256)
     {
-        $this->container['name'] = $name;
+        $this->container['sha256'] = $sha256;
 
         return $this;
     }
 
     /**
-     * Gets options
+     * Gets source
      *
-     * @return string[]|null
+     * @return string|null
      */
-    public function getOptions()
+    public function getSource()
     {
-        return $this->container['options'];
+        return $this->container['source'];
     }
 
     /**
-     * Sets options
+     * Sets source
      *
-     * @param string[]|null $options Values present in the results.  A facet with only one value is left out unless it is selected.
+     * @param string|null $source Where the image came from.  own for a screenshot you took, licensed or stock otherwise.  Needed before the entry can be made public.
      *
      * @return self
      */
-    public function setOptions($options)
+    public function setSource($source)
     {
-        $this->container['options'] = $options;
+        $allowedValues = $this->getSourceAllowableValues();
+        if (!is_null($source) && !in_array($source, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'source', must be one of '%s'",
+                    $source,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['source'] = $source;
 
         return $this;
     }

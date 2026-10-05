@@ -1,6 +1,6 @@
 <?php
 /**
- * SfvbLibraryFacet
+ * SfvbLibraryDeleteResult
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * SfvbLibraryFacet Class Doc Comment
+ * SfvbLibraryDeleteResult Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
+class SfvbLibraryDeleteResult implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SfvbLibraryFacet';
+    protected static $openAPIModelName = 'SfvbLibraryDeleteResult';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,8 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'display_name' => 'string',
-        'name' => 'string',
-        'options' => 'string[]'
+        'library_oid' => 'int',
+        'result' => 'string'
     ];
 
     /**
@@ -71,9 +70,8 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'display_name' => null,
-        'name' => null,
-        'options' => null
+        'library_oid' => 'int32',
+        'result' => null
     ];
 
     /**
@@ -103,9 +101,8 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'display_name' => 'display_name',
-        'name' => 'name',
-        'options' => 'options'
+        'library_oid' => 'library_oid',
+        'result' => 'result'
     ];
 
     /**
@@ -114,9 +111,8 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'display_name' => 'setDisplayName',
-        'name' => 'setName',
-        'options' => 'setOptions'
+        'library_oid' => 'setLibraryOid',
+        'result' => 'setResult'
     ];
 
     /**
@@ -125,9 +121,8 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'display_name' => 'getDisplayName',
-        'name' => 'getName',
-        'options' => 'getOptions'
+        'library_oid' => 'getLibraryOid',
+        'result' => 'getResult'
     ];
 
     /**
@@ -171,6 +166,21 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const RESULT_DELETED = 'deleted';
+    public const RESULT_RETIRED = 'retired';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getResultAllowableValues()
+    {
+        return [
+            self::RESULT_DELETED,
+            self::RESULT_RETIRED,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -187,9 +197,8 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['display_name'] = $data['display_name'] ?? null;
-        $this->container['name'] = $data['name'] ?? null;
-        $this->container['options'] = $data['options'] ?? null;
+        $this->container['library_oid'] = $data['library_oid'] ?? null;
+        $this->container['result'] = $data['result'] ?? null;
     }
 
     /**
@@ -200,6 +209,15 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getResultAllowableValues();
+        if (!is_null($this->container['result']) && !in_array($this->container['result'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'result', must be one of '%s'",
+                $this->container['result'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -217,73 +235,59 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets display_name
+     * Gets library_oid
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getDisplayName()
+    public function getLibraryOid()
     {
-        return $this->container['display_name'];
+        return $this->container['library_oid'];
     }
 
     /**
-     * Sets display_name
+     * Sets library_oid
      *
-     * @param string|null $display_name Human readable facet name.
+     * @param int|null $library_oid The entry.
      *
      * @return self
      */
-    public function setDisplayName($display_name)
+    public function setLibraryOid($library_oid)
     {
-        $this->container['display_name'] = $display_name;
+        $this->container['library_oid'] = $library_oid;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets result
      *
      * @return string|null
      */
-    public function getName()
+    public function getResult()
     {
-        return $this->container['name'];
+        return $this->container['result'];
     }
 
     /**
-     * Sets name
+     * Sets result
      *
-     * @param string|null $name Facet key, such as facet_purpose.  To select an option, add a query parameter named after the key whose value is the key, a colon and the option.
+     * @param string|null $result deleted when the entry was private and never published or installed, so it is gone.  retired when it had been published or installed, so it was kept for the storefronts that use it and taken out of search.
      *
      * @return self
      */
-    public function setName($name)
+    public function setResult($result)
     {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets options
-     *
-     * @return string[]|null
-     */
-    public function getOptions()
-    {
-        return $this->container['options'];
-    }
-
-    /**
-     * Sets options
-     *
-     * @param string[]|null $options Values present in the results.  A facet with only one value is left out unless it is selected.
-     *
-     * @return self
-     */
-    public function setOptions($options)
-    {
-        $this->container['options'] = $options;
+        $allowedValues = $this->getResultAllowableValues();
+        if (!is_null($result) && !in_array($result, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'result', must be one of '%s'",
+                    $result,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['result'] = $result;
 
         return $this;
     }

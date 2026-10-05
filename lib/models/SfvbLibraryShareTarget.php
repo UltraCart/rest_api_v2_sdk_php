@@ -1,6 +1,6 @@
 <?php
 /**
- * SfvbLibraryFacet
+ * SfvbLibraryShareTarget
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * SfvbLibraryFacet Class Doc Comment
+ * SfvbLibraryShareTarget Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
+class SfvbLibraryShareTarget implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SfvbLibraryFacet';
+    protected static $openAPIModelName = 'SfvbLibraryShareTarget';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,8 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'display_name' => 'string',
-        'name' => 'string',
-        'options' => 'string[]'
+        'company' => 'string',
+        'merchant_id' => 'string'
     ];
 
     /**
@@ -71,9 +70,8 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'display_name' => null,
-        'name' => null,
-        'options' => null
+        'company' => null,
+        'merchant_id' => null
     ];
 
     /**
@@ -103,9 +101,8 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'display_name' => 'display_name',
-        'name' => 'name',
-        'options' => 'options'
+        'company' => 'company',
+        'merchant_id' => 'merchant_id'
     ];
 
     /**
@@ -114,9 +111,8 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'display_name' => 'setDisplayName',
-        'name' => 'setName',
-        'options' => 'setOptions'
+        'company' => 'setCompany',
+        'merchant_id' => 'setMerchantId'
     ];
 
     /**
@@ -125,9 +121,8 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'display_name' => 'getDisplayName',
-        'name' => 'getName',
-        'options' => 'getOptions'
+        'company' => 'getCompany',
+        'merchant_id' => 'getMerchantId'
     ];
 
     /**
@@ -187,9 +182,8 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['display_name'] = $data['display_name'] ?? null;
-        $this->container['name'] = $data['name'] ?? null;
-        $this->container['options'] = $data['options'] ?? null;
+        $this->container['company'] = $data['company'] ?? null;
+        $this->container['merchant_id'] = $data['merchant_id'] ?? null;
     }
 
     /**
@@ -217,73 +211,49 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets display_name
+     * Gets company
      *
      * @return string|null
      */
-    public function getDisplayName()
+    public function getCompany()
     {
-        return $this->container['display_name'];
+        return $this->container['company'];
     }
 
     /**
-     * Sets display_name
+     * Sets company
      *
-     * @param string|null $display_name Human readable facet name.
+     * @param string|null $company The linked account's company name.
      *
      * @return self
      */
-    public function setDisplayName($display_name)
+    public function setCompany($company)
     {
-        $this->container['display_name'] = $display_name;
+        $this->container['company'] = $company;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets merchant_id
      *
      * @return string|null
      */
-    public function getName()
+    public function getMerchantId()
     {
-        return $this->container['name'];
+        return $this->container['merchant_id'];
     }
 
     /**
-     * Sets name
+     * Sets merchant_id
      *
-     * @param string|null $name Facet key, such as facet_purpose.  To select an option, add a query parameter named after the key whose value is the key, a colon and the option.
+     * @param string|null $merchant_id The linked account's merchant id.
      *
      * @return self
      */
-    public function setName($name)
+    public function setMerchantId($merchant_id)
     {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets options
-     *
-     * @return string[]|null
-     */
-    public function getOptions()
-    {
-        return $this->container['options'];
-    }
-
-    /**
-     * Sets options
-     *
-     * @param string[]|null $options Values present in the results.  A facet with only one value is left out unless it is selected.
-     *
-     * @return self
-     */
-    public function setOptions($options)
-    {
-        $this->container['options'] = $options;
+        $this->container['merchant_id'] = $merchant_id;
 
         return $this;
     }

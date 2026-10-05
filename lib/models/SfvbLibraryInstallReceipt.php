@@ -1,6 +1,6 @@
 <?php
 /**
- * SfvbLibraryFacet
+ * SfvbLibraryInstallReceipt
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * SfvbLibraryFacet Class Doc Comment
+ * SfvbLibraryInstallReceipt Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
+class SfvbLibraryInstallReceipt implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SfvbLibraryFacet';
+    protected static $openAPIModelName = 'SfvbLibraryInstallReceipt';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,14 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'display_name' => 'string',
-        'name' => 'string',
-        'options' => 'string[]'
+        'cjson' => 'string',
+        'conflicts' => '\ultracart\v2\models\SfvbLibraryInstallConflict[]',
+        'content_manifest' => '\ultracart\v2\models\SfvbLibraryContentManifest',
+        'files_skipped' => 'string[]',
+        'files_written' => 'string[]',
+        'library_oid' => 'int',
+        'revision_number' => 'int',
+        'unresolved_parameters' => 'string[]'
     ];
 
     /**
@@ -71,9 +76,14 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'display_name' => null,
-        'name' => null,
-        'options' => null
+        'cjson' => null,
+        'conflicts' => null,
+        'content_manifest' => null,
+        'files_skipped' => null,
+        'files_written' => null,
+        'library_oid' => 'int32',
+        'revision_number' => 'int32',
+        'unresolved_parameters' => null
     ];
 
     /**
@@ -103,9 +113,14 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'display_name' => 'display_name',
-        'name' => 'name',
-        'options' => 'options'
+        'cjson' => 'cjson',
+        'conflicts' => 'conflicts',
+        'content_manifest' => 'content_manifest',
+        'files_skipped' => 'files_skipped',
+        'files_written' => 'files_written',
+        'library_oid' => 'library_oid',
+        'revision_number' => 'revision_number',
+        'unresolved_parameters' => 'unresolved_parameters'
     ];
 
     /**
@@ -114,9 +129,14 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'display_name' => 'setDisplayName',
-        'name' => 'setName',
-        'options' => 'setOptions'
+        'cjson' => 'setCjson',
+        'conflicts' => 'setConflicts',
+        'content_manifest' => 'setContentManifest',
+        'files_skipped' => 'setFilesSkipped',
+        'files_written' => 'setFilesWritten',
+        'library_oid' => 'setLibraryOid',
+        'revision_number' => 'setRevisionNumber',
+        'unresolved_parameters' => 'setUnresolvedParameters'
     ];
 
     /**
@@ -125,9 +145,14 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'display_name' => 'getDisplayName',
-        'name' => 'getName',
-        'options' => 'getOptions'
+        'cjson' => 'getCjson',
+        'conflicts' => 'getConflicts',
+        'content_manifest' => 'getContentManifest',
+        'files_skipped' => 'getFilesSkipped',
+        'files_written' => 'getFilesWritten',
+        'library_oid' => 'getLibraryOid',
+        'revision_number' => 'getRevisionNumber',
+        'unresolved_parameters' => 'getUnresolvedParameters'
     ];
 
     /**
@@ -187,9 +212,14 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['display_name'] = $data['display_name'] ?? null;
-        $this->container['name'] = $data['name'] ?? null;
-        $this->container['options'] = $data['options'] ?? null;
+        $this->container['cjson'] = $data['cjson'] ?? null;
+        $this->container['conflicts'] = $data['conflicts'] ?? null;
+        $this->container['content_manifest'] = $data['content_manifest'] ?? null;
+        $this->container['files_skipped'] = $data['files_skipped'] ?? null;
+        $this->container['files_written'] = $data['files_written'] ?? null;
+        $this->container['library_oid'] = $data['library_oid'] ?? null;
+        $this->container['revision_number'] = $data['revision_number'] ?? null;
+        $this->container['unresolved_parameters'] = $data['unresolved_parameters'] ?? null;
     }
 
     /**
@@ -217,73 +247,193 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets display_name
+     * Gets cjson
      *
      * @return string|null
      */
-    public function getDisplayName()
+    public function getCjson()
     {
-        return $this->container['display_name'];
+        return $this->container['cjson'];
     }
 
     /**
-     * Sets display_name
+     * Sets cjson
      *
-     * @param string|null $display_name Human readable facet name.
+     * @param string|null $cjson The fragment, with its file paths rewritten to where they were installed.  Ready to place.
      *
      * @return self
      */
-    public function setDisplayName($display_name)
+    public function setCjson($cjson)
     {
-        $this->container['display_name'] = $display_name;
+        $this->container['cjson'] = $cjson;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets conflicts
      *
-     * @return string|null
+     * @return \ultracart\v2\models\SfvbLibraryInstallConflict[]|null
      */
-    public function getName()
+    public function getConflicts()
     {
-        return $this->container['name'];
+        return $this->container['conflicts'];
     }
 
     /**
-     * Sets name
+     * Sets conflicts
      *
-     * @param string|null $name Facet key, such as facet_purpose.  To select an option, add a query parameter named after the key whose value is the key, a colon and the option.
+     * @param \ultracart\v2\models\SfvbLibraryInstallConflict[]|null $conflicts Paths that already held a different file.  With on_conflict fail these refuse the install.
      *
      * @return self
      */
-    public function setName($name)
+    public function setConflicts($conflicts)
     {
-        $this->container['name'] = $name;
+        $this->container['conflicts'] = $conflicts;
 
         return $this;
     }
 
     /**
-     * Gets options
+     * Gets content_manifest
+     *
+     * @return \ultracart\v2\models\SfvbLibraryContentManifest|null
+     */
+    public function getContentManifest()
+    {
+        return $this->container['content_manifest'];
+    }
+
+    /**
+     * Sets content_manifest
+     *
+     * @param \ultracart\v2\models\SfvbLibraryContentManifest|null $content_manifest content_manifest
+     *
+     * @return self
+     */
+    public function setContentManifest($content_manifest)
+    {
+        $this->container['content_manifest'] = $content_manifest;
+
+        return $this;
+    }
+
+    /**
+     * Gets files_skipped
      *
      * @return string[]|null
      */
-    public function getOptions()
+    public function getFilesSkipped()
     {
-        return $this->container['options'];
+        return $this->container['files_skipped'];
     }
 
     /**
-     * Sets options
+     * Sets files_skipped
      *
-     * @param string[]|null $options Values present in the results.  A facet with only one value is left out unless it is selected.
+     * @param string[]|null $files_skipped Paths not written, because an identical or chosen existing file was kept, or the file could not be fetched.
      *
      * @return self
      */
-    public function setOptions($options)
+    public function setFilesSkipped($files_skipped)
     {
-        $this->container['options'] = $options;
+        $this->container['files_skipped'] = $files_skipped;
+
+        return $this;
+    }
+
+    /**
+     * Gets files_written
+     *
+     * @return string[]|null
+     */
+    public function getFilesWritten()
+    {
+        return $this->container['files_written'];
+    }
+
+    /**
+     * Sets files_written
+     *
+     * @param string[]|null $files_written Storefront paths this install wrote.
+     *
+     * @return self
+     */
+    public function setFilesWritten($files_written)
+    {
+        $this->container['files_written'] = $files_written;
+
+        return $this;
+    }
+
+    /**
+     * Gets library_oid
+     *
+     * @return int|null
+     */
+    public function getLibraryOid()
+    {
+        return $this->container['library_oid'];
+    }
+
+    /**
+     * Sets library_oid
+     *
+     * @param int|null $library_oid The entry.
+     *
+     * @return self
+     */
+    public function setLibraryOid($library_oid)
+    {
+        $this->container['library_oid'] = $library_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets revision_number
+     *
+     * @return int|null
+     */
+    public function getRevisionNumber()
+    {
+        return $this->container['revision_number'];
+    }
+
+    /**
+     * Sets revision_number
+     *
+     * @param int|null $revision_number The revision installed.
+     *
+     * @return self
+     */
+    public function setRevisionNumber($revision_number)
+    {
+        $this->container['revision_number'] = $revision_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets unresolved_parameters
+     *
+     * @return string[]|null
+     */
+    public function getUnresolvedParameters()
+    {
+        return $this->container['unresolved_parameters'];
+    }
+
+    /**
+     * Sets unresolved_parameters
+     *
+     * @param string[]|null $unresolved_parameters Required parameters with no default.  Replace them in the cjson before placing it.
+     *
+     * @return self
+     */
+    public function setUnresolvedParameters($unresolved_parameters)
+    {
+        $this->container['unresolved_parameters'] = $unresolved_parameters;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * SfvbLibraryFacet
+ * SfvbLibraryInstallConflict
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * SfvbLibraryFacet Class Doc Comment
+ * SfvbLibraryInstallConflict Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
+class SfvbLibraryInstallConflict implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SfvbLibraryFacet';
+    protected static $openAPIModelName = 'SfvbLibraryInstallConflict';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,9 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'display_name' => 'string',
-        'name' => 'string',
-        'options' => 'string[]'
+        'existing_sha256' => 'string',
+        'path' => 'string',
+        'snapshot_sha256' => 'string'
     ];
 
     /**
@@ -71,9 +71,9 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'display_name' => null,
-        'name' => null,
-        'options' => null
+        'existing_sha256' => null,
+        'path' => null,
+        'snapshot_sha256' => null
     ];
 
     /**
@@ -103,9 +103,9 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'display_name' => 'display_name',
-        'name' => 'name',
-        'options' => 'options'
+        'existing_sha256' => 'existing_sha256',
+        'path' => 'path',
+        'snapshot_sha256' => 'snapshot_sha256'
     ];
 
     /**
@@ -114,9 +114,9 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'display_name' => 'setDisplayName',
-        'name' => 'setName',
-        'options' => 'setOptions'
+        'existing_sha256' => 'setExistingSha256',
+        'path' => 'setPath',
+        'snapshot_sha256' => 'setSnapshotSha256'
     ];
 
     /**
@@ -125,9 +125,9 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'display_name' => 'getDisplayName',
-        'name' => 'getName',
-        'options' => 'getOptions'
+        'existing_sha256' => 'getExistingSha256',
+        'path' => 'getPath',
+        'snapshot_sha256' => 'getSnapshotSha256'
     ];
 
     /**
@@ -187,9 +187,9 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['display_name'] = $data['display_name'] ?? null;
-        $this->container['name'] = $data['name'] ?? null;
-        $this->container['options'] = $data['options'] ?? null;
+        $this->container['existing_sha256'] = $data['existing_sha256'] ?? null;
+        $this->container['path'] = $data['path'] ?? null;
+        $this->container['snapshot_sha256'] = $data['snapshot_sha256'] ?? null;
     }
 
     /**
@@ -217,73 +217,73 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets display_name
+     * Gets existing_sha256
      *
      * @return string|null
      */
-    public function getDisplayName()
+    public function getExistingSha256()
     {
-        return $this->container['display_name'];
+        return $this->container['existing_sha256'];
     }
 
     /**
-     * Sets display_name
+     * Sets existing_sha256
      *
-     * @param string|null $display_name Human readable facet name.
+     * @param string|null $existing_sha256 Hash of the file already at that path.
      *
      * @return self
      */
-    public function setDisplayName($display_name)
+    public function setExistingSha256($existing_sha256)
     {
-        $this->container['display_name'] = $display_name;
+        $this->container['existing_sha256'] = $existing_sha256;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets path
      *
      * @return string|null
      */
-    public function getName()
+    public function getPath()
     {
-        return $this->container['name'];
+        return $this->container['path'];
     }
 
     /**
-     * Sets name
+     * Sets path
      *
-     * @param string|null $name Facet key, such as facet_purpose.  To select an option, add a query parameter named after the key whose value is the key, a colon and the option.
+     * @param string|null $path The storefront path.
      *
      * @return self
      */
-    public function setName($name)
+    public function setPath($path)
     {
-        $this->container['name'] = $name;
+        $this->container['path'] = $path;
 
         return $this;
     }
 
     /**
-     * Gets options
+     * Gets snapshot_sha256
      *
-     * @return string[]|null
+     * @return string|null
      */
-    public function getOptions()
+    public function getSnapshotSha256()
     {
-        return $this->container['options'];
+        return $this->container['snapshot_sha256'];
     }
 
     /**
-     * Sets options
+     * Sets snapshot_sha256
      *
-     * @param string[]|null $options Values present in the results.  A facet with only one value is left out unless it is selected.
+     * @param string|null $snapshot_sha256 Hash of the file the entry would install.
      *
      * @return self
      */
-    public function setOptions($options)
+    public function setSnapshotSha256($snapshot_sha256)
     {
-        $this->container['options'] = $options;
+        $this->container['snapshot_sha256'] = $snapshot_sha256;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * SfvbLibraryFacet
+ * SfvbLibraryContentManifest
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * SfvbLibraryFacet Class Doc Comment
+ * SfvbLibraryContentManifest Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
+class SfvbLibraryContentManifest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SfvbLibraryFacet';
+    protected static $openAPIModelName = 'SfvbLibraryContentManifest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,11 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'display_name' => 'string',
-        'name' => 'string',
-        'options' => 'string[]'
+        'absolute_asset_urls' => 'object',
+        'ai_review' => '\ultracart\v2\models\SfvbLibraryAiReview',
+        'executable' => 'object',
+        'rejected' => 'object',
+        'secrets' => 'object'
     ];
 
     /**
@@ -71,9 +73,11 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'display_name' => null,
-        'name' => null,
-        'options' => null
+        'absolute_asset_urls' => null,
+        'ai_review' => null,
+        'executable' => null,
+        'rejected' => null,
+        'secrets' => null
     ];
 
     /**
@@ -103,9 +107,11 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'display_name' => 'display_name',
-        'name' => 'name',
-        'options' => 'options'
+        'absolute_asset_urls' => 'absolute_asset_urls',
+        'ai_review' => 'ai_review',
+        'executable' => 'executable',
+        'rejected' => 'rejected',
+        'secrets' => 'secrets'
     ];
 
     /**
@@ -114,9 +120,11 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'display_name' => 'setDisplayName',
-        'name' => 'setName',
-        'options' => 'setOptions'
+        'absolute_asset_urls' => 'setAbsoluteAssetUrls',
+        'ai_review' => 'setAiReview',
+        'executable' => 'setExecutable',
+        'rejected' => 'setRejected',
+        'secrets' => 'setSecrets'
     ];
 
     /**
@@ -125,9 +133,11 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'display_name' => 'getDisplayName',
-        'name' => 'getName',
-        'options' => 'getOptions'
+        'absolute_asset_urls' => 'getAbsoluteAssetUrls',
+        'ai_review' => 'getAiReview',
+        'executable' => 'getExecutable',
+        'rejected' => 'getRejected',
+        'secrets' => 'getSecrets'
     ];
 
     /**
@@ -187,9 +197,11 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['display_name'] = $data['display_name'] ?? null;
-        $this->container['name'] = $data['name'] ?? null;
-        $this->container['options'] = $data['options'] ?? null;
+        $this->container['absolute_asset_urls'] = $data['absolute_asset_urls'] ?? null;
+        $this->container['ai_review'] = $data['ai_review'] ?? null;
+        $this->container['executable'] = $data['executable'] ?? null;
+        $this->container['rejected'] = $data['rejected'] ?? null;
+        $this->container['secrets'] = $data['secrets'] ?? null;
     }
 
     /**
@@ -217,73 +229,121 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets display_name
+     * Gets absolute_asset_urls
      *
-     * @return string|null
+     * @return object|null
      */
-    public function getDisplayName()
+    public function getAbsoluteAssetUrls()
     {
-        return $this->container['display_name'];
+        return $this->container['absolute_asset_urls'];
     }
 
     /**
-     * Sets display_name
+     * Sets absolute_asset_urls
      *
-     * @param string|null $display_name Human readable facet name.
+     * @param object|null $absolute_asset_urls Images, fonts, stylesheets, scripts or media loaded from an absolute URL.  A shared or public entry must use relative paths so it never pulls files from another storefront or site.
      *
      * @return self
      */
-    public function setDisplayName($display_name)
+    public function setAbsoluteAssetUrls($absolute_asset_urls)
     {
-        $this->container['display_name'] = $display_name;
+        $this->container['absolute_asset_urls'] = $absolute_asset_urls;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets ai_review
      *
-     * @return string|null
+     * @return \ultracart\v2\models\SfvbLibraryAiReview|null
      */
-    public function getName()
+    public function getAiReview()
     {
-        return $this->container['name'];
+        return $this->container['ai_review'];
     }
 
     /**
-     * Sets name
+     * Sets ai_review
      *
-     * @param string|null $name Facet key, such as facet_purpose.  To select an option, add a query parameter named after the key whose value is the key, a colon and the option.
+     * @param \ultracart\v2\models\SfvbLibraryAiReview|null $ai_review ai_review
      *
      * @return self
      */
-    public function setName($name)
+    public function setAiReview($ai_review)
     {
-        $this->container['name'] = $name;
+        $this->container['ai_review'] = $ai_review;
 
         return $this;
     }
 
     /**
-     * Gets options
+     * Gets executable
      *
-     * @return string[]|null
+     * @return object|null
      */
-    public function getOptions()
+    public function getExecutable()
     {
-        return $this->container['options'];
+        return $this->container['executable'];
     }
 
     /**
-     * Sets options
+     * Sets executable
      *
-     * @param string[]|null $options Values present in the results.  A facet with only one value is left out unless it is selected.
+     * @param object|null $executable Content that runs in a shopper's browser or on the server.  Script, html, embed, css and velocity elements, script in markup, Velocity, script bearing CSS and unsafe URL schemes.  An entry with any of these cannot be made public, and installing it needs an explicit acknowledgement.
      *
      * @return self
      */
-    public function setOptions($options)
+    public function setExecutable($executable)
     {
-        $this->container['options'] = $options;
+        $this->container['executable'] = $executable;
+
+        return $this;
+    }
+
+    /**
+     * Gets rejected
+     *
+     * @return object|null
+     */
+    public function getRejected()
+    {
+        return $this->container['rejected'];
+    }
+
+    /**
+     * Sets rejected
+     *
+     * @param object|null $rejected Card skimming and obfuscation signals.  An entry with any is refused outright, whoever owns it.
+     *
+     * @return self
+     */
+    public function setRejected($rejected)
+    {
+        $this->container['rejected'] = $rejected;
+
+        return $this;
+    }
+
+    /**
+     * Gets secrets
+     *
+     * @return object|null
+     */
+    public function getSecrets()
+    {
+        return $this->container['secrets'];
+    }
+
+    /**
+     * Sets secrets
+     *
+     * @param object|null $secrets Strings shaped like credentials, by kind only.  An entry with any cannot be shared or made public.
+     *
+     * @return self
+     */
+    public function setSecrets($secrets)
+    {
+        $this->container['secrets'] = $secrets;
 
         return $this;
     }

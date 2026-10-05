@@ -1,6 +1,6 @@
 <?php
 /**
- * SfvbLibraryFacet
+ * SfvbLibraryPublishRequest
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * SfvbLibraryFacet Class Doc Comment
+ * SfvbLibraryPublishRequest Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
+class SfvbLibraryPublishRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SfvbLibraryFacet';
+    protected static $openAPIModelName = 'SfvbLibraryPublishRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,8 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'display_name' => 'string',
-        'name' => 'string',
-        'options' => 'string[]'
+        'release_notes' => 'string',
+        'visibility' => 'string'
     ];
 
     /**
@@ -71,9 +70,8 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'display_name' => null,
-        'name' => null,
-        'options' => null
+        'release_notes' => null,
+        'visibility' => null
     ];
 
     /**
@@ -103,9 +101,8 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'display_name' => 'display_name',
-        'name' => 'name',
-        'options' => 'options'
+        'release_notes' => 'release_notes',
+        'visibility' => 'visibility'
     ];
 
     /**
@@ -114,9 +111,8 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'display_name' => 'setDisplayName',
-        'name' => 'setName',
-        'options' => 'setOptions'
+        'release_notes' => 'setReleaseNotes',
+        'visibility' => 'setVisibility'
     ];
 
     /**
@@ -125,9 +121,8 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'display_name' => 'getDisplayName',
-        'name' => 'getName',
-        'options' => 'getOptions'
+        'release_notes' => 'getReleaseNotes',
+        'visibility' => 'getVisibility'
     ];
 
     /**
@@ -171,6 +166,23 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const VISIBILITY__PRIVATE = 'private';
+    public const VISIBILITY_SHARED = 'shared';
+    public const VISIBILITY__PUBLIC = 'public';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getVisibilityAllowableValues()
+    {
+        return [
+            self::VISIBILITY__PRIVATE,
+            self::VISIBILITY_SHARED,
+            self::VISIBILITY__PUBLIC,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -187,9 +199,8 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['display_name'] = $data['display_name'] ?? null;
-        $this->container['name'] = $data['name'] ?? null;
-        $this->container['options'] = $data['options'] ?? null;
+        $this->container['release_notes'] = $data['release_notes'] ?? null;
+        $this->container['visibility'] = $data['visibility'] ?? null;
     }
 
     /**
@@ -200,6 +211,15 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getVisibilityAllowableValues();
+        if (!is_null($this->container['visibility']) && !in_array($this->container['visibility'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'visibility', must be one of '%s'",
+                $this->container['visibility'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -217,73 +237,59 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets display_name
+     * Gets release_notes
      *
      * @return string|null
      */
-    public function getDisplayName()
+    public function getReleaseNotes()
     {
-        return $this->container['display_name'];
+        return $this->container['release_notes'];
     }
 
     /**
-     * Sets display_name
+     * Sets release_notes
      *
-     * @param string|null $display_name Human readable facet name.
+     * @param string|null $release_notes What changed in this revision, at most 4000 characters.  Publish only.
      *
      * @return self
      */
-    public function setDisplayName($display_name)
+    public function setReleaseNotes($release_notes)
     {
-        $this->container['display_name'] = $display_name;
+        $this->container['release_notes'] = $release_notes;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets visibility
      *
      * @return string|null
      */
-    public function getName()
+    public function getVisibility()
     {
-        return $this->container['name'];
+        return $this->container['visibility'];
     }
 
     /**
-     * Sets name
+     * Sets visibility
      *
-     * @param string|null $name Facet key, such as facet_purpose.  To select an option, add a query parameter named after the key whose value is the key, a colon and the option.
+     * @param string|null $visibility On publish, shared or public.  On unpublish, shared or private.  Public needs the library publisher property on the account.
      *
      * @return self
      */
-    public function setName($name)
+    public function setVisibility($visibility)
     {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets options
-     *
-     * @return string[]|null
-     */
-    public function getOptions()
-    {
-        return $this->container['options'];
-    }
-
-    /**
-     * Sets options
-     *
-     * @param string[]|null $options Values present in the results.  A facet with only one value is left out unless it is selected.
-     *
-     * @return self
-     */
-    public function setOptions($options)
-    {
-        $this->container['options'] = $options;
+        $allowedValues = $this->getVisibilityAllowableValues();
+        if (!is_null($visibility) && !in_array($visibility, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'visibility', must be one of '%s'",
+                    $visibility,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['visibility'] = $visibility;
 
         return $this;
     }

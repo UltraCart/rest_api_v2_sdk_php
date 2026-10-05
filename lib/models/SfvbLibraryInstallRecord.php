@@ -1,6 +1,6 @@
 <?php
 /**
- * SfvbLibraryFacet
+ * SfvbLibraryInstallRecord
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * SfvbLibraryFacet Class Doc Comment
+ * SfvbLibraryInstallRecord Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
+class SfvbLibraryInstallRecord implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SfvbLibraryFacet';
+    protected static $openAPIModelName = 'SfvbLibraryInstallRecord';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,14 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'display_name' => 'string',
+        'installed_dts' => 'string',
+        'installed_revision_number' => 'int',
+        'latest_revision_number' => 'int',
+        'library_oid' => 'int',
         'name' => 'string',
-        'options' => 'string[]'
+        'retired' => 'bool',
+        'storefront_oid' => 'int',
+        'update_available' => 'bool'
     ];
 
     /**
@@ -71,9 +76,14 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'display_name' => null,
+        'installed_dts' => null,
+        'installed_revision_number' => 'int32',
+        'latest_revision_number' => 'int32',
+        'library_oid' => 'int32',
         'name' => null,
-        'options' => null
+        'retired' => null,
+        'storefront_oid' => 'int32',
+        'update_available' => null
     ];
 
     /**
@@ -103,9 +113,14 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'display_name' => 'display_name',
+        'installed_dts' => 'installed_dts',
+        'installed_revision_number' => 'installed_revision_number',
+        'latest_revision_number' => 'latest_revision_number',
+        'library_oid' => 'library_oid',
         'name' => 'name',
-        'options' => 'options'
+        'retired' => 'retired',
+        'storefront_oid' => 'storefront_oid',
+        'update_available' => 'update_available'
     ];
 
     /**
@@ -114,9 +129,14 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'display_name' => 'setDisplayName',
+        'installed_dts' => 'setInstalledDts',
+        'installed_revision_number' => 'setInstalledRevisionNumber',
+        'latest_revision_number' => 'setLatestRevisionNumber',
+        'library_oid' => 'setLibraryOid',
         'name' => 'setName',
-        'options' => 'setOptions'
+        'retired' => 'setRetired',
+        'storefront_oid' => 'setStorefrontOid',
+        'update_available' => 'setUpdateAvailable'
     ];
 
     /**
@@ -125,9 +145,14 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'display_name' => 'getDisplayName',
+        'installed_dts' => 'getInstalledDts',
+        'installed_revision_number' => 'getInstalledRevisionNumber',
+        'latest_revision_number' => 'getLatestRevisionNumber',
+        'library_oid' => 'getLibraryOid',
         'name' => 'getName',
-        'options' => 'getOptions'
+        'retired' => 'getRetired',
+        'storefront_oid' => 'getStorefrontOid',
+        'update_available' => 'getUpdateAvailable'
     ];
 
     /**
@@ -187,9 +212,14 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['display_name'] = $data['display_name'] ?? null;
+        $this->container['installed_dts'] = $data['installed_dts'] ?? null;
+        $this->container['installed_revision_number'] = $data['installed_revision_number'] ?? null;
+        $this->container['latest_revision_number'] = $data['latest_revision_number'] ?? null;
+        $this->container['library_oid'] = $data['library_oid'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
-        $this->container['options'] = $data['options'] ?? null;
+        $this->container['retired'] = $data['retired'] ?? null;
+        $this->container['storefront_oid'] = $data['storefront_oid'] ?? null;
+        $this->container['update_available'] = $data['update_available'] ?? null;
     }
 
     /**
@@ -217,25 +247,97 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets display_name
+     * Gets installed_dts
      *
      * @return string|null
      */
-    public function getDisplayName()
+    public function getInstalledDts()
     {
-        return $this->container['display_name'];
+        return $this->container['installed_dts'];
     }
 
     /**
-     * Sets display_name
+     * Sets installed_dts
      *
-     * @param string|null $display_name Human readable facet name.
+     * @param string|null $installed_dts When it was installed, ISO 8601.
      *
      * @return self
      */
-    public function setDisplayName($display_name)
+    public function setInstalledDts($installed_dts)
     {
-        $this->container['display_name'] = $display_name;
+        $this->container['installed_dts'] = $installed_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets installed_revision_number
+     *
+     * @return int|null
+     */
+    public function getInstalledRevisionNumber()
+    {
+        return $this->container['installed_revision_number'];
+    }
+
+    /**
+     * Sets installed_revision_number
+     *
+     * @param int|null $installed_revision_number The revision installed most recently on this storefront.
+     *
+     * @return self
+     */
+    public function setInstalledRevisionNumber($installed_revision_number)
+    {
+        $this->container['installed_revision_number'] = $installed_revision_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets latest_revision_number
+     *
+     * @return int|null
+     */
+    public function getLatestRevisionNumber()
+    {
+        return $this->container['latest_revision_number'];
+    }
+
+    /**
+     * Sets latest_revision_number
+     *
+     * @param int|null $latest_revision_number The latest published revision, or null when it can no longer be read.
+     *
+     * @return self
+     */
+    public function setLatestRevisionNumber($latest_revision_number)
+    {
+        $this->container['latest_revision_number'] = $latest_revision_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets library_oid
+     *
+     * @return int|null
+     */
+    public function getLibraryOid()
+    {
+        return $this->container['library_oid'];
+    }
+
+    /**
+     * Sets library_oid
+     *
+     * @param int|null $library_oid The entry.
+     *
+     * @return self
+     */
+    public function setLibraryOid($library_oid)
+    {
+        $this->container['library_oid'] = $library_oid;
 
         return $this;
     }
@@ -253,7 +355,7 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name Facet key, such as facet_purpose.  To select an option, add a query parameter named after the key whose value is the key, a colon and the option.
+     * @param string|null $name The entry name, when the entry is still visible to this account.
      *
      * @return self
      */
@@ -265,25 +367,73 @@ class SfvbLibraryFacet implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets options
+     * Gets retired
      *
-     * @return string[]|null
+     * @return bool|null
      */
-    public function getOptions()
+    public function getRetired()
     {
-        return $this->container['options'];
+        return $this->container['retired'];
     }
 
     /**
-     * Sets options
+     * Sets retired
      *
-     * @param string[]|null $options Values present in the results.  A facet with only one value is left out unless it is selected.
+     * @param bool|null $retired True when the owner retired the entry.  The installed copy keeps working.
      *
      * @return self
      */
-    public function setOptions($options)
+    public function setRetired($retired)
     {
-        $this->container['options'] = $options;
+        $this->container['retired'] = $retired;
+
+        return $this;
+    }
+
+    /**
+     * Gets storefront_oid
+     *
+     * @return int|null
+     */
+    public function getStorefrontOid()
+    {
+        return $this->container['storefront_oid'];
+    }
+
+    /**
+     * Sets storefront_oid
+     *
+     * @param int|null $storefront_oid The storefront it was installed on.
+     *
+     * @return self
+     */
+    public function setStorefrontOid($storefront_oid)
+    {
+        $this->container['storefront_oid'] = $storefront_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets update_available
+     *
+     * @return bool|null
+     */
+    public function getUpdateAvailable()
+    {
+        return $this->container['update_available'];
+    }
+
+    /**
+     * Sets update_available
+     *
+     * @param bool|null $update_available True when a newer revision has been published.  Nothing updates automatically.
+     *
+     * @return self
+     */
+    public function setUpdateAvailable($update_available)
+    {
+        $this->container['update_available'] = $update_available;
 
         return $this;
     }
