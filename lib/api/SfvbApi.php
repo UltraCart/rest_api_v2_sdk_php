@@ -17177,7 +17177,7 @@ class SfvbApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\SfvbLibraryHistoryEntry|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     * @return \ultracart\v2\models\SfvbLibraryHistoryResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
      */
     public function getSfvbLibraryHistory($storefront_oid, $library_oid)
     {
@@ -17195,7 +17195,7 @@ class SfvbApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\SfvbLibraryHistoryEntry|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\SfvbLibraryHistoryResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSfvbLibraryHistoryWithHttpInfo($storefront_oid, $library_oid)
     {
@@ -17215,11 +17215,11 @@ class SfvbApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\SfvbLibraryHistoryEntry|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\SfvbLibraryHistoryResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSfvbLibraryHistoryWithHttpInfoRetry($retry , $storefront_oid, $library_oid)
     {
-        $returnType = '\ultracart\v2\models\SfvbLibraryHistoryEntry';
+        $returnType = '\ultracart\v2\models\SfvbLibraryHistoryResponse';
         $request = $this->getSfvbLibraryHistoryRequest($storefront_oid, $library_oid);
 
         try {
@@ -17276,17 +17276,17 @@ class SfvbApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\ultracart\v2\models\SfvbLibraryHistoryEntry' === '\SplFileObject') {
+                    if ('\ultracart\v2\models\SfvbLibraryHistoryResponse' === '\SplFileObject') {
                         $content = $response->getBody()->getContents(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\ultracart\v2\models\SfvbLibraryHistoryEntry' !== 'string') {
+                        if ('\ultracart\v2\models\SfvbLibraryHistoryResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\SfvbLibraryHistoryEntry', []),
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\SfvbLibraryHistoryResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -17367,7 +17367,7 @@ class SfvbApi
                     ];
             }
 
-            $returnType = '\ultracart\v2\models\SfvbLibraryHistoryEntry';
+            $returnType = '\ultracart\v2\models\SfvbLibraryHistoryResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody()->getContents()(); //stream goes to serializer
             } else {
@@ -17388,7 +17388,7 @@ class SfvbApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\SfvbLibraryHistoryEntry',
+                        '\ultracart\v2\models\SfvbLibraryHistoryResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -17475,7 +17475,7 @@ class SfvbApi
      */
     public function getSfvbLibraryHistoryAsyncWithHttpInfo($storefront_oid, $library_oid)
     {
-        $returnType = '\ultracart\v2\models\SfvbLibraryHistoryEntry';
+        $returnType = '\ultracart\v2\models\SfvbLibraryHistoryResponse';
         $request = $this->getSfvbLibraryHistoryRequest($storefront_oid, $library_oid);
 
         return $this->client
@@ -17640,7 +17640,7 @@ class SfvbApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\SfvbLibraryShareTarget|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     * @return \ultracart\v2\models\SfvbLibraryShareTargetsResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
      */
     public function getSfvbLibraryShareTargets($storefront_oid)
     {
@@ -17657,7 +17657,7 @@ class SfvbApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\SfvbLibraryShareTarget|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\SfvbLibraryShareTargetsResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSfvbLibraryShareTargetsWithHttpInfo($storefront_oid)
     {
@@ -17676,11 +17676,11 @@ class SfvbApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\SfvbLibraryShareTarget|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\SfvbLibraryShareTargetsResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSfvbLibraryShareTargetsWithHttpInfoRetry($retry , $storefront_oid)
     {
-        $returnType = '\ultracart\v2\models\SfvbLibraryShareTarget';
+        $returnType = '\ultracart\v2\models\SfvbLibraryShareTargetsResponse';
         $request = $this->getSfvbLibraryShareTargetsRequest($storefront_oid);
 
         try {
@@ -17737,17 +17737,17 @@ class SfvbApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\ultracart\v2\models\SfvbLibraryShareTarget' === '\SplFileObject') {
+                    if ('\ultracart\v2\models\SfvbLibraryShareTargetsResponse' === '\SplFileObject') {
                         $content = $response->getBody()->getContents(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\ultracart\v2\models\SfvbLibraryShareTarget' !== 'string') {
+                        if ('\ultracart\v2\models\SfvbLibraryShareTargetsResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\SfvbLibraryShareTarget', []),
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\SfvbLibraryShareTargetsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -17813,7 +17813,7 @@ class SfvbApi
                     ];
             }
 
-            $returnType = '\ultracart\v2\models\SfvbLibraryShareTarget';
+            $returnType = '\ultracart\v2\models\SfvbLibraryShareTargetsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody()->getContents()(); //stream goes to serializer
             } else {
@@ -17834,7 +17834,7 @@ class SfvbApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\SfvbLibraryShareTarget',
+                        '\ultracart\v2\models\SfvbLibraryShareTargetsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -17911,7 +17911,7 @@ class SfvbApi
      */
     public function getSfvbLibraryShareTargetsAsyncWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracart\v2\models\SfvbLibraryShareTarget';
+        $returnType = '\ultracart\v2\models\SfvbLibraryShareTargetsResponse';
         $request = $this->getSfvbLibraryShareTargetsRequest($storefront_oid);
 
         return $this->client
@@ -32454,7 +32454,7 @@ class SfvbApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\SfvbLibraryInstallRecord|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     * @return \ultracart\v2\models\SfvbLibraryInstallsResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
      */
     public function listSfvbLibraryInstalls($storefront_oid)
     {
@@ -32471,7 +32471,7 @@ class SfvbApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\SfvbLibraryInstallRecord|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\SfvbLibraryInstallsResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listSfvbLibraryInstallsWithHttpInfo($storefront_oid)
     {
@@ -32490,11 +32490,11 @@ class SfvbApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\SfvbLibraryInstallRecord|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\SfvbLibraryInstallsResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listSfvbLibraryInstallsWithHttpInfoRetry($retry , $storefront_oid)
     {
-        $returnType = '\ultracart\v2\models\SfvbLibraryInstallRecord';
+        $returnType = '\ultracart\v2\models\SfvbLibraryInstallsResponse';
         $request = $this->listSfvbLibraryInstallsRequest($storefront_oid);
 
         try {
@@ -32551,17 +32551,17 @@ class SfvbApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\ultracart\v2\models\SfvbLibraryInstallRecord' === '\SplFileObject') {
+                    if ('\ultracart\v2\models\SfvbLibraryInstallsResponse' === '\SplFileObject') {
                         $content = $response->getBody()->getContents(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\ultracart\v2\models\SfvbLibraryInstallRecord' !== 'string') {
+                        if ('\ultracart\v2\models\SfvbLibraryInstallsResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\SfvbLibraryInstallRecord', []),
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\SfvbLibraryInstallsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -32627,7 +32627,7 @@ class SfvbApi
                     ];
             }
 
-            $returnType = '\ultracart\v2\models\SfvbLibraryInstallRecord';
+            $returnType = '\ultracart\v2\models\SfvbLibraryInstallsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody()->getContents()(); //stream goes to serializer
             } else {
@@ -32648,7 +32648,7 @@ class SfvbApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\SfvbLibraryInstallRecord',
+                        '\ultracart\v2\models\SfvbLibraryInstallsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -32725,7 +32725,7 @@ class SfvbApi
      */
     public function listSfvbLibraryInstallsAsyncWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracart\v2\models\SfvbLibraryInstallRecord';
+        $returnType = '\ultracart\v2\models\SfvbLibraryInstallsResponse';
         $request = $this->listSfvbLibraryInstallsRequest($storefront_oid);
 
         return $this->client

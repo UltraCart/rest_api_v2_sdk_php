@@ -1709,7 +1709,7 @@ Name | Type | Description  | Notes
 ## `getSfvbLibraryHistory()`
 
 ```php
-getSfvbLibraryHistory($storefront_oid, $library_oid): \ultracart\v2\models\SfvbLibraryHistoryEntry
+getSfvbLibraryHistory($storefront_oid, $library_oid): \ultracart\v2\models\SfvbLibraryHistoryResponse
 ```
 
 List a library entry's published revisions
@@ -1732,7 +1732,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\SfvbLibraryHistoryEntry**](../Model/SfvbLibraryHistoryEntry.md)
+[**\ultracart\v2\models\SfvbLibraryHistoryResponse**](../Model/SfvbLibraryHistoryResponse.md)
 
 ### Authorization
 
@@ -1750,7 +1750,7 @@ Name | Type | Description  | Notes
 ## `getSfvbLibraryShareTargets()`
 
 ```php
-getSfvbLibraryShareTargets($storefront_oid): \ultracart\v2\models\SfvbLibraryShareTarget
+getSfvbLibraryShareTargets($storefront_oid): \ultracart\v2\models\SfvbLibraryShareTargetsResponse
 ```
 
 List the accounts a library entry can be shared with
@@ -1772,7 +1772,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\SfvbLibraryShareTarget**](../Model/SfvbLibraryShareTarget.md)
+[**\ultracart\v2\models\SfvbLibraryShareTargetsResponse**](../Model/SfvbLibraryShareTargetsResponse.md)
 
 ### Authorization
 
@@ -3112,7 +3112,7 @@ Name | Type | Description  | Notes
 ## `listSfvbLibraryInstalls()`
 
 ```php
-listSfvbLibraryInstalls($storefront_oid): \ultracart\v2\models\SfvbLibraryInstallRecord
+listSfvbLibraryInstalls($storefront_oid): \ultracart\v2\models\SfvbLibraryInstallsResponse
 ```
 
 List the library entries installed on a storefront
@@ -3134,7 +3134,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\SfvbLibraryInstallRecord**](../Model/SfvbLibraryInstallRecord.md)
+[**\ultracart\v2\models\SfvbLibraryInstallsResponse**](../Model/SfvbLibraryInstallsResponse.md)
 
 ### Authorization
 

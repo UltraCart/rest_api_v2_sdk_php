@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.184"
+    "ultracart/rest_api_v2_sdk_php": "4.1.185"
   }
 }
 ```
@@ -1894,16 +1894,19 @@ Class | Method | HTTP request | Description
 - [SfvbLibraryEntryRequest](docs/Model/SfvbLibraryEntryRequest.md)
 - [SfvbLibraryFacet](docs/Model/SfvbLibraryFacet.md)
 - [SfvbLibraryHistoryEntry](docs/Model/SfvbLibraryHistoryEntry.md)
+- [SfvbLibraryHistoryResponse](docs/Model/SfvbLibraryHistoryResponse.md)
 - [SfvbLibraryInstallConflict](docs/Model/SfvbLibraryInstallConflict.md)
 - [SfvbLibraryInstallReceipt](docs/Model/SfvbLibraryInstallReceipt.md)
 - [SfvbLibraryInstallRecord](docs/Model/SfvbLibraryInstallRecord.md)
 - [SfvbLibraryInstallRequest](docs/Model/SfvbLibraryInstallRequest.md)
+- [SfvbLibraryInstallsResponse](docs/Model/SfvbLibraryInstallsResponse.md)
 - [SfvbLibraryParameter](docs/Model/SfvbLibraryParameter.md)
 - [SfvbLibraryPublishRequest](docs/Model/SfvbLibraryPublishRequest.md)
 - [SfvbLibraryResponse](docs/Model/SfvbLibraryResponse.md)
 - [SfvbLibraryScreenshotRequest](docs/Model/SfvbLibraryScreenshotRequest.md)
 - [SfvbLibraryShareRequest](docs/Model/SfvbLibraryShareRequest.md)
 - [SfvbLibraryShareTarget](docs/Model/SfvbLibraryShareTarget.md)
+- [SfvbLibraryShareTargetsResponse](docs/Model/SfvbLibraryShareTargetsResponse.md)
 - [SfvbLibraryTaxonomy](docs/Model/SfvbLibraryTaxonomy.md)
 - [SfvbLibraryTaxonomyCatalog](docs/Model/SfvbLibraryTaxonomyCatalog.md)
 - [SfvbLibraryUnshareResult](docs/Model/SfvbLibraryUnshareResult.md)
@@ -2180,6 +2183,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.185 | 10/05/2026 | sfvb internal testing |
 | 4.1.184 | 10/05/2026 | sfvb internal testing |
 | 4.1.183 | 10/05/2026 | OrderApi rma endpoints |
 | 4.1.182 | 10/02/2026 | sfvb internal testing |
