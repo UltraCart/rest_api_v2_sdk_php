@@ -553,7 +553,7 @@ class SfvbRenderRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets language_iso_code
      *
-     * @param string|null $language_iso_code Language ISO code.  Defaults to ENG.
+     * @param string|null $language_iso_code UltraCart language code such as ESP, enabled on the storefront.  Two-letter codes and English names are accepted.  Defaults to ENG.
      *
      * @return self
      */
