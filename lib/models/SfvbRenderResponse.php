@@ -63,6 +63,7 @@ class SfvbRenderResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'pending_translation_count' => 'int',
         'success' => 'bool',
         'truncated' => 'bool',
+        'untranslated_count' => 'int',
         'warnings' => '\ultracart\v2\models\SfvbErrorDetail[]'
     ];
 
@@ -79,6 +80,7 @@ class SfvbRenderResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'pending_translation_count' => 'int32',
         'success' => null,
         'truncated' => null,
+        'untranslated_count' => 'int32',
         'warnings' => null
     ];
 
@@ -114,6 +116,7 @@ class SfvbRenderResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'pending_translation_count' => 'pending_translation_count',
         'success' => 'success',
         'truncated' => 'truncated',
+        'untranslated_count' => 'untranslated_count',
         'warnings' => 'warnings'
     ];
 
@@ -128,6 +131,7 @@ class SfvbRenderResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'pending_translation_count' => 'setPendingTranslationCount',
         'success' => 'setSuccess',
         'truncated' => 'setTruncated',
+        'untranslated_count' => 'setUntranslatedCount',
         'warnings' => 'setWarnings'
     ];
 
@@ -142,6 +146,7 @@ class SfvbRenderResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'pending_translation_count' => 'getPendingTranslationCount',
         'success' => 'getSuccess',
         'truncated' => 'getTruncated',
+        'untranslated_count' => 'getUntranslatedCount',
         'warnings' => 'getWarnings'
     ];
 
@@ -207,6 +212,7 @@ class SfvbRenderResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->container['pending_translation_count'] = $data['pending_translation_count'] ?? null;
         $this->container['success'] = $data['success'] ?? null;
         $this->container['truncated'] = $data['truncated'] ?? null;
+        $this->container['untranslated_count'] = $data['untranslated_count'] ?? null;
         $this->container['warnings'] = $data['warnings'] ?? null;
     }
 
@@ -350,6 +356,30 @@ class SfvbRenderResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setTruncated($truncated)
     {
         $this->container['truncated'] = $truncated;
+
+        return $this;
+    }
+
+    /**
+     * Gets untranslated_count
+     *
+     * @return int|null
+     */
+    public function getUntranslatedCount()
+    {
+        return $this->container['untranslated_count'];
+    }
+
+    /**
+     * Sets untranslated_count
+     *
+     * @param int|null $untranslated_count Strings rendered in English because no translation is stored for the requested language yet.  A render never translates, so re-rendering does not change this.  Push the page to store its hand translations; machine translations are made when shoppers first view it in that language.
+     *
+     * @return self
+     */
+    public function setUntranslatedCount($untranslated_count)
+    {
+        $this->container['untranslated_count'] = $untranslated_count;
 
         return $this;
     }
