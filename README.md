@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.193"
+    "ultracart/rest_api_v2_sdk_php": "4.1.194"
   }
 }
 ```
@@ -559,6 +559,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbRedirects**](docs/Api/SfvbApi.md#getsfvbredirects) | **GET** /sfvb/storefronts/{storefront_oid}/redirects | List the storefront&#39;s redirect rules
 *SfvbApi* | [**getSfvbServerLog**](docs/Api/SfvbApi.md#getsfvbserverlog) | **GET** /sfvb/storefronts/{storefront_oid}/logs/{log_id} | Get one storefront render log
 *SfvbApi* | [**getSfvbSiteAttributes**](docs/Api/SfvbApi.md#getsfvbsiteattributes) | **GET** /sfvb/storefronts/{storefront_oid}/attributes | Read a storefront&#39;s site attributes
+*SfvbApi* | [**getSfvbTestOrders**](docs/Api/SfvbApi.md#getsfvbtestorders) | **GET** /sfvb/storefronts/{storefront_oid}/test_orders | List recent test orders
 *SfvbApi* | [**getSfvbTheme**](docs/Api/SfvbApi.md#getsfvbtheme) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid} | Get a theme
 *SfvbApi* | [**getSfvbThemeAttributes**](docs/Api/SfvbApi.md#getsfvbthemeattributes) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Read a theme&#39;s colors, fonts and settings
 *SfvbApi* | [**getSfvbThemeJob**](docs/Api/SfvbApi.md#getsfvbthemejob) | **GET** /sfvb/storefronts/{storefront_oid}/theme_jobs/{job_id} | Status of an asynchronous theme job
@@ -2023,6 +2024,8 @@ Class | Method | HTTP request | Description
 - [SfvbTemplateResolvePath](docs/Model/SfvbTemplateResolvePath.md)
 - [SfvbTemplateResolveResponse](docs/Model/SfvbTemplateResolveResponse.md)
 - [SfvbTemplatesResponse](docs/Model/SfvbTemplatesResponse.md)
+- [SfvbTestOrder](docs/Model/SfvbTestOrder.md)
+- [SfvbTestOrdersResponse](docs/Model/SfvbTestOrdersResponse.md)
 - [SfvbTheme](docs/Model/SfvbTheme.md)
 - [SfvbThemeAttribute](docs/Model/SfvbThemeAttribute.md)
 - [SfvbThemeAttributeUpdate](docs/Model/SfvbThemeAttributeUpdate.md)
@@ -2239,6 +2242,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.194 | 10/07/2026 | sfvb internal testing |
 | 4.1.193 | 10/06/2026 | sfvb internal testing |
 | 4.1.192 | 10/06/2026 | sfvb internal testing |
 | 4.1.191 | 10/06/2026 | sfvb internal testing |

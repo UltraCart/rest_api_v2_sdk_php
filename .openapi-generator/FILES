@@ -1153,6 +1153,8 @@ docs/Model/SfvbTemplateResolveCandidate.md
 docs/Model/SfvbTemplateResolvePath.md
 docs/Model/SfvbTemplateResolveResponse.md
 docs/Model/SfvbTemplatesResponse.md
+docs/Model/SfvbTestOrder.md
+docs/Model/SfvbTestOrdersResponse.md
 docs/Model/SfvbTheme.md
 docs/Model/SfvbThemeAttribute.md
 docs/Model/SfvbThemeAttributeUpdate.md
@@ -2430,6 +2432,8 @@ lib/models/SfvbTemplateResolveCandidate.php
 lib/models/SfvbTemplateResolvePath.php
 lib/models/SfvbTemplateResolveResponse.php
 lib/models/SfvbTemplatesResponse.php
+lib/models/SfvbTestOrder.php
+lib/models/SfvbTestOrdersResponse.php
 lib/models/SfvbTheme.php
 lib/models/SfvbThemeAttribute.php
 lib/models/SfvbThemeAttributeUpdate.php
