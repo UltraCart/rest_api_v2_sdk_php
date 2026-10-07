@@ -59,7 +59,6 @@ class SfvbTestOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPITypes = [
         'hint' => 'string',
-        'searched_days' => 'int',
         'test_orders' => '\ultracart\v2\models\SfvbTestOrder[]'
     ];
 
@@ -72,7 +71,6 @@ class SfvbTestOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPIFormats = [
         'hint' => null,
-        'searched_days' => 'int32',
         'test_orders' => null
     ];
 
@@ -104,7 +102,6 @@ class SfvbTestOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $attributeMap = [
         'hint' => 'hint',
-        'searched_days' => 'searched_days',
         'test_orders' => 'test_orders'
     ];
 
@@ -115,7 +112,6 @@ class SfvbTestOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $setters = [
         'hint' => 'setHint',
-        'searched_days' => 'setSearchedDays',
         'test_orders' => 'setTestOrders'
     ];
 
@@ -126,7 +122,6 @@ class SfvbTestOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $getters = [
         'hint' => 'getHint',
-        'searched_days' => 'getSearchedDays',
         'test_orders' => 'getTestOrders'
     ];
 
@@ -188,7 +183,6 @@ class SfvbTestOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerial
     public function __construct(array $data = null)
     {
         $this->container['hint'] = $data['hint'] ?? null;
-        $this->container['searched_days'] = $data['searched_days'] ?? null;
         $this->container['test_orders'] = $data['test_orders'] ?? null;
     }
 
@@ -229,37 +223,13 @@ class SfvbTestOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets hint
      *
-     * @param string|null $hint Present when nothing matched.  Says how to place a test order.
+     * @param string|null $hint Present when nothing matched.
      *
      * @return self
      */
     public function setHint($hint)
     {
         $this->container['hint'] = $hint;
-
-        return $this;
-    }
-
-    /**
-     * Gets searched_days
-     *
-     * @return int|null
-     */
-    public function getSearchedDays()
-    {
-        return $this->container['searched_days'];
-    }
-
-    /**
-     * Sets searched_days
-     *
-     * @param int|null $searched_days How many days back were searched, 7, 30 or 90, widening until enough test orders were found.
-     *
-     * @return self
-     */
-    public function setSearchedDays($searched_days)
-    {
-        $this->container['searched_days'] = $searched_days;
 
         return $this;
     }
