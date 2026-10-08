@@ -994,6 +994,10 @@ docs/Model/ScreenRecordingUserAgentOS.md
 docs/Model/ScreenRecordingUserProperty.md
 docs/Model/ScreenshotsResponse.md
 docs/Model/SelfConfig.md
+docs/Model/SfvbApproval.md
+docs/Model/SfvbApprovalCreateRequest.md
+docs/Model/SfvbApprovalParams.md
+docs/Model/SfvbApprovalsResponse.md
 docs/Model/SfvbBlogPost.md
 docs/Model/SfvbBlogPostDetail.md
 docs/Model/SfvbBlogPostImage.md
@@ -2273,6 +2277,10 @@ lib/models/ScreenRecordingUserAgentOS.php
 lib/models/ScreenRecordingUserProperty.php
 lib/models/ScreenshotsResponse.php
 lib/models/SelfConfig.php
+lib/models/SfvbApproval.php
+lib/models/SfvbApprovalCreateRequest.php
+lib/models/SfvbApprovalParams.php
+lib/models/SfvbApprovalsResponse.php
 lib/models/SfvbBlogPost.php
 lib/models/SfvbBlogPostDetail.php
 lib/models/SfvbBlogPostImage.php

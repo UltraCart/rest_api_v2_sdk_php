@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**createSfvbLibraryEntry()**](SfvbApi.md#createSfvbLibraryEntry) | **POST** /sfvb/storefronts/{storefront_oid}/library | Save a fragment to the library
 [**createSfvbPreviewAccess()**](SfvbApi.md#createSfvbPreviewAccess) | **POST** /sfvb/storefronts/{storefront_oid}/preview_access | One time link that opens a preview in a browser with no UltraCart login
 [**createSfvbPreviewSession()**](SfvbApi.md#createSfvbPreviewSession) | **POST** /sfvb/storefronts/{storefront_oid}/preview_sessions | Create a preview session
+[**deleteSfvbApproval()**](SfvbApi.md#deleteSfvbApproval) | **DELETE** /sfvb/approvals/{approval_id} | Cancel a pending approval request
 [**deleteSfvbBlogPost()**](SfvbApi.md#deleteSfvbBlogPost) | **DELETE** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Delete a blog post
 [**deleteSfvbFile()**](SfvbApi.md#deleteSfvbFile) | **DELETE** /sfvb/storefronts/{storefront_oid}/files | Delete a storefront file
 [**deleteSfvbItemAttribute()**](SfvbApi.md#deleteSfvbItemAttribute) | **DELETE** /sfvb/storefronts/{storefront_oid}/items/attributes | Delete an attribute from an item
@@ -36,6 +37,8 @@ Method | HTTP request | Description
 [**enableSfvbI18nLanguage()**](SfvbApi.md#enableSfvbI18nLanguage) | **POST** /sfvb/storefronts/{storefront_oid}/i18n/languages/{code}/enable | Enable a language
 [**endSfvbExperiment()**](SfvbApi.md#endSfvbExperiment) | **POST** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}/end | End an experiment
 [**favoriteSfvbLibraryEntry()**](SfvbApi.md#favoriteSfvbLibraryEntry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/favorite | Favorite a library entry
+[**getSfvbApproval()**](SfvbApi.md#getSfvbApproval) | **GET** /sfvb/approvals/{approval_id} | Read one approval request
+[**getSfvbApprovals()**](SfvbApi.md#getSfvbApprovals) | **GET** /sfvb/approvals | List this sign-in&#39;s approval requests
 [**getSfvbBlogPost()**](SfvbApi.md#getSfvbBlogPost) | **GET** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Read a blog post
 [**getSfvbCjsonUsedElements()**](SfvbApi.md#getSfvbCjsonUsedElements) | **POST** /sfvb/cjson/elements | Element types used by a container
 [**getSfvbContainer()**](SfvbApi.md#getSfvbContainer) | **GET** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Read a container stored outside the file system
@@ -82,6 +85,7 @@ Method | HTTP request | Description
 [**getSfvbWhoami()**](SfvbApi.md#getSfvbWhoami) | **GET** /sfvb/whoami | Who this token is
 [**ignoreSfvbNotFoundEntry()**](SfvbApi.md#ignoreSfvbNotFoundEntry) | **POST** /sfvb/storefronts/{storefront_oid}/not_found/{not_found_id}/ignore | Ignore a 404 path
 [**importSfvbRedirects()**](SfvbApi.md#importSfvbRedirects) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/import | Apply a reviewed redirect import
+[**insertSfvbApproval()**](SfvbApi.md#insertSfvbApproval) | **POST** /sfvb/approvals | Request a human approval
 [**insertSfvbBlogPost()**](SfvbApi.md#insertSfvbBlogPost) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts | Create a blog post
 [**insertSfvbPage()**](SfvbApi.md#insertSfvbPage) | **POST** /sfvb/storefronts/{storefront_oid}/pages | Create a page
 [**insertSfvbRedirect()**](SfvbApi.md#insertSfvbRedirect) | **POST** /sfvb/storefronts/{storefront_oid}/redirects | Create a 301 redirect rule
@@ -566,10 +570,50 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `deleteSfvbApproval()`
+
+```php
+deleteSfvbApproval($approval_id)
+```
+
+Cancel a pending approval request
+
+Withdraws a request nobody has decided yet, which frees one of the five pending slots a sign-in has.  A request that was already decided, used or expired cannot be cancelled.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **approval_id** | **string**|  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `deleteSfvbBlogPost()`
 
 ```php
-deleteSfvbBlogPost($storefront_oid, $blog_post_oid)
+deleteSfvbBlogPost($storefront_oid, $blog_post_oid, $approval_id)
 ```
 
 Delete a blog post
@@ -589,6 +633,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **storefront_oid** | **int**|  |
  **blog_post_oid** | **int**|  |
+ **approval_id** | **string**| The approval_id of an approved blog_post.delete request for this post.  See POST /sfvb/approvals. | [optional]
 
 ### Return type
 
@@ -610,7 +655,7 @@ void (empty response body)
 ## `deleteSfvbFile()`
 
 ```php
-deleteSfvbFile($storefront_oid, $if_match, $path)
+deleteSfvbFile($storefront_oid, $if_match, $path, $approval_id)
 ```
 
 Delete a storefront file
@@ -631,6 +676,7 @@ Name | Type | Description  | Notes
  **storefront_oid** | **int**|  |
  **if_match** | **string**| Content hash of the file being deleted.  Required; 428 when absent, 412 when stale. |
  **path** | **string**|  | [optional]
+ **approval_id** | **string**| The approval_id of an approved file.delete request for this exact path.  See POST /sfvb/approvals. | [optional]
 
 ### Return type
 
@@ -1472,6 +1518,84 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getSfvbApproval()`
+
+```php
+getSfvbApproval($approval_id): \ultracart\v2\models\SfvbApproval
+```
+
+Read one approval request
+
+Poll this every interval_seconds after requesting an approval.  status is pending until the person decides, then approved or denied, and expired if nobody acts in 10 minutes.  Once the gated call has used it, status is used and outcome says whether the call succeeded.  Used with no outcome means the result is unknown, so check the target - never repeat the call.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **approval_id** | **string**|  |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbApproval**](../Model/SfvbApproval.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getSfvbApprovals()`
+
+```php
+getSfvbApprovals(): \ultracart\v2\models\SfvbApprovalsResponse
+```
+
+List this sign-in's approval requests
+
+Requests made with this sign-in in the last 24 hours, newest first, at most 50, with their status and outcome.  Use it to find a request whose id was lost, or to see what an earlier run did.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\ultracart\v2\models\SfvbApprovalsResponse**](../Model/SfvbApprovalsResponse.md)
 
 ### Authorization
 
@@ -3371,6 +3495,47 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\SfvbRedirectImportResponse**](../Model/SfvbRedirectImportResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `insertSfvbApproval()`
+
+```php
+insertSfvbApproval($approval_request, $storefront_oid)
+```
+
+Request a human approval
+
+Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **approval_request** | [**\ultracart\v2\models\SfvbApprovalCreateRequest**](../Model/SfvbApprovalCreateRequest.md)| The request |
+ **storefront_oid** | **int**| The storefront the action runs on.  Required for storefront actions, left out for account-wide ones. | [optional]
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 

@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.195"
+    "ultracart/rest_api_v2_sdk_php": "4.1.196"
   }
 }
 ```
@@ -501,6 +501,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**createSfvbLibraryEntry**](docs/Api/SfvbApi.md#createsfvblibraryentry) | **POST** /sfvb/storefronts/{storefront_oid}/library | Save a fragment to the library
 *SfvbApi* | [**createSfvbPreviewAccess**](docs/Api/SfvbApi.md#createsfvbpreviewaccess) | **POST** /sfvb/storefronts/{storefront_oid}/preview_access | One time link that opens a preview in a browser with no UltraCart login
 *SfvbApi* | [**createSfvbPreviewSession**](docs/Api/SfvbApi.md#createsfvbpreviewsession) | **POST** /sfvb/storefronts/{storefront_oid}/preview_sessions | Create a preview session
+*SfvbApi* | [**deleteSfvbApproval**](docs/Api/SfvbApi.md#deletesfvbapproval) | **DELETE** /sfvb/approvals/{approval_id} | Cancel a pending approval request
 *SfvbApi* | [**deleteSfvbBlogPost**](docs/Api/SfvbApi.md#deletesfvbblogpost) | **DELETE** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Delete a blog post
 *SfvbApi* | [**deleteSfvbFile**](docs/Api/SfvbApi.md#deletesfvbfile) | **DELETE** /sfvb/storefronts/{storefront_oid}/files | Delete a storefront file
 *SfvbApi* | [**deleteSfvbItemAttribute**](docs/Api/SfvbApi.md#deletesfvbitemattribute) | **DELETE** /sfvb/storefronts/{storefront_oid}/items/attributes | Delete an attribute from an item
@@ -523,6 +524,8 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**enableSfvbI18nLanguage**](docs/Api/SfvbApi.md#enablesfvbi18nlanguage) | **POST** /sfvb/storefronts/{storefront_oid}/i18n/languages/{code}/enable | Enable a language
 *SfvbApi* | [**endSfvbExperiment**](docs/Api/SfvbApi.md#endsfvbexperiment) | **POST** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}/end | End an experiment
 *SfvbApi* | [**favoriteSfvbLibraryEntry**](docs/Api/SfvbApi.md#favoritesfvblibraryentry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/favorite | Favorite a library entry
+*SfvbApi* | [**getSfvbApproval**](docs/Api/SfvbApi.md#getsfvbapproval) | **GET** /sfvb/approvals/{approval_id} | Read one approval request
+*SfvbApi* | [**getSfvbApprovals**](docs/Api/SfvbApi.md#getsfvbapprovals) | **GET** /sfvb/approvals | List this sign-in&#39;s approval requests
 *SfvbApi* | [**getSfvbBlogPost**](docs/Api/SfvbApi.md#getsfvbblogpost) | **GET** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Read a blog post
 *SfvbApi* | [**getSfvbCjsonUsedElements**](docs/Api/SfvbApi.md#getsfvbcjsonusedelements) | **POST** /sfvb/cjson/elements | Element types used by a container
 *SfvbApi* | [**getSfvbContainer**](docs/Api/SfvbApi.md#getsfvbcontainer) | **GET** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Read a container stored outside the file system
@@ -569,6 +572,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbWhoami**](docs/Api/SfvbApi.md#getsfvbwhoami) | **GET** /sfvb/whoami | Who this token is
 *SfvbApi* | [**ignoreSfvbNotFoundEntry**](docs/Api/SfvbApi.md#ignoresfvbnotfoundentry) | **POST** /sfvb/storefronts/{storefront_oid}/not_found/{not_found_id}/ignore | Ignore a 404 path
 *SfvbApi* | [**importSfvbRedirects**](docs/Api/SfvbApi.md#importsfvbredirects) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/import | Apply a reviewed redirect import
+*SfvbApi* | [**insertSfvbApproval**](docs/Api/SfvbApi.md#insertsfvbapproval) | **POST** /sfvb/approvals | Request a human approval
 *SfvbApi* | [**insertSfvbBlogPost**](docs/Api/SfvbApi.md#insertsfvbblogpost) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts | Create a blog post
 *SfvbApi* | [**insertSfvbPage**](docs/Api/SfvbApi.md#insertsfvbpage) | **POST** /sfvb/storefronts/{storefront_oid}/pages | Create a page
 *SfvbApi* | [**insertSfvbRedirect**](docs/Api/SfvbApi.md#insertsfvbredirect) | **POST** /sfvb/storefronts/{storefront_oid}/redirects | Create a 301 redirect rule
@@ -1865,6 +1869,10 @@ Class | Method | HTTP request | Description
 - [ScreenRecordingUserProperty](docs/Model/ScreenRecordingUserProperty.md)
 - [ScreenshotsResponse](docs/Model/ScreenshotsResponse.md)
 - [SelfConfig](docs/Model/SelfConfig.md)
+- [SfvbApproval](docs/Model/SfvbApproval.md)
+- [SfvbApprovalCreateRequest](docs/Model/SfvbApprovalCreateRequest.md)
+- [SfvbApprovalParams](docs/Model/SfvbApprovalParams.md)
+- [SfvbApprovalsResponse](docs/Model/SfvbApprovalsResponse.md)
 - [SfvbBlogPost](docs/Model/SfvbBlogPost.md)
 - [SfvbBlogPostDetail](docs/Model/SfvbBlogPostDetail.md)
 - [SfvbBlogPostImage](docs/Model/SfvbBlogPostImage.md)
@@ -2242,6 +2250,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.196 | 10/08/2026 | sfvb internal testing |
 | 4.1.195 | 10/07/2026 | sfvb internal testing |
 | 4.1.194 | 10/07/2026 | sfvb internal testing |
 | 4.1.193 | 10/06/2026 | sfvb internal testing |
