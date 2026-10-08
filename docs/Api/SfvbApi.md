@@ -3512,7 +3512,7 @@ Name | Type | Description  | Notes
 ## `insertSfvbApproval()`
 
 ```php
-insertSfvbApproval($approval_request, $storefront_oid)
+insertSfvbApproval($approval_request, $storefront_oid): \ultracart\v2\models\SfvbApproval
 ```
 
 Request a human approval
@@ -3535,7 +3535,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\ultracart\v2\models\SfvbApproval**](../Model/SfvbApproval.md)
 
 ### Authorization
 
