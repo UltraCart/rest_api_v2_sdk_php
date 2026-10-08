@@ -72,6 +72,7 @@ class SfvbApproval implements ModelInterface, ArrayAccess, \JsonSerializable
         'outcome_http_status' => 'int',
         'params' => '\ultracart\v2\models\SfvbApprovalParams',
         'reason' => 'string',
+        'review' => '\ultracart\v2\models\SfvbApprovalReview',
         'scope' => 'string',
         'status' => 'string',
         'storefront_oid' => 'int',
@@ -101,6 +102,7 @@ class SfvbApproval implements ModelInterface, ArrayAccess, \JsonSerializable
         'outcome_http_status' => 'int32',
         'params' => null,
         'reason' => null,
+        'review' => null,
         'scope' => null,
         'status' => null,
         'storefront_oid' => 'int32',
@@ -149,6 +151,7 @@ class SfvbApproval implements ModelInterface, ArrayAccess, \JsonSerializable
         'outcome_http_status' => 'outcome_http_status',
         'params' => 'params',
         'reason' => 'reason',
+        'review' => 'review',
         'scope' => 'scope',
         'status' => 'status',
         'storefront_oid' => 'storefront_oid',
@@ -176,6 +179,7 @@ class SfvbApproval implements ModelInterface, ArrayAccess, \JsonSerializable
         'outcome_http_status' => 'setOutcomeHttpStatus',
         'params' => 'setParams',
         'reason' => 'setReason',
+        'review' => 'setReview',
         'scope' => 'setScope',
         'status' => 'setStatus',
         'storefront_oid' => 'setStorefrontOid',
@@ -203,6 +207,7 @@ class SfvbApproval implements ModelInterface, ArrayAccess, \JsonSerializable
         'outcome_http_status' => 'getOutcomeHttpStatus',
         'params' => 'getParams',
         'reason' => 'getReason',
+        'review' => 'getReview',
         'scope' => 'getScope',
         'status' => 'getStatus',
         'storefront_oid' => 'getStorefrontOid',
@@ -253,12 +258,14 @@ class SfvbApproval implements ModelInterface, ArrayAccess, \JsonSerializable
 
     public const OUTCOME_SUCCEEDED = 'succeeded';
     public const OUTCOME_FAILED = 'failed';
+    public const STATUS_REVIEWING = 'reviewing';
     public const STATUS_PENDING = 'pending';
     public const STATUS_APPROVED = 'approved';
     public const STATUS_DENIED = 'denied';
     public const STATUS_CANCELLED = 'cancelled';
     public const STATUS_EXPIRED = 'expired';
     public const STATUS_USED = 'used';
+    public const STATUS_REFUSED = 'refused';
 
     /**
      * Gets allowable values of the enum
@@ -281,12 +288,14 @@ class SfvbApproval implements ModelInterface, ArrayAccess, \JsonSerializable
     public function getStatusAllowableValues()
     {
         return [
+            self::STATUS_REVIEWING,
             self::STATUS_PENDING,
             self::STATUS_APPROVED,
             self::STATUS_DENIED,
             self::STATUS_CANCELLED,
             self::STATUS_EXPIRED,
             self::STATUS_USED,
+            self::STATUS_REFUSED,
         ];
     }
 
@@ -319,6 +328,7 @@ class SfvbApproval implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['outcome_http_status'] = $data['outcome_http_status'] ?? null;
         $this->container['params'] = $data['params'] ?? null;
         $this->container['reason'] = $data['reason'] ?? null;
+        $this->container['review'] = $data['review'] ?? null;
         $this->container['scope'] = $data['scope'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
         $this->container['storefront_oid'] = $data['storefront_oid'] ?? null;
@@ -715,6 +725,30 @@ class SfvbApproval implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets review
+     *
+     * @return \ultracart\v2\models\SfvbApprovalReview|null
+     */
+    public function getReview()
+    {
+        return $this->container['review'];
+    }
+
+    /**
+     * Sets review
+     *
+     * @param \ultracart\v2\models\SfvbApprovalReview|null $review review
+     *
+     * @return self
+     */
+    public function setReview($review)
+    {
+        $this->container['review'] = $review;
+
+        return $this;
+    }
+
+    /**
      * Gets scope
      *
      * @return string|null
@@ -751,7 +785,7 @@ class SfvbApproval implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param string|null $status pending, approved, denied, cancelled, expired or used.  Only approved may be sent with the gated call.
+     * @param string|null $status reviewing, pending, approved, denied, cancelled, expired, used or refused.  Only approved may be sent with the gated call.  A script write starts as reviewing while UltraCart reviews it; keep polling, and show approval_url only once it is pending.  refused means the review refused the script; outcome_code and review say why.
      *
      * @return self
      */

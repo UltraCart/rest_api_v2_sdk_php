@@ -997,6 +997,8 @@ docs/Model/SelfConfig.md
 docs/Model/SfvbApproval.md
 docs/Model/SfvbApprovalCreateRequest.md
 docs/Model/SfvbApprovalParams.md
+docs/Model/SfvbApprovalReview.md
+docs/Model/SfvbApprovalReviewFinding.md
 docs/Model/SfvbApprovalsResponse.md
 docs/Model/SfvbBlogPost.md
 docs/Model/SfvbBlogPostDetail.md
@@ -1131,6 +1133,10 @@ docs/Model/SfvbRecordingSettingsRequest.md
 docs/Model/SfvbRecordingSettingsResponse.md
 docs/Model/SfvbRedirect.md
 docs/Model/SfvbRedirectCheckResponse.md
+docs/Model/SfvbRedirectDeleteRequest.md
+docs/Model/SfvbRedirectDeleteResponse.md
+docs/Model/SfvbRedirectDeleteRow.md
+docs/Model/SfvbRedirectDeleteRowResult.md
 docs/Model/SfvbRedirectImportRequest.md
 docs/Model/SfvbRedirectImportResponse.md
 docs/Model/SfvbRedirectImportRow.md
@@ -2280,6 +2286,8 @@ lib/models/SelfConfig.php
 lib/models/SfvbApproval.php
 lib/models/SfvbApprovalCreateRequest.php
 lib/models/SfvbApprovalParams.php
+lib/models/SfvbApprovalReview.php
+lib/models/SfvbApprovalReviewFinding.php
 lib/models/SfvbApprovalsResponse.php
 lib/models/SfvbBlogPost.php
 lib/models/SfvbBlogPostDetail.php
@@ -2414,6 +2422,10 @@ lib/models/SfvbRecordingSettingsRequest.php
 lib/models/SfvbRecordingSettingsResponse.php
 lib/models/SfvbRedirect.php
 lib/models/SfvbRedirectCheckResponse.php
+lib/models/SfvbRedirectDeleteRequest.php
+lib/models/SfvbRedirectDeleteResponse.php
+lib/models/SfvbRedirectDeleteRow.php
+lib/models/SfvbRedirectDeleteRowResult.php
 lib/models/SfvbRedirectImportRequest.php
 lib/models/SfvbRedirectImportResponse.php
 lib/models/SfvbRedirectImportRow.php

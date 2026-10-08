@@ -1,6 +1,6 @@
 <?php
 /**
- * SfvbApprovalParams
+ * SfvbRedirectDeleteRowResult
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * SfvbApprovalParams Class Doc Comment
+ * SfvbRedirectDeleteRowResult Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializable
+class SfvbRedirectDeleteRowResult implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SfvbApprovalParams';
+    protected static $openAPIModelName = 'SfvbRedirectDeleteRowResult';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,12 +58,14 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'blog_post_oid' => 'int',
-        'content_sha256' => 'string',
-        'path' => 'string',
-        'rows_sha256' => 'string',
-        'rule_count' => 'int',
-        'version' => 'int'
+        'hash_sha256' => 'string',
+        'note' => 'string',
+        'redirect_id' => 'int',
+        'result' => 'string',
+        'source' => 'string',
+        'status' => 'string',
+        'target' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -74,12 +76,14 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'blog_post_oid' => 'int32',
-        'content_sha256' => null,
-        'path' => null,
-        'rows_sha256' => null,
-        'rule_count' => 'int32',
-        'version' => 'int32'
+        'hash_sha256' => null,
+        'note' => null,
+        'redirect_id' => 'int32',
+        'result' => null,
+        'source' => null,
+        'status' => null,
+        'target' => null,
+        'type' => null
     ];
 
     /**
@@ -109,12 +113,14 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'blog_post_oid' => 'blog_post_oid',
-        'content_sha256' => 'content_sha256',
-        'path' => 'path',
-        'rows_sha256' => 'rows_sha256',
-        'rule_count' => 'rule_count',
-        'version' => 'version'
+        'hash_sha256' => 'hash_sha256',
+        'note' => 'note',
+        'redirect_id' => 'redirect_id',
+        'result' => 'result',
+        'source' => 'source',
+        'status' => 'status',
+        'target' => 'target',
+        'type' => 'type'
     ];
 
     /**
@@ -123,12 +129,14 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'blog_post_oid' => 'setBlogPostOid',
-        'content_sha256' => 'setContentSha256',
-        'path' => 'setPath',
-        'rows_sha256' => 'setRowsSha256',
-        'rule_count' => 'setRuleCount',
-        'version' => 'setVersion'
+        'hash_sha256' => 'setHashSha256',
+        'note' => 'setNote',
+        'redirect_id' => 'setRedirectId',
+        'result' => 'setResult',
+        'source' => 'setSource',
+        'status' => 'setStatus',
+        'target' => 'setTarget',
+        'type' => 'setType'
     ];
 
     /**
@@ -137,12 +145,14 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'blog_post_oid' => 'getBlogPostOid',
-        'content_sha256' => 'getContentSha256',
-        'path' => 'getPath',
-        'rows_sha256' => 'getRowsSha256',
-        'rule_count' => 'getRuleCount',
-        'version' => 'getVersion'
+        'hash_sha256' => 'getHashSha256',
+        'note' => 'getNote',
+        'redirect_id' => 'getRedirectId',
+        'result' => 'getResult',
+        'source' => 'getSource',
+        'status' => 'getStatus',
+        'target' => 'getTarget',
+        'type' => 'getType'
     ];
 
     /**
@@ -186,6 +196,25 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         return self::$openAPIModelName;
     }
 
+    public const RESULT_DELETABLE = 'deletable';
+    public const RESULT_STALE = 'stale';
+    public const RESULT_NOT_FOUND = 'not_found';
+    public const RESULT_DELETED = 'deleted';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getResultAllowableValues()
+    {
+        return [
+            self::RESULT_DELETABLE,
+            self::RESULT_STALE,
+            self::RESULT_NOT_FOUND,
+            self::RESULT_DELETED,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -202,12 +231,14 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->container['blog_post_oid'] = $data['blog_post_oid'] ?? null;
-        $this->container['content_sha256'] = $data['content_sha256'] ?? null;
-        $this->container['path'] = $data['path'] ?? null;
-        $this->container['rows_sha256'] = $data['rows_sha256'] ?? null;
-        $this->container['rule_count'] = $data['rule_count'] ?? null;
-        $this->container['version'] = $data['version'] ?? null;
+        $this->container['hash_sha256'] = $data['hash_sha256'] ?? null;
+        $this->container['note'] = $data['note'] ?? null;
+        $this->container['redirect_id'] = $data['redirect_id'] ?? null;
+        $this->container['result'] = $data['result'] ?? null;
+        $this->container['source'] = $data['source'] ?? null;
+        $this->container['status'] = $data['status'] ?? null;
+        $this->container['target'] = $data['target'] ?? null;
+        $this->container['type'] = $data['type'] ?? null;
     }
 
     /**
@@ -218,6 +249,15 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getResultAllowableValues();
+        if (!is_null($this->container['result']) && !in_array($this->container['result'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'result', must be one of '%s'",
+                $this->container['result'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -235,145 +275,203 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets blog_post_oid
-     *
-     * @return int|null
-     */
-    public function getBlogPostOid()
-    {
-        return $this->container['blog_post_oid'];
-    }
-
-    /**
-     * Sets blog_post_oid
-     *
-     * @param int|null $blog_post_oid The blog post, for blog_post.delete.
-     *
-     * @return self
-     */
-    public function setBlogPostOid($blog_post_oid)
-    {
-        $this->container['blog_post_oid'] = $blog_post_oid;
-
-        return $this;
-    }
-
-    /**
-     * Gets content_sha256
+     * Gets hash_sha256
      *
      * @return string|null
      */
-    public function getContentSha256()
+    public function getHashSha256()
     {
-        return $this->container['content_sha256'];
+        return $this->container['hash_sha256'];
     }
 
     /**
-     * Sets content_sha256
+     * Sets hash_sha256
      *
-     * @param string|null $content_sha256 For file.put_script, the SHA-256 of the exact bytes approved.  Set by the server, never by the caller.  The write must send bytes with this hash.
+     * @param string|null $hash_sha256 The rule's current hash.  Absent when not_found.
      *
      * @return self
      */
-    public function setContentSha256($content_sha256)
+    public function setHashSha256($hash_sha256)
     {
-        $this->container['content_sha256'] = $content_sha256;
+        $this->container['hash_sha256'] = $hash_sha256;
 
         return $this;
     }
 
     /**
-     * Gets path
+     * Gets note
      *
      * @return string|null
      */
-    public function getPath()
+    public function getNote()
     {
-        return $this->container['path'];
+        return $this->container['note'];
     }
 
     /**
-     * Sets path
+     * Sets note
      *
-     * @param string|null $path The file path, for file.delete and file.put_script.  Exactly as the gated call will send it.
+     * @param string|null $note The rule's note.
      *
      * @return self
      */
-    public function setPath($path)
+    public function setNote($note)
     {
-        $this->container['path'] = $path;
+        $this->container['note'] = $note;
 
         return $this;
     }
 
     /**
-     * Gets rows_sha256
+     * Gets redirect_id
+     *
+     * @return int|null
+     */
+    public function getRedirectId()
+    {
+        return $this->container['redirect_id'];
+    }
+
+    /**
+     * Sets redirect_id
+     *
+     * @param int|null $redirect_id The rule.
+     *
+     * @return self
+     */
+    public function setRedirectId($redirect_id)
+    {
+        $this->container['redirect_id'] = $redirect_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets result
      *
      * @return string|null
      */
-    public function getRowsSha256()
+    public function getResult()
     {
-        return $this->container['rows_sha256'];
+        return $this->container['result'];
     }
 
     /**
-     * Sets rows_sha256
+     * Sets result
      *
-     * @param string|null $rows_sha256 For redirect.delete_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch delete must send rows with this hash.
+     * @param string|null $result deletable, stale (the rule changed since its hash was read), not_found, or deleted after an apply.
      *
      * @return self
      */
-    public function setRowsSha256($rows_sha256)
+    public function setResult($result)
     {
-        $this->container['rows_sha256'] = $rows_sha256;
+        $allowedValues = $this->getResultAllowableValues();
+        if (!is_null($result) && !in_array($result, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'result', must be one of '%s'",
+                    $result,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['result'] = $result;
 
         return $this;
     }
 
     /**
-     * Gets rule_count
+     * Gets source
      *
-     * @return int|null
+     * @return string|null
      */
-    public function getRuleCount()
+    public function getSource()
     {
-        return $this->container['rule_count'];
+        return $this->container['source'];
     }
 
     /**
-     * Sets rule_count
+     * Sets source
      *
-     * @param int|null $rule_count For redirect.delete_batch, how many rules the batch would delete when it was requested.  Set by the server.
+     * @param string|null $source The rule's source, for a backup.
      *
      * @return self
      */
-    public function setRuleCount($rule_count)
+    public function setSource($source)
     {
-        $this->container['rule_count'] = $rule_count;
+        $this->container['source'] = $source;
 
         return $this;
     }
 
     /**
-     * Gets version
+     * Gets status
      *
-     * @return int|null
+     * @return string|null
      */
-    public function getVersion()
+    public function getStatus()
     {
-        return $this->container['version'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets version
+     * Sets status
      *
-     * @param int|null $version For file.put_script, the history version a revert restores.  Leave it out, and send content instead, for a write.
+     * @param string|null $status The rule's status (301, 302 or rewrite).
      *
      * @return self
      */
-    public function setVersion($version)
+    public function setStatus($status)
     {
-        $this->container['version'] = $version;
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets target
+     *
+     * @return string|null
+     */
+    public function getTarget()
+    {
+        return $this->container['target'];
+    }
+
+    /**
+     * Sets target
+     *
+     * @param string|null $target The rule's target, for a backup.
+     *
+     * @return self
+     */
+    public function setTarget($target)
+    {
+        $this->container['target'] = $target;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type exact or pattern.
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }

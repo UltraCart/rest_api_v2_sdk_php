@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.198"
+    "ultracart/rest_api_v2_sdk_php": "4.1.199"
   }
 }
 ```
@@ -510,11 +510,13 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**deleteSfvbPageMultimedia**](docs/Api/SfvbApi.md#deletesfvbpagemultimedia) | **DELETE** /sfvb/storefronts/{storefront_oid}/pages/multimedia | Detach an image from a page
 *SfvbApi* | [**deleteSfvbPreviewSession**](docs/Api/SfvbApi.md#deletesfvbpreviewsession) | **DELETE** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Delete a preview session
 *SfvbApi* | [**deleteSfvbRedirect**](docs/Api/SfvbApi.md#deletesfvbredirect) | **DELETE** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Delete a redirect rule
+*SfvbApi* | [**deleteSfvbRedirects**](docs/Api/SfvbApi.md#deletesfvbredirects) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/delete | Delete up to 5,000 redirect rules in one call
 *SfvbApi* | [**detachSfvbBlogPostImage**](docs/Api/SfvbApi.md#detachsfvbblogpostimage) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}/images/detach | Detach an image from a blog post
 *SfvbApi* | [**disableSfvbI18nLanguage**](docs/Api/SfvbApi.md#disablesfvbi18nlanguage) | **POST** /sfvb/storefronts/{storefront_oid}/i18n/languages/{code}/disable | Disable a language
 *SfvbApi* | [**disableSfvbUpsellOffer**](docs/Api/SfvbApi.md#disablesfvbupselloffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/disable | Disable an upsell offer
 *SfvbApi* | [**disableSfvbUpsellPath**](docs/Api/SfvbApi.md#disablesfvbupsellpath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/disable | Disable an upsell path
 *SfvbApi* | [**downloadSfvbFile**](docs/Api/SfvbApi.md#downloadsfvbfile) | **GET** /sfvb/storefronts/{storefront_oid}/files/download | Read a storefront file&#39;s raw bytes
+*SfvbApi* | [**dryRunSfvbRedirectDelete**](docs/Api/SfvbApi.md#dryrunsfvbredirectdelete) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/delete/dry_run | Check a batch delete of redirect rules without writing it
 *SfvbApi* | [**dryRunSfvbRedirectImport**](docs/Api/SfvbApi.md#dryrunsfvbredirectimport) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/import/dry_run | Check a redirect import without writing it
 *SfvbApi* | [**duplicateSfvbLibraryEntry**](docs/Api/SfvbApi.md#duplicatesfvblibraryentry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/duplicate | Copy a library entry into a new private entry
 *SfvbApi* | [**duplicateSfvbPage**](docs/Api/SfvbApi.md#duplicatesfvbpage) | **POST** /sfvb/storefronts/{storefront_oid}/pages/duplicate | Copy a page to a new path
@@ -1872,6 +1874,8 @@ Class | Method | HTTP request | Description
 - [SfvbApproval](docs/Model/SfvbApproval.md)
 - [SfvbApprovalCreateRequest](docs/Model/SfvbApprovalCreateRequest.md)
 - [SfvbApprovalParams](docs/Model/SfvbApprovalParams.md)
+- [SfvbApprovalReview](docs/Model/SfvbApprovalReview.md)
+- [SfvbApprovalReviewFinding](docs/Model/SfvbApprovalReviewFinding.md)
 - [SfvbApprovalsResponse](docs/Model/SfvbApprovalsResponse.md)
 - [SfvbBlogPost](docs/Model/SfvbBlogPost.md)
 - [SfvbBlogPostDetail](docs/Model/SfvbBlogPostDetail.md)
@@ -2006,6 +2010,10 @@ Class | Method | HTTP request | Description
 - [SfvbRecordingSettingsResponse](docs/Model/SfvbRecordingSettingsResponse.md)
 - [SfvbRedirect](docs/Model/SfvbRedirect.md)
 - [SfvbRedirectCheckResponse](docs/Model/SfvbRedirectCheckResponse.md)
+- [SfvbRedirectDeleteRequest](docs/Model/SfvbRedirectDeleteRequest.md)
+- [SfvbRedirectDeleteResponse](docs/Model/SfvbRedirectDeleteResponse.md)
+- [SfvbRedirectDeleteRow](docs/Model/SfvbRedirectDeleteRow.md)
+- [SfvbRedirectDeleteRowResult](docs/Model/SfvbRedirectDeleteRowResult.md)
 - [SfvbRedirectImportRequest](docs/Model/SfvbRedirectImportRequest.md)
 - [SfvbRedirectImportResponse](docs/Model/SfvbRedirectImportResponse.md)
 - [SfvbRedirectImportRow](docs/Model/SfvbRedirectImportRow.md)
@@ -2250,6 +2258,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.199 | 10/08/2026 | sfvb internal testing |
 | 4.1.198 | 10/08/2026 | sfvb internal testing |
 | 4.1.197 | 10/08/2026 | sfvb internal testing |
 | 4.1.196 | 10/08/2026 | sfvb internal testing |

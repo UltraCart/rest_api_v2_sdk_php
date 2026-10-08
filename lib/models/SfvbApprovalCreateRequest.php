@@ -59,8 +59,10 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static $openAPITypes = [
         'action' => 'string',
+        'content' => 'string',
         'params' => '\ultracart\v2\models\SfvbApprovalParams',
-        'reason' => 'string'
+        'reason' => 'string',
+        'redirect_rows' => '\ultracart\v2\models\SfvbRedirectDeleteRow[]'
     ];
 
     /**
@@ -72,8 +74,10 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static $openAPIFormats = [
         'action' => null,
+        'content' => null,
         'params' => null,
-        'reason' => null
+        'reason' => null,
+        'redirect_rows' => null
     ];
 
     /**
@@ -104,8 +108,10 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $attributeMap = [
         'action' => 'action',
+        'content' => 'content',
         'params' => 'params',
-        'reason' => 'reason'
+        'reason' => 'reason',
+        'redirect_rows' => 'redirect_rows'
     ];
 
     /**
@@ -115,8 +121,10 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $setters = [
         'action' => 'setAction',
+        'content' => 'setContent',
         'params' => 'setParams',
-        'reason' => 'setReason'
+        'reason' => 'setReason',
+        'redirect_rows' => 'setRedirectRows'
     ];
 
     /**
@@ -126,8 +134,10 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $getters = [
         'action' => 'getAction',
+        'content' => 'getContent',
         'params' => 'getParams',
-        'reason' => 'getReason'
+        'reason' => 'getReason',
+        'redirect_rows' => 'getRedirectRows'
     ];
 
     /**
@@ -173,6 +183,8 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
 
     public const ACTION_FILE_DELETE = 'file.delete';
     public const ACTION_BLOG_POST_DELETE = 'blog_post.delete';
+    public const ACTION_FILE_PUT_SCRIPT = 'file.put_script';
+    public const ACTION_REDIRECT_DELETE_BATCH = 'redirect.delete_batch';
 
     /**
      * Gets allowable values of the enum
@@ -184,6 +196,8 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         return [
             self::ACTION_FILE_DELETE,
             self::ACTION_BLOG_POST_DELETE,
+            self::ACTION_FILE_PUT_SCRIPT,
+            self::ACTION_REDIRECT_DELETE_BATCH,
         ];
     }
 
@@ -203,8 +217,10 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     public function __construct(array $data = null)
     {
         $this->container['action'] = $data['action'] ?? null;
+        $this->container['content'] = $data['content'] ?? null;
         $this->container['params'] = $data['params'] ?? null;
         $this->container['reason'] = $data['reason'] ?? null;
+        $this->container['redirect_rows'] = $data['redirect_rows'] ?? null;
     }
 
     /**
@@ -275,6 +291,30 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     }
 
     /**
+     * Gets content
+     *
+     * @return string|null
+     */
+    public function getContent()
+    {
+        return $this->container['content'];
+    }
+
+    /**
+     * Sets content
+     *
+     * @param string|null $content For a file.put_script write, the exact script to be written, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.
+     *
+     * @return self
+     */
+    public function setContent($content)
+    {
+        $this->container['content'] = $content;
+
+        return $this;
+    }
+
+    /**
      * Gets params
      *
      * @return \ultracart\v2\models\SfvbApprovalParams|null
@@ -318,6 +358,30 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     public function setReason($reason)
     {
         $this->container['reason'] = $reason;
+
+        return $this;
+    }
+
+    /**
+     * Gets redirect_rows
+     *
+     * @return \ultracart\v2\models\SfvbRedirectDeleteRow[]|null
+     */
+    public function getRedirectRows()
+    {
+        return $this->container['redirect_rows'];
+    }
+
+    /**
+     * Sets redirect_rows
+     *
+     * @param \ultracart\v2\models\SfvbRedirectDeleteRow[]|null $redirect_rows For redirect.delete_batch, exactly the rows the batch delete will send, up to 5,000, each with its hash_sha256.  UltraCart keeps only their hash.
+     *
+     * @return self
+     */
+    public function setRedirectRows($redirect_rows)
+    {
+        $this->container['redirect_rows'] = $redirect_rows;
 
         return $this;
     }

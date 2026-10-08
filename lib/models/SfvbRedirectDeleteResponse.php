@@ -1,6 +1,6 @@
 <?php
 /**
- * SfvbApprovalParams
+ * SfvbRedirectDeleteResponse
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * SfvbApprovalParams Class Doc Comment
+ * SfvbRedirectDeleteResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializable
+class SfvbRedirectDeleteResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SfvbApprovalParams';
+    protected static $openAPIModelName = 'SfvbRedirectDeleteResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,12 +58,16 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'blog_post_oid' => 'int',
-        'content_sha256' => 'string',
-        'path' => 'string',
-        'rows_sha256' => 'string',
+        'applied' => 'bool',
+        'deletable' => 'int',
+        'deleted' => 'int',
+        'limit' => 'int',
+        'not_found' => 'int',
+        'plan_hash' => 'string',
+        'rows' => '\ultracart\v2\models\SfvbRedirectDeleteRowResult[]',
         'rule_count' => 'int',
-        'version' => 'int'
+        'stale' => 'int',
+        'total' => 'int'
     ];
 
     /**
@@ -74,12 +78,16 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'blog_post_oid' => 'int32',
-        'content_sha256' => null,
-        'path' => null,
-        'rows_sha256' => null,
+        'applied' => null,
+        'deletable' => 'int32',
+        'deleted' => 'int32',
+        'limit' => 'int32',
+        'not_found' => 'int32',
+        'plan_hash' => null,
+        'rows' => null,
         'rule_count' => 'int32',
-        'version' => 'int32'
+        'stale' => 'int32',
+        'total' => 'int32'
     ];
 
     /**
@@ -109,12 +117,16 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'blog_post_oid' => 'blog_post_oid',
-        'content_sha256' => 'content_sha256',
-        'path' => 'path',
-        'rows_sha256' => 'rows_sha256',
+        'applied' => 'applied',
+        'deletable' => 'deletable',
+        'deleted' => 'deleted',
+        'limit' => 'limit',
+        'not_found' => 'not_found',
+        'plan_hash' => 'plan_hash',
+        'rows' => 'rows',
         'rule_count' => 'rule_count',
-        'version' => 'version'
+        'stale' => 'stale',
+        'total' => 'total'
     ];
 
     /**
@@ -123,12 +135,16 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'blog_post_oid' => 'setBlogPostOid',
-        'content_sha256' => 'setContentSha256',
-        'path' => 'setPath',
-        'rows_sha256' => 'setRowsSha256',
+        'applied' => 'setApplied',
+        'deletable' => 'setDeletable',
+        'deleted' => 'setDeleted',
+        'limit' => 'setLimit',
+        'not_found' => 'setNotFound',
+        'plan_hash' => 'setPlanHash',
+        'rows' => 'setRows',
         'rule_count' => 'setRuleCount',
-        'version' => 'setVersion'
+        'stale' => 'setStale',
+        'total' => 'setTotal'
     ];
 
     /**
@@ -137,12 +153,16 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'blog_post_oid' => 'getBlogPostOid',
-        'content_sha256' => 'getContentSha256',
-        'path' => 'getPath',
-        'rows_sha256' => 'getRowsSha256',
+        'applied' => 'getApplied',
+        'deletable' => 'getDeletable',
+        'deleted' => 'getDeleted',
+        'limit' => 'getLimit',
+        'not_found' => 'getNotFound',
+        'plan_hash' => 'getPlanHash',
+        'rows' => 'getRows',
         'rule_count' => 'getRuleCount',
-        'version' => 'getVersion'
+        'stale' => 'getStale',
+        'total' => 'getTotal'
     ];
 
     /**
@@ -202,12 +222,16 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->container['blog_post_oid'] = $data['blog_post_oid'] ?? null;
-        $this->container['content_sha256'] = $data['content_sha256'] ?? null;
-        $this->container['path'] = $data['path'] ?? null;
-        $this->container['rows_sha256'] = $data['rows_sha256'] ?? null;
+        $this->container['applied'] = $data['applied'] ?? null;
+        $this->container['deletable'] = $data['deletable'] ?? null;
+        $this->container['deleted'] = $data['deleted'] ?? null;
+        $this->container['limit'] = $data['limit'] ?? null;
+        $this->container['not_found'] = $data['not_found'] ?? null;
+        $this->container['plan_hash'] = $data['plan_hash'] ?? null;
+        $this->container['rows'] = $data['rows'] ?? null;
         $this->container['rule_count'] = $data['rule_count'] ?? null;
-        $this->container['version'] = $data['version'] ?? null;
+        $this->container['stale'] = $data['stale'] ?? null;
+        $this->container['total'] = $data['total'] ?? null;
     }
 
     /**
@@ -235,97 +259,169 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets blog_post_oid
+     * Gets applied
+     *
+     * @return bool|null
+     */
+    public function getApplied()
+    {
+        return $this->container['applied'];
+    }
+
+    /**
+     * Sets applied
+     *
+     * @param bool|null $applied True when this call deleted rules.
+     *
+     * @return self
+     */
+    public function setApplied($applied)
+    {
+        $this->container['applied'] = $applied;
+
+        return $this;
+    }
+
+    /**
+     * Gets deletable
      *
      * @return int|null
      */
-    public function getBlogPostOid()
+    public function getDeletable()
     {
-        return $this->container['blog_post_oid'];
+        return $this->container['deletable'];
     }
 
     /**
-     * Sets blog_post_oid
+     * Sets deletable
      *
-     * @param int|null $blog_post_oid The blog post, for blog_post.delete.
+     * @param int|null $deletable Rows that can be, or on an apply could be, deleted.
      *
      * @return self
      */
-    public function setBlogPostOid($blog_post_oid)
+    public function setDeletable($deletable)
     {
-        $this->container['blog_post_oid'] = $blog_post_oid;
+        $this->container['deletable'] = $deletable;
 
         return $this;
     }
 
     /**
-     * Gets content_sha256
+     * Gets deleted
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getContentSha256()
+    public function getDeleted()
     {
-        return $this->container['content_sha256'];
+        return $this->container['deleted'];
     }
 
     /**
-     * Sets content_sha256
+     * Sets deleted
      *
-     * @param string|null $content_sha256 For file.put_script, the SHA-256 of the exact bytes approved.  Set by the server, never by the caller.  The write must send bytes with this hash.
+     * @param int|null $deleted Rules deleted.  Zero on a dry run.
      *
      * @return self
      */
-    public function setContentSha256($content_sha256)
+    public function setDeleted($deleted)
     {
-        $this->container['content_sha256'] = $content_sha256;
+        $this->container['deleted'] = $deleted;
 
         return $this;
     }
 
     /**
-     * Gets path
+     * Gets limit
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getPath()
+    public function getLimit()
     {
-        return $this->container['path'];
+        return $this->container['limit'];
     }
 
     /**
-     * Sets path
+     * Sets limit
      *
-     * @param string|null $path The file path, for file.delete and file.put_script.  Exactly as the gated call will send it.
+     * @param int|null $limit The most rules a storefront can have for add and import to work.
      *
      * @return self
      */
-    public function setPath($path)
+    public function setLimit($limit)
     {
-        $this->container['path'] = $path;
+        $this->container['limit'] = $limit;
 
         return $this;
     }
 
     /**
-     * Gets rows_sha256
+     * Gets not_found
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getRowsSha256()
+    public function getNotFound()
     {
-        return $this->container['rows_sha256'];
+        return $this->container['not_found'];
     }
 
     /**
-     * Sets rows_sha256
+     * Sets not_found
      *
-     * @param string|null $rows_sha256 For redirect.delete_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch delete must send rows with this hash.
+     * @param int|null $not_found Rows naming no rule on this storefront.  Skipped.
      *
      * @return self
      */
-    public function setRowsSha256($rows_sha256)
+    public function setNotFound($not_found)
     {
-        $this->container['rows_sha256'] = $rows_sha256;
+        $this->container['not_found'] = $not_found;
+
+        return $this;
+    }
+
+    /**
+     * Gets plan_hash
+     *
+     * @return string|null
+     */
+    public function getPlanHash()
+    {
+        return $this->container['plan_hash'];
+    }
+
+    /**
+     * Sets plan_hash
+     *
+     * @param string|null $plan_hash Send this to apply exactly these rows.  Also what an approval for them is bound to.
+     *
+     * @return self
+     */
+    public function setPlanHash($plan_hash)
+    {
+        $this->container['plan_hash'] = $plan_hash;
+
+        return $this;
+    }
+
+    /**
+     * Gets rows
+     *
+     * @return \ultracart\v2\models\SfvbRedirectDeleteRowResult[]|null
+     */
+    public function getRows()
+    {
+        return $this->container['rows'];
+    }
+
+    /**
+     * Sets rows
+     *
+     * @param \ultracart\v2\models\SfvbRedirectDeleteRowResult[]|null $rows One result per row, in request order.
+     *
+     * @return self
+     */
+    public function setRows($rows)
+    {
+        $this->container['rows'] = $rows;
 
         return $this;
     }
@@ -343,7 +439,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets rule_count
      *
-     * @param int|null $rule_count For redirect.delete_batch, how many rules the batch would delete when it was requested.  Set by the server.
+     * @param int|null $rule_count The storefront's redirect rules now.  After an apply, after the delete.
      *
      * @return self
      */
@@ -355,25 +451,49 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets version
+     * Gets stale
      *
      * @return int|null
      */
-    public function getVersion()
+    public function getStale()
     {
-        return $this->container['version'];
+        return $this->container['stale'];
     }
 
     /**
-     * Sets version
+     * Sets stale
      *
-     * @param int|null $version For file.put_script, the history version a revert restores.  Leave it out, and send content instead, for a write.
+     * @param int|null $stale Rows whose rule changed since its hash was read.  Skipped.
      *
      * @return self
      */
-    public function setVersion($version)
+    public function setStale($stale)
     {
-        $this->container['version'] = $version;
+        $this->container['stale'] = $stale;
+
+        return $this;
+    }
+
+    /**
+     * Gets total
+     *
+     * @return int|null
+     */
+    public function getTotal()
+    {
+        return $this->container['total'];
+    }
+
+    /**
+     * Sets total
+     *
+     * @param int|null $total Rows in the request.
+     *
+     * @return self
+     */
+    public function setTotal($total)
+    {
+        $this->container['total'] = $total;
 
         return $this;
     }

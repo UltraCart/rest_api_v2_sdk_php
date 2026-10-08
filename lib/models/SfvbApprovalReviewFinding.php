@@ -1,6 +1,6 @@
 <?php
 /**
- * SfvbApprovalParams
+ * SfvbApprovalReviewFinding
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * SfvbApprovalParams Class Doc Comment
+ * SfvbApprovalReviewFinding Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializable
+class SfvbApprovalReviewFinding implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SfvbApprovalParams';
+    protected static $openAPIModelName = 'SfvbApprovalReviewFinding';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,12 +58,10 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'blog_post_oid' => 'int',
-        'content_sha256' => 'string',
-        'path' => 'string',
-        'rows_sha256' => 'string',
-        'rule_count' => 'int',
-        'version' => 'int'
+        'category' => 'string',
+        'clear_violation' => 'bool',
+        'evidence' => 'string',
+        'line' => 'int'
     ];
 
     /**
@@ -74,12 +72,10 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'blog_post_oid' => 'int32',
-        'content_sha256' => null,
-        'path' => null,
-        'rows_sha256' => null,
-        'rule_count' => 'int32',
-        'version' => 'int32'
+        'category' => null,
+        'clear_violation' => null,
+        'evidence' => null,
+        'line' => 'int32'
     ];
 
     /**
@@ -109,12 +105,10 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'blog_post_oid' => 'blog_post_oid',
-        'content_sha256' => 'content_sha256',
-        'path' => 'path',
-        'rows_sha256' => 'rows_sha256',
-        'rule_count' => 'rule_count',
-        'version' => 'version'
+        'category' => 'category',
+        'clear_violation' => 'clear_violation',
+        'evidence' => 'evidence',
+        'line' => 'line'
     ];
 
     /**
@@ -123,12 +117,10 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'blog_post_oid' => 'setBlogPostOid',
-        'content_sha256' => 'setContentSha256',
-        'path' => 'setPath',
-        'rows_sha256' => 'setRowsSha256',
-        'rule_count' => 'setRuleCount',
-        'version' => 'setVersion'
+        'category' => 'setCategory',
+        'clear_violation' => 'setClearViolation',
+        'evidence' => 'setEvidence',
+        'line' => 'setLine'
     ];
 
     /**
@@ -137,12 +129,10 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'blog_post_oid' => 'getBlogPostOid',
-        'content_sha256' => 'getContentSha256',
-        'path' => 'getPath',
-        'rows_sha256' => 'getRowsSha256',
-        'rule_count' => 'getRuleCount',
-        'version' => 'getVersion'
+        'category' => 'getCategory',
+        'clear_violation' => 'getClearViolation',
+        'evidence' => 'getEvidence',
+        'line' => 'getLine'
     ];
 
     /**
@@ -202,12 +192,10 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->container['blog_post_oid'] = $data['blog_post_oid'] ?? null;
-        $this->container['content_sha256'] = $data['content_sha256'] ?? null;
-        $this->container['path'] = $data['path'] ?? null;
-        $this->container['rows_sha256'] = $data['rows_sha256'] ?? null;
-        $this->container['rule_count'] = $data['rule_count'] ?? null;
-        $this->container['version'] = $data['version'] ?? null;
+        $this->container['category'] = $data['category'] ?? null;
+        $this->container['clear_violation'] = $data['clear_violation'] ?? null;
+        $this->container['evidence'] = $data['evidence'] ?? null;
+        $this->container['line'] = $data['line'] ?? null;
     }
 
     /**
@@ -235,145 +223,97 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets blog_post_oid
-     *
-     * @return int|null
-     */
-    public function getBlogPostOid()
-    {
-        return $this->container['blog_post_oid'];
-    }
-
-    /**
-     * Sets blog_post_oid
-     *
-     * @param int|null $blog_post_oid The blog post, for blog_post.delete.
-     *
-     * @return self
-     */
-    public function setBlogPostOid($blog_post_oid)
-    {
-        $this->container['blog_post_oid'] = $blog_post_oid;
-
-        return $this;
-    }
-
-    /**
-     * Gets content_sha256
+     * Gets category
      *
      * @return string|null
      */
-    public function getContentSha256()
+    public function getCategory()
     {
-        return $this->container['content_sha256'];
+        return $this->container['category'];
     }
 
     /**
-     * Sets content_sha256
+     * Sets category
      *
-     * @param string|null $content_sha256 For file.put_script, the SHA-256 of the exact bytes approved.  Set by the server, never by the caller.  The write must send bytes with this hash.
+     * @param string|null $category What kind of problem, such as data_exfiltration or third_party_tracking.
      *
      * @return self
      */
-    public function setContentSha256($content_sha256)
+    public function setCategory($category)
     {
-        $this->container['content_sha256'] = $content_sha256;
+        $this->container['category'] = $category;
 
         return $this;
     }
 
     /**
-     * Gets path
+     * Gets clear_violation
+     *
+     * @return bool|null
+     */
+    public function getClearViolation()
+    {
+        return $this->container['clear_violation'];
+    }
+
+    /**
+     * Sets clear_violation
+     *
+     * @param bool|null $clear_violation True when this alone would justify refusing the script.
+     *
+     * @return self
+     */
+    public function setClearViolation($clear_violation)
+    {
+        $this->container['clear_violation'] = $clear_violation;
+
+        return $this;
+    }
+
+    /**
+     * Gets evidence
      *
      * @return string|null
      */
-    public function getPath()
+    public function getEvidence()
     {
-        return $this->container['path'];
+        return $this->container['evidence'];
     }
 
     /**
-     * Sets path
+     * Sets evidence
      *
-     * @param string|null $path The file path, for file.delete and file.put_script.  Exactly as the gated call will send it.
+     * @param string|null $evidence The code quoted from the script, at most 500 characters.
      *
      * @return self
      */
-    public function setPath($path)
+    public function setEvidence($evidence)
     {
-        $this->container['path'] = $path;
+        $this->container['evidence'] = $evidence;
 
         return $this;
     }
 
     /**
-     * Gets rows_sha256
-     *
-     * @return string|null
-     */
-    public function getRowsSha256()
-    {
-        return $this->container['rows_sha256'];
-    }
-
-    /**
-     * Sets rows_sha256
-     *
-     * @param string|null $rows_sha256 For redirect.delete_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch delete must send rows with this hash.
-     *
-     * @return self
-     */
-    public function setRowsSha256($rows_sha256)
-    {
-        $this->container['rows_sha256'] = $rows_sha256;
-
-        return $this;
-    }
-
-    /**
-     * Gets rule_count
+     * Gets line
      *
      * @return int|null
      */
-    public function getRuleCount()
+    public function getLine()
     {
-        return $this->container['rule_count'];
+        return $this->container['line'];
     }
 
     /**
-     * Sets rule_count
+     * Sets line
      *
-     * @param int|null $rule_count For redirect.delete_batch, how many rules the batch would delete when it was requested.  Set by the server.
+     * @param int|null $line The line of the script the evidence is on, when the reviewer named one.
      *
      * @return self
      */
-    public function setRuleCount($rule_count)
+    public function setLine($line)
     {
-        $this->container['rule_count'] = $rule_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets version
-     *
-     * @return int|null
-     */
-    public function getVersion()
-    {
-        return $this->container['version'];
-    }
-
-    /**
-     * Sets version
-     *
-     * @param int|null $version For file.put_script, the history version a revert restores.  Leave it out, and send content instead, for a write.
-     *
-     * @return self
-     */
-    public function setVersion($version)
-    {
-        $this->container['version'] = $version;
+        $this->container['line'] = $line;
 
         return $this;
     }
