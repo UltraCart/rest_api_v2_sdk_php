@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.199"
+    "ultracart/rest_api_v2_sdk_php": "4.1.200"
   }
 }
 ```
@@ -516,6 +516,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**disableSfvbUpsellOffer**](docs/Api/SfvbApi.md#disablesfvbupselloffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/disable | Disable an upsell offer
 *SfvbApi* | [**disableSfvbUpsellPath**](docs/Api/SfvbApi.md#disablesfvbupsellpath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/disable | Disable an upsell path
 *SfvbApi* | [**downloadSfvbFile**](docs/Api/SfvbApi.md#downloadsfvbfile) | **GET** /sfvb/storefronts/{storefront_oid}/files/download | Read a storefront file&#39;s raw bytes
+*SfvbApi* | [**dryRunSfvbItemAttributeBatch**](docs/Api/SfvbApi.md#dryrunsfvbitemattributebatch) | **POST** /sfvb/storefronts/{storefront_oid}/items/attributes/batch/dry_run | Check attribute changes across many items without writing them
 *SfvbApi* | [**dryRunSfvbRedirectDelete**](docs/Api/SfvbApi.md#dryrunsfvbredirectdelete) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/delete/dry_run | Check a batch delete of redirect rules without writing it
 *SfvbApi* | [**dryRunSfvbRedirectImport**](docs/Api/SfvbApi.md#dryrunsfvbredirectimport) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/import/dry_run | Check a redirect import without writing it
 *SfvbApi* | [**duplicateSfvbLibraryEntry**](docs/Api/SfvbApi.md#duplicatesfvblibraryentry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/duplicate | Copy a library entry into a new private entry
@@ -524,6 +525,8 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**duplicateSfvbUpsellOffer**](docs/Api/SfvbApi.md#duplicatesfvbupselloffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/duplicate | Duplicate an upsell offer
 *SfvbApi* | [**duplicateSfvbUpsellPath**](docs/Api/SfvbApi.md#duplicatesfvbupsellpath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/duplicate | Duplicate an upsell path or one of its variations
 *SfvbApi* | [**enableSfvbI18nLanguage**](docs/Api/SfvbApi.md#enablesfvbi18nlanguage) | **POST** /sfvb/storefronts/{storefront_oid}/i18n/languages/{code}/enable | Enable a language
+*SfvbApi* | [**enableSfvbUpsellOffer**](docs/Api/SfvbApi.md#enablesfvbupselloffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/enable | Enable an upsell offer
+*SfvbApi* | [**enableSfvbUpsellPath**](docs/Api/SfvbApi.md#enablesfvbupsellpath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/enable | Enable an upsell path
 *SfvbApi* | [**endSfvbExperiment**](docs/Api/SfvbApi.md#endsfvbexperiment) | **POST** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}/end | End an experiment
 *SfvbApi* | [**favoriteSfvbLibraryEntry**](docs/Api/SfvbApi.md#favoritesfvblibraryentry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/favorite | Favorite a library entry
 *SfvbApi* | [**getSfvbApproval**](docs/Api/SfvbApi.md#getsfvbapproval) | **GET** /sfvb/approvals/{approval_id} | Read one approval request
@@ -543,6 +546,8 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbI18nMessage**](docs/Api/SfvbApi.md#getsfvbi18nmessage) | **GET** /sfvb/storefronts/{storefront_oid}/i18n/messages/{key} | Read one built-in message
 *SfvbApi* | [**getSfvbI18nMessageMachineTranslations**](docs/Api/SfvbApi.md#getsfvbi18nmessagemachinetranslations) | **GET** /sfvb/storefronts/{storefront_oid}/i18n/messages/{key}/machine_translations | Read where a message&#39;s translations come from
 *SfvbApi* | [**getSfvbItem**](docs/Api/SfvbApi.md#getsfvbitem) | **GET** /sfvb/storefronts/{storefront_oid}/items | Read an item&#39;s storefront facing content
+*SfvbApi* | [**getSfvbItemPricing**](docs/Api/SfvbApi.md#getsfvbitempricing) | **GET** /sfvb/storefronts/{storefront_oid}/items/pricing | Read what an item charges
+*SfvbApi* | [**getSfvbItemRelated**](docs/Api/SfvbApi.md#getsfvbitemrelated) | **GET** /sfvb/storefronts/{storefront_oid}/items/related | Read an item&#39;s related items
 *SfvbApi* | [**getSfvbLibraryEntry**](docs/Api/SfvbApi.md#getsfvblibraryentry) | **GET** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Read one library entry including its CJSON
 *SfvbApi* | [**getSfvbLibraryHistory**](docs/Api/SfvbApi.md#getsfvblibraryhistory) | **GET** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/history | List a library entry&#39;s published revisions
 *SfvbApi* | [**getSfvbLibraryShareTargets**](docs/Api/SfvbApi.md#getsfvblibrarysharetargets) | **GET** /sfvb/storefronts/{storefront_oid}/library/share_targets | List the accounts a library entry can be shared with
@@ -607,6 +612,8 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**putSfvbItemAttributes**](docs/Api/SfvbApi.md#putsfvbitemattributes) | **PUT** /sfvb/storefronts/{storefront_oid}/items/attributes | Change some of an item&#39;s attributes
 *SfvbApi* | [**putSfvbItemContent**](docs/Api/SfvbApi.md#putsfvbitemcontent) | **PUT** /sfvb/storefronts/{storefront_oid}/items/content | Change an item&#39;s title or long description
 *SfvbApi* | [**putSfvbItemMultimedia**](docs/Api/SfvbApi.md#putsfvbitemmultimedia) | **PUT** /sfvb/storefronts/{storefront_oid}/items/multimedia | Attach an image to an item
+*SfvbApi* | [**putSfvbItemPricing**](docs/Api/SfvbApi.md#putsfvbitempricing) | **PUT** /sfvb/storefronts/{storefront_oid}/items/pricing | Change what an item charges
+*SfvbApi* | [**putSfvbItemRelated**](docs/Api/SfvbApi.md#putsfvbitemrelated) | **PUT** /sfvb/storefronts/{storefront_oid}/items/related | Replace an item&#39;s related items
 *SfvbApi* | [**putSfvbItemSeo**](docs/Api/SfvbApi.md#putsfvbitemseo) | **PUT** /sfvb/storefronts/{storefront_oid}/items/seo | Change an item&#39;s search metadata
 *SfvbApi* | [**putSfvbMenu**](docs/Api/SfvbApi.md#putsfvbmenu) | **PUT** /sfvb/storefronts/{storefront_oid}/menus/{code} | Replace a store menu&#39;s entries
 *SfvbApi* | [**putSfvbPageAttributes**](docs/Api/SfvbApi.md#putsfvbpageattributes) | **PUT** /sfvb/storefronts/{storefront_oid}/pages/attributes | Change a page&#39;s attributes
@@ -638,6 +645,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**unpublishSfvbLibraryEntry**](docs/Api/SfvbApi.md#unpublishsfvblibraryentry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/unpublish | Narrow who can see a library entry
 *SfvbApi* | [**unshareSfvbLibraryEntry**](docs/Api/SfvbApi.md#unsharesfvblibraryentry) | **DELETE** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/shares/{merchant_id} | Stop sharing a library entry with an account
 *SfvbApi* | [**updateSfvbBlogPost**](docs/Api/SfvbApi.md#updatesfvbblogpost) | **PUT** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Change a blog post
+*SfvbApi* | [**updateSfvbItemAttributeBatch**](docs/Api/SfvbApi.md#updatesfvbitemattributebatch) | **POST** /sfvb/storefronts/{storefront_oid}/items/attributes/batch | Change attributes across many items in one call
 *SfvbApi* | [**updateSfvbLibraryEntry**](docs/Api/SfvbApi.md#updatesfvblibraryentry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Update a library entry&#39;s draft
 *SfvbApi* | [**updateSfvbRedirect**](docs/Api/SfvbApi.md#updatesfvbredirect) | **PUT** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Change a redirect rule
 *SfvbApi* | [**updateSfvbUpsellOffer**](docs/Api/SfvbApi.md#updatesfvbupselloffer) | **PUT** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid} | Update an upsell offer
@@ -1927,6 +1935,10 @@ Class | Method | HTTP request | Description
 - [SfvbI18nResetResponse](docs/Model/SfvbI18nResetResponse.md)
 - [SfvbI18nTranslation](docs/Model/SfvbI18nTranslation.md)
 - [SfvbItemAttribute](docs/Model/SfvbItemAttribute.md)
+- [SfvbItemAttributeBatchRequest](docs/Model/SfvbItemAttributeBatchRequest.md)
+- [SfvbItemAttributeBatchResponse](docs/Model/SfvbItemAttributeBatchResponse.md)
+- [SfvbItemAttributeBatchRow](docs/Model/SfvbItemAttributeBatchRow.md)
+- [SfvbItemAttributeBatchRowResult](docs/Model/SfvbItemAttributeBatchRowResult.md)
 - [SfvbItemAttributeUpdate](docs/Model/SfvbItemAttributeUpdate.md)
 - [SfvbItemAttributeUpdateRequest](docs/Model/SfvbItemAttributeUpdateRequest.md)
 - [SfvbItemContainer](docs/Model/SfvbItemContainer.md)
@@ -1934,9 +1946,15 @@ Class | Method | HTTP request | Description
 - [SfvbItemContentRequest](docs/Model/SfvbItemContentRequest.md)
 - [SfvbItemMultimedia](docs/Model/SfvbItemMultimedia.md)
 - [SfvbItemMultimediaRequest](docs/Model/SfvbItemMultimediaRequest.md)
+- [SfvbItemPricing](docs/Model/SfvbItemPricing.md)
+- [SfvbItemPricingRequest](docs/Model/SfvbItemPricingRequest.md)
+- [SfvbItemRelated](docs/Model/SfvbItemRelated.md)
+- [SfvbItemRelatedItem](docs/Model/SfvbItemRelatedItem.md)
+- [SfvbItemRelatedRequest](docs/Model/SfvbItemRelatedRequest.md)
 - [SfvbItemResponse](docs/Model/SfvbItemResponse.md)
 - [SfvbItemSeo](docs/Model/SfvbItemSeo.md)
 - [SfvbItemSeoRequest](docs/Model/SfvbItemSeoRequest.md)
+- [SfvbItemVolumeDiscount](docs/Model/SfvbItemVolumeDiscount.md)
 - [SfvbLibraryAiReview](docs/Model/SfvbLibraryAiReview.md)
 - [SfvbLibraryContentManifest](docs/Model/SfvbLibraryContentManifest.md)
 - [SfvbLibraryDeleteResult](docs/Model/SfvbLibraryDeleteResult.md)
@@ -2258,6 +2276,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.200 | 10/09/2026 | sfvb internal testing |
 | 4.1.199 | 10/08/2026 | sfvb internal testing |
 | 4.1.198 | 10/08/2026 | sfvb internal testing |
 | 4.1.197 | 10/08/2026 | sfvb internal testing |

@@ -60,6 +60,9 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPITypes = [
         'action' => 'string',
         'content' => 'string',
+        'experiment_start' => '\ultracart\v2\models\SfvbExperimentStartRequest',
+        'item_attribute_rows' => '\ultracart\v2\models\SfvbItemAttributeBatchRow[]',
+        'item_pricing' => '\ultracart\v2\models\SfvbItemPricingRequest',
         'params' => '\ultracart\v2\models\SfvbApprovalParams',
         'reason' => 'string',
         'redirect_rows' => '\ultracart\v2\models\SfvbRedirectDeleteRow[]'
@@ -75,6 +78,9 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPIFormats = [
         'action' => null,
         'content' => null,
+        'experiment_start' => null,
+        'item_attribute_rows' => null,
+        'item_pricing' => null,
         'params' => null,
         'reason' => null,
         'redirect_rows' => null
@@ -109,6 +115,9 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     protected static $attributeMap = [
         'action' => 'action',
         'content' => 'content',
+        'experiment_start' => 'experiment_start',
+        'item_attribute_rows' => 'item_attribute_rows',
+        'item_pricing' => 'item_pricing',
         'params' => 'params',
         'reason' => 'reason',
         'redirect_rows' => 'redirect_rows'
@@ -122,6 +131,9 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     protected static $setters = [
         'action' => 'setAction',
         'content' => 'setContent',
+        'experiment_start' => 'setExperimentStart',
+        'item_attribute_rows' => 'setItemAttributeRows',
+        'item_pricing' => 'setItemPricing',
         'params' => 'setParams',
         'reason' => 'setReason',
         'redirect_rows' => 'setRedirectRows'
@@ -135,6 +147,9 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     protected static $getters = [
         'action' => 'getAction',
         'content' => 'getContent',
+        'experiment_start' => 'getExperimentStart',
+        'item_attribute_rows' => 'getItemAttributeRows',
+        'item_pricing' => 'getItemPricing',
         'params' => 'getParams',
         'reason' => 'getReason',
         'redirect_rows' => 'getRedirectRows'
@@ -185,6 +200,11 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     public const ACTION_BLOG_POST_DELETE = 'blog_post.delete';
     public const ACTION_FILE_PUT_SCRIPT = 'file.put_script';
     public const ACTION_REDIRECT_DELETE_BATCH = 'redirect.delete_batch';
+    public const ACTION_EXPERIMENT_START = 'experiment.start';
+    public const ACTION_EXPERIMENT_END = 'experiment.end';
+    public const ACTION_UPSELL_ENABLE = 'upsell.enable';
+    public const ACTION_ITEM_ATTRIBUTE_BATCH = 'item.attribute_batch';
+    public const ACTION_ITEM_PRICING = 'item.pricing';
 
     /**
      * Gets allowable values of the enum
@@ -198,6 +218,11 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
             self::ACTION_BLOG_POST_DELETE,
             self::ACTION_FILE_PUT_SCRIPT,
             self::ACTION_REDIRECT_DELETE_BATCH,
+            self::ACTION_EXPERIMENT_START,
+            self::ACTION_EXPERIMENT_END,
+            self::ACTION_UPSELL_ENABLE,
+            self::ACTION_ITEM_ATTRIBUTE_BATCH,
+            self::ACTION_ITEM_PRICING,
         ];
     }
 
@@ -218,6 +243,9 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     {
         $this->container['action'] = $data['action'] ?? null;
         $this->container['content'] = $data['content'] ?? null;
+        $this->container['experiment_start'] = $data['experiment_start'] ?? null;
+        $this->container['item_attribute_rows'] = $data['item_attribute_rows'] ?? null;
+        $this->container['item_pricing'] = $data['item_pricing'] ?? null;
         $this->container['params'] = $data['params'] ?? null;
         $this->container['reason'] = $data['reason'] ?? null;
         $this->container['redirect_rows'] = $data['redirect_rows'] ?? null;
@@ -310,6 +338,78 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     public function setContent($content)
     {
         $this->container['content'] = $content;
+
+        return $this;
+    }
+
+    /**
+     * Gets experiment_start
+     *
+     * @return \ultracart\v2\models\SfvbExperimentStartRequest|null
+     */
+    public function getExperimentStart()
+    {
+        return $this->container['experiment_start'];
+    }
+
+    /**
+     * Sets experiment_start
+     *
+     * @param \ultracart\v2\models\SfvbExperimentStartRequest|null $experiment_start experiment_start
+     *
+     * @return self
+     */
+    public function setExperimentStart($experiment_start)
+    {
+        $this->container['experiment_start'] = $experiment_start;
+
+        return $this;
+    }
+
+    /**
+     * Gets item_attribute_rows
+     *
+     * @return \ultracart\v2\models\SfvbItemAttributeBatchRow[]|null
+     */
+    public function getItemAttributeRows()
+    {
+        return $this->container['item_attribute_rows'];
+    }
+
+    /**
+     * Sets item_attribute_rows
+     *
+     * @param \ultracart\v2\models\SfvbItemAttributeBatchRow[]|null $item_attribute_rows For item.attribute_batch, exactly the rows the batch will send - the dry run's change rows, each with merchant_item_oid and current_sha256.  UltraCart keeps only their hash.
+     *
+     * @return self
+     */
+    public function setItemAttributeRows($item_attribute_rows)
+    {
+        $this->container['item_attribute_rows'] = $item_attribute_rows;
+
+        return $this;
+    }
+
+    /**
+     * Gets item_pricing
+     *
+     * @return \ultracart\v2\models\SfvbItemPricingRequest|null
+     */
+    public function getItemPricing()
+    {
+        return $this->container['item_pricing'];
+    }
+
+    /**
+     * Sets item_pricing
+     *
+     * @param \ultracart\v2\models\SfvbItemPricingRequest|null $item_pricing item_pricing
+     *
+     * @return self
+     */
+    public function setItemPricing($item_pricing)
+    {
+        $this->container['item_pricing'] = $item_pricing;
 
         return $this;
     }

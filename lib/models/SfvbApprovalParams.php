@@ -58,12 +58,22 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
+        'attribute_names' => 'string[]',
         'blog_post_oid' => 'int',
         'content_sha256' => 'string',
+        'experiment_oid' => 'int',
+        'item_count' => 'int',
+        'merchant_item_oid' => 'int',
         'path' => 'string',
+        'request_sha256' => 'string',
         'rows_sha256' => 'string',
         'rule_count' => 'int',
-        'version' => 'int'
+        'slot' => 'string',
+        'upsell_kind' => 'string',
+        'upsell_oid' => 'int',
+        'version' => 'int',
+        'widget_id' => 'string',
+        'winner_variation_number' => 'int'
     ];
 
     /**
@@ -74,12 +84,22 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'attribute_names' => null,
         'blog_post_oid' => 'int32',
         'content_sha256' => null,
+        'experiment_oid' => 'int32',
+        'item_count' => 'int32',
+        'merchant_item_oid' => 'int32',
         'path' => null,
+        'request_sha256' => null,
         'rows_sha256' => null,
         'rule_count' => 'int32',
-        'version' => 'int32'
+        'slot' => null,
+        'upsell_kind' => null,
+        'upsell_oid' => 'int32',
+        'version' => 'int32',
+        'widget_id' => null,
+        'winner_variation_number' => 'int32'
     ];
 
     /**
@@ -109,12 +129,22 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
+        'attribute_names' => 'attribute_names',
         'blog_post_oid' => 'blog_post_oid',
         'content_sha256' => 'content_sha256',
+        'experiment_oid' => 'experiment_oid',
+        'item_count' => 'item_count',
+        'merchant_item_oid' => 'merchant_item_oid',
         'path' => 'path',
+        'request_sha256' => 'request_sha256',
         'rows_sha256' => 'rows_sha256',
         'rule_count' => 'rule_count',
-        'version' => 'version'
+        'slot' => 'slot',
+        'upsell_kind' => 'upsell_kind',
+        'upsell_oid' => 'upsell_oid',
+        'version' => 'version',
+        'widget_id' => 'widget_id',
+        'winner_variation_number' => 'winner_variation_number'
     ];
 
     /**
@@ -123,12 +153,22 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
+        'attribute_names' => 'setAttributeNames',
         'blog_post_oid' => 'setBlogPostOid',
         'content_sha256' => 'setContentSha256',
+        'experiment_oid' => 'setExperimentOid',
+        'item_count' => 'setItemCount',
+        'merchant_item_oid' => 'setMerchantItemOid',
         'path' => 'setPath',
+        'request_sha256' => 'setRequestSha256',
         'rows_sha256' => 'setRowsSha256',
         'rule_count' => 'setRuleCount',
-        'version' => 'setVersion'
+        'slot' => 'setSlot',
+        'upsell_kind' => 'setUpsellKind',
+        'upsell_oid' => 'setUpsellOid',
+        'version' => 'setVersion',
+        'widget_id' => 'setWidgetId',
+        'winner_variation_number' => 'setWinnerVariationNumber'
     ];
 
     /**
@@ -137,12 +177,22 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
+        'attribute_names' => 'getAttributeNames',
         'blog_post_oid' => 'getBlogPostOid',
         'content_sha256' => 'getContentSha256',
+        'experiment_oid' => 'getExperimentOid',
+        'item_count' => 'getItemCount',
+        'merchant_item_oid' => 'getMerchantItemOid',
         'path' => 'getPath',
+        'request_sha256' => 'getRequestSha256',
         'rows_sha256' => 'getRowsSha256',
         'rule_count' => 'getRuleCount',
-        'version' => 'getVersion'
+        'slot' => 'getSlot',
+        'upsell_kind' => 'getUpsellKind',
+        'upsell_oid' => 'getUpsellOid',
+        'version' => 'getVersion',
+        'widget_id' => 'getWidgetId',
+        'winner_variation_number' => 'getWinnerVariationNumber'
     ];
 
     /**
@@ -186,6 +236,21 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         return self::$openAPIModelName;
     }
 
+    public const UPSELL_KIND_OFFER = 'offer';
+    public const UPSELL_KIND_PATH = 'path';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getUpsellKindAllowableValues()
+    {
+        return [
+            self::UPSELL_KIND_OFFER,
+            self::UPSELL_KIND_PATH,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -202,12 +267,22 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
+        $this->container['attribute_names'] = $data['attribute_names'] ?? null;
         $this->container['blog_post_oid'] = $data['blog_post_oid'] ?? null;
         $this->container['content_sha256'] = $data['content_sha256'] ?? null;
+        $this->container['experiment_oid'] = $data['experiment_oid'] ?? null;
+        $this->container['item_count'] = $data['item_count'] ?? null;
+        $this->container['merchant_item_oid'] = $data['merchant_item_oid'] ?? null;
         $this->container['path'] = $data['path'] ?? null;
+        $this->container['request_sha256'] = $data['request_sha256'] ?? null;
         $this->container['rows_sha256'] = $data['rows_sha256'] ?? null;
         $this->container['rule_count'] = $data['rule_count'] ?? null;
+        $this->container['slot'] = $data['slot'] ?? null;
+        $this->container['upsell_kind'] = $data['upsell_kind'] ?? null;
+        $this->container['upsell_oid'] = $data['upsell_oid'] ?? null;
         $this->container['version'] = $data['version'] ?? null;
+        $this->container['widget_id'] = $data['widget_id'] ?? null;
+        $this->container['winner_variation_number'] = $data['winner_variation_number'] ?? null;
     }
 
     /**
@@ -218,6 +293,15 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getUpsellKindAllowableValues();
+        if (!is_null($this->container['upsell_kind']) && !in_array($this->container['upsell_kind'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'upsell_kind', must be one of '%s'",
+                $this->container['upsell_kind'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -233,6 +317,30 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets attribute_names
+     *
+     * @return string[]|null
+     */
+    public function getAttributeNames()
+    {
+        return $this->container['attribute_names'];
+    }
+
+    /**
+     * Sets attribute_names
+     *
+     * @param string[]|null $attribute_names For item.attribute_batch, the attributes the batch would change.  Set by the server.
+     *
+     * @return self
+     */
+    public function setAttributeNames($attribute_names)
+    {
+        $this->container['attribute_names'] = $attribute_names;
+
+        return $this;
+    }
 
     /**
      * Gets blog_post_oid
@@ -283,6 +391,78 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
+     * Gets experiment_oid
+     *
+     * @return int|null
+     */
+    public function getExperimentOid()
+    {
+        return $this->container['experiment_oid'];
+    }
+
+    /**
+     * Sets experiment_oid
+     *
+     * @param int|null $experiment_oid For experiment.end, the experiment to end.
+     *
+     * @return self
+     */
+    public function setExperimentOid($experiment_oid)
+    {
+        $this->container['experiment_oid'] = $experiment_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets item_count
+     *
+     * @return int|null
+     */
+    public function getItemCount()
+    {
+        return $this->container['item_count'];
+    }
+
+    /**
+     * Sets item_count
+     *
+     * @param int|null $item_count For item.attribute_batch, how many items the batch would change when it was requested.  Set by the server.
+     *
+     * @return self
+     */
+    public function setItemCount($item_count)
+    {
+        $this->container['item_count'] = $item_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets merchant_item_oid
+     *
+     * @return int|null
+     */
+    public function getMerchantItemOid()
+    {
+        return $this->container['merchant_item_oid'];
+    }
+
+    /**
+     * Sets merchant_item_oid
+     *
+     * @param int|null $merchant_item_oid For item.pricing, the item whose pricing changes.
+     *
+     * @return self
+     */
+    public function setMerchantItemOid($merchant_item_oid)
+    {
+        $this->container['merchant_item_oid'] = $merchant_item_oid;
+
+        return $this;
+    }
+
+    /**
      * Gets path
      *
      * @return string|null
@@ -295,13 +475,37 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets path
      *
-     * @param string|null $path The file path, for file.delete and file.put_script.  Exactly as the gated call will send it.
+     * @param string|null $path The file path, for file.delete and file.put_script, or the page path for experiment.start of a page experiment.  Exactly as the gated call will send it.
      *
      * @return self
      */
     public function setPath($path)
     {
         $this->container['path'] = $path;
+
+        return $this;
+    }
+
+    /**
+     * Gets request_sha256
+     *
+     * @return string|null
+     */
+    public function getRequestSha256()
+    {
+        return $this->container['request_sha256'];
+    }
+
+    /**
+     * Sets request_sha256
+     *
+     * @param string|null $request_sha256 For experiment.start of a url experiment, the hash of the checked experiment approved, and for item.pricing the hash of the change.  Set by the server.  The gated call must send the same.
+     *
+     * @return self
+     */
+    public function setRequestSha256($request_sha256)
+    {
+        $this->container['request_sha256'] = $request_sha256;
 
         return $this;
     }
@@ -319,7 +523,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets rows_sha256
      *
-     * @param string|null $rows_sha256 For redirect.delete_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch delete must send rows with this hash.
+     * @param string|null $rows_sha256 For redirect.delete_batch and item.attribute_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch must send rows with this hash.
      *
      * @return self
      */
@@ -355,6 +559,88 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
+     * Gets slot
+     *
+     * @return string|null
+     */
+    public function getSlot()
+    {
+        return $this->container['slot'];
+    }
+
+    /**
+     * Sets slot
+     *
+     * @param string|null $slot For experiment.start of a page experiment, the page body name.  Defaults to body.
+     *
+     * @return self
+     */
+    public function setSlot($slot)
+    {
+        $this->container['slot'] = $slot;
+
+        return $this;
+    }
+
+    /**
+     * Gets upsell_kind
+     *
+     * @return string|null
+     */
+    public function getUpsellKind()
+    {
+        return $this->container['upsell_kind'];
+    }
+
+    /**
+     * Sets upsell_kind
+     *
+     * @param string|null $upsell_kind For upsell.enable, what to switch on.
+     *
+     * @return self
+     */
+    public function setUpsellKind($upsell_kind)
+    {
+        $allowedValues = $this->getUpsellKindAllowableValues();
+        if (!is_null($upsell_kind) && !in_array($upsell_kind, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'upsell_kind', must be one of '%s'",
+                    $upsell_kind,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['upsell_kind'] = $upsell_kind;
+
+        return $this;
+    }
+
+    /**
+     * Gets upsell_oid
+     *
+     * @return int|null
+     */
+    public function getUpsellOid()
+    {
+        return $this->container['upsell_oid'];
+    }
+
+    /**
+     * Sets upsell_oid
+     *
+     * @param int|null $upsell_oid For upsell.enable, the oid of the offer or path to switch on.
+     *
+     * @return self
+     */
+    public function setUpsellOid($upsell_oid)
+    {
+        $this->container['upsell_oid'] = $upsell_oid;
+
+        return $this;
+    }
+
+    /**
      * Gets version
      *
      * @return int|null
@@ -374,6 +660,54 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setVersion($version)
     {
         $this->container['version'] = $version;
+
+        return $this;
+    }
+
+    /**
+     * Gets widget_id
+     *
+     * @return string|null
+     */
+    public function getWidgetId()
+    {
+        return $this->container['widget_id'];
+    }
+
+    /**
+     * Sets widget_id
+     *
+     * @param string|null $widget_id For experiment.start of a page experiment, the id of the experiment element.
+     *
+     * @return self
+     */
+    public function setWidgetId($widget_id)
+    {
+        $this->container['widget_id'] = $widget_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets winner_variation_number
+     *
+     * @return int|null
+     */
+    public function getWinnerVariationNumber()
+    {
+        return $this->container['winner_variation_number'];
+    }
+
+    /**
+     * Sets winner_variation_number
+     *
+     * @param int|null $winner_variation_number For experiment.end, the winning variation.  Leave it out to end without a winner, and leave it out of the end call too.
+     *
+     * @return self
+     */
+    public function setWinnerVariationNumber($winner_variation_number)
+    {
+        $this->container['winner_variation_number'] = $winner_variation_number;
 
         return $this;
     }
