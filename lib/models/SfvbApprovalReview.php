@@ -83,7 +83,7 @@ class SfvbApprovalReview implements ModelInterface, ArrayAccess, \JsonSerializab
         'findings' => null,
         'new_domains' => null,
         'prompt_version' => null,
-        'reviewed_at' => null,
+        'reviewed_at' => 'dateTime',
         'signals' => null,
         'size_bytes' => 'int32',
         'summary' => null,

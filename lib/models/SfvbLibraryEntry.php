@@ -98,7 +98,7 @@ class SfvbLibraryEntry implements ModelInterface, ArrayAccess, \JsonSerializable
         'content_manifest' => null,
         'description' => null,
         'hash_sha256' => null,
-        'last_modified_dts' => null,
+        'last_modified_dts' => 'dateTime',
         'library_oid' => 'int32',
         'name' => null,
         'owned' => null,

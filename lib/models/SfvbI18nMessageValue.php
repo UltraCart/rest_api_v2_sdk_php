@@ -247,7 +247,7 @@ class SfvbI18nMessageValue implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets text
      *
-     * @param string|null $text The new text.  Empty text is refused; reset the message instead.
+     * @param string|null $text The new text.  Empty text removes this language's translation, so it goes back to machine translation.  Empty English text is refused.
      *
      * @return self
      */

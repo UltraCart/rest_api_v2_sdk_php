@@ -77,7 +77,7 @@ class SfvbServerLogsResponse implements ModelInterface, ArrayAccess, \JsonSerial
         'logs' => null,
         'more_available' => null,
         'searched' => 'int32',
-        'since' => null
+        'since' => 'dateTime'
     ];
 
     /**

@@ -84,7 +84,7 @@ class SfvbBlogPostRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'author' => null,
         'body' => null,
         'excerpt' => null,
-        'publication_dts' => null,
+        'publication_dts' => 'dateTime',
         'seo_description' => null,
         'seo_keywords' => null,
         'seo_title' => null,

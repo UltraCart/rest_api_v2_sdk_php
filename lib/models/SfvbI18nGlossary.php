@@ -74,7 +74,7 @@ class SfvbI18nGlossary implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'hash_sha256' => null,
         'markdown' => null,
-        'modified_dts' => null,
+        'modified_dts' => 'dateTime',
         'storefront_oid' => 'int32'
     ];
 

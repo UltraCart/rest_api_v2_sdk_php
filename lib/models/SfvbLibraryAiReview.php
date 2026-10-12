@@ -76,7 +76,7 @@ class SfvbLibraryAiReview implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $openAPIFormats = [
         'findings' => null,
         'prompt_version' => null,
-        'reviewed_dts' => null,
+        'reviewed_dts' => 'dateTime',
         'screenshot_sha256' => null,
         'summary' => null,
         'verdict' => null

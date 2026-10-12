@@ -74,7 +74,7 @@ class SfvbNotFoundHit implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'bot' => null,
         'referrer_host' => null,
-        'request_dts' => null,
+        'request_dts' => 'dateTime',
         'user_agent' => null
     ];
 

@@ -78,7 +78,7 @@ class SfvbTestOrder implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'auto_order' => null,
-        'created' => null,
+        'created' => 'dateTime',
         'currency_code' => null,
         'digital_items' => null,
         'item_count' => 'int32',

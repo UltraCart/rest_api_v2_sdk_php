@@ -86,9 +86,9 @@ class SfvbServerLog implements ModelInterface, ArrayAccess, \JsonSerializable
         'log_id' => null,
         'request_template' => null,
         'request_url' => null,
-        'start_date' => null,
+        'start_date' => 'dateTime',
         'status' => null,
-        'stop_date' => null,
+        'stop_date' => 'dateTime',
         'warning_count' => 'int32'
     ];
 

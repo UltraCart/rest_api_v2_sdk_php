@@ -87,7 +87,7 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'path' => null,
         'title' => null,
         'visible' => null,
-        'visible_dts' => null
+        'visible_dts' => 'dateTime'
     ];
 
     /**

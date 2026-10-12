@@ -73,7 +73,7 @@ class SfvbLibraryHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
       */
     protected static $openAPIFormats = [
         'hash_sha256' => null,
-        'published_dts' => null,
+        'published_dts' => 'dateTime',
         'release_notes' => null,
         'revision_number' => 'int32'
     ];

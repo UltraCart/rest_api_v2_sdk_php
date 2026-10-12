@@ -1017,6 +1017,10 @@ docs/Model/SfvbElement.md
 docs/Model/SfvbElementSchemaResponse.md
 docs/Model/SfvbElementsResponse.md
 docs/Model/SfvbErrorDetail.md
+docs/Model/SfvbEvent.md
+docs/Model/SfvbEventsAuthRequest.md
+docs/Model/SfvbEventsAuthResponse.md
+docs/Model/SfvbEventsResponse.md
 docs/Model/SfvbExperiment.md
 docs/Model/SfvbExperimentEndRequest.md
 docs/Model/SfvbExperimentObjective.md
@@ -2316,6 +2320,10 @@ lib/models/SfvbElement.php
 lib/models/SfvbElementSchemaResponse.php
 lib/models/SfvbElementsResponse.php
 lib/models/SfvbErrorDetail.php
+lib/models/SfvbEvent.php
+lib/models/SfvbEventsAuthRequest.php
+lib/models/SfvbEventsAuthResponse.php
+lib/models/SfvbEventsResponse.php
 lib/models/SfvbExperiment.php
 lib/models/SfvbExperimentEndRequest.php
 lib/models/SfvbExperimentObjective.php

@@ -83,7 +83,7 @@ class SfvbRecordingSettings implements ModelInterface, ArrayAccess, \JsonSeriali
         'sessions_current_billing_period' => 'int32',
         'sessions_last_billing_period' => 'int32',
         'sessions_trial_billing_period' => 'int32',
-        'trial_expiration' => null,
+        'trial_expiration' => 'dateTime',
         'trial_expired' => null,
         'trial_started' => null
     ];

@@ -85,7 +85,7 @@ class SfvbPageCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'path' => null,
         'title' => null,
         'visible' => null,
-        'visible_dts' => null
+        'visible_dts' => 'dateTime'
     ];
 
     /**

@@ -91,9 +91,9 @@ class SfvbApproval implements ModelInterface, ArrayAccess, \JsonSerializable
         'action' => null,
         'approval_id' => null,
         'approval_url' => null,
-        'created_at' => null,
+        'created_at' => 'dateTime',
         'description' => null,
-        'expires_at' => null,
+        'expires_at' => 'dateTime',
         'expires_in_seconds' => 'int32',
         'fresh_code_required' => null,
         'interval_seconds' => 'int32',
@@ -106,7 +106,7 @@ class SfvbApproval implements ModelInterface, ArrayAccess, \JsonSerializable
         'scope' => null,
         'status' => null,
         'storefront_oid' => 'int32',
-        'used_at' => null,
+        'used_at' => 'dateTime',
         'user_code' => null
     ];
 

@@ -83,13 +83,13 @@ class SfvbThemeJobResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'complete' => null,
         'description' => null,
         'error_message' => null,
-        'finished_dts' => null,
+        'finished_dts' => 'dateTime',
         'job_id' => 'int32',
         'progress' => 'int32',
         'progress_description' => null,
-        'started_dts' => null,
+        'started_dts' => 'dateTime',
         'status' => null,
-        'submitted_dts' => null,
+        'submitted_dts' => 'dateTime',
         'success' => null,
         'target_path' => null
     ];
@@ -385,7 +385,7 @@ class SfvbThemeJobResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets finished_dts
      *
-     * @param string|null $finished_dts When the job stopped.  Null until it does.
+     * @param string|null $finished_dts When the job stopped, ISO 8601 UTC.  Null until it does.
      *
      * @return self
      */
@@ -481,7 +481,7 @@ class SfvbThemeJobResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets started_dts
      *
-     * @param string|null $started_dts When the job started running.  Null until it does.
+     * @param string|null $started_dts When the job started running, ISO 8601 UTC.  Null until it does.
      *
      * @return self
      */
@@ -539,7 +539,7 @@ class SfvbThemeJobResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets submitted_dts
      *
-     * @param string|null $submitted_dts When the job was queued.
+     * @param string|null $submitted_dts When the job was queued, ISO 8601 UTC.
      *
      * @return self
      */

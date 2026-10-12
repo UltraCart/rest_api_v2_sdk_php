@@ -76,7 +76,7 @@ class SfvbLibraryInstallRecord implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'installed_dts' => null,
+        'installed_dts' => 'dateTime',
         'installed_revision_number' => 'int32',
         'latest_revision_number' => 'int32',
         'library_oid' => 'int32',

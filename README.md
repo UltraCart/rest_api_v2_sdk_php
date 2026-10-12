@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.200"
+    "ultracart/rest_api_v2_sdk_php": "4.1.201"
   }
 }
 ```
@@ -536,6 +536,8 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbContainer**](docs/Api/SfvbApi.md#getsfvbcontainer) | **GET** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Read a container stored outside the file system
 *SfvbApi* | [**getSfvbContainerVersion**](docs/Api/SfvbApi.md#getsfvbcontainerversion) | **GET** /sfvb/storefronts/{storefront_oid}/container_versions/{container_history_oid} | Read the CJSON stored in one container history entry
 *SfvbApi* | [**getSfvbElement**](docs/Api/SfvbApi.md#getsfvbelement) | **GET** /sfvb/elements/{element_type} | Configuration schema and field card for one element type
+*SfvbApi* | [**getSfvbEvents**](docs/Api/SfvbApi.md#getsfvbevents) | **GET** /sfvb/events | Replay events
+*SfvbApi* | [**getSfvbEventsAuthorization**](docs/Api/SfvbApi.md#getsfvbeventsauthorization) | **PUT** /sfvb/events/auth | Open the event stream
 *SfvbApi* | [**getSfvbExperiment**](docs/Api/SfvbApi.md#getsfvbexperiment) | **GET** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid} | Read one experiment and its statistics
 *SfvbApi* | [**getSfvbExperimentObjectives**](docs/Api/SfvbApi.md#getsfvbexperimentobjectives) | **GET** /sfvb/storefronts/{storefront_oid}/experiments/objectives | List the objectives an experiment can optimize
 *SfvbApi* | [**getSfvbFileContent**](docs/Api/SfvbApi.md#getsfvbfilecontent) | **GET** /sfvb/storefronts/{storefront_oid}/files/content | Read a storefront file
@@ -1902,6 +1904,10 @@ Class | Method | HTTP request | Description
 - [SfvbElementSchemaResponse](docs/Model/SfvbElementSchemaResponse.md)
 - [SfvbElementsResponse](docs/Model/SfvbElementsResponse.md)
 - [SfvbErrorDetail](docs/Model/SfvbErrorDetail.md)
+- [SfvbEvent](docs/Model/SfvbEvent.md)
+- [SfvbEventsAuthRequest](docs/Model/SfvbEventsAuthRequest.md)
+- [SfvbEventsAuthResponse](docs/Model/SfvbEventsAuthResponse.md)
+- [SfvbEventsResponse](docs/Model/SfvbEventsResponse.md)
 - [SfvbExperiment](docs/Model/SfvbExperiment.md)
 - [SfvbExperimentEndRequest](docs/Model/SfvbExperimentEndRequest.md)
 - [SfvbExperimentObjective](docs/Model/SfvbExperimentObjective.md)
@@ -2276,6 +2282,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.201 | 10/12/2026 | sfvb internal testing |
 | 4.1.200 | 10/09/2026 | sfvb internal testing |
 | 4.1.199 | 10/08/2026 | sfvb internal testing |
 | 4.1.198 | 10/08/2026 | sfvb internal testing |

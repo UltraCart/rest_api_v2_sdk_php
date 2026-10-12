@@ -95,7 +95,7 @@ class SfvbPageSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'title' => null,
         'uses_selectors' => null,
         'visible' => null,
-        'visible_dts' => null
+        'visible_dts' => 'dateTime'
     ];
 
     /**

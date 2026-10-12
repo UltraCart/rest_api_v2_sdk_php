@@ -78,7 +78,7 @@ class SfvbExperiment implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'auto_ends_at' => null,
+        'auto_ends_at' => 'dateTime',
         'days_elapsed' => 'int32',
         'experiment' => null,
         'notice' => null,
@@ -86,7 +86,7 @@ class SfvbExperiment implements ModelInterface, ArrayAccess, \JsonSerializable
         'page_body_path' => null,
         'page_body_sha256' => null,
         'router_url' => null,
-        'sessions_needed_computed_dts' => null,
+        'sessions_needed_computed_dts' => 'dateTime',
         'type' => null
     ];
 

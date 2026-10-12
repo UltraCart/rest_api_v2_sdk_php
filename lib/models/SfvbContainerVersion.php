@@ -84,7 +84,7 @@ class SfvbContainerVersion implements ModelInterface, ArrayAccess, \JsonSerializ
         'comment' => null,
         'container_history_oid' => 'int32',
         'container_name' => null,
-        'created_dts' => null,
+        'created_dts' => 'dateTime',
         'current' => null,
         'edited_by' => null,
         'hash_sha256' => null,
@@ -433,7 +433,7 @@ class SfvbContainerVersion implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets created_dts
      *
-     * @param string|null $created_dts When this snapshot was taken.
+     * @param string|null $created_dts When this snapshot was taken, ISO 8601 UTC.
      *
      * @return self
      */

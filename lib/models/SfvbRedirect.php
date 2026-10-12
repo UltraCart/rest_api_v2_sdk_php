@@ -81,10 +81,10 @@ class SfvbRedirect implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'created_dts' => null,
+        'created_dts' => 'dateTime',
         'exclude_from_sitemap' => null,
         'hash_sha256' => null,
-        'modified_dts' => null,
+        'modified_dts' => 'dateTime',
         'note' => null,
         'pinned_page_path' => null,
         'redirect_id' => 'int32',

@@ -77,7 +77,7 @@ class SfvbBlogPost implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'author' => null,
         'blog_post_oid' => 'int32',
-        'publication_dts' => null,
+        'publication_dts' => 'dateTime',
         'title' => null,
         'unassigned' => null,
         'url_part' => null,

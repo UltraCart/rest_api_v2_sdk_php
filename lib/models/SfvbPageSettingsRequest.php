@@ -95,7 +95,7 @@ class SfvbPageSettingsRequest implements ModelInterface, ArrayAccess, \JsonSeria
         'sort_order_child_items' => null,
         'title' => null,
         'visible' => null,
-        'visible_dts' => null
+        'visible_dts' => 'dateTime'
     ];
 
     /**
