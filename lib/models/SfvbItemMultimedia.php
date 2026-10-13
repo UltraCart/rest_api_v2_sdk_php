@@ -62,9 +62,13 @@ class SfvbItemMultimedia implements ModelInterface, ArrayAccess, \JsonSerializab
         'declared' => 'bool',
         'default' => 'bool',
         'description' => 'string',
+        'description_sha256' => 'string',
+        'description_source' => 'string',
         'dimensions' => 'string',
         'exclude_from_gallery' => 'bool',
         'filename' => 'string',
+        'merchant_item_multimedia_oid' => 'int',
+        'rekognition_description' => 'string',
         'type' => 'string',
         'view_url' => 'string'
     ];
@@ -81,9 +85,13 @@ class SfvbItemMultimedia implements ModelInterface, ArrayAccess, \JsonSerializab
         'declared' => null,
         'default' => null,
         'description' => null,
+        'description_sha256' => null,
+        'description_source' => null,
         'dimensions' => null,
         'exclude_from_gallery' => null,
         'filename' => null,
+        'merchant_item_multimedia_oid' => 'int32',
+        'rekognition_description' => null,
         'type' => null,
         'view_url' => null
     ];
@@ -119,9 +127,13 @@ class SfvbItemMultimedia implements ModelInterface, ArrayAccess, \JsonSerializab
         'declared' => 'declared',
         'default' => 'default',
         'description' => 'description',
+        'description_sha256' => 'description_sha256',
+        'description_source' => 'description_source',
         'dimensions' => 'dimensions',
         'exclude_from_gallery' => 'exclude_from_gallery',
         'filename' => 'filename',
+        'merchant_item_multimedia_oid' => 'merchant_item_multimedia_oid',
+        'rekognition_description' => 'rekognition_description',
         'type' => 'type',
         'view_url' => 'view_url'
     ];
@@ -136,9 +148,13 @@ class SfvbItemMultimedia implements ModelInterface, ArrayAccess, \JsonSerializab
         'declared' => 'setDeclared',
         'default' => 'setDefault',
         'description' => 'setDescription',
+        'description_sha256' => 'setDescriptionSha256',
+        'description_source' => 'setDescriptionSource',
         'dimensions' => 'setDimensions',
         'exclude_from_gallery' => 'setExcludeFromGallery',
         'filename' => 'setFilename',
+        'merchant_item_multimedia_oid' => 'setMerchantItemMultimediaOid',
+        'rekognition_description' => 'setRekognitionDescription',
         'type' => 'setType',
         'view_url' => 'setViewUrl'
     ];
@@ -153,9 +169,13 @@ class SfvbItemMultimedia implements ModelInterface, ArrayAccess, \JsonSerializab
         'declared' => 'getDeclared',
         'default' => 'getDefault',
         'description' => 'getDescription',
+        'description_sha256' => 'getDescriptionSha256',
+        'description_source' => 'getDescriptionSource',
         'dimensions' => 'getDimensions',
         'exclude_from_gallery' => 'getExcludeFromGallery',
         'filename' => 'getFilename',
+        'merchant_item_multimedia_oid' => 'getMerchantItemMultimediaOid',
+        'rekognition_description' => 'getRekognitionDescription',
         'type' => 'getType',
         'view_url' => 'getViewUrl'
     ];
@@ -201,11 +221,28 @@ class SfvbItemMultimedia implements ModelInterface, ArrayAccess, \JsonSerializab
         return self::$openAPIModelName;
     }
 
+    public const DESCRIPTION_SOURCE_MERCHANT = 'merchant';
+    public const DESCRIPTION_SOURCE_REKOGNITION = 'rekognition';
+    public const DESCRIPTION_SOURCE_NONE = 'none';
     public const TYPE_IMAGE = 'Image';
     public const TYPE_VIDEO = 'Video';
     public const TYPE_PDF = 'PDF';
     public const TYPE_TEXT = 'Text';
     public const TYPE_UNKNOWN = 'Unknown';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDescriptionSourceAllowableValues()
+    {
+        return [
+            self::DESCRIPTION_SOURCE_MERCHANT,
+            self::DESCRIPTION_SOURCE_REKOGNITION,
+            self::DESCRIPTION_SOURCE_NONE,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -242,9 +279,13 @@ class SfvbItemMultimedia implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->container['declared'] = $data['declared'] ?? null;
         $this->container['default'] = $data['default'] ?? null;
         $this->container['description'] = $data['description'] ?? null;
+        $this->container['description_sha256'] = $data['description_sha256'] ?? null;
+        $this->container['description_source'] = $data['description_source'] ?? null;
         $this->container['dimensions'] = $data['dimensions'] ?? null;
         $this->container['exclude_from_gallery'] = $data['exclude_from_gallery'] ?? null;
         $this->container['filename'] = $data['filename'] ?? null;
+        $this->container['merchant_item_multimedia_oid'] = $data['merchant_item_multimedia_oid'] ?? null;
+        $this->container['rekognition_description'] = $data['rekognition_description'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
         $this->container['view_url'] = $data['view_url'] ?? null;
     }
@@ -257,6 +298,15 @@ class SfvbItemMultimedia implements ModelInterface, ArrayAccess, \JsonSerializab
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getDescriptionSourceAllowableValues();
+        if (!is_null($this->container['description_source']) && !in_array($this->container['description_source'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'description_source', must be one of '%s'",
+                $this->container['description_source'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
@@ -367,13 +417,71 @@ class SfvbItemMultimedia implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets description
      *
-     * @param string|null $description Stored with the image and rendered as its alt text.  When it is empty the render falls back to the item's own description, so an empty value here is not an empty alt attribute.
+     * @param string|null $description The merchant's description, stored with the image and rendered as its alt text.  When it is empty the render falls back to rekognition_description or to text built from the item's title, depending on the element, so an empty value here is not an empty alt attribute.
      *
      * @return self
      */
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets description_sha256
+     *
+     * @return string|null
+     */
+    public function getDescriptionSha256()
+    {
+        return $this->container['description_sha256'];
+    }
+
+    /**
+     * Sets description_sha256
+     *
+     * @param string|null $description_sha256 SHA-256 of description (empty when there is none).  Send it as current_sha256 when changing the description so a change made since you read it is not overwritten.
+     *
+     * @return self
+     */
+    public function setDescriptionSha256($description_sha256)
+    {
+        $this->container['description_sha256'] = $description_sha256;
+
+        return $this;
+    }
+
+    /**
+     * Gets description_source
+     *
+     * @return string|null
+     */
+    public function getDescriptionSource()
+    {
+        return $this->container['description_source'];
+    }
+
+    /**
+     * Sets description_source
+     *
+     * @param string|null $description_source Where the alt text comes from now.  merchant when description is set, rekognition when only rekognition_description is, none otherwise.
+     *
+     * @return self
+     */
+    public function setDescriptionSource($description_source)
+    {
+        $allowedValues = $this->getDescriptionSourceAllowableValues();
+        if (!is_null($description_source) && !in_array($description_source, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'description_source', must be one of '%s'",
+                    $description_source,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['description_source'] = $description_source;
 
         return $this;
     }
@@ -446,6 +554,54 @@ class SfvbItemMultimedia implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setFilename($filename)
     {
         $this->container['filename'] = $filename;
+
+        return $this;
+    }
+
+    /**
+     * Gets merchant_item_multimedia_oid
+     *
+     * @return int|null
+     */
+    public function getMerchantItemMultimediaOid()
+    {
+        return $this->container['merchant_item_multimedia_oid'];
+    }
+
+    /**
+     * Sets merchant_item_multimedia_oid
+     *
+     * @param int|null $merchant_item_multimedia_oid The stored image's id.  Name it to change this image's description when it has no code.
+     *
+     * @return self
+     */
+    public function setMerchantItemMultimediaOid($merchant_item_multimedia_oid)
+    {
+        $this->container['merchant_item_multimedia_oid'] = $merchant_item_multimedia_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets rekognition_description
+     *
+     * @return string|null
+     */
+    public function getRekognitionDescription()
+    {
+        return $this->container['rekognition_description'];
+    }
+
+    /**
+     * Sets rekognition_description
+     *
+     * @param string|null $rekognition_description The machine description image recognition produced for the stored image, if any.  It is used only while description is empty, and a description written here or in the admin always takes its place.
+     *
+     * @return self
+     */
+    public function setRekognitionDescription($rekognition_description)
+    {
+        $this->container['rekognition_description'] = $rekognition_description;
 
         return $this;
     }

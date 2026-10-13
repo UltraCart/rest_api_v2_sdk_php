@@ -1253,7 +1253,7 @@ class OauthApi
      * Revoke this OAuth application.
      *
      * @param  string $client_id The OAuth application client_id. (required)
-     * @param  string $token The OAuth access token that is to be revoked.. (required)
+     * @param  string $token The OAuth access token or refresh token that is to be revoked. (required)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1271,7 +1271,7 @@ class OauthApi
      * Revoke this OAuth application.
      *
      * @param  string $client_id The OAuth application client_id. (required)
-     * @param  string $token The OAuth access token that is to be revoked.. (required)
+     * @param  string $token The OAuth access token or refresh token that is to be revoked. (required)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1291,7 +1291,7 @@ class OauthApi
      *
      * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
      * @param  string $client_id The OAuth application client_id. (required)
-     * @param  string $token The OAuth access token that is to be revoked.. (required)
+     * @param  string $token The OAuth access token or refresh token that is to be revoked. (required)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1458,7 +1458,7 @@ class OauthApi
      * Revoke this OAuth application.
      *
      * @param  string $client_id The OAuth application client_id. (required)
-     * @param  string $token The OAuth access token that is to be revoked.. (required)
+     * @param  string $token The OAuth access token or refresh token that is to be revoked. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1479,7 +1479,7 @@ class OauthApi
      * Revoke this OAuth application.
      *
      * @param  string $client_id The OAuth application client_id. (required)
-     * @param  string $token The OAuth access token that is to be revoked.. (required)
+     * @param  string $token The OAuth access token or refresh token that is to be revoked. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1529,7 +1529,7 @@ class OauthApi
      * Create request for operation 'oauthRevoke'
      *
      * @param  string $client_id The OAuth application client_id. (required)
-     * @param  string $token The OAuth access token that is to be revoked.. (required)
+     * @param  string $token The OAuth access token or refresh token that is to be revoked. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

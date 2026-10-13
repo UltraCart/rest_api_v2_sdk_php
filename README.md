@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.201"
+    "ultracart/rest_api_v2_sdk_php": "4.1.202"
   }
 }
 ```
@@ -614,6 +614,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**putSfvbItemAttributes**](docs/Api/SfvbApi.md#putsfvbitemattributes) | **PUT** /sfvb/storefronts/{storefront_oid}/items/attributes | Change some of an item&#39;s attributes
 *SfvbApi* | [**putSfvbItemContent**](docs/Api/SfvbApi.md#putsfvbitemcontent) | **PUT** /sfvb/storefronts/{storefront_oid}/items/content | Change an item&#39;s title or long description
 *SfvbApi* | [**putSfvbItemMultimedia**](docs/Api/SfvbApi.md#putsfvbitemmultimedia) | **PUT** /sfvb/storefronts/{storefront_oid}/items/multimedia | Attach an image to an item
+*SfvbApi* | [**putSfvbItemMultimediaDescription**](docs/Api/SfvbApi.md#putsfvbitemmultimediadescription) | **PUT** /sfvb/storefronts/{storefront_oid}/items/multimedia/description | Change an item image&#39;s description
 *SfvbApi* | [**putSfvbItemPricing**](docs/Api/SfvbApi.md#putsfvbitempricing) | **PUT** /sfvb/storefronts/{storefront_oid}/items/pricing | Change what an item charges
 *SfvbApi* | [**putSfvbItemRelated**](docs/Api/SfvbApi.md#putsfvbitemrelated) | **PUT** /sfvb/storefronts/{storefront_oid}/items/related | Replace an item&#39;s related items
 *SfvbApi* | [**putSfvbItemSeo**](docs/Api/SfvbApi.md#putsfvbitemseo) | **PUT** /sfvb/storefronts/{storefront_oid}/items/seo | Change an item&#39;s search metadata
@@ -1951,6 +1952,7 @@ Class | Method | HTTP request | Description
 - [SfvbItemContainersResponse](docs/Model/SfvbItemContainersResponse.md)
 - [SfvbItemContentRequest](docs/Model/SfvbItemContentRequest.md)
 - [SfvbItemMultimedia](docs/Model/SfvbItemMultimedia.md)
+- [SfvbItemMultimediaDescriptionRequest](docs/Model/SfvbItemMultimediaDescriptionRequest.md)
 - [SfvbItemMultimediaRequest](docs/Model/SfvbItemMultimediaRequest.md)
 - [SfvbItemPricing](docs/Model/SfvbItemPricing.md)
 - [SfvbItemPricingRequest](docs/Model/SfvbItemPricingRequest.md)
@@ -2282,6 +2284,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.202 | 10/13/2026 | sfvb internal testing |
 | 4.1.201 | 10/12/2026 | sfvb internal testing |
 | 4.1.200 | 10/09/2026 | sfvb internal testing |
 | 4.1.199 | 10/08/2026 | sfvb internal testing |

@@ -1064,6 +1064,7 @@ docs/Model/SfvbItemContainer.md
 docs/Model/SfvbItemContainersResponse.md
 docs/Model/SfvbItemContentRequest.md
 docs/Model/SfvbItemMultimedia.md
+docs/Model/SfvbItemMultimediaDescriptionRequest.md
 docs/Model/SfvbItemMultimediaRequest.md
 docs/Model/SfvbItemPricing.md
 docs/Model/SfvbItemPricingRequest.md
@@ -2367,6 +2368,7 @@ lib/models/SfvbItemContainer.php
 lib/models/SfvbItemContainersResponse.php
 lib/models/SfvbItemContentRequest.php
 lib/models/SfvbItemMultimedia.php
+lib/models/SfvbItemMultimediaDescriptionRequest.php
 lib/models/SfvbItemMultimediaRequest.php
 lib/models/SfvbItemPricing.php
 lib/models/SfvbItemPricingRequest.php

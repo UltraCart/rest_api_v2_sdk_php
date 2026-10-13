@@ -127,6 +127,7 @@ Method | HTTP request | Description
 [**putSfvbItemAttributes()**](SfvbApi.md#putSfvbItemAttributes) | **PUT** /sfvb/storefronts/{storefront_oid}/items/attributes | Change some of an item&#39;s attributes
 [**putSfvbItemContent()**](SfvbApi.md#putSfvbItemContent) | **PUT** /sfvb/storefronts/{storefront_oid}/items/content | Change an item&#39;s title or long description
 [**putSfvbItemMultimedia()**](SfvbApi.md#putSfvbItemMultimedia) | **PUT** /sfvb/storefronts/{storefront_oid}/items/multimedia | Attach an image to an item
+[**putSfvbItemMultimediaDescription()**](SfvbApi.md#putSfvbItemMultimediaDescription) | **PUT** /sfvb/storefronts/{storefront_oid}/items/multimedia/description | Change an item image&#39;s description
 [**putSfvbItemPricing()**](SfvbApi.md#putSfvbItemPricing) | **PUT** /sfvb/storefronts/{storefront_oid}/items/pricing | Change what an item charges
 [**putSfvbItemRelated()**](SfvbApi.md#putSfvbItemRelated) | **PUT** /sfvb/storefronts/{storefront_oid}/items/related | Replace an item&#39;s related items
 [**putSfvbItemSeo()**](SfvbApi.md#putSfvbItemSeo) | **PUT** /sfvb/storefronts/{storefront_oid}/items/seo | Change an item&#39;s search metadata
@@ -5275,6 +5276,49 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **storefront_oid** | **int**|  |
  **item_multimedia_request** | [**\ultracart\v2\models\SfvbItemMultimediaRequest**](../Model/SfvbItemMultimediaRequest.md)| Image to attach |
+ **merchant_item_id** | **string**|  | [optional]
+ **merchant_item_oid** | **int**|  | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\SfvbItemResponse**](../Model/SfvbItemResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `putSfvbItemMultimediaDescription()`
+
+```php
+putSfvbItemMultimediaDescription($storefront_oid, $item_multimedia_description_request, $merchant_item_id, $merchant_item_oid): \ultracart\v2\models\SfvbItemResponse
+```
+
+Change an item image's description
+
+Changes the description (alt text) of one image already attached to the item, in place.  The image is not touched.  Name it by merchant_item_multimedia_oid, or by exactly one of code or default; gallery images often have no code.  An empty description clears it, so the render falls back again.  Send the description_sha256 you read as current_sha256 so a change made since is not overwritten.  A description written here takes the place of the machine description, and image recognition never overwrites it.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **item_multimedia_description_request** | [**\ultracart\v2\models\SfvbItemMultimediaDescriptionRequest**](../Model/SfvbItemMultimediaDescriptionRequest.md)| The image and its new description |
  **merchant_item_id** | **string**|  | [optional]
  **merchant_item_oid** | **int**|  | [optional]
 
