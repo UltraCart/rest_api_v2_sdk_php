@@ -1006,6 +1006,11 @@ docs/Model/SfvbBlogPostImage.md
 docs/Model/SfvbBlogPostImageRequest.md
 docs/Model/SfvbBlogPostRequest.md
 docs/Model/SfvbBlogPostsResponse.md
+docs/Model/SfvbCommsDnsRecord.md
+docs/Model/SfvbCommsSendingDomain.md
+docs/Model/SfvbCommsSendingDomainsResponse.md
+docs/Model/SfvbCommsTwilioAccount.md
+docs/Model/SfvbCommsTwilioAccountResponse.md
 docs/Model/SfvbCompileRequest.md
 docs/Model/SfvbCompileResponse.md
 docs/Model/SfvbContainerResponse.md
@@ -2317,6 +2322,11 @@ lib/models/SfvbBlogPostImage.php
 lib/models/SfvbBlogPostImageRequest.php
 lib/models/SfvbBlogPostRequest.php
 lib/models/SfvbBlogPostsResponse.php
+lib/models/SfvbCommsDnsRecord.php
+lib/models/SfvbCommsSendingDomain.php
+lib/models/SfvbCommsSendingDomainsResponse.php
+lib/models/SfvbCommsTwilioAccount.php
+lib/models/SfvbCommsTwilioAccountResponse.php
 lib/models/SfvbCompileRequest.php
 lib/models/SfvbCompileResponse.php
 lib/models/SfvbContainerResponse.php

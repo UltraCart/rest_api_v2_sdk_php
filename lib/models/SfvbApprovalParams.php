@@ -61,6 +61,8 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'attribute_names' => 'string[]',
         'blog_post_oid' => 'int',
         'content_sha256' => 'string',
+        'domain' => 'string',
+        'esp_twilio_uuid' => 'string',
         'experiment_oid' => 'int',
         'item_count' => 'int',
         'merchant_item_oid' => 'int',
@@ -87,6 +89,8 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'attribute_names' => null,
         'blog_post_oid' => 'int32',
         'content_sha256' => null,
+        'domain' => null,
+        'esp_twilio_uuid' => null,
         'experiment_oid' => 'int32',
         'item_count' => 'int32',
         'merchant_item_oid' => 'int32',
@@ -132,6 +136,8 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'attribute_names' => 'attribute_names',
         'blog_post_oid' => 'blog_post_oid',
         'content_sha256' => 'content_sha256',
+        'domain' => 'domain',
+        'esp_twilio_uuid' => 'esp_twilio_uuid',
         'experiment_oid' => 'experiment_oid',
         'item_count' => 'item_count',
         'merchant_item_oid' => 'merchant_item_oid',
@@ -156,6 +162,8 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'attribute_names' => 'setAttributeNames',
         'blog_post_oid' => 'setBlogPostOid',
         'content_sha256' => 'setContentSha256',
+        'domain' => 'setDomain',
+        'esp_twilio_uuid' => 'setEspTwilioUuid',
         'experiment_oid' => 'setExperimentOid',
         'item_count' => 'setItemCount',
         'merchant_item_oid' => 'setMerchantItemOid',
@@ -180,6 +188,8 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'attribute_names' => 'getAttributeNames',
         'blog_post_oid' => 'getBlogPostOid',
         'content_sha256' => 'getContentSha256',
+        'domain' => 'getDomain',
+        'esp_twilio_uuid' => 'getEspTwilioUuid',
         'experiment_oid' => 'getExperimentOid',
         'item_count' => 'getItemCount',
         'merchant_item_oid' => 'getMerchantItemOid',
@@ -270,6 +280,8 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->container['attribute_names'] = $data['attribute_names'] ?? null;
         $this->container['blog_post_oid'] = $data['blog_post_oid'] ?? null;
         $this->container['content_sha256'] = $data['content_sha256'] ?? null;
+        $this->container['domain'] = $data['domain'] ?? null;
+        $this->container['esp_twilio_uuid'] = $data['esp_twilio_uuid'] ?? null;
         $this->container['experiment_oid'] = $data['experiment_oid'] ?? null;
         $this->container['item_count'] = $data['item_count'] ?? null;
         $this->container['merchant_item_oid'] = $data['merchant_item_oid'] ?? null;
@@ -386,6 +398,54 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setContentSha256($content_sha256)
     {
         $this->container['content_sha256'] = $content_sha256;
+
+        return $this;
+    }
+
+    /**
+     * Gets domain
+     *
+     * @return string|null
+     */
+    public function getDomain()
+    {
+        return $this->container['domain'];
+    }
+
+    /**
+     * Sets domain
+     *
+     * @param string|null $domain For sending_domain.delete, the sending domain.
+     *
+     * @return self
+     */
+    public function setDomain($domain)
+    {
+        $this->container['domain'] = $domain;
+
+        return $this;
+    }
+
+    /**
+     * Gets esp_twilio_uuid
+     *
+     * @return string|null
+     */
+    public function getEspTwilioUuid()
+    {
+        return $this->container['esp_twilio_uuid'];
+    }
+
+    /**
+     * Sets esp_twilio_uuid
+     *
+     * @param string|null $esp_twilio_uuid For twilio_account.delete, the Twilio account's esp_twilio_uuid, as GET comms/twilio_account returns it.
+     *
+     * @return self
+     */
+    public function setEspTwilioUuid($esp_twilio_uuid)
+    {
+        $this->container['esp_twilio_uuid'] = $esp_twilio_uuid;
 
         return $this;
     }

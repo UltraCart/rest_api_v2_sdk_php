@@ -349,7 +349,7 @@ class SfvbSecretRequestCreate implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets target_id
      *
-     * @param string|null $target_id The object the values are for, such as a Twilio account uuid.  Required for sinks that need an authenticator code, unless keys names the targets.  Leave it out when keys is sent.
+     * @param string|null $target_id The object the values are for.  A Twilio account by its account SID (AC followed by 32 hex digits), and a sending domain by the domain name, which may be one not added yet.  Required for sinks that need an authenticator code, unless keys names the targets.  Leave it out when keys is sent.
      *
      * @return self
      */

@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.203"
+    "ultracart/rest_api_v2_sdk_php": "4.1.204"
   }
 }
 ```
@@ -503,6 +503,8 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**createSfvbPreviewSession**](docs/Api/SfvbApi.md#createsfvbpreviewsession) | **POST** /sfvb/storefronts/{storefront_oid}/preview_sessions | Create a preview session
 *SfvbApi* | [**deleteSfvbApproval**](docs/Api/SfvbApi.md#deletesfvbapproval) | **DELETE** /sfvb/approvals/{approval_id} | Cancel a pending approval request
 *SfvbApi* | [**deleteSfvbBlogPost**](docs/Api/SfvbApi.md#deletesfvbblogpost) | **DELETE** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Delete a blog post
+*SfvbApi* | [**deleteSfvbCommsSendingDomain**](docs/Api/SfvbApi.md#deletesfvbcommssendingdomain) | **DELETE** /sfvb/comms/sending_domains/{domain} | Remove a sending domain
+*SfvbApi* | [**deleteSfvbCommsTwilioAccount**](docs/Api/SfvbApi.md#deletesfvbcommstwilioaccount) | **DELETE** /sfvb/comms/twilio_account | Remove the Twilio account
 *SfvbApi* | [**deleteSfvbFile**](docs/Api/SfvbApi.md#deletesfvbfile) | **DELETE** /sfvb/storefronts/{storefront_oid}/files | Delete a storefront file
 *SfvbApi* | [**deleteSfvbItemAttribute**](docs/Api/SfvbApi.md#deletesfvbitemattribute) | **DELETE** /sfvb/storefronts/{storefront_oid}/items/attributes | Delete an attribute from an item
 *SfvbApi* | [**deleteSfvbItemMultimedia**](docs/Api/SfvbApi.md#deletesfvbitemmultimedia) | **DELETE** /sfvb/storefronts/{storefront_oid}/items/multimedia | Detach an image from an item
@@ -534,6 +536,9 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbApprovals**](docs/Api/SfvbApi.md#getsfvbapprovals) | **GET** /sfvb/approvals | List this sign-in&#39;s approval requests
 *SfvbApi* | [**getSfvbBlogPost**](docs/Api/SfvbApi.md#getsfvbblogpost) | **GET** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Read a blog post
 *SfvbApi* | [**getSfvbCjsonUsedElements**](docs/Api/SfvbApi.md#getsfvbcjsonusedelements) | **POST** /sfvb/cjson/elements | Element types used by a container
+*SfvbApi* | [**getSfvbCommsSendingDomain**](docs/Api/SfvbApi.md#getsfvbcommssendingdomain) | **GET** /sfvb/comms/sending_domains/{domain} | Read a sending domain
+*SfvbApi* | [**getSfvbCommsSendingDomains**](docs/Api/SfvbApi.md#getsfvbcommssendingdomains) | **GET** /sfvb/comms/sending_domains | List the sending domains
+*SfvbApi* | [**getSfvbCommsTwilioAccount**](docs/Api/SfvbApi.md#getsfvbcommstwilioaccount) | **GET** /sfvb/comms/twilio_account | Read the Twilio account
 *SfvbApi* | [**getSfvbContainer**](docs/Api/SfvbApi.md#getsfvbcontainer) | **GET** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Read a container stored outside the file system
 *SfvbApi* | [**getSfvbContainerVersion**](docs/Api/SfvbApi.md#getsfvbcontainerversion) | **GET** /sfvb/storefronts/{storefront_oid}/container_versions/{container_history_oid} | Read the CJSON stored in one container history entry
 *SfvbApi* | [**getSfvbElement**](docs/Api/SfvbApi.md#getsfvbelement) | **GET** /sfvb/elements/{element_type} | Configuration schema and field card for one element type
@@ -587,6 +592,8 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**importSfvbRedirects**](docs/Api/SfvbApi.md#importsfvbredirects) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/import | Apply a reviewed redirect import
 *SfvbApi* | [**insertSfvbApproval**](docs/Api/SfvbApi.md#insertsfvbapproval) | **POST** /sfvb/approvals | Request a human approval
 *SfvbApi* | [**insertSfvbBlogPost**](docs/Api/SfvbApi.md#insertsfvbblogpost) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts | Create a blog post
+*SfvbApi* | [**insertSfvbCommsSendingDomain**](docs/Api/SfvbApi.md#insertsfvbcommssendingdomain) | **POST** /sfvb/comms/sending_domains | Add a sending domain
+*SfvbApi* | [**insertSfvbCommsTwilioAccount**](docs/Api/SfvbApi.md#insertsfvbcommstwilioaccount) | **POST** /sfvb/comms/twilio_account | Connect the Twilio account
 *SfvbApi* | [**insertSfvbPage**](docs/Api/SfvbApi.md#insertsfvbpage) | **POST** /sfvb/storefronts/{storefront_oid}/pages | Create a page
 *SfvbApi* | [**insertSfvbRedirect**](docs/Api/SfvbApi.md#insertsfvbredirect) | **POST** /sfvb/storefronts/{storefront_oid}/redirects | Create a 301 redirect rule
 *SfvbApi* | [**insertSfvbSecretRequest**](docs/Api/SfvbApi.md#insertsfvbsecretrequest) | **POST** /sfvb/secrets | Ask a person to enter secret values
@@ -632,6 +639,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**putSfvbRecordingSettings**](docs/Api/SfvbApi.md#putsfvbrecordingsettings) | **PUT** /sfvb/storefronts/{storefront_oid}/recording_settings | Turn the storefront&#39;s screen recording on or off
 *SfvbApi* | [**putSfvbSiteAttributes**](docs/Api/SfvbApi.md#putsfvbsiteattributes) | **PUT** /sfvb/storefronts/{storefront_oid}/attributes | Change a storefront&#39;s site attributes
 *SfvbApi* | [**putSfvbThemeAttributes**](docs/Api/SfvbApi.md#putsfvbthemeattributes) | **PUT** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Change a theme&#39;s colors, fonts and settings
+*SfvbApi* | [**refreshSfvbCommsSendingDomainStatus**](docs/Api/SfvbApi.md#refreshsfvbcommssendingdomainstatus) | **POST** /sfvb/comms/sending_domains/{domain}/status | Check a sending domain&#39;s verification
 *SfvbApi* | [**refreshSfvbPage**](docs/Api/SfvbApi.md#refreshsfvbpage) | **POST** /sfvb/storefronts/{storefront_oid}/pages/refresh | Drop one page&#39;s cached copy
 *SfvbApi* | [**removeSfvbPageBlogPosts**](docs/Api/SfvbApi.md#removesfvbpageblogposts) | **POST** /sfvb/storefronts/{storefront_oid}/pages/blog_posts/remove | Take blog posts off a page
 *SfvbApi* | [**removeSfvbPageItems**](docs/Api/SfvbApi.md#removesfvbpageitems) | **POST** /sfvb/storefronts/{storefront_oid}/pages/items/remove | Take items off a page
@@ -654,6 +662,8 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**unpublishSfvbLibraryEntry**](docs/Api/SfvbApi.md#unpublishsfvblibraryentry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/unpublish | Narrow who can see a library entry
 *SfvbApi* | [**unshareSfvbLibraryEntry**](docs/Api/SfvbApi.md#unsharesfvblibraryentry) | **DELETE** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/shares/{merchant_id} | Stop sharing a library entry with an account
 *SfvbApi* | [**updateSfvbBlogPost**](docs/Api/SfvbApi.md#updatesfvbblogpost) | **PUT** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Change a blog post
+*SfvbApi* | [**updateSfvbCommsSendingDomain**](docs/Api/SfvbApi.md#updatesfvbcommssendingdomain) | **PUT** /sfvb/comms/sending_domains/{domain} | Update a sending domain
+*SfvbApi* | [**updateSfvbCommsTwilioAccount**](docs/Api/SfvbApi.md#updatesfvbcommstwilioaccount) | **PUT** /sfvb/comms/twilio_account | Update the Twilio account
 *SfvbApi* | [**updateSfvbItemAttributeBatch**](docs/Api/SfvbApi.md#updatesfvbitemattributebatch) | **POST** /sfvb/storefronts/{storefront_oid}/items/attributes/batch | Change attributes across many items in one call
 *SfvbApi* | [**updateSfvbLibraryEntry**](docs/Api/SfvbApi.md#updatesfvblibraryentry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Update a library entry&#39;s draft
 *SfvbApi* | [**updateSfvbRedirect**](docs/Api/SfvbApi.md#updatesfvbredirect) | **PUT** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Change a redirect rule
@@ -1900,6 +1910,11 @@ Class | Method | HTTP request | Description
 - [SfvbBlogPostImageRequest](docs/Model/SfvbBlogPostImageRequest.md)
 - [SfvbBlogPostRequest](docs/Model/SfvbBlogPostRequest.md)
 - [SfvbBlogPostsResponse](docs/Model/SfvbBlogPostsResponse.md)
+- [SfvbCommsDnsRecord](docs/Model/SfvbCommsDnsRecord.md)
+- [SfvbCommsSendingDomain](docs/Model/SfvbCommsSendingDomain.md)
+- [SfvbCommsSendingDomainsResponse](docs/Model/SfvbCommsSendingDomainsResponse.md)
+- [SfvbCommsTwilioAccount](docs/Model/SfvbCommsTwilioAccount.md)
+- [SfvbCommsTwilioAccountResponse](docs/Model/SfvbCommsTwilioAccountResponse.md)
 - [SfvbCompileRequest](docs/Model/SfvbCompileRequest.md)
 - [SfvbCompileResponse](docs/Model/SfvbCompileResponse.md)
 - [SfvbContainerResponse](docs/Model/SfvbContainerResponse.md)
@@ -2297,6 +2312,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.204 | 10/15/2026 | sfvb internal testing |
 | 4.1.203 | 10/15/2026 | sfvb internal testing |
 | 4.1.202 | 10/13/2026 | sfvb internal testing |
 | 4.1.201 | 10/12/2026 | sfvb internal testing |

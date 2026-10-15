@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **attribute_names** | **string[]** | For item.attribute_batch, the attributes the batch would change.  Set by the server. | [optional]
 **blog_post_oid** | **int** | The blog post, for blog_post.delete. | [optional]
 **content_sha256** | **string** | For file.put_script, the SHA-256 of the exact bytes approved.  Set by the server, never by the caller.  The write must send bytes with this hash. | [optional]
+**domain** | **string** | For sending_domain.delete, the sending domain. | [optional]
+**esp_twilio_uuid** | **string** | For twilio_account.delete, the Twilio account&#39;s esp_twilio_uuid, as GET comms/twilio_account returns it. | [optional]
 **experiment_oid** | **int** | For experiment.end, the experiment to end. | [optional]
 **item_count** | **int** | For item.attribute_batch, how many items the batch would change when it was requested.  Set by the server. | [optional]
 **merchant_item_oid** | **int** | For item.pricing, the item whose pricing changes. | [optional]
