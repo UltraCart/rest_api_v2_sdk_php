@@ -97,6 +97,7 @@ Method | HTTP request | Description
 [**getSfvbTheme()**](SfvbApi.md#getSfvbTheme) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid} | Get a theme
 [**getSfvbThemeAttributes()**](SfvbApi.md#getSfvbThemeAttributes) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Read a theme&#39;s colors, fonts and settings
 [**getSfvbThemeJob()**](SfvbApi.md#getSfvbThemeJob) | **GET** /sfvb/storefronts/{storefront_oid}/theme_jobs/{job_id} | Status of an asynchronous theme job
+[**getSfvbTransactionalEmails()**](SfvbApi.md#getSfvbTransactionalEmails) | **GET** /sfvb/storefronts/{storefront_oid}/transactional_emails | List the transactional emails a storefront sends
 [**getSfvbUpsellOffer()**](SfvbApi.md#getSfvbUpsellOffer) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid} | Get an upsell offer
 [**getSfvbUpsellPath()**](SfvbApi.md#getSfvbUpsellPath) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid} | Get an upsell path
 [**getSfvbVersion()**](SfvbApi.md#getSfvbVersion) | **GET** /sfvb/version | Compiler version for this merchant
@@ -156,6 +157,8 @@ Method | HTTP request | Description
 [**refreshSfvbPage()**](SfvbApi.md#refreshSfvbPage) | **POST** /sfvb/storefronts/{storefront_oid}/pages/refresh | Drop one page&#39;s cached copy
 [**removeSfvbPageBlogPosts()**](SfvbApi.md#removeSfvbPageBlogPosts) | **POST** /sfvb/storefronts/{storefront_oid}/pages/blog_posts/remove | Take blog posts off a page
 [**removeSfvbPageItems()**](SfvbApi.md#removeSfvbPageItems) | **POST** /sfvb/storefronts/{storefront_oid}/pages/items/remove | Take items off a page
+[**renderSfvbEmail()**](SfvbApi.md#renderSfvbEmail) | **POST** /sfvb/storefronts/{storefront_oid}/emails/{email_uuid}/render | Render a flow or campaign email without sending it
+[**renderSfvbTransactionalEmail()**](SfvbApi.md#renderSfvbTransactionalEmail) | **POST** /sfvb/storefronts/{storefront_oid}/transactional_emails/{file_name}/render | Render a transactional email without sending it
 [**renderSfvbWidgets()**](SfvbApi.md#renderSfvbWidgets) | **POST** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/render | Render a CJSON node to HTML
 [**reserveSfvbWidgetIds()**](SfvbApi.md#reserveSfvbWidgetIds) | **POST** /sfvb/storefronts/{storefront_oid}/widget_ids | Reserve a block of widget ids
 [**resetSfvbI18nMessage()**](SfvbApi.md#resetSfvbI18nMessage) | **DELETE** /sfvb/storefronts/{storefront_oid}/i18n/messages/{key} | Reset one built-in message
@@ -4019,6 +4022,46 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getSfvbTransactionalEmails()`
+
+```php
+getSfvbTransactionalEmails($storefront_oid): \ultracart\v2\models\SfvbTransactionalEmailsResponse
+```
+
+List the transactional emails a storefront sends
+
+The order, shipment, auto order and other transactional emails this storefront sends, with their template files and the body container a draft replaces.  Forgot password and chat verification are not listed, because they have no preview.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbTransactionalEmailsResponse**](../Model/SfvbTransactionalEmailsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getSfvbUpsellOffer()`
 
 ```php
@@ -6497,6 +6540,90 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `renderSfvbEmail()`
+
+```php
+renderSfvbEmail($storefront_oid, $email_uuid, $email_render_request): \ultracart\v2\models\SfvbEmailRenderResponse
+```
+
+Render a flow or campaign email without sending it
+
+Renders a flow or campaign email exactly as its send would, and returns the subject, preview text, HTML and text.  Nothing is sent, saved or created.  A unique coupon code, click id and magic link token are placeholders.  A missing footer token, which a send skips the email for, is a warning.  Give cjson to render an unsaved draft of the email container in place of the saved one.  An order must be a test order.  cart_item_ids fills the cart a cart flow email shows.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **email_uuid** | **string**|  |
+ **email_render_request** | [**\ultracart\v2\models\SfvbEmailRenderRequest**](../Model/SfvbEmailRenderRequest.md)| What to render the email with |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbEmailRenderResponse**](../Model/SfvbEmailRenderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `renderSfvbTransactionalEmail()`
+
+```php
+renderSfvbTransactionalEmail($storefront_oid, $file_name, $email_render_request): \ultracart\v2\models\SfvbEmailRenderResponse
+```
+
+Render a transactional email without sending it
+
+Renders a transactional email, such as the order receipt, exactly as it is sent, and returns the subject, HTML and text.  Nothing is sent or saved.  file_name is the template file, such as receipt_html.vm, or the display name.  Give cjson to render an unsaved draft of the email's body container in place of the saved one.  The order must be a test order.  Without one the email renders with a made up order.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **file_name** | **string**|  |
+ **email_render_request** | [**\ultracart\v2\models\SfvbEmailRenderRequest**](../Model/SfvbEmailRenderRequest.md)| What to render the email with |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbEmailRenderResponse**](../Model/SfvbEmailRenderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

@@ -1021,6 +1021,8 @@ docs/Model/SfvbContainerWriteRequest.md
 docs/Model/SfvbElement.md
 docs/Model/SfvbElementSchemaResponse.md
 docs/Model/SfvbElementsResponse.md
+docs/Model/SfvbEmailRenderRequest.md
+docs/Model/SfvbEmailRenderResponse.md
 docs/Model/SfvbErrorDetail.md
 docs/Model/SfvbEvent.md
 docs/Model/SfvbEventsAuthRequest.md
@@ -1202,6 +1204,8 @@ docs/Model/SfvbThemeFont.md
 docs/Model/SfvbThemeFontFamily.md
 docs/Model/SfvbThemeJobResponse.md
 docs/Model/SfvbThemesResponse.md
+docs/Model/SfvbTransactionalEmail.md
+docs/Model/SfvbTransactionalEmailsResponse.md
 docs/Model/SfvbUpsellItemLogic.md
 docs/Model/SfvbUpsellItemLogicItem.md
 docs/Model/SfvbUpsellOffer.md
@@ -2337,6 +2341,8 @@ lib/models/SfvbContainerWriteRequest.php
 lib/models/SfvbElement.php
 lib/models/SfvbElementSchemaResponse.php
 lib/models/SfvbElementsResponse.php
+lib/models/SfvbEmailRenderRequest.php
+lib/models/SfvbEmailRenderResponse.php
 lib/models/SfvbErrorDetail.php
 lib/models/SfvbEvent.php
 lib/models/SfvbEventsAuthRequest.php
@@ -2518,6 +2524,8 @@ lib/models/SfvbThemeFont.php
 lib/models/SfvbThemeFontFamily.php
 lib/models/SfvbThemeJobResponse.php
 lib/models/SfvbThemesResponse.php
+lib/models/SfvbTransactionalEmail.php
+lib/models/SfvbTransactionalEmailsResponse.php
 lib/models/SfvbUpsellItemLogic.php
 lib/models/SfvbUpsellItemLogicItem.php
 lib/models/SfvbUpsellOffer.php

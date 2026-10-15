@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.204"
+    "ultracart/rest_api_v2_sdk_php": "4.1.205"
   }
 }
 ```
@@ -584,6 +584,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbTheme**](docs/Api/SfvbApi.md#getsfvbtheme) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid} | Get a theme
 *SfvbApi* | [**getSfvbThemeAttributes**](docs/Api/SfvbApi.md#getsfvbthemeattributes) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Read a theme&#39;s colors, fonts and settings
 *SfvbApi* | [**getSfvbThemeJob**](docs/Api/SfvbApi.md#getsfvbthemejob) | **GET** /sfvb/storefronts/{storefront_oid}/theme_jobs/{job_id} | Status of an asynchronous theme job
+*SfvbApi* | [**getSfvbTransactionalEmails**](docs/Api/SfvbApi.md#getsfvbtransactionalemails) | **GET** /sfvb/storefronts/{storefront_oid}/transactional_emails | List the transactional emails a storefront sends
 *SfvbApi* | [**getSfvbUpsellOffer**](docs/Api/SfvbApi.md#getsfvbupselloffer) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid} | Get an upsell offer
 *SfvbApi* | [**getSfvbUpsellPath**](docs/Api/SfvbApi.md#getsfvbupsellpath) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid} | Get an upsell path
 *SfvbApi* | [**getSfvbVersion**](docs/Api/SfvbApi.md#getsfvbversion) | **GET** /sfvb/version | Compiler version for this merchant
@@ -643,6 +644,8 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**refreshSfvbPage**](docs/Api/SfvbApi.md#refreshsfvbpage) | **POST** /sfvb/storefronts/{storefront_oid}/pages/refresh | Drop one page&#39;s cached copy
 *SfvbApi* | [**removeSfvbPageBlogPosts**](docs/Api/SfvbApi.md#removesfvbpageblogposts) | **POST** /sfvb/storefronts/{storefront_oid}/pages/blog_posts/remove | Take blog posts off a page
 *SfvbApi* | [**removeSfvbPageItems**](docs/Api/SfvbApi.md#removesfvbpageitems) | **POST** /sfvb/storefronts/{storefront_oid}/pages/items/remove | Take items off a page
+*SfvbApi* | [**renderSfvbEmail**](docs/Api/SfvbApi.md#rendersfvbemail) | **POST** /sfvb/storefronts/{storefront_oid}/emails/{email_uuid}/render | Render a flow or campaign email without sending it
+*SfvbApi* | [**renderSfvbTransactionalEmail**](docs/Api/SfvbApi.md#rendersfvbtransactionalemail) | **POST** /sfvb/storefronts/{storefront_oid}/transactional_emails/{file_name}/render | Render a transactional email without sending it
 *SfvbApi* | [**renderSfvbWidgets**](docs/Api/SfvbApi.md#rendersfvbwidgets) | **POST** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/render | Render a CJSON node to HTML
 *SfvbApi* | [**reserveSfvbWidgetIds**](docs/Api/SfvbApi.md#reservesfvbwidgetids) | **POST** /sfvb/storefronts/{storefront_oid}/widget_ids | Reserve a block of widget ids
 *SfvbApi* | [**resetSfvbI18nMessage**](docs/Api/SfvbApi.md#resetsfvbi18nmessage) | **DELETE** /sfvb/storefronts/{storefront_oid}/i18n/messages/{key} | Reset one built-in message
@@ -1925,6 +1928,8 @@ Class | Method | HTTP request | Description
 - [SfvbElement](docs/Model/SfvbElement.md)
 - [SfvbElementSchemaResponse](docs/Model/SfvbElementSchemaResponse.md)
 - [SfvbElementsResponse](docs/Model/SfvbElementsResponse.md)
+- [SfvbEmailRenderRequest](docs/Model/SfvbEmailRenderRequest.md)
+- [SfvbEmailRenderResponse](docs/Model/SfvbEmailRenderResponse.md)
 - [SfvbErrorDetail](docs/Model/SfvbErrorDetail.md)
 - [SfvbEvent](docs/Model/SfvbEvent.md)
 - [SfvbEventsAuthRequest](docs/Model/SfvbEventsAuthRequest.md)
@@ -2106,6 +2111,8 @@ Class | Method | HTTP request | Description
 - [SfvbThemeFontFamily](docs/Model/SfvbThemeFontFamily.md)
 - [SfvbThemeJobResponse](docs/Model/SfvbThemeJobResponse.md)
 - [SfvbThemesResponse](docs/Model/SfvbThemesResponse.md)
+- [SfvbTransactionalEmail](docs/Model/SfvbTransactionalEmail.md)
+- [SfvbTransactionalEmailsResponse](docs/Model/SfvbTransactionalEmailsResponse.md)
 - [SfvbUpsellItemLogic](docs/Model/SfvbUpsellItemLogic.md)
 - [SfvbUpsellItemLogicItem](docs/Model/SfvbUpsellItemLogicItem.md)
 - [SfvbUpsellOffer](docs/Model/SfvbUpsellOffer.md)
@@ -2312,6 +2319,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.205 | 10/15/2026 | sfvb internal testing |
 | 4.1.204 | 10/15/2026 | sfvb internal testing |
 | 4.1.203 | 10/15/2026 | sfvb internal testing |
 | 4.1.202 | 10/13/2026 | sfvb internal testing |
