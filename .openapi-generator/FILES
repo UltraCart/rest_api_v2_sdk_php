@@ -1163,6 +1163,13 @@ docs/Model/SfvbRedirectResponse.md
 docs/Model/SfvbRedirectsResponse.md
 docs/Model/SfvbRenderRequest.md
 docs/Model/SfvbRenderResponse.md
+docs/Model/SfvbSecretHandle.md
+docs/Model/SfvbSecretKind.md
+docs/Model/SfvbSecretKindsResponse.md
+docs/Model/SfvbSecretRequest.md
+docs/Model/SfvbSecretRequestCreate.md
+docs/Model/SfvbSecretRequestsResponse.md
+docs/Model/SfvbSecretSink.md
 docs/Model/SfvbServerLog.md
 docs/Model/SfvbServerLogDetail.md
 docs/Model/SfvbServerLogEntry.md
@@ -2467,6 +2474,13 @@ lib/models/SfvbRedirectResponse.php
 lib/models/SfvbRedirectsResponse.php
 lib/models/SfvbRenderRequest.php
 lib/models/SfvbRenderResponse.php
+lib/models/SfvbSecretHandle.php
+lib/models/SfvbSecretKind.php
+lib/models/SfvbSecretKindsResponse.php
+lib/models/SfvbSecretRequest.php
+lib/models/SfvbSecretRequestCreate.php
+lib/models/SfvbSecretRequestsResponse.php
+lib/models/SfvbSecretSink.php
 lib/models/SfvbServerLog.php
 lib/models/SfvbServerLogDetail.php
 lib/models/SfvbServerLogEntry.php

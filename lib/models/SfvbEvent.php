@@ -319,7 +319,7 @@ class SfvbEvent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets object_type
      *
-     * @param string|null $object_type What changed, such as approval.
+     * @param string|null $object_type What changed, such as approval or secret_sink.
      *
      * @return self
      */
@@ -367,7 +367,7 @@ class SfvbEvent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param string|null $type approval.decided (approved, denied, cancelled or refused by the script review) or approval.ready (the review finished and the person can decide).
+     * @param string|null $type approval.decided (approved, denied, cancelled or refused by the script review), approval.ready (the review finished and the person can decide) or secret_sink.completed (a person entered the values of a secret request; object_id is the request id).
      *
      * @return self
      */
