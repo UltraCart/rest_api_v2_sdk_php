@@ -59,6 +59,7 @@ class SfvbTransactionalEmail implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPITypes = [
         'body_file_name' => 'string',
+        'body_path' => 'string',
         'file_name' => 'string',
         'name' => 'string',
         'text_file_name' => 'string'
@@ -73,6 +74,7 @@ class SfvbTransactionalEmail implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPIFormats = [
         'body_file_name' => null,
+        'body_path' => null,
         'file_name' => null,
         'name' => null,
         'text_file_name' => null
@@ -106,6 +108,7 @@ class SfvbTransactionalEmail implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $attributeMap = [
         'body_file_name' => 'body_file_name',
+        'body_path' => 'body_path',
         'file_name' => 'file_name',
         'name' => 'name',
         'text_file_name' => 'text_file_name'
@@ -118,6 +121,7 @@ class SfvbTransactionalEmail implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $setters = [
         'body_file_name' => 'setBodyFileName',
+        'body_path' => 'setBodyPath',
         'file_name' => 'setFileName',
         'name' => 'setName',
         'text_file_name' => 'setTextFileName'
@@ -130,6 +134,7 @@ class SfvbTransactionalEmail implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $getters = [
         'body_file_name' => 'getBodyFileName',
+        'body_path' => 'getBodyPath',
         'file_name' => 'getFileName',
         'name' => 'getName',
         'text_file_name' => 'getTextFileName'
@@ -193,6 +198,7 @@ class SfvbTransactionalEmail implements ModelInterface, ArrayAccess, \JsonSerial
     public function __construct(array $data = null)
     {
         $this->container['body_file_name'] = $data['body_file_name'] ?? null;
+        $this->container['body_path'] = $data['body_path'] ?? null;
         $this->container['file_name'] = $data['file_name'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['text_file_name'] = $data['text_file_name'] ?? null;
@@ -235,13 +241,37 @@ class SfvbTransactionalEmail implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets body_file_name
      *
-     * @param string|null $body_file_name The body container a draft replaces, such as receipt_body.cjson.
+     * @param string|null $body_file_name The body container a draft replaces, such as receipt_body.cjson.  Present only when the theme has the file.
      *
      * @return self
      */
     public function setBodyFileName($body_file_name)
     {
         $this->container['body_file_name'] = $body_file_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets body_path
+     *
+     * @return string|null
+     */
+    public function getBodyPath()
+    {
+        return $this->container['body_path'];
+    }
+
+    /**
+     * Sets body_path
+     *
+     * @param string|null $body_path The full theme file path of the body container, such as /themes/Elements/core/emails/receipt_body.cjson.  Read it with the files endpoint.  Present only when the theme has the file.
+     *
+     * @return self
+     */
+    public function setBodyPath($body_path)
+    {
+        $this->container['body_path'] = $body_path;
 
         return $this;
     }
