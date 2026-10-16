@@ -1006,7 +1006,11 @@ docs/Model/SfvbBlogPostImage.md
 docs/Model/SfvbBlogPostImageRequest.md
 docs/Model/SfvbBlogPostRequest.md
 docs/Model/SfvbBlogPostsResponse.md
+docs/Model/SfvbCampaign.md
+docs/Model/SfvbCampaignsResponse.md
 docs/Model/SfvbCommsDnsRecord.md
+docs/Model/SfvbCommsEmail.md
+docs/Model/SfvbCommsPostcard.md
 docs/Model/SfvbCommsSendingDomain.md
 docs/Model/SfvbCommsSendingDomainsResponse.md
 docs/Model/SfvbCommsTwilioAccount.md
@@ -1048,6 +1052,8 @@ docs/Model/SfvbFileVersionsResponse.md
 docs/Model/SfvbFileWriteRequest.md
 docs/Model/SfvbFileWriteResponse.md
 docs/Model/SfvbFilesResponse.md
+docs/Model/SfvbFlow.md
+docs/Model/SfvbFlowsResponse.md
 docs/Model/SfvbI18nGlossary.md
 docs/Model/SfvbI18nGlossaryRequest.md
 docs/Model/SfvbI18nLanguage.md
@@ -2326,7 +2332,11 @@ lib/models/SfvbBlogPostImage.php
 lib/models/SfvbBlogPostImageRequest.php
 lib/models/SfvbBlogPostRequest.php
 lib/models/SfvbBlogPostsResponse.php
+lib/models/SfvbCampaign.php
+lib/models/SfvbCampaignsResponse.php
 lib/models/SfvbCommsDnsRecord.php
+lib/models/SfvbCommsEmail.php
+lib/models/SfvbCommsPostcard.php
 lib/models/SfvbCommsSendingDomain.php
 lib/models/SfvbCommsSendingDomainsResponse.php
 lib/models/SfvbCommsTwilioAccount.php
@@ -2368,6 +2378,8 @@ lib/models/SfvbFileVersionsResponse.php
 lib/models/SfvbFileWriteRequest.php
 lib/models/SfvbFileWriteResponse.php
 lib/models/SfvbFilesResponse.php
+lib/models/SfvbFlow.php
+lib/models/SfvbFlowsResponse.php
 lib/models/SfvbI18nGlossary.php
 lib/models/SfvbI18nGlossaryRequest.php
 lib/models/SfvbI18nLanguage.php
