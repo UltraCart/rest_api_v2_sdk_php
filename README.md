@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.207"
+    "ultracart/rest_api_v2_sdk_php": "4.1.208"
   }
 }
 ```
@@ -543,6 +543,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbContainer**](docs/Api/SfvbApi.md#getsfvbcontainer) | **GET** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Read a container stored outside the file system
 *SfvbApi* | [**getSfvbContainerVersion**](docs/Api/SfvbApi.md#getsfvbcontainerversion) | **GET** /sfvb/storefronts/{storefront_oid}/container_versions/{container_history_oid} | Read the CJSON stored in one container history entry
 *SfvbApi* | [**getSfvbElement**](docs/Api/SfvbApi.md#getsfvbelement) | **GET** /sfvb/elements/{element_type} | Configuration schema and field card for one element type
+*SfvbApi* | [**getSfvbEmail**](docs/Api/SfvbApi.md#getsfvbemail) | **GET** /sfvb/storefronts/{storefront_oid}/emails/{email_uuid} | Get a flow or campaign email&#39;s subject and preview text
 *SfvbApi* | [**getSfvbEvents**](docs/Api/SfvbApi.md#getsfvbevents) | **GET** /sfvb/events | Replay events
 *SfvbApi* | [**getSfvbEventsAuthorization**](docs/Api/SfvbApi.md#getsfvbeventsauthorization) | **PUT** /sfvb/events/auth | Open the event stream
 *SfvbApi* | [**getSfvbExperiment**](docs/Api/SfvbApi.md#getsfvbexperiment) | **GET** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid} | Read one experiment and its statistics
@@ -671,6 +672,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**updateSfvbBlogPost**](docs/Api/SfvbApi.md#updatesfvbblogpost) | **PUT** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Change a blog post
 *SfvbApi* | [**updateSfvbCommsSendingDomain**](docs/Api/SfvbApi.md#updatesfvbcommssendingdomain) | **PUT** /sfvb/comms/sending_domains/{domain} | Update a sending domain
 *SfvbApi* | [**updateSfvbCommsTwilioAccount**](docs/Api/SfvbApi.md#updatesfvbcommstwilioaccount) | **PUT** /sfvb/comms/twilio_account | Update the Twilio account
+*SfvbApi* | [**updateSfvbEmail**](docs/Api/SfvbApi.md#updatesfvbemail) | **PUT** /sfvb/storefronts/{storefront_oid}/emails/{email_uuid} | Change a flow or campaign email&#39;s subject or preview text
 *SfvbApi* | [**updateSfvbItemAttributeBatch**](docs/Api/SfvbApi.md#updatesfvbitemattributebatch) | **POST** /sfvb/storefronts/{storefront_oid}/items/attributes/batch | Change attributes across many items in one call
 *SfvbApi* | [**updateSfvbLibraryEntry**](docs/Api/SfvbApi.md#updatesfvblibraryentry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Update a library entry&#39;s draft
 *SfvbApi* | [**updateSfvbRedirect**](docs/Api/SfvbApi.md#updatesfvbredirect) | **PUT** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Change a redirect rule
@@ -1936,8 +1938,10 @@ Class | Method | HTTP request | Description
 - [SfvbElement](docs/Model/SfvbElement.md)
 - [SfvbElementSchemaResponse](docs/Model/SfvbElementSchemaResponse.md)
 - [SfvbElementsResponse](docs/Model/SfvbElementsResponse.md)
+- [SfvbEmail](docs/Model/SfvbEmail.md)
 - [SfvbEmailRenderRequest](docs/Model/SfvbEmailRenderRequest.md)
 - [SfvbEmailRenderResponse](docs/Model/SfvbEmailRenderResponse.md)
+- [SfvbEmailUpdateRequest](docs/Model/SfvbEmailUpdateRequest.md)
 - [SfvbErrorDetail](docs/Model/SfvbErrorDetail.md)
 - [SfvbEvent](docs/Model/SfvbEvent.md)
 - [SfvbEventsAuthRequest](docs/Model/SfvbEventsAuthRequest.md)
@@ -2329,6 +2333,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.208 | 10/26/2026 | sfvb internal testing |
 | 4.1.207 | 10/16/2026 | sfvb internal testing |
 | 4.1.206 | 10/16/2026 | sfvb internal testing |
 | 4.1.205 | 10/15/2026 | sfvb internal testing |

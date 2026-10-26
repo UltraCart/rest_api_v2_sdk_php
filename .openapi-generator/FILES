@@ -1025,8 +1025,10 @@ docs/Model/SfvbContainerWriteRequest.md
 docs/Model/SfvbElement.md
 docs/Model/SfvbElementSchemaResponse.md
 docs/Model/SfvbElementsResponse.md
+docs/Model/SfvbEmail.md
 docs/Model/SfvbEmailRenderRequest.md
 docs/Model/SfvbEmailRenderResponse.md
+docs/Model/SfvbEmailUpdateRequest.md
 docs/Model/SfvbErrorDetail.md
 docs/Model/SfvbEvent.md
 docs/Model/SfvbEventsAuthRequest.md
@@ -2351,8 +2353,10 @@ lib/models/SfvbContainerWriteRequest.php
 lib/models/SfvbElement.php
 lib/models/SfvbElementSchemaResponse.php
 lib/models/SfvbElementsResponse.php
+lib/models/SfvbEmail.php
 lib/models/SfvbEmailRenderRequest.php
 lib/models/SfvbEmailRenderResponse.php
+lib/models/SfvbEmailUpdateRequest.php
 lib/models/SfvbErrorDetail.php
 lib/models/SfvbEvent.php
 lib/models/SfvbEventsAuthRequest.php

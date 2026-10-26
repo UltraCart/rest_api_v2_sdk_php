@@ -56,6 +56,7 @@ Method | HTTP request | Description
 [**getSfvbContainer()**](SfvbApi.md#getSfvbContainer) | **GET** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Read a container stored outside the file system
 [**getSfvbContainerVersion()**](SfvbApi.md#getSfvbContainerVersion) | **GET** /sfvb/storefronts/{storefront_oid}/container_versions/{container_history_oid} | Read the CJSON stored in one container history entry
 [**getSfvbElement()**](SfvbApi.md#getSfvbElement) | **GET** /sfvb/elements/{element_type} | Configuration schema and field card for one element type
+[**getSfvbEmail()**](SfvbApi.md#getSfvbEmail) | **GET** /sfvb/storefronts/{storefront_oid}/emails/{email_uuid} | Get a flow or campaign email&#39;s subject and preview text
 [**getSfvbEvents()**](SfvbApi.md#getSfvbEvents) | **GET** /sfvb/events | Replay events
 [**getSfvbEventsAuthorization()**](SfvbApi.md#getSfvbEventsAuthorization) | **PUT** /sfvb/events/auth | Open the event stream
 [**getSfvbExperiment()**](SfvbApi.md#getSfvbExperiment) | **GET** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid} | Read one experiment and its statistics
@@ -184,6 +185,7 @@ Method | HTTP request | Description
 [**updateSfvbBlogPost()**](SfvbApi.md#updateSfvbBlogPost) | **PUT** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Change a blog post
 [**updateSfvbCommsSendingDomain()**](SfvbApi.md#updateSfvbCommsSendingDomain) | **PUT** /sfvb/comms/sending_domains/{domain} | Update a sending domain
 [**updateSfvbCommsTwilioAccount()**](SfvbApi.md#updateSfvbCommsTwilioAccount) | **PUT** /sfvb/comms/twilio_account | Update the Twilio account
+[**updateSfvbEmail()**](SfvbApi.md#updateSfvbEmail) | **PUT** /sfvb/storefronts/{storefront_oid}/emails/{email_uuid} | Change a flow or campaign email&#39;s subject or preview text
 [**updateSfvbItemAttributeBatch()**](SfvbApi.md#updateSfvbItemAttributeBatch) | **POST** /sfvb/storefronts/{storefront_oid}/items/attributes/batch | Change attributes across many items in one call
 [**updateSfvbLibraryEntry()**](SfvbApi.md#updateSfvbLibraryEntry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Update a library entry&#39;s draft
 [**updateSfvbRedirect()**](SfvbApi.md#updateSfvbRedirect) | **PUT** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Change a redirect rule
@@ -2325,6 +2327,47 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\SfvbElementSchemaResponse**](../Model/SfvbElementSchemaResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getSfvbEmail()`
+
+```php
+getSfvbEmail($storefront_oid, $email_uuid): \ultracart\v2\models\SfvbEmail
+```
+
+Get a flow or campaign email's subject and preview text
+
+The subject, preview text and hash_sha256 to send as If-Match when updating them, with whether the email is live and its review state.  The body is the email container (owner type email).  Find the uuid in the storefront's campaigns and flows.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **email_uuid** | **string**|  |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbEmail**](../Model/SfvbEmail.md)
 
 ### Authorization
 
@@ -7677,6 +7720,49 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateSfvbEmail()`
+
+```php
+updateSfvbEmail($storefront_oid, $email_uuid, $if_match, $email_update_request): \ultracart\v2\models\SfvbEmail
+```
+
+Change a flow or campaign email's subject or preview text
+
+A field left out keeps its value.  Each is 5 to 150 characters on one line.  Send the hash_sha256 you read as If-Match.  An email in a sending flow or campaign needs sfvb_publish, as a body push does.  The merchant's content review rule applies, so an email waiting for review or rejected goes back to needing review.  An email suspended for spam is refused with sfvb.email_suspended.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **email_uuid** | **string**|  |
+ **if_match** | **string**| hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. |
+ **email_update_request** | [**\ultracart\v2\models\SfvbEmailUpdateRequest**](../Model/SfvbEmailUpdateRequest.md)| The subject or preview text to change |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbEmail**](../Model/SfvbEmail.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

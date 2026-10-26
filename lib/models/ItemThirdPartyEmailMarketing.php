@@ -189,8 +189,6 @@ class ItemThirdPartyEmailMarketing implements ModelInterface, ArrayAccess, \Json
     public const PROVIDER_NAME_GET_RESPONSE = 'GetResponse';
     public const PROVIDER_NAME_I_CONTACT = 'iContact';
     public const PROVIDER_NAME_KLAVIYO = 'Klaviyo';
-    public const PROVIDER_NAME_LYRIS = 'Lyris';
-    public const PROVIDER_NAME_LYRIS_HQ = 'LyrisHQ';
     public const PROVIDER_NAME_MAIL_CHIMP = 'MailChimp';
 
     /**
@@ -209,8 +207,6 @@ class ItemThirdPartyEmailMarketing implements ModelInterface, ArrayAccess, \Json
             self::PROVIDER_NAME_GET_RESPONSE,
             self::PROVIDER_NAME_I_CONTACT,
             self::PROVIDER_NAME_KLAVIYO,
-            self::PROVIDER_NAME_LYRIS,
-            self::PROVIDER_NAME_LYRIS_HQ,
             self::PROVIDER_NAME_MAIL_CHIMP,
         ];
     }
