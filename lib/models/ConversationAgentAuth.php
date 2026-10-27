@@ -71,6 +71,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
         'parent_merchant_id' => 'string',
         'pbx_admin' => 'bool',
         'pbx_jwt' => 'string',
+        'pbx_startup_activity' => 'string',
         'pbx_supervisor' => 'bool',
         'pbx_user' => 'bool',
         'pbx_voice_identity' => 'string',
@@ -103,6 +104,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
         'parent_merchant_id' => null,
         'pbx_admin' => null,
         'pbx_jwt' => null,
+        'pbx_startup_activity' => null,
         'pbx_supervisor' => null,
         'pbx_user' => null,
         'pbx_voice_identity' => null,
@@ -154,6 +156,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
         'parent_merchant_id' => 'parent_merchant_id',
         'pbx_admin' => 'pbx_admin',
         'pbx_jwt' => 'pbx_jwt',
+        'pbx_startup_activity' => 'pbx_startup_activity',
         'pbx_supervisor' => 'pbx_supervisor',
         'pbx_user' => 'pbx_user',
         'pbx_voice_identity' => 'pbx_voice_identity',
@@ -184,6 +187,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
         'parent_merchant_id' => 'setParentMerchantId',
         'pbx_admin' => 'setPbxAdmin',
         'pbx_jwt' => 'setPbxJwt',
+        'pbx_startup_activity' => 'setPbxStartupActivity',
         'pbx_supervisor' => 'setPbxSupervisor',
         'pbx_user' => 'setPbxUser',
         'pbx_voice_identity' => 'setPbxVoiceIdentity',
@@ -214,6 +218,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
         'parent_merchant_id' => 'getParentMerchantId',
         'pbx_admin' => 'getPbxAdmin',
         'pbx_jwt' => 'getPbxJwt',
+        'pbx_startup_activity' => 'getPbxStartupActivity',
         'pbx_supervisor' => 'getPbxSupervisor',
         'pbx_user' => 'getPbxUser',
         'pbx_voice_identity' => 'getPbxVoiceIdentity',
@@ -266,6 +271,21 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
         return self::$openAPIModelName;
     }
 
+    public const PBX_STARTUP_ACTIVITY_AVAILABLE = 'available';
+    public const PBX_STARTUP_ACTIVITY_UNAVAILABLE = 'unavailable';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPbxStartupActivityAllowableValues()
+    {
+        return [
+            self::PBX_STARTUP_ACTIVITY_AVAILABLE,
+            self::PBX_STARTUP_ACTIVITY_UNAVAILABLE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -295,6 +315,7 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->container['parent_merchant_id'] = $data['parent_merchant_id'] ?? null;
         $this->container['pbx_admin'] = $data['pbx_admin'] ?? null;
         $this->container['pbx_jwt'] = $data['pbx_jwt'] ?? null;
+        $this->container['pbx_startup_activity'] = $data['pbx_startup_activity'] ?? null;
         $this->container['pbx_supervisor'] = $data['pbx_supervisor'] ?? null;
         $this->container['pbx_user'] = $data['pbx_user'] ?? null;
         $this->container['pbx_voice_identity'] = $data['pbx_voice_identity'] ?? null;
@@ -314,6 +335,15 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getPbxStartupActivityAllowableValues();
+        if (!is_null($this->container['pbx_startup_activity']) && !in_array($this->container['pbx_startup_activity'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'pbx_startup_activity', must be one of '%s'",
+                $this->container['pbx_startup_activity'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -638,6 +668,40 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setPbxJwt($pbx_jwt)
     {
         $this->container['pbx_jwt'] = $pbx_jwt;
+
+        return $this;
+    }
+
+    /**
+     * Gets pbx_startup_activity
+     *
+     * @return string|null
+     */
+    public function getPbxStartupActivity()
+    {
+        return $this->container['pbx_startup_activity'];
+    }
+
+    /**
+     * Sets pbx_startup_activity
+     *
+     * @param string|null $pbx_startup_activity Status the agent starts in when the CRM loads
+     *
+     * @return self
+     */
+    public function setPbxStartupActivity($pbx_startup_activity)
+    {
+        $allowedValues = $this->getPbxStartupActivityAllowableValues();
+        if (!is_null($pbx_startup_activity) && !in_array($pbx_startup_activity, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'pbx_startup_activity', must be one of '%s'",
+                    $pbx_startup_activity,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['pbx_startup_activity'] = $pbx_startup_activity;
 
         return $this;
     }

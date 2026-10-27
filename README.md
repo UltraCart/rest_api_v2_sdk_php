@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.211"
+    "ultracart/rest_api_v2_sdk_php": "4.1.212"
   }
 }
 ```
@@ -2359,6 +2359,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.212 | 10/27/2026 | conversation - pbx agent startup activity |
 | 4.1.211 | 10/27/2026 | sfvb internal testing |
 | 4.1.210 | 10/27/2026 | sfvb internal testing |
 | 4.1.209 | 10/27/2026 | sfvb internal testing |

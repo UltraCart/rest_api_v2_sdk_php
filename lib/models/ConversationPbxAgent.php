@@ -73,6 +73,7 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
         'preferred_hardware_phone_uuid' => 'string',
         'record_outgoing_automatically' => 'bool',
         'shared_conversation_pbx_voicemail_mailbox_uuid' => 'string',
+        'startup_activity' => 'string',
         'twilio_taskrouter_worker_id' => 'string',
         'unavailable_play_audio_uuid' => 'string',
         'unavailable_say' => 'string',
@@ -106,6 +107,7 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
         'preferred_hardware_phone_uuid' => null,
         'record_outgoing_automatically' => null,
         'shared_conversation_pbx_voicemail_mailbox_uuid' => null,
+        'startup_activity' => null,
         'twilio_taskrouter_worker_id' => null,
         'unavailable_play_audio_uuid' => null,
         'unavailable_say' => null,
@@ -158,6 +160,7 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
         'preferred_hardware_phone_uuid' => 'preferred_hardware_phone_uuid',
         'record_outgoing_automatically' => 'record_outgoing_automatically',
         'shared_conversation_pbx_voicemail_mailbox_uuid' => 'shared_conversation_pbx_voicemail_mailbox_uuid',
+        'startup_activity' => 'startup_activity',
         'twilio_taskrouter_worker_id' => 'twilio_taskrouter_worker_id',
         'unavailable_play_audio_uuid' => 'unavailable_play_audio_uuid',
         'unavailable_say' => 'unavailable_say',
@@ -189,6 +192,7 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
         'preferred_hardware_phone_uuid' => 'setPreferredHardwarePhoneUuid',
         'record_outgoing_automatically' => 'setRecordOutgoingAutomatically',
         'shared_conversation_pbx_voicemail_mailbox_uuid' => 'setSharedConversationPbxVoicemailMailboxUuid',
+        'startup_activity' => 'setStartupActivity',
         'twilio_taskrouter_worker_id' => 'setTwilioTaskrouterWorkerId',
         'unavailable_play_audio_uuid' => 'setUnavailablePlayAudioUuid',
         'unavailable_say' => 'setUnavailableSay',
@@ -220,6 +224,7 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
         'preferred_hardware_phone_uuid' => 'getPreferredHardwarePhoneUuid',
         'record_outgoing_automatically' => 'getRecordOutgoingAutomatically',
         'shared_conversation_pbx_voicemail_mailbox_uuid' => 'getSharedConversationPbxVoicemailMailboxUuid',
+        'startup_activity' => 'getStartupActivity',
         'twilio_taskrouter_worker_id' => 'getTwilioTaskrouterWorkerId',
         'unavailable_play_audio_uuid' => 'getUnavailablePlayAudioUuid',
         'unavailable_say' => 'getUnavailableSay',
@@ -274,6 +279,8 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
     public const CALL_ROUTING_PREFERENCE_SOFTPHONE = 'softphone';
     public const CALL_ROUTING_PREFERENCE_HARDWARE_PHONE = 'hardware_phone';
     public const CALL_ROUTING_PREFERENCE_CELLPHONE = 'cellphone';
+    public const STARTUP_ACTIVITY_AVAILABLE = 'available';
+    public const STARTUP_ACTIVITY_UNAVAILABLE = 'unavailable';
     public const UNAVAILABLE_SAY_VOICE_MAN = 'man';
     public const UNAVAILABLE_SAY_VOICE_WOMAN = 'woman';
 
@@ -288,6 +295,19 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
             self::CALL_ROUTING_PREFERENCE_SOFTPHONE,
             self::CALL_ROUTING_PREFERENCE_HARDWARE_PHONE,
             self::CALL_ROUTING_PREFERENCE_CELLPHONE,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStartupActivityAllowableValues()
+    {
+        return [
+            self::STARTUP_ACTIVITY_AVAILABLE,
+            self::STARTUP_ACTIVITY_UNAVAILABLE,
         ];
     }
 
@@ -334,6 +354,7 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->container['preferred_hardware_phone_uuid'] = $data['preferred_hardware_phone_uuid'] ?? null;
         $this->container['record_outgoing_automatically'] = $data['record_outgoing_automatically'] ?? null;
         $this->container['shared_conversation_pbx_voicemail_mailbox_uuid'] = $data['shared_conversation_pbx_voicemail_mailbox_uuid'] ?? null;
+        $this->container['startup_activity'] = $data['startup_activity'] ?? null;
         $this->container['twilio_taskrouter_worker_id'] = $data['twilio_taskrouter_worker_id'] ?? null;
         $this->container['unavailable_play_audio_uuid'] = $data['unavailable_play_audio_uuid'] ?? null;
         $this->container['unavailable_say'] = $data['unavailable_say'] ?? null;
@@ -376,6 +397,15 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
 
         if (!is_null($this->container['shared_conversation_pbx_voicemail_mailbox_uuid']) && (mb_strlen($this->container['shared_conversation_pbx_voicemail_mailbox_uuid']) > 50)) {
             $invalidProperties[] = "invalid value for 'shared_conversation_pbx_voicemail_mailbox_uuid', the character length must be smaller than or equal to 50.";
+        }
+
+        $allowedValues = $this->getStartupActivityAllowableValues();
+        if (!is_null($this->container['startup_activity']) && !in_array($this->container['startup_activity'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'startup_activity', must be one of '%s'",
+                $this->container['startup_activity'],
+                implode("', '", $allowedValues)
+            );
         }
 
         if (!is_null($this->container['twilio_taskrouter_worker_id']) && (mb_strlen($this->container['twilio_taskrouter_worker_id']) > 100)) {
@@ -800,6 +830,40 @@ class ConversationPbxAgent implements ModelInterface, ArrayAccess, \JsonSerializ
         }
 
         $this->container['shared_conversation_pbx_voicemail_mailbox_uuid'] = $shared_conversation_pbx_voicemail_mailbox_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets startup_activity
+     *
+     * @return string|null
+     */
+    public function getStartupActivity()
+    {
+        return $this->container['startup_activity'];
+    }
+
+    /**
+     * Sets startup_activity
+     *
+     * @param string|null $startup_activity Status the agent starts in when the CRM loads. Missing means available.
+     *
+     * @return self
+     */
+    public function setStartupActivity($startup_activity)
+    {
+        $allowedValues = $this->getStartupActivityAllowableValues();
+        if (!is_null($startup_activity) && !in_array($startup_activity, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'startup_activity', must be one of '%s'",
+                    $startup_activity,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['startup_activity'] = $startup_activity;
 
         return $this;
     }
