@@ -1035,6 +1035,7 @@ docs/Model/SfvbElementsResponse.md
 docs/Model/SfvbEmail.md
 docs/Model/SfvbEmailRenderRequest.md
 docs/Model/SfvbEmailRenderResponse.md
+docs/Model/SfvbEmailReviewRequest.md
 docs/Model/SfvbEmailUpdateRequest.md
 docs/Model/SfvbErrorDetail.md
 docs/Model/SfvbEvent.md
@@ -2372,6 +2373,7 @@ lib/models/SfvbElementsResponse.php
 lib/models/SfvbEmail.php
 lib/models/SfvbEmailRenderRequest.php
 lib/models/SfvbEmailRenderResponse.php
+lib/models/SfvbEmailReviewRequest.php
 lib/models/SfvbEmailUpdateRequest.php
 lib/models/SfvbErrorDetail.php
 lib/models/SfvbEvent.php

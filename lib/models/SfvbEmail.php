@@ -62,6 +62,7 @@ class SfvbEmail implements ModelInterface, ArrayAccess, \JsonSerializable
         'email_uuid' => 'string',
         'hash_sha256' => 'string',
         'live' => 'bool',
+        'notes' => 'string[]',
         'pending_review' => 'bool',
         'preview_text' => 'string',
         'rejected' => 'bool',
@@ -84,6 +85,7 @@ class SfvbEmail implements ModelInterface, ArrayAccess, \JsonSerializable
         'email_uuid' => null,
         'hash_sha256' => null,
         'live' => null,
+        'notes' => null,
         'pending_review' => null,
         'preview_text' => null,
         'rejected' => null,
@@ -125,6 +127,7 @@ class SfvbEmail implements ModelInterface, ArrayAccess, \JsonSerializable
         'email_uuid' => 'email_uuid',
         'hash_sha256' => 'hash_sha256',
         'live' => 'live',
+        'notes' => 'notes',
         'pending_review' => 'pending_review',
         'preview_text' => 'preview_text',
         'rejected' => 'rejected',
@@ -145,6 +148,7 @@ class SfvbEmail implements ModelInterface, ArrayAccess, \JsonSerializable
         'email_uuid' => 'setEmailUuid',
         'hash_sha256' => 'setHashSha256',
         'live' => 'setLive',
+        'notes' => 'setNotes',
         'pending_review' => 'setPendingReview',
         'preview_text' => 'setPreviewText',
         'rejected' => 'setRejected',
@@ -165,6 +169,7 @@ class SfvbEmail implements ModelInterface, ArrayAccess, \JsonSerializable
         'email_uuid' => 'getEmailUuid',
         'hash_sha256' => 'getHashSha256',
         'live' => 'getLive',
+        'notes' => 'getNotes',
         'pending_review' => 'getPendingReview',
         'preview_text' => 'getPreviewText',
         'rejected' => 'getRejected',
@@ -236,6 +241,7 @@ class SfvbEmail implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['email_uuid'] = $data['email_uuid'] ?? null;
         $this->container['hash_sha256'] = $data['hash_sha256'] ?? null;
         $this->container['live'] = $data['live'] ?? null;
+        $this->container['notes'] = $data['notes'] ?? null;
         $this->container['pending_review'] = $data['pending_review'] ?? null;
         $this->container['preview_text'] = $data['preview_text'] ?? null;
         $this->container['rejected'] = $data['rejected'] ?? null;
@@ -362,6 +368,30 @@ class SfvbEmail implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setLive($live)
     {
         $this->container['live'] = $live;
+
+        return $this;
+    }
+
+    /**
+     * Gets notes
+     *
+     * @return string[]|null
+     */
+    public function getNotes()
+    {
+        return $this->container['notes'];
+    }
+
+    /**
+     * Sets notes
+     *
+     * @param string[]|null $notes What a write did beyond the fields asked for, such as a step label it could not refresh.  Only on a write.
+     *
+     * @return self
+     */
+    public function setNotes($notes)
+    {
+        $this->container['notes'] = $notes;
 
         return $this;
     }

@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.209"
+    "ultracart/rest_api_v2_sdk_php": "4.1.210"
   }
 }
 ```
@@ -666,6 +666,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**resolveSfvbTemplate**](docs/Api/SfvbApi.md#resolvesfvbtemplate) | **GET** /sfvb/storefronts/{storefront_oid}/templates/resolve | Resolve a template name to the file a page renders
 *SfvbApi* | [**revertSfvbContainer**](docs/Api/SfvbApi.md#revertsfvbcontainer) | **POST** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id}/revert | Revert a container stored outside the file system
 *SfvbApi* | [**revertSfvbFile**](docs/Api/SfvbApi.md#revertsfvbfile) | **POST** /sfvb/storefronts/{storefront_oid}/files/revert | Revert a storefront file to an earlier version
+*SfvbApi* | [**reviewSfvbEmail**](docs/Api/SfvbApi.md#reviewsfvbemail) | **POST** /sfvb/storefronts/{storefront_oid}/emails/{email_uuid}/review | Request a content review of a flow or campaign email
 *SfvbApi* | [**revokeSfvbSecretRequest**](docs/Api/SfvbApi.md#revokesfvbsecretrequest) | **POST** /sfvb/secrets/{request_id}/revoke | Revoke a fulfilled request&#39;s unused handles
 *SfvbApi* | [**searchSfvbFiles**](docs/Api/SfvbApi.md#searchsfvbfiles) | **POST** /sfvb/storefronts/{storefront_oid}/files/search | Search storefront files
 *SfvbApi* | [**searchSfvbLibrary**](docs/Api/SfvbApi.md#searchsfvblibrary) | **GET** /sfvb/storefronts/{storefront_oid}/library | Search the element library
@@ -1959,6 +1960,7 @@ Class | Method | HTTP request | Description
 - [SfvbEmail](docs/Model/SfvbEmail.md)
 - [SfvbEmailRenderRequest](docs/Model/SfvbEmailRenderRequest.md)
 - [SfvbEmailRenderResponse](docs/Model/SfvbEmailRenderResponse.md)
+- [SfvbEmailReviewRequest](docs/Model/SfvbEmailReviewRequest.md)
 - [SfvbEmailUpdateRequest](docs/Model/SfvbEmailUpdateRequest.md)
 - [SfvbErrorDetail](docs/Model/SfvbErrorDetail.md)
 - [SfvbEvent](docs/Model/SfvbEvent.md)
@@ -2353,6 +2355,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.210 | 10/27/2026 | sfvb internal testing |
 | 4.1.209 | 10/27/2026 | sfvb internal testing |
 | 4.1.208 | 10/26/2026 | sfvb internal testing |
 | 4.1.207 | 10/16/2026 | sfvb internal testing |
