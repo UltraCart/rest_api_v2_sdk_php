@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.210"
+    "ultracart/rest_api_v2_sdk_php": "4.1.211"
   }
 }
 ```
@@ -587,6 +587,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbSecretKinds**](docs/Api/SfvbApi.md#getsfvbsecretkinds) | **GET** /sfvb/secrets/kinds | List the secrets this server collects
 *SfvbApi* | [**getSfvbSecretRequest**](docs/Api/SfvbApi.md#getsfvbsecretrequest) | **GET** /sfvb/secrets/{request_id} | Read one secret request
 *SfvbApi* | [**getSfvbSecretRequests**](docs/Api/SfvbApi.md#getsfvbsecretrequests) | **GET** /sfvb/secrets | List this sign-in&#39;s secret requests
+*SfvbApi* | [**getSfvbSequence**](docs/Api/SfvbApi.md#getsfvbsequence) | **GET** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid} | Get a campaign&#39;s or flow&#39;s steps as a tree
 *SfvbApi* | [**getSfvbServerLog**](docs/Api/SfvbApi.md#getsfvbserverlog) | **GET** /sfvb/storefronts/{storefront_oid}/logs/{log_id} | Get one storefront render log
 *SfvbApi* | [**getSfvbSiteAttributes**](docs/Api/SfvbApi.md#getsfvbsiteattributes) | **GET** /sfvb/storefronts/{storefront_oid}/attributes | Read a storefront&#39;s site attributes
 *SfvbApi* | [**getSfvbTestOrders**](docs/Api/SfvbApi.md#getsfvbtestorders) | **GET** /sfvb/storefronts/{storefront_oid}/test_orders | List recent test orders
@@ -2120,6 +2121,9 @@ Class | Method | HTTP request | Description
 - [SfvbSecretRequestCreate](docs/Model/SfvbSecretRequestCreate.md)
 - [SfvbSecretRequestsResponse](docs/Model/SfvbSecretRequestsResponse.md)
 - [SfvbSecretSink](docs/Model/SfvbSecretSink.md)
+- [SfvbSequence](docs/Model/SfvbSequence.md)
+- [SfvbSequenceBranch](docs/Model/SfvbSequenceBranch.md)
+- [SfvbSequenceStep](docs/Model/SfvbSequenceStep.md)
 - [SfvbServerLog](docs/Model/SfvbServerLog.md)
 - [SfvbServerLogDetail](docs/Model/SfvbServerLogDetail.md)
 - [SfvbServerLogEntry](docs/Model/SfvbServerLogEntry.md)
@@ -2355,6 +2359,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.211 | 10/27/2026 | sfvb internal testing |
 | 4.1.210 | 10/27/2026 | sfvb internal testing |
 | 4.1.209 | 10/27/2026 | sfvb internal testing |
 | 4.1.208 | 10/26/2026 | sfvb internal testing |
