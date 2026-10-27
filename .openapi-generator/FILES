@@ -1000,6 +1000,7 @@ docs/Model/SfvbApprovalParams.md
 docs/Model/SfvbApprovalReview.md
 docs/Model/SfvbApprovalReviewFinding.md
 docs/Model/SfvbApprovalsResponse.md
+docs/Model/SfvbArchiveRequest.md
 docs/Model/SfvbBlogPost.md
 docs/Model/SfvbBlogPostDetail.md
 docs/Model/SfvbBlogPostImage.md
@@ -1007,10 +1008,16 @@ docs/Model/SfvbBlogPostImageRequest.md
 docs/Model/SfvbBlogPostRequest.md
 docs/Model/SfvbBlogPostsResponse.md
 docs/Model/SfvbCampaign.md
+docs/Model/SfvbCampaignMembership.md
+docs/Model/SfvbCampaignWriteRequest.md
 docs/Model/SfvbCampaignsResponse.md
 docs/Model/SfvbCommsDnsRecord.md
 docs/Model/SfvbCommsEmail.md
+docs/Model/SfvbCommsList.md
+docs/Model/SfvbCommsListsResponse.md
 docs/Model/SfvbCommsPostcard.md
+docs/Model/SfvbCommsSegment.md
+docs/Model/SfvbCommsSegmentsResponse.md
 docs/Model/SfvbCommsSendingDomain.md
 docs/Model/SfvbCommsSendingDomainsResponse.md
 docs/Model/SfvbCommsTwilioAccount.md
@@ -1055,6 +1062,8 @@ docs/Model/SfvbFileWriteRequest.md
 docs/Model/SfvbFileWriteResponse.md
 docs/Model/SfvbFilesResponse.md
 docs/Model/SfvbFlow.md
+docs/Model/SfvbFlowStatusRequest.md
+docs/Model/SfvbFlowWriteRequest.md
 docs/Model/SfvbFlowsResponse.md
 docs/Model/SfvbI18nGlossary.md
 docs/Model/SfvbI18nGlossaryRequest.md
@@ -2328,6 +2337,7 @@ lib/models/SfvbApprovalParams.php
 lib/models/SfvbApprovalReview.php
 lib/models/SfvbApprovalReviewFinding.php
 lib/models/SfvbApprovalsResponse.php
+lib/models/SfvbArchiveRequest.php
 lib/models/SfvbBlogPost.php
 lib/models/SfvbBlogPostDetail.php
 lib/models/SfvbBlogPostImage.php
@@ -2335,10 +2345,16 @@ lib/models/SfvbBlogPostImageRequest.php
 lib/models/SfvbBlogPostRequest.php
 lib/models/SfvbBlogPostsResponse.php
 lib/models/SfvbCampaign.php
+lib/models/SfvbCampaignMembership.php
+lib/models/SfvbCampaignWriteRequest.php
 lib/models/SfvbCampaignsResponse.php
 lib/models/SfvbCommsDnsRecord.php
 lib/models/SfvbCommsEmail.php
+lib/models/SfvbCommsList.php
+lib/models/SfvbCommsListsResponse.php
 lib/models/SfvbCommsPostcard.php
+lib/models/SfvbCommsSegment.php
+lib/models/SfvbCommsSegmentsResponse.php
 lib/models/SfvbCommsSendingDomain.php
 lib/models/SfvbCommsSendingDomainsResponse.php
 lib/models/SfvbCommsTwilioAccount.php
@@ -2383,6 +2399,8 @@ lib/models/SfvbFileWriteRequest.php
 lib/models/SfvbFileWriteResponse.php
 lib/models/SfvbFilesResponse.php
 lib/models/SfvbFlow.php
+lib/models/SfvbFlowStatusRequest.php
+lib/models/SfvbFlowWriteRequest.php
 lib/models/SfvbFlowsResponse.php
 lib/models/SfvbI18nGlossary.php
 lib/models/SfvbI18nGlossaryRequest.php

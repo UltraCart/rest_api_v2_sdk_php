@@ -58,16 +58,27 @@ class SfvbFlow implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'allow_multiple_concurrent_enrollments' => 'bool',
         'communication_sequence_uuid' => 'string',
         'created_dts' => 'string',
         'deleted' => 'bool',
         'emails' => '\ultracart\v2\models\SfvbCommsEmail[]',
+        'end_once_customer_purchases' => 'bool',
+        'end_once_customer_purchases_anywhere' => 'bool',
         'flow_uuid' => 'string',
+        'hash_sha256' => 'string',
         'live' => 'bool',
         'name' => 'string',
+        'notes' => 'string[]',
         'postcards' => '\ultracart\v2\models\SfvbCommsPostcard[]',
+        'reentry_delay_days' => 'int',
+        'reentry_policy' => 'string',
+        'sending_domain_uuid' => 'string',
+        'sending_name' => 'string',
+        'sending_user' => 'string',
         'status' => 'string',
         'status_dts' => 'string',
+        'trigger_parameter' => 'string',
         'trigger_parameter_name' => 'string',
         'trigger_type' => 'string'
     ];
@@ -80,16 +91,27 @@ class SfvbFlow implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'allow_multiple_concurrent_enrollments' => null,
         'communication_sequence_uuid' => null,
         'created_dts' => 'dateTime',
         'deleted' => null,
         'emails' => null,
+        'end_once_customer_purchases' => null,
+        'end_once_customer_purchases_anywhere' => null,
         'flow_uuid' => null,
+        'hash_sha256' => null,
         'live' => null,
         'name' => null,
+        'notes' => null,
         'postcards' => null,
+        'reentry_delay_days' => 'int32',
+        'reentry_policy' => null,
+        'sending_domain_uuid' => null,
+        'sending_name' => null,
+        'sending_user' => null,
         'status' => null,
         'status_dts' => 'dateTime',
+        'trigger_parameter' => null,
         'trigger_parameter_name' => null,
         'trigger_type' => null
     ];
@@ -121,16 +143,27 @@ class SfvbFlow implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'allow_multiple_concurrent_enrollments' => 'allow_multiple_concurrent_enrollments',
         'communication_sequence_uuid' => 'communication_sequence_uuid',
         'created_dts' => 'created_dts',
         'deleted' => 'deleted',
         'emails' => 'emails',
+        'end_once_customer_purchases' => 'end_once_customer_purchases',
+        'end_once_customer_purchases_anywhere' => 'end_once_customer_purchases_anywhere',
         'flow_uuid' => 'flow_uuid',
+        'hash_sha256' => 'hash_sha256',
         'live' => 'live',
         'name' => 'name',
+        'notes' => 'notes',
         'postcards' => 'postcards',
+        'reentry_delay_days' => 'reentry_delay_days',
+        'reentry_policy' => 'reentry_policy',
+        'sending_domain_uuid' => 'sending_domain_uuid',
+        'sending_name' => 'sending_name',
+        'sending_user' => 'sending_user',
         'status' => 'status',
         'status_dts' => 'status_dts',
+        'trigger_parameter' => 'trigger_parameter',
         'trigger_parameter_name' => 'trigger_parameter_name',
         'trigger_type' => 'trigger_type'
     ];
@@ -141,16 +174,27 @@ class SfvbFlow implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'allow_multiple_concurrent_enrollments' => 'setAllowMultipleConcurrentEnrollments',
         'communication_sequence_uuid' => 'setCommunicationSequenceUuid',
         'created_dts' => 'setCreatedDts',
         'deleted' => 'setDeleted',
         'emails' => 'setEmails',
+        'end_once_customer_purchases' => 'setEndOnceCustomerPurchases',
+        'end_once_customer_purchases_anywhere' => 'setEndOnceCustomerPurchasesAnywhere',
         'flow_uuid' => 'setFlowUuid',
+        'hash_sha256' => 'setHashSha256',
         'live' => 'setLive',
         'name' => 'setName',
+        'notes' => 'setNotes',
         'postcards' => 'setPostcards',
+        'reentry_delay_days' => 'setReentryDelayDays',
+        'reentry_policy' => 'setReentryPolicy',
+        'sending_domain_uuid' => 'setSendingDomainUuid',
+        'sending_name' => 'setSendingName',
+        'sending_user' => 'setSendingUser',
         'status' => 'setStatus',
         'status_dts' => 'setStatusDts',
+        'trigger_parameter' => 'setTriggerParameter',
         'trigger_parameter_name' => 'setTriggerParameterName',
         'trigger_type' => 'setTriggerType'
     ];
@@ -161,16 +205,27 @@ class SfvbFlow implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'allow_multiple_concurrent_enrollments' => 'getAllowMultipleConcurrentEnrollments',
         'communication_sequence_uuid' => 'getCommunicationSequenceUuid',
         'created_dts' => 'getCreatedDts',
         'deleted' => 'getDeleted',
         'emails' => 'getEmails',
+        'end_once_customer_purchases' => 'getEndOnceCustomerPurchases',
+        'end_once_customer_purchases_anywhere' => 'getEndOnceCustomerPurchasesAnywhere',
         'flow_uuid' => 'getFlowUuid',
+        'hash_sha256' => 'getHashSha256',
         'live' => 'getLive',
         'name' => 'getName',
+        'notes' => 'getNotes',
         'postcards' => 'getPostcards',
+        'reentry_delay_days' => 'getReentryDelayDays',
+        'reentry_policy' => 'getReentryPolicy',
+        'sending_domain_uuid' => 'getSendingDomainUuid',
+        'sending_name' => 'getSendingName',
+        'sending_user' => 'getSendingUser',
         'status' => 'getStatus',
         'status_dts' => 'getStatusDts',
+        'trigger_parameter' => 'getTriggerParameter',
         'trigger_parameter_name' => 'getTriggerParameterName',
         'trigger_type' => 'getTriggerType'
     ];
@@ -232,16 +287,27 @@ class SfvbFlow implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->container['allow_multiple_concurrent_enrollments'] = $data['allow_multiple_concurrent_enrollments'] ?? null;
         $this->container['communication_sequence_uuid'] = $data['communication_sequence_uuid'] ?? null;
         $this->container['created_dts'] = $data['created_dts'] ?? null;
         $this->container['deleted'] = $data['deleted'] ?? null;
         $this->container['emails'] = $data['emails'] ?? null;
+        $this->container['end_once_customer_purchases'] = $data['end_once_customer_purchases'] ?? null;
+        $this->container['end_once_customer_purchases_anywhere'] = $data['end_once_customer_purchases_anywhere'] ?? null;
         $this->container['flow_uuid'] = $data['flow_uuid'] ?? null;
+        $this->container['hash_sha256'] = $data['hash_sha256'] ?? null;
         $this->container['live'] = $data['live'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
+        $this->container['notes'] = $data['notes'] ?? null;
         $this->container['postcards'] = $data['postcards'] ?? null;
+        $this->container['reentry_delay_days'] = $data['reentry_delay_days'] ?? null;
+        $this->container['reentry_policy'] = $data['reentry_policy'] ?? null;
+        $this->container['sending_domain_uuid'] = $data['sending_domain_uuid'] ?? null;
+        $this->container['sending_name'] = $data['sending_name'] ?? null;
+        $this->container['sending_user'] = $data['sending_user'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
         $this->container['status_dts'] = $data['status_dts'] ?? null;
+        $this->container['trigger_parameter'] = $data['trigger_parameter'] ?? null;
         $this->container['trigger_parameter_name'] = $data['trigger_parameter_name'] ?? null;
         $this->container['trigger_type'] = $data['trigger_type'] ?? null;
     }
@@ -269,6 +335,30 @@ class SfvbFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets allow_multiple_concurrent_enrollments
+     *
+     * @return bool|null
+     */
+    public function getAllowMultipleConcurrentEnrollments()
+    {
+        return $this->container['allow_multiple_concurrent_enrollments'];
+    }
+
+    /**
+     * Sets allow_multiple_concurrent_enrollments
+     *
+     * @param bool|null $allow_multiple_concurrent_enrollments True when a customer may be in this flow more than once at a time.
+     *
+     * @return self
+     */
+    public function setAllowMultipleConcurrentEnrollments($allow_multiple_concurrent_enrollments)
+    {
+        $this->container['allow_multiple_concurrent_enrollments'] = $allow_multiple_concurrent_enrollments;
+
+        return $this;
+    }
 
     /**
      * Gets communication_sequence_uuid
@@ -367,6 +457,54 @@ class SfvbFlow implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets end_once_customer_purchases
+     *
+     * @return bool|null
+     */
+    public function getEndOnceCustomerPurchases()
+    {
+        return $this->container['end_once_customer_purchases'];
+    }
+
+    /**
+     * Sets end_once_customer_purchases
+     *
+     * @param bool|null $end_once_customer_purchases True when a customer leaves the flow once they buy from one of its emails.
+     *
+     * @return self
+     */
+    public function setEndOnceCustomerPurchases($end_once_customer_purchases)
+    {
+        $this->container['end_once_customer_purchases'] = $end_once_customer_purchases;
+
+        return $this;
+    }
+
+    /**
+     * Gets end_once_customer_purchases_anywhere
+     *
+     * @return bool|null
+     */
+    public function getEndOnceCustomerPurchasesAnywhere()
+    {
+        return $this->container['end_once_customer_purchases_anywhere'];
+    }
+
+    /**
+     * Sets end_once_customer_purchases_anywhere
+     *
+     * @param bool|null $end_once_customer_purchases_anywhere True when a customer leaves the flow once they buy from any source.
+     *
+     * @return self
+     */
+    public function setEndOnceCustomerPurchasesAnywhere($end_once_customer_purchases_anywhere)
+    {
+        $this->container['end_once_customer_purchases_anywhere'] = $end_once_customer_purchases_anywhere;
+
+        return $this;
+    }
+
+    /**
      * Gets flow_uuid
      *
      * @return string|null
@@ -386,6 +524,30 @@ class SfvbFlow implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setFlowUuid($flow_uuid)
     {
         $this->container['flow_uuid'] = $flow_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets hash_sha256
+     *
+     * @return string|null
+     */
+    public function getHashSha256()
+    {
+        return $this->container['hash_sha256'];
+    }
+
+    /**
+     * Sets hash_sha256
+     *
+     * @param string|null $hash_sha256 Send this as If-Match when changing, archiving or turning the flow on or off.
+     *
+     * @return self
+     */
+    public function setHashSha256($hash_sha256)
+    {
+        $this->container['hash_sha256'] = $hash_sha256;
 
         return $this;
     }
@@ -439,6 +601,30 @@ class SfvbFlow implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets notes
+     *
+     * @return string[]|null
+     */
+    public function getNotes()
+    {
+        return $this->container['notes'];
+    }
+
+    /**
+     * Sets notes
+     *
+     * @param string[]|null $notes What a write did beyond the fields it was asked to change, such as putting emails back to needing review or setting a scheduled campaign back to draft.  Only on a write.
+     *
+     * @return self
+     */
+    public function setNotes($notes)
+    {
+        $this->container['notes'] = $notes;
+
+        return $this;
+    }
+
+    /**
      * Gets postcards
      *
      * @return \ultracart\v2\models\SfvbCommsPostcard[]|null
@@ -458,6 +644,126 @@ class SfvbFlow implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setPostcards($postcards)
     {
         $this->container['postcards'] = $postcards;
+
+        return $this;
+    }
+
+    /**
+     * Gets reentry_delay_days
+     *
+     * @return int|null
+     */
+    public function getReentryDelayDays()
+    {
+        return $this->container['reentry_delay_days'];
+    }
+
+    /**
+     * Sets reentry_delay_days
+     *
+     * @param int|null $reentry_delay_days Days before a customer may enter again, with after_days.
+     *
+     * @return self
+     */
+    public function setReentryDelayDays($reentry_delay_days)
+    {
+        $this->container['reentry_delay_days'] = $reentry_delay_days;
+
+        return $this;
+    }
+
+    /**
+     * Gets reentry_policy
+     *
+     * @return string|null
+     */
+    public function getReentryPolicy()
+    {
+        return $this->container['reentry_policy'];
+    }
+
+    /**
+     * Sets reentry_policy
+     *
+     * @param string|null $reentry_policy Whether a customer may enter again, anytime, after_days or never.
+     *
+     * @return self
+     */
+    public function setReentryPolicy($reentry_policy)
+    {
+        $this->container['reentry_policy'] = $reentry_policy;
+
+        return $this;
+    }
+
+    /**
+     * Gets sending_domain_uuid
+     *
+     * @return string|null
+     */
+    public function getSendingDomainUuid()
+    {
+        return $this->container['sending_domain_uuid'];
+    }
+
+    /**
+     * Sets sending_domain_uuid
+     *
+     * @param string|null $sending_domain_uuid The sending domain uuid.  Defaults to the storefront's marketing sending domain.
+     *
+     * @return self
+     */
+    public function setSendingDomainUuid($sending_domain_uuid)
+    {
+        $this->container['sending_domain_uuid'] = $sending_domain_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets sending_name
+     *
+     * @return string|null
+     */
+    public function getSendingName()
+    {
+        return $this->container['sending_name'];
+    }
+
+    /**
+     * Sets sending_name
+     *
+     * @param string|null $sending_name The from name.  Defaults to the storefront's marketing setting.
+     *
+     * @return self
+     */
+    public function setSendingName($sending_name)
+    {
+        $this->container['sending_name'] = $sending_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets sending_user
+     *
+     * @return string|null
+     */
+    public function getSendingUser()
+    {
+        return $this->container['sending_user'];
+    }
+
+    /**
+     * Sets sending_user
+     *
+     * @param string|null $sending_user The part of the from address before the at sign.  Defaults to the storefront's marketing setting.
+     *
+     * @return self
+     */
+    public function setSendingUser($sending_user)
+    {
+        $this->container['sending_user'] = $sending_user;
 
         return $this;
     }
@@ -506,6 +812,30 @@ class SfvbFlow implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setStatusDts($status_dts)
     {
         $this->container['status_dts'] = $status_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets trigger_parameter
+     *
+     * @return string|null
+     */
+    public function getTriggerParameter()
+    {
+        return $this->container['trigger_parameter'];
+    }
+
+    /**
+     * Sets trigger_parameter
+     *
+     * @param string|null $trigger_parameter The list or segment uuid, or other value, the trigger is limited to.
+     *
+     * @return self
+     */
+    public function setTriggerParameter($trigger_parameter)
+    {
+        $this->container['trigger_parameter'] = $trigger_parameter;
 
         return $this;
     }

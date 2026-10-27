@@ -68,6 +68,9 @@ class SfvbCommsEmail implements ModelInterface, ArrayAccess, \JsonSerializable
         'step_uuid' => 'string',
         'subject' => 'string',
         'transactional' => 'bool',
+        'variant_name' => 'string',
+        'variant_percentage' => 'float',
+        'variant_winner' => 'bool',
         'version' => 'int'
     ];
 
@@ -89,6 +92,9 @@ class SfvbCommsEmail implements ModelInterface, ArrayAccess, \JsonSerializable
         'step_uuid' => null,
         'subject' => null,
         'transactional' => null,
+        'variant_name' => null,
+        'variant_percentage' => null,
+        'variant_winner' => null,
         'version' => 'int32'
     ];
 
@@ -129,6 +135,9 @@ class SfvbCommsEmail implements ModelInterface, ArrayAccess, \JsonSerializable
         'step_uuid' => 'step_uuid',
         'subject' => 'subject',
         'transactional' => 'transactional',
+        'variant_name' => 'variant_name',
+        'variant_percentage' => 'variant_percentage',
+        'variant_winner' => 'variant_winner',
         'version' => 'version'
     ];
 
@@ -148,6 +157,9 @@ class SfvbCommsEmail implements ModelInterface, ArrayAccess, \JsonSerializable
         'step_uuid' => 'setStepUuid',
         'subject' => 'setSubject',
         'transactional' => 'setTransactional',
+        'variant_name' => 'setVariantName',
+        'variant_percentage' => 'setVariantPercentage',
+        'variant_winner' => 'setVariantWinner',
         'version' => 'setVersion'
     ];
 
@@ -167,6 +179,9 @@ class SfvbCommsEmail implements ModelInterface, ArrayAccess, \JsonSerializable
         'step_uuid' => 'getStepUuid',
         'subject' => 'getSubject',
         'transactional' => 'getTransactional',
+        'variant_name' => 'getVariantName',
+        'variant_percentage' => 'getVariantPercentage',
+        'variant_winner' => 'getVariantWinner',
         'version' => 'getVersion'
     ];
 
@@ -237,6 +252,9 @@ class SfvbCommsEmail implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['step_uuid'] = $data['step_uuid'] ?? null;
         $this->container['subject'] = $data['subject'] ?? null;
         $this->container['transactional'] = $data['transactional'] ?? null;
+        $this->container['variant_name'] = $data['variant_name'] ?? null;
+        $this->container['variant_percentage'] = $data['variant_percentage'] ?? null;
+        $this->container['variant_winner'] = $data['variant_winner'] ?? null;
         $this->container['version'] = $data['version'] ?? null;
     }
 
@@ -500,6 +518,78 @@ class SfvbCommsEmail implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setTransactional($transactional)
     {
         $this->container['transactional'] = $transactional;
+
+        return $this;
+    }
+
+    /**
+     * Gets variant_name
+     *
+     * @return string|null
+     */
+    public function getVariantName()
+    {
+        return $this->container['variant_name'];
+    }
+
+    /**
+     * Sets variant_name
+     *
+     * @param string|null $variant_name For an email in an experiment step, the variant name.  Absent otherwise.
+     *
+     * @return self
+     */
+    public function setVariantName($variant_name)
+    {
+        $this->container['variant_name'] = $variant_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets variant_percentage
+     *
+     * @return float|null
+     */
+    public function getVariantPercentage()
+    {
+        return $this->container['variant_percentage'];
+    }
+
+    /**
+     * Sets variant_percentage
+     *
+     * @param float|null $variant_percentage For an email in an experiment step, the share of customers it is sent to.
+     *
+     * @return self
+     */
+    public function setVariantPercentage($variant_percentage)
+    {
+        $this->container['variant_percentage'] = $variant_percentage;
+
+        return $this;
+    }
+
+    /**
+     * Gets variant_winner
+     *
+     * @return bool|null
+     */
+    public function getVariantWinner()
+    {
+        return $this->container['variant_winner'];
+    }
+
+    /**
+     * Sets variant_winner
+     *
+     * @param bool|null $variant_winner For an email in an experiment step, true when the experiment chose it as the winner.
+     *
+     * @return self
+     */
+    public function setVariantWinner($variant_winner)
+    {
+        $this->container['variant_winner'] = $variant_winner;
 
         return $this;
     }

@@ -6,11 +6,17 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addSfvbPageBlogPosts()**](SfvbApi.md#addSfvbPageBlogPosts) | **POST** /sfvb/storefronts/{storefront_oid}/pages/blog_posts/add | Assign blog posts to a page
 [**addSfvbPageItems()**](SfvbApi.md#addSfvbPageItems) | **POST** /sfvb/storefronts/{storefront_oid}/pages/items/add | Assign items to a page
+[**archiveSfvbCampaign()**](SfvbApi.md#archiveSfvbCampaign) | **PUT** /sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid}/archive | Archive or unarchive a campaign
+[**archiveSfvbFlow()**](SfvbApi.md#archiveSfvbFlow) | **PUT** /sfvb/storefronts/{storefront_oid}/flows/{flow_uuid}/archive | Archive or unarchive a flow
 [**archiveSfvbUpsellPath()**](SfvbApi.md#archiveSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/archive | Archive an upsell path
 [**attachSfvbBlogPostImage()**](SfvbApi.md#attachSfvbBlogPostImage) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}/images/attach | Attach an image to a blog post
 [**checkSfvbRedirect()**](SfvbApi.md#checkSfvbRedirect) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/check | Check a redirect rule without creating it
 [**clearSfvbLibraryScreenshot()**](SfvbApi.md#clearSfvbLibraryScreenshot) | **DELETE** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/screenshot | Remove a library entry&#39;s screenshot
+[**cloneSfvbCampaign()**](SfvbApi.md#cloneSfvbCampaign) | **POST** /sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid}/clone | Copy a campaign on the same storefront
+[**cloneSfvbFlow()**](SfvbApi.md#cloneSfvbFlow) | **POST** /sfvb/storefronts/{storefront_oid}/flows/{flow_uuid}/clone | Copy a flow on the same storefront
 [**compileSfvbCjson()**](SfvbApi.md#compileSfvbCjson) | **POST** /sfvb/cjson/compile | Compile CJSON to Velocity
+[**createSfvbCampaign()**](SfvbApi.md#createSfvbCampaign) | **POST** /sfvb/storefronts/{storefront_oid}/campaigns | Create a draft campaign
+[**createSfvbFlow()**](SfvbApi.md#createSfvbFlow) | **POST** /sfvb/storefronts/{storefront_oid}/flows | Create a draft flow
 [**createSfvbLibraryEntry()**](SfvbApi.md#createSfvbLibraryEntry) | **POST** /sfvb/storefronts/{storefront_oid}/library | Save a fragment to the library
 [**createSfvbPreviewAccess()**](SfvbApi.md#createSfvbPreviewAccess) | **POST** /sfvb/storefronts/{storefront_oid}/preview_access | One time link that opens a preview in a browser with no UltraCart login
 [**createSfvbPreviewSession()**](SfvbApi.md#createSfvbPreviewSession) | **POST** /sfvb/storefronts/{storefront_oid}/preview_sessions | Create a preview session
@@ -119,6 +125,8 @@ Method | HTTP request | Description
 [**installSfvbLibraryEntry()**](SfvbApi.md#installSfvbLibraryEntry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/install | Install a library entry into a storefront
 [**listSfvbBlogPosts()**](SfvbApi.md#listSfvbBlogPosts) | **GET** /sfvb/storefronts/{storefront_oid}/blog_posts | List the storefront&#39;s blog posts
 [**listSfvbCampaigns()**](SfvbApi.md#listSfvbCampaigns) | **GET** /sfvb/storefronts/{storefront_oid}/campaigns | List the storefront&#39;s campaigns
+[**listSfvbCommsLists()**](SfvbApi.md#listSfvbCommsLists) | **GET** /sfvb/storefronts/{storefront_oid}/lists | List the storefront&#39;s email lists
+[**listSfvbCommsSegments()**](SfvbApi.md#listSfvbCommsSegments) | **GET** /sfvb/storefronts/{storefront_oid}/segments | List the storefront&#39;s segments
 [**listSfvbContainerVersions()**](SfvbApi.md#listSfvbContainerVersions) | **GET** /sfvb/storefronts/{storefront_oid}/container_versions | Version history for a container stored outside the file system
 [**listSfvbElements()**](SfvbApi.md#listSfvbElements) | **GET** /sfvb/elements | List every SFVB element type
 [**listSfvbExperiments()**](SfvbApi.md#listSfvbExperiments) | **GET** /sfvb/storefronts/{storefront_oid}/experiments | List the storefront&#39;s experiments
@@ -183,9 +191,12 @@ Method | HTTP request | Description
 [**unpublishSfvbLibraryEntry()**](SfvbApi.md#unpublishSfvbLibraryEntry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/unpublish | Narrow who can see a library entry
 [**unshareSfvbLibraryEntry()**](SfvbApi.md#unshareSfvbLibraryEntry) | **DELETE** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/shares/{merchant_id} | Stop sharing a library entry with an account
 [**updateSfvbBlogPost()**](SfvbApi.md#updateSfvbBlogPost) | **PUT** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Change a blog post
+[**updateSfvbCampaign()**](SfvbApi.md#updateSfvbCampaign) | **PUT** /sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid} | Change a campaign
 [**updateSfvbCommsSendingDomain()**](SfvbApi.md#updateSfvbCommsSendingDomain) | **PUT** /sfvb/comms/sending_domains/{domain} | Update a sending domain
 [**updateSfvbCommsTwilioAccount()**](SfvbApi.md#updateSfvbCommsTwilioAccount) | **PUT** /sfvb/comms/twilio_account | Update the Twilio account
 [**updateSfvbEmail()**](SfvbApi.md#updateSfvbEmail) | **PUT** /sfvb/storefronts/{storefront_oid}/emails/{email_uuid} | Change a flow or campaign email&#39;s subject or preview text
+[**updateSfvbFlow()**](SfvbApi.md#updateSfvbFlow) | **PUT** /sfvb/storefronts/{storefront_oid}/flows/{flow_uuid} | Change a flow
+[**updateSfvbFlowStatus()**](SfvbApi.md#updateSfvbFlowStatus) | **PUT** /sfvb/storefronts/{storefront_oid}/flows/{flow_uuid}/status | Turn a flow on or off
 [**updateSfvbItemAttributeBatch()**](SfvbApi.md#updateSfvbItemAttributeBatch) | **POST** /sfvb/storefronts/{storefront_oid}/items/attributes/batch | Change attributes across many items in one call
 [**updateSfvbLibraryEntry()**](SfvbApi.md#updateSfvbLibraryEntry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Update a library entry&#39;s draft
 [**updateSfvbRedirect()**](SfvbApi.md#updateSfvbRedirect) | **PUT** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Change a redirect rule
@@ -274,6 +285,92 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `archiveSfvbCampaign()`
+
+```php
+archiveSfvbCampaign($storefront_oid, $campaign_uuid, $if_match, $archive_request): \ultracart\v2\models\SfvbCampaign
+```
+
+Archive or unarchive a campaign
+
+Archiving alone never stops a send, so archiving a scheduled campaign also sets it back to draft, and notes says so.  A campaign whose send is under way is refused with sfvb.campaign_sending.  Send the hash_sha256 you read as If-Match.  A scheduled, sending or sent campaign needs sfvb_publish.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **campaign_uuid** | **string**|  |
+ **if_match** | **string**| hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. |
+ **archive_request** | [**\ultracart\v2\models\SfvbArchiveRequest**](../Model/SfvbArchiveRequest.md)| Whether to archive |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbCampaign**](../Model/SfvbCampaign.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `archiveSfvbFlow()`
+
+```php
+archiveSfvbFlow($storefront_oid, $flow_uuid, $if_match, $archive_request): \ultracart\v2\models\SfvbFlow
+```
+
+Archive or unarchive a flow
+
+A flow that is still enrolling customers is refused, because archiving would only hide it.  Set its status to inactive first.  Send the hash_sha256 you read as If-Match.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **flow_uuid** | **string**|  |
+ **if_match** | **string**| hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. |
+ **archive_request** | [**\ultracart\v2\models\SfvbArchiveRequest**](../Model/SfvbArchiveRequest.md)| Whether to archive |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbFlow**](../Model/SfvbFlow.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -446,6 +543,88 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `cloneSfvbCampaign()`
+
+```php
+cloneSfvbCampaign($storefront_oid, $campaign_uuid): \ultracart\v2\models\SfvbCampaign
+```
+
+Copy a campaign on the same storefront
+
+A draft copy with copies of its emails and postcards, named Copy of and the original name, never archived and never scheduled.  Steps keep their settings, including a paused rate limiter or an experiment winner, and notes names each one.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **campaign_uuid** | **string**|  |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbCampaign**](../Model/SfvbCampaign.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloneSfvbFlow()`
+
+```php
+cloneSfvbFlow($storefront_oid, $flow_uuid): \ultracart\v2\models\SfvbFlow
+```
+
+Copy a flow on the same storefront
+
+A draft copy with copies of its emails and postcards, named Copy of and the original name, never archived.  It enrolls nobody until it is turned on.  Steps keep their settings, including a paused rate limiter or an experiment winner, and notes names each one.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **flow_uuid** | **string**|  |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbFlow**](../Model/SfvbFlow.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `compileSfvbCjson()`
 
 ```php
@@ -472,6 +651,88 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\SfvbCompileResponse**](../Model/SfvbCompileResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `createSfvbCampaign()`
+
+```php
+createSfvbCampaign($storefront_oid, $campaign_write_request): \ultracart\v2\models\SfvbCampaign
+```
+
+Create a draft campaign
+
+A new draft campaign with an empty communication sequence.  name is required.  The sender defaults to the storefront's marketing sending settings.  Nothing here starts a campaign.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **campaign_write_request** | [**\ultracart\v2\models\SfvbCampaignWriteRequest**](../Model/SfvbCampaignWriteRequest.md)| The campaign to create |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbCampaign**](../Model/SfvbCampaign.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `createSfvbFlow()`
+
+```php
+createSfvbFlow($storefront_oid, $flow_write_request): \ultracart\v2\models\SfvbFlow
+```
+
+Create a draft flow
+
+A new draft flow with an empty communication sequence.  name and trigger_type are required.  A list or segment trigger needs trigger_parameter, the uuid of a list or segment on this storefront.  The sender defaults to the storefront's marketing sending settings.  A draft flow enrolls nobody until it is turned on.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **flow_write_request** | [**\ultracart\v2\models\SfvbFlowWriteRequest**](../Model/SfvbFlowWriteRequest.md)| The flow to create |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbFlow**](../Model/SfvbFlow.md)
 
 ### Authorization
 
@@ -4934,6 +5195,86 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `listSfvbCommsLists()`
+
+```php
+listSfvbCommsLists($storefront_oid): \ultracart\v2\models\SfvbCommsListsResponse
+```
+
+List the storefront's email lists
+
+Each list's uuid, name and member count, by name, for a campaign's memberships or a list trigger.  Never its members.  Archived lists are left out.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbCommsListsResponse**](../Model/SfvbCommsListsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `listSfvbCommsSegments()`
+
+```php
+listSfvbCommsSegments($storefront_oid): \ultracart\v2\models\SfvbCommsSegmentsResponse
+```
+
+List the storefront's segments
+
+Each segment's uuid, name and member count at its last rebuild, by name, for a campaign's memberships or a segment trigger.  Never its members or its rule.  Archived segments are left out.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbCommsSegmentsResponse**](../Model/SfvbCommsSegmentsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `listSfvbContainerVersions()`
 
 ```php
@@ -7645,6 +7986,49 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `updateSfvbCampaign()`
+
+```php
+updateSfvbCampaign($storefront_oid, $campaign_uuid, $if_match, $campaign_write_request): \ultracart\v2\models\SfvbCampaign
+```
+
+Change a campaign
+
+A field left out keeps its value; memberships replaces the whole set.  The status is never changed here.  Send the hash_sha256 you read as If-Match.  A scheduled, sending or sent campaign needs sfvb_publish, and a change to a scheduled one applies to the send that is coming.  notes lists any emails a sending domain change put back to needing review.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **campaign_uuid** | **string**|  |
+ **if_match** | **string**| hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. |
+ **campaign_write_request** | [**\ultracart\v2\models\SfvbCampaignWriteRequest**](../Model/SfvbCampaignWriteRequest.md)| The fields to change |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbCampaign**](../Model/SfvbCampaign.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `updateSfvbCommsSendingDomain()`
 
 ```php
@@ -7755,6 +8139,92 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\SfvbEmail**](../Model/SfvbEmail.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateSfvbFlow()`
+
+```php
+updateSfvbFlow($storefront_oid, $flow_uuid, $if_match, $flow_write_request): \ultracart\v2\models\SfvbFlow
+```
+
+Change a flow
+
+A field left out keeps its value.  The trigger and the status are never changed here.  Send the hash_sha256 you read as If-Match.  A flow that is enrolling customers needs sfvb_publish.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **flow_uuid** | **string**|  |
+ **if_match** | **string**| hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. |
+ **flow_write_request** | [**\ultracart\v2\models\SfvbFlowWriteRequest**](../Model/SfvbFlowWriteRequest.md)| The fields to change |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbFlow**](../Model/SfvbFlow.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateSfvbFlowStatus()`
+
+```php
+updateSfvbFlowStatus($storefront_oid, $flow_uuid, $if_match, $flow_status_request): \ultracart\v2\models\SfvbFlow
+```
+
+Turn a flow on or off
+
+active enrolls customers as they trigger the flow from now on, and they receive its emails.  inactive stops new enrollments.  Always needs sfvb_publish.  Send the hash_sha256 you read as If-Match.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **flow_uuid** | **string**|  |
+ **if_match** | **string**| hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. |
+ **flow_status_request** | [**\ultracart\v2\models\SfvbFlowStatusRequest**](../Model/SfvbFlowStatusRequest.md)| The status to set |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbFlow**](../Model/SfvbFlow.md)
 
 ### Authorization
 

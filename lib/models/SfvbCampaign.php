@@ -63,10 +63,18 @@ class SfvbCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'created_dts' => 'string',
         'deleted' => 'bool',
         'emails' => '\ultracart\v2\models\SfvbCommsEmail[]',
+        'end_once_customer_purchases' => 'bool',
+        'end_once_customer_purchases_anywhere' => 'bool',
+        'hash_sha256' => 'string',
         'live' => 'bool',
+        'memberships' => '\ultracart\v2\models\SfvbCampaignMembership[]',
         'name' => 'string',
+        'notes' => 'string[]',
         'postcards' => '\ultracart\v2\models\SfvbCommsPostcard[]',
         'scheduled_dts' => 'string',
+        'sending_domain_uuid' => 'string',
+        'sending_name' => 'string',
+        'sending_user' => 'string',
         'status' => 'string',
         'status_dts' => 'string'
     ];
@@ -84,10 +92,18 @@ class SfvbCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'created_dts' => 'dateTime',
         'deleted' => null,
         'emails' => null,
+        'end_once_customer_purchases' => null,
+        'end_once_customer_purchases_anywhere' => null,
+        'hash_sha256' => null,
         'live' => null,
+        'memberships' => null,
         'name' => null,
+        'notes' => null,
         'postcards' => null,
         'scheduled_dts' => 'dateTime',
+        'sending_domain_uuid' => null,
+        'sending_name' => null,
+        'sending_user' => null,
         'status' => null,
         'status_dts' => 'dateTime'
     ];
@@ -124,10 +140,18 @@ class SfvbCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'created_dts' => 'created_dts',
         'deleted' => 'deleted',
         'emails' => 'emails',
+        'end_once_customer_purchases' => 'end_once_customer_purchases',
+        'end_once_customer_purchases_anywhere' => 'end_once_customer_purchases_anywhere',
+        'hash_sha256' => 'hash_sha256',
         'live' => 'live',
+        'memberships' => 'memberships',
         'name' => 'name',
+        'notes' => 'notes',
         'postcards' => 'postcards',
         'scheduled_dts' => 'scheduled_dts',
+        'sending_domain_uuid' => 'sending_domain_uuid',
+        'sending_name' => 'sending_name',
+        'sending_user' => 'sending_user',
         'status' => 'status',
         'status_dts' => 'status_dts'
     ];
@@ -143,10 +167,18 @@ class SfvbCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'created_dts' => 'setCreatedDts',
         'deleted' => 'setDeleted',
         'emails' => 'setEmails',
+        'end_once_customer_purchases' => 'setEndOnceCustomerPurchases',
+        'end_once_customer_purchases_anywhere' => 'setEndOnceCustomerPurchasesAnywhere',
+        'hash_sha256' => 'setHashSha256',
         'live' => 'setLive',
+        'memberships' => 'setMemberships',
         'name' => 'setName',
+        'notes' => 'setNotes',
         'postcards' => 'setPostcards',
         'scheduled_dts' => 'setScheduledDts',
+        'sending_domain_uuid' => 'setSendingDomainUuid',
+        'sending_name' => 'setSendingName',
+        'sending_user' => 'setSendingUser',
         'status' => 'setStatus',
         'status_dts' => 'setStatusDts'
     ];
@@ -162,10 +194,18 @@ class SfvbCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'created_dts' => 'getCreatedDts',
         'deleted' => 'getDeleted',
         'emails' => 'getEmails',
+        'end_once_customer_purchases' => 'getEndOnceCustomerPurchases',
+        'end_once_customer_purchases_anywhere' => 'getEndOnceCustomerPurchasesAnywhere',
+        'hash_sha256' => 'getHashSha256',
         'live' => 'getLive',
+        'memberships' => 'getMemberships',
         'name' => 'getName',
+        'notes' => 'getNotes',
         'postcards' => 'getPostcards',
         'scheduled_dts' => 'getScheduledDts',
+        'sending_domain_uuid' => 'getSendingDomainUuid',
+        'sending_name' => 'getSendingName',
+        'sending_user' => 'getSendingUser',
         'status' => 'getStatus',
         'status_dts' => 'getStatusDts'
     ];
@@ -232,10 +272,18 @@ class SfvbCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['created_dts'] = $data['created_dts'] ?? null;
         $this->container['deleted'] = $data['deleted'] ?? null;
         $this->container['emails'] = $data['emails'] ?? null;
+        $this->container['end_once_customer_purchases'] = $data['end_once_customer_purchases'] ?? null;
+        $this->container['end_once_customer_purchases_anywhere'] = $data['end_once_customer_purchases_anywhere'] ?? null;
+        $this->container['hash_sha256'] = $data['hash_sha256'] ?? null;
         $this->container['live'] = $data['live'] ?? null;
+        $this->container['memberships'] = $data['memberships'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
+        $this->container['notes'] = $data['notes'] ?? null;
         $this->container['postcards'] = $data['postcards'] ?? null;
         $this->container['scheduled_dts'] = $data['scheduled_dts'] ?? null;
+        $this->container['sending_domain_uuid'] = $data['sending_domain_uuid'] ?? null;
+        $this->container['sending_name'] = $data['sending_name'] ?? null;
+        $this->container['sending_user'] = $data['sending_user'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
         $this->container['status_dts'] = $data['status_dts'] ?? null;
     }
@@ -385,6 +433,78 @@ class SfvbCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets end_once_customer_purchases
+     *
+     * @return bool|null
+     */
+    public function getEndOnceCustomerPurchases()
+    {
+        return $this->container['end_once_customer_purchases'];
+    }
+
+    /**
+     * Sets end_once_customer_purchases
+     *
+     * @param bool|null $end_once_customer_purchases True when a customer leaves the campaign once they buy from one of its emails.
+     *
+     * @return self
+     */
+    public function setEndOnceCustomerPurchases($end_once_customer_purchases)
+    {
+        $this->container['end_once_customer_purchases'] = $end_once_customer_purchases;
+
+        return $this;
+    }
+
+    /**
+     * Gets end_once_customer_purchases_anywhere
+     *
+     * @return bool|null
+     */
+    public function getEndOnceCustomerPurchasesAnywhere()
+    {
+        return $this->container['end_once_customer_purchases_anywhere'];
+    }
+
+    /**
+     * Sets end_once_customer_purchases_anywhere
+     *
+     * @param bool|null $end_once_customer_purchases_anywhere True when a customer leaves the campaign once they buy from any source.
+     *
+     * @return self
+     */
+    public function setEndOnceCustomerPurchasesAnywhere($end_once_customer_purchases_anywhere)
+    {
+        $this->container['end_once_customer_purchases_anywhere'] = $end_once_customer_purchases_anywhere;
+
+        return $this;
+    }
+
+    /**
+     * Gets hash_sha256
+     *
+     * @return string|null
+     */
+    public function getHashSha256()
+    {
+        return $this->container['hash_sha256'];
+    }
+
+    /**
+     * Sets hash_sha256
+     *
+     * @param string|null $hash_sha256 Send this as If-Match when changing or archiving the campaign.
+     *
+     * @return self
+     */
+    public function setHashSha256($hash_sha256)
+    {
+        $this->container['hash_sha256'] = $hash_sha256;
+
+        return $this;
+    }
+
+    /**
      * Gets live
      *
      * @return bool|null
@@ -409,6 +529,30 @@ class SfvbCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets memberships
+     *
+     * @return \ultracart\v2\models\SfvbCampaignMembership[]|null
+     */
+    public function getMemberships()
+    {
+        return $this->container['memberships'];
+    }
+
+    /**
+     * Sets memberships
+     *
+     * @param \ultracart\v2\models\SfvbCampaignMembership[]|null $memberships The lists and segments it sends to or leaves out.
+     *
+     * @return self
+     */
+    public function setMemberships($memberships)
+    {
+        $this->container['memberships'] = $memberships;
+
+        return $this;
+    }
+
+    /**
      * Gets name
      *
      * @return string|null
@@ -428,6 +572,30 @@ class SfvbCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets notes
+     *
+     * @return string[]|null
+     */
+    public function getNotes()
+    {
+        return $this->container['notes'];
+    }
+
+    /**
+     * Sets notes
+     *
+     * @param string[]|null $notes What a write did beyond the fields it was asked to change, such as putting emails back to needing review or setting a scheduled campaign back to draft.  Only on a write.
+     *
+     * @return self
+     */
+    public function setNotes($notes)
+    {
+        $this->container['notes'] = $notes;
 
         return $this;
     }
@@ -476,6 +644,78 @@ class SfvbCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setScheduledDts($scheduled_dts)
     {
         $this->container['scheduled_dts'] = $scheduled_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets sending_domain_uuid
+     *
+     * @return string|null
+     */
+    public function getSendingDomainUuid()
+    {
+        return $this->container['sending_domain_uuid'];
+    }
+
+    /**
+     * Sets sending_domain_uuid
+     *
+     * @param string|null $sending_domain_uuid The sending domain uuid.  Defaults to the storefront's marketing sending domain.
+     *
+     * @return self
+     */
+    public function setSendingDomainUuid($sending_domain_uuid)
+    {
+        $this->container['sending_domain_uuid'] = $sending_domain_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets sending_name
+     *
+     * @return string|null
+     */
+    public function getSendingName()
+    {
+        return $this->container['sending_name'];
+    }
+
+    /**
+     * Sets sending_name
+     *
+     * @param string|null $sending_name The from name.  Defaults to the storefront's marketing setting.
+     *
+     * @return self
+     */
+    public function setSendingName($sending_name)
+    {
+        $this->container['sending_name'] = $sending_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets sending_user
+     *
+     * @return string|null
+     */
+    public function getSendingUser()
+    {
+        return $this->container['sending_user'];
+    }
+
+    /**
+     * Sets sending_user
+     *
+     * @param string|null $sending_user The part of the from address before the at sign.  Defaults to the storefront's marketing setting.
+     *
+     * @return self
+     */
+    public function setSendingUser($sending_user)
+    {
+        $this->container['sending_user'] = $sending_user;
 
         return $this;
     }
