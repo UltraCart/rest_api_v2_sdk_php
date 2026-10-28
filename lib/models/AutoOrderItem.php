@@ -529,7 +529,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets arbitrary_quantity
      *
-     * @param float|null $arbitrary_quantity Arbitrary quantity to rebill
+     * @param float|null $arbitrary_quantity Quantity to rebill.  When set, every rebill uses this quantity instead of original_quantity.  Set this field to change the quantity on an active auto order; the merchant auto order editor updates this same field.  Each rebill charges the unit price multiplied by this quantity.
      *
      * @return self
      */
@@ -577,7 +577,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets arbitrary_unit_cost
      *
-     * @param float|null $arbitrary_unit_cost Arbitrary unit cost that rebills of this item should occur at
+     * @param float|null $arbitrary_unit_cost Arbitrary unit cost that rebills of this item should occur at.  This is a price per unit.  Each rebill charges it multiplied by the rebill quantity (arbitrary_quantity, or original_quantity when arbitrary_quantity is null).
      *
      * @return self
      */
@@ -1019,7 +1019,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets original_quantity
      *
-     * @param float|null $original_quantity The original quantity purchased
+     * @param float|null $original_quantity The quantity purchased on the original order.  Rebills use this quantity only when arbitrary_quantity is null.  To change the quantity on future rebills, set arbitrary_quantity instead.
      *
      * @return self
      */

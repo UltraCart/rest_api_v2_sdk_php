@@ -7537,7 +7537,7 @@ reviewSfvbEmail($storefront_oid, $email_uuid, $email_review_request): \ultracart
 
 Request a content review of a flow or campaign email
 
-Starts a review the way the admin's Request Review does.  One test copy of the email goes to the signed-in user, and to no one else, and the review runs in the background, so read the email again for pending_review and then the ruling.  Refused with sfvb.review_not_needed when it doesn't need review, is already waiting for one, or was rejected and not changed since.  An email in a flow triggered by an order or an auto order needs order_id, a test order.  Needs a signed-in user, not an API key alone.
+Starts a review the way the admin's Request Review does.  The review runs in the background and no test copy is sent.  The email is marked pending_review at once, and the signed-in user gets the approved or rejected notice, so read the email again for the ruling.  Refused with sfvb.review_not_needed when it doesn't need review, is already waiting for one, or was rejected and not changed since.  An email in a flow triggered by an order or an auto order needs order_id, a test order.  Needs a signed-in user, not an API key alone.
 
 
 ### Example
