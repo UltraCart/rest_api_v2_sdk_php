@@ -65,6 +65,7 @@ class SfvbSequenceStep implements ModelInterface, ArrayAccess, \JsonSerializable
         'disabled' => 'bool',
         'email_uuids' => 'string[]',
         'filter_profile_equation_json' => 'string',
+        'hash_sha256' => 'string',
         'item_ids' => 'string[]',
         'label' => 'string',
         'list_uuids' => 'string[]',
@@ -92,6 +93,7 @@ class SfvbSequenceStep implements ModelInterface, ArrayAccess, \JsonSerializable
         'disabled' => null,
         'email_uuids' => null,
         'filter_profile_equation_json' => null,
+        'hash_sha256' => null,
         'item_ids' => null,
         'label' => null,
         'list_uuids' => null,
@@ -138,6 +140,7 @@ class SfvbSequenceStep implements ModelInterface, ArrayAccess, \JsonSerializable
         'disabled' => 'disabled',
         'email_uuids' => 'email_uuids',
         'filter_profile_equation_json' => 'filter_profile_equation_json',
+        'hash_sha256' => 'hash_sha256',
         'item_ids' => 'item_ids',
         'label' => 'label',
         'list_uuids' => 'list_uuids',
@@ -163,6 +166,7 @@ class SfvbSequenceStep implements ModelInterface, ArrayAccess, \JsonSerializable
         'disabled' => 'setDisabled',
         'email_uuids' => 'setEmailUuids',
         'filter_profile_equation_json' => 'setFilterProfileEquationJson',
+        'hash_sha256' => 'setHashSha256',
         'item_ids' => 'setItemIds',
         'label' => 'setLabel',
         'list_uuids' => 'setListUuids',
@@ -188,6 +192,7 @@ class SfvbSequenceStep implements ModelInterface, ArrayAccess, \JsonSerializable
         'disabled' => 'getDisabled',
         'email_uuids' => 'getEmailUuids',
         'filter_profile_equation_json' => 'getFilterProfileEquationJson',
+        'hash_sha256' => 'getHashSha256',
         'item_ids' => 'getItemIds',
         'label' => 'getLabel',
         'list_uuids' => 'getListUuids',
@@ -264,6 +269,7 @@ class SfvbSequenceStep implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['disabled'] = $data['disabled'] ?? null;
         $this->container['email_uuids'] = $data['email_uuids'] ?? null;
         $this->container['filter_profile_equation_json'] = $data['filter_profile_equation_json'] ?? null;
+        $this->container['hash_sha256'] = $data['hash_sha256'] ?? null;
         $this->container['item_ids'] = $data['item_ids'] ?? null;
         $this->container['label'] = $data['label'] ?? null;
         $this->container['list_uuids'] = $data['list_uuids'] ?? null;
@@ -464,6 +470,30 @@ class SfvbSequenceStep implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setFilterProfileEquationJson($filter_profile_equation_json)
     {
         $this->container['filter_profile_equation_json'] = $filter_profile_equation_json;
+
+        return $this;
+    }
+
+    /**
+     * Gets hash_sha256
+     *
+     * @return string|null
+     */
+    public function getHashSha256()
+    {
+        return $this->container['hash_sha256'];
+    }
+
+    /**
+     * Sets hash_sha256
+     *
+     * @param string|null $hash_sha256 The hash of the step's type, stored settings and audience filter.  Send it back as If-Match when changing the step.
+     *
+     * @return self
+     */
+    public function setHashSha256($hash_sha256)
+    {
+        $this->container['hash_sha256'] = $hash_sha256;
 
         return $this;
     }

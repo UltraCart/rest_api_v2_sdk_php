@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.213"
+    "ultracart/rest_api_v2_sdk_php": "4.1.214"
   }
 }
 ```
@@ -689,6 +689,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**updateSfvbItemAttributeBatch**](docs/Api/SfvbApi.md#updatesfvbitemattributebatch) | **POST** /sfvb/storefronts/{storefront_oid}/items/attributes/batch | Change attributes across many items in one call
 *SfvbApi* | [**updateSfvbLibraryEntry**](docs/Api/SfvbApi.md#updatesfvblibraryentry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Update a library entry&#39;s draft
 *SfvbApi* | [**updateSfvbRedirect**](docs/Api/SfvbApi.md#updatesfvbredirect) | **PUT** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Change a redirect rule
+*SfvbApi* | [**updateSfvbSequenceStep**](docs/Api/SfvbApi.md#updatesfvbsequencestep) | **PUT** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid} | Change one step&#39;s settings or audience filter
 *SfvbApi* | [**updateSfvbUpsellOffer**](docs/Api/SfvbApi.md#updatesfvbupselloffer) | **PUT** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid} | Update an upsell offer
 *SfvbApi* | [**updateSfvbUpsellPath**](docs/Api/SfvbApi.md#updatesfvbupsellpath) | **PUT** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid} | Update an upsell path
 *SfvbApi* | [**uploadSfvbFile**](docs/Api/SfvbApi.md#uploadsfvbfile) | **POST** /sfvb/storefronts/{storefront_oid}/files/upload | Store a binary asset that was already uploaded
@@ -2124,6 +2125,8 @@ Class | Method | HTTP request | Description
 - [SfvbSequence](docs/Model/SfvbSequence.md)
 - [SfvbSequenceBranch](docs/Model/SfvbSequenceBranch.md)
 - [SfvbSequenceStep](docs/Model/SfvbSequenceStep.md)
+- [SfvbSequenceStepUpdateRequest](docs/Model/SfvbSequenceStepUpdateRequest.md)
+- [SfvbSequenceStepUpdateResponse](docs/Model/SfvbSequenceStepUpdateResponse.md)
 - [SfvbServerLog](docs/Model/SfvbServerLog.md)
 - [SfvbServerLogDetail](docs/Model/SfvbServerLogDetail.md)
 - [SfvbServerLogEntry](docs/Model/SfvbServerLogEntry.md)
@@ -2359,6 +2362,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.214 | 10/28/2026 | sfvb internal testing |
 | 4.1.213 | 10/28/2026 | auto order - improve item field descriptions |
 | 4.1.212 | 10/27/2026 | conversation - pbx agent startup activity |
 | 4.1.211 | 10/27/2026 | sfvb internal testing |
