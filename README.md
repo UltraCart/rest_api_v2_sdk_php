@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.214"
+    "ultracart/rest_api_v2_sdk_php": "4.1.215"
   }
 }
 ```
@@ -2026,6 +2026,7 @@ Class | Method | HTTP request | Description
 - [SfvbItemResponse](docs/Model/SfvbItemResponse.md)
 - [SfvbItemSeo](docs/Model/SfvbItemSeo.md)
 - [SfvbItemSeoRequest](docs/Model/SfvbItemSeoRequest.md)
+- [SfvbItemTags](docs/Model/SfvbItemTags.md)
 - [SfvbItemVolumeDiscount](docs/Model/SfvbItemVolumeDiscount.md)
 - [SfvbLibraryAiReview](docs/Model/SfvbLibraryAiReview.md)
 - [SfvbLibraryContentManifest](docs/Model/SfvbLibraryContentManifest.md)
@@ -2362,6 +2363,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.215 | 10/28/2026 | sfvb internal testing |
 | 4.1.214 | 10/28/2026 | sfvb internal testing |
 | 4.1.213 | 10/28/2026 | auto order - improve item field descriptions |
 | 4.1.212 | 10/27/2026 | conversation - pbx agent startup activity |

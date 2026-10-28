@@ -65,6 +65,7 @@ class SfvbItemResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant_item_oid' => 'int',
         'multimedia' => '\ultracart\v2\models\SfvbItemMultimedia[]',
         'seo' => '\ultracart\v2\models\SfvbItemSeo',
+        'tags' => '\ultracart\v2\models\SfvbItemTags',
         'title' => 'string'
     ];
 
@@ -83,6 +84,7 @@ class SfvbItemResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant_item_oid' => 'int32',
         'multimedia' => null,
         'seo' => null,
+        'tags' => null,
         'title' => null
     ];
 
@@ -120,6 +122,7 @@ class SfvbItemResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant_item_oid' => 'merchant_item_oid',
         'multimedia' => 'multimedia',
         'seo' => 'seo',
+        'tags' => 'tags',
         'title' => 'title'
     ];
 
@@ -136,6 +139,7 @@ class SfvbItemResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant_item_oid' => 'setMerchantItemOid',
         'multimedia' => 'setMultimedia',
         'seo' => 'setSeo',
+        'tags' => 'setTags',
         'title' => 'setTitle'
     ];
 
@@ -152,6 +156,7 @@ class SfvbItemResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant_item_oid' => 'getMerchantItemOid',
         'multimedia' => 'getMultimedia',
         'seo' => 'getSeo',
+        'tags' => 'getTags',
         'title' => 'getTitle'
     ];
 
@@ -219,6 +224,7 @@ class SfvbItemResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['merchant_item_oid'] = $data['merchant_item_oid'] ?? null;
         $this->container['multimedia'] = $data['multimedia'] ?? null;
         $this->container['seo'] = $data['seo'] ?? null;
+        $this->container['tags'] = $data['tags'] ?? null;
         $this->container['title'] = $data['title'] ?? null;
     }
 
@@ -410,6 +416,30 @@ class SfvbItemResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setSeo($seo)
     {
         $this->container['seo'] = $seo;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \ultracart\v2\models\SfvbItemTags|null
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \ultracart\v2\models\SfvbItemTags|null $tags tags
+     *
+     * @return self
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

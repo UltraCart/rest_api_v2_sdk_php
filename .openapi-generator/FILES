@@ -1099,6 +1099,7 @@ docs/Model/SfvbItemRelatedRequest.md
 docs/Model/SfvbItemResponse.md
 docs/Model/SfvbItemSeo.md
 docs/Model/SfvbItemSeoRequest.md
+docs/Model/SfvbItemTags.md
 docs/Model/SfvbItemVolumeDiscount.md
 docs/Model/SfvbLibraryAiReview.md
 docs/Model/SfvbLibraryContentManifest.md
@@ -2442,6 +2443,7 @@ lib/models/SfvbItemRelatedRequest.php
 lib/models/SfvbItemResponse.php
 lib/models/SfvbItemSeo.php
 lib/models/SfvbItemSeoRequest.php
+lib/models/SfvbItemTags.php
 lib/models/SfvbItemVolumeDiscount.php
 lib/models/SfvbLibraryAiReview.php
 lib/models/SfvbLibraryContentManifest.php

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **merchant_item_oid** | **int** | The item&#39;s internal oid, which appears nowhere on a rendered storefront. | [optional]
 **multimedia** | [**\ultracart\v2\models\SfvbItemMultimedia[]**](SfvbItemMultimedia.md) | Every image slot a template declares plus every image attached to the item. | [optional]
 **seo** | [**\ultracart\v2\models\SfvbItemSeo**](SfvbItemSeo.md) |  | [optional]
+**tags** | [**\ultracart\v2\models\SfvbItemTags**](SfvbItemTags.md) |  | [optional]
 **title** | **string** | What an itemtitle element renders.  This is the item&#39;s short description in the catalog, not a storefront only field, so changing it changes the item everywhere. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
