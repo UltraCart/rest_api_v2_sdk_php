@@ -33,6 +33,7 @@ Method | HTTP request | Description
 [**deleteSfvbRedirect()**](SfvbApi.md#deleteSfvbRedirect) | **DELETE** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Delete a redirect rule
 [**deleteSfvbRedirects()**](SfvbApi.md#deleteSfvbRedirects) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/delete | Delete up to 5,000 redirect rules in one call
 [**deleteSfvbSecretRequest()**](SfvbApi.md#deleteSfvbSecretRequest) | **DELETE** /sfvb/secrets/{request_id} | Cancel a pending secret request
+[**deleteSfvbSequenceStep()**](SfvbApi.md#deleteSfvbSequenceStep) | **DELETE** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid} | Remove one step
 [**detachSfvbBlogPostImage()**](SfvbApi.md#detachSfvbBlogPostImage) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}/images/detach | Detach an image from a blog post
 [**disableSfvbI18nLanguage()**](SfvbApi.md#disableSfvbI18nLanguage) | **POST** /sfvb/storefronts/{storefront_oid}/i18n/languages/{code}/disable | Disable a language
 [**disableSfvbUpsellOffer()**](SfvbApi.md#disableSfvbUpsellOffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/disable | Disable an upsell offer
@@ -1402,6 +1403,50 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\SfvbSecretRequest**](../Model/SfvbSecretRequest.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteSfvbSequenceStep()`
+
+```php
+deleteSfvbSequenceStep($storefront_oid, $sequence_uuid, $step_uuid, $if_match, $approval_id): \ultracart\v2\models\SfvbSequenceStepDeleteResponse
+```
+
+Remove one step
+
+Removes the step from its list and links the step before it to the step after it, in one transaction.  An email, experiment or postcard step's email or postcard is archived with it.  Refused while any customer is waiting on the step, for the begin, end, continue and merge markers, for a condition, split or inboxgeek step with steps on a side, and for a step whose email a resend step re-sends.  Send the step's hash_sha256 as If-Match.  A sequence whose campaign or flow is live needs sfvb_publish and an approved sequence_step.delete approval (Approval-Id); a draft or inactive one needs neither.  An email or postcard another step still uses is left as it is.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **sequence_uuid** | **string**|  |
+ **step_uuid** | **string**|  |
+ **if_match** | **string**| The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. |
+ **approval_id** | **string**| When the sequence is live, the approval_id of an approved sequence_step.delete request for this step.  See POST /sfvb/approvals. | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\SfvbSequenceStepDeleteResponse**](../Model/SfvbSequenceStepDeleteResponse.md)
 
 ### Authorization
 
@@ -5038,7 +5083,7 @@ insertSfvbSequenceStep($storefront_oid, $sequence_uuid, $if_match, $sequence_ste
 
 Add an email step, with its new email
 
-Creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  It goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step's hash_sha256 as If-Match.  The email has no body yet, and gets the content review flags the admin gives a new email here.  A sequence whose campaign or flow is live needs sfvb_publish.
+Creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  It goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step's hash_sha256 as If-Match.  A sequence with no steps yet takes neither place and If-Match *, and gets begin and end steps around the email, as the admin's editor adds them.  The email has no body yet, and gets the content review flags the admin gives a new email here.  A sequence whose campaign or flow is live needs sfvb_publish.
 
 
 ### Example
@@ -5053,7 +5098,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **storefront_oid** | **int**|  |
  **sequence_uuid** | **string**|  |
- **if_match** | **string**| The hash_sha256 of the step it goes after, or of the branching step.  Required; 428 when absent, 412 when stale. |
+ **if_match** | **string**| The hash_sha256 of the step it goes after, or of the branching step, or * for the first step of a sequence with no steps.  Required; 428 when absent, 412 when stale. |
  **sequence_step_create_request** | [**\ultracart\v2\models\SfvbSequenceStepCreateRequest**](../Model/SfvbSequenceStepCreateRequest.md)| Where the step goes, and the new email&#39;s subject and preview text |
 
 ### Return type

@@ -70,7 +70,9 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'request_sha256' => 'string',
         'rows_sha256' => 'string',
         'rule_count' => 'int',
+        'sequence_uuid' => 'string',
         'slot' => 'string',
+        'step_uuid' => 'string',
         'upsell_kind' => 'string',
         'upsell_oid' => 'int',
         'version' => 'int',
@@ -98,7 +100,9 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'request_sha256' => null,
         'rows_sha256' => null,
         'rule_count' => 'int32',
+        'sequence_uuid' => null,
         'slot' => null,
+        'step_uuid' => null,
         'upsell_kind' => null,
         'upsell_oid' => 'int32',
         'version' => 'int32',
@@ -145,7 +149,9 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'request_sha256' => 'request_sha256',
         'rows_sha256' => 'rows_sha256',
         'rule_count' => 'rule_count',
+        'sequence_uuid' => 'sequence_uuid',
         'slot' => 'slot',
+        'step_uuid' => 'step_uuid',
         'upsell_kind' => 'upsell_kind',
         'upsell_oid' => 'upsell_oid',
         'version' => 'version',
@@ -171,7 +177,9 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'request_sha256' => 'setRequestSha256',
         'rows_sha256' => 'setRowsSha256',
         'rule_count' => 'setRuleCount',
+        'sequence_uuid' => 'setSequenceUuid',
         'slot' => 'setSlot',
+        'step_uuid' => 'setStepUuid',
         'upsell_kind' => 'setUpsellKind',
         'upsell_oid' => 'setUpsellOid',
         'version' => 'setVersion',
@@ -197,7 +205,9 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'request_sha256' => 'getRequestSha256',
         'rows_sha256' => 'getRowsSha256',
         'rule_count' => 'getRuleCount',
+        'sequence_uuid' => 'getSequenceUuid',
         'slot' => 'getSlot',
+        'step_uuid' => 'getStepUuid',
         'upsell_kind' => 'getUpsellKind',
         'upsell_oid' => 'getUpsellOid',
         'version' => 'getVersion',
@@ -289,7 +299,9 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->container['request_sha256'] = $data['request_sha256'] ?? null;
         $this->container['rows_sha256'] = $data['rows_sha256'] ?? null;
         $this->container['rule_count'] = $data['rule_count'] ?? null;
+        $this->container['sequence_uuid'] = $data['sequence_uuid'] ?? null;
         $this->container['slot'] = $data['slot'] ?? null;
+        $this->container['step_uuid'] = $data['step_uuid'] ?? null;
         $this->container['upsell_kind'] = $data['upsell_kind'] ?? null;
         $this->container['upsell_oid'] = $data['upsell_oid'] ?? null;
         $this->container['version'] = $data['version'] ?? null;
@@ -619,6 +631,30 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
+     * Gets sequence_uuid
+     *
+     * @return string|null
+     */
+    public function getSequenceUuid()
+    {
+        return $this->container['sequence_uuid'];
+    }
+
+    /**
+     * Sets sequence_uuid
+     *
+     * @param string|null $sequence_uuid The communication sequence, for sequence_step.delete.
+     *
+     * @return self
+     */
+    public function setSequenceUuid($sequence_uuid)
+    {
+        $this->container['sequence_uuid'] = $sequence_uuid;
+
+        return $this;
+    }
+
+    /**
      * Gets slot
      *
      * @return string|null
@@ -638,6 +674,30 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setSlot($slot)
     {
         $this->container['slot'] = $slot;
+
+        return $this;
+    }
+
+    /**
+     * Gets step_uuid
+     *
+     * @return string|null
+     */
+    public function getStepUuid()
+    {
+        return $this->container['step_uuid'];
+    }
+
+    /**
+     * Sets step_uuid
+     *
+     * @param string|null $step_uuid The step to remove, for sequence_step.delete.
+     *
+     * @return self
+     */
+    public function setStepUuid($step_uuid)
+    {
+        $this->container['step_uuid'] = $step_uuid;
 
         return $this;
     }

@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.216"
+    "ultracart/rest_api_v2_sdk_php": "4.1.217"
   }
 }
 ```
@@ -520,6 +520,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**deleteSfvbRedirect**](docs/Api/SfvbApi.md#deletesfvbredirect) | **DELETE** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Delete a redirect rule
 *SfvbApi* | [**deleteSfvbRedirects**](docs/Api/SfvbApi.md#deletesfvbredirects) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/delete | Delete up to 5,000 redirect rules in one call
 *SfvbApi* | [**deleteSfvbSecretRequest**](docs/Api/SfvbApi.md#deletesfvbsecretrequest) | **DELETE** /sfvb/secrets/{request_id} | Cancel a pending secret request
+*SfvbApi* | [**deleteSfvbSequenceStep**](docs/Api/SfvbApi.md#deletesfvbsequencestep) | **DELETE** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid} | Remove one step
 *SfvbApi* | [**detachSfvbBlogPostImage**](docs/Api/SfvbApi.md#detachsfvbblogpostimage) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}/images/detach | Detach an image from a blog post
 *SfvbApi* | [**disableSfvbI18nLanguage**](docs/Api/SfvbApi.md#disablesfvbi18nlanguage) | **POST** /sfvb/storefronts/{storefront_oid}/i18n/languages/{code}/disable | Disable a language
 *SfvbApi* | [**disableSfvbUpsellOffer**](docs/Api/SfvbApi.md#disablesfvbupselloffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/disable | Disable an upsell offer
@@ -2129,6 +2130,7 @@ Class | Method | HTTP request | Description
 - [SfvbSequenceStep](docs/Model/SfvbSequenceStep.md)
 - [SfvbSequenceStepCreateRequest](docs/Model/SfvbSequenceStepCreateRequest.md)
 - [SfvbSequenceStepCreateResponse](docs/Model/SfvbSequenceStepCreateResponse.md)
+- [SfvbSequenceStepDeleteResponse](docs/Model/SfvbSequenceStepDeleteResponse.md)
 - [SfvbSequenceStepUpdateRequest](docs/Model/SfvbSequenceStepUpdateRequest.md)
 - [SfvbSequenceStepUpdateResponse](docs/Model/SfvbSequenceStepUpdateResponse.md)
 - [SfvbServerLog](docs/Model/SfvbServerLog.md)
@@ -2366,6 +2368,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.217 | 10/29/2026 | sfvb internal testing |
 | 4.1.216 | 10/29/2026 | sfvb internal testing |
 | 4.1.215 | 10/28/2026 | sfvb internal testing |
 | 4.1.214 | 10/28/2026 | sfvb internal testing |

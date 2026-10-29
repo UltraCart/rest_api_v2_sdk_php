@@ -205,6 +205,9 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     public const ACTION_UPSELL_ENABLE = 'upsell.enable';
     public const ACTION_ITEM_ATTRIBUTE_BATCH = 'item.attribute_batch';
     public const ACTION_ITEM_PRICING = 'item.pricing';
+    public const ACTION_TWILIO_ACCOUNT_DELETE = 'twilio_account.delete';
+    public const ACTION_SENDING_DOMAIN_DELETE = 'sending_domain.delete';
+    public const ACTION_SEQUENCE_STEP_DELETE = 'sequence_step.delete';
 
     /**
      * Gets allowable values of the enum
@@ -223,6 +226,9 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
             self::ACTION_UPSELL_ENABLE,
             self::ACTION_ITEM_ATTRIBUTE_BATCH,
             self::ACTION_ITEM_PRICING,
+            self::ACTION_TWILIO_ACCOUNT_DELETE,
+            self::ACTION_SENDING_DOMAIN_DELETE,
+            self::ACTION_SEQUENCE_STEP_DELETE,
         ];
     }
 
