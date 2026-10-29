@@ -1199,6 +1199,8 @@ docs/Model/SfvbSecretSink.md
 docs/Model/SfvbSequence.md
 docs/Model/SfvbSequenceBranch.md
 docs/Model/SfvbSequenceStep.md
+docs/Model/SfvbSequenceStepCreateRequest.md
+docs/Model/SfvbSequenceStepCreateResponse.md
 docs/Model/SfvbSequenceStepUpdateRequest.md
 docs/Model/SfvbSequenceStepUpdateResponse.md
 docs/Model/SfvbServerLog.md
@@ -2543,6 +2545,8 @@ lib/models/SfvbSecretSink.php
 lib/models/SfvbSequence.php
 lib/models/SfvbSequenceBranch.php
 lib/models/SfvbSequenceStep.php
+lib/models/SfvbSequenceStepCreateRequest.php
+lib/models/SfvbSequenceStepCreateResponse.php
 lib/models/SfvbSequenceStepUpdateRequest.php
 lib/models/SfvbSequenceStepUpdateResponse.php
 lib/models/SfvbServerLog.php

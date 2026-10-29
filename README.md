@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.215"
+    "ultracart/rest_api_v2_sdk_php": "4.1.216"
   }
 }
 ```
@@ -608,6 +608,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**insertSfvbPage**](docs/Api/SfvbApi.md#insertsfvbpage) | **POST** /sfvb/storefronts/{storefront_oid}/pages | Create a page
 *SfvbApi* | [**insertSfvbRedirect**](docs/Api/SfvbApi.md#insertsfvbredirect) | **POST** /sfvb/storefronts/{storefront_oid}/redirects | Create a 301 redirect rule
 *SfvbApi* | [**insertSfvbSecretRequest**](docs/Api/SfvbApi.md#insertsfvbsecretrequest) | **POST** /sfvb/secrets | Ask a person to enter secret values
+*SfvbApi* | [**insertSfvbSequenceStep**](docs/Api/SfvbApi.md#insertsfvbsequencestep) | **POST** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps | Add an email step, with its new email
 *SfvbApi* | [**insertSfvbUpsellOffer**](docs/Api/SfvbApi.md#insertsfvbupselloffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers | Create an upsell offer
 *SfvbApi* | [**insertSfvbUpsellPath**](docs/Api/SfvbApi.md#insertsfvbupsellpath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths | Create an upsell path
 *SfvbApi* | [**installSfvbLibraryEntry**](docs/Api/SfvbApi.md#installsfvblibraryentry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/install | Install a library entry into a storefront
@@ -2126,6 +2127,8 @@ Class | Method | HTTP request | Description
 - [SfvbSequence](docs/Model/SfvbSequence.md)
 - [SfvbSequenceBranch](docs/Model/SfvbSequenceBranch.md)
 - [SfvbSequenceStep](docs/Model/SfvbSequenceStep.md)
+- [SfvbSequenceStepCreateRequest](docs/Model/SfvbSequenceStepCreateRequest.md)
+- [SfvbSequenceStepCreateResponse](docs/Model/SfvbSequenceStepCreateResponse.md)
 - [SfvbSequenceStepUpdateRequest](docs/Model/SfvbSequenceStepUpdateRequest.md)
 - [SfvbSequenceStepUpdateResponse](docs/Model/SfvbSequenceStepUpdateResponse.md)
 - [SfvbServerLog](docs/Model/SfvbServerLog.md)
@@ -2363,6 +2366,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.216 | 10/29/2026 | sfvb internal testing |
 | 4.1.215 | 10/28/2026 | sfvb internal testing |
 | 4.1.214 | 10/28/2026 | sfvb internal testing |
 | 4.1.213 | 10/28/2026 | auto order - improve item field descriptions |

@@ -282,6 +282,7 @@ class OrderPayment implements ModelInterface, ArrayAccess, \JsonSerializable
     public const PAYMENT_METHOD_WALMART = 'Walmart';
     public const PAYMENT_METHOD_SHOP_COM = 'Shop.com';
     public const PAYMENT_METHOD_SEZZLE = 'Sezzle';
+    public const PAYMENT_METHOD_TRUEMED = 'Truemed';
     public const PAYMENT_METHOD_VENMO = 'Venmo';
     public const PAYMENT_METHOD_APPLE_PAY = 'Apple Pay';
     public const PAYMENT_METHOD_GOOGLE_PAY = 'Google Pay';
@@ -331,6 +332,7 @@ class OrderPayment implements ModelInterface, ArrayAccess, \JsonSerializable
             self::PAYMENT_METHOD_WALMART,
             self::PAYMENT_METHOD_SHOP_COM,
             self::PAYMENT_METHOD_SEZZLE,
+            self::PAYMENT_METHOD_TRUEMED,
             self::PAYMENT_METHOD_VENMO,
             self::PAYMENT_METHOD_APPLE_PAY,
             self::PAYMENT_METHOD_GOOGLE_PAY,

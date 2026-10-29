@@ -121,6 +121,7 @@ Method | HTTP request | Description
 [**insertSfvbPage()**](SfvbApi.md#insertSfvbPage) | **POST** /sfvb/storefronts/{storefront_oid}/pages | Create a page
 [**insertSfvbRedirect()**](SfvbApi.md#insertSfvbRedirect) | **POST** /sfvb/storefronts/{storefront_oid}/redirects | Create a 301 redirect rule
 [**insertSfvbSecretRequest()**](SfvbApi.md#insertSfvbSecretRequest) | **POST** /sfvb/secrets | Ask a person to enter secret values
+[**insertSfvbSequenceStep()**](SfvbApi.md#insertSfvbSequenceStep) | **POST** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps | Add an email step, with its new email
 [**insertSfvbUpsellOffer()**](SfvbApi.md#insertSfvbUpsellOffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers | Create an upsell offer
 [**insertSfvbUpsellPath()**](SfvbApi.md#insertSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths | Create an upsell path
 [**installSfvbLibraryEntry()**](SfvbApi.md#installSfvbLibraryEntry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/install | Install a library entry into a storefront
@@ -5023,6 +5024,49 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `insertSfvbSequenceStep()`
+
+```php
+insertSfvbSequenceStep($storefront_oid, $sequence_uuid, $if_match, $sequence_step_create_request): \ultracart\v2\models\SfvbSequenceStepCreateResponse
+```
+
+Add an email step, with its new email
+
+Creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  It goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step's hash_sha256 as If-Match.  The email has no body yet, and gets the content review flags the admin gives a new email here.  A sequence whose campaign or flow is live needs sfvb_publish.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **sequence_uuid** | **string**|  |
+ **if_match** | **string**| The hash_sha256 of the step it goes after, or of the branching step.  Required; 428 when absent, 412 when stale. |
+ **sequence_step_create_request** | [**\ultracart\v2\models\SfvbSequenceStepCreateRequest**](../Model/SfvbSequenceStepCreateRequest.md)| Where the step goes, and the new email&#39;s subject and preview text |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbSequenceStepCreateResponse**](../Model/SfvbSequenceStepCreateResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
