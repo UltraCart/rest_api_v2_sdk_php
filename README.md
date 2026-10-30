@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.218"
+    "ultracart/rest_api_v2_sdk_php": "4.1.219"
   }
 }
 ```
@@ -2375,6 +2375,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.219 | 10/30/2026 | item - field for hsa/fsa eligibility |
 | 4.1.218 | 10/30/2026 | svfb internal testing |
 | 4.1.217 | 10/29/2026 | sfvb internal testing |
 | 4.1.216 | 10/29/2026 | sfvb internal testing |

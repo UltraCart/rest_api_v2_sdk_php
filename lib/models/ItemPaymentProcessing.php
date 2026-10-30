@@ -61,6 +61,7 @@ class ItemPaymentProcessing implements ModelInterface, ArrayAccess, \JsonSeriali
         'block_prepaid' => 'bool',
         'block_refunds' => 'bool',
         'credit_card_transaction_type' => 'string',
+        'hsa_fsa_eligibility' => 'string',
         'no_realtime_charge' => 'bool',
         'payment_method_validity' => 'string[]',
         'rotating_transaction_gateway_codes' => 'string[]'
@@ -77,6 +78,7 @@ class ItemPaymentProcessing implements ModelInterface, ArrayAccess, \JsonSeriali
         'block_prepaid' => null,
         'block_refunds' => null,
         'credit_card_transaction_type' => null,
+        'hsa_fsa_eligibility' => null,
         'no_realtime_charge' => null,
         'payment_method_validity' => null,
         'rotating_transaction_gateway_codes' => null
@@ -112,6 +114,7 @@ class ItemPaymentProcessing implements ModelInterface, ArrayAccess, \JsonSeriali
         'block_prepaid' => 'block_prepaid',
         'block_refunds' => 'block_refunds',
         'credit_card_transaction_type' => 'credit_card_transaction_type',
+        'hsa_fsa_eligibility' => 'hsa_fsa_eligibility',
         'no_realtime_charge' => 'no_realtime_charge',
         'payment_method_validity' => 'payment_method_validity',
         'rotating_transaction_gateway_codes' => 'rotating_transaction_gateway_codes'
@@ -126,6 +129,7 @@ class ItemPaymentProcessing implements ModelInterface, ArrayAccess, \JsonSeriali
         'block_prepaid' => 'setBlockPrepaid',
         'block_refunds' => 'setBlockRefunds',
         'credit_card_transaction_type' => 'setCreditCardTransactionType',
+        'hsa_fsa_eligibility' => 'setHsaFsaEligibility',
         'no_realtime_charge' => 'setNoRealtimeCharge',
         'payment_method_validity' => 'setPaymentMethodValidity',
         'rotating_transaction_gateway_codes' => 'setRotatingTransactionGatewayCodes'
@@ -140,6 +144,7 @@ class ItemPaymentProcessing implements ModelInterface, ArrayAccess, \JsonSeriali
         'block_prepaid' => 'getBlockPrepaid',
         'block_refunds' => 'getBlockRefunds',
         'credit_card_transaction_type' => 'getCreditCardTransactionType',
+        'hsa_fsa_eligibility' => 'getHsaFsaEligibility',
         'no_realtime_charge' => 'getNoRealtimeCharge',
         'payment_method_validity' => 'getPaymentMethodValidity',
         'rotating_transaction_gateway_codes' => 'getRotatingTransactionGatewayCodes'
@@ -205,6 +210,7 @@ class ItemPaymentProcessing implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->container['block_prepaid'] = $data['block_prepaid'] ?? null;
         $this->container['block_refunds'] = $data['block_refunds'] ?? null;
         $this->container['credit_card_transaction_type'] = $data['credit_card_transaction_type'] ?? null;
+        $this->container['hsa_fsa_eligibility'] = $data['hsa_fsa_eligibility'] ?? null;
         $this->container['no_realtime_charge'] = $data['no_realtime_charge'] ?? null;
         $this->container['payment_method_validity'] = $data['payment_method_validity'] ?? null;
         $this->container['rotating_transaction_gateway_codes'] = $data['rotating_transaction_gateway_codes'] ?? null;
@@ -302,6 +308,30 @@ class ItemPaymentProcessing implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setCreditCardTransactionType($credit_card_transaction_type)
     {
         $this->container['credit_card_transaction_type'] = $credit_card_transaction_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets hsa_fsa_eligibility
+     *
+     * @return string|null
+     */
+    public function getHsaFsaEligibility()
+    {
+        return $this->container['hsa_fsa_eligibility'];
+    }
+
+    /**
+     * Sets hsa_fsa_eligibility
+     *
+     * @param string|null $hsa_fsa_eligibility HSA/FSA eligibility. eligible_with_lmn means the customer needs a Letter of Medical Necessity. Kept in sync automatically when Truemed is configured. Empty string clears it, null value will not update the field
+     *
+     * @return self
+     */
+    public function setHsaFsaEligibility($hsa_fsa_eligibility)
+    {
+        $this->container['hsa_fsa_eligibility'] = $hsa_fsa_eligibility;
 
         return $this;
     }
