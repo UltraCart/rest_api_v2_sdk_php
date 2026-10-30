@@ -65,7 +65,8 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'item_pricing' => '\ultracart\v2\models\SfvbItemPricingRequest',
         'params' => '\ultracart\v2\models\SfvbApprovalParams',
         'reason' => 'string',
-        'redirect_rows' => '\ultracart\v2\models\SfvbRedirectDeleteRow[]'
+        'redirect_rows' => '\ultracart\v2\models\SfvbRedirectDeleteRow[]',
+        'segment_update' => '\ultracart\v2\models\SfvbCommsSegmentWriteRequest'
     ];
 
     /**
@@ -83,7 +84,8 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'item_pricing' => null,
         'params' => null,
         'reason' => null,
-        'redirect_rows' => null
+        'redirect_rows' => null,
+        'segment_update' => null
     ];
 
     /**
@@ -120,7 +122,8 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'item_pricing' => 'item_pricing',
         'params' => 'params',
         'reason' => 'reason',
-        'redirect_rows' => 'redirect_rows'
+        'redirect_rows' => 'redirect_rows',
+        'segment_update' => 'segment_update'
     ];
 
     /**
@@ -136,7 +139,8 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'item_pricing' => 'setItemPricing',
         'params' => 'setParams',
         'reason' => 'setReason',
-        'redirect_rows' => 'setRedirectRows'
+        'redirect_rows' => 'setRedirectRows',
+        'segment_update' => 'setSegmentUpdate'
     ];
 
     /**
@@ -152,7 +156,8 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'item_pricing' => 'getItemPricing',
         'params' => 'getParams',
         'reason' => 'getReason',
-        'redirect_rows' => 'getRedirectRows'
+        'redirect_rows' => 'getRedirectRows',
+        'segment_update' => 'getSegmentUpdate'
     ];
 
     /**
@@ -208,6 +213,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     public const ACTION_TWILIO_ACCOUNT_DELETE = 'twilio_account.delete';
     public const ACTION_SENDING_DOMAIN_DELETE = 'sending_domain.delete';
     public const ACTION_SEQUENCE_STEP_DELETE = 'sequence_step.delete';
+    public const ACTION_SEGMENT_UPDATE = 'segment.update';
 
     /**
      * Gets allowable values of the enum
@@ -229,6 +235,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
             self::ACTION_TWILIO_ACCOUNT_DELETE,
             self::ACTION_SENDING_DOMAIN_DELETE,
             self::ACTION_SEQUENCE_STEP_DELETE,
+            self::ACTION_SEGMENT_UPDATE,
         ];
     }
 
@@ -255,6 +262,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         $this->container['params'] = $data['params'] ?? null;
         $this->container['reason'] = $data['reason'] ?? null;
         $this->container['redirect_rows'] = $data['redirect_rows'] ?? null;
+        $this->container['segment_update'] = $data['segment_update'] ?? null;
     }
 
     /**
@@ -488,6 +496,30 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     public function setRedirectRows($redirect_rows)
     {
         $this->container['redirect_rows'] = $redirect_rows;
+
+        return $this;
+    }
+
+    /**
+     * Gets segment_update
+     *
+     * @return \ultracart\v2\models\SfvbCommsSegmentWriteRequest|null
+     */
+    public function getSegmentUpdate()
+    {
+        return $this->container['segment_update'];
+    }
+
+    /**
+     * Sets segment_update
+     *
+     * @param \ultracart\v2\models\SfvbCommsSegmentWriteRequest|null $segment_update segment_update
+     *
+     * @return self
+     */
+    public function setSegmentUpdate($segment_update)
+    {
+        $this->container['segment_update'] = $segment_update;
 
         return $this;
     }

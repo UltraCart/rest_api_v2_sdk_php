@@ -70,6 +70,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'request_sha256' => 'string',
         'rows_sha256' => 'string',
         'rule_count' => 'int',
+        'segment_uuid' => 'string',
         'sequence_uuid' => 'string',
         'slot' => 'string',
         'step_uuid' => 'string',
@@ -100,6 +101,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'request_sha256' => null,
         'rows_sha256' => null,
         'rule_count' => 'int32',
+        'segment_uuid' => null,
         'sequence_uuid' => null,
         'slot' => null,
         'step_uuid' => null,
@@ -149,6 +151,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'request_sha256' => 'request_sha256',
         'rows_sha256' => 'rows_sha256',
         'rule_count' => 'rule_count',
+        'segment_uuid' => 'segment_uuid',
         'sequence_uuid' => 'sequence_uuid',
         'slot' => 'slot',
         'step_uuid' => 'step_uuid',
@@ -177,6 +180,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'request_sha256' => 'setRequestSha256',
         'rows_sha256' => 'setRowsSha256',
         'rule_count' => 'setRuleCount',
+        'segment_uuid' => 'setSegmentUuid',
         'sequence_uuid' => 'setSequenceUuid',
         'slot' => 'setSlot',
         'step_uuid' => 'setStepUuid',
@@ -205,6 +209,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'request_sha256' => 'getRequestSha256',
         'rows_sha256' => 'getRowsSha256',
         'rule_count' => 'getRuleCount',
+        'segment_uuid' => 'getSegmentUuid',
         'sequence_uuid' => 'getSequenceUuid',
         'slot' => 'getSlot',
         'step_uuid' => 'getStepUuid',
@@ -299,6 +304,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->container['request_sha256'] = $data['request_sha256'] ?? null;
         $this->container['rows_sha256'] = $data['rows_sha256'] ?? null;
         $this->container['rule_count'] = $data['rule_count'] ?? null;
+        $this->container['segment_uuid'] = $data['segment_uuid'] ?? null;
         $this->container['sequence_uuid'] = $data['sequence_uuid'] ?? null;
         $this->container['slot'] = $data['slot'] ?? null;
         $this->container['step_uuid'] = $data['step_uuid'] ?? null;
@@ -626,6 +632,30 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setRuleCount($rule_count)
     {
         $this->container['rule_count'] = $rule_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets segment_uuid
+     *
+     * @return string|null
+     */
+    public function getSegmentUuid()
+    {
+        return $this->container['segment_uuid'];
+    }
+
+    /**
+     * Sets segment_uuid
+     *
+     * @param string|null $segment_uuid The segment whose rule changes, for segment.update.
+     *
+     * @return self
+     */
+    public function setSegmentUuid($segment_uuid)
+    {
+        $this->container['segment_uuid'] = $segment_uuid;
 
         return $this;
     }

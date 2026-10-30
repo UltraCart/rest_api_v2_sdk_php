@@ -1017,6 +1017,10 @@ docs/Model/SfvbCommsList.md
 docs/Model/SfvbCommsListsResponse.md
 docs/Model/SfvbCommsPostcard.md
 docs/Model/SfvbCommsSegment.md
+docs/Model/SfvbCommsSegmentDetail.md
+docs/Model/SfvbCommsSegmentResponse.md
+docs/Model/SfvbCommsSegmentUsedBy.md
+docs/Model/SfvbCommsSegmentWriteRequest.md
 docs/Model/SfvbCommsSegmentsResponse.md
 docs/Model/SfvbCommsSendingDomain.md
 docs/Model/SfvbCommsSendingDomainsResponse.md
@@ -2364,6 +2368,10 @@ lib/models/SfvbCommsList.php
 lib/models/SfvbCommsListsResponse.php
 lib/models/SfvbCommsPostcard.php
 lib/models/SfvbCommsSegment.php
+lib/models/SfvbCommsSegmentDetail.php
+lib/models/SfvbCommsSegmentResponse.php
+lib/models/SfvbCommsSegmentUsedBy.php
+lib/models/SfvbCommsSegmentWriteRequest.php
 lib/models/SfvbCommsSegmentsResponse.php
 lib/models/SfvbCommsSendingDomain.php
 lib/models/SfvbCommsSendingDomainsResponse.php
