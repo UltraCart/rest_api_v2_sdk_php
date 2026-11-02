@@ -1011,6 +1011,8 @@ docs/Model/SfvbCampaign.md
 docs/Model/SfvbCampaignMembership.md
 docs/Model/SfvbCampaignWriteRequest.md
 docs/Model/SfvbCampaignsResponse.md
+docs/Model/SfvbCodeLibraryEmail.md
+docs/Model/SfvbCodeLibraryEmailsResponse.md
 docs/Model/SfvbCommsDnsRecord.md
 docs/Model/SfvbCommsEmail.md
 docs/Model/SfvbCommsList.md
@@ -1206,6 +1208,8 @@ docs/Model/SfvbSequenceStep.md
 docs/Model/SfvbSequenceStepCreateRequest.md
 docs/Model/SfvbSequenceStepCreateResponse.md
 docs/Model/SfvbSequenceStepDeleteResponse.md
+docs/Model/SfvbSequenceStepMoveRequest.md
+docs/Model/SfvbSequenceStepMoveResponse.md
 docs/Model/SfvbSequenceStepUpdateRequest.md
 docs/Model/SfvbSequenceStepUpdateResponse.md
 docs/Model/SfvbServerLog.md
@@ -2362,6 +2366,8 @@ lib/models/SfvbCampaign.php
 lib/models/SfvbCampaignMembership.php
 lib/models/SfvbCampaignWriteRequest.php
 lib/models/SfvbCampaignsResponse.php
+lib/models/SfvbCodeLibraryEmail.php
+lib/models/SfvbCodeLibraryEmailsResponse.php
 lib/models/SfvbCommsDnsRecord.php
 lib/models/SfvbCommsEmail.php
 lib/models/SfvbCommsList.php
@@ -2557,6 +2563,8 @@ lib/models/SfvbSequenceStep.php
 lib/models/SfvbSequenceStepCreateRequest.php
 lib/models/SfvbSequenceStepCreateResponse.php
 lib/models/SfvbSequenceStepDeleteResponse.php
+lib/models/SfvbSequenceStepMoveRequest.php
+lib/models/SfvbSequenceStepMoveResponse.php
 lib/models/SfvbSequenceStepUpdateRequest.php
 lib/models/SfvbSequenceStepUpdateResponse.php
 lib/models/SfvbServerLog.php

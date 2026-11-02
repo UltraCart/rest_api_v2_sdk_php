@@ -58,8 +58,15 @@ class SfvbSequenceStepCreateResponse implements ModelInterface, ArrayAccess, \Js
       * @var string[]
       */
     protected static $openAPITypes = [
+        'back_container_uuid' => 'string',
         'email_uuid' => 'string',
+        'front_container_uuid' => 'string',
+        'library_files_kept' => 'string[]',
+        'library_files_skipped' => 'string[]',
+        'library_files_written' => 'string[]',
+        'library_item_oid' => 'int',
         'notes' => 'string[]',
+        'postcard_uuid' => 'string',
         'requires_review' => 'bool',
         'step' => '\ultracart\v2\models\SfvbSequenceStep'
     ];
@@ -72,8 +79,15 @@ class SfvbSequenceStepCreateResponse implements ModelInterface, ArrayAccess, \Js
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'back_container_uuid' => null,
         'email_uuid' => null,
+        'front_container_uuid' => null,
+        'library_files_kept' => null,
+        'library_files_skipped' => null,
+        'library_files_written' => null,
+        'library_item_oid' => 'int32',
         'notes' => null,
+        'postcard_uuid' => null,
         'requires_review' => null,
         'step' => null
     ];
@@ -105,8 +119,15 @@ class SfvbSequenceStepCreateResponse implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $attributeMap = [
+        'back_container_uuid' => 'back_container_uuid',
         'email_uuid' => 'email_uuid',
+        'front_container_uuid' => 'front_container_uuid',
+        'library_files_kept' => 'library_files_kept',
+        'library_files_skipped' => 'library_files_skipped',
+        'library_files_written' => 'library_files_written',
+        'library_item_oid' => 'library_item_oid',
         'notes' => 'notes',
+        'postcard_uuid' => 'postcard_uuid',
         'requires_review' => 'requires_review',
         'step' => 'step'
     ];
@@ -117,8 +138,15 @@ class SfvbSequenceStepCreateResponse implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $setters = [
+        'back_container_uuid' => 'setBackContainerUuid',
         'email_uuid' => 'setEmailUuid',
+        'front_container_uuid' => 'setFrontContainerUuid',
+        'library_files_kept' => 'setLibraryFilesKept',
+        'library_files_skipped' => 'setLibraryFilesSkipped',
+        'library_files_written' => 'setLibraryFilesWritten',
+        'library_item_oid' => 'setLibraryItemOid',
         'notes' => 'setNotes',
+        'postcard_uuid' => 'setPostcardUuid',
         'requires_review' => 'setRequiresReview',
         'step' => 'setStep'
     ];
@@ -129,8 +157,15 @@ class SfvbSequenceStepCreateResponse implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $getters = [
+        'back_container_uuid' => 'getBackContainerUuid',
         'email_uuid' => 'getEmailUuid',
+        'front_container_uuid' => 'getFrontContainerUuid',
+        'library_files_kept' => 'getLibraryFilesKept',
+        'library_files_skipped' => 'getLibraryFilesSkipped',
+        'library_files_written' => 'getLibraryFilesWritten',
+        'library_item_oid' => 'getLibraryItemOid',
         'notes' => 'getNotes',
+        'postcard_uuid' => 'getPostcardUuid',
         'requires_review' => 'getRequiresReview',
         'step' => 'getStep'
     ];
@@ -192,8 +227,15 @@ class SfvbSequenceStepCreateResponse implements ModelInterface, ArrayAccess, \Js
      */
     public function __construct(array $data = null)
     {
+        $this->container['back_container_uuid'] = $data['back_container_uuid'] ?? null;
         $this->container['email_uuid'] = $data['email_uuid'] ?? null;
+        $this->container['front_container_uuid'] = $data['front_container_uuid'] ?? null;
+        $this->container['library_files_kept'] = $data['library_files_kept'] ?? null;
+        $this->container['library_files_skipped'] = $data['library_files_skipped'] ?? null;
+        $this->container['library_files_written'] = $data['library_files_written'] ?? null;
+        $this->container['library_item_oid'] = $data['library_item_oid'] ?? null;
         $this->container['notes'] = $data['notes'] ?? null;
+        $this->container['postcard_uuid'] = $data['postcard_uuid'] ?? null;
         $this->container['requires_review'] = $data['requires_review'] ?? null;
         $this->container['step'] = $data['step'] ?? null;
     }
@@ -223,6 +265,30 @@ class SfvbSequenceStepCreateResponse implements ModelInterface, ArrayAccess, \Js
 
 
     /**
+     * Gets back_container_uuid
+     *
+     * @return string|null
+     */
+    public function getBackContainerUuid()
+    {
+        return $this->container['back_container_uuid'];
+    }
+
+    /**
+     * Sets back_container_uuid
+     *
+     * @param string|null $back_container_uuid A post_card step's back, the container with owner type postcardback and this owner id.
+     *
+     * @return self
+     */
+    public function setBackContainerUuid($back_container_uuid)
+    {
+        $this->container['back_container_uuid'] = $back_container_uuid;
+
+        return $this;
+    }
+
+    /**
      * Gets email_uuid
      *
      * @return string|null
@@ -247,6 +313,126 @@ class SfvbSequenceStepCreateResponse implements ModelInterface, ArrayAccess, \Js
     }
 
     /**
+     * Gets front_container_uuid
+     *
+     * @return string|null
+     */
+    public function getFrontContainerUuid()
+    {
+        return $this->container['front_container_uuid'];
+    }
+
+    /**
+     * Sets front_container_uuid
+     *
+     * @param string|null $front_container_uuid A post_card step's front, the container with owner type postcardfront and this owner id.
+     *
+     * @return self
+     */
+    public function setFrontContainerUuid($front_container_uuid)
+    {
+        $this->container['front_container_uuid'] = $front_container_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets library_files_kept
+     *
+     * @return string[]|null
+     */
+    public function getLibraryFilesKept()
+    {
+        return $this->container['library_files_kept'];
+    }
+
+    /**
+     * Sets library_files_kept
+     *
+     * @param string[]|null $library_files_kept The library item's files whose path already held a file, which was kept, not replaced.
+     *
+     * @return self
+     */
+    public function setLibraryFilesKept($library_files_kept)
+    {
+        $this->container['library_files_kept'] = $library_files_kept;
+
+        return $this;
+    }
+
+    /**
+     * Gets library_files_skipped
+     *
+     * @return string[]|null
+     */
+    public function getLibraryFilesSkipped()
+    {
+        return $this->container['library_files_skipped'];
+    }
+
+    /**
+     * Sets library_files_skipped
+     *
+     * @param string[]|null $library_files_skipped The library item's files that weren't written because they aren't a PNG, JPEG or GIF image whose bytes match its name.  Only those images are copied from a library item.
+     *
+     * @return self
+     */
+    public function setLibraryFilesSkipped($library_files_skipped)
+    {
+        $this->container['library_files_skipped'] = $library_files_skipped;
+
+        return $this;
+    }
+
+    /**
+     * Gets library_files_written
+     *
+     * @return string[]|null
+     */
+    public function getLibraryFilesWritten()
+    {
+        return $this->container['library_files_written'];
+    }
+
+    /**
+     * Sets library_files_written
+     *
+     * @param string[]|null $library_files_written Storefront file paths the library item's files were written to.  A file already at its path is kept as it is and listed in library_files_kept instead.
+     *
+     * @return self
+     */
+    public function setLibraryFilesWritten($library_files_written)
+    {
+        $this->container['library_files_written'] = $library_files_written;
+
+        return $this;
+    }
+
+    /**
+     * Gets library_item_oid
+     *
+     * @return int|null
+     */
+    public function getLibraryItemOid()
+    {
+        return $this->container['library_item_oid'];
+    }
+
+    /**
+     * Sets library_item_oid
+     *
+     * @param int|null $library_item_oid The code library email item the new email started from (#1589), when one was given.
+     *
+     * @return self
+     */
+    public function setLibraryItemOid($library_item_oid)
+    {
+        $this->container['library_item_oid'] = $library_item_oid;
+
+        return $this;
+    }
+
+    /**
      * Gets notes
      *
      * @return string[]|null
@@ -266,6 +452,30 @@ class SfvbSequenceStepCreateResponse implements ModelInterface, ArrayAccess, \Js
     public function setNotes($notes)
     {
         $this->container['notes'] = $notes;
+
+        return $this;
+    }
+
+    /**
+     * Gets postcard_uuid
+     *
+     * @return string|null
+     */
+    public function getPostcardUuid()
+    {
+        return $this->container['postcard_uuid'];
+    }
+
+    /**
+     * Sets postcard_uuid
+     *
+     * @param string|null $postcard_uuid A post_card step's new postcard (#1644).
+     *
+     * @return self
+     */
+    public function setPostcardUuid($postcard_uuid)
+    {
+        $this->container['postcard_uuid'] = $postcard_uuid;
 
         return $this;
     }

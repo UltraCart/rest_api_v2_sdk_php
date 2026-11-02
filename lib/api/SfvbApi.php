@@ -54562,12 +54562,12 @@ class SfvbApi
     /**
      * Operation insertSfvbSequenceStep
      *
-     * Add an email step, with its new email
+     * Add an email step, with its new email, a wait step, or a postcard step, with its new postcard
      *
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $sequence_uuid sequence_uuid (required)
      * @param  string $if_match The hash_sha256 of the step it goes after, or of the branching step, or * for the first step of a sequence with no steps.  Required; 428 when absent, 412 when stale. (required)
-     * @param  \ultracart\v2\models\SfvbSequenceStepCreateRequest $sequence_step_create_request Where the step goes, and the new email&#39;s subject and preview text (required)
+     * @param  \ultracart\v2\models\SfvbSequenceStepCreateRequest $sequence_step_create_request Where the step goes, and the new email&#39;s subject and preview text or code library item, the wait&#39;s config_json, or the postcard step&#39;s name (required)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -54582,12 +54582,12 @@ class SfvbApi
     /**
      * Operation insertSfvbSequenceStepWithHttpInfo
      *
-     * Add an email step, with its new email
+     * Add an email step, with its new email, a wait step, or a postcard step, with its new postcard
      *
      * @param  int $storefront_oid (required)
      * @param  string $sequence_uuid (required)
      * @param  string $if_match The hash_sha256 of the step it goes after, or of the branching step, or * for the first step of a sequence with no steps.  Required; 428 when absent, 412 when stale. (required)
-     * @param  \ultracart\v2\models\SfvbSequenceStepCreateRequest $sequence_step_create_request Where the step goes, and the new email&#39;s subject and preview text (required)
+     * @param  \ultracart\v2\models\SfvbSequenceStepCreateRequest $sequence_step_create_request Where the step goes, and the new email&#39;s subject and preview text or code library item, the wait&#39;s config_json, or the postcard step&#39;s name (required)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -54603,13 +54603,13 @@ class SfvbApi
     /**
      * Operation insertSfvbSequenceStepWithHttpInfoRetry
      *
-     * Add an email step, with its new email
+     * Add an email step, with its new email, a wait step, or a postcard step, with its new postcard
      *
      * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
      * @param  int $storefront_oid (required)
      * @param  string $sequence_uuid (required)
      * @param  string $if_match The hash_sha256 of the step it goes after, or of the branching step, or * for the first step of a sequence with no steps.  Required; 428 when absent, 412 when stale. (required)
-     * @param  \ultracart\v2\models\SfvbSequenceStepCreateRequest $sequence_step_create_request Where the step goes, and the new email&#39;s subject and preview text (required)
+     * @param  \ultracart\v2\models\SfvbSequenceStepCreateRequest $sequence_step_create_request Where the step goes, and the new email&#39;s subject and preview text or code library item, the wait&#39;s config_json, or the postcard step&#39;s name (required)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -54842,12 +54842,12 @@ class SfvbApi
     /**
      * Operation insertSfvbSequenceStepAsync
      *
-     * Add an email step, with its new email
+     * Add an email step, with its new email, a wait step, or a postcard step, with its new postcard
      *
      * @param  int $storefront_oid (required)
      * @param  string $sequence_uuid (required)
      * @param  string $if_match The hash_sha256 of the step it goes after, or of the branching step, or * for the first step of a sequence with no steps.  Required; 428 when absent, 412 when stale. (required)
-     * @param  \ultracart\v2\models\SfvbSequenceStepCreateRequest $sequence_step_create_request Where the step goes, and the new email&#39;s subject and preview text (required)
+     * @param  \ultracart\v2\models\SfvbSequenceStepCreateRequest $sequence_step_create_request Where the step goes, and the new email&#39;s subject and preview text or code library item, the wait&#39;s config_json, or the postcard step&#39;s name (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -54865,12 +54865,12 @@ class SfvbApi
     /**
      * Operation insertSfvbSequenceStepAsyncWithHttpInfo
      *
-     * Add an email step, with its new email
+     * Add an email step, with its new email, a wait step, or a postcard step, with its new postcard
      *
      * @param  int $storefront_oid (required)
      * @param  string $sequence_uuid (required)
      * @param  string $if_match The hash_sha256 of the step it goes after, or of the branching step, or * for the first step of a sequence with no steps.  Required; 428 when absent, 412 when stale. (required)
-     * @param  \ultracart\v2\models\SfvbSequenceStepCreateRequest $sequence_step_create_request Where the step goes, and the new email&#39;s subject and preview text (required)
+     * @param  \ultracart\v2\models\SfvbSequenceStepCreateRequest $sequence_step_create_request Where the step goes, and the new email&#39;s subject and preview text or code library item, the wait&#39;s config_json, or the postcard step&#39;s name (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -54922,7 +54922,7 @@ class SfvbApi
      * @param  int $storefront_oid (required)
      * @param  string $sequence_uuid (required)
      * @param  string $if_match The hash_sha256 of the step it goes after, or of the branching step, or * for the first step of a sequence with no steps.  Required; 428 when absent, 412 when stale. (required)
-     * @param  \ultracart\v2\models\SfvbSequenceStepCreateRequest $sequence_step_create_request Where the step goes, and the new email&#39;s subject and preview text (required)
+     * @param  \ultracart\v2\models\SfvbSequenceStepCreateRequest $sequence_step_create_request Where the step goes, and the new email&#39;s subject and preview text or code library item, the wait&#39;s config_json, or the postcard step&#39;s name (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -57345,6 +57345,442 @@ class SfvbApi
             $include_deleted,
             'include_deleted', // param base name
             'boolean', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($storefront_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'storefront_oid' . '}',
+                ObjectSerializer::toPathValue($storefront_oid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation listSfvbCodeLibraryEmails
+     *
+     * Email items from the code library that can start a new email step
+     *
+     * @param  int $storefront_oid storefront_oid (required)
+     * @param  string $search Part of the title to match, with case.  Up to 100 characters. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\SfvbCodeLibraryEmailsResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function listSfvbCodeLibraryEmails($storefront_oid, $search = null)
+    {
+        list($response) = $this->listSfvbCodeLibraryEmailsWithHttpInfo($storefront_oid, $search);
+        return $response;
+    }
+
+    /**
+     * Operation listSfvbCodeLibraryEmailsWithHttpInfo
+     *
+     * Email items from the code library that can start a new email step
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $search Part of the title to match, with case.  Up to 100 characters. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbCodeLibraryEmailsResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listSfvbCodeLibraryEmailsWithHttpInfo($storefront_oid, $search = null)
+    {
+        return $this->listSfvbCodeLibraryEmailsWithHttpInfoRetry(true ,   $storefront_oid,   $search);
+    }
+
+
+
+    /**
+     * Operation listSfvbCodeLibraryEmailsWithHttpInfoRetry
+     *
+     * Email items from the code library that can start a new email step
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $search Part of the title to match, with case.  Up to 100 characters. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbCodeLibraryEmailsResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listSfvbCodeLibraryEmailsWithHttpInfoRetry($retry , $storefront_oid, $search = null)
+    {
+        $returnType = '\ultracart\v2\models\SfvbCodeLibraryEmailsResponse';
+        $request = $this->listSfvbCodeLibraryEmailsRequest($storefront_oid, $search);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->listSfvbCodeLibraryEmailsWithHttpInfoRetry(false ,   $storefront_oid,   $search);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\SfvbCodeLibraryEmailsResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\SfvbCodeLibraryEmailsResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\SfvbCodeLibraryEmailsResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\SfvbCodeLibraryEmailsResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\SfvbCodeLibraryEmailsResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation listSfvbCodeLibraryEmailsAsync
+     *
+     * Email items from the code library that can start a new email step
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $search Part of the title to match, with case.  Up to 100 characters. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listSfvbCodeLibraryEmailsAsync($storefront_oid, $search = null)
+    {
+        return $this->listSfvbCodeLibraryEmailsAsyncWithHttpInfo($storefront_oid, $search)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listSfvbCodeLibraryEmailsAsyncWithHttpInfo
+     *
+     * Email items from the code library that can start a new email step
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $search Part of the title to match, with case.  Up to 100 characters. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listSfvbCodeLibraryEmailsAsyncWithHttpInfo($storefront_oid, $search = null)
+    {
+        $returnType = '\ultracart\v2\models\SfvbCodeLibraryEmailsResponse';
+        $request = $this->listSfvbCodeLibraryEmailsRequest($storefront_oid, $search);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listSfvbCodeLibraryEmails'
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $search Part of the title to match, with case.  Up to 100 characters. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function listSfvbCodeLibraryEmailsRequest($storefront_oid, $search = null)
+    {
+        // verify the required parameter 'storefront_oid' is set
+        if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $storefront_oid when calling listSfvbCodeLibraryEmails'
+            );
+        }
+
+        $resourcePath = '/sfvb/storefronts/{storefront_oid}/code_library/emails';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $search,
+            'search', // param base name
+            'string', // openApiType
             '', // style
             false, // explode
             false // required
@@ -65588,6 +66024,534 @@ class SfvbApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation moveSfvbSequenceStep
+     *
+     * Move one step
+     *
+     * @param  int $storefront_oid storefront_oid (required)
+     * @param  string $sequence_uuid sequence_uuid (required)
+     * @param  string $step_uuid step_uuid (required)
+     * @param  string $if_match The moved step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param  \ultracart\v2\models\SfvbSequenceStepMoveRequest $sequence_step_move_request Where the step moves, and the hash of the step it goes next to (required)
+     * @param  string $approval_id When the sequence is live, the approval_id of an approved sequence_step.move request for exactly this move.  See POST /sfvb/approvals. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\SfvbSequenceStepMoveResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function moveSfvbSequenceStep($storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_move_request, $approval_id = null)
+    {
+        list($response) = $this->moveSfvbSequenceStepWithHttpInfo($storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_move_request, $approval_id);
+        return $response;
+    }
+
+    /**
+     * Operation moveSfvbSequenceStepWithHttpInfo
+     *
+     * Move one step
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $sequence_uuid (required)
+     * @param  string $step_uuid (required)
+     * @param  string $if_match The moved step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param  \ultracart\v2\models\SfvbSequenceStepMoveRequest $sequence_step_move_request Where the step moves, and the hash of the step it goes next to (required)
+     * @param  string $approval_id When the sequence is live, the approval_id of an approved sequence_step.move request for exactly this move.  See POST /sfvb/approvals. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbSequenceStepMoveResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function moveSfvbSequenceStepWithHttpInfo($storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_move_request, $approval_id = null)
+    {
+        return $this->moveSfvbSequenceStepWithHttpInfoRetry(true ,   $storefront_oid,   $sequence_uuid,   $step_uuid,   $if_match,   $sequence_step_move_request,   $approval_id);
+    }
+
+
+
+    /**
+     * Operation moveSfvbSequenceStepWithHttpInfoRetry
+     *
+     * Move one step
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $sequence_uuid (required)
+     * @param  string $step_uuid (required)
+     * @param  string $if_match The moved step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param  \ultracart\v2\models\SfvbSequenceStepMoveRequest $sequence_step_move_request Where the step moves, and the hash of the step it goes next to (required)
+     * @param  string $approval_id When the sequence is live, the approval_id of an approved sequence_step.move request for exactly this move.  See POST /sfvb/approvals. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbSequenceStepMoveResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function moveSfvbSequenceStepWithHttpInfoRetry($retry , $storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_move_request, $approval_id = null)
+    {
+        $returnType = '\ultracart\v2\models\SfvbSequenceStepMoveResponse';
+        $request = $this->moveSfvbSequenceStepRequest($storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_move_request, $approval_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->moveSfvbSequenceStepWithHttpInfoRetry(false ,   $storefront_oid,   $sequence_uuid,   $step_uuid,   $if_match,   $sequence_step_move_request,   $approval_id);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\SfvbSequenceStepMoveResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\SfvbSequenceStepMoveResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\SfvbSequenceStepMoveResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\SfvbSequenceStepMoveResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\SfvbSequenceStepMoveResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation moveSfvbSequenceStepAsync
+     *
+     * Move one step
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $sequence_uuid (required)
+     * @param  string $step_uuid (required)
+     * @param  string $if_match The moved step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param  \ultracart\v2\models\SfvbSequenceStepMoveRequest $sequence_step_move_request Where the step moves, and the hash of the step it goes next to (required)
+     * @param  string $approval_id When the sequence is live, the approval_id of an approved sequence_step.move request for exactly this move.  See POST /sfvb/approvals. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function moveSfvbSequenceStepAsync($storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_move_request, $approval_id = null)
+    {
+        return $this->moveSfvbSequenceStepAsyncWithHttpInfo($storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_move_request, $approval_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation moveSfvbSequenceStepAsyncWithHttpInfo
+     *
+     * Move one step
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $sequence_uuid (required)
+     * @param  string $step_uuid (required)
+     * @param  string $if_match The moved step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param  \ultracart\v2\models\SfvbSequenceStepMoveRequest $sequence_step_move_request Where the step moves, and the hash of the step it goes next to (required)
+     * @param  string $approval_id When the sequence is live, the approval_id of an approved sequence_step.move request for exactly this move.  See POST /sfvb/approvals. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function moveSfvbSequenceStepAsyncWithHttpInfo($storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_move_request, $approval_id = null)
+    {
+        $returnType = '\ultracart\v2\models\SfvbSequenceStepMoveResponse';
+        $request = $this->moveSfvbSequenceStepRequest($storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_move_request, $approval_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'moveSfvbSequenceStep'
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $sequence_uuid (required)
+     * @param  string $step_uuid (required)
+     * @param  string $if_match The moved step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param  \ultracart\v2\models\SfvbSequenceStepMoveRequest $sequence_step_move_request Where the step moves, and the hash of the step it goes next to (required)
+     * @param  string $approval_id When the sequence is live, the approval_id of an approved sequence_step.move request for exactly this move.  See POST /sfvb/approvals. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function moveSfvbSequenceStepRequest($storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_move_request, $approval_id = null)
+    {
+        // verify the required parameter 'storefront_oid' is set
+        if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $storefront_oid when calling moveSfvbSequenceStep'
+            );
+        }
+        // verify the required parameter 'sequence_uuid' is set
+        if ($sequence_uuid === null || (is_array($sequence_uuid) && count($sequence_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $sequence_uuid when calling moveSfvbSequenceStep'
+            );
+        }
+        // verify the required parameter 'step_uuid' is set
+        if ($step_uuid === null || (is_array($step_uuid) && count($step_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $step_uuid when calling moveSfvbSequenceStep'
+            );
+        }
+        // verify the required parameter 'if_match' is set
+        if ($if_match === null || (is_array($if_match) && count($if_match) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $if_match when calling moveSfvbSequenceStep'
+            );
+        }
+        // verify the required parameter 'sequence_step_move_request' is set
+        if ($sequence_step_move_request === null || (is_array($sequence_step_move_request) && count($sequence_step_move_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $sequence_step_move_request when calling moveSfvbSequenceStep'
+            );
+        }
+
+        $resourcePath = '/sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/move';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($if_match !== null) {
+            $headerParams['If-Match'] = ObjectSerializer::toHeaderValue($if_match);
+        }
+        // header params
+        if ($approval_id !== null) {
+            $headerParams['Approval-Id'] = ObjectSerializer::toHeaderValue($approval_id);
+        }
+
+        // path params
+        if ($storefront_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'storefront_oid' . '}',
+                ObjectSerializer::toPathValue($storefront_oid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($sequence_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'sequence_uuid' . '}',
+                ObjectSerializer::toPathValue($sequence_uuid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($step_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'step_uuid' . '}',
+                ObjectSerializer::toPathValue($step_uuid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($sequence_step_move_request)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($sequence_step_move_request));
+            } else {
+                $httpBody = $sequence_step_move_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -94462,14 +95426,15 @@ class SfvbApi
      * @param  string $step_uuid step_uuid (required)
      * @param  string $if_match The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
      * @param  \ultracart\v2\models\SfvbSequenceStepUpdateRequest $sequence_step_update_request The settings, the filter, or both (required)
+     * @param  string $approval_id When the change turns a post_card step on, the approval_id of an approved sequence_step.enable_postcard request for this step.  See POST /sfvb/approvals. (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ultracart\v2\models\SfvbSequenceStepUpdateResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
      */
-    public function updateSfvbSequenceStep($storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_update_request)
+    public function updateSfvbSequenceStep($storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_update_request, $approval_id = null)
     {
-        list($response) = $this->updateSfvbSequenceStepWithHttpInfo($storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_update_request);
+        list($response) = $this->updateSfvbSequenceStepWithHttpInfo($storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_update_request, $approval_id);
         return $response;
     }
 
@@ -94483,14 +95448,15 @@ class SfvbApi
      * @param  string $step_uuid (required)
      * @param  string $if_match The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
      * @param  \ultracart\v2\models\SfvbSequenceStepUpdateRequest $sequence_step_update_request The settings, the filter, or both (required)
+     * @param  string $approval_id When the change turns a post_card step on, the approval_id of an approved sequence_step.enable_postcard request for this step.  See POST /sfvb/approvals. (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\SfvbSequenceStepUpdateResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateSfvbSequenceStepWithHttpInfo($storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_update_request)
+    public function updateSfvbSequenceStepWithHttpInfo($storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_update_request, $approval_id = null)
     {
-        return $this->updateSfvbSequenceStepWithHttpInfoRetry(true ,   $storefront_oid,   $sequence_uuid,   $step_uuid,   $if_match,   $sequence_step_update_request);
+        return $this->updateSfvbSequenceStepWithHttpInfoRetry(true ,   $storefront_oid,   $sequence_uuid,   $step_uuid,   $if_match,   $sequence_step_update_request,   $approval_id);
     }
 
 
@@ -94506,15 +95472,16 @@ class SfvbApi
      * @param  string $step_uuid (required)
      * @param  string $if_match The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
      * @param  \ultracart\v2\models\SfvbSequenceStepUpdateRequest $sequence_step_update_request The settings, the filter, or both (required)
+     * @param  string $approval_id When the change turns a post_card step on, the approval_id of an approved sequence_step.enable_postcard request for this step.  See POST /sfvb/approvals. (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\SfvbSequenceStepUpdateResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateSfvbSequenceStepWithHttpInfoRetry($retry , $storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_update_request)
+    public function updateSfvbSequenceStepWithHttpInfoRetry($retry , $storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_update_request, $approval_id = null)
     {
         $returnType = '\ultracart\v2\models\SfvbSequenceStepUpdateResponse';
-        $request = $this->updateSfvbSequenceStepRequest($storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_update_request);
+        $request = $this->updateSfvbSequenceStepRequest($storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_update_request, $approval_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -94533,7 +95500,7 @@ class SfvbApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->updateSfvbSequenceStepWithHttpInfoRetry(false ,   $storefront_oid,   $sequence_uuid,   $step_uuid,   $if_match,   $sequence_step_update_request);
+                        return $this->updateSfvbSequenceStepWithHttpInfoRetry(false ,   $storefront_oid,   $sequence_uuid,   $step_uuid,   $if_match,   $sequence_step_update_request,   $approval_id);
                     }
                 }
 
@@ -94745,13 +95712,14 @@ class SfvbApi
      * @param  string $step_uuid (required)
      * @param  string $if_match The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
      * @param  \ultracart\v2\models\SfvbSequenceStepUpdateRequest $sequence_step_update_request The settings, the filter, or both (required)
+     * @param  string $approval_id When the change turns a post_card step on, the approval_id of an approved sequence_step.enable_postcard request for this step.  See POST /sfvb/approvals. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSfvbSequenceStepAsync($storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_update_request)
+    public function updateSfvbSequenceStepAsync($storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_update_request, $approval_id = null)
     {
-        return $this->updateSfvbSequenceStepAsyncWithHttpInfo($storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_update_request)
+        return $this->updateSfvbSequenceStepAsyncWithHttpInfo($storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_update_request, $approval_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -94769,14 +95737,15 @@ class SfvbApi
      * @param  string $step_uuid (required)
      * @param  string $if_match The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
      * @param  \ultracart\v2\models\SfvbSequenceStepUpdateRequest $sequence_step_update_request The settings, the filter, or both (required)
+     * @param  string $approval_id When the change turns a post_card step on, the approval_id of an approved sequence_step.enable_postcard request for this step.  See POST /sfvb/approvals. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSfvbSequenceStepAsyncWithHttpInfo($storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_update_request)
+    public function updateSfvbSequenceStepAsyncWithHttpInfo($storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_update_request, $approval_id = null)
     {
         $returnType = '\ultracart\v2\models\SfvbSequenceStepUpdateResponse';
-        $request = $this->updateSfvbSequenceStepRequest($storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_update_request);
+        $request = $this->updateSfvbSequenceStepRequest($storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_update_request, $approval_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -94822,11 +95791,12 @@ class SfvbApi
      * @param  string $step_uuid (required)
      * @param  string $if_match The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
      * @param  \ultracart\v2\models\SfvbSequenceStepUpdateRequest $sequence_step_update_request The settings, the filter, or both (required)
+     * @param  string $approval_id When the change turns a post_card step on, the approval_id of an approved sequence_step.enable_postcard request for this step.  See POST /sfvb/approvals. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateSfvbSequenceStepRequest($storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_update_request)
+    public function updateSfvbSequenceStepRequest($storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_update_request, $approval_id = null)
     {
         // verify the required parameter 'storefront_oid' is set
         if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
@@ -94870,6 +95840,10 @@ class SfvbApi
         // header params
         if ($if_match !== null) {
             $headerParams['If-Match'] = ObjectSerializer::toHeaderValue($if_match);
+        }
+        // header params
+        if ($approval_id !== null) {
+            $headerParams['Approval-Id'] = ObjectSerializer::toHeaderValue($approval_id);
         }
 
         // path params

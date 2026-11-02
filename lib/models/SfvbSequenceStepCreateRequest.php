@@ -58,8 +58,12 @@ class SfvbSequenceStepCreateRequest implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
+        'acknowledge_executable' => 'bool',
         'after_step_uuid' => 'string',
         'branch_step_uuid' => 'string',
+        'config_json' => 'string',
+        'library_item_oid' => 'int',
+        'name' => 'string',
         'preview_text' => 'string',
         'side' => 'string',
         'subject' => 'string',
@@ -74,8 +78,12 @@ class SfvbSequenceStepCreateRequest implements ModelInterface, ArrayAccess, \Jso
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'acknowledge_executable' => null,
         'after_step_uuid' => null,
         'branch_step_uuid' => null,
+        'config_json' => null,
+        'library_item_oid' => 'int32',
+        'name' => null,
         'preview_text' => null,
         'side' => null,
         'subject' => null,
@@ -109,8 +117,12 @@ class SfvbSequenceStepCreateRequest implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $attributeMap = [
+        'acknowledge_executable' => 'acknowledge_executable',
         'after_step_uuid' => 'after_step_uuid',
         'branch_step_uuid' => 'branch_step_uuid',
+        'config_json' => 'config_json',
+        'library_item_oid' => 'library_item_oid',
+        'name' => 'name',
         'preview_text' => 'preview_text',
         'side' => 'side',
         'subject' => 'subject',
@@ -123,8 +135,12 @@ class SfvbSequenceStepCreateRequest implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $setters = [
+        'acknowledge_executable' => 'setAcknowledgeExecutable',
         'after_step_uuid' => 'setAfterStepUuid',
         'branch_step_uuid' => 'setBranchStepUuid',
+        'config_json' => 'setConfigJson',
+        'library_item_oid' => 'setLibraryItemOid',
+        'name' => 'setName',
         'preview_text' => 'setPreviewText',
         'side' => 'setSide',
         'subject' => 'setSubject',
@@ -137,8 +153,12 @@ class SfvbSequenceStepCreateRequest implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $getters = [
+        'acknowledge_executable' => 'getAcknowledgeExecutable',
         'after_step_uuid' => 'getAfterStepUuid',
         'branch_step_uuid' => 'getBranchStepUuid',
+        'config_json' => 'getConfigJson',
+        'library_item_oid' => 'getLibraryItemOid',
+        'name' => 'getName',
         'preview_text' => 'getPreviewText',
         'side' => 'getSide',
         'subject' => 'getSubject',
@@ -202,8 +222,12 @@ class SfvbSequenceStepCreateRequest implements ModelInterface, ArrayAccess, \Jso
      */
     public function __construct(array $data = null)
     {
+        $this->container['acknowledge_executable'] = $data['acknowledge_executable'] ?? null;
         $this->container['after_step_uuid'] = $data['after_step_uuid'] ?? null;
         $this->container['branch_step_uuid'] = $data['branch_step_uuid'] ?? null;
+        $this->container['config_json'] = $data['config_json'] ?? null;
+        $this->container['library_item_oid'] = $data['library_item_oid'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
         $this->container['preview_text'] = $data['preview_text'] ?? null;
         $this->container['side'] = $data['side'] ?? null;
         $this->container['subject'] = $data['subject'] ?? null;
@@ -233,6 +257,30 @@ class SfvbSequenceStepCreateRequest implements ModelInterface, ArrayAccess, \Jso
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets acknowledge_executable
+     *
+     * @return bool|null
+     */
+    public function getAcknowledgeExecutable()
+    {
+        return $this->container['acknowledge_executable'];
+    }
+
+    /**
+     * Sets acknowledge_executable
+     *
+     * @param bool|null $acknowledge_executable With library_item_oid, true once the caller has seen that the item carries executable content (script, html, embed, css or velocity elements) and still wants it.  An item with any is refused without it.
+     *
+     * @return self
+     */
+    public function setAcknowledgeExecutable($acknowledge_executable)
+    {
+        $this->container['acknowledge_executable'] = $acknowledge_executable;
+
+        return $this;
+    }
 
     /**
      * Gets after_step_uuid
@@ -283,6 +331,78 @@ class SfvbSequenceStepCreateRequest implements ModelInterface, ArrayAccess, \Jso
     }
 
     /**
+     * Gets config_json
+     *
+     * @return string|null
+     */
+    public function getConfigJson()
+    {
+        return $this->container['config_json'];
+    }
+
+    /**
+     * Sets config_json
+     *
+     * @param string|null $config_json A wait step's settings, as the admin saves them and set-config changes them, namely delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), and optionally the delay_until_* options.  Not for an email step.
+     *
+     * @return self
+     */
+    public function setConfigJson($config_json)
+    {
+        $this->container['config_json'] = $config_json;
+
+        return $this;
+    }
+
+    /**
+     * Gets library_item_oid
+     *
+     * @return int|null
+     */
+    public function getLibraryItemOid()
+    {
+        return $this->container['library_item_oid'];
+    }
+
+    /**
+     * Sets library_item_oid
+     *
+     * @param int|null $library_item_oid An email item from the code library (#1589) to start the new email from, taking its body, with new element ids, and its subject and preview text unless subject or preview_text is given.  The item must be this account's own, shared with it, or published, approved by UltraCart and free.  Only for an email step.  The items are listed by the code library email read.
+     *
+     * @return self
+     */
+    public function setLibraryItemOid($library_item_oid)
+    {
+        $this->container['library_item_oid'] = $library_item_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name A post_card step's name, shown in the admin, 1 to 100 characters on one line.  Postcard by default.  Only for a post_card step.
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
      * Gets preview_text
      *
      * @return string|null
@@ -295,7 +415,7 @@ class SfvbSequenceStepCreateRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets preview_text
      *
-     * @param string|null $preview_text The new email's preview text, 5 to 150 characters.
+     * @param string|null $preview_text The new email's preview text, 5 to 150 characters.  Optional with library_item_oid, whose preview text is used when this is left out.
      *
      * @return self
      */
@@ -343,7 +463,7 @@ class SfvbSequenceStepCreateRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets subject
      *
-     * @param string|null $subject The new email's subject line, 5 to 150 characters.
+     * @param string|null $subject The new email's subject line, 5 to 150 characters.  Optional with library_item_oid, whose subject is used when this is left out.
      *
      * @return self
      */
@@ -367,7 +487,7 @@ class SfvbSequenceStepCreateRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets type
      *
-     * @param string|null $type The kind of step.  Only email for now.
+     * @param string|null $type The kind of step, one of email (the default), wait or post_card.
      *
      * @return self
      */

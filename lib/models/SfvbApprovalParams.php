@@ -58,8 +58,10 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
+        'after_step_uuid' => 'string',
         'attribute_names' => 'string[]',
         'blog_post_oid' => 'int',
+        'branch_step_uuid' => 'string',
         'content_sha256' => 'string',
         'domain' => 'string',
         'esp_twilio_uuid' => 'string',
@@ -72,6 +74,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'rule_count' => 'int',
         'segment_uuid' => 'string',
         'sequence_uuid' => 'string',
+        'side' => 'string',
         'slot' => 'string',
         'step_uuid' => 'string',
         'upsell_kind' => 'string',
@@ -89,8 +92,10 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'after_step_uuid' => null,
         'attribute_names' => null,
         'blog_post_oid' => 'int32',
+        'branch_step_uuid' => null,
         'content_sha256' => null,
         'domain' => null,
         'esp_twilio_uuid' => null,
@@ -103,6 +108,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'rule_count' => 'int32',
         'segment_uuid' => null,
         'sequence_uuid' => null,
+        'side' => null,
         'slot' => null,
         'step_uuid' => null,
         'upsell_kind' => null,
@@ -139,8 +145,10 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
+        'after_step_uuid' => 'after_step_uuid',
         'attribute_names' => 'attribute_names',
         'blog_post_oid' => 'blog_post_oid',
+        'branch_step_uuid' => 'branch_step_uuid',
         'content_sha256' => 'content_sha256',
         'domain' => 'domain',
         'esp_twilio_uuid' => 'esp_twilio_uuid',
@@ -153,6 +161,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'rule_count' => 'rule_count',
         'segment_uuid' => 'segment_uuid',
         'sequence_uuid' => 'sequence_uuid',
+        'side' => 'side',
         'slot' => 'slot',
         'step_uuid' => 'step_uuid',
         'upsell_kind' => 'upsell_kind',
@@ -168,8 +177,10 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
+        'after_step_uuid' => 'setAfterStepUuid',
         'attribute_names' => 'setAttributeNames',
         'blog_post_oid' => 'setBlogPostOid',
+        'branch_step_uuid' => 'setBranchStepUuid',
         'content_sha256' => 'setContentSha256',
         'domain' => 'setDomain',
         'esp_twilio_uuid' => 'setEspTwilioUuid',
@@ -182,6 +193,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'rule_count' => 'setRuleCount',
         'segment_uuid' => 'setSegmentUuid',
         'sequence_uuid' => 'setSequenceUuid',
+        'side' => 'setSide',
         'slot' => 'setSlot',
         'step_uuid' => 'setStepUuid',
         'upsell_kind' => 'setUpsellKind',
@@ -197,8 +209,10 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
+        'after_step_uuid' => 'getAfterStepUuid',
         'attribute_names' => 'getAttributeNames',
         'blog_post_oid' => 'getBlogPostOid',
+        'branch_step_uuid' => 'getBranchStepUuid',
         'content_sha256' => 'getContentSha256',
         'domain' => 'getDomain',
         'esp_twilio_uuid' => 'getEspTwilioUuid',
@@ -211,6 +225,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'rule_count' => 'getRuleCount',
         'segment_uuid' => 'getSegmentUuid',
         'sequence_uuid' => 'getSequenceUuid',
+        'side' => 'getSide',
         'slot' => 'getSlot',
         'step_uuid' => 'getStepUuid',
         'upsell_kind' => 'getUpsellKind',
@@ -292,8 +307,10 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
+        $this->container['after_step_uuid'] = $data['after_step_uuid'] ?? null;
         $this->container['attribute_names'] = $data['attribute_names'] ?? null;
         $this->container['blog_post_oid'] = $data['blog_post_oid'] ?? null;
+        $this->container['branch_step_uuid'] = $data['branch_step_uuid'] ?? null;
         $this->container['content_sha256'] = $data['content_sha256'] ?? null;
         $this->container['domain'] = $data['domain'] ?? null;
         $this->container['esp_twilio_uuid'] = $data['esp_twilio_uuid'] ?? null;
@@ -306,6 +323,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->container['rule_count'] = $data['rule_count'] ?? null;
         $this->container['segment_uuid'] = $data['segment_uuid'] ?? null;
         $this->container['sequence_uuid'] = $data['sequence_uuid'] ?? null;
+        $this->container['side'] = $data['side'] ?? null;
         $this->container['slot'] = $data['slot'] ?? null;
         $this->container['step_uuid'] = $data['step_uuid'] ?? null;
         $this->container['upsell_kind'] = $data['upsell_kind'] ?? null;
@@ -347,6 +365,30 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets after_step_uuid
+     *
+     * @return string|null
+     */
+    public function getAfterStepUuid()
+    {
+        return $this->container['after_step_uuid'];
+    }
+
+    /**
+     * Sets after_step_uuid
+     *
+     * @param string|null $after_step_uuid For sequence_step.move, the step it moves after.  Or branch_step_uuid with side.
+     *
+     * @return self
+     */
+    public function setAfterStepUuid($after_step_uuid)
+    {
+        $this->container['after_step_uuid'] = $after_step_uuid;
+
+        return $this;
+    }
 
     /**
      * Gets attribute_names
@@ -392,6 +434,30 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setBlogPostOid($blog_post_oid)
     {
         $this->container['blog_post_oid'] = $blog_post_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets branch_step_uuid
+     *
+     * @return string|null
+     */
+    public function getBranchStepUuid()
+    {
+        return $this->container['branch_step_uuid'];
+    }
+
+    /**
+     * Sets branch_step_uuid
+     *
+     * @param string|null $branch_step_uuid For sequence_step.move, the condition, split or inboxgeek step it moves to the start of a side of.
+     *
+     * @return self
+     */
+    public function setBranchStepUuid($branch_step_uuid)
+    {
+        $this->container['branch_step_uuid'] = $branch_step_uuid;
 
         return $this;
     }
@@ -673,13 +739,37 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets sequence_uuid
      *
-     * @param string|null $sequence_uuid The communication sequence, for sequence_step.delete.
+     * @param string|null $sequence_uuid The communication sequence, for sequence_step.delete and sequence_step.move.
      *
      * @return self
      */
     public function setSequenceUuid($sequence_uuid)
     {
         $this->container['sequence_uuid'] = $sequence_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets side
+     *
+     * @return string|null
+     */
+    public function getSide()
+    {
+        return $this->container['side'];
+    }
+
+    /**
+     * Sets side
+     *
+     * @param string|null $side For sequence_step.move with branch_step_uuid, the side's label from the sequence read.
+     *
+     * @return self
+     */
+    public function setSide($side)
+    {
+        $this->container['side'] = $side;
 
         return $this;
     }
@@ -721,7 +811,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets step_uuid
      *
-     * @param string|null $step_uuid The step to remove, for sequence_step.delete.
+     * @param string|null $step_uuid The step to remove, for sequence_step.delete, or to move, for sequence_step.move.
      *
      * @return self
      */

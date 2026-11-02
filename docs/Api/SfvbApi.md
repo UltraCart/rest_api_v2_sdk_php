@@ -124,12 +124,13 @@ Method | HTTP request | Description
 [**insertSfvbPage()**](SfvbApi.md#insertSfvbPage) | **POST** /sfvb/storefronts/{storefront_oid}/pages | Create a page
 [**insertSfvbRedirect()**](SfvbApi.md#insertSfvbRedirect) | **POST** /sfvb/storefronts/{storefront_oid}/redirects | Create a 301 redirect rule
 [**insertSfvbSecretRequest()**](SfvbApi.md#insertSfvbSecretRequest) | **POST** /sfvb/secrets | Ask a person to enter secret values
-[**insertSfvbSequenceStep()**](SfvbApi.md#insertSfvbSequenceStep) | **POST** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps | Add an email step, with its new email
+[**insertSfvbSequenceStep()**](SfvbApi.md#insertSfvbSequenceStep) | **POST** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps | Add an email step, with its new email, a wait step, or a postcard step, with its new postcard
 [**insertSfvbUpsellOffer()**](SfvbApi.md#insertSfvbUpsellOffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers | Create an upsell offer
 [**insertSfvbUpsellPath()**](SfvbApi.md#insertSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths | Create an upsell path
 [**installSfvbLibraryEntry()**](SfvbApi.md#installSfvbLibraryEntry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/install | Install a library entry into a storefront
 [**listSfvbBlogPosts()**](SfvbApi.md#listSfvbBlogPosts) | **GET** /sfvb/storefronts/{storefront_oid}/blog_posts | List the storefront&#39;s blog posts
 [**listSfvbCampaigns()**](SfvbApi.md#listSfvbCampaigns) | **GET** /sfvb/storefronts/{storefront_oid}/campaigns | List the storefront&#39;s campaigns
+[**listSfvbCodeLibraryEmails()**](SfvbApi.md#listSfvbCodeLibraryEmails) | **GET** /sfvb/storefronts/{storefront_oid}/code_library/emails | Email items from the code library that can start a new email step
 [**listSfvbCommsLists()**](SfvbApi.md#listSfvbCommsLists) | **GET** /sfvb/storefronts/{storefront_oid}/lists | List the storefront&#39;s email lists
 [**listSfvbCommsSegments()**](SfvbApi.md#listSfvbCommsSegments) | **GET** /sfvb/storefronts/{storefront_oid}/segments | List the storefront&#39;s segments
 [**listSfvbContainerVersions()**](SfvbApi.md#listSfvbContainerVersions) | **GET** /sfvb/storefronts/{storefront_oid}/container_versions | Version history for a container stored outside the file system
@@ -148,6 +149,7 @@ Method | HTTP request | Description
 [**listSfvbThemes()**](SfvbApi.md#listSfvbThemes) | **GET** /sfvb/storefronts/{storefront_oid}/themes | List themes for a storefront
 [**listSfvbUpsellOffers()**](SfvbApi.md#listSfvbUpsellOffers) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_offers | List upsell offers
 [**listSfvbUpsellPaths()**](SfvbApi.md#listSfvbUpsellPaths) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_paths | List upsell paths
+[**moveSfvbSequenceStep()**](SfvbApi.md#moveSfvbSequenceStep) | **POST** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/move | Move one step
 [**moveSfvbUpsellPath()**](SfvbApi.md#moveSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/move | Move an upsell path
 [**publishSfvbLibraryEntry()**](SfvbApi.md#publishSfvbLibraryEntry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/publish | Publish a library entry&#39;s draft
 [**putSfvbContainer()**](SfvbApi.md#putSfvbContainer) | **PUT** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Write a container stored outside the file system
@@ -5166,9 +5168,9 @@ Name | Type | Description  | Notes
 insertSfvbSequenceStep($storefront_oid, $sequence_uuid, $if_match, $sequence_step_create_request): \ultracart\v2\models\SfvbSequenceStepCreateResponse
 ```
 
-Add an email step, with its new email
+Add an email step, with its new email, a wait step, or a postcard step, with its new postcard
 
-Creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  It goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step's hash_sha256 as If-Match.  A sequence with no steps yet takes neither place and If-Match *, and gets begin and end steps around the email, as the admin's editor adds them.  The email has no body yet, and gets the content review flags the admin gives a new email here.  A sequence whose campaign or flow is live needs sfvb_publish.
+type email (the default) creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  The email has no body yet, and gets the content review flags the admin gives a new email here.  With library_item_oid the email starts from a code library email item instead (listSfvbCodeLibraryEmails): its body with new element ids, and its subject and preview text where the request gives none.  The item must be this account's own, shared with it, or published, approved by UltraCart and free; it must pass the library content scanner and the email container rules, and executable elements need acknowledge_executable true.  Its PNG, JPEG and GIF image files are copied into the storefront first, never over an existing file; any other file is skipped and listed.  type wait adds a wait step with config_json as its settings: delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), or a delay_until option; a wait that would pass customers on at once is refused.  type post_card creates a new postcard with the admin's default front and back and adds the postcard step that mails it, together; the step starts disabled, so nothing is printed or mailed until it is turned on with set-config, and the response names the front and back containers.  Any goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step's hash_sha256 as If-Match.  A sequence with no steps yet takes neither place and If-Match *, and gets begin and end steps around the new step, as the admin's editor adds them.  A sequence whose campaign or flow is live needs sfvb_publish.
 
 
 ### Example
@@ -5184,7 +5186,7 @@ Name | Type | Description  | Notes
  **storefront_oid** | **int**|  |
  **sequence_uuid** | **string**|  |
  **if_match** | **string**| The hash_sha256 of the step it goes after, or of the branching step, or * for the first step of a sequence with no steps.  Required; 428 when absent, 412 when stale. |
- **sequence_step_create_request** | [**\ultracart\v2\models\SfvbSequenceStepCreateRequest**](../Model/SfvbSequenceStepCreateRequest.md)| Where the step goes, and the new email&#39;s subject and preview text |
+ **sequence_step_create_request** | [**\ultracart\v2\models\SfvbSequenceStepCreateRequest**](../Model/SfvbSequenceStepCreateRequest.md)| Where the step goes, and the new email&#39;s subject and preview text or code library item, the wait&#39;s config_json, or the postcard step&#39;s name |
 
 ### Return type
 
@@ -5400,6 +5402,47 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\SfvbCampaignsResponse**](../Model/SfvbCampaignsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `listSfvbCodeLibraryEmails()`
+
+```php
+listSfvbCodeLibraryEmails($storefront_oid, $search): \ultracart\v2\models\SfvbCodeLibraryEmailsResponse
+```
+
+Email items from the code library that can start a new email step
+
+The code library is the one the admin's \"start from library\" uses; it isn't the Visual Builder element library.  Lists the email items this account may use, by title: its own (source owned), those shared with it (shared), and those published for everyone, approved by UltraCart and free (public).  search matches part of the title, with case.  Each kind is capped at 100 items, and truncated says when there were more.  Send an item's library_item_oid on the step insert to start a new email from it.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **search** | **string**| Part of the title to match, with case.  Up to 100 characters. | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\SfvbCodeLibraryEmailsResponse**](../Model/SfvbCodeLibraryEmailsResponse.md)
 
 ### Authorization
 
@@ -6167,6 +6210,51 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `moveSfvbSequenceStep()`
+
+```php
+moveSfvbSequenceStep($storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_move_request, $approval_id): \ultracart\v2\models\SfvbSequenceStepMoveResponse
+```
+
+Move one step
+
+Moves the step, in one transaction, to right after after_step_uuid (the begin step puts it first in the sequence) or to the start of one side of a condition, split or inboxgeek step (branch_step_uuid with side).  The step keeps its uuid, settings and the email or postcard it sends: nothing is archived or created.  Refused for the begin, end, continue and merge markers, for a condition, split or inboxgeek step, while any customer is waiting on the step, and when the new place is the one it is in.  Send the step's hash_sha256 as If-Match, and the hash_sha256 of after_step_uuid or branch_step_uuid as anchor_hash_sha256.  A sequence whose campaign or flow is live needs sfvb_publish and an approved sequence_step.move approval (Approval-Id); a draft or inactive one needs neither.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **sequence_uuid** | **string**|  |
+ **step_uuid** | **string**|  |
+ **if_match** | **string**| The moved step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. |
+ **sequence_step_move_request** | [**\ultracart\v2\models\SfvbSequenceStepMoveRequest**](../Model/SfvbSequenceStepMoveRequest.md)| Where the step moves, and the hash of the step it goes next to |
+ **approval_id** | **string**| When the sequence is live, the approval_id of an approved sequence_step.move request for exactly this move.  See POST /sfvb/approvals. | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\SfvbSequenceStepMoveResponse**](../Model/SfvbSequenceStepMoveResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -8675,12 +8763,12 @@ Name | Type | Description  | Notes
 ## `updateSfvbSequenceStep()`
 
 ```php
-updateSfvbSequenceStep($storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_update_request): \ultracart\v2\models\SfvbSequenceStepUpdateResponse
+updateSfvbSequenceStep($storefront_oid, $sequence_uuid, $step_uuid, $if_match, $sequence_step_update_request, $approval_id): \ultracart\v2\models\SfvbSequenceStepUpdateResponse
 ```
 
 Change one step's settings or audience filter
 
-Replaces the step's settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step's hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, postcard, experiment, resend, webhook, begin, end, continue and merge steps are refused.  A sequence whose campaign or flow is live needs sfvb_publish.
+Replaces the step's settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step's hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, experiment, resend, webhook, begin, end, continue and merge steps are refused.  On a post_card step only disabled, name and info change, and not its filter.  A sequence whose campaign or flow is live needs sfvb_publish.  Turning a post_card step on, live or not, needs an approved sequence_step.enable_postcard approval (Approval-Id): once on, it mails printed cards whenever the campaign or flow runs.
 
 
 ### Example
@@ -8698,6 +8786,7 @@ Name | Type | Description  | Notes
  **step_uuid** | **string**|  |
  **if_match** | **string**| The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. |
  **sequence_step_update_request** | [**\ultracart\v2\models\SfvbSequenceStepUpdateRequest**](../Model/SfvbSequenceStepUpdateRequest.md)| The settings, the filter, or both |
+ **approval_id** | **string**| When the change turns a post_card step on, the approval_id of an approved sequence_step.enable_postcard request for this step.  See POST /sfvb/approvals. | [optional]
 
 ### Return type
 

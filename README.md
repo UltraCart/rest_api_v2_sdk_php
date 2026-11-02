@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.219"
+    "ultracart/rest_api_v2_sdk_php": "4.1.220"
   }
 }
 ```
@@ -611,12 +611,13 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**insertSfvbPage**](docs/Api/SfvbApi.md#insertsfvbpage) | **POST** /sfvb/storefronts/{storefront_oid}/pages | Create a page
 *SfvbApi* | [**insertSfvbRedirect**](docs/Api/SfvbApi.md#insertsfvbredirect) | **POST** /sfvb/storefronts/{storefront_oid}/redirects | Create a 301 redirect rule
 *SfvbApi* | [**insertSfvbSecretRequest**](docs/Api/SfvbApi.md#insertsfvbsecretrequest) | **POST** /sfvb/secrets | Ask a person to enter secret values
-*SfvbApi* | [**insertSfvbSequenceStep**](docs/Api/SfvbApi.md#insertsfvbsequencestep) | **POST** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps | Add an email step, with its new email
+*SfvbApi* | [**insertSfvbSequenceStep**](docs/Api/SfvbApi.md#insertsfvbsequencestep) | **POST** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps | Add an email step, with its new email, a wait step, or a postcard step, with its new postcard
 *SfvbApi* | [**insertSfvbUpsellOffer**](docs/Api/SfvbApi.md#insertsfvbupselloffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers | Create an upsell offer
 *SfvbApi* | [**insertSfvbUpsellPath**](docs/Api/SfvbApi.md#insertsfvbupsellpath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths | Create an upsell path
 *SfvbApi* | [**installSfvbLibraryEntry**](docs/Api/SfvbApi.md#installsfvblibraryentry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/install | Install a library entry into a storefront
 *SfvbApi* | [**listSfvbBlogPosts**](docs/Api/SfvbApi.md#listsfvbblogposts) | **GET** /sfvb/storefronts/{storefront_oid}/blog_posts | List the storefront&#39;s blog posts
 *SfvbApi* | [**listSfvbCampaigns**](docs/Api/SfvbApi.md#listsfvbcampaigns) | **GET** /sfvb/storefronts/{storefront_oid}/campaigns | List the storefront&#39;s campaigns
+*SfvbApi* | [**listSfvbCodeLibraryEmails**](docs/Api/SfvbApi.md#listsfvbcodelibraryemails) | **GET** /sfvb/storefronts/{storefront_oid}/code_library/emails | Email items from the code library that can start a new email step
 *SfvbApi* | [**listSfvbCommsLists**](docs/Api/SfvbApi.md#listsfvbcommslists) | **GET** /sfvb/storefronts/{storefront_oid}/lists | List the storefront&#39;s email lists
 *SfvbApi* | [**listSfvbCommsSegments**](docs/Api/SfvbApi.md#listsfvbcommssegments) | **GET** /sfvb/storefronts/{storefront_oid}/segments | List the storefront&#39;s segments
 *SfvbApi* | [**listSfvbContainerVersions**](docs/Api/SfvbApi.md#listsfvbcontainerversions) | **GET** /sfvb/storefronts/{storefront_oid}/container_versions | Version history for a container stored outside the file system
@@ -635,6 +636,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**listSfvbThemes**](docs/Api/SfvbApi.md#listsfvbthemes) | **GET** /sfvb/storefronts/{storefront_oid}/themes | List themes for a storefront
 *SfvbApi* | [**listSfvbUpsellOffers**](docs/Api/SfvbApi.md#listsfvbupselloffers) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_offers | List upsell offers
 *SfvbApi* | [**listSfvbUpsellPaths**](docs/Api/SfvbApi.md#listsfvbupsellpaths) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_paths | List upsell paths
+*SfvbApi* | [**moveSfvbSequenceStep**](docs/Api/SfvbApi.md#movesfvbsequencestep) | **POST** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/move | Move one step
 *SfvbApi* | [**moveSfvbUpsellPath**](docs/Api/SfvbApi.md#movesfvbupsellpath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/move | Move an upsell path
 *SfvbApi* | [**publishSfvbLibraryEntry**](docs/Api/SfvbApi.md#publishsfvblibraryentry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/publish | Publish a library entry&#39;s draft
 *SfvbApi* | [**putSfvbContainer**](docs/Api/SfvbApi.md#putsfvbcontainer) | **PUT** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Write a container stored outside the file system
@@ -1943,6 +1945,8 @@ Class | Method | HTTP request | Description
 - [SfvbCampaignMembership](docs/Model/SfvbCampaignMembership.md)
 - [SfvbCampaignWriteRequest](docs/Model/SfvbCampaignWriteRequest.md)
 - [SfvbCampaignsResponse](docs/Model/SfvbCampaignsResponse.md)
+- [SfvbCodeLibraryEmail](docs/Model/SfvbCodeLibraryEmail.md)
+- [SfvbCodeLibraryEmailsResponse](docs/Model/SfvbCodeLibraryEmailsResponse.md)
 - [SfvbCommsDnsRecord](docs/Model/SfvbCommsDnsRecord.md)
 - [SfvbCommsEmail](docs/Model/SfvbCommsEmail.md)
 - [SfvbCommsList](docs/Model/SfvbCommsList.md)
@@ -2138,6 +2142,8 @@ Class | Method | HTTP request | Description
 - [SfvbSequenceStepCreateRequest](docs/Model/SfvbSequenceStepCreateRequest.md)
 - [SfvbSequenceStepCreateResponse](docs/Model/SfvbSequenceStepCreateResponse.md)
 - [SfvbSequenceStepDeleteResponse](docs/Model/SfvbSequenceStepDeleteResponse.md)
+- [SfvbSequenceStepMoveRequest](docs/Model/SfvbSequenceStepMoveRequest.md)
+- [SfvbSequenceStepMoveResponse](docs/Model/SfvbSequenceStepMoveResponse.md)
 - [SfvbSequenceStepUpdateRequest](docs/Model/SfvbSequenceStepUpdateRequest.md)
 - [SfvbSequenceStepUpdateResponse](docs/Model/SfvbSequenceStepUpdateResponse.md)
 - [SfvbServerLog](docs/Model/SfvbServerLog.md)
@@ -2375,6 +2381,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.220 | 11/02/2026 | sfvb internal testing |
 | 4.1.219 | 10/30/2026 | item - field for hsa/fsa eligibility |
 | 4.1.218 | 10/30/2026 | svfb internal testing |
 | 4.1.217 | 10/29/2026 | sfvb internal testing |
