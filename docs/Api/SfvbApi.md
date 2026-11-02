@@ -151,6 +151,7 @@ Method | HTTP request | Description
 [**listSfvbUpsellPaths()**](SfvbApi.md#listSfvbUpsellPaths) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_paths | List upsell paths
 [**moveSfvbSequenceStep()**](SfvbApi.md#moveSfvbSequenceStep) | **POST** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/move | Move one step
 [**moveSfvbUpsellPath()**](SfvbApi.md#moveSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/move | Move an upsell path
+[**proofSfvbSequencePostcard()**](SfvbApi.md#proofSfvbSequencePostcard) | **POST** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/postcard_proof | Proof a postcard step without mailing it
 [**publishSfvbLibraryEntry()**](SfvbApi.md#publishSfvbLibraryEntry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/publish | Publish a library entry&#39;s draft
 [**putSfvbContainer()**](SfvbApi.md#putSfvbContainer) | **PUT** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Write a container stored outside the file system
 [**putSfvbExperimentVariation()**](SfvbApi.md#putSfvbExperimentVariation) | **PUT** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}/variations/{variation_number} | Pause or resume a variation
@@ -6297,6 +6298,49 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `proofSfvbSequencePostcard()`
+
+```php
+proofSfvbSequencePostcard($storefront_oid, $sequence_uuid, $step_uuid, $postcard_proof_request): \ultracart\v2\models\SfvbPostcardProofResponse
+```
+
+Proof a postcard step without mailing it
+
+Renders both sides of the step's postcard as a send renders them, then has the print vendor render the card as a dry run.  Returns the HTML of each side, the PNG image of each side that the vendor prints from, the vendor's thumbnails and its proof PDF.  The QR code is the short link a send prints.  No card is printed or mailed, nothing is billed, the step is not changed, and no coupon is created.  A unique coupon code shows as PREVIEW-UNIQUE.  The image urls are public.  html_only returns the HTML alone, with no vendor render.  An order must be a test order.  cart_item_ids fills the cart a cart flow card shows.  Works whether the step is on or off.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **sequence_uuid** | **string**|  |
+ **step_uuid** | **string**|  |
+ **postcard_proof_request** | [**\ultracart\v2\models\SfvbPostcardProofRequest**](../Model/SfvbPostcardProofRequest.md)| Who the card is addressed to, and the order or cart it shows |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbPostcardProofResponse**](../Model/SfvbPostcardProofResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.220"
+    "ultracart/rest_api_v2_sdk_php": "4.1.221"
   }
 }
 ```
@@ -638,6 +638,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**listSfvbUpsellPaths**](docs/Api/SfvbApi.md#listsfvbupsellpaths) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_paths | List upsell paths
 *SfvbApi* | [**moveSfvbSequenceStep**](docs/Api/SfvbApi.md#movesfvbsequencestep) | **POST** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/move | Move one step
 *SfvbApi* | [**moveSfvbUpsellPath**](docs/Api/SfvbApi.md#movesfvbupsellpath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/move | Move an upsell path
+*SfvbApi* | [**proofSfvbSequencePostcard**](docs/Api/SfvbApi.md#proofsfvbsequencepostcard) | **POST** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/postcard_proof | Proof a postcard step without mailing it
 *SfvbApi* | [**publishSfvbLibraryEntry**](docs/Api/SfvbApi.md#publishsfvblibraryentry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/publish | Publish a library entry&#39;s draft
 *SfvbApi* | [**putSfvbContainer**](docs/Api/SfvbApi.md#putsfvbcontainer) | **PUT** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Write a container stored outside the file system
 *SfvbApi* | [**putSfvbExperimentVariation**](docs/Api/SfvbApi.md#putsfvbexperimentvariation) | **PUT** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}/variations/{variation_number} | Pause or resume a variation
@@ -2098,6 +2099,8 @@ Class | Method | HTTP request | Description
 - [SfvbPageSelectors](docs/Model/SfvbPageSelectors.md)
 - [SfvbPageSettingsRequest](docs/Model/SfvbPageSettingsRequest.md)
 - [SfvbPageSummary](docs/Model/SfvbPageSummary.md)
+- [SfvbPostcardProofRequest](docs/Model/SfvbPostcardProofRequest.md)
+- [SfvbPostcardProofResponse](docs/Model/SfvbPostcardProofResponse.md)
 - [SfvbPreviewAccessRequest](docs/Model/SfvbPreviewAccessRequest.md)
 - [SfvbPreviewAccessResponse](docs/Model/SfvbPreviewAccessResponse.md)
 - [SfvbPreviewSessionRequest](docs/Model/SfvbPreviewSessionRequest.md)
@@ -2381,6 +2384,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.221 | 11/02/2026 | sfvb internal testing |
 | 4.1.220 | 11/02/2026 | sfvb internal testing |
 | 4.1.219 | 10/30/2026 | item - field for hsa/fsa eligibility |
 | 4.1.218 | 10/30/2026 | svfb internal testing |

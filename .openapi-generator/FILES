@@ -1164,6 +1164,8 @@ docs/Model/SfvbPageResponse.md
 docs/Model/SfvbPageSelectors.md
 docs/Model/SfvbPageSettingsRequest.md
 docs/Model/SfvbPageSummary.md
+docs/Model/SfvbPostcardProofRequest.md
+docs/Model/SfvbPostcardProofResponse.md
 docs/Model/SfvbPreviewAccessRequest.md
 docs/Model/SfvbPreviewAccessResponse.md
 docs/Model/SfvbPreviewSessionRequest.md
@@ -2519,6 +2521,8 @@ lib/models/SfvbPageResponse.php
 lib/models/SfvbPageSelectors.php
 lib/models/SfvbPageSettingsRequest.php
 lib/models/SfvbPageSummary.php
+lib/models/SfvbPostcardProofRequest.php
+lib/models/SfvbPostcardProofResponse.php
 lib/models/SfvbPreviewAccessRequest.php
 lib/models/SfvbPreviewAccessResponse.php
 lib/models/SfvbPreviewSessionRequest.php
