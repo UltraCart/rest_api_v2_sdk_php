@@ -65,6 +65,7 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'expires_in' => 'string',
         'merchant_id' => 'string',
         'refresh_token' => 'string',
+        'refresh_token_expires_in' => 'string',
         'scope' => 'string',
         'token_type' => 'string'
     ];
@@ -84,6 +85,7 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'expires_in' => null,
         'merchant_id' => null,
         'refresh_token' => null,
+        'refresh_token_expires_in' => null,
         'scope' => null,
         'token_type' => null
     ];
@@ -122,6 +124,7 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'expires_in' => 'expires_in',
         'merchant_id' => 'merchant_id',
         'refresh_token' => 'refresh_token',
+        'refresh_token_expires_in' => 'refresh_token_expires_in',
         'scope' => 'scope',
         'token_type' => 'token_type'
     ];
@@ -139,6 +142,7 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'expires_in' => 'setExpiresIn',
         'merchant_id' => 'setMerchantId',
         'refresh_token' => 'setRefreshToken',
+        'refresh_token_expires_in' => 'setRefreshTokenExpiresIn',
         'scope' => 'setScope',
         'token_type' => 'setTokenType'
     ];
@@ -156,6 +160,7 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'expires_in' => 'getExpiresIn',
         'merchant_id' => 'getMerchantId',
         'refresh_token' => 'getRefreshToken',
+        'refresh_token_expires_in' => 'getRefreshTokenExpiresIn',
         'scope' => 'getScope',
         'token_type' => 'getTokenType'
     ];
@@ -237,6 +242,7 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->container['expires_in'] = $data['expires_in'] ?? null;
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
         $this->container['refresh_token'] = $data['refresh_token'] ?? null;
+        $this->container['refresh_token_expires_in'] = $data['refresh_token_expires_in'] ?? null;
         $this->container['scope'] = $data['scope'] ?? null;
         $this->container['token_type'] = $data['token_type'] ?? null;
     }
@@ -438,6 +444,30 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setRefreshToken($refresh_token)
     {
         $this->container['refresh_token'] = $refresh_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets refresh_token_expires_in
+     *
+     * @return string|null
+     */
+    public function getRefreshTokenExpiresIn()
+    {
+        return $this->container['refresh_token_expires_in'];
+    }
+
+    /**
+     * Sets refresh_token_expires_in
+     *
+     * @param string|null $refresh_token_expires_in Seconds until the refresh token expires.  Returned only by applications that rotate refresh tokens, which return a new refresh token on every refresh.
+     *
+     * @return self
+     */
+    public function setRefreshTokenExpiresIn($refresh_token_expires_in)
+    {
+        $this->container['refresh_token_expires_in'] = $refresh_token_expires_in;
 
         return $this;
     }
