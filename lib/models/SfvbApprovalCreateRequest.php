@@ -213,6 +213,8 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     public const ACTION_TWILIO_ACCOUNT_DELETE = 'twilio_account.delete';
     public const ACTION_SENDING_DOMAIN_DELETE = 'sending_domain.delete';
     public const ACTION_SEQUENCE_STEP_DELETE = 'sequence_step.delete';
+    public const ACTION_SEQUENCE_STEP_MOVE = 'sequence_step.move';
+    public const ACTION_SEQUENCE_STEP_ENABLE_POSTCARD = 'sequence_step.enable_postcard';
     public const ACTION_SEGMENT_UPDATE = 'segment.update';
 
     /**
@@ -235,6 +237,8 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
             self::ACTION_TWILIO_ACCOUNT_DELETE,
             self::ACTION_SENDING_DOMAIN_DELETE,
             self::ACTION_SEQUENCE_STEP_DELETE,
+            self::ACTION_SEQUENCE_STEP_MOVE,
+            self::ACTION_SEQUENCE_STEP_ENABLE_POSTCARD,
             self::ACTION_SEGMENT_UPDATE,
         ];
     }

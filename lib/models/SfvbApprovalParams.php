@@ -739,7 +739,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets sequence_uuid
      *
-     * @param string|null $sequence_uuid The communication sequence, for sequence_step.delete and sequence_step.move.
+     * @param string|null $sequence_uuid The communication sequence, for sequence_step.delete, sequence_step.move and sequence_step.enable_postcard.
      *
      * @return self
      */
@@ -811,7 +811,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets step_uuid
      *
-     * @param string|null $step_uuid The step to remove, for sequence_step.delete, or to move, for sequence_step.move.
+     * @param string|null $step_uuid The step to remove, for sequence_step.delete, to move, for sequence_step.move, or to turn on, for sequence_step.enable_postcard.
      *
      * @return self
      */
