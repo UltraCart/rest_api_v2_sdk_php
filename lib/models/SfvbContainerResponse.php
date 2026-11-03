@@ -64,7 +64,8 @@ class SfvbContainerResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         'last_modified' => 'string',
         'merchant_item_id' => 'string',
         'owner_object_id' => 'string',
-        'owner_type' => 'string'
+        'owner_type' => 'string',
+        'warnings' => '\ultracart\v2\models\SfvbErrorDetail[]'
     ];
 
     /**
@@ -81,7 +82,8 @@ class SfvbContainerResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         'last_modified' => null,
         'merchant_item_id' => null,
         'owner_object_id' => null,
-        'owner_type' => null
+        'owner_type' => null,
+        'warnings' => null
     ];
 
     /**
@@ -117,7 +119,8 @@ class SfvbContainerResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         'last_modified' => 'last_modified',
         'merchant_item_id' => 'merchant_item_id',
         'owner_object_id' => 'owner_object_id',
-        'owner_type' => 'owner_type'
+        'owner_type' => 'owner_type',
+        'warnings' => 'warnings'
     ];
 
     /**
@@ -132,7 +135,8 @@ class SfvbContainerResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         'last_modified' => 'setLastModified',
         'merchant_item_id' => 'setMerchantItemId',
         'owner_object_id' => 'setOwnerObjectId',
-        'owner_type' => 'setOwnerType'
+        'owner_type' => 'setOwnerType',
+        'warnings' => 'setWarnings'
     ];
 
     /**
@@ -147,7 +151,8 @@ class SfvbContainerResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         'last_modified' => 'getLastModified',
         'merchant_item_id' => 'getMerchantItemId',
         'owner_object_id' => 'getOwnerObjectId',
-        'owner_type' => 'getOwnerType'
+        'owner_type' => 'getOwnerType',
+        'warnings' => 'getWarnings'
     ];
 
     /**
@@ -237,6 +242,7 @@ class SfvbContainerResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->container['merchant_item_id'] = $data['merchant_item_id'] ?? null;
         $this->container['owner_object_id'] = $data['owner_object_id'] ?? null;
         $this->container['owner_type'] = $data['owner_type'] ?? null;
+        $this->container['warnings'] = $data['warnings'] ?? null;
     }
 
     /**
@@ -446,6 +452,30 @@ class SfvbContainerResponse implements ModelInterface, ArrayAccess, \JsonSeriali
             );
         }
         $this->container['owner_type'] = $owner_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets warnings
+     *
+     * @return \ultracart\v2\models\SfvbErrorDetail[]|null
+     */
+    public function getWarnings()
+    {
+        return $this->container['warnings'];
+    }
+
+    /**
+     * Sets warnings
+     *
+     * @param \ultracart\v2\models\SfvbErrorDetail[]|null $warnings Quality warnings from validating this write.  The write succeeded; each one says what to look at, such as a postcard QR code URL with a fragment.  Absent when there are none.
+     *
+     * @return self
+     */
+    public function setWarnings($warnings)
+    {
+        $this->container['warnings'] = $warnings;
 
         return $this;
     }

@@ -59,6 +59,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static $openAPITypes = [
         'action' => 'string',
+        'affiliate_network' => '\ultracart\v2\models\SfvbAffiliateNetworkRequest',
         'content' => 'string',
         'experiment_start' => '\ultracart\v2\models\SfvbExperimentStartRequest',
         'item_attribute_rows' => '\ultracart\v2\models\SfvbItemAttributeBatchRow[]',
@@ -66,7 +67,9 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'params' => '\ultracart\v2\models\SfvbApprovalParams',
         'reason' => 'string',
         'redirect_rows' => '\ultracart\v2\models\SfvbRedirectDeleteRow[]',
-        'segment_update' => '\ultracart\v2\models\SfvbCommsSegmentWriteRequest'
+        'segment_update' => '\ultracart\v2\models\SfvbCommsSegmentWriteRequest',
+        'smart_attribution' => '\ultracart\v2\models\SfvbSmartAttributionRequest',
+        'tracking_provider' => '\ultracart\v2\models\SfvbTrackingProviderRequest'
     ];
 
     /**
@@ -78,6 +81,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static $openAPIFormats = [
         'action' => null,
+        'affiliate_network' => null,
         'content' => null,
         'experiment_start' => null,
         'item_attribute_rows' => null,
@@ -85,7 +89,9 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'params' => null,
         'reason' => null,
         'redirect_rows' => null,
-        'segment_update' => null
+        'segment_update' => null,
+        'smart_attribution' => null,
+        'tracking_provider' => null
     ];
 
     /**
@@ -116,6 +122,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $attributeMap = [
         'action' => 'action',
+        'affiliate_network' => 'affiliate_network',
         'content' => 'content',
         'experiment_start' => 'experiment_start',
         'item_attribute_rows' => 'item_attribute_rows',
@@ -123,7 +130,9 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'params' => 'params',
         'reason' => 'reason',
         'redirect_rows' => 'redirect_rows',
-        'segment_update' => 'segment_update'
+        'segment_update' => 'segment_update',
+        'smart_attribution' => 'smart_attribution',
+        'tracking_provider' => 'tracking_provider'
     ];
 
     /**
@@ -133,6 +142,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $setters = [
         'action' => 'setAction',
+        'affiliate_network' => 'setAffiliateNetwork',
         'content' => 'setContent',
         'experiment_start' => 'setExperimentStart',
         'item_attribute_rows' => 'setItemAttributeRows',
@@ -140,7 +150,9 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'params' => 'setParams',
         'reason' => 'setReason',
         'redirect_rows' => 'setRedirectRows',
-        'segment_update' => 'setSegmentUpdate'
+        'segment_update' => 'setSegmentUpdate',
+        'smart_attribution' => 'setSmartAttribution',
+        'tracking_provider' => 'setTrackingProvider'
     ];
 
     /**
@@ -150,6 +162,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $getters = [
         'action' => 'getAction',
+        'affiliate_network' => 'getAffiliateNetwork',
         'content' => 'getContent',
         'experiment_start' => 'getExperimentStart',
         'item_attribute_rows' => 'getItemAttributeRows',
@@ -157,7 +170,9 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'params' => 'getParams',
         'reason' => 'getReason',
         'redirect_rows' => 'getRedirectRows',
-        'segment_update' => 'getSegmentUpdate'
+        'segment_update' => 'getSegmentUpdate',
+        'smart_attribution' => 'getSmartAttribution',
+        'tracking_provider' => 'getTrackingProvider'
     ];
 
     /**
@@ -216,6 +231,12 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     public const ACTION_SEQUENCE_STEP_MOVE = 'sequence_step.move';
     public const ACTION_SEQUENCE_STEP_ENABLE_POSTCARD = 'sequence_step.enable_postcard';
     public const ACTION_SEGMENT_UPDATE = 'segment.update';
+    public const ACTION_SMART_ATTRIBUTION_CHANGE = 'smart_attribution.change';
+    public const ACTION_SMART_ATTRIBUTION_DELETE = 'smart_attribution.delete';
+    public const ACTION_TRACKING_PROVIDER_CHANGE = 'tracking_provider.change';
+    public const ACTION_TRACKING_HTML_PUT = 'tracking_html.put';
+    public const ACTION_AFFILIATE_NETWORK_CHANGE = 'affiliate_network.change';
+    public const ACTION_AFFILIATE_NETWORK_DELETE = 'affiliate_network.delete';
 
     /**
      * Gets allowable values of the enum
@@ -240,6 +261,12 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
             self::ACTION_SEQUENCE_STEP_MOVE,
             self::ACTION_SEQUENCE_STEP_ENABLE_POSTCARD,
             self::ACTION_SEGMENT_UPDATE,
+            self::ACTION_SMART_ATTRIBUTION_CHANGE,
+            self::ACTION_SMART_ATTRIBUTION_DELETE,
+            self::ACTION_TRACKING_PROVIDER_CHANGE,
+            self::ACTION_TRACKING_HTML_PUT,
+            self::ACTION_AFFILIATE_NETWORK_CHANGE,
+            self::ACTION_AFFILIATE_NETWORK_DELETE,
         ];
     }
 
@@ -259,6 +286,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     public function __construct(array $data = null)
     {
         $this->container['action'] = $data['action'] ?? null;
+        $this->container['affiliate_network'] = $data['affiliate_network'] ?? null;
         $this->container['content'] = $data['content'] ?? null;
         $this->container['experiment_start'] = $data['experiment_start'] ?? null;
         $this->container['item_attribute_rows'] = $data['item_attribute_rows'] ?? null;
@@ -267,6 +295,8 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         $this->container['reason'] = $data['reason'] ?? null;
         $this->container['redirect_rows'] = $data['redirect_rows'] ?? null;
         $this->container['segment_update'] = $data['segment_update'] ?? null;
+        $this->container['smart_attribution'] = $data['smart_attribution'] ?? null;
+        $this->container['tracking_provider'] = $data['tracking_provider'] ?? null;
     }
 
     /**
@@ -337,6 +367,30 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     }
 
     /**
+     * Gets affiliate_network
+     *
+     * @return \ultracart\v2\models\SfvbAffiliateNetworkRequest|null
+     */
+    public function getAffiliateNetwork()
+    {
+        return $this->container['affiliate_network'];
+    }
+
+    /**
+     * Sets affiliate_network
+     *
+     * @param \ultracart\v2\models\SfvbAffiliateNetworkRequest|null $affiliate_network affiliate_network
+     *
+     * @return self
+     */
+    public function setAffiliateNetwork($affiliate_network)
+    {
+        $this->container['affiliate_network'] = $affiliate_network;
+
+        return $this;
+    }
+
+    /**
      * Gets content
      *
      * @return string|null
@@ -349,7 +403,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets content
      *
-     * @param string|null $content For a file.put_script write, the exact script to be written, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.
+     * @param string|null $content For a file.put_script write, the exact script to be written, at most 256 KB.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.
      *
      * @return self
      */
@@ -524,6 +578,54 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     public function setSegmentUpdate($segment_update)
     {
         $this->container['segment_update'] = $segment_update;
+
+        return $this;
+    }
+
+    /**
+     * Gets smart_attribution
+     *
+     * @return \ultracart\v2\models\SfvbSmartAttributionRequest|null
+     */
+    public function getSmartAttribution()
+    {
+        return $this->container['smart_attribution'];
+    }
+
+    /**
+     * Sets smart_attribution
+     *
+     * @param \ultracart\v2\models\SfvbSmartAttributionRequest|null $smart_attribution smart_attribution
+     *
+     * @return self
+     */
+    public function setSmartAttribution($smart_attribution)
+    {
+        $this->container['smart_attribution'] = $smart_attribution;
+
+        return $this;
+    }
+
+    /**
+     * Gets tracking_provider
+     *
+     * @return \ultracart\v2\models\SfvbTrackingProviderRequest|null
+     */
+    public function getTrackingProvider()
+    {
+        return $this->container['tracking_provider'];
+    }
+
+    /**
+     * Sets tracking_provider
+     *
+     * @param \ultracart\v2\models\SfvbTrackingProviderRequest|null $tracking_provider tracking_provider
+     *
+     * @return self
+     */
+    public function setTrackingProvider($tracking_provider)
+    {
+        $this->container['tracking_provider'] = $tracking_provider;
 
         return $this;
     }

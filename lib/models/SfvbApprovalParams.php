@@ -58,6 +58,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
+        'affiliate_network_oid' => 'int',
         'after_step_uuid' => 'string',
         'attribute_names' => 'string[]',
         'blog_post_oid' => 'int',
@@ -77,6 +78,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'side' => 'string',
         'slot' => 'string',
         'step_uuid' => 'string',
+        'tracking_provider' => 'string',
         'upsell_kind' => 'string',
         'upsell_oid' => 'int',
         'version' => 'int',
@@ -92,6 +94,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'affiliate_network_oid' => 'int32',
         'after_step_uuid' => null,
         'attribute_names' => null,
         'blog_post_oid' => 'int32',
@@ -111,6 +114,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'side' => null,
         'slot' => null,
         'step_uuid' => null,
+        'tracking_provider' => null,
         'upsell_kind' => null,
         'upsell_oid' => 'int32',
         'version' => 'int32',
@@ -145,6 +149,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
+        'affiliate_network_oid' => 'affiliate_network_oid',
         'after_step_uuid' => 'after_step_uuid',
         'attribute_names' => 'attribute_names',
         'blog_post_oid' => 'blog_post_oid',
@@ -164,6 +169,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'side' => 'side',
         'slot' => 'slot',
         'step_uuid' => 'step_uuid',
+        'tracking_provider' => 'tracking_provider',
         'upsell_kind' => 'upsell_kind',
         'upsell_oid' => 'upsell_oid',
         'version' => 'version',
@@ -177,6 +183,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
+        'affiliate_network_oid' => 'setAffiliateNetworkOid',
         'after_step_uuid' => 'setAfterStepUuid',
         'attribute_names' => 'setAttributeNames',
         'blog_post_oid' => 'setBlogPostOid',
@@ -196,6 +203,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'side' => 'setSide',
         'slot' => 'setSlot',
         'step_uuid' => 'setStepUuid',
+        'tracking_provider' => 'setTrackingProvider',
         'upsell_kind' => 'setUpsellKind',
         'upsell_oid' => 'setUpsellOid',
         'version' => 'setVersion',
@@ -209,6 +217,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
+        'affiliate_network_oid' => 'getAffiliateNetworkOid',
         'after_step_uuid' => 'getAfterStepUuid',
         'attribute_names' => 'getAttributeNames',
         'blog_post_oid' => 'getBlogPostOid',
@@ -228,6 +237,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'side' => 'getSide',
         'slot' => 'getSlot',
         'step_uuid' => 'getStepUuid',
+        'tracking_provider' => 'getTrackingProvider',
         'upsell_kind' => 'getUpsellKind',
         'upsell_oid' => 'getUpsellOid',
         'version' => 'getVersion',
@@ -307,6 +317,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
+        $this->container['affiliate_network_oid'] = $data['affiliate_network_oid'] ?? null;
         $this->container['after_step_uuid'] = $data['after_step_uuid'] ?? null;
         $this->container['attribute_names'] = $data['attribute_names'] ?? null;
         $this->container['blog_post_oid'] = $data['blog_post_oid'] ?? null;
@@ -326,6 +337,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->container['side'] = $data['side'] ?? null;
         $this->container['slot'] = $data['slot'] ?? null;
         $this->container['step_uuid'] = $data['step_uuid'] ?? null;
+        $this->container['tracking_provider'] = $data['tracking_provider'] ?? null;
         $this->container['upsell_kind'] = $data['upsell_kind'] ?? null;
         $this->container['upsell_oid'] = $data['upsell_oid'] ?? null;
         $this->container['version'] = $data['version'] ?? null;
@@ -365,6 +377,30 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets affiliate_network_oid
+     *
+     * @return int|null
+     */
+    public function getAffiliateNetworkOid()
+    {
+        return $this->container['affiliate_network_oid'];
+    }
+
+    /**
+     * Sets affiliate_network_oid
+     *
+     * @param int|null $affiliate_network_oid The affiliate network, for affiliate_network.change and affiliate_network.delete.  0 or left out for affiliate_network.change of a network the create call will add.
+     *
+     * @return self
+     */
+    public function setAffiliateNetworkOid($affiliate_network_oid)
+    {
+        $this->container['affiliate_network_oid'] = $affiliate_network_oid;
+
+        return $this;
+    }
 
     /**
      * Gets after_step_uuid
@@ -475,7 +511,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets content_sha256
      *
-     * @param string|null $content_sha256 For file.put_script, the SHA-256 of the exact bytes approved.  Set by the server, never by the caller.  The write must send bytes with this hash.
+     * @param string|null $content_sha256 For file.put_script and tracking_html.put, the SHA-256 of the exact bytes approved, and for affiliate_network.change the SHA-256 of the conversion pixel.  Set by the server, never by the caller.  The write must send bytes with this hash.
      *
      * @return self
      */
@@ -643,7 +679,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets request_sha256
      *
-     * @param string|null $request_sha256 For experiment.start of a url experiment, the hash of the checked experiment approved, and for item.pricing the hash of the change.  Set by the server.  The gated call must send the same.
+     * @param string|null $request_sha256 For experiment.start of a url experiment, the hash of the checked experiment approved, for item.pricing, tracking_provider.change and affiliate_network.change the hash of the change, and for smart_attribution.change the hash of the configuration the change would store.  Set by the server.  The gated call must send the same.
      *
      * @return self
      */
@@ -787,7 +823,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets slot
      *
-     * @param string|null $slot For experiment.start of a page experiment, the page body name.  Defaults to body.
+     * @param string|null $slot For experiment.start of a page experiment, the page body name, which defaults to body.  For tracking_html.put, tracking or conversion.
      *
      * @return self
      */
@@ -818,6 +854,30 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setStepUuid($step_uuid)
     {
         $this->container['step_uuid'] = $step_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets tracking_provider
+     *
+     * @return string|null
+     */
+    public function getTrackingProvider()
+    {
+        return $this->container['tracking_provider'];
+    }
+
+    /**
+     * Sets tracking_provider
+     *
+     * @param string|null $tracking_provider The tracking provider key, for tracking_provider.change.
+     *
+     * @return self
+     */
+    public function setTrackingProvider($tracking_provider)
+    {
+        $this->container['tracking_provider'] = $tracking_provider;
 
         return $this;
     }

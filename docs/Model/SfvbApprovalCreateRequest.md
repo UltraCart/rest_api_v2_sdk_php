@@ -5,7 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **action** | **string** | The gated action to approve. | [optional]
-**content** | **string** | For a file.put_script write, the exact script to be written, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version. | [optional]
+**affiliate_network** | [**\ultracart\v2\models\SfvbAffiliateNetworkRequest**](SfvbAffiliateNetworkRequest.md) |  | [optional]
+**content** | **string** | For a file.put_script write, the exact script to be written, at most 256 KB.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version. | [optional]
 **experiment_start** | [**\ultracart\v2\models\SfvbExperimentStartRequest**](SfvbExperimentStartRequest.md) |  | [optional]
 **item_attribute_rows** | [**\ultracart\v2\models\SfvbItemAttributeBatchRow[]**](SfvbItemAttributeBatchRow.md) | For item.attribute_batch, exactly the rows the batch will send - the dry run&#39;s change rows, each with merchant_item_oid and current_sha256.  UltraCart keeps only their hash. | [optional]
 **item_pricing** | [**\ultracart\v2\models\SfvbItemPricingRequest**](SfvbItemPricingRequest.md) |  | [optional]
@@ -13,5 +14,7 @@ Name | Type | Description | Notes
 **reason** | **string** | Why the agent wants to do this, in a sentence.  Shown to the person as unverified text, capped at 500 characters. | [optional]
 **redirect_rows** | [**\ultracart\v2\models\SfvbRedirectDeleteRow[]**](SfvbRedirectDeleteRow.md) | For redirect.delete_batch, exactly the rows the batch delete will send, up to 5,000, each with its hash_sha256.  UltraCart keeps only their hash. | [optional]
 **segment_update** | [**\ultracart\v2\models\SfvbCommsSegmentWriteRequest**](SfvbCommsSegmentWriteRequest.md) |  | [optional]
+**smart_attribution** | [**\ultracart\v2\models\SfvbSmartAttributionRequest**](SfvbSmartAttributionRequest.md) |  | [optional]
+**tracking_provider** | [**\ultracart\v2\models\SfvbTrackingProviderRequest**](SfvbTrackingProviderRequest.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
