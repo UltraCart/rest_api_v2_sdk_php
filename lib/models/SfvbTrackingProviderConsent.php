@@ -58,7 +58,7 @@ class SfvbTrackingProviderConsent implements ModelInterface, ArrayAccess, \JsonS
       * @var string[]
       */
     protected static $openAPITypes = [
-        'false' => 'bool',
+        'disabled' => 'bool',
         'region' => 'string',
         'type' => 'string'
     ];
@@ -71,7 +71,7 @@ class SfvbTrackingProviderConsent implements ModelInterface, ArrayAccess, \JsonS
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'false' => null,
+        'disabled' => null,
         'region' => null,
         'type' => null
     ];
@@ -103,7 +103,7 @@ class SfvbTrackingProviderConsent implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $attributeMap = [
-        'false' => 'false',
+        'disabled' => 'disabled',
         'region' => 'region',
         'type' => 'type'
     ];
@@ -114,7 +114,7 @@ class SfvbTrackingProviderConsent implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $setters = [
-        'false' => 'setFalse',
+        'disabled' => 'setDisabled',
         'region' => 'setRegion',
         'type' => 'setType'
     ];
@@ -125,7 +125,7 @@ class SfvbTrackingProviderConsent implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $getters = [
-        'false' => 'getFalse',
+        'disabled' => 'getDisabled',
         'region' => 'getRegion',
         'type' => 'getType'
     ];
@@ -187,7 +187,7 @@ class SfvbTrackingProviderConsent implements ModelInterface, ArrayAccess, \JsonS
      */
     public function __construct(array $data = null)
     {
-        $this->container['false'] = $data['false'] ?? null;
+        $this->container['disabled'] = $data['disabled'] ?? null;
         $this->container['region'] = $data['region'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
     }
@@ -217,25 +217,25 @@ class SfvbTrackingProviderConsent implements ModelInterface, ArrayAccess, \JsonS
 
 
     /**
-     * Gets false
+     * Gets disabled
      *
      * @return bool|null
      */
-    public function getFalse()
+    public function getDisabled()
     {
-        return $this->container['false'];
+        return $this->container['disabled'];
     }
 
     /**
-     * Sets false
+     * Sets disabled
      *
-     * @param bool|null $false On a write, true to remove the gate.  Not with type or region.
+     * @param bool|null $disabled On a write, true to remove the gate.  Not with type or region.
      *
      * @return self
      */
-    public function setFalse($false)
+    public function setDisabled($disabled)
     {
-        $this->container['false'] = $false;
+        $this->container['disabled'] = $disabled;
 
         return $this;
     }

@@ -58,8 +58,8 @@ class SfvbTrackingProviderEvent implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'true' => 'bool'
+        'enabled' => 'bool',
+        'name' => 'string'
     ];
 
     /**
@@ -70,8 +70,8 @@ class SfvbTrackingProviderEvent implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'true' => null
+        'enabled' => null,
+        'name' => null
     ];
 
     /**
@@ -101,8 +101,8 @@ class SfvbTrackingProviderEvent implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'true' => 'true'
+        'enabled' => 'enabled',
+        'name' => 'name'
     ];
 
     /**
@@ -111,8 +111,8 @@ class SfvbTrackingProviderEvent implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'true' => 'setTrue'
+        'enabled' => 'setEnabled',
+        'name' => 'setName'
     ];
 
     /**
@@ -121,8 +121,8 @@ class SfvbTrackingProviderEvent implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'true' => 'getTrue'
+        'enabled' => 'getEnabled',
+        'name' => 'getName'
     ];
 
     /**
@@ -182,8 +182,8 @@ class SfvbTrackingProviderEvent implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function __construct(array $data = null)
     {
+        $this->container['enabled'] = $data['enabled'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
-        $this->container['true'] = $data['true'] ?? null;
     }
 
     /**
@@ -211,6 +211,30 @@ class SfvbTrackingProviderEvent implements ModelInterface, ArrayAccess, \JsonSer
 
 
     /**
+     * Gets enabled
+     *
+     * @return bool|null
+     */
+    public function getEnabled()
+    {
+        return $this->container['enabled'];
+    }
+
+    /**
+     * Sets enabled
+     *
+     * @param bool|null $enabled True when the event is sent to the provider.
+     *
+     * @return self
+     */
+    public function setEnabled($enabled)
+    {
+        $this->container['enabled'] = $enabled;
+
+        return $this;
+    }
+
+    /**
      * Gets name
      *
      * @return string|null
@@ -230,30 +254,6 @@ class SfvbTrackingProviderEvent implements ModelInterface, ArrayAccess, \JsonSer
     public function setName($name)
     {
         $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets true
-     *
-     * @return bool|null
-     */
-    public function getTrue()
-    {
-        return $this->container['true'];
-    }
-
-    /**
-     * Sets true
-     *
-     * @param bool|null $true True when the event is sent to the provider.
-     *
-     * @return self
-     */
-    public function setTrue($true)
-    {
-        $this->container['true'] = $true;
 
         return $this;
     }
