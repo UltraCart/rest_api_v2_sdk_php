@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.226"
+    "ultracart/rest_api_v2_sdk_php": "4.1.227"
   }
 }
 ```
@@ -599,6 +599,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbSequence**](docs/Api/SfvbApi.md#getsfvbsequence) | **GET** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid} | Get a campaign&#39;s or flow&#39;s steps as a tree
 *SfvbApi* | [**getSfvbServerLog**](docs/Api/SfvbApi.md#getsfvbserverlog) | **GET** /sfvb/storefronts/{storefront_oid}/logs/{log_id} | Get one storefront render log
 *SfvbApi* | [**getSfvbSiteAttributes**](docs/Api/SfvbApi.md#getsfvbsiteattributes) | **GET** /sfvb/storefronts/{storefront_oid}/attributes | Read a storefront&#39;s site attributes
+*SfvbApi* | [**getSfvbSitemaps**](docs/Api/SfvbApi.md#getsfvbsitemaps) | **GET** /sfvb/storefronts/{storefront_oid}/sitemaps | Read a storefront&#39;s sitemaps and robots.txt
 *SfvbApi* | [**getSfvbSmartAttribution**](docs/Api/SfvbApi.md#getsfvbsmartattribution) | **GET** /sfvb/storefronts/{storefront_oid}/smart_attribution | Read a storefront&#39;s Smart Attribution configuration
 *SfvbApi* | [**getSfvbTestOrders**](docs/Api/SfvbApi.md#getsfvbtestorders) | **GET** /sfvb/storefronts/{storefront_oid}/test_orders | List recent test orders
 *SfvbApi* | [**getSfvbTheme**](docs/Api/SfvbApi.md#getsfvbtheme) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid} | Get a theme
@@ -2159,6 +2160,7 @@ Class | Method | HTTP request | Description
 - [SfvbRedirectsResponse](docs/Model/SfvbRedirectsResponse.md)
 - [SfvbRenderRequest](docs/Model/SfvbRenderRequest.md)
 - [SfvbRenderResponse](docs/Model/SfvbRenderResponse.md)
+- [SfvbRobotsTxt](docs/Model/SfvbRobotsTxt.md)
 - [SfvbSecretHandle](docs/Model/SfvbSecretHandle.md)
 - [SfvbSecretKind](docs/Model/SfvbSecretKind.md)
 - [SfvbSecretKindsResponse](docs/Model/SfvbSecretKindsResponse.md)
@@ -2184,6 +2186,9 @@ Class | Method | HTTP request | Description
 - [SfvbSiteAttributeUpdate](docs/Model/SfvbSiteAttributeUpdate.md)
 - [SfvbSiteAttributeUpdateRequest](docs/Model/SfvbSiteAttributeUpdateRequest.md)
 - [SfvbSiteAttributesResponse](docs/Model/SfvbSiteAttributesResponse.md)
+- [SfvbSitemap](docs/Model/SfvbSitemap.md)
+- [SfvbSitemapFile](docs/Model/SfvbSitemapFile.md)
+- [SfvbSitemapsResponse](docs/Model/SfvbSitemapsResponse.md)
 - [SfvbSmartAttribution](docs/Model/SfvbSmartAttribution.md)
 - [SfvbSmartAttributionPlatform](docs/Model/SfvbSmartAttributionPlatform.md)
 - [SfvbSmartAttributionRequest](docs/Model/SfvbSmartAttributionRequest.md)
@@ -2435,6 +2440,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.227 | 11/04/2026 | sfvb internal testing |
 | 4.1.226 | 11/04/2026 | sfvb internal testing |
 | 4.1.225 | 11/03/2026 | sfvb internal testing |
 | 4.1.224 | 11/03/2026 | sfvb internal testing |

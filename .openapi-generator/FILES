@@ -1200,6 +1200,7 @@ docs/Model/SfvbRedirectResponse.md
 docs/Model/SfvbRedirectsResponse.md
 docs/Model/SfvbRenderRequest.md
 docs/Model/SfvbRenderResponse.md
+docs/Model/SfvbRobotsTxt.md
 docs/Model/SfvbSecretHandle.md
 docs/Model/SfvbSecretKind.md
 docs/Model/SfvbSecretKindsResponse.md
@@ -1225,6 +1226,9 @@ docs/Model/SfvbSiteAttribute.md
 docs/Model/SfvbSiteAttributeUpdate.md
 docs/Model/SfvbSiteAttributeUpdateRequest.md
 docs/Model/SfvbSiteAttributesResponse.md
+docs/Model/SfvbSitemap.md
+docs/Model/SfvbSitemapFile.md
+docs/Model/SfvbSitemapsResponse.md
 docs/Model/SfvbSmartAttribution.md
 docs/Model/SfvbSmartAttributionPlatform.md
 docs/Model/SfvbSmartAttributionRequest.md
@@ -2584,6 +2588,7 @@ lib/models/SfvbRedirectResponse.php
 lib/models/SfvbRedirectsResponse.php
 lib/models/SfvbRenderRequest.php
 lib/models/SfvbRenderResponse.php
+lib/models/SfvbRobotsTxt.php
 lib/models/SfvbSecretHandle.php
 lib/models/SfvbSecretKind.php
 lib/models/SfvbSecretKindsResponse.php
@@ -2609,6 +2614,9 @@ lib/models/SfvbSiteAttribute.php
 lib/models/SfvbSiteAttributeUpdate.php
 lib/models/SfvbSiteAttributeUpdateRequest.php
 lib/models/SfvbSiteAttributesResponse.php
+lib/models/SfvbSitemap.php
+lib/models/SfvbSitemapFile.php
+lib/models/SfvbSitemapsResponse.php
 lib/models/SfvbSmartAttribution.php
 lib/models/SfvbSmartAttributionPlatform.php
 lib/models/SfvbSmartAttributionRequest.php
