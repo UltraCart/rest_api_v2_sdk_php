@@ -63,6 +63,7 @@ class SfvbBlogPostDetail implements ModelInterface, ArrayAccess, \JsonSerializab
         'blog_post_oid' => 'int',
         'body' => 'string',
         'created_dts' => 'string',
+        'dry_run' => 'bool',
         'excerpt' => 'string',
         'images' => '\ultracart\v2\models\SfvbBlogPostImage[]',
         'last_modified_dts' => 'string',
@@ -91,6 +92,7 @@ class SfvbBlogPostDetail implements ModelInterface, ArrayAccess, \JsonSerializab
         'blog_post_oid' => 'int32',
         'body' => null,
         'created_dts' => 'dateTime',
+        'dry_run' => null,
         'excerpt' => null,
         'images' => null,
         'last_modified_dts' => 'dateTime',
@@ -138,6 +140,7 @@ class SfvbBlogPostDetail implements ModelInterface, ArrayAccess, \JsonSerializab
         'blog_post_oid' => 'blog_post_oid',
         'body' => 'body',
         'created_dts' => 'created_dts',
+        'dry_run' => 'dry_run',
         'excerpt' => 'excerpt',
         'images' => 'images',
         'last_modified_dts' => 'last_modified_dts',
@@ -164,6 +167,7 @@ class SfvbBlogPostDetail implements ModelInterface, ArrayAccess, \JsonSerializab
         'blog_post_oid' => 'setBlogPostOid',
         'body' => 'setBody',
         'created_dts' => 'setCreatedDts',
+        'dry_run' => 'setDryRun',
         'excerpt' => 'setExcerpt',
         'images' => 'setImages',
         'last_modified_dts' => 'setLastModifiedDts',
@@ -190,6 +194,7 @@ class SfvbBlogPostDetail implements ModelInterface, ArrayAccess, \JsonSerializab
         'blog_post_oid' => 'getBlogPostOid',
         'body' => 'getBody',
         'created_dts' => 'getCreatedDts',
+        'dry_run' => 'getDryRun',
         'excerpt' => 'getExcerpt',
         'images' => 'getImages',
         'last_modified_dts' => 'getLastModifiedDts',
@@ -267,6 +272,7 @@ class SfvbBlogPostDetail implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->container['blog_post_oid'] = $data['blog_post_oid'] ?? null;
         $this->container['body'] = $data['body'] ?? null;
         $this->container['created_dts'] = $data['created_dts'] ?? null;
+        $this->container['dry_run'] = $data['dry_run'] ?? null;
         $this->container['excerpt'] = $data['excerpt'] ?? null;
         $this->container['images'] = $data['images'] ?? null;
         $this->container['last_modified_dts'] = $data['last_modified_dts'] ?? null;
@@ -422,6 +428,30 @@ class SfvbBlogPostDetail implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setCreatedDts($created_dts)
     {
         $this->container['created_dts'] = $created_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets dry_run
+     *
+     * @return bool|null
+     */
+    public function getDryRun()
+    {
+        return $this->container['dry_run'];
+    }
+
+    /**
+     * Sets dry_run
+     *
+     * @param bool|null $dry_run True when this is the result of a dry run and nothing was saved.  The post is shown as it is stored.
+     *
+     * @return self
+     */
+    public function setDryRun($dry_run)
+    {
+        $this->container['dry_run'] = $dry_run;
 
         return $this;
     }

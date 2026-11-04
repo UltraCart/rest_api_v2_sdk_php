@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **allow_comments** | **bool** | Whether shoppers may comment.  Defaults to false on create. | [optional]
 **author** | **string** | The author&#39;s name as plain text, up to 100 characters, with no quotes or angle brackets. | [optional]
 **body** | **string** | The post body as HTML, up to 1 MB, rendered exactly as stored.  Refused with sfvb.unsafe_html if it could run script - script and other executable tags, on attributes, links that are not http, https, mailto, tel or relative, and iframes other than YouTube or Vimeo players.  Reference an attached image by the url the post&#39;s images report. | [optional]
+**dry_run** | **bool** | On an update, true to run every check the write would run and save nothing.  A refusal comes back exactly as it would on the real write. | [optional]
 **excerpt** | **string** | The post excerpt as HTML, up to 256 KB.  Held to the same rule as body. | [optional]
 **publication_dts** | **string** | When the post is published, as an ISO 8601 UTC time in the same form publication_dts reads back.  Refused on a draft.  A post made public without one is published now. | [optional]
 **seo_description** | **string** | The meta description (storefrontSEODescription), the search result snippet.  Plain text with no angle brackets or double quotes, up to 1000 characters.  Left out, it is unchanged; an empty string clears it, and the head falls back to the site&#39;s description. | [optional]

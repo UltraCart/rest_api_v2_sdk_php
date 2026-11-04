@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.227"
+    "ultracart/rest_api_v2_sdk_php": "4.1.228"
   }
 }
 ```
@@ -597,6 +597,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbSecretRequest**](docs/Api/SfvbApi.md#getsfvbsecretrequest) | **GET** /sfvb/secrets/{request_id} | Read one secret request
 *SfvbApi* | [**getSfvbSecretRequests**](docs/Api/SfvbApi.md#getsfvbsecretrequests) | **GET** /sfvb/secrets | List this sign-in&#39;s secret requests
 *SfvbApi* | [**getSfvbSequence**](docs/Api/SfvbApi.md#getsfvbsequence) | **GET** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid} | Get a campaign&#39;s or flow&#39;s steps as a tree
+*SfvbApi* | [**getSfvbSequenceStepDispatchLogs**](docs/Api/SfvbApi.md#getsfvbsequencestepdispatchlogs) | **GET** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/dispatch_logs | Read a flow or campaign step&#39;s dispatch log and counts
 *SfvbApi* | [**getSfvbServerLog**](docs/Api/SfvbApi.md#getsfvbserverlog) | **GET** /sfvb/storefronts/{storefront_oid}/logs/{log_id} | Get one storefront render log
 *SfvbApi* | [**getSfvbSiteAttributes**](docs/Api/SfvbApi.md#getsfvbsiteattributes) | **GET** /sfvb/storefronts/{storefront_oid}/attributes | Read a storefront&#39;s site attributes
 *SfvbApi* | [**getSfvbSitemaps**](docs/Api/SfvbApi.md#getsfvbsitemaps) | **GET** /sfvb/storefronts/{storefront_oid}/sitemaps | Read a storefront&#39;s sitemaps and robots.txt
@@ -2192,6 +2193,9 @@ Class | Method | HTTP request | Description
 - [SfvbSmartAttribution](docs/Model/SfvbSmartAttribution.md)
 - [SfvbSmartAttributionPlatform](docs/Model/SfvbSmartAttributionPlatform.md)
 - [SfvbSmartAttributionRequest](docs/Model/SfvbSmartAttributionRequest.md)
+- [SfvbStepCounts](docs/Model/SfvbStepCounts.md)
+- [SfvbStepDispatchLog](docs/Model/SfvbStepDispatchLog.md)
+- [SfvbStepDispatchLogsResponse](docs/Model/SfvbStepDispatchLogsResponse.md)
 - [SfvbStorefront](docs/Model/SfvbStorefront.md)
 - [SfvbStorefrontsResponse](docs/Model/SfvbStorefrontsResponse.md)
 - [SfvbTemplate](docs/Model/SfvbTemplate.md)
@@ -2440,6 +2444,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.228 | 11/04/2026 | sfvb internal testing |
 | 4.1.227 | 11/04/2026 | sfvb internal testing |
 | 4.1.226 | 11/04/2026 | sfvb internal testing |
 | 4.1.225 | 11/03/2026 | sfvb internal testing |

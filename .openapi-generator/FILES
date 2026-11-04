@@ -1232,6 +1232,9 @@ docs/Model/SfvbSitemapsResponse.md
 docs/Model/SfvbSmartAttribution.md
 docs/Model/SfvbSmartAttributionPlatform.md
 docs/Model/SfvbSmartAttributionRequest.md
+docs/Model/SfvbStepCounts.md
+docs/Model/SfvbStepDispatchLog.md
+docs/Model/SfvbStepDispatchLogsResponse.md
 docs/Model/SfvbStorefront.md
 docs/Model/SfvbStorefrontsResponse.md
 docs/Model/SfvbTemplate.md
@@ -2620,6 +2623,9 @@ lib/models/SfvbSitemapsResponse.php
 lib/models/SfvbSmartAttribution.php
 lib/models/SfvbSmartAttributionPlatform.php
 lib/models/SfvbSmartAttributionRequest.php
+lib/models/SfvbStepCounts.php
+lib/models/SfvbStepDispatchLog.php
+lib/models/SfvbStepDispatchLogsResponse.php
 lib/models/SfvbStorefront.php
 lib/models/SfvbStorefrontsResponse.php
 lib/models/SfvbTemplate.php

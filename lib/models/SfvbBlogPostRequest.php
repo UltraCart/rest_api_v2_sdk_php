@@ -61,6 +61,7 @@ class SfvbBlogPostRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'allow_comments' => 'bool',
         'author' => 'string',
         'body' => 'string',
+        'dry_run' => 'bool',
         'excerpt' => 'string',
         'publication_dts' => 'string',
         'seo_description' => 'string',
@@ -83,6 +84,7 @@ class SfvbBlogPostRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'allow_comments' => null,
         'author' => null,
         'body' => null,
+        'dry_run' => null,
         'excerpt' => null,
         'publication_dts' => 'dateTime',
         'seo_description' => null,
@@ -124,6 +126,7 @@ class SfvbBlogPostRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'allow_comments' => 'allow_comments',
         'author' => 'author',
         'body' => 'body',
+        'dry_run' => 'dry_run',
         'excerpt' => 'excerpt',
         'publication_dts' => 'publication_dts',
         'seo_description' => 'seo_description',
@@ -144,6 +147,7 @@ class SfvbBlogPostRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'allow_comments' => 'setAllowComments',
         'author' => 'setAuthor',
         'body' => 'setBody',
+        'dry_run' => 'setDryRun',
         'excerpt' => 'setExcerpt',
         'publication_dts' => 'setPublicationDts',
         'seo_description' => 'setSeoDescription',
@@ -164,6 +168,7 @@ class SfvbBlogPostRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'allow_comments' => 'getAllowComments',
         'author' => 'getAuthor',
         'body' => 'getBody',
+        'dry_run' => 'getDryRun',
         'excerpt' => 'getExcerpt',
         'publication_dts' => 'getPublicationDts',
         'seo_description' => 'getSeoDescription',
@@ -252,6 +257,7 @@ class SfvbBlogPostRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['allow_comments'] = $data['allow_comments'] ?? null;
         $this->container['author'] = $data['author'] ?? null;
         $this->container['body'] = $data['body'] ?? null;
+        $this->container['dry_run'] = $data['dry_run'] ?? null;
         $this->container['excerpt'] = $data['excerpt'] ?? null;
         $this->container['publication_dts'] = $data['publication_dts'] ?? null;
         $this->container['seo_description'] = $data['seo_description'] ?? null;
@@ -364,6 +370,30 @@ class SfvbBlogPostRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setBody($body)
     {
         $this->container['body'] = $body;
+
+        return $this;
+    }
+
+    /**
+     * Gets dry_run
+     *
+     * @return bool|null
+     */
+    public function getDryRun()
+    {
+        return $this->container['dry_run'];
+    }
+
+    /**
+     * Sets dry_run
+     *
+     * @param bool|null $dry_run On an update, true to run every check the write would run and save nothing.  A refusal comes back exactly as it would on the real write.
+     *
+     * @return self
+     */
+    public function setDryRun($dry_run)
+    {
+        $this->container['dry_run'] = $dry_run;
 
         return $this;
     }
