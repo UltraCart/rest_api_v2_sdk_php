@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.228"
+    "ultracart/rest_api_v2_sdk_php": "4.1.229"
   }
 }
 ```
@@ -516,6 +516,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**deleteSfvbItemAttribute**](docs/Api/SfvbApi.md#deletesfvbitemattribute) | **DELETE** /sfvb/storefronts/{storefront_oid}/items/attributes | Delete an attribute from an item
 *SfvbApi* | [**deleteSfvbItemMultimedia**](docs/Api/SfvbApi.md#deletesfvbitemmultimedia) | **DELETE** /sfvb/storefronts/{storefront_oid}/items/multimedia | Detach an image from an item
 *SfvbApi* | [**deleteSfvbLibraryEntry**](docs/Api/SfvbApi.md#deletesfvblibraryentry) | **DELETE** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Delete or retire a library entry
+*SfvbApi* | [**deleteSfvbNotFoundEntry**](docs/Api/SfvbApi.md#deletesfvbnotfoundentry) | **DELETE** /sfvb/storefronts/{storefront_oid}/not_found/{not_found_id} | Remove a 404 path from the log
 *SfvbApi* | [**deleteSfvbPageMultimedia**](docs/Api/SfvbApi.md#deletesfvbpagemultimedia) | **DELETE** /sfvb/storefronts/{storefront_oid}/pages/multimedia | Detach an image from a page
 *SfvbApi* | [**deleteSfvbPreviewSession**](docs/Api/SfvbApi.md#deletesfvbpreviewsession) | **DELETE** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Delete a preview session
 *SfvbApi* | [**deleteSfvbRedirect**](docs/Api/SfvbApi.md#deletesfvbredirect) | **DELETE** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Delete a redirect rule
@@ -543,7 +544,9 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**enableSfvbUpsellOffer**](docs/Api/SfvbApi.md#enablesfvbupselloffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/enable | Enable an upsell offer
 *SfvbApi* | [**enableSfvbUpsellPath**](docs/Api/SfvbApi.md#enablesfvbupsellpath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/enable | Enable an upsell path
 *SfvbApi* | [**endSfvbExperiment**](docs/Api/SfvbApi.md#endsfvbexperiment) | **POST** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}/end | End an experiment
+*SfvbApi* | [**exportSfvbNotFound**](docs/Api/SfvbApi.md#exportsfvbnotfound) | **GET** /sfvb/storefronts/{storefront_oid}/not_found/export | Export the open 404 paths
 *SfvbApi* | [**favoriteSfvbLibraryEntry**](docs/Api/SfvbApi.md#favoritesfvblibraryentry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/favorite | Favorite a library entry
+*SfvbApi* | [**fixSfvbNotFoundEntry**](docs/Api/SfvbApi.md#fixsfvbnotfoundentry) | **POST** /sfvb/storefronts/{storefront_oid}/not_found/{not_found_id}/fixed | Mark a 404 path fixed
 *SfvbApi* | [**getSfvbAffiliateNetwork**](docs/Api/SfvbApi.md#getsfvbaffiliatenetwork) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks/{affiliate_network_oid} | Read one affiliate network
 *SfvbApi* | [**getSfvbAffiliateNetworks**](docs/Api/SfvbApi.md#getsfvbaffiliatenetworks) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks | List a storefront&#39;s affiliate networks
 *SfvbApi* | [**getSfvbApproval**](docs/Api/SfvbApi.md#getsfvbapproval) | **GET** /sfvb/approvals/{approval_id} | Read one approval request
@@ -583,6 +586,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbNotFound**](docs/Api/SfvbApi.md#getsfvbnotfound) | **GET** /sfvb/storefronts/{storefront_oid}/not_found | List the paths that answered 404
 *SfvbApi* | [**getSfvbNotFoundEntry**](docs/Api/SfvbApi.md#getsfvbnotfoundentry) | **GET** /sfvb/storefronts/{storefront_oid}/not_found/{not_found_id} | Read one 404 path with its recent hits
 *SfvbApi* | [**getSfvbNotFoundPage**](docs/Api/SfvbApi.md#getsfvbnotfoundpage) | **GET** /sfvb/storefronts/{storefront_oid}/not_found_page | What renders the storefront&#39;s 404 page
+*SfvbApi* | [**getSfvbNotFoundSummary**](docs/Api/SfvbApi.md#getsfvbnotfoundsummary) | **GET** /sfvb/storefronts/{storefront_oid}/not_found/summary | The 404 log&#39;s trend
 *SfvbApi* | [**getSfvbPage**](docs/Api/SfvbApi.md#getsfvbpage) | **GET** /sfvb/storefronts/{storefront_oid}/pages | Read a page&#39;s attributes and images
 *SfvbApi* | [**getSfvbPageBlogPosts**](docs/Api/SfvbApi.md#getsfvbpageblogposts) | **GET** /sfvb/storefronts/{storefront_oid}/pages/blog_posts | Read the blog posts assigned to a page
 *SfvbApi* | [**getSfvbPageItems**](docs/Api/SfvbApi.md#getsfvbpageitems) | **GET** /sfvb/storefronts/{storefront_oid}/pages/items | Read the items assigned to a page
@@ -600,6 +604,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbSequenceStepDispatchLogs**](docs/Api/SfvbApi.md#getsfvbsequencestepdispatchlogs) | **GET** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/dispatch_logs | Read a flow or campaign step&#39;s dispatch log and counts
 *SfvbApi* | [**getSfvbServerLog**](docs/Api/SfvbApi.md#getsfvbserverlog) | **GET** /sfvb/storefronts/{storefront_oid}/logs/{log_id} | Get one storefront render log
 *SfvbApi* | [**getSfvbSiteAttributes**](docs/Api/SfvbApi.md#getsfvbsiteattributes) | **GET** /sfvb/storefronts/{storefront_oid}/attributes | Read a storefront&#39;s site attributes
+*SfvbApi* | [**getSfvbSiteSeo**](docs/Api/SfvbApi.md#getsfvbsiteseo) | **GET** /sfvb/storefronts/{storefront_oid}/seo | Read a storefront&#39;s search engine settings
 *SfvbApi* | [**getSfvbSitemaps**](docs/Api/SfvbApi.md#getsfvbsitemaps) | **GET** /sfvb/storefronts/{storefront_oid}/sitemaps | Read a storefront&#39;s sitemaps and robots.txt
 *SfvbApi* | [**getSfvbSmartAttribution**](docs/Api/SfvbApi.md#getsfvbsmartattribution) | **GET** /sfvb/storefronts/{storefront_oid}/smart_attribution | Read a storefront&#39;s Smart Attribution configuration
 *SfvbApi* | [**getSfvbTestOrders**](docs/Api/SfvbApi.md#getsfvbtestorders) | **GET** /sfvb/storefronts/{storefront_oid}/test_orders | List recent test orders
@@ -690,6 +695,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**reserveSfvbWidgetIds**](docs/Api/SfvbApi.md#reservesfvbwidgetids) | **POST** /sfvb/storefronts/{storefront_oid}/widget_ids | Reserve a block of widget ids
 *SfvbApi* | [**resetSfvbI18nMessage**](docs/Api/SfvbApi.md#resetsfvbi18nmessage) | **DELETE** /sfvb/storefronts/{storefront_oid}/i18n/messages/{key} | Reset one built-in message
 *SfvbApi* | [**resolveSfvbRedirect**](docs/Api/SfvbApi.md#resolvesfvbredirect) | **GET** /sfvb/storefronts/{storefront_oid}/redirects/resolve | What a shopper gets for a path
+*SfvbApi* | [**resolveSfvbRedirectBatch**](docs/Api/SfvbApi.md#resolvesfvbredirectbatch) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/resolve_batch | What a shopper gets for each of many paths
 *SfvbApi* | [**resolveSfvbTemplate**](docs/Api/SfvbApi.md#resolvesfvbtemplate) | **GET** /sfvb/storefronts/{storefront_oid}/templates/resolve | Resolve a template name to the file a page renders
 *SfvbApi* | [**revertSfvbContainer**](docs/Api/SfvbApi.md#revertsfvbcontainer) | **POST** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id}/revert | Revert a container stored outside the file system
 *SfvbApi* | [**revertSfvbFile**](docs/Api/SfvbApi.md#revertsfvbfile) | **POST** /sfvb/storefronts/{storefront_oid}/files/revert | Revert a storefront file to an earlier version
@@ -718,6 +724,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**updateSfvbLibraryEntry**](docs/Api/SfvbApi.md#updatesfvblibraryentry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Update a library entry&#39;s draft
 *SfvbApi* | [**updateSfvbRedirect**](docs/Api/SfvbApi.md#updatesfvbredirect) | **PUT** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Change a redirect rule
 *SfvbApi* | [**updateSfvbSequenceStep**](docs/Api/SfvbApi.md#updatesfvbsequencestep) | **PUT** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid} | Change one step&#39;s settings or audience filter
+*SfvbApi* | [**updateSfvbSiteSeo**](docs/Api/SfvbApi.md#updatesfvbsiteseo) | **PUT** /sfvb/storefronts/{storefront_oid}/seo | Change a storefront&#39;s search engine settings
 *SfvbApi* | [**updateSfvbSmartAttribution**](docs/Api/SfvbApi.md#updatesfvbsmartattribution) | **PUT** /sfvb/storefronts/{storefront_oid}/smart_attribution | Change a storefront&#39;s Smart Attribution configuration
 *SfvbApi* | [**updateSfvbTrackingAdvanced**](docs/Api/SfvbApi.md#updatesfvbtrackingadvanced) | **PUT** /sfvb/storefronts/{storefront_oid}/tracking/advanced | Change a storefront&#39;s advanced conversion settings
 *SfvbApi* | [**updateSfvbTrackingHtml**](docs/Api/SfvbApi.md#updatesfvbtrackinghtml) | **PUT** /sfvb/storefronts/{storefront_oid}/tracking/html/{slot} | Write one custom tracking HTML slot
@@ -2106,6 +2113,7 @@ Class | Method | HTTP request | Description
 - [SfvbNotFoundHit](docs/Model/SfvbNotFoundHit.md)
 - [SfvbNotFoundPage](docs/Model/SfvbNotFoundPage.md)
 - [SfvbNotFoundResponse](docs/Model/SfvbNotFoundResponse.md)
+- [SfvbNotFoundSummary](docs/Model/SfvbNotFoundSummary.md)
 - [SfvbPageAttribute](docs/Model/SfvbPageAttribute.md)
 - [SfvbPageAttributeUpdate](docs/Model/SfvbPageAttributeUpdate.md)
 - [SfvbPageAttributeUpdateRequest](docs/Model/SfvbPageAttributeUpdateRequest.md)
@@ -2155,6 +2163,8 @@ Class | Method | HTTP request | Description
 - [SfvbRedirectImportRow](docs/Model/SfvbRedirectImportRow.md)
 - [SfvbRedirectImportRowResult](docs/Model/SfvbRedirectImportRowResult.md)
 - [SfvbRedirectRequest](docs/Model/SfvbRedirectRequest.md)
+- [SfvbRedirectResolveBatchRequest](docs/Model/SfvbRedirectResolveBatchRequest.md)
+- [SfvbRedirectResolveBatchResponse](docs/Model/SfvbRedirectResolveBatchResponse.md)
 - [SfvbRedirectResolveResponse](docs/Model/SfvbRedirectResolveResponse.md)
 - [SfvbRedirectResolveStep](docs/Model/SfvbRedirectResolveStep.md)
 - [SfvbRedirectResponse](docs/Model/SfvbRedirectResponse.md)
@@ -2187,6 +2197,9 @@ Class | Method | HTTP request | Description
 - [SfvbSiteAttributeUpdate](docs/Model/SfvbSiteAttributeUpdate.md)
 - [SfvbSiteAttributeUpdateRequest](docs/Model/SfvbSiteAttributeUpdateRequest.md)
 - [SfvbSiteAttributesResponse](docs/Model/SfvbSiteAttributesResponse.md)
+- [SfvbSiteSeo](docs/Model/SfvbSiteSeo.md)
+- [SfvbSiteSeoChange](docs/Model/SfvbSiteSeoChange.md)
+- [SfvbSiteSeoRequest](docs/Model/SfvbSiteSeoRequest.md)
 - [SfvbSitemap](docs/Model/SfvbSitemap.md)
 - [SfvbSitemapFile](docs/Model/SfvbSitemapFile.md)
 - [SfvbSitemapsResponse](docs/Model/SfvbSitemapsResponse.md)
@@ -2444,6 +2457,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.229 | 11/04/2026 | sfvb internal testing |
 | 4.1.228 | 11/04/2026 | sfvb internal testing |
 | 4.1.227 | 11/04/2026 | sfvb internal testing |
 | 4.1.226 | 11/04/2026 | sfvb internal testing |

@@ -62,6 +62,7 @@ class SfvbNotFoundEntry implements ModelInterface, ArrayAccess, \JsonSerializabl
         'bot_share' => 'object',
         'counted_hits' => 'int',
         'first_seen_dts' => 'string',
+        'fixed' => 'bool',
         'hits' => 'int',
         'ignored' => 'bool',
         'last_seen_dts' => 'string',
@@ -83,6 +84,7 @@ class SfvbNotFoundEntry implements ModelInterface, ArrayAccess, \JsonSerializabl
         'bot_share' => null,
         'counted_hits' => 'int32',
         'first_seen_dts' => 'dateTime',
+        'fixed' => null,
         'hits' => 'int32',
         'ignored' => null,
         'last_seen_dts' => 'dateTime',
@@ -123,6 +125,7 @@ class SfvbNotFoundEntry implements ModelInterface, ArrayAccess, \JsonSerializabl
         'bot_share' => 'bot_share',
         'counted_hits' => 'counted_hits',
         'first_seen_dts' => 'first_seen_dts',
+        'fixed' => 'fixed',
         'hits' => 'hits',
         'ignored' => 'ignored',
         'last_seen_dts' => 'last_seen_dts',
@@ -142,6 +145,7 @@ class SfvbNotFoundEntry implements ModelInterface, ArrayAccess, \JsonSerializabl
         'bot_share' => 'setBotShare',
         'counted_hits' => 'setCountedHits',
         'first_seen_dts' => 'setFirstSeenDts',
+        'fixed' => 'setFixed',
         'hits' => 'setHits',
         'ignored' => 'setIgnored',
         'last_seen_dts' => 'setLastSeenDts',
@@ -161,6 +165,7 @@ class SfvbNotFoundEntry implements ModelInterface, ArrayAccess, \JsonSerializabl
         'bot_share' => 'getBotShare',
         'counted_hits' => 'getCountedHits',
         'first_seen_dts' => 'getFirstSeenDts',
+        'fixed' => 'getFixed',
         'hits' => 'getHits',
         'ignored' => 'getIgnored',
         'last_seen_dts' => 'getLastSeenDts',
@@ -231,6 +236,7 @@ class SfvbNotFoundEntry implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->container['bot_share'] = $data['bot_share'] ?? null;
         $this->container['counted_hits'] = $data['counted_hits'] ?? null;
         $this->container['first_seen_dts'] = $data['first_seen_dts'] ?? null;
+        $this->container['fixed'] = $data['fixed'] ?? null;
         $this->container['hits'] = $data['hits'] ?? null;
         $this->container['ignored'] = $data['ignored'] ?? null;
         $this->container['last_seen_dts'] = $data['last_seen_dts'] ?? null;
@@ -356,6 +362,30 @@ class SfvbNotFoundEntry implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setFirstSeenDts($first_seen_dts)
     {
         $this->container['first_seen_dts'] = $first_seen_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets fixed
+     *
+     * @return bool|null
+     */
+    public function getFixed()
+    {
+        return $this->container['fixed'];
+    }
+
+    /**
+     * Sets fixed
+     *
+     * @param bool|null $fixed True when the entry is marked fixed or mapped.  The next hit on the path clears it.
+     *
+     * @return self
+     */
+    public function setFixed($fixed)
+    {
+        $this->container['fixed'] = $fixed;
 
         return $this;
     }

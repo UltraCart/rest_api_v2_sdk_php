@@ -58,6 +58,7 @@ class SfvbRedirectRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
+        'exclude_from_sitemap' => 'bool',
         'note' => 'string',
         'over_live_page' => 'bool',
         'source' => 'string',
@@ -73,6 +74,7 @@ class SfvbRedirectRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'exclude_from_sitemap' => null,
         'note' => null,
         'over_live_page' => null,
         'source' => null,
@@ -107,6 +109,7 @@ class SfvbRedirectRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
+        'exclude_from_sitemap' => 'exclude_from_sitemap',
         'note' => 'note',
         'over_live_page' => 'over_live_page',
         'source' => 'source',
@@ -120,6 +123,7 @@ class SfvbRedirectRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
+        'exclude_from_sitemap' => 'setExcludeFromSitemap',
         'note' => 'setNote',
         'over_live_page' => 'setOverLivePage',
         'source' => 'setSource',
@@ -133,6 +137,7 @@ class SfvbRedirectRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
+        'exclude_from_sitemap' => 'getExcludeFromSitemap',
         'note' => 'getNote',
         'over_live_page' => 'getOverLivePage',
         'source' => 'getSource',
@@ -197,6 +202,7 @@ class SfvbRedirectRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
+        $this->container['exclude_from_sitemap'] = $data['exclude_from_sitemap'] ?? null;
         $this->container['note'] = $data['note'] ?? null;
         $this->container['over_live_page'] = $data['over_live_page'] ?? null;
         $this->container['source'] = $data['source'] ?? null;
@@ -227,6 +233,30 @@ class SfvbRedirectRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets exclude_from_sitemap
+     *
+     * @return bool|null
+     */
+    public function getExcludeFromSitemap()
+    {
+        return $this->container['exclude_from_sitemap'];
+    }
+
+    /**
+     * Sets exclude_from_sitemap
+     *
+     * @param bool|null $exclude_from_sitemap True to leave the rule's source out of the generated sitemap.  On a create, left out means false, as in the admin.  On an update, left out keeps the rule's value.
+     *
+     * @return self
+     */
+    public function setExcludeFromSitemap($exclude_from_sitemap)
+    {
+        $this->container['exclude_from_sitemap'] = $exclude_from_sitemap;
+
+        return $this;
+    }
 
     /**
      * Gets note

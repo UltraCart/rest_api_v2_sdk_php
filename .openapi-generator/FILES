@@ -1145,6 +1145,7 @@ docs/Model/SfvbNotFoundEntryResponse.md
 docs/Model/SfvbNotFoundHit.md
 docs/Model/SfvbNotFoundPage.md
 docs/Model/SfvbNotFoundResponse.md
+docs/Model/SfvbNotFoundSummary.md
 docs/Model/SfvbPageAttribute.md
 docs/Model/SfvbPageAttributeUpdate.md
 docs/Model/SfvbPageAttributeUpdateRequest.md
@@ -1194,6 +1195,8 @@ docs/Model/SfvbRedirectImportResponse.md
 docs/Model/SfvbRedirectImportRow.md
 docs/Model/SfvbRedirectImportRowResult.md
 docs/Model/SfvbRedirectRequest.md
+docs/Model/SfvbRedirectResolveBatchRequest.md
+docs/Model/SfvbRedirectResolveBatchResponse.md
 docs/Model/SfvbRedirectResolveResponse.md
 docs/Model/SfvbRedirectResolveStep.md
 docs/Model/SfvbRedirectResponse.md
@@ -1226,6 +1229,9 @@ docs/Model/SfvbSiteAttribute.md
 docs/Model/SfvbSiteAttributeUpdate.md
 docs/Model/SfvbSiteAttributeUpdateRequest.md
 docs/Model/SfvbSiteAttributesResponse.md
+docs/Model/SfvbSiteSeo.md
+docs/Model/SfvbSiteSeoChange.md
+docs/Model/SfvbSiteSeoRequest.md
 docs/Model/SfvbSitemap.md
 docs/Model/SfvbSitemapFile.md
 docs/Model/SfvbSitemapsResponse.md
@@ -2536,6 +2542,7 @@ lib/models/SfvbNotFoundEntryResponse.php
 lib/models/SfvbNotFoundHit.php
 lib/models/SfvbNotFoundPage.php
 lib/models/SfvbNotFoundResponse.php
+lib/models/SfvbNotFoundSummary.php
 lib/models/SfvbPageAttribute.php
 lib/models/SfvbPageAttributeUpdate.php
 lib/models/SfvbPageAttributeUpdateRequest.php
@@ -2585,6 +2592,8 @@ lib/models/SfvbRedirectImportResponse.php
 lib/models/SfvbRedirectImportRow.php
 lib/models/SfvbRedirectImportRowResult.php
 lib/models/SfvbRedirectRequest.php
+lib/models/SfvbRedirectResolveBatchRequest.php
+lib/models/SfvbRedirectResolveBatchResponse.php
 lib/models/SfvbRedirectResolveResponse.php
 lib/models/SfvbRedirectResolveStep.php
 lib/models/SfvbRedirectResponse.php
@@ -2617,6 +2626,9 @@ lib/models/SfvbSiteAttribute.php
 lib/models/SfvbSiteAttributeUpdate.php
 lib/models/SfvbSiteAttributeUpdateRequest.php
 lib/models/SfvbSiteAttributesResponse.php
+lib/models/SfvbSiteSeo.php
+lib/models/SfvbSiteSeoChange.php
+lib/models/SfvbSiteSeoRequest.php
 lib/models/SfvbSitemap.php
 lib/models/SfvbSitemapFile.php
 lib/models/SfvbSitemapsResponse.php

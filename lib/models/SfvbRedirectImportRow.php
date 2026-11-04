@@ -58,6 +58,7 @@ class SfvbRedirectImportRow implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
+        'exclude_from_sitemap' => 'bool',
         'note' => 'string',
         'source' => 'string',
         'target' => 'string'
@@ -71,6 +72,7 @@ class SfvbRedirectImportRow implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'exclude_from_sitemap' => null,
         'note' => null,
         'source' => null,
         'target' => null
@@ -103,6 +105,7 @@ class SfvbRedirectImportRow implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
+        'exclude_from_sitemap' => 'exclude_from_sitemap',
         'note' => 'note',
         'source' => 'source',
         'target' => 'target'
@@ -114,6 +117,7 @@ class SfvbRedirectImportRow implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
+        'exclude_from_sitemap' => 'setExcludeFromSitemap',
         'note' => 'setNote',
         'source' => 'setSource',
         'target' => 'setTarget'
@@ -125,6 +129,7 @@ class SfvbRedirectImportRow implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
+        'exclude_from_sitemap' => 'getExcludeFromSitemap',
         'note' => 'getNote',
         'source' => 'getSource',
         'target' => 'getTarget'
@@ -187,6 +192,7 @@ class SfvbRedirectImportRow implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(array $data = null)
     {
+        $this->container['exclude_from_sitemap'] = $data['exclude_from_sitemap'] ?? null;
         $this->container['note'] = $data['note'] ?? null;
         $this->container['source'] = $data['source'] ?? null;
         $this->container['target'] = $data['target'] ?? null;
@@ -215,6 +221,30 @@ class SfvbRedirectImportRow implements ModelInterface, ArrayAccess, \JsonSeriali
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets exclude_from_sitemap
+     *
+     * @return bool|null
+     */
+    public function getExcludeFromSitemap()
+    {
+        return $this->container['exclude_from_sitemap'];
+    }
+
+    /**
+     * Sets exclude_from_sitemap
+     *
+     * @param bool|null $exclude_from_sitemap True to leave the rule's source out of the generated sitemap.  Left out means false, as in the admin.
+     *
+     * @return self
+     */
+    public function setExcludeFromSitemap($exclude_from_sitemap)
+    {
+        $this->container['exclude_from_sitemap'] = $exclude_from_sitemap;
+
+        return $this;
+    }
 
     /**
      * Gets note

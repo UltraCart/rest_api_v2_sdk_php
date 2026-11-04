@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **reason** | **string** | Why the agent wants to do this, in a sentence.  Shown to the person as unverified text, capped at 500 characters. | [optional]
 **redirect_rows** | [**\ultracart\v2\models\SfvbRedirectDeleteRow[]**](SfvbRedirectDeleteRow.md) | For redirect.delete_batch, exactly the rows the batch delete will send, up to 5,000, each with its hash_sha256.  UltraCart keeps only their hash. | [optional]
 **segment_update** | [**\ultracart\v2\models\SfvbCommsSegmentWriteRequest**](SfvbCommsSegmentWriteRequest.md) |  | [optional]
+**site_seo** | [**\ultracart\v2\models\SfvbSiteSeoRequest**](SfvbSiteSeoRequest.md) |  | [optional]
 **smart_attribution** | [**\ultracart\v2\models\SfvbSmartAttributionRequest**](SfvbSmartAttributionRequest.md) |  | [optional]
 **tracking_provider** | [**\ultracart\v2\models\SfvbTrackingProviderRequest**](SfvbTrackingProviderRequest.md) |  | [optional]
 

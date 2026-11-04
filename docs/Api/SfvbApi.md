@@ -29,6 +29,7 @@ Method | HTTP request | Description
 [**deleteSfvbItemAttribute()**](SfvbApi.md#deleteSfvbItemAttribute) | **DELETE** /sfvb/storefronts/{storefront_oid}/items/attributes | Delete an attribute from an item
 [**deleteSfvbItemMultimedia()**](SfvbApi.md#deleteSfvbItemMultimedia) | **DELETE** /sfvb/storefronts/{storefront_oid}/items/multimedia | Detach an image from an item
 [**deleteSfvbLibraryEntry()**](SfvbApi.md#deleteSfvbLibraryEntry) | **DELETE** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Delete or retire a library entry
+[**deleteSfvbNotFoundEntry()**](SfvbApi.md#deleteSfvbNotFoundEntry) | **DELETE** /sfvb/storefronts/{storefront_oid}/not_found/{not_found_id} | Remove a 404 path from the log
 [**deleteSfvbPageMultimedia()**](SfvbApi.md#deleteSfvbPageMultimedia) | **DELETE** /sfvb/storefronts/{storefront_oid}/pages/multimedia | Detach an image from a page
 [**deleteSfvbPreviewSession()**](SfvbApi.md#deleteSfvbPreviewSession) | **DELETE** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Delete a preview session
 [**deleteSfvbRedirect()**](SfvbApi.md#deleteSfvbRedirect) | **DELETE** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Delete a redirect rule
@@ -56,7 +57,9 @@ Method | HTTP request | Description
 [**enableSfvbUpsellOffer()**](SfvbApi.md#enableSfvbUpsellOffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/enable | Enable an upsell offer
 [**enableSfvbUpsellPath()**](SfvbApi.md#enableSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/enable | Enable an upsell path
 [**endSfvbExperiment()**](SfvbApi.md#endSfvbExperiment) | **POST** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}/end | End an experiment
+[**exportSfvbNotFound()**](SfvbApi.md#exportSfvbNotFound) | **GET** /sfvb/storefronts/{storefront_oid}/not_found/export | Export the open 404 paths
 [**favoriteSfvbLibraryEntry()**](SfvbApi.md#favoriteSfvbLibraryEntry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/favorite | Favorite a library entry
+[**fixSfvbNotFoundEntry()**](SfvbApi.md#fixSfvbNotFoundEntry) | **POST** /sfvb/storefronts/{storefront_oid}/not_found/{not_found_id}/fixed | Mark a 404 path fixed
 [**getSfvbAffiliateNetwork()**](SfvbApi.md#getSfvbAffiliateNetwork) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks/{affiliate_network_oid} | Read one affiliate network
 [**getSfvbAffiliateNetworks()**](SfvbApi.md#getSfvbAffiliateNetworks) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks | List a storefront&#39;s affiliate networks
 [**getSfvbApproval()**](SfvbApi.md#getSfvbApproval) | **GET** /sfvb/approvals/{approval_id} | Read one approval request
@@ -96,6 +99,7 @@ Method | HTTP request | Description
 [**getSfvbNotFound()**](SfvbApi.md#getSfvbNotFound) | **GET** /sfvb/storefronts/{storefront_oid}/not_found | List the paths that answered 404
 [**getSfvbNotFoundEntry()**](SfvbApi.md#getSfvbNotFoundEntry) | **GET** /sfvb/storefronts/{storefront_oid}/not_found/{not_found_id} | Read one 404 path with its recent hits
 [**getSfvbNotFoundPage()**](SfvbApi.md#getSfvbNotFoundPage) | **GET** /sfvb/storefronts/{storefront_oid}/not_found_page | What renders the storefront&#39;s 404 page
+[**getSfvbNotFoundSummary()**](SfvbApi.md#getSfvbNotFoundSummary) | **GET** /sfvb/storefronts/{storefront_oid}/not_found/summary | The 404 log&#39;s trend
 [**getSfvbPage()**](SfvbApi.md#getSfvbPage) | **GET** /sfvb/storefronts/{storefront_oid}/pages | Read a page&#39;s attributes and images
 [**getSfvbPageBlogPosts()**](SfvbApi.md#getSfvbPageBlogPosts) | **GET** /sfvb/storefronts/{storefront_oid}/pages/blog_posts | Read the blog posts assigned to a page
 [**getSfvbPageItems()**](SfvbApi.md#getSfvbPageItems) | **GET** /sfvb/storefronts/{storefront_oid}/pages/items | Read the items assigned to a page
@@ -113,6 +117,7 @@ Method | HTTP request | Description
 [**getSfvbSequenceStepDispatchLogs()**](SfvbApi.md#getSfvbSequenceStepDispatchLogs) | **GET** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/dispatch_logs | Read a flow or campaign step&#39;s dispatch log and counts
 [**getSfvbServerLog()**](SfvbApi.md#getSfvbServerLog) | **GET** /sfvb/storefronts/{storefront_oid}/logs/{log_id} | Get one storefront render log
 [**getSfvbSiteAttributes()**](SfvbApi.md#getSfvbSiteAttributes) | **GET** /sfvb/storefronts/{storefront_oid}/attributes | Read a storefront&#39;s site attributes
+[**getSfvbSiteSeo()**](SfvbApi.md#getSfvbSiteSeo) | **GET** /sfvb/storefronts/{storefront_oid}/seo | Read a storefront&#39;s search engine settings
 [**getSfvbSitemaps()**](SfvbApi.md#getSfvbSitemaps) | **GET** /sfvb/storefronts/{storefront_oid}/sitemaps | Read a storefront&#39;s sitemaps and robots.txt
 [**getSfvbSmartAttribution()**](SfvbApi.md#getSfvbSmartAttribution) | **GET** /sfvb/storefronts/{storefront_oid}/smart_attribution | Read a storefront&#39;s Smart Attribution configuration
 [**getSfvbTestOrders()**](SfvbApi.md#getSfvbTestOrders) | **GET** /sfvb/storefronts/{storefront_oid}/test_orders | List recent test orders
@@ -203,6 +208,7 @@ Method | HTTP request | Description
 [**reserveSfvbWidgetIds()**](SfvbApi.md#reserveSfvbWidgetIds) | **POST** /sfvb/storefronts/{storefront_oid}/widget_ids | Reserve a block of widget ids
 [**resetSfvbI18nMessage()**](SfvbApi.md#resetSfvbI18nMessage) | **DELETE** /sfvb/storefronts/{storefront_oid}/i18n/messages/{key} | Reset one built-in message
 [**resolveSfvbRedirect()**](SfvbApi.md#resolveSfvbRedirect) | **GET** /sfvb/storefronts/{storefront_oid}/redirects/resolve | What a shopper gets for a path
+[**resolveSfvbRedirectBatch()**](SfvbApi.md#resolveSfvbRedirectBatch) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/resolve_batch | What a shopper gets for each of many paths
 [**resolveSfvbTemplate()**](SfvbApi.md#resolveSfvbTemplate) | **GET** /sfvb/storefronts/{storefront_oid}/templates/resolve | Resolve a template name to the file a page renders
 [**revertSfvbContainer()**](SfvbApi.md#revertSfvbContainer) | **POST** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id}/revert | Revert a container stored outside the file system
 [**revertSfvbFile()**](SfvbApi.md#revertSfvbFile) | **POST** /sfvb/storefronts/{storefront_oid}/files/revert | Revert a storefront file to an earlier version
@@ -231,6 +237,7 @@ Method | HTTP request | Description
 [**updateSfvbLibraryEntry()**](SfvbApi.md#updateSfvbLibraryEntry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Update a library entry&#39;s draft
 [**updateSfvbRedirect()**](SfvbApi.md#updateSfvbRedirect) | **PUT** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Change a redirect rule
 [**updateSfvbSequenceStep()**](SfvbApi.md#updateSfvbSequenceStep) | **PUT** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid} | Change one step&#39;s settings or audience filter
+[**updateSfvbSiteSeo()**](SfvbApi.md#updateSfvbSiteSeo) | **PUT** /sfvb/storefronts/{storefront_oid}/seo | Change a storefront&#39;s search engine settings
 [**updateSfvbSmartAttribution()**](SfvbApi.md#updateSfvbSmartAttribution) | **PUT** /sfvb/storefronts/{storefront_oid}/smart_attribution | Change a storefront&#39;s Smart Attribution configuration
 [**updateSfvbTrackingAdvanced()**](SfvbApi.md#updateSfvbTrackingAdvanced) | **PUT** /sfvb/storefronts/{storefront_oid}/tracking/advanced | Change a storefront&#39;s advanced conversion settings
 [**updateSfvbTrackingHtml()**](SfvbApi.md#updateSfvbTrackingHtml) | **PUT** /sfvb/storefronts/{storefront_oid}/tracking/html/{slot} | Write one custom tracking HTML slot
@@ -1270,6 +1277,47 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\SfvbLibraryDeleteResult**](../Model/SfvbLibraryDeleteResult.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteSfvbNotFoundEntry()`
+
+```php
+deleteSfvbNotFoundEntry($storefront_oid, $not_found_id)
+```
+
+Remove a 404 path from the log
+
+The admin's Permanent Ignore button.  Despite that label, the next hit on the path records it again as a new entry.  To stop counting a path, ignore it instead.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **not_found_id** | **string**|  |
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 
@@ -2410,6 +2458,48 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `exportSfvbNotFound()`
+
+```php
+exportSfvbNotFound($storefront_oid, $include_bots, $include_tokens): \ultracart\v2\models\SfvbNotFoundResponse
+```
+
+Export the open 404 paths
+
+Up to 5,000 open paths, most hits first, as the admin's mapping spreadsheet reads them, each with where a redirect rule already sends it.  Fixed, mapped and ignored paths are never included.  Paths only bots have hit are left out unless include_bots is true.  Tokens in paths are redacted unless include_tokens is true.  Read only.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **include_bots** | **bool**|  | [optional]
+ **include_tokens** | **bool**|  | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\SfvbNotFoundResponse**](../Model/SfvbNotFoundResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `favoriteSfvbLibraryEntry()`
 
 ```php
@@ -2437,6 +2527,47 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `fixSfvbNotFoundEntry()`
+
+```php
+fixSfvbNotFoundEntry($storefront_oid, $not_found_id): \ultracart\v2\models\SfvbNotFoundEntry
+```
+
+Mark a 404 path fixed
+
+For a path fixed by creating the page rather than a redirect.  It leaves the list; the next hit on the path clears the mark and lists it again.  The admin's Mark Fixed.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **not_found_id** | **string**|  |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbNotFoundEntry**](../Model/SfvbNotFoundEntry.md)
 
 ### Authorization
 
@@ -4049,6 +4180,46 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getSfvbNotFoundSummary()`
+
+```php
+getSfvbNotFoundSummary($storefront_oid): \ultracart\v2\models\SfvbNotFoundSummary
+```
+
+The 404 log's trend
+
+The admin's 404 charts: hits per day for 30 and 7 days and per hour for 24 hours, bots included, plus up to 10 open paths first seen in the last 30 days.  Read only.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbNotFoundSummary**](../Model/SfvbNotFoundSummary.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getSfvbPage()`
 
 ```php
@@ -4733,6 +4904,46 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\SfvbSiteAttributesResponse**](../Model/SfvbSiteAttributesResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getSfvbSiteSeo()`
+
+```php
+getSfvbSiteSeo($storefront_oid): \ultracart\v2\models\SfvbSiteSeo
+```
+
+Read a storefront's search engine settings
+
+Canonical Links, Schema.org and Prevent Indexing as true or false, with the default meta description and keywords and the hash to send as If-Match on a change.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbSiteSeo**](../Model/SfvbSiteSeo.md)
 
 ### Authorization
 
@@ -8515,6 +8726,47 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `resolveSfvbRedirectBatch()`
+
+```php
+resolveSfvbRedirectBatch($storefront_oid, $redirect_resolve_batch_request): \ultracart\v2\models\SfvbRedirectResolveBatchResponse
+```
+
+What a shopper gets for each of many paths
+
+Up to 1,000 paths in one call, each followed through the redirect rules exactly as the single resolve does, with counts of how many redirect and how many end on a 404.  For checking every old URL of a migrated store.  Read only.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **redirect_resolve_batch_request** | [**\ultracart\v2\models\SfvbRedirectResolveBatchRequest**](../Model/SfvbRedirectResolveBatchRequest.md)| The paths |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbRedirectResolveBatchResponse**](../Model/SfvbRedirectResolveBatchResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `resolveSfvbTemplate()`
 
 ```php
@@ -9696,6 +9948,49 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateSfvbSiteSeo()`
+
+```php
+updateSfvbSiteSeo($storefront_oid, $if_match, $site_seo_request, $approval_id): \ultracart\v2\models\SfvbSiteSeo
+```
+
+Change a storefront's search engine settings
+
+A partial update of Canonical Links, Schema.org and Prevent Indexing.  Send the hash_sha256 you read as If-Match.  dry_run reports each change, whether it needs approval and whether that approval needs a fresh code, without saving.  Turning Canonical Links or Schema.org on needs no approval.  Turning either off, or turning Prevent Indexing on or off, needs an approved site_seo.change request for exactly this change (Approval-Id), and turning Prevent Indexing on asks for an authenticator code even inside an approval session.  Always needs sfvb_publish, because the settings apply to every page as soon as they are saved.  The admin saves the whole storefront, so a merchant with the screen open can still overwrite a change made here.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **if_match** | **string**| The hash_sha256 from the last read.  428 when absent, 412 when stale. |
+ **site_seo_request** | [**\ultracart\v2\models\SfvbSiteSeoRequest**](../Model/SfvbSiteSeoRequest.md)| The switches to change |
+ **approval_id** | **string**| When the change turns Canonical Links or Schema.org off, or turns Prevent Indexing on or off, the approval_id of an approved site_seo.change request for this change.  See POST /sfvb/approvals. | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\SfvbSiteSeo**](../Model/SfvbSiteSeo.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json; charset=UTF-8`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

@@ -68,6 +68,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'reason' => 'string',
         'redirect_rows' => '\ultracart\v2\models\SfvbRedirectDeleteRow[]',
         'segment_update' => '\ultracart\v2\models\SfvbCommsSegmentWriteRequest',
+        'site_seo' => '\ultracart\v2\models\SfvbSiteSeoRequest',
         'smart_attribution' => '\ultracart\v2\models\SfvbSmartAttributionRequest',
         'tracking_provider' => '\ultracart\v2\models\SfvbTrackingProviderRequest'
     ];
@@ -90,6 +91,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'reason' => null,
         'redirect_rows' => null,
         'segment_update' => null,
+        'site_seo' => null,
         'smart_attribution' => null,
         'tracking_provider' => null
     ];
@@ -131,6 +133,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'reason' => 'reason',
         'redirect_rows' => 'redirect_rows',
         'segment_update' => 'segment_update',
+        'site_seo' => 'site_seo',
         'smart_attribution' => 'smart_attribution',
         'tracking_provider' => 'tracking_provider'
     ];
@@ -151,6 +154,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'reason' => 'setReason',
         'redirect_rows' => 'setRedirectRows',
         'segment_update' => 'setSegmentUpdate',
+        'site_seo' => 'setSiteSeo',
         'smart_attribution' => 'setSmartAttribution',
         'tracking_provider' => 'setTrackingProvider'
     ];
@@ -171,6 +175,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'reason' => 'getReason',
         'redirect_rows' => 'getRedirectRows',
         'segment_update' => 'getSegmentUpdate',
+        'site_seo' => 'getSiteSeo',
         'smart_attribution' => 'getSmartAttribution',
         'tracking_provider' => 'getTrackingProvider'
     ];
@@ -237,6 +242,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     public const ACTION_TRACKING_HTML_PUT = 'tracking_html.put';
     public const ACTION_AFFILIATE_NETWORK_CHANGE = 'affiliate_network.change';
     public const ACTION_AFFILIATE_NETWORK_DELETE = 'affiliate_network.delete';
+    public const ACTION_SITE_SEO_CHANGE = 'site_seo.change';
 
     /**
      * Gets allowable values of the enum
@@ -267,6 +273,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
             self::ACTION_TRACKING_HTML_PUT,
             self::ACTION_AFFILIATE_NETWORK_CHANGE,
             self::ACTION_AFFILIATE_NETWORK_DELETE,
+            self::ACTION_SITE_SEO_CHANGE,
         ];
     }
 
@@ -295,6 +302,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         $this->container['reason'] = $data['reason'] ?? null;
         $this->container['redirect_rows'] = $data['redirect_rows'] ?? null;
         $this->container['segment_update'] = $data['segment_update'] ?? null;
+        $this->container['site_seo'] = $data['site_seo'] ?? null;
         $this->container['smart_attribution'] = $data['smart_attribution'] ?? null;
         $this->container['tracking_provider'] = $data['tracking_provider'] ?? null;
     }
@@ -578,6 +586,30 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     public function setSegmentUpdate($segment_update)
     {
         $this->container['segment_update'] = $segment_update;
+
+        return $this;
+    }
+
+    /**
+     * Gets site_seo
+     *
+     * @return \ultracart\v2\models\SfvbSiteSeoRequest|null
+     */
+    public function getSiteSeo()
+    {
+        return $this->container['site_seo'];
+    }
+
+    /**
+     * Sets site_seo
+     *
+     * @param \ultracart\v2\models\SfvbSiteSeoRequest|null $site_seo site_seo
+     *
+     * @return self
+     */
+    public function setSiteSeo($site_seo)
+    {
+        $this->container['site_seo'] = $site_seo;
 
         return $this;
     }
