@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **admin_path** | **string** | Where the provider is in the admin. | [optional]
+**approval_needed** | **bool** | On a dry run, whether the real write needs an approved tracking_provider.change request. | [optional]
 **changes** | [**\ultracart\v2\models\SfvbTrackingChange[]**](SfvbTrackingChange.md) | On a write, each setting it changed, or would change on a dry run.  Secrets read only set or cleared. | [optional]
 **configured** | **bool** | True when the provider is on, which means one of its identifying fields is set. | [optional]
 **consent** | [**\ultracart\v2\models\SfvbTrackingProviderConsent**](SfvbTrackingProviderConsent.md) |  | [optional]

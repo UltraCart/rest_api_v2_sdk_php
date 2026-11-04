@@ -69,6 +69,7 @@ class SfvbTrackingProviderField implements ModelInterface, ArrayAccess, \JsonSer
         'set' => 'bool',
         'sink' => 'string',
         'type' => 'string',
+        'unavailable_reason' => 'string',
         'value' => 'string',
         'writable' => 'bool'
     ];
@@ -92,6 +93,7 @@ class SfvbTrackingProviderField implements ModelInterface, ArrayAccess, \JsonSer
         'set' => null,
         'sink' => null,
         'type' => null,
+        'unavailable_reason' => null,
         'value' => null,
         'writable' => null
     ];
@@ -134,6 +136,7 @@ class SfvbTrackingProviderField implements ModelInterface, ArrayAccess, \JsonSer
         'set' => 'set',
         'sink' => 'sink',
         'type' => 'type',
+        'unavailable_reason' => 'unavailable_reason',
         'value' => 'value',
         'writable' => 'writable'
     ];
@@ -155,6 +158,7 @@ class SfvbTrackingProviderField implements ModelInterface, ArrayAccess, \JsonSer
         'set' => 'setSet',
         'sink' => 'setSink',
         'type' => 'setType',
+        'unavailable_reason' => 'setUnavailableReason',
         'value' => 'setValue',
         'writable' => 'setWritable'
     ];
@@ -176,6 +180,7 @@ class SfvbTrackingProviderField implements ModelInterface, ArrayAccess, \JsonSer
         'set' => 'getSet',
         'sink' => 'getSink',
         'type' => 'getType',
+        'unavailable_reason' => 'getUnavailableReason',
         'value' => 'getValue',
         'writable' => 'getWritable'
     ];
@@ -248,6 +253,7 @@ class SfvbTrackingProviderField implements ModelInterface, ArrayAccess, \JsonSer
         $this->container['set'] = $data['set'] ?? null;
         $this->container['sink'] = $data['sink'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
+        $this->container['unavailable_reason'] = $data['unavailable_reason'] ?? null;
         $this->container['value'] = $data['value'] ?? null;
         $this->container['writable'] = $data['writable'] ?? null;
     }
@@ -536,6 +542,30 @@ class SfvbTrackingProviderField implements ModelInterface, ArrayAccess, \JsonSer
     public function setType($type)
     {
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets unavailable_reason
+     *
+     * @return string|null
+     */
+    public function getUnavailableReason()
+    {
+        return $this->container['unavailable_reason'];
+    }
+
+    /**
+     * Sets unavailable_reason
+     *
+     * @param string|null $unavailable_reason Present only when this storefront can't turn the field on, and why.  Turning it off still works.
+     *
+     * @return self
+     */
+    public function setUnavailableReason($unavailable_reason)
+    {
+        $this->container['unavailable_reason'] = $unavailable_reason;
 
         return $this;
     }

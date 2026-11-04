@@ -59,6 +59,7 @@ class SfvbTrackingProvider implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPITypes = [
         'admin_path' => 'string',
+        'approval_needed' => 'bool',
         'changes' => '\ultracart\v2\models\SfvbTrackingChange[]',
         'configured' => 'bool',
         'consent' => '\ultracart\v2\models\SfvbTrackingProviderConsent',
@@ -85,6 +86,7 @@ class SfvbTrackingProvider implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPIFormats = [
         'admin_path' => null,
+        'approval_needed' => null,
         'changes' => null,
         'configured' => null,
         'consent' => null,
@@ -130,6 +132,7 @@ class SfvbTrackingProvider implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $attributeMap = [
         'admin_path' => 'admin_path',
+        'approval_needed' => 'approval_needed',
         'changes' => 'changes',
         'configured' => 'configured',
         'consent' => 'consent',
@@ -154,6 +157,7 @@ class SfvbTrackingProvider implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $setters = [
         'admin_path' => 'setAdminPath',
+        'approval_needed' => 'setApprovalNeeded',
         'changes' => 'setChanges',
         'configured' => 'setConfigured',
         'consent' => 'setConsent',
@@ -178,6 +182,7 @@ class SfvbTrackingProvider implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $getters = [
         'admin_path' => 'getAdminPath',
+        'approval_needed' => 'getApprovalNeeded',
         'changes' => 'getChanges',
         'configured' => 'getConfigured',
         'consent' => 'getConsent',
@@ -253,6 +258,7 @@ class SfvbTrackingProvider implements ModelInterface, ArrayAccess, \JsonSerializ
     public function __construct(array $data = null)
     {
         $this->container['admin_path'] = $data['admin_path'] ?? null;
+        $this->container['approval_needed'] = $data['approval_needed'] ?? null;
         $this->container['changes'] = $data['changes'] ?? null;
         $this->container['configured'] = $data['configured'] ?? null;
         $this->container['consent'] = $data['consent'] ?? null;
@@ -314,6 +320,30 @@ class SfvbTrackingProvider implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setAdminPath($admin_path)
     {
         $this->container['admin_path'] = $admin_path;
+
+        return $this;
+    }
+
+    /**
+     * Gets approval_needed
+     *
+     * @return bool|null
+     */
+    public function getApprovalNeeded()
+    {
+        return $this->container['approval_needed'];
+    }
+
+    /**
+     * Sets approval_needed
+     *
+     * @param bool|null $approval_needed On a dry run, whether the real write needs an approved tracking_provider.change request.
+     *
+     * @return self
+     */
+    public function setApprovalNeeded($approval_needed)
+    {
+        $this->container['approval_needed'] = $approval_needed;
 
         return $this;
     }

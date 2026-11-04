@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **set** | **bool** | For a secret, true when one is stored. | [optional]
 **sink** | **string** | For a writable secret, the sink a secret request names, with this storefront_oid as its target. | [optional]
 **type** | **string** | id, id_list, token, url, server_url, host, host_list, bool, select, number, numeric_id or secret.  It decides what a write accepts. | [optional]
+**unavailable_reason** | **string** | Present only when this storefront can&#39;t turn the field on, and why.  Turning it off still works. | [optional]
 **value** | **string** | The stored value.  Booleans are true or false.  Null when blank.  Never present for a secret. | [optional]
 **writable** | **bool** | False for a field the API reports but does not change. | [optional]
 
