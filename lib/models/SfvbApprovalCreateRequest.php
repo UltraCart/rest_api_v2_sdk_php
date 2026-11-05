@@ -70,7 +70,8 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'segment_update' => '\ultracart\v2\models\SfvbCommsSegmentWriteRequest',
         'site_seo' => '\ultracart\v2\models\SfvbSiteSeoRequest',
         'smart_attribution' => '\ultracart\v2\models\SfvbSmartAttributionRequest',
-        'tracking_provider' => '\ultracart\v2\models\SfvbTrackingProviderRequest'
+        'tracking_provider' => '\ultracart\v2\models\SfvbTrackingProviderRequest',
+        'transactional_email' => '\ultracart\v2\models\SfvbTransactionalEmailUpdateRequest'
     ];
 
     /**
@@ -93,7 +94,8 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'segment_update' => null,
         'site_seo' => null,
         'smart_attribution' => null,
-        'tracking_provider' => null
+        'tracking_provider' => null,
+        'transactional_email' => null
     ];
 
     /**
@@ -135,7 +137,8 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'segment_update' => 'segment_update',
         'site_seo' => 'site_seo',
         'smart_attribution' => 'smart_attribution',
-        'tracking_provider' => 'tracking_provider'
+        'tracking_provider' => 'tracking_provider',
+        'transactional_email' => 'transactional_email'
     ];
 
     /**
@@ -156,7 +159,8 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'segment_update' => 'setSegmentUpdate',
         'site_seo' => 'setSiteSeo',
         'smart_attribution' => 'setSmartAttribution',
-        'tracking_provider' => 'setTrackingProvider'
+        'tracking_provider' => 'setTrackingProvider',
+        'transactional_email' => 'setTransactionalEmail'
     ];
 
     /**
@@ -177,7 +181,8 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'segment_update' => 'getSegmentUpdate',
         'site_seo' => 'getSiteSeo',
         'smart_attribution' => 'getSmartAttribution',
-        'tracking_provider' => 'getTrackingProvider'
+        'tracking_provider' => 'getTrackingProvider',
+        'transactional_email' => 'getTransactionalEmail'
     ];
 
     /**
@@ -243,6 +248,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     public const ACTION_AFFILIATE_NETWORK_CHANGE = 'affiliate_network.change';
     public const ACTION_AFFILIATE_NETWORK_DELETE = 'affiliate_network.delete';
     public const ACTION_SITE_SEO_CHANGE = 'site_seo.change';
+    public const ACTION_TRANSACTIONAL_EMAIL_UPDATE = 'transactional_email.update';
 
     /**
      * Gets allowable values of the enum
@@ -274,6 +280,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
             self::ACTION_AFFILIATE_NETWORK_CHANGE,
             self::ACTION_AFFILIATE_NETWORK_DELETE,
             self::ACTION_SITE_SEO_CHANGE,
+            self::ACTION_TRANSACTIONAL_EMAIL_UPDATE,
         ];
     }
 
@@ -305,6 +312,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         $this->container['site_seo'] = $data['site_seo'] ?? null;
         $this->container['smart_attribution'] = $data['smart_attribution'] ?? null;
         $this->container['tracking_provider'] = $data['tracking_provider'] ?? null;
+        $this->container['transactional_email'] = $data['transactional_email'] ?? null;
     }
 
     /**
@@ -658,6 +666,30 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     public function setTrackingProvider($tracking_provider)
     {
         $this->container['tracking_provider'] = $tracking_provider;
+
+        return $this;
+    }
+
+    /**
+     * Gets transactional_email
+     *
+     * @return \ultracart\v2\models\SfvbTransactionalEmailUpdateRequest|null
+     */
+    public function getTransactionalEmail()
+    {
+        return $this->container['transactional_email'];
+    }
+
+    /**
+     * Sets transactional_email
+     *
+     * @param \ultracart\v2\models\SfvbTransactionalEmailUpdateRequest|null $transactional_email transactional_email
+     *
+     * @return self
+     */
+    public function setTransactionalEmail($transactional_email)
+    {
+        $this->container['transactional_email'] = $transactional_email;
 
         return $this;
     }

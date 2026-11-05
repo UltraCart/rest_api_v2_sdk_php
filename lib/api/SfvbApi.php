@@ -30971,6 +30971,515 @@ class SfvbApi
     }
 
     /**
+     * Operation getSfvbCommsListMembers
+     *
+     * Read one page of a list&#39;s members
+     *
+     * @param  int $storefront_oid storefront_oid (required)
+     * @param  string $list_uuid list_uuid (required)
+     * @param  int $page The page, from 1 (optional)
+     * @param  int $page_size Members per page, 1 to 100 (default 50) (optional)
+     * @param  bool $show_customer_data True to return the real email addresses instead of masked ones (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\SfvbCommsMembersResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function getSfvbCommsListMembers($storefront_oid, $list_uuid, $page = null, $page_size = null, $show_customer_data = null)
+    {
+        list($response) = $this->getSfvbCommsListMembersWithHttpInfo($storefront_oid, $list_uuid, $page, $page_size, $show_customer_data);
+        return $response;
+    }
+
+    /**
+     * Operation getSfvbCommsListMembersWithHttpInfo
+     *
+     * Read one page of a list&#39;s members
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $list_uuid (required)
+     * @param  int $page The page, from 1 (optional)
+     * @param  int $page_size Members per page, 1 to 100 (default 50) (optional)
+     * @param  bool $show_customer_data True to return the real email addresses instead of masked ones (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbCommsMembersResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSfvbCommsListMembersWithHttpInfo($storefront_oid, $list_uuid, $page = null, $page_size = null, $show_customer_data = null)
+    {
+        return $this->getSfvbCommsListMembersWithHttpInfoRetry(true ,   $storefront_oid,   $list_uuid,   $page,   $page_size,   $show_customer_data);
+    }
+
+
+
+    /**
+     * Operation getSfvbCommsListMembersWithHttpInfoRetry
+     *
+     * Read one page of a list&#39;s members
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $list_uuid (required)
+     * @param  int $page The page, from 1 (optional)
+     * @param  int $page_size Members per page, 1 to 100 (default 50) (optional)
+     * @param  bool $show_customer_data True to return the real email addresses instead of masked ones (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbCommsMembersResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSfvbCommsListMembersWithHttpInfoRetry($retry , $storefront_oid, $list_uuid, $page = null, $page_size = null, $show_customer_data = null)
+    {
+        $returnType = '\ultracart\v2\models\SfvbCommsMembersResponse';
+        $request = $this->getSfvbCommsListMembersRequest($storefront_oid, $list_uuid, $page, $page_size, $show_customer_data);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getSfvbCommsListMembersWithHttpInfoRetry(false ,   $storefront_oid,   $list_uuid,   $page,   $page_size,   $show_customer_data);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\SfvbCommsMembersResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\SfvbCommsMembersResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\SfvbCommsMembersResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\SfvbCommsMembersResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\SfvbCommsMembersResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation getSfvbCommsListMembersAsync
+     *
+     * Read one page of a list&#39;s members
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $list_uuid (required)
+     * @param  int $page The page, from 1 (optional)
+     * @param  int $page_size Members per page, 1 to 100 (default 50) (optional)
+     * @param  bool $show_customer_data True to return the real email addresses instead of masked ones (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSfvbCommsListMembersAsync($storefront_oid, $list_uuid, $page = null, $page_size = null, $show_customer_data = null)
+    {
+        return $this->getSfvbCommsListMembersAsyncWithHttpInfo($storefront_oid, $list_uuid, $page, $page_size, $show_customer_data)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getSfvbCommsListMembersAsyncWithHttpInfo
+     *
+     * Read one page of a list&#39;s members
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $list_uuid (required)
+     * @param  int $page The page, from 1 (optional)
+     * @param  int $page_size Members per page, 1 to 100 (default 50) (optional)
+     * @param  bool $show_customer_data True to return the real email addresses instead of masked ones (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSfvbCommsListMembersAsyncWithHttpInfo($storefront_oid, $list_uuid, $page = null, $page_size = null, $show_customer_data = null)
+    {
+        $returnType = '\ultracart\v2\models\SfvbCommsMembersResponse';
+        $request = $this->getSfvbCommsListMembersRequest($storefront_oid, $list_uuid, $page, $page_size, $show_customer_data);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getSfvbCommsListMembers'
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $list_uuid (required)
+     * @param  int $page The page, from 1 (optional)
+     * @param  int $page_size Members per page, 1 to 100 (default 50) (optional)
+     * @param  bool $show_customer_data True to return the real email addresses instead of masked ones (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getSfvbCommsListMembersRequest($storefront_oid, $list_uuid, $page = null, $page_size = null, $show_customer_data = null)
+    {
+        // verify the required parameter 'storefront_oid' is set
+        if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $storefront_oid when calling getSfvbCommsListMembers'
+            );
+        }
+        // verify the required parameter 'list_uuid' is set
+        if ($list_uuid === null || (is_array($list_uuid) && count($list_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $list_uuid when calling getSfvbCommsListMembers'
+            );
+        }
+
+        $resourcePath = '/sfvb/storefronts/{storefront_oid}/lists/{list_uuid}/members';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page,
+            'page', // param base name
+            'integer', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page_size,
+            'page_size', // param base name
+            'integer', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $show_customer_data,
+            'show_customer_data', // param base name
+            'boolean', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($storefront_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'storefront_oid' . '}',
+                ObjectSerializer::toPathValue($storefront_oid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($list_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'list_uuid' . '}',
+                ObjectSerializer::toPathValue($list_uuid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getSfvbCommsSegment
      *
      * Read one segment, with its rule
@@ -31325,6 +31834,515 @@ class SfvbApi
         $httpBody = '';
         $multipart = false;
 
+
+
+        // path params
+        if ($storefront_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'storefront_oid' . '}',
+                ObjectSerializer::toPathValue($storefront_oid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($segment_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'segment_uuid' . '}',
+                ObjectSerializer::toPathValue($segment_uuid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getSfvbCommsSegmentMembers
+     *
+     * Read one page of a segment&#39;s members
+     *
+     * @param  int $storefront_oid storefront_oid (required)
+     * @param  string $segment_uuid segment_uuid (required)
+     * @param  int $page The page, from 1 (optional)
+     * @param  int $page_size Members per page, 1 to 100 (default 50) (optional)
+     * @param  bool $show_customer_data True to return the real email addresses instead of masked ones (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\SfvbCommsMembersResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function getSfvbCommsSegmentMembers($storefront_oid, $segment_uuid, $page = null, $page_size = null, $show_customer_data = null)
+    {
+        list($response) = $this->getSfvbCommsSegmentMembersWithHttpInfo($storefront_oid, $segment_uuid, $page, $page_size, $show_customer_data);
+        return $response;
+    }
+
+    /**
+     * Operation getSfvbCommsSegmentMembersWithHttpInfo
+     *
+     * Read one page of a segment&#39;s members
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $segment_uuid (required)
+     * @param  int $page The page, from 1 (optional)
+     * @param  int $page_size Members per page, 1 to 100 (default 50) (optional)
+     * @param  bool $show_customer_data True to return the real email addresses instead of masked ones (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbCommsMembersResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSfvbCommsSegmentMembersWithHttpInfo($storefront_oid, $segment_uuid, $page = null, $page_size = null, $show_customer_data = null)
+    {
+        return $this->getSfvbCommsSegmentMembersWithHttpInfoRetry(true ,   $storefront_oid,   $segment_uuid,   $page,   $page_size,   $show_customer_data);
+    }
+
+
+
+    /**
+     * Operation getSfvbCommsSegmentMembersWithHttpInfoRetry
+     *
+     * Read one page of a segment&#39;s members
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $segment_uuid (required)
+     * @param  int $page The page, from 1 (optional)
+     * @param  int $page_size Members per page, 1 to 100 (default 50) (optional)
+     * @param  bool $show_customer_data True to return the real email addresses instead of masked ones (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbCommsMembersResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSfvbCommsSegmentMembersWithHttpInfoRetry($retry , $storefront_oid, $segment_uuid, $page = null, $page_size = null, $show_customer_data = null)
+    {
+        $returnType = '\ultracart\v2\models\SfvbCommsMembersResponse';
+        $request = $this->getSfvbCommsSegmentMembersRequest($storefront_oid, $segment_uuid, $page, $page_size, $show_customer_data);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getSfvbCommsSegmentMembersWithHttpInfoRetry(false ,   $storefront_oid,   $segment_uuid,   $page,   $page_size,   $show_customer_data);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\SfvbCommsMembersResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\SfvbCommsMembersResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\SfvbCommsMembersResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\SfvbCommsMembersResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\SfvbCommsMembersResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation getSfvbCommsSegmentMembersAsync
+     *
+     * Read one page of a segment&#39;s members
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $segment_uuid (required)
+     * @param  int $page The page, from 1 (optional)
+     * @param  int $page_size Members per page, 1 to 100 (default 50) (optional)
+     * @param  bool $show_customer_data True to return the real email addresses instead of masked ones (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSfvbCommsSegmentMembersAsync($storefront_oid, $segment_uuid, $page = null, $page_size = null, $show_customer_data = null)
+    {
+        return $this->getSfvbCommsSegmentMembersAsyncWithHttpInfo($storefront_oid, $segment_uuid, $page, $page_size, $show_customer_data)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getSfvbCommsSegmentMembersAsyncWithHttpInfo
+     *
+     * Read one page of a segment&#39;s members
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $segment_uuid (required)
+     * @param  int $page The page, from 1 (optional)
+     * @param  int $page_size Members per page, 1 to 100 (default 50) (optional)
+     * @param  bool $show_customer_data True to return the real email addresses instead of masked ones (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSfvbCommsSegmentMembersAsyncWithHttpInfo($storefront_oid, $segment_uuid, $page = null, $page_size = null, $show_customer_data = null)
+    {
+        $returnType = '\ultracart\v2\models\SfvbCommsMembersResponse';
+        $request = $this->getSfvbCommsSegmentMembersRequest($storefront_oid, $segment_uuid, $page, $page_size, $show_customer_data);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getSfvbCommsSegmentMembers'
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $segment_uuid (required)
+     * @param  int $page The page, from 1 (optional)
+     * @param  int $page_size Members per page, 1 to 100 (default 50) (optional)
+     * @param  bool $show_customer_data True to return the real email addresses instead of masked ones (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getSfvbCommsSegmentMembersRequest($storefront_oid, $segment_uuid, $page = null, $page_size = null, $show_customer_data = null)
+    {
+        // verify the required parameter 'storefront_oid' is set
+        if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $storefront_oid when calling getSfvbCommsSegmentMembers'
+            );
+        }
+        // verify the required parameter 'segment_uuid' is set
+        if ($segment_uuid === null || (is_array($segment_uuid) && count($segment_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $segment_uuid when calling getSfvbCommsSegmentMembers'
+            );
+        }
+
+        $resourcePath = '/sfvb/storefronts/{storefront_oid}/segments/{segment_uuid}/members';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page,
+            'page', // param base name
+            'integer', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page_size,
+            'page_size', // param base name
+            'integer', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $show_customer_data,
+            'show_customer_data', // param base name
+            'boolean', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
         // path params
@@ -47777,6 +48795,515 @@ class SfvbApi
     }
 
     /**
+     * Operation getSfvbPostcardTracking
+     *
+     * Read one page of the cards mailed for a postcard
+     *
+     * @param  int $storefront_oid storefront_oid (required)
+     * @param  string $postcard_uuid postcard_uuid (required)
+     * @param  int $page The page, from 1 (optional)
+     * @param  int $page_size Cards per page, 1 to 100 (default 50) (optional)
+     * @param  bool $show_customer_data True to return the recipients&#39; real names and street addresses (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\SfvbPostcardTrackingResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function getSfvbPostcardTracking($storefront_oid, $postcard_uuid, $page = null, $page_size = null, $show_customer_data = null)
+    {
+        list($response) = $this->getSfvbPostcardTrackingWithHttpInfo($storefront_oid, $postcard_uuid, $page, $page_size, $show_customer_data);
+        return $response;
+    }
+
+    /**
+     * Operation getSfvbPostcardTrackingWithHttpInfo
+     *
+     * Read one page of the cards mailed for a postcard
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $postcard_uuid (required)
+     * @param  int $page The page, from 1 (optional)
+     * @param  int $page_size Cards per page, 1 to 100 (default 50) (optional)
+     * @param  bool $show_customer_data True to return the recipients&#39; real names and street addresses (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbPostcardTrackingResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSfvbPostcardTrackingWithHttpInfo($storefront_oid, $postcard_uuid, $page = null, $page_size = null, $show_customer_data = null)
+    {
+        return $this->getSfvbPostcardTrackingWithHttpInfoRetry(true ,   $storefront_oid,   $postcard_uuid,   $page,   $page_size,   $show_customer_data);
+    }
+
+
+
+    /**
+     * Operation getSfvbPostcardTrackingWithHttpInfoRetry
+     *
+     * Read one page of the cards mailed for a postcard
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $postcard_uuid (required)
+     * @param  int $page The page, from 1 (optional)
+     * @param  int $page_size Cards per page, 1 to 100 (default 50) (optional)
+     * @param  bool $show_customer_data True to return the recipients&#39; real names and street addresses (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbPostcardTrackingResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSfvbPostcardTrackingWithHttpInfoRetry($retry , $storefront_oid, $postcard_uuid, $page = null, $page_size = null, $show_customer_data = null)
+    {
+        $returnType = '\ultracart\v2\models\SfvbPostcardTrackingResponse';
+        $request = $this->getSfvbPostcardTrackingRequest($storefront_oid, $postcard_uuid, $page, $page_size, $show_customer_data);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getSfvbPostcardTrackingWithHttpInfoRetry(false ,   $storefront_oid,   $postcard_uuid,   $page,   $page_size,   $show_customer_data);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\SfvbPostcardTrackingResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\SfvbPostcardTrackingResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\SfvbPostcardTrackingResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\SfvbPostcardTrackingResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\SfvbPostcardTrackingResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation getSfvbPostcardTrackingAsync
+     *
+     * Read one page of the cards mailed for a postcard
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $postcard_uuid (required)
+     * @param  int $page The page, from 1 (optional)
+     * @param  int $page_size Cards per page, 1 to 100 (default 50) (optional)
+     * @param  bool $show_customer_data True to return the recipients&#39; real names and street addresses (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSfvbPostcardTrackingAsync($storefront_oid, $postcard_uuid, $page = null, $page_size = null, $show_customer_data = null)
+    {
+        return $this->getSfvbPostcardTrackingAsyncWithHttpInfo($storefront_oid, $postcard_uuid, $page, $page_size, $show_customer_data)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getSfvbPostcardTrackingAsyncWithHttpInfo
+     *
+     * Read one page of the cards mailed for a postcard
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $postcard_uuid (required)
+     * @param  int $page The page, from 1 (optional)
+     * @param  int $page_size Cards per page, 1 to 100 (default 50) (optional)
+     * @param  bool $show_customer_data True to return the recipients&#39; real names and street addresses (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSfvbPostcardTrackingAsyncWithHttpInfo($storefront_oid, $postcard_uuid, $page = null, $page_size = null, $show_customer_data = null)
+    {
+        $returnType = '\ultracart\v2\models\SfvbPostcardTrackingResponse';
+        $request = $this->getSfvbPostcardTrackingRequest($storefront_oid, $postcard_uuid, $page, $page_size, $show_customer_data);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getSfvbPostcardTracking'
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $postcard_uuid (required)
+     * @param  int $page The page, from 1 (optional)
+     * @param  int $page_size Cards per page, 1 to 100 (default 50) (optional)
+     * @param  bool $show_customer_data True to return the recipients&#39; real names and street addresses (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getSfvbPostcardTrackingRequest($storefront_oid, $postcard_uuid, $page = null, $page_size = null, $show_customer_data = null)
+    {
+        // verify the required parameter 'storefront_oid' is set
+        if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $storefront_oid when calling getSfvbPostcardTracking'
+            );
+        }
+        // verify the required parameter 'postcard_uuid' is set
+        if ($postcard_uuid === null || (is_array($postcard_uuid) && count($postcard_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $postcard_uuid when calling getSfvbPostcardTracking'
+            );
+        }
+
+        $resourcePath = '/sfvb/storefronts/{storefront_oid}/postcards/{postcard_uuid}/tracking';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page,
+            'page', // param base name
+            'integer', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page_size,
+            'page_size', // param base name
+            'integer', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $show_customer_data,
+            'show_customer_data', // param base name
+            'boolean', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($storefront_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'storefront_oid' . '}',
+                ObjectSerializer::toPathValue($storefront_oid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($postcard_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'postcard_uuid' . '}',
+                ObjectSerializer::toPathValue($postcard_uuid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getSfvbPreviewUrl
      *
      * URL that renders a preview session
@@ -58872,6 +60399,447 @@ class SfvbApi
             $resourcePath = str_replace(
                 '{' . 'storefront_oid' . '}',
                 ObjectSerializer::toPathValue($storefront_oid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getSfvbTransactionalEmail
+     *
+     * Read a transactional email&#39;s subject, delivery options and sender
+     *
+     * @param  int $storefront_oid storefront_oid (required)
+     * @param  string $file_name file_name (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\SfvbTransactionalEmailResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function getSfvbTransactionalEmail($storefront_oid, $file_name)
+    {
+        list($response) = $this->getSfvbTransactionalEmailWithHttpInfo($storefront_oid, $file_name);
+        return $response;
+    }
+
+    /**
+     * Operation getSfvbTransactionalEmailWithHttpInfo
+     *
+     * Read a transactional email&#39;s subject, delivery options and sender
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $file_name (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbTransactionalEmailResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSfvbTransactionalEmailWithHttpInfo($storefront_oid, $file_name)
+    {
+        return $this->getSfvbTransactionalEmailWithHttpInfoRetry(true ,   $storefront_oid,   $file_name);
+    }
+
+
+
+    /**
+     * Operation getSfvbTransactionalEmailWithHttpInfoRetry
+     *
+     * Read a transactional email&#39;s subject, delivery options and sender
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $file_name (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbTransactionalEmailResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSfvbTransactionalEmailWithHttpInfoRetry($retry , $storefront_oid, $file_name)
+    {
+        $returnType = '\ultracart\v2\models\SfvbTransactionalEmailResponse';
+        $request = $this->getSfvbTransactionalEmailRequest($storefront_oid, $file_name);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getSfvbTransactionalEmailWithHttpInfoRetry(false ,   $storefront_oid,   $file_name);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\SfvbTransactionalEmailResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\SfvbTransactionalEmailResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\SfvbTransactionalEmailResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\SfvbTransactionalEmailResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\SfvbTransactionalEmailResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation getSfvbTransactionalEmailAsync
+     *
+     * Read a transactional email&#39;s subject, delivery options and sender
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $file_name (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSfvbTransactionalEmailAsync($storefront_oid, $file_name)
+    {
+        return $this->getSfvbTransactionalEmailAsyncWithHttpInfo($storefront_oid, $file_name)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getSfvbTransactionalEmailAsyncWithHttpInfo
+     *
+     * Read a transactional email&#39;s subject, delivery options and sender
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $file_name (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSfvbTransactionalEmailAsyncWithHttpInfo($storefront_oid, $file_name)
+    {
+        $returnType = '\ultracart\v2\models\SfvbTransactionalEmailResponse';
+        $request = $this->getSfvbTransactionalEmailRequest($storefront_oid, $file_name);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getSfvbTransactionalEmail'
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $file_name (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getSfvbTransactionalEmailRequest($storefront_oid, $file_name)
+    {
+        // verify the required parameter 'storefront_oid' is set
+        if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $storefront_oid when calling getSfvbTransactionalEmail'
+            );
+        }
+        // verify the required parameter 'file_name' is set
+        if ($file_name === null || (is_array($file_name) && count($file_name) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $file_name when calling getSfvbTransactionalEmail'
+            );
+        }
+
+        $resourcePath = '/sfvb/storefronts/{storefront_oid}/transactional_emails/{file_name}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($storefront_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'storefront_oid' . '}',
+                ObjectSerializer::toPathValue($storefront_oid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($file_name !== null) {
+            $resourcePath = str_replace(
+                '{' . 'file_name' . '}',
+                ObjectSerializer::toPathValue($file_name),
                 $resourcePath
             );
         }
@@ -115436,6 +117404,514 @@ class SfvbApi
                 $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($tracking_provider_request));
             } else {
                 $httpBody = $tracking_provider_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateSfvbTransactionalEmail
+     *
+     * Change a transactional email&#39;s subject, delivery options or sender
+     *
+     * @param  int $storefront_oid storefront_oid (required)
+     * @param  string $file_name file_name (required)
+     * @param  string $if_match The email&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param  \ultracart\v2\models\SfvbTransactionalEmailUpdateRequest $transactional_email_update_request The fields to change (required)
+     * @param  string $approval_id The approval_id of an approved transactional_email.update request for exactly this change.  See POST /sfvb/approvals. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\SfvbTransactionalEmailResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function updateSfvbTransactionalEmail($storefront_oid, $file_name, $if_match, $transactional_email_update_request, $approval_id = null)
+    {
+        list($response) = $this->updateSfvbTransactionalEmailWithHttpInfo($storefront_oid, $file_name, $if_match, $transactional_email_update_request, $approval_id);
+        return $response;
+    }
+
+    /**
+     * Operation updateSfvbTransactionalEmailWithHttpInfo
+     *
+     * Change a transactional email&#39;s subject, delivery options or sender
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $file_name (required)
+     * @param  string $if_match The email&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param  \ultracart\v2\models\SfvbTransactionalEmailUpdateRequest $transactional_email_update_request The fields to change (required)
+     * @param  string $approval_id The approval_id of an approved transactional_email.update request for exactly this change.  See POST /sfvb/approvals. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbTransactionalEmailResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateSfvbTransactionalEmailWithHttpInfo($storefront_oid, $file_name, $if_match, $transactional_email_update_request, $approval_id = null)
+    {
+        return $this->updateSfvbTransactionalEmailWithHttpInfoRetry(true ,   $storefront_oid,   $file_name,   $if_match,   $transactional_email_update_request,   $approval_id);
+    }
+
+
+
+    /**
+     * Operation updateSfvbTransactionalEmailWithHttpInfoRetry
+     *
+     * Change a transactional email&#39;s subject, delivery options or sender
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $file_name (required)
+     * @param  string $if_match The email&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param  \ultracart\v2\models\SfvbTransactionalEmailUpdateRequest $transactional_email_update_request The fields to change (required)
+     * @param  string $approval_id The approval_id of an approved transactional_email.update request for exactly this change.  See POST /sfvb/approvals. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbTransactionalEmailResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateSfvbTransactionalEmailWithHttpInfoRetry($retry , $storefront_oid, $file_name, $if_match, $transactional_email_update_request, $approval_id = null)
+    {
+        $returnType = '\ultracart\v2\models\SfvbTransactionalEmailResponse';
+        $request = $this->updateSfvbTransactionalEmailRequest($storefront_oid, $file_name, $if_match, $transactional_email_update_request, $approval_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateSfvbTransactionalEmailWithHttpInfoRetry(false ,   $storefront_oid,   $file_name,   $if_match,   $transactional_email_update_request,   $approval_id);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\SfvbTransactionalEmailResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\SfvbTransactionalEmailResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\SfvbTransactionalEmailResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\SfvbTransactionalEmailResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\SfvbTransactionalEmailResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation updateSfvbTransactionalEmailAsync
+     *
+     * Change a transactional email&#39;s subject, delivery options or sender
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $file_name (required)
+     * @param  string $if_match The email&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param  \ultracart\v2\models\SfvbTransactionalEmailUpdateRequest $transactional_email_update_request The fields to change (required)
+     * @param  string $approval_id The approval_id of an approved transactional_email.update request for exactly this change.  See POST /sfvb/approvals. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateSfvbTransactionalEmailAsync($storefront_oid, $file_name, $if_match, $transactional_email_update_request, $approval_id = null)
+    {
+        return $this->updateSfvbTransactionalEmailAsyncWithHttpInfo($storefront_oid, $file_name, $if_match, $transactional_email_update_request, $approval_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateSfvbTransactionalEmailAsyncWithHttpInfo
+     *
+     * Change a transactional email&#39;s subject, delivery options or sender
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $file_name (required)
+     * @param  string $if_match The email&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param  \ultracart\v2\models\SfvbTransactionalEmailUpdateRequest $transactional_email_update_request The fields to change (required)
+     * @param  string $approval_id The approval_id of an approved transactional_email.update request for exactly this change.  See POST /sfvb/approvals. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateSfvbTransactionalEmailAsyncWithHttpInfo($storefront_oid, $file_name, $if_match, $transactional_email_update_request, $approval_id = null)
+    {
+        $returnType = '\ultracart\v2\models\SfvbTransactionalEmailResponse';
+        $request = $this->updateSfvbTransactionalEmailRequest($storefront_oid, $file_name, $if_match, $transactional_email_update_request, $approval_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateSfvbTransactionalEmail'
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $file_name (required)
+     * @param  string $if_match The email&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param  \ultracart\v2\models\SfvbTransactionalEmailUpdateRequest $transactional_email_update_request The fields to change (required)
+     * @param  string $approval_id The approval_id of an approved transactional_email.update request for exactly this change.  See POST /sfvb/approvals. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateSfvbTransactionalEmailRequest($storefront_oid, $file_name, $if_match, $transactional_email_update_request, $approval_id = null)
+    {
+        // verify the required parameter 'storefront_oid' is set
+        if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $storefront_oid when calling updateSfvbTransactionalEmail'
+            );
+        }
+        // verify the required parameter 'file_name' is set
+        if ($file_name === null || (is_array($file_name) && count($file_name) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $file_name when calling updateSfvbTransactionalEmail'
+            );
+        }
+        // verify the required parameter 'if_match' is set
+        if ($if_match === null || (is_array($if_match) && count($if_match) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $if_match when calling updateSfvbTransactionalEmail'
+            );
+        }
+        // verify the required parameter 'transactional_email_update_request' is set
+        if ($transactional_email_update_request === null || (is_array($transactional_email_update_request) && count($transactional_email_update_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $transactional_email_update_request when calling updateSfvbTransactionalEmail'
+            );
+        }
+
+        $resourcePath = '/sfvb/storefronts/{storefront_oid}/transactional_emails/{file_name}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($if_match !== null) {
+            $headerParams['If-Match'] = ObjectSerializer::toHeaderValue($if_match);
+        }
+        // header params
+        if ($approval_id !== null) {
+            $headerParams['Approval-Id'] = ObjectSerializer::toHeaderValue($approval_id);
+        }
+
+        // path params
+        if ($storefront_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'storefront_oid' . '}',
+                ObjectSerializer::toPathValue($storefront_oid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($file_name !== null) {
+            $resourcePath = str_replace(
+                '{' . 'file_name' . '}',
+                ObjectSerializer::toPathValue($file_name),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($transactional_email_update_request)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($transactional_email_update_request));
+            } else {
+                $httpBody = $transactional_email_update_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

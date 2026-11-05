@@ -17,5 +17,6 @@ Name | Type | Description | Notes
 **site_seo** | [**\ultracart\v2\models\SfvbSiteSeoRequest**](SfvbSiteSeoRequest.md) |  | [optional]
 **smart_attribution** | [**\ultracart\v2\models\SfvbSmartAttributionRequest**](SfvbSmartAttributionRequest.md) |  | [optional]
 **tracking_provider** | [**\ultracart\v2\models\SfvbTrackingProviderRequest**](SfvbTrackingProviderRequest.md) |  | [optional]
+**transactional_email** | [**\ultracart\v2\models\SfvbTransactionalEmailUpdateRequest**](SfvbTransactionalEmailUpdateRequest.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

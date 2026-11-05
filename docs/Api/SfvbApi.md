@@ -73,7 +73,9 @@ Method | HTTP request | Description
 [**getSfvbCommsFolder()**](SfvbApi.md#getSfvbCommsFolder) | **GET** /sfvb/storefronts/{storefront_oid}/list_segment_folders/{folder_uuid} | Read one list and segment folder
 [**getSfvbCommsFolders()**](SfvbApi.md#getSfvbCommsFolders) | **GET** /sfvb/storefronts/{storefront_oid}/list_segment_folders | List the list and segment folders
 [**getSfvbCommsList()**](SfvbApi.md#getSfvbCommsList) | **GET** /sfvb/storefronts/{storefront_oid}/lists/{list_uuid} | Read one email list
+[**getSfvbCommsListMembers()**](SfvbApi.md#getSfvbCommsListMembers) | **GET** /sfvb/storefronts/{storefront_oid}/lists/{list_uuid}/members | Read one page of a list&#39;s members
 [**getSfvbCommsSegment()**](SfvbApi.md#getSfvbCommsSegment) | **GET** /sfvb/storefronts/{storefront_oid}/segments/{segment_uuid} | Read one segment, with its rule
+[**getSfvbCommsSegmentMembers()**](SfvbApi.md#getSfvbCommsSegmentMembers) | **GET** /sfvb/storefronts/{storefront_oid}/segments/{segment_uuid}/members | Read one page of a segment&#39;s members
 [**getSfvbCommsSendingDomain()**](SfvbApi.md#getSfvbCommsSendingDomain) | **GET** /sfvb/comms/sending_domains/{domain} | Read a sending domain
 [**getSfvbCommsSendingDomains()**](SfvbApi.md#getSfvbCommsSendingDomains) | **GET** /sfvb/comms/sending_domains | List the sending domains
 [**getSfvbCommsTwilioAccount()**](SfvbApi.md#getSfvbCommsTwilioAccount) | **GET** /sfvb/comms/twilio_account | Read the Twilio account
@@ -110,6 +112,7 @@ Method | HTTP request | Description
 [**getSfvbPageBlogPosts()**](SfvbApi.md#getSfvbPageBlogPosts) | **GET** /sfvb/storefronts/{storefront_oid}/pages/blog_posts | Read the blog posts assigned to a page
 [**getSfvbPageItems()**](SfvbApi.md#getSfvbPageItems) | **GET** /sfvb/storefronts/{storefront_oid}/pages/items | Read the items assigned to a page
 [**getSfvbPageSelectors()**](SfvbApi.md#getSfvbPageSelectors) | **GET** /sfvb/storefronts/{storefront_oid}/pages/selectors | Read a page&#39;s selectors
+[**getSfvbPostcardTracking()**](SfvbApi.md#getSfvbPostcardTracking) | **GET** /sfvb/storefronts/{storefront_oid}/postcards/{postcard_uuid}/tracking | Read one page of the cards mailed for a postcard
 [**getSfvbPreviewUrl()**](SfvbApi.md#getSfvbPreviewUrl) | **GET** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id}/url | URL that renders a preview session
 [**getSfvbRecording()**](SfvbApi.md#getSfvbRecording) | **GET** /sfvb/storefronts/{storefront_oid}/recordings/{screen_recording_uuid} | Get a screen recording
 [**getSfvbRecordingPageViewEvents()**](SfvbApi.md#getSfvbRecordingPageViewEvents) | **GET** /sfvb/storefronts/{storefront_oid}/recordings/{screen_recording_uuid}/page_views/{screen_recording_page_view_uuid}/events | Get one recorded page view&#39;s replay events
@@ -135,6 +138,7 @@ Method | HTTP request | Description
 [**getSfvbTrackingProvider()**](SfvbApi.md#getSfvbTrackingProvider) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/providers/{provider} | Read one tracking provider
 [**getSfvbTrackingProviders()**](SfvbApi.md#getSfvbTrackingProviders) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/providers | List a storefront&#39;s tracking providers
 [**getSfvbTrackingSettings()**](SfvbApi.md#getSfvbTrackingSettings) | **GET** /sfvb/storefronts/{storefront_oid}/tracking | Read a storefront&#39;s privacy rules and advanced conversion settings
+[**getSfvbTransactionalEmail()**](SfvbApi.md#getSfvbTransactionalEmail) | **GET** /sfvb/storefronts/{storefront_oid}/transactional_emails/{file_name} | Read a transactional email&#39;s subject, delivery options and sender
 [**getSfvbTransactionalEmails()**](SfvbApi.md#getSfvbTransactionalEmails) | **GET** /sfvb/storefronts/{storefront_oid}/transactional_emails | List the transactional emails a storefront sends
 [**getSfvbUpsellOffer()**](SfvbApi.md#getSfvbUpsellOffer) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid} | Get an upsell offer
 [**getSfvbUpsellPath()**](SfvbApi.md#getSfvbUpsellPath) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid} | Get an upsell path
@@ -253,6 +257,7 @@ Method | HTTP request | Description
 [**updateSfvbTrackingHtml()**](SfvbApi.md#updateSfvbTrackingHtml) | **PUT** /sfvb/storefronts/{storefront_oid}/tracking/html/{slot} | Write one custom tracking HTML slot
 [**updateSfvbTrackingPrivacy()**](SfvbApi.md#updateSfvbTrackingPrivacy) | **PUT** /sfvb/storefronts/{storefront_oid}/tracking/privacy | Change a storefront&#39;s privacy rules
 [**updateSfvbTrackingProvider()**](SfvbApi.md#updateSfvbTrackingProvider) | **PUT** /sfvb/storefronts/{storefront_oid}/tracking/providers/{provider} | Change one tracking provider
+[**updateSfvbTransactionalEmail()**](SfvbApi.md#updateSfvbTransactionalEmail) | **PUT** /sfvb/storefronts/{storefront_oid}/transactional_emails/{file_name} | Change a transactional email&#39;s subject, delivery options or sender
 [**updateSfvbUpsellOffer()**](SfvbApi.md#updateSfvbUpsellOffer) | **PUT** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid} | Update an upsell offer
 [**updateSfvbUpsellPath()**](SfvbApi.md#updateSfvbUpsellPath) | **PUT** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid} | Update an upsell path
 [**updateSfvbUtmShortcode()**](SfvbApi.md#updateSfvbUtmShortcode) | **PUT** /sfvb/storefronts/{storefront_oid}/utm_shortcodes/{shortcode_oid} | Change a UTM shortcode
@@ -3119,6 +3124,50 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getSfvbCommsListMembers()`
+
+```php
+getSfvbCommsListMembers($storefront_oid, $list_uuid, $page, $page_size, $show_customer_data): \ultracart\v2\models\SfvbCommsMembersResponse
+```
+
+Read one page of a list's members
+
+Each member's customer uuid, email and the date they joined.  Email addresses are masked (w***a@example.com) and customer_data is masked, unless show_customer_data is true, which returns the real addresses and needs the sfvb_publish scope.  Every such read is logged.  Ask for them only when the merchant needs a person's address.  Read only.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **list_uuid** | **string**|  |
+ **page** | **int**| The page, from 1 | [optional]
+ **page_size** | **int**| Members per page, 1 to 100 (default 50) | [optional]
+ **show_customer_data** | **bool**| True to return the real email addresses instead of masked ones | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\SfvbCommsMembersResponse**](../Model/SfvbCommsMembersResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getSfvbCommsSegment()`
 
 ```php
@@ -3146,6 +3195,50 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\SfvbCommsSegmentResponse**](../Model/SfvbCommsSegmentResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getSfvbCommsSegmentMembers()`
+
+```php
+getSfvbCommsSegmentMembers($storefront_oid, $segment_uuid, $page, $page_size, $show_customer_data): \ultracart\v2\models\SfvbCommsMembersResponse
+```
+
+Read one page of a segment's members
+
+Each member's customer uuid, email and the date they joined.  Email addresses are masked (w***a@example.com) and customer_data is masked, unless show_customer_data is true, which returns the real addresses and needs the sfvb_publish scope.  Every such read is logged.  Ask for them only when the merchant needs a person's address.  Read only.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **segment_uuid** | **string**|  |
+ **page** | **int**| The page, from 1 | [optional]
+ **page_size** | **int**| Members per page, 1 to 100 (default 50) | [optional]
+ **show_customer_data** | **bool**| True to return the real email addresses instead of masked ones | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\SfvbCommsMembersResponse**](../Model/SfvbCommsMembersResponse.md)
 
 ### Authorization
 
@@ -4642,6 +4735,50 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getSfvbPostcardTracking()`
+
+```php
+getSfvbPostcardTracking($storefront_oid, $postcard_uuid, $page, $page_size, $show_customer_data): \ultracart\v2\models\SfvbPostcardTrackingResponse
+```
+
+Read one page of the cards mailed for a postcard
+
+Every printed card mailed for the postcard, newest first, with its status, cost, dates and the order it converted to.  Recipients are masked (the name an initial, the street lines hidden, city, state and postal code kept) and the vendor's status text is left out, unless show_customer_data is true, which needs the sfvb_publish scope and is logged.  The return address is the merchant's own.  Read only.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **postcard_uuid** | **string**|  |
+ **page** | **int**| The page, from 1 | [optional]
+ **page_size** | **int**| Cards per page, 1 to 100 (default 50) | [optional]
+ **show_customer_data** | **bool**| True to return the recipients&#39; real names and street addresses | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\SfvbPostcardTrackingResponse**](../Model/SfvbPostcardTrackingResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getSfvbPreviewUrl()`
 
 ```php
@@ -5649,6 +5786,47 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\SfvbTrackingSettingsResponse**](../Model/SfvbTrackingSettingsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getSfvbTransactionalEmail()`
+
+```php
+getSfvbTransactionalEmail($storefront_oid, $file_name): \ultracart\v2\models\SfvbTransactionalEmailResponse
+```
+
+Read a transactional email's subject, delivery options and sender
+
+file_name is the template file from the transactional email list, such as receipt_html.vm, or its display name.  The sender is shared by every storefront on the same screen branding theme (sender_shared_with); a sender that sends through the merchant's own mail server shows smtp true and never its credentials.  hash_sha256 is the If-Match for an update.  The template itself is a theme file.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **file_name** | **string**|  |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbTransactionalEmailResponse**](../Model/SfvbTransactionalEmailResponse.md)
 
 ### Authorization
 
@@ -10632,6 +10810,50 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateSfvbTransactionalEmail()`
+
+```php
+updateSfvbTransactionalEmail($storefront_oid, $file_name, $if_match, $transactional_email_update_request, $approval_id): \ultracart\v2\models\SfvbTransactionalEmailResponse
+```
+
+Change a transactional email's subject, delivery options or sender
+
+A field left out stays as it is.  It goes to every matching order from the moment it is saved, so every change needs sfvb_publish, the email's hash_sha256 as If-Match, and an approved transactional_email.update request for exactly this change (params.path the template file).  dry_run checks and shows the change without writing or using an approval.  Delivery options are named by name.  A sender change reaches every storefront on the same screen branding theme, and is refused for one that sends through the merchant's own mail server.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **file_name** | **string**|  |
+ **if_match** | **string**| The email&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. |
+ **transactional_email_update_request** | [**\ultracart\v2\models\SfvbTransactionalEmailUpdateRequest**](../Model/SfvbTransactionalEmailUpdateRequest.md)| The fields to change |
+ **approval_id** | **string**| The approval_id of an approved transactional_email.update request for exactly this change.  See POST /sfvb/approvals. | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\SfvbTransactionalEmailResponse**](../Model/SfvbTransactionalEmailResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

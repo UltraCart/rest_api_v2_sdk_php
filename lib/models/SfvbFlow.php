@@ -76,6 +76,7 @@ class SfvbFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         'sending_domain_uuid' => 'string',
         'sending_name' => 'string',
         'sending_user' => 'string',
+        'sms_phone_number' => 'string',
         'status' => 'string',
         'status_dts' => 'string',
         'trigger_parameter' => 'string',
@@ -109,6 +110,7 @@ class SfvbFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         'sending_domain_uuid' => null,
         'sending_name' => null,
         'sending_user' => null,
+        'sms_phone_number' => null,
         'status' => null,
         'status_dts' => 'dateTime',
         'trigger_parameter' => null,
@@ -161,6 +163,7 @@ class SfvbFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         'sending_domain_uuid' => 'sending_domain_uuid',
         'sending_name' => 'sending_name',
         'sending_user' => 'sending_user',
+        'sms_phone_number' => 'sms_phone_number',
         'status' => 'status',
         'status_dts' => 'status_dts',
         'trigger_parameter' => 'trigger_parameter',
@@ -192,6 +195,7 @@ class SfvbFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         'sending_domain_uuid' => 'setSendingDomainUuid',
         'sending_name' => 'setSendingName',
         'sending_user' => 'setSendingUser',
+        'sms_phone_number' => 'setSmsPhoneNumber',
         'status' => 'setStatus',
         'status_dts' => 'setStatusDts',
         'trigger_parameter' => 'setTriggerParameter',
@@ -223,6 +227,7 @@ class SfvbFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         'sending_domain_uuid' => 'getSendingDomainUuid',
         'sending_name' => 'getSendingName',
         'sending_user' => 'getSendingUser',
+        'sms_phone_number' => 'getSmsPhoneNumber',
         'status' => 'getStatus',
         'status_dts' => 'getStatusDts',
         'trigger_parameter' => 'getTriggerParameter',
@@ -305,6 +310,7 @@ class SfvbFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['sending_domain_uuid'] = $data['sending_domain_uuid'] ?? null;
         $this->container['sending_name'] = $data['sending_name'] ?? null;
         $this->container['sending_user'] = $data['sending_user'] ?? null;
+        $this->container['sms_phone_number'] = $data['sms_phone_number'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
         $this->container['status_dts'] = $data['status_dts'] ?? null;
         $this->container['trigger_parameter'] = $data['trigger_parameter'] ?? null;
@@ -764,6 +770,30 @@ class SfvbFlow implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setSendingUser($sending_user)
     {
         $this->container['sending_user'] = $sending_user;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_phone_number
+     *
+     * @return string|null
+     */
+    public function getSmsPhoneNumber()
+    {
+        return $this->container['sms_phone_number'];
+    }
+
+    /**
+     * Sets sms_phone_number
+     *
+     * @param string|null $sms_phone_number The number this flow's SMS steps send from.  Without one, every SMS step skips every customer, whatever the account's SMS settings say.
+     *
+     * @return self
+     */
+    public function setSmsPhoneNumber($sms_phone_number)
+    {
+        $this->container['sms_phone_number'] = $sms_phone_number;
 
         return $this;
     }

@@ -633,7 +633,7 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets auto_order_myaccount_frequency_last_step_only
      *
-     * @param bool|null $auto_order_myaccount_frequency_last_step_only True if the MyAccount frequency change is only offered once the item is on its last auto order step.  Omit to leave unchanged.
+     * @param bool|null $auto_order_myaccount_frequency_last_step_only True if the MyAccount frequency change is only offered once the item is on its last auto order step.  If auto_order_myaccount_frequency_schedules or auto_order_myaccount_frequency_day_counts is sent without this property, it is set to false; if none of the three are sent, it is left unchanged.
      *
      * @return self
      */

@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **sending_domain_uuid** | **string** | The sending domain uuid.  Defaults to the storefront&#39;s marketing sending domain. | [optional]
 **sending_name** | **string** | The from name.  Defaults to the storefront&#39;s marketing setting. | [optional]
 **sending_user** | **string** | The part of the from address before the at sign.  Defaults to the storefront&#39;s marketing setting. | [optional]
+**sms_phone_number** | **string** | The number this flow&#39;s SMS steps send from.  Without one, every SMS step skips every customer, whatever the account&#39;s SMS settings say. | [optional]
 **status** | **string** | The status, such as draft, active, paused, draining or inactive. | [optional]
 **status_dts** | **string** | When the status last changed (ISO 8601, UTC). | [optional]
 **trigger_parameter** | **string** | The list or segment uuid, or other value, the trigger is limited to. | [optional]
