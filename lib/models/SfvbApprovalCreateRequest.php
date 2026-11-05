@@ -60,11 +60,14 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPITypes = [
         'action' => 'string',
         'affiliate_network' => '\ultracart\v2\models\SfvbAffiliateNetworkRequest',
+        'comms_list_import' => '\ultracart\v2\models\SfvbCommsProviderImportRequest',
+        'comms_settings' => '\ultracart\v2\models\SfvbCommsSettingsUpdateRequest',
         'content' => 'string',
         'experiment_start' => '\ultracart\v2\models\SfvbExperimentStartRequest',
         'item_attribute_rows' => '\ultracart\v2\models\SfvbItemAttributeBatchRow[]',
         'item_pricing' => '\ultracart\v2\models\SfvbItemPricingRequest',
         'params' => '\ultracart\v2\models\SfvbApprovalParams',
+        'postcard_test_mail' => '\ultracart\v2\models\SfvbCommsTestPostcardRequest',
         'reason' => 'string',
         'redirect_rows' => '\ultracart\v2\models\SfvbRedirectDeleteRow[]',
         'segment_update' => '\ultracart\v2\models\SfvbCommsSegmentWriteRequest',
@@ -84,11 +87,14 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPIFormats = [
         'action' => null,
         'affiliate_network' => null,
+        'comms_list_import' => null,
+        'comms_settings' => null,
         'content' => null,
         'experiment_start' => null,
         'item_attribute_rows' => null,
         'item_pricing' => null,
         'params' => null,
+        'postcard_test_mail' => null,
         'reason' => null,
         'redirect_rows' => null,
         'segment_update' => null,
@@ -127,11 +133,14 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     protected static $attributeMap = [
         'action' => 'action',
         'affiliate_network' => 'affiliate_network',
+        'comms_list_import' => 'comms_list_import',
+        'comms_settings' => 'comms_settings',
         'content' => 'content',
         'experiment_start' => 'experiment_start',
         'item_attribute_rows' => 'item_attribute_rows',
         'item_pricing' => 'item_pricing',
         'params' => 'params',
+        'postcard_test_mail' => 'postcard_test_mail',
         'reason' => 'reason',
         'redirect_rows' => 'redirect_rows',
         'segment_update' => 'segment_update',
@@ -149,11 +158,14 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     protected static $setters = [
         'action' => 'setAction',
         'affiliate_network' => 'setAffiliateNetwork',
+        'comms_list_import' => 'setCommsListImport',
+        'comms_settings' => 'setCommsSettings',
         'content' => 'setContent',
         'experiment_start' => 'setExperimentStart',
         'item_attribute_rows' => 'setItemAttributeRows',
         'item_pricing' => 'setItemPricing',
         'params' => 'setParams',
+        'postcard_test_mail' => 'setPostcardTestMail',
         'reason' => 'setReason',
         'redirect_rows' => 'setRedirectRows',
         'segment_update' => 'setSegmentUpdate',
@@ -171,11 +183,14 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     protected static $getters = [
         'action' => 'getAction',
         'affiliate_network' => 'getAffiliateNetwork',
+        'comms_list_import' => 'getCommsListImport',
+        'comms_settings' => 'getCommsSettings',
         'content' => 'getContent',
         'experiment_start' => 'getExperimentStart',
         'item_attribute_rows' => 'getItemAttributeRows',
         'item_pricing' => 'getItemPricing',
         'params' => 'getParams',
+        'postcard_test_mail' => 'getPostcardTestMail',
         'reason' => 'getReason',
         'redirect_rows' => 'getRedirectRows',
         'segment_update' => 'getSegmentUpdate',
@@ -249,6 +264,9 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     public const ACTION_AFFILIATE_NETWORK_DELETE = 'affiliate_network.delete';
     public const ACTION_SITE_SEO_CHANGE = 'site_seo.change';
     public const ACTION_TRANSACTIONAL_EMAIL_UPDATE = 'transactional_email.update';
+    public const ACTION_COMMS_SETTINGS_UPDATE = 'comms_settings.update';
+    public const ACTION_COMMS_LIST_IMPORT = 'comms_list.import';
+    public const ACTION_POSTCARD_TEST_MAIL = 'postcard.test_mail';
 
     /**
      * Gets allowable values of the enum
@@ -281,6 +299,9 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
             self::ACTION_AFFILIATE_NETWORK_DELETE,
             self::ACTION_SITE_SEO_CHANGE,
             self::ACTION_TRANSACTIONAL_EMAIL_UPDATE,
+            self::ACTION_COMMS_SETTINGS_UPDATE,
+            self::ACTION_COMMS_LIST_IMPORT,
+            self::ACTION_POSTCARD_TEST_MAIL,
         ];
     }
 
@@ -301,11 +322,14 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     {
         $this->container['action'] = $data['action'] ?? null;
         $this->container['affiliate_network'] = $data['affiliate_network'] ?? null;
+        $this->container['comms_list_import'] = $data['comms_list_import'] ?? null;
+        $this->container['comms_settings'] = $data['comms_settings'] ?? null;
         $this->container['content'] = $data['content'] ?? null;
         $this->container['experiment_start'] = $data['experiment_start'] ?? null;
         $this->container['item_attribute_rows'] = $data['item_attribute_rows'] ?? null;
         $this->container['item_pricing'] = $data['item_pricing'] ?? null;
         $this->container['params'] = $data['params'] ?? null;
+        $this->container['postcard_test_mail'] = $data['postcard_test_mail'] ?? null;
         $this->container['reason'] = $data['reason'] ?? null;
         $this->container['redirect_rows'] = $data['redirect_rows'] ?? null;
         $this->container['segment_update'] = $data['segment_update'] ?? null;
@@ -402,6 +426,54 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     public function setAffiliateNetwork($affiliate_network)
     {
         $this->container['affiliate_network'] = $affiliate_network;
+
+        return $this;
+    }
+
+    /**
+     * Gets comms_list_import
+     *
+     * @return \ultracart\v2\models\SfvbCommsProviderImportRequest|null
+     */
+    public function getCommsListImport()
+    {
+        return $this->container['comms_list_import'];
+    }
+
+    /**
+     * Sets comms_list_import
+     *
+     * @param \ultracart\v2\models\SfvbCommsProviderImportRequest|null $comms_list_import comms_list_import
+     *
+     * @return self
+     */
+    public function setCommsListImport($comms_list_import)
+    {
+        $this->container['comms_list_import'] = $comms_list_import;
+
+        return $this;
+    }
+
+    /**
+     * Gets comms_settings
+     *
+     * @return \ultracart\v2\models\SfvbCommsSettingsUpdateRequest|null
+     */
+    public function getCommsSettings()
+    {
+        return $this->container['comms_settings'];
+    }
+
+    /**
+     * Sets comms_settings
+     *
+     * @param \ultracart\v2\models\SfvbCommsSettingsUpdateRequest|null $comms_settings comms_settings
+     *
+     * @return self
+     */
+    public function setCommsSettings($comms_settings)
+    {
+        $this->container['comms_settings'] = $comms_settings;
 
         return $this;
     }
@@ -522,6 +594,30 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     public function setParams($params)
     {
         $this->container['params'] = $params;
+
+        return $this;
+    }
+
+    /**
+     * Gets postcard_test_mail
+     *
+     * @return \ultracart\v2\models\SfvbCommsTestPostcardRequest|null
+     */
+    public function getPostcardTestMail()
+    {
+        return $this->container['postcard_test_mail'];
+    }
+
+    /**
+     * Sets postcard_test_mail
+     *
+     * @param \ultracart\v2\models\SfvbCommsTestPostcardRequest|null $postcard_test_mail postcard_test_mail
+     *
+     * @return self
+     */
+    public function setPostcardTestMail($postcard_test_mail)
+    {
+        $this->container['postcard_test_mail'] = $postcard_test_mail;
 
         return $this;
     }

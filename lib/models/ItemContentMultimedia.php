@@ -58,6 +58,7 @@ class ItemContentMultimedia implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
+        'ai_alt_text' => 'string',
         'cloud_url' => 'string',
         'cloud_url_expiration' => 'string',
         'code' => 'string',
@@ -84,6 +85,7 @@ class ItemContentMultimedia implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'ai_alt_text' => null,
         'cloud_url' => null,
         'cloud_url_expiration' => 'dateTime',
         'code' => null,
@@ -129,6 +131,7 @@ class ItemContentMultimedia implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
+        'ai_alt_text' => 'ai_alt_text',
         'cloud_url' => 'cloud_url',
         'cloud_url_expiration' => 'cloud_url_expiration',
         'code' => 'code',
@@ -153,6 +156,7 @@ class ItemContentMultimedia implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
+        'ai_alt_text' => 'setAiAltText',
         'cloud_url' => 'setCloudUrl',
         'cloud_url_expiration' => 'setCloudUrlExpiration',
         'code' => 'setCode',
@@ -177,6 +181,7 @@ class ItemContentMultimedia implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
+        'ai_alt_text' => 'getAiAltText',
         'cloud_url' => 'getCloudUrl',
         'cloud_url_expiration' => 'getCloudUrlExpiration',
         'code' => 'getCode',
@@ -273,6 +278,7 @@ class ItemContentMultimedia implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(array $data = null)
     {
+        $this->container['ai_alt_text'] = $data['ai_alt_text'] ?? null;
         $this->container['cloud_url'] = $data['cloud_url'] ?? null;
         $this->container['cloud_url_expiration'] = $data['cloud_url_expiration'] ?? null;
         $this->container['code'] = $data['code'] ?? null;
@@ -335,6 +341,30 @@ class ItemContentMultimedia implements ModelInterface, ArrayAccess, \JsonSeriali
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets ai_alt_text
+     *
+     * @return string|null
+     */
+    public function getAiAltText()
+    {
+        return $this->container['ai_alt_text'];
+    }
+
+    /**
+     * Sets ai_alt_text
+     *
+     * @param string|null $ai_alt_text AI generated alt text for the image.  StoreFront uses this when description is empty.
+     *
+     * @return self
+     */
+    public function setAiAltText($ai_alt_text)
+    {
+        $this->container['ai_alt_text'] = $ai_alt_text;
+
+        return $this;
+    }
 
     /**
      * Gets cloud_url

@@ -70,14 +70,22 @@ Method | HTTP request | Description
 [**getSfvbBlogPost()**](SfvbApi.md#getSfvbBlogPost) | **GET** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Read a blog post
 [**getSfvbCampaign()**](SfvbApi.md#getSfvbCampaign) | **GET** /sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid} | Get a campaign
 [**getSfvbCjsonUsedElements()**](SfvbApi.md#getSfvbCjsonUsedElements) | **POST** /sfvb/cjson/elements | Element types used by a container
+[**getSfvbCommsDashboardStats()**](SfvbApi.md#getSfvbCommsDashboardStats) | **GET** /sfvb/storefronts/{storefront_oid}/comms/stats/dashboard | Read every flow&#39;s and campaign&#39;s counts over a window, with the account&#39;s daily sending
+[**getSfvbCommsEmailClicks()**](SfvbApi.md#getSfvbCommsEmailClicks) | **GET** /sfvb/storefronts/{storefront_oid}/comms/sequences/{commseq_uuid}/emails/{email_uuid}/clicks | Read each link in one email and how often it was clicked
 [**getSfvbCommsFolder()**](SfvbApi.md#getSfvbCommsFolder) | **GET** /sfvb/storefronts/{storefront_oid}/list_segment_folders/{folder_uuid} | Read one list and segment folder
 [**getSfvbCommsFolders()**](SfvbApi.md#getSfvbCommsFolders) | **GET** /sfvb/storefronts/{storefront_oid}/list_segment_folders | List the list and segment folders
 [**getSfvbCommsList()**](SfvbApi.md#getSfvbCommsList) | **GET** /sfvb/storefronts/{storefront_oid}/lists/{list_uuid} | Read one email list
 [**getSfvbCommsListMembers()**](SfvbApi.md#getSfvbCommsListMembers) | **GET** /sfvb/storefronts/{storefront_oid}/lists/{list_uuid}/members | Read one page of a list&#39;s members
+[**getSfvbCommsPlan()**](SfvbApi.md#getSfvbCommsPlan) | **GET** /sfvb/storefronts/{storefront_oid}/comms/plan | Read the account&#39;s communications plan and sending health
+[**getSfvbCommsProviders()**](SfvbApi.md#getSfvbCommsProviders) | **GET** /sfvb/storefronts/{storefront_oid}/comms/providers | List the email providers the account can import lists from
 [**getSfvbCommsSegment()**](SfvbApi.md#getSfvbCommsSegment) | **GET** /sfvb/storefronts/{storefront_oid}/segments/{segment_uuid} | Read one segment, with its rule
 [**getSfvbCommsSegmentMembers()**](SfvbApi.md#getSfvbCommsSegmentMembers) | **GET** /sfvb/storefronts/{storefront_oid}/segments/{segment_uuid}/members | Read one page of a segment&#39;s members
 [**getSfvbCommsSendingDomain()**](SfvbApi.md#getSfvbCommsSendingDomain) | **GET** /sfvb/comms/sending_domains/{domain} | Read a sending domain
 [**getSfvbCommsSendingDomains()**](SfvbApi.md#getSfvbCommsSendingDomains) | **GET** /sfvb/comms/sending_domains | List the sending domains
+[**getSfvbCommsSequenceStats()**](SfvbApi.md#getSfvbCommsSequenceStats) | **GET** /sfvb/storefronts/{storefront_oid}/comms/sequences/{commseq_uuid}/stats | Read a flow&#39;s or campaign&#39;s counts, overall and step by step
+[**getSfvbCommsSettings()**](SfvbApi.md#getSfvbCommsSettings) | **GET** /sfvb/storefronts/{storefront_oid}/comms/settings | Read a storefront&#39;s communications settings
+[**getSfvbCommsTemplate()**](SfvbApi.md#getSfvbCommsTemplate) | **GET** /sfvb/storefronts/{storefront_oid}/comms/templates/{email_template_oid} | Read one saved email template&#39;s body
+[**getSfvbCommsTemplates()**](SfvbApi.md#getSfvbCommsTemplates) | **GET** /sfvb/storefronts/{storefront_oid}/comms/templates | List the email templates a new email can start from
 [**getSfvbCommsTwilioAccount()**](SfvbApi.md#getSfvbCommsTwilioAccount) | **GET** /sfvb/comms/twilio_account | Read the Twilio account
 [**getSfvbContainer()**](SfvbApi.md#getSfvbContainer) | **GET** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Read a container stored outside the file system
 [**getSfvbContainerVersion()**](SfvbApi.md#getSfvbContainerVersion) | **GET** /sfvb/storefronts/{storefront_oid}/container_versions/{container_history_oid} | Read the CJSON stored in one container history entry
@@ -147,6 +155,7 @@ Method | HTTP request | Description
 [**getSfvbVersion()**](SfvbApi.md#getSfvbVersion) | **GET** /sfvb/version | Compiler version for this merchant
 [**getSfvbWhoami()**](SfvbApi.md#getSfvbWhoami) | **GET** /sfvb/whoami | Who this token is
 [**ignoreSfvbNotFoundEntry()**](SfvbApi.md#ignoreSfvbNotFoundEntry) | **POST** /sfvb/storefronts/{storefront_oid}/not_found/{not_found_id}/ignore | Ignore a 404 path
+[**importSfvbCommsProviderLists()**](SfvbApi.md#importSfvbCommsProviderLists) | **POST** /sfvb/storefronts/{storefront_oid}/comms/providers/import | Import lists from another email provider
 [**importSfvbRedirects()**](SfvbApi.md#importSfvbRedirects) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/import | Apply a reviewed redirect import
 [**insertSfvbAffiliateNetwork()**](SfvbApi.md#insertSfvbAffiliateNetwork) | **POST** /sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks | Add an affiliate network
 [**insertSfvbApproval()**](SfvbApi.md#insertSfvbApproval) | **POST** /sfvb/approvals | Request a human approval
@@ -231,6 +240,9 @@ Method | HTTP request | Description
 [**setSfvbLibraryScreenshot()**](SfvbApi.md#setSfvbLibraryScreenshot) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/screenshot | Set a library entry&#39;s screenshot
 [**shareSfvbLibraryEntry()**](SfvbApi.md#shareSfvbLibraryEntry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/shares | Share a published library entry with a linked account
 [**startSfvbExperiment()**](SfvbApi.md#startSfvbExperiment) | **POST** /sfvb/storefronts/{storefront_oid}/experiments | Start an experiment
+[**testSfvbCommsEmail()**](SfvbApi.md#testSfvbCommsEmail) | **POST** /sfvb/storefronts/{storefront_oid}/comms/sequences/{commseq_uuid}/steps/{step_uuid}/test_email | Send one test of an email step&#39;s email to a user on this account
+[**testSfvbCommsPostcard()**](SfvbApi.md#testSfvbCommsPostcard) | **POST** /sfvb/storefronts/{storefront_oid}/comms/sequences/{commseq_uuid}/steps/{step_uuid}/test_postcard | Print and mail one real test postcard
+[**testSfvbCommsSms()**](SfvbApi.md#testSfvbCommsSms) | **POST** /sfvb/storefronts/{storefront_oid}/comms/sequences/{commseq_uuid}/steps/{step_uuid}/test_sms | Send one test of an SMS step to a user on this account
 [**unarchiveSfvbUpsellPath()**](SfvbApi.md#unarchiveSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/unarchive | Unarchive an upsell path
 [**unfavoriteSfvbLibraryEntry()**](SfvbApi.md#unfavoriteSfvbLibraryEntry) | **DELETE** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/favorite | Remove a library entry from favorites
 [**unignoreSfvbNotFoundEntry()**](SfvbApi.md#unignoreSfvbNotFoundEntry) | **DELETE** /sfvb/storefronts/{storefront_oid}/not_found/{not_found_id}/ignore | Stop ignoring a 404 path
@@ -243,6 +255,7 @@ Method | HTTP request | Description
 [**updateSfvbCommsList()**](SfvbApi.md#updateSfvbCommsList) | **PUT** /sfvb/storefronts/{storefront_oid}/lists/{list_uuid} | Change an email list&#39;s name, folder or public settings
 [**updateSfvbCommsSegment()**](SfvbApi.md#updateSfvbCommsSegment) | **PUT** /sfvb/storefronts/{storefront_oid}/segments/{segment_uuid} | Change a segment&#39;s name, rule or folder
 [**updateSfvbCommsSendingDomain()**](SfvbApi.md#updateSfvbCommsSendingDomain) | **PUT** /sfvb/comms/sending_domains/{domain} | Update a sending domain
+[**updateSfvbCommsSettings()**](SfvbApi.md#updateSfvbCommsSettings) | **PUT** /sfvb/storefronts/{storefront_oid}/comms/settings | Change a storefront&#39;s communications settings
 [**updateSfvbCommsTwilioAccount()**](SfvbApi.md#updateSfvbCommsTwilioAccount) | **PUT** /sfvb/comms/twilio_account | Update the Twilio account
 [**updateSfvbEmail()**](SfvbApi.md#updateSfvbEmail) | **PUT** /sfvb/storefronts/{storefront_oid}/emails/{email_uuid} | Change a flow or campaign email&#39;s subject or preview text
 [**updateSfvbFlow()**](SfvbApi.md#updateSfvbFlow) | **PUT** /sfvb/storefronts/{storefront_oid}/flows/{flow_uuid} | Change a flow
@@ -3002,6 +3015,90 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getSfvbCommsDashboardStats()`
+
+```php
+getSfvbCommsDashboardStats($storefront_oid, $days): \ultracart\v2\models\SfvbCommsDashboardResponse
+```
+
+Read every flow's and campaign's counts over a window, with the account's daily sending
+
+rows cover each flow and campaign with activity in the last days (1 to 365, default 30); daily is the account's last 31 days of sending, whatever the window.  Read only.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **days** | **int**| The window for the rows, 1 to 365 days (default 30). | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\SfvbCommsDashboardResponse**](../Model/SfvbCommsDashboardResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getSfvbCommsEmailClicks()`
+
+```php
+getSfvbCommsEmailClicks($storefront_oid, $commseq_uuid, $email_uuid, $days): \ultracart\v2\models\SfvbCommsClicksResponse
+```
+
+Read each link in one email and how often it was clicked
+
+The email must be sent by an email or experiment step of this flow's or campaign's sequence; any other is 404.  Most clicked first, over the last days (1 to 365, default 30).  Read only.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **commseq_uuid** | **string**|  |
+ **email_uuid** | **string**|  |
+ **days** | **int**| The window, 1 to 365 days (default 30). | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\SfvbCommsClicksResponse**](../Model/SfvbCommsClicksResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getSfvbCommsFolder()`
 
 ```php
@@ -3168,6 +3265,86 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getSfvbCommsPlan()`
+
+```php
+getSfvbCommsPlan($storefront_oid): \ultracart\v2\models\SfvbCommsPlanResponse
+```
+
+Read the account's communications plan and sending health
+
+The plan, its customer and email caps, what has been sent against them, and the spam pause, with notes on anything that stops sends.  Account-wide.  Never a price, fee or upgrade option; the plan is changed in the admin.  Read only.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbCommsPlanResponse**](../Model/SfvbCommsPlanResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getSfvbCommsProviders()`
+
+```php
+getSfvbCommsProviders($storefront_oid): \ultracart\v2\models\SfvbCommsProvidersResponse
+```
+
+List the email providers the account can import lists from
+
+Each provider that can share list members, connected or not, with a connected one's lists.  Each call asks the providers themselves, so it is rate limited.  No credential or connect URL is returned.  import_allowed says whether the account may import.  Read only.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbCommsProvidersResponse**](../Model/SfvbCommsProvidersResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getSfvbCommsSegment()`
 
 ```php
@@ -3317,6 +3494,169 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**\ultracart\v2\models\SfvbCommsSendingDomainsResponse**](../Model/SfvbCommsSendingDomainsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getSfvbCommsSequenceStats()`
+
+```php
+getSfvbCommsSequenceStats($storefront_oid, $commseq_uuid, $days): \ultracart\v2\models\SfvbCommsSequenceStatsResponse
+```
+
+Read a flow's or campaign's counts, overall and step by step
+
+overall covers all time; each email, SMS, postcard and branch step covers the last days (1 to 365, default 30).  Each step reports only the counts its channel records and names the rest in not_measured, so a missing count is never zero.  Bounces, opens and spam are counts here, not separate reports.  Read only.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **commseq_uuid** | **string**|  |
+ **days** | **int**| The window for the step counts, 1 to 365 days (default 30). | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\SfvbCommsSequenceStatsResponse**](../Model/SfvbCommsSequenceStatsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getSfvbCommsSettings()`
+
+```php
+getSfvbCommsSettings($storefront_oid): \ultracart\v2\models\SfvbCommsSettingsResponse
+```
+
+Read a storefront's communications settings
+
+The postcard return address, the default marketing and transactional senders, and the default SMS number, with what each one drives in notes.  Read only.  hash_sha256 is the If-Match for an update.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbCommsSettingsResponse**](../Model/SfvbCommsSettingsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getSfvbCommsTemplate()`
+
+```php
+getSfvbCommsTemplate($storefront_oid, $email_template_oid): \ultracart\v2\models\SfvbCommsTemplateResponse
+```
+
+Read one saved email template's body
+
+A system template or one saved on this storefront; any other is 404.  container_cjson is the body.  The Velocity template it renders inside is named in email_template_vm_path, not shown.  Read only.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **email_template_oid** | **int**|  |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbCommsTemplateResponse**](../Model/SfvbCommsTemplateResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getSfvbCommsTemplates()`
+
+```php
+getSfvbCommsTemplates($storefront_oid): \ultracart\v2\models\SfvbCommsTemplatesResponse
+```
+
+List the email templates a new email can start from
+
+One list: UltraCart's system templates and this storefront's saved ones (each with email_template_oid), then base templates, the active theme's files an email renders inside (each with path).  Read only.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbCommsTemplatesResponse**](../Model/SfvbCommsTemplatesResponse.md)
 
 ### Authorization
 
@@ -6164,6 +6504,48 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `importSfvbCommsProviderLists()`
+
+```php
+importSfvbCommsProviderLists($storefront_oid, $provider_import_request, $approval_id): \ultracart\v2\models\SfvbCommsProviderImportResponse
+```
+
+Import lists from another email provider
+
+Each list becomes a new list of the same name on this storefront and every member is subscribed, in the background; the signed-in user is emailed when it finishes.  Needs the account to be allowed to import, sfvb_publish, and an approved comms_list.import request for exactly these lists.  At most 20 lists.  dry_run checks the provider and the list ids and names what would be created, without importing or using an approval.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **provider_import_request** | [**\ultracart\v2\models\SfvbCommsProviderImportRequest**](../Model/SfvbCommsProviderImportRequest.md)| The provider and lists to import |
+ **approval_id** | **string**| The approval_id of an approved comms_list.import request for exactly these lists.  See POST /sfvb/approvals. | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\SfvbCommsProviderImportResponse**](../Model/SfvbCommsProviderImportResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -9709,6 +10091,136 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `testSfvbCommsEmail()`
+
+```php
+testSfvbCommsEmail($storefront_oid, $commseq_uuid, $step_uuid, $test_email_request): \ultracart\v2\models\SfvbCommsTestSendResponse
+```
+
+Send one test of an email step's email to a user on this account
+
+to_email must be the email address of a user on this account; a test is never sent to customers or anyone else.  It reaches a real inbox and counts against the plan's email quota.  Needs sfvb_publish and the sign-in of a person.  Rate limited per merchant to 10 an hour and 50 a day.  The email render shows the same email without sending it.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **commseq_uuid** | **string**|  |
+ **step_uuid** | **string**|  |
+ **test_email_request** | [**\ultracart\v2\models\SfvbCommsTestEmailRequest**](../Model/SfvbCommsTestEmailRequest.md)| The email and the recipient |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbCommsTestSendResponse**](../Model/SfvbCommsTestSendResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `testSfvbCommsPostcard()`
+
+```php
+testSfvbCommsPostcard($storefront_oid, $commseq_uuid, $step_uuid, $test_postcard_request, $approval_id): \ultracart\v2\models\SfvbCommsTestSendResponse
+```
+
+Print and mail one real test postcard
+
+It is printed and mailed at the account's cost and can't be recalled.  mail_card must be true; the postcard proof shows the card without mailing it.  Postcards must be turned on for the account by UltraCart.  Needs sfvb_publish, the sign-in of a person, and an approved postcard.test_mail request for exactly this card and address, with a fresh code every time.  dry_run checks everything and shows the cost.  Rate limited per merchant to 3 an hour and 10 a day.  The answer says whether a card was mailed.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **commseq_uuid** | **string**|  |
+ **step_uuid** | **string**|  |
+ **test_postcard_request** | [**\ultracart\v2\models\SfvbCommsTestPostcardRequest**](../Model/SfvbCommsTestPostcardRequest.md)| The address and mail_card |
+ **approval_id** | **string**| The approval_id of an approved postcard.test_mail request for exactly this card and address.  See POST /sfvb/approvals. | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\SfvbCommsTestSendResponse**](../Model/SfvbCommsTestSendResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `testSfvbCommsSms()`
+
+```php
+testSfvbCommsSms($storefront_oid, $commseq_uuid, $step_uuid, $test_sms_request): \ultracart\v2\models\SfvbCommsTestSendResponse
+```
+
+Send one test of an SMS step to a user on this account
+
+to_phone must be the cell phone of a user on this account, in E.164 form.  It is billed per segment through the account's Twilio account, from the flow's or campaign's SMS number; with none it is refused.  Needs sfvb_publish and the sign-in of a person.  Rate limited per merchant to 5 an hour and 20 a day.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **commseq_uuid** | **string**|  |
+ **step_uuid** | **string**|  |
+ **test_sms_request** | [**\ultracart\v2\models\SfvbCommsTestSmsRequest**](../Model/SfvbCommsTestSmsRequest.md)| The recipient |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbCommsTestSendResponse**](../Model/SfvbCommsTestSendResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `unarchiveSfvbUpsellPath()`
 
 ```php
@@ -10210,6 +10722,49 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateSfvbCommsSettings()`
+
+```php
+updateSfvbCommsSettings($storefront_oid, $if_match, $comms_settings_update_request, $approval_id): \ultracart\v2\models\SfvbCommsSettingsResponse
+```
+
+Change a storefront's communications settings
+
+A field left out stays as it is.  A return address change needs sfvb_write and If-Match.  A change to the default marketing or transactional sender, or the default SMS number, also needs sfvb_publish and an approved comms_settings.update request for exactly this change.  A sending domain must be on this account and the SMS number on one of its Twilio accounts.  dry_run checks and shows the change without writing or using an approval.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **if_match** | **string**| The settings&#39; hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. |
+ **comms_settings_update_request** | [**\ultracart\v2\models\SfvbCommsSettingsUpdateRequest**](../Model/SfvbCommsSettingsUpdateRequest.md)| The settings to change |
+ **approval_id** | **string**| The approval_id of an approved comms_settings.update request for exactly this change, when a sender or the SMS number changes.  See POST /sfvb/approvals. | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\SfvbCommsSettingsResponse**](../Model/SfvbCommsSettingsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

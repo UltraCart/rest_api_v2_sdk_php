@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ai_alt_text** | **string** | AI generated alt text for the image.  StoreFront uses this when description is empty. | [optional]
 **cloud_url** | **string** | URL where the image can be downloaded from the cloud | [optional]
 **cloud_url_expiration** | **string** | Expiration date of the cloud URL | [optional]
 **code** | **string** | Code assigned to the file | [optional]
