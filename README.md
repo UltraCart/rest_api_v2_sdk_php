@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.229"
+    "ultracart/rest_api_v2_sdk_php": "4.1.230"
   }
 }
 ```
@@ -494,6 +494,8 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**addSfvbPageBlogPosts**](docs/Api/SfvbApi.md#addsfvbpageblogposts) | **POST** /sfvb/storefronts/{storefront_oid}/pages/blog_posts/add | Assign blog posts to a page
 *SfvbApi* | [**addSfvbPageItems**](docs/Api/SfvbApi.md#addsfvbpageitems) | **POST** /sfvb/storefronts/{storefront_oid}/pages/items/add | Assign items to a page
 *SfvbApi* | [**archiveSfvbCampaign**](docs/Api/SfvbApi.md#archivesfvbcampaign) | **PUT** /sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid}/archive | Archive or unarchive a campaign
+*SfvbApi* | [**archiveSfvbCommsList**](docs/Api/SfvbApi.md#archivesfvbcommslist) | **PUT** /sfvb/storefronts/{storefront_oid}/lists/{list_uuid}/archive | Archive an email list
+*SfvbApi* | [**archiveSfvbCommsSegment**](docs/Api/SfvbApi.md#archivesfvbcommssegment) | **PUT** /sfvb/storefronts/{storefront_oid}/segments/{segment_uuid}/archive | Archive a segment
 *SfvbApi* | [**archiveSfvbFlow**](docs/Api/SfvbApi.md#archivesfvbflow) | **PUT** /sfvb/storefronts/{storefront_oid}/flows/{flow_uuid}/archive | Archive or unarchive a flow
 *SfvbApi* | [**archiveSfvbUpsellPath**](docs/Api/SfvbApi.md#archivesfvbupsellpath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/archive | Archive an upsell path
 *SfvbApi* | [**attachSfvbBlogPostImage**](docs/Api/SfvbApi.md#attachsfvbblogpostimage) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}/images/attach | Attach an image to a blog post
@@ -510,6 +512,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**deleteSfvbAffiliateNetwork**](docs/Api/SfvbApi.md#deletesfvbaffiliatenetwork) | **DELETE** /sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks/{affiliate_network_oid} | Delete an affiliate network
 *SfvbApi* | [**deleteSfvbApproval**](docs/Api/SfvbApi.md#deletesfvbapproval) | **DELETE** /sfvb/approvals/{approval_id} | Cancel a pending approval request
 *SfvbApi* | [**deleteSfvbBlogPost**](docs/Api/SfvbApi.md#deletesfvbblogpost) | **DELETE** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Delete a blog post
+*SfvbApi* | [**deleteSfvbCommsFolder**](docs/Api/SfvbApi.md#deletesfvbcommsfolder) | **DELETE** /sfvb/storefronts/{storefront_oid}/list_segment_folders/{folder_uuid} | Delete a list and segment folder
 *SfvbApi* | [**deleteSfvbCommsSendingDomain**](docs/Api/SfvbApi.md#deletesfvbcommssendingdomain) | **DELETE** /sfvb/comms/sending_domains/{domain} | Remove a sending domain
 *SfvbApi* | [**deleteSfvbCommsTwilioAccount**](docs/Api/SfvbApi.md#deletesfvbcommstwilioaccount) | **DELETE** /sfvb/comms/twilio_account | Remove the Twilio account
 *SfvbApi* | [**deleteSfvbFile**](docs/Api/SfvbApi.md#deletesfvbfile) | **DELETE** /sfvb/storefronts/{storefront_oid}/files | Delete a storefront file
@@ -554,6 +557,9 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbBlogPost**](docs/Api/SfvbApi.md#getsfvbblogpost) | **GET** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Read a blog post
 *SfvbApi* | [**getSfvbCampaign**](docs/Api/SfvbApi.md#getsfvbcampaign) | **GET** /sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid} | Get a campaign
 *SfvbApi* | [**getSfvbCjsonUsedElements**](docs/Api/SfvbApi.md#getsfvbcjsonusedelements) | **POST** /sfvb/cjson/elements | Element types used by a container
+*SfvbApi* | [**getSfvbCommsFolder**](docs/Api/SfvbApi.md#getsfvbcommsfolder) | **GET** /sfvb/storefronts/{storefront_oid}/list_segment_folders/{folder_uuid} | Read one list and segment folder
+*SfvbApi* | [**getSfvbCommsFolders**](docs/Api/SfvbApi.md#getsfvbcommsfolders) | **GET** /sfvb/storefronts/{storefront_oid}/list_segment_folders | List the list and segment folders
+*SfvbApi* | [**getSfvbCommsList**](docs/Api/SfvbApi.md#getsfvbcommslist) | **GET** /sfvb/storefronts/{storefront_oid}/lists/{list_uuid} | Read one email list
 *SfvbApi* | [**getSfvbCommsSegment**](docs/Api/SfvbApi.md#getsfvbcommssegment) | **GET** /sfvb/storefronts/{storefront_oid}/segments/{segment_uuid} | Read one segment, with its rule
 *SfvbApi* | [**getSfvbCommsSendingDomain**](docs/Api/SfvbApi.md#getsfvbcommssendingdomain) | **GET** /sfvb/comms/sending_domains/{domain} | Read a sending domain
 *SfvbApi* | [**getSfvbCommsSendingDomains**](docs/Api/SfvbApi.md#getsfvbcommssendingdomains) | **GET** /sfvb/comms/sending_domains | List the sending domains
@@ -628,6 +634,8 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**insertSfvbAffiliateNetwork**](docs/Api/SfvbApi.md#insertsfvbaffiliatenetwork) | **POST** /sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks | Add an affiliate network
 *SfvbApi* | [**insertSfvbApproval**](docs/Api/SfvbApi.md#insertsfvbapproval) | **POST** /sfvb/approvals | Request a human approval
 *SfvbApi* | [**insertSfvbBlogPost**](docs/Api/SfvbApi.md#insertsfvbblogpost) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts | Create a blog post
+*SfvbApi* | [**insertSfvbCommsFolder**](docs/Api/SfvbApi.md#insertsfvbcommsfolder) | **POST** /sfvb/storefronts/{storefront_oid}/list_segment_folders | Create a list and segment folder
+*SfvbApi* | [**insertSfvbCommsList**](docs/Api/SfvbApi.md#insertsfvbcommslist) | **POST** /sfvb/storefronts/{storefront_oid}/lists | Create an email list
 *SfvbApi* | [**insertSfvbCommsSegment**](docs/Api/SfvbApi.md#insertsfvbcommssegment) | **POST** /sfvb/storefronts/{storefront_oid}/segments | Create a segment
 *SfvbApi* | [**insertSfvbCommsSendingDomain**](docs/Api/SfvbApi.md#insertsfvbcommssendingdomain) | **POST** /sfvb/comms/sending_domains | Add a sending domain
 *SfvbApi* | [**insertSfvbCommsTwilioAccount**](docs/Api/SfvbApi.md#insertsfvbcommstwilioaccount) | **POST** /sfvb/comms/twilio_account | Connect the Twilio account
@@ -714,6 +722,8 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**updateSfvbAffiliateNetwork**](docs/Api/SfvbApi.md#updatesfvbaffiliatenetwork) | **PUT** /sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks/{affiliate_network_oid} | Change an affiliate network
 *SfvbApi* | [**updateSfvbBlogPost**](docs/Api/SfvbApi.md#updatesfvbblogpost) | **PUT** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Change a blog post
 *SfvbApi* | [**updateSfvbCampaign**](docs/Api/SfvbApi.md#updatesfvbcampaign) | **PUT** /sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid} | Change a campaign
+*SfvbApi* | [**updateSfvbCommsFolder**](docs/Api/SfvbApi.md#updatesfvbcommsfolder) | **PUT** /sfvb/storefronts/{storefront_oid}/list_segment_folders/{folder_uuid} | Rename a list and segment folder
+*SfvbApi* | [**updateSfvbCommsList**](docs/Api/SfvbApi.md#updatesfvbcommslist) | **PUT** /sfvb/storefronts/{storefront_oid}/lists/{list_uuid} | Change an email list&#39;s name, folder or public settings
 *SfvbApi* | [**updateSfvbCommsSegment**](docs/Api/SfvbApi.md#updatesfvbcommssegment) | **PUT** /sfvb/storefronts/{storefront_oid}/segments/{segment_uuid} | Change a segment&#39;s name, rule or folder
 *SfvbApi* | [**updateSfvbCommsSendingDomain**](docs/Api/SfvbApi.md#updatesfvbcommssendingdomain) | **PUT** /sfvb/comms/sending_domains/{domain} | Update a sending domain
 *SfvbApi* | [**updateSfvbCommsTwilioAccount**](docs/Api/SfvbApi.md#updatesfvbcommstwilioaccount) | **PUT** /sfvb/comms/twilio_account | Update the Twilio account
@@ -1986,7 +1996,15 @@ Class | Method | HTTP request | Description
 - [SfvbCodeLibraryEmailsResponse](docs/Model/SfvbCodeLibraryEmailsResponse.md)
 - [SfvbCommsDnsRecord](docs/Model/SfvbCommsDnsRecord.md)
 - [SfvbCommsEmail](docs/Model/SfvbCommsEmail.md)
+- [SfvbCommsFolder](docs/Model/SfvbCommsFolder.md)
+- [SfvbCommsFolderItem](docs/Model/SfvbCommsFolderItem.md)
+- [SfvbCommsFolderResponse](docs/Model/SfvbCommsFolderResponse.md)
+- [SfvbCommsFolderWriteRequest](docs/Model/SfvbCommsFolderWriteRequest.md)
+- [SfvbCommsFoldersResponse](docs/Model/SfvbCommsFoldersResponse.md)
 - [SfvbCommsList](docs/Model/SfvbCommsList.md)
+- [SfvbCommsListDetail](docs/Model/SfvbCommsListDetail.md)
+- [SfvbCommsListResponse](docs/Model/SfvbCommsListResponse.md)
+- [SfvbCommsListWriteRequest](docs/Model/SfvbCommsListWriteRequest.md)
 - [SfvbCommsListsResponse](docs/Model/SfvbCommsListsResponse.md)
 - [SfvbCommsPostcard](docs/Model/SfvbCommsPostcard.md)
 - [SfvbCommsSegment](docs/Model/SfvbCommsSegment.md)
@@ -2457,6 +2475,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.230 | 11/05/2026 | sfvb internal testing |
 | 4.1.229 | 11/04/2026 | sfvb internal testing |
 | 4.1.228 | 11/04/2026 | sfvb internal testing |
 | 4.1.227 | 11/04/2026 | sfvb internal testing |

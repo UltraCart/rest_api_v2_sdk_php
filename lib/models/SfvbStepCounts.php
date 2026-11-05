@@ -409,7 +409,7 @@ class SfvbStepCounts implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets source
      *
-     * @param string|null $source email (the step's email, all time) or step (this step, the last 90 days).
+     * @param string|null $source email (the step's email, all time), sequence (the begin step, customers who started the sequence, all time) or step (this step, the last 90 days).
      *
      * @return self
      */

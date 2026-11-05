@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **opened** | **int** | Emails opened. | [optional]
 **sent** | **int** | Messages sent. | [optional]
 **skipped** | **int** | Customers who reached the step and were not sent anything.  The dispatch log says why. | [optional]
-**source** | **string** | email (the step&#39;s email, all time) or step (this step, the last 90 days). | [optional]
+**source** | **string** | email (the step&#39;s email, all time), sequence (the begin step, customers who started the sequence, all time) or step (this step, the last 90 days). | [optional]
 **spam** | **int** | Spam complaints. | [optional]
 **unsubscribed** | **int** | Unsubscribes from these messages. | [optional]
 

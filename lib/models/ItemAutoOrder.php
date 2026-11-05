@@ -68,6 +68,9 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'auto_order_cancel_minimum_rebill_count' => 'int',
         'auto_order_cancel_minimum_rebill_value' => 'float',
         'auto_order_downgrade_items' => 'string[]',
+        'auto_order_myaccount_frequency_day_counts' => 'int[]',
+        'auto_order_myaccount_frequency_last_step_only' => 'bool',
+        'auto_order_myaccount_frequency_schedules' => 'string[]',
         'auto_order_paused' => 'bool',
         'auto_order_prohibit_expiring_cards' => 'int',
         'auto_order_schedules' => 'string[]',
@@ -100,6 +103,9 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'auto_order_cancel_minimum_rebill_count' => 'int32',
         'auto_order_cancel_minimum_rebill_value' => null,
         'auto_order_downgrade_items' => null,
+        'auto_order_myaccount_frequency_day_counts' => null,
+        'auto_order_myaccount_frequency_last_step_only' => null,
+        'auto_order_myaccount_frequency_schedules' => null,
         'auto_order_paused' => null,
         'auto_order_prohibit_expiring_cards' => 'int32',
         'auto_order_schedules' => null,
@@ -151,6 +157,9 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'auto_order_cancel_minimum_rebill_count' => 'auto_order_cancel_minimum_rebill_count',
         'auto_order_cancel_minimum_rebill_value' => 'auto_order_cancel_minimum_rebill_value',
         'auto_order_downgrade_items' => 'auto_order_downgrade_items',
+        'auto_order_myaccount_frequency_day_counts' => 'auto_order_myaccount_frequency_day_counts',
+        'auto_order_myaccount_frequency_last_step_only' => 'auto_order_myaccount_frequency_last_step_only',
+        'auto_order_myaccount_frequency_schedules' => 'auto_order_myaccount_frequency_schedules',
         'auto_order_paused' => 'auto_order_paused',
         'auto_order_prohibit_expiring_cards' => 'auto_order_prohibit_expiring_cards',
         'auto_order_schedules' => 'auto_order_schedules',
@@ -181,6 +190,9 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'auto_order_cancel_minimum_rebill_count' => 'setAutoOrderCancelMinimumRebillCount',
         'auto_order_cancel_minimum_rebill_value' => 'setAutoOrderCancelMinimumRebillValue',
         'auto_order_downgrade_items' => 'setAutoOrderDowngradeItems',
+        'auto_order_myaccount_frequency_day_counts' => 'setAutoOrderMyaccountFrequencyDayCounts',
+        'auto_order_myaccount_frequency_last_step_only' => 'setAutoOrderMyaccountFrequencyLastStepOnly',
+        'auto_order_myaccount_frequency_schedules' => 'setAutoOrderMyaccountFrequencySchedules',
         'auto_order_paused' => 'setAutoOrderPaused',
         'auto_order_prohibit_expiring_cards' => 'setAutoOrderProhibitExpiringCards',
         'auto_order_schedules' => 'setAutoOrderSchedules',
@@ -211,6 +223,9 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'auto_order_cancel_minimum_rebill_count' => 'getAutoOrderCancelMinimumRebillCount',
         'auto_order_cancel_minimum_rebill_value' => 'getAutoOrderCancelMinimumRebillValue',
         'auto_order_downgrade_items' => 'getAutoOrderDowngradeItems',
+        'auto_order_myaccount_frequency_day_counts' => 'getAutoOrderMyaccountFrequencyDayCounts',
+        'auto_order_myaccount_frequency_last_step_only' => 'getAutoOrderMyaccountFrequencyLastStepOnly',
+        'auto_order_myaccount_frequency_schedules' => 'getAutoOrderMyaccountFrequencySchedules',
         'auto_order_paused' => 'getAutoOrderPaused',
         'auto_order_prohibit_expiring_cards' => 'getAutoOrderProhibitExpiringCards',
         'auto_order_schedules' => 'getAutoOrderSchedules',
@@ -292,6 +307,9 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['auto_order_cancel_minimum_rebill_count'] = $data['auto_order_cancel_minimum_rebill_count'] ?? null;
         $this->container['auto_order_cancel_minimum_rebill_value'] = $data['auto_order_cancel_minimum_rebill_value'] ?? null;
         $this->container['auto_order_downgrade_items'] = $data['auto_order_downgrade_items'] ?? null;
+        $this->container['auto_order_myaccount_frequency_day_counts'] = $data['auto_order_myaccount_frequency_day_counts'] ?? null;
+        $this->container['auto_order_myaccount_frequency_last_step_only'] = $data['auto_order_myaccount_frequency_last_step_only'] ?? null;
+        $this->container['auto_order_myaccount_frequency_schedules'] = $data['auto_order_myaccount_frequency_schedules'] ?? null;
         $this->container['auto_order_paused'] = $data['auto_order_paused'] ?? null;
         $this->container['auto_order_prohibit_expiring_cards'] = $data['auto_order_prohibit_expiring_cards'] ?? null;
         $this->container['auto_order_schedules'] = $data['auto_order_schedules'] ?? null;
@@ -574,6 +592,78 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setAutoOrderDowngradeItems($auto_order_downgrade_items)
     {
         $this->container['auto_order_downgrade_items'] = $auto_order_downgrade_items;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_order_myaccount_frequency_day_counts
+     *
+     * @return int[]|null
+     */
+    public function getAutoOrderMyaccountFrequencyDayCounts()
+    {
+        return $this->container['auto_order_myaccount_frequency_day_counts'];
+    }
+
+    /**
+     * Sets auto_order_myaccount_frequency_day_counts
+     *
+     * @param int[]|null $auto_order_myaccount_frequency_day_counts Day counts (1 to 365, at most 20) a customer may switch this auto-enrolled item to from MyAccount, for example [30, 60, 90].  Requires the advanced auto order settings to be enabled on the account.  Omit to leave unchanged; send an empty array to clear.
+     *
+     * @return self
+     */
+    public function setAutoOrderMyaccountFrequencyDayCounts($auto_order_myaccount_frequency_day_counts)
+    {
+        $this->container['auto_order_myaccount_frequency_day_counts'] = $auto_order_myaccount_frequency_day_counts;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_order_myaccount_frequency_last_step_only
+     *
+     * @return bool|null
+     */
+    public function getAutoOrderMyaccountFrequencyLastStepOnly()
+    {
+        return $this->container['auto_order_myaccount_frequency_last_step_only'];
+    }
+
+    /**
+     * Sets auto_order_myaccount_frequency_last_step_only
+     *
+     * @param bool|null $auto_order_myaccount_frequency_last_step_only True if the MyAccount frequency change is only offered once the item is on its last auto order step.  Omit to leave unchanged.
+     *
+     * @return self
+     */
+    public function setAutoOrderMyaccountFrequencyLastStepOnly($auto_order_myaccount_frequency_last_step_only)
+    {
+        $this->container['auto_order_myaccount_frequency_last_step_only'] = $auto_order_myaccount_frequency_last_step_only;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_order_myaccount_frequency_schedules
+     *
+     * @return string[]|null
+     */
+    public function getAutoOrderMyaccountFrequencySchedules()
+    {
+        return $this->container['auto_order_myaccount_frequency_schedules'];
+    }
+
+    /**
+     * Sets auto_order_myaccount_frequency_schedules
+     *
+     * @param string[]|null $auto_order_myaccount_frequency_schedules Standard schedules a customer may switch this auto-enrolled item to from MyAccount.  Requires the advanced auto order settings to be enabled on the account.  Omit to leave unchanged; send an empty array to clear.
+     *
+     * @return self
+     */
+    public function setAutoOrderMyaccountFrequencySchedules($auto_order_myaccount_frequency_schedules)
+    {
+        $this->container['auto_order_myaccount_frequency_schedules'] = $auto_order_myaccount_frequency_schedules;
 
         return $this;
     }

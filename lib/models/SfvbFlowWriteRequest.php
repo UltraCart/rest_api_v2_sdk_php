@@ -529,7 +529,7 @@ class SfvbFlowWriteRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets trigger_parameter
      *
-     * @param string|null $trigger_parameter The list or segment uuid for a list or segment trigger.  Create only.
+     * @param string|null $trigger_parameter The list or segment uuid for a list or segment trigger.  Cleared when the trigger changes to one that takes none.
      *
      * @return self
      */
@@ -553,7 +553,7 @@ class SfvbFlowWriteRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets trigger_type
      *
-     * @param string|null $trigger_type What enrolls a customer, such as cart abandoned.  Create only.
+     * @param string|null $trigger_type What enrolls a customer, such as cart abandoned.  Required to create.  On a change, only while the flow is off.
      *
      * @return self
      */
