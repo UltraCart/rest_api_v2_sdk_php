@@ -64,6 +64,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'comms_settings' => '\ultracart\v2\models\SfvbCommsSettingsUpdateRequest',
         'content' => 'string',
         'experiment_start' => '\ultracart\v2\models\SfvbExperimentStartRequest',
+        'flow_backfill' => '\ultracart\v2\models\SfvbFlowBackfillRequest',
         'item_attribute_rows' => '\ultracart\v2\models\SfvbItemAttributeBatchRow[]',
         'item_pricing' => '\ultracart\v2\models\SfvbItemPricingRequest',
         'params' => '\ultracart\v2\models\SfvbApprovalParams',
@@ -91,6 +92,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'comms_settings' => null,
         'content' => null,
         'experiment_start' => null,
+        'flow_backfill' => null,
         'item_attribute_rows' => null,
         'item_pricing' => null,
         'params' => null,
@@ -137,6 +139,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'comms_settings' => 'comms_settings',
         'content' => 'content',
         'experiment_start' => 'experiment_start',
+        'flow_backfill' => 'flow_backfill',
         'item_attribute_rows' => 'item_attribute_rows',
         'item_pricing' => 'item_pricing',
         'params' => 'params',
@@ -162,6 +165,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'comms_settings' => 'setCommsSettings',
         'content' => 'setContent',
         'experiment_start' => 'setExperimentStart',
+        'flow_backfill' => 'setFlowBackfill',
         'item_attribute_rows' => 'setItemAttributeRows',
         'item_pricing' => 'setItemPricing',
         'params' => 'setParams',
@@ -187,6 +191,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'comms_settings' => 'getCommsSettings',
         'content' => 'getContent',
         'experiment_start' => 'getExperimentStart',
+        'flow_backfill' => 'getFlowBackfill',
         'item_attribute_rows' => 'getItemAttributeRows',
         'item_pricing' => 'getItemPricing',
         'params' => 'getParams',
@@ -267,6 +272,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     public const ACTION_COMMS_SETTINGS_UPDATE = 'comms_settings.update';
     public const ACTION_COMMS_LIST_IMPORT = 'comms_list.import';
     public const ACTION_POSTCARD_TEST_MAIL = 'postcard.test_mail';
+    public const ACTION_FLOW_BACKFILL = 'flow.backfill';
 
     /**
      * Gets allowable values of the enum
@@ -302,6 +308,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
             self::ACTION_COMMS_SETTINGS_UPDATE,
             self::ACTION_COMMS_LIST_IMPORT,
             self::ACTION_POSTCARD_TEST_MAIL,
+            self::ACTION_FLOW_BACKFILL,
         ];
     }
 
@@ -326,6 +333,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         $this->container['comms_settings'] = $data['comms_settings'] ?? null;
         $this->container['content'] = $data['content'] ?? null;
         $this->container['experiment_start'] = $data['experiment_start'] ?? null;
+        $this->container['flow_backfill'] = $data['flow_backfill'] ?? null;
         $this->container['item_attribute_rows'] = $data['item_attribute_rows'] ?? null;
         $this->container['item_pricing'] = $data['item_pricing'] ?? null;
         $this->container['params'] = $data['params'] ?? null;
@@ -522,6 +530,30 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     public function setExperimentStart($experiment_start)
     {
         $this->container['experiment_start'] = $experiment_start;
+
+        return $this;
+    }
+
+    /**
+     * Gets flow_backfill
+     *
+     * @return \ultracart\v2\models\SfvbFlowBackfillRequest|null
+     */
+    public function getFlowBackfill()
+    {
+        return $this->container['flow_backfill'];
+    }
+
+    /**
+     * Sets flow_backfill
+     *
+     * @param \ultracart\v2\models\SfvbFlowBackfillRequest|null $flow_backfill flow_backfill
+     *
+     * @return self
+     */
+    public function setFlowBackfill($flow_backfill)
+    {
+        $this->container['flow_backfill'] = $flow_backfill;
 
         return $this;
     }

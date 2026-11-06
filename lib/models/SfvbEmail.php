@@ -59,6 +59,7 @@ class SfvbEmail implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'container_last_modified_dts' => 'string',
+        'email_template_vm_path' => 'string',
         'email_uuid' => 'string',
         'hash_sha256' => 'string',
         'live' => 'bool',
@@ -69,6 +70,9 @@ class SfvbEmail implements ModelInterface, ArrayAccess, \JsonSerializable
         'requires_review' => 'bool',
         'subject' => 'string',
         'suspended_for_spam' => 'bool',
+        'template_exists' => 'bool',
+        'template_note' => 'string',
+        'template_path' => 'string',
         'transactional' => 'bool',
         'version' => 'int'
     ];
@@ -82,6 +86,7 @@ class SfvbEmail implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'container_last_modified_dts' => 'dateTime',
+        'email_template_vm_path' => null,
         'email_uuid' => null,
         'hash_sha256' => null,
         'live' => null,
@@ -92,6 +97,9 @@ class SfvbEmail implements ModelInterface, ArrayAccess, \JsonSerializable
         'requires_review' => null,
         'subject' => null,
         'suspended_for_spam' => null,
+        'template_exists' => null,
+        'template_note' => null,
+        'template_path' => null,
         'transactional' => null,
         'version' => 'int32'
     ];
@@ -124,6 +132,7 @@ class SfvbEmail implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'container_last_modified_dts' => 'container_last_modified_dts',
+        'email_template_vm_path' => 'email_template_vm_path',
         'email_uuid' => 'email_uuid',
         'hash_sha256' => 'hash_sha256',
         'live' => 'live',
@@ -134,6 +143,9 @@ class SfvbEmail implements ModelInterface, ArrayAccess, \JsonSerializable
         'requires_review' => 'requires_review',
         'subject' => 'subject',
         'suspended_for_spam' => 'suspended_for_spam',
+        'template_exists' => 'template_exists',
+        'template_note' => 'template_note',
+        'template_path' => 'template_path',
         'transactional' => 'transactional',
         'version' => 'version'
     ];
@@ -145,6 +157,7 @@ class SfvbEmail implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'container_last_modified_dts' => 'setContainerLastModifiedDts',
+        'email_template_vm_path' => 'setEmailTemplateVmPath',
         'email_uuid' => 'setEmailUuid',
         'hash_sha256' => 'setHashSha256',
         'live' => 'setLive',
@@ -155,6 +168,9 @@ class SfvbEmail implements ModelInterface, ArrayAccess, \JsonSerializable
         'requires_review' => 'setRequiresReview',
         'subject' => 'setSubject',
         'suspended_for_spam' => 'setSuspendedForSpam',
+        'template_exists' => 'setTemplateExists',
+        'template_note' => 'setTemplateNote',
+        'template_path' => 'setTemplatePath',
         'transactional' => 'setTransactional',
         'version' => 'setVersion'
     ];
@@ -166,6 +182,7 @@ class SfvbEmail implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'container_last_modified_dts' => 'getContainerLastModifiedDts',
+        'email_template_vm_path' => 'getEmailTemplateVmPath',
         'email_uuid' => 'getEmailUuid',
         'hash_sha256' => 'getHashSha256',
         'live' => 'getLive',
@@ -176,6 +193,9 @@ class SfvbEmail implements ModelInterface, ArrayAccess, \JsonSerializable
         'requires_review' => 'getRequiresReview',
         'subject' => 'getSubject',
         'suspended_for_spam' => 'getSuspendedForSpam',
+        'template_exists' => 'getTemplateExists',
+        'template_note' => 'getTemplateNote',
+        'template_path' => 'getTemplatePath',
         'transactional' => 'getTransactional',
         'version' => 'getVersion'
     ];
@@ -238,6 +258,7 @@ class SfvbEmail implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->container['container_last_modified_dts'] = $data['container_last_modified_dts'] ?? null;
+        $this->container['email_template_vm_path'] = $data['email_template_vm_path'] ?? null;
         $this->container['email_uuid'] = $data['email_uuid'] ?? null;
         $this->container['hash_sha256'] = $data['hash_sha256'] ?? null;
         $this->container['live'] = $data['live'] ?? null;
@@ -248,6 +269,9 @@ class SfvbEmail implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['requires_review'] = $data['requires_review'] ?? null;
         $this->container['subject'] = $data['subject'] ?? null;
         $this->container['suspended_for_spam'] = $data['suspended_for_spam'] ?? null;
+        $this->container['template_exists'] = $data['template_exists'] ?? null;
+        $this->container['template_note'] = $data['template_note'] ?? null;
+        $this->container['template_path'] = $data['template_path'] ?? null;
         $this->container['transactional'] = $data['transactional'] ?? null;
         $this->container['version'] = $data['version'] ?? null;
     }
@@ -296,6 +320,30 @@ class SfvbEmail implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setContainerLastModifiedDts($container_last_modified_dts)
     {
         $this->container['container_last_modified_dts'] = $container_last_modified_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_template_vm_path
+     *
+     * @return string|null
+     */
+    public function getEmailTemplateVmPath()
+    {
+        return $this->container['email_template_vm_path'];
+    }
+
+    /**
+     * Sets email_template_vm_path
+     *
+     * @param string|null $email_template_vm_path The Velocity template the email body renders inside, as stored, such as templates/template_email.vm.  It is looked up in the storefront's active theme.
+     *
+     * @return self
+     */
+    public function setEmailTemplateVmPath($email_template_vm_path)
+    {
+        $this->container['email_template_vm_path'] = $email_template_vm_path;
 
         return $this;
     }
@@ -536,6 +584,78 @@ class SfvbEmail implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setSuspendedForSpam($suspended_for_spam)
     {
         $this->container['suspended_for_spam'] = $suspended_for_spam;
+
+        return $this;
+    }
+
+    /**
+     * Gets template_exists
+     *
+     * @return bool|null
+     */
+    public function getTemplateExists()
+    {
+        return $this->container['template_exists'];
+    }
+
+    /**
+     * Sets template_exists
+     *
+     * @param bool|null $template_exists True when the file at template_path exists.  False means the email can't render.
+     *
+     * @return self
+     */
+    public function setTemplateExists($template_exists)
+    {
+        $this->container['template_exists'] = $template_exists;
+
+        return $this;
+    }
+
+    /**
+     * Gets template_note
+     *
+     * @return string|null
+     */
+    public function getTemplateNote()
+    {
+        return $this->container['template_note'];
+    }
+
+    /**
+     * Sets template_note
+     *
+     * @param string|null $template_note Why there is no template file, or null when there is one.
+     *
+     * @return self
+     */
+    public function setTemplateNote($template_note)
+    {
+        $this->container['template_note'] = $template_note;
+
+        return $this;
+    }
+
+    /**
+     * Gets template_path
+     *
+     * @return string|null
+     */
+    public function getTemplatePath()
+    {
+        return $this->container['template_path'];
+    }
+
+    /**
+     * Sets template_path
+     *
+     * @param string|null $template_path The theme file that template is, as the render finds it.  Read it with the files endpoints, whose read also reports valid and velocity_errors.  Null when it couldn't be worked out, with template_note saying why.
+     *
+     * @return self
+     */
+    public function setTemplatePath($template_path)
+    {
+        $this->container['template_path'] = $template_path;
 
         return $this;
     }

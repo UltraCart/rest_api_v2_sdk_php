@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **allow_multiple_concurrent_enrollments** | **bool** | True when a customer may be in this flow more than once at a time. | [optional]
 **end_once_customer_purchases** | **bool** | True to end the flow for a customer once they buy from one of its emails. | [optional]
 **end_once_customer_purchases_anywhere** | **bool** | True to end the flow for a customer once they buy from any source. | [optional]
+**folder_uuid** | **string** | File it in this flow folder.  An empty value takes it out of its folder. | [optional]
 **name** | **string** | The flow name, 1 to 250 characters.  Required to create. | [optional]
 **reentry_delay_days** | **int** | Days before a customer may enter again, 1 to 1095.  Only with after_days. | [optional]
 **reentry_policy** | **string** | Whether a customer may enter again, anytime, after_days or never. | [optional]

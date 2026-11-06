@@ -60,6 +60,7 @@ class SfvbCampaignWriteRequest implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $openAPITypes = [
         'end_once_customer_purchases' => 'bool',
         'end_once_customer_purchases_anywhere' => 'bool',
+        'folder_uuid' => 'string',
         'memberships' => '\ultracart\v2\models\SfvbCampaignMembership[]',
         'name' => 'string',
         'scheduled_dts' => 'string',
@@ -78,6 +79,7 @@ class SfvbCampaignWriteRequest implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $openAPIFormats = [
         'end_once_customer_purchases' => null,
         'end_once_customer_purchases_anywhere' => null,
+        'folder_uuid' => null,
         'memberships' => null,
         'name' => null,
         'scheduled_dts' => 'dateTime',
@@ -115,6 +117,7 @@ class SfvbCampaignWriteRequest implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $attributeMap = [
         'end_once_customer_purchases' => 'end_once_customer_purchases',
         'end_once_customer_purchases_anywhere' => 'end_once_customer_purchases_anywhere',
+        'folder_uuid' => 'folder_uuid',
         'memberships' => 'memberships',
         'name' => 'name',
         'scheduled_dts' => 'scheduled_dts',
@@ -131,6 +134,7 @@ class SfvbCampaignWriteRequest implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $setters = [
         'end_once_customer_purchases' => 'setEndOnceCustomerPurchases',
         'end_once_customer_purchases_anywhere' => 'setEndOnceCustomerPurchasesAnywhere',
+        'folder_uuid' => 'setFolderUuid',
         'memberships' => 'setMemberships',
         'name' => 'setName',
         'scheduled_dts' => 'setScheduledDts',
@@ -147,6 +151,7 @@ class SfvbCampaignWriteRequest implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $getters = [
         'end_once_customer_purchases' => 'getEndOnceCustomerPurchases',
         'end_once_customer_purchases_anywhere' => 'getEndOnceCustomerPurchasesAnywhere',
+        'folder_uuid' => 'getFolderUuid',
         'memberships' => 'getMemberships',
         'name' => 'getName',
         'scheduled_dts' => 'getScheduledDts',
@@ -214,6 +219,7 @@ class SfvbCampaignWriteRequest implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $this->container['end_once_customer_purchases'] = $data['end_once_customer_purchases'] ?? null;
         $this->container['end_once_customer_purchases_anywhere'] = $data['end_once_customer_purchases_anywhere'] ?? null;
+        $this->container['folder_uuid'] = $data['folder_uuid'] ?? null;
         $this->container['memberships'] = $data['memberships'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['scheduled_dts'] = $data['scheduled_dts'] ?? null;
@@ -290,6 +296,30 @@ class SfvbCampaignWriteRequest implements ModelInterface, ArrayAccess, \JsonSeri
     public function setEndOnceCustomerPurchasesAnywhere($end_once_customer_purchases_anywhere)
     {
         $this->container['end_once_customer_purchases_anywhere'] = $end_once_customer_purchases_anywhere;
+
+        return $this;
+    }
+
+    /**
+     * Gets folder_uuid
+     *
+     * @return string|null
+     */
+    public function getFolderUuid()
+    {
+        return $this->container['folder_uuid'];
+    }
+
+    /**
+     * Sets folder_uuid
+     *
+     * @param string|null $folder_uuid File it in this campaign folder.  An empty value takes it out of its folder.
+     *
+     * @return self
+     */
+    public function setFolderUuid($folder_uuid)
+    {
+        $this->container['folder_uuid'] = $folder_uuid;
 
         return $this;
     }

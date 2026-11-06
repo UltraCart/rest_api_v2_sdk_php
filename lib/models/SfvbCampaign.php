@@ -65,6 +65,8 @@ class SfvbCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'emails' => '\ultracart\v2\models\SfvbCommsEmail[]',
         'end_once_customer_purchases' => 'bool',
         'end_once_customer_purchases_anywhere' => 'bool',
+        'folder_name' => 'string',
+        'folder_uuid' => 'string',
         'hash_sha256' => 'string',
         'live' => 'bool',
         'memberships' => '\ultracart\v2\models\SfvbCampaignMembership[]',
@@ -95,6 +97,8 @@ class SfvbCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'emails' => null,
         'end_once_customer_purchases' => null,
         'end_once_customer_purchases_anywhere' => null,
+        'folder_name' => null,
+        'folder_uuid' => null,
         'hash_sha256' => null,
         'live' => null,
         'memberships' => null,
@@ -144,6 +148,8 @@ class SfvbCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'emails' => 'emails',
         'end_once_customer_purchases' => 'end_once_customer_purchases',
         'end_once_customer_purchases_anywhere' => 'end_once_customer_purchases_anywhere',
+        'folder_name' => 'folder_name',
+        'folder_uuid' => 'folder_uuid',
         'hash_sha256' => 'hash_sha256',
         'live' => 'live',
         'memberships' => 'memberships',
@@ -172,6 +178,8 @@ class SfvbCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'emails' => 'setEmails',
         'end_once_customer_purchases' => 'setEndOnceCustomerPurchases',
         'end_once_customer_purchases_anywhere' => 'setEndOnceCustomerPurchasesAnywhere',
+        'folder_name' => 'setFolderName',
+        'folder_uuid' => 'setFolderUuid',
         'hash_sha256' => 'setHashSha256',
         'live' => 'setLive',
         'memberships' => 'setMemberships',
@@ -200,6 +208,8 @@ class SfvbCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'emails' => 'getEmails',
         'end_once_customer_purchases' => 'getEndOnceCustomerPurchases',
         'end_once_customer_purchases_anywhere' => 'getEndOnceCustomerPurchasesAnywhere',
+        'folder_name' => 'getFolderName',
+        'folder_uuid' => 'getFolderUuid',
         'hash_sha256' => 'getHashSha256',
         'live' => 'getLive',
         'memberships' => 'getMemberships',
@@ -279,6 +289,8 @@ class SfvbCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['emails'] = $data['emails'] ?? null;
         $this->container['end_once_customer_purchases'] = $data['end_once_customer_purchases'] ?? null;
         $this->container['end_once_customer_purchases_anywhere'] = $data['end_once_customer_purchases_anywhere'] ?? null;
+        $this->container['folder_name'] = $data['folder_name'] ?? null;
+        $this->container['folder_uuid'] = $data['folder_uuid'] ?? null;
         $this->container['hash_sha256'] = $data['hash_sha256'] ?? null;
         $this->container['live'] = $data['live'] ?? null;
         $this->container['memberships'] = $data['memberships'] ?? null;
@@ -482,6 +494,54 @@ class SfvbCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setEndOnceCustomerPurchasesAnywhere($end_once_customer_purchases_anywhere)
     {
         $this->container['end_once_customer_purchases_anywhere'] = $end_once_customer_purchases_anywhere;
+
+        return $this;
+    }
+
+    /**
+     * Gets folder_name
+     *
+     * @return string|null
+     */
+    public function getFolderName()
+    {
+        return $this->container['folder_name'];
+    }
+
+    /**
+     * Sets folder_name
+     *
+     * @param string|null $folder_name That folder's name.
+     *
+     * @return self
+     */
+    public function setFolderName($folder_name)
+    {
+        $this->container['folder_name'] = $folder_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets folder_uuid
+     *
+     * @return string|null
+     */
+    public function getFolderUuid()
+    {
+        return $this->container['folder_uuid'];
+    }
+
+    /**
+     * Sets folder_uuid
+     *
+     * @param string|null $folder_uuid The campaign folder it is filed in, or none.
+     *
+     * @return self
+     */
+    public function setFolderUuid($folder_uuid)
+    {
+        $this->container['folder_uuid'] = $folder_uuid;
 
         return $this;
     }

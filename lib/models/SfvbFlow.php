@@ -66,6 +66,8 @@ class SfvbFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         'end_once_customer_purchases' => 'bool',
         'end_once_customer_purchases_anywhere' => 'bool',
         'flow_uuid' => 'string',
+        'folder_name' => 'string',
+        'folder_uuid' => 'string',
         'hash_sha256' => 'string',
         'live' => 'bool',
         'name' => 'string',
@@ -100,6 +102,8 @@ class SfvbFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         'end_once_customer_purchases' => null,
         'end_once_customer_purchases_anywhere' => null,
         'flow_uuid' => null,
+        'folder_name' => null,
+        'folder_uuid' => null,
         'hash_sha256' => null,
         'live' => null,
         'name' => null,
@@ -153,6 +157,8 @@ class SfvbFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         'end_once_customer_purchases' => 'end_once_customer_purchases',
         'end_once_customer_purchases_anywhere' => 'end_once_customer_purchases_anywhere',
         'flow_uuid' => 'flow_uuid',
+        'folder_name' => 'folder_name',
+        'folder_uuid' => 'folder_uuid',
         'hash_sha256' => 'hash_sha256',
         'live' => 'live',
         'name' => 'name',
@@ -185,6 +191,8 @@ class SfvbFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         'end_once_customer_purchases' => 'setEndOnceCustomerPurchases',
         'end_once_customer_purchases_anywhere' => 'setEndOnceCustomerPurchasesAnywhere',
         'flow_uuid' => 'setFlowUuid',
+        'folder_name' => 'setFolderName',
+        'folder_uuid' => 'setFolderUuid',
         'hash_sha256' => 'setHashSha256',
         'live' => 'setLive',
         'name' => 'setName',
@@ -217,6 +225,8 @@ class SfvbFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         'end_once_customer_purchases' => 'getEndOnceCustomerPurchases',
         'end_once_customer_purchases_anywhere' => 'getEndOnceCustomerPurchasesAnywhere',
         'flow_uuid' => 'getFlowUuid',
+        'folder_name' => 'getFolderName',
+        'folder_uuid' => 'getFolderUuid',
         'hash_sha256' => 'getHashSha256',
         'live' => 'getLive',
         'name' => 'getName',
@@ -300,6 +310,8 @@ class SfvbFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['end_once_customer_purchases'] = $data['end_once_customer_purchases'] ?? null;
         $this->container['end_once_customer_purchases_anywhere'] = $data['end_once_customer_purchases_anywhere'] ?? null;
         $this->container['flow_uuid'] = $data['flow_uuid'] ?? null;
+        $this->container['folder_name'] = $data['folder_name'] ?? null;
+        $this->container['folder_uuid'] = $data['folder_uuid'] ?? null;
         $this->container['hash_sha256'] = $data['hash_sha256'] ?? null;
         $this->container['live'] = $data['live'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
@@ -530,6 +542,54 @@ class SfvbFlow implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setFlowUuid($flow_uuid)
     {
         $this->container['flow_uuid'] = $flow_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets folder_name
+     *
+     * @return string|null
+     */
+    public function getFolderName()
+    {
+        return $this->container['folder_name'];
+    }
+
+    /**
+     * Sets folder_name
+     *
+     * @param string|null $folder_name That folder's name.
+     *
+     * @return self
+     */
+    public function setFolderName($folder_name)
+    {
+        $this->container['folder_name'] = $folder_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets folder_uuid
+     *
+     * @return string|null
+     */
+    public function getFolderUuid()
+    {
+        return $this->container['folder_uuid'];
+    }
+
+    /**
+     * Sets folder_uuid
+     *
+     * @param string|null $folder_uuid The flow folder it is filed in, or none.
+     *
+     * @return self
+     */
+    public function setFolderUuid($folder_uuid)
+    {
+        $this->container['folder_uuid'] = $folder_uuid;
 
         return $this;
     }

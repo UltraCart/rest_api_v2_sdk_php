@@ -1035,6 +1035,8 @@ docs/Model/SfvbCommsListDetail.md
 docs/Model/SfvbCommsListResponse.md
 docs/Model/SfvbCommsListWriteRequest.md
 docs/Model/SfvbCommsListsResponse.md
+docs/Model/SfvbCommsLookupOwner.md
+docs/Model/SfvbCommsLookupResponse.md
 docs/Model/SfvbCommsMember.md
 docs/Model/SfvbCommsMembersResponse.md
 docs/Model/SfvbCommsPlan.md
@@ -1045,6 +1047,8 @@ docs/Model/SfvbCommsProviderImportRequest.md
 docs/Model/SfvbCommsProviderImportResponse.md
 docs/Model/SfvbCommsProviderList.md
 docs/Model/SfvbCommsProvidersResponse.md
+docs/Model/SfvbCommsRulerValidateRequest.md
+docs/Model/SfvbCommsRulerValidateResponse.md
 docs/Model/SfvbCommsSegment.md
 docs/Model/SfvbCommsSegmentDetail.md
 docs/Model/SfvbCommsSegmentResponse.md
@@ -1055,6 +1059,9 @@ docs/Model/SfvbCommsSender.md
 docs/Model/SfvbCommsSenderUpdate.md
 docs/Model/SfvbCommsSendingDomain.md
 docs/Model/SfvbCommsSendingDomainsResponse.md
+docs/Model/SfvbCommsSequenceFolder.md
+docs/Model/SfvbCommsSequenceFolderResponse.md
+docs/Model/SfvbCommsSequenceFoldersResponse.md
 docs/Model/SfvbCommsSequenceStatsResponse.md
 docs/Model/SfvbCommsSettings.md
 docs/Model/SfvbCommsSettingsResponse.md
@@ -1070,6 +1077,9 @@ docs/Model/SfvbCommsTestSendResponse.md
 docs/Model/SfvbCommsTestSmsRequest.md
 docs/Model/SfvbCommsTwilioAccount.md
 docs/Model/SfvbCommsTwilioAccountResponse.md
+docs/Model/SfvbCommsUnreferencedEmail.md
+docs/Model/SfvbCommsUnreferencedPostcard.md
+docs/Model/SfvbCommsUnreferencedResponse.md
 docs/Model/SfvbCompileRequest.md
 docs/Model/SfvbCompileResponse.md
 docs/Model/SfvbContainerResponse.md
@@ -1111,6 +1121,8 @@ docs/Model/SfvbFileWriteRequest.md
 docs/Model/SfvbFileWriteResponse.md
 docs/Model/SfvbFilesResponse.md
 docs/Model/SfvbFlow.md
+docs/Model/SfvbFlowBackfillRequest.md
+docs/Model/SfvbFlowBackfillResponse.md
 docs/Model/SfvbFlowStatusRequest.md
 docs/Model/SfvbFlowWriteRequest.md
 docs/Model/SfvbFlowsResponse.md
@@ -2480,6 +2492,8 @@ lib/models/SfvbCommsListDetail.php
 lib/models/SfvbCommsListResponse.php
 lib/models/SfvbCommsListWriteRequest.php
 lib/models/SfvbCommsListsResponse.php
+lib/models/SfvbCommsLookupOwner.php
+lib/models/SfvbCommsLookupResponse.php
 lib/models/SfvbCommsMember.php
 lib/models/SfvbCommsMembersResponse.php
 lib/models/SfvbCommsPlan.php
@@ -2490,6 +2504,8 @@ lib/models/SfvbCommsProviderImportRequest.php
 lib/models/SfvbCommsProviderImportResponse.php
 lib/models/SfvbCommsProviderList.php
 lib/models/SfvbCommsProvidersResponse.php
+lib/models/SfvbCommsRulerValidateRequest.php
+lib/models/SfvbCommsRulerValidateResponse.php
 lib/models/SfvbCommsSegment.php
 lib/models/SfvbCommsSegmentDetail.php
 lib/models/SfvbCommsSegmentResponse.php
@@ -2500,6 +2516,9 @@ lib/models/SfvbCommsSender.php
 lib/models/SfvbCommsSenderUpdate.php
 lib/models/SfvbCommsSendingDomain.php
 lib/models/SfvbCommsSendingDomainsResponse.php
+lib/models/SfvbCommsSequenceFolder.php
+lib/models/SfvbCommsSequenceFolderResponse.php
+lib/models/SfvbCommsSequenceFoldersResponse.php
 lib/models/SfvbCommsSequenceStatsResponse.php
 lib/models/SfvbCommsSettings.php
 lib/models/SfvbCommsSettingsResponse.php
@@ -2515,6 +2534,9 @@ lib/models/SfvbCommsTestSendResponse.php
 lib/models/SfvbCommsTestSmsRequest.php
 lib/models/SfvbCommsTwilioAccount.php
 lib/models/SfvbCommsTwilioAccountResponse.php
+lib/models/SfvbCommsUnreferencedEmail.php
+lib/models/SfvbCommsUnreferencedPostcard.php
+lib/models/SfvbCommsUnreferencedResponse.php
 lib/models/SfvbCompileRequest.php
 lib/models/SfvbCompileResponse.php
 lib/models/SfvbContainerResponse.php
@@ -2556,6 +2578,8 @@ lib/models/SfvbFileWriteRequest.php
 lib/models/SfvbFileWriteResponse.php
 lib/models/SfvbFilesResponse.php
 lib/models/SfvbFlow.php
+lib/models/SfvbFlowBackfillRequest.php
+lib/models/SfvbFlowBackfillResponse.php
 lib/models/SfvbFlowStatusRequest.php
 lib/models/SfvbFlowWriteRequest.php
 lib/models/SfvbFlowsResponse.php

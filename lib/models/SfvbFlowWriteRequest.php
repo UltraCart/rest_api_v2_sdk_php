@@ -61,6 +61,7 @@ class SfvbFlowWriteRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'allow_multiple_concurrent_enrollments' => 'bool',
         'end_once_customer_purchases' => 'bool',
         'end_once_customer_purchases_anywhere' => 'bool',
+        'folder_uuid' => 'string',
         'name' => 'string',
         'reentry_delay_days' => 'int',
         'reentry_policy' => 'string',
@@ -82,6 +83,7 @@ class SfvbFlowWriteRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'allow_multiple_concurrent_enrollments' => null,
         'end_once_customer_purchases' => null,
         'end_once_customer_purchases_anywhere' => null,
+        'folder_uuid' => null,
         'name' => null,
         'reentry_delay_days' => 'int32',
         'reentry_policy' => null,
@@ -122,6 +124,7 @@ class SfvbFlowWriteRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'allow_multiple_concurrent_enrollments' => 'allow_multiple_concurrent_enrollments',
         'end_once_customer_purchases' => 'end_once_customer_purchases',
         'end_once_customer_purchases_anywhere' => 'end_once_customer_purchases_anywhere',
+        'folder_uuid' => 'folder_uuid',
         'name' => 'name',
         'reentry_delay_days' => 'reentry_delay_days',
         'reentry_policy' => 'reentry_policy',
@@ -141,6 +144,7 @@ class SfvbFlowWriteRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'allow_multiple_concurrent_enrollments' => 'setAllowMultipleConcurrentEnrollments',
         'end_once_customer_purchases' => 'setEndOnceCustomerPurchases',
         'end_once_customer_purchases_anywhere' => 'setEndOnceCustomerPurchasesAnywhere',
+        'folder_uuid' => 'setFolderUuid',
         'name' => 'setName',
         'reentry_delay_days' => 'setReentryDelayDays',
         'reentry_policy' => 'setReentryPolicy',
@@ -160,6 +164,7 @@ class SfvbFlowWriteRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'allow_multiple_concurrent_enrollments' => 'getAllowMultipleConcurrentEnrollments',
         'end_once_customer_purchases' => 'getEndOnceCustomerPurchases',
         'end_once_customer_purchases_anywhere' => 'getEndOnceCustomerPurchasesAnywhere',
+        'folder_uuid' => 'getFolderUuid',
         'name' => 'getName',
         'reentry_delay_days' => 'getReentryDelayDays',
         'reentry_policy' => 'getReentryPolicy',
@@ -247,6 +252,7 @@ class SfvbFlowWriteRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->container['allow_multiple_concurrent_enrollments'] = $data['allow_multiple_concurrent_enrollments'] ?? null;
         $this->container['end_once_customer_purchases'] = $data['end_once_customer_purchases'] ?? null;
         $this->container['end_once_customer_purchases_anywhere'] = $data['end_once_customer_purchases_anywhere'] ?? null;
+        $this->container['folder_uuid'] = $data['folder_uuid'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['reentry_delay_days'] = $data['reentry_delay_days'] ?? null;
         $this->container['reentry_policy'] = $data['reentry_policy'] ?? null;
@@ -358,6 +364,30 @@ class SfvbFlowWriteRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setEndOnceCustomerPurchasesAnywhere($end_once_customer_purchases_anywhere)
     {
         $this->container['end_once_customer_purchases_anywhere'] = $end_once_customer_purchases_anywhere;
+
+        return $this;
+    }
+
+    /**
+     * Gets folder_uuid
+     *
+     * @return string|null
+     */
+    public function getFolderUuid()
+    {
+        return $this->container['folder_uuid'];
+    }
+
+    /**
+     * Sets folder_uuid
+     *
+     * @param string|null $folder_uuid File it in this flow folder.  An empty value takes it out of its folder.
+     *
+     * @return self
+     */
+    public function setFolderUuid($folder_uuid)
+    {
+        $this->container['folder_uuid'] = $folder_uuid;
 
         return $this;
     }

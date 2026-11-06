@@ -61,7 +61,10 @@ class SfvbCommsTemplateResponse implements ModelInterface, ArrayAccess, \JsonSer
         'container_cjson' => 'string',
         'email_template_vm_path' => 'string',
         'notes' => 'string[]',
-        'template' => '\ultracart\v2\models\SfvbCommsTemplate'
+        'template' => '\ultracart\v2\models\SfvbCommsTemplate',
+        'template_exists' => 'bool',
+        'template_note' => 'string',
+        'template_path' => 'string'
     ];
 
     /**
@@ -75,7 +78,10 @@ class SfvbCommsTemplateResponse implements ModelInterface, ArrayAccess, \JsonSer
         'container_cjson' => null,
         'email_template_vm_path' => null,
         'notes' => null,
-        'template' => null
+        'template' => null,
+        'template_exists' => null,
+        'template_note' => null,
+        'template_path' => null
     ];
 
     /**
@@ -108,7 +114,10 @@ class SfvbCommsTemplateResponse implements ModelInterface, ArrayAccess, \JsonSer
         'container_cjson' => 'container_cjson',
         'email_template_vm_path' => 'email_template_vm_path',
         'notes' => 'notes',
-        'template' => 'template'
+        'template' => 'template',
+        'template_exists' => 'template_exists',
+        'template_note' => 'template_note',
+        'template_path' => 'template_path'
     ];
 
     /**
@@ -120,7 +129,10 @@ class SfvbCommsTemplateResponse implements ModelInterface, ArrayAccess, \JsonSer
         'container_cjson' => 'setContainerCjson',
         'email_template_vm_path' => 'setEmailTemplateVmPath',
         'notes' => 'setNotes',
-        'template' => 'setTemplate'
+        'template' => 'setTemplate',
+        'template_exists' => 'setTemplateExists',
+        'template_note' => 'setTemplateNote',
+        'template_path' => 'setTemplatePath'
     ];
 
     /**
@@ -132,7 +144,10 @@ class SfvbCommsTemplateResponse implements ModelInterface, ArrayAccess, \JsonSer
         'container_cjson' => 'getContainerCjson',
         'email_template_vm_path' => 'getEmailTemplateVmPath',
         'notes' => 'getNotes',
-        'template' => 'getTemplate'
+        'template' => 'getTemplate',
+        'template_exists' => 'getTemplateExists',
+        'template_note' => 'getTemplateNote',
+        'template_path' => 'getTemplatePath'
     ];
 
     /**
@@ -196,6 +211,9 @@ class SfvbCommsTemplateResponse implements ModelInterface, ArrayAccess, \JsonSer
         $this->container['email_template_vm_path'] = $data['email_template_vm_path'] ?? null;
         $this->container['notes'] = $data['notes'] ?? null;
         $this->container['template'] = $data['template'] ?? null;
+        $this->container['template_exists'] = $data['template_exists'] ?? null;
+        $this->container['template_note'] = $data['template_note'] ?? null;
+        $this->container['template_path'] = $data['template_path'] ?? null;
     }
 
     /**
@@ -259,7 +277,7 @@ class SfvbCommsTemplateResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets email_template_vm_path
      *
-     * @param string|null $email_template_vm_path The Velocity template it renders inside.  Its content isn't shown here.
+     * @param string|null $email_template_vm_path The Velocity template it renders inside, as stored.  It is looked up in the storefront's active theme.
      *
      * @return self
      */
@@ -314,6 +332,78 @@ class SfvbCommsTemplateResponse implements ModelInterface, ArrayAccess, \JsonSer
     public function setTemplate($template)
     {
         $this->container['template'] = $template;
+
+        return $this;
+    }
+
+    /**
+     * Gets template_exists
+     *
+     * @return bool|null
+     */
+    public function getTemplateExists()
+    {
+        return $this->container['template_exists'];
+    }
+
+    /**
+     * Sets template_exists
+     *
+     * @param bool|null $template_exists True when the file at template_path exists.
+     *
+     * @return self
+     */
+    public function setTemplateExists($template_exists)
+    {
+        $this->container['template_exists'] = $template_exists;
+
+        return $this;
+    }
+
+    /**
+     * Gets template_note
+     *
+     * @return string|null
+     */
+    public function getTemplateNote()
+    {
+        return $this->container['template_note'];
+    }
+
+    /**
+     * Sets template_note
+     *
+     * @param string|null $template_note Why there is no template file, or null when there is one.
+     *
+     * @return self
+     */
+    public function setTemplateNote($template_note)
+    {
+        $this->container['template_note'] = $template_note;
+
+        return $this;
+    }
+
+    /**
+     * Gets template_path
+     *
+     * @return string|null
+     */
+    public function getTemplatePath()
+    {
+        return $this->container['template_path'];
+    }
+
+    /**
+     * Sets template_path
+     *
+     * @param string|null $template_path The theme file that template is, as a render finds it.  Read it with the files endpoints, whose read also reports valid and velocity_errors.  Null when it couldn't be worked out, with template_note saying why.
+     *
+     * @return self
+     */
+    public function setTemplatePath($template_path)
+    {
+        $this->container['template_path'] = $template_path;
 
         return $this;
     }
