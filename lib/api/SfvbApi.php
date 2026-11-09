@@ -17502,14 +17502,16 @@ class SfvbApi
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $provider provider (required)
      * @param  string $if_match The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale. (required)
+     * @param  bool $dry_run dry_run (optional)
+     * @param  string $approval_id When the clear removes a consent gate while something else still fires the provider, the approval_id of an approved tracking_provider.clear request for it.  See POST /sfvb/approvals. (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\SfvbTrackingProvider|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     * @return \ultracart\v2\models\SfvbTrackingProvider|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
      */
-    public function deleteSfvbTrackingProvider($storefront_oid, $provider, $if_match)
+    public function deleteSfvbTrackingProvider($storefront_oid, $provider, $if_match, $dry_run = null, $approval_id = null)
     {
-        list($response) = $this->deleteSfvbTrackingProviderWithHttpInfo($storefront_oid, $provider, $if_match);
+        list($response) = $this->deleteSfvbTrackingProviderWithHttpInfo($storefront_oid, $provider, $if_match, $dry_run, $approval_id);
         return $response;
     }
 
@@ -17521,14 +17523,16 @@ class SfvbApi
      * @param  int $storefront_oid (required)
      * @param  string $provider (required)
      * @param  string $if_match The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale. (required)
+     * @param  bool $dry_run (optional)
+     * @param  string $approval_id When the clear removes a consent gate while something else still fires the provider, the approval_id of an approved tracking_provider.clear request for it.  See POST /sfvb/approvals. (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\SfvbTrackingProvider|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\SfvbTrackingProvider|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteSfvbTrackingProviderWithHttpInfo($storefront_oid, $provider, $if_match)
+    public function deleteSfvbTrackingProviderWithHttpInfo($storefront_oid, $provider, $if_match, $dry_run = null, $approval_id = null)
     {
-        return $this->deleteSfvbTrackingProviderWithHttpInfoRetry(true ,   $storefront_oid,   $provider,   $if_match);
+        return $this->deleteSfvbTrackingProviderWithHttpInfoRetry(true ,   $storefront_oid,   $provider,   $if_match,   $dry_run,   $approval_id);
     }
 
 
@@ -17542,15 +17546,17 @@ class SfvbApi
      * @param  int $storefront_oid (required)
      * @param  string $provider (required)
      * @param  string $if_match The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale. (required)
+     * @param  bool $dry_run (optional)
+     * @param  string $approval_id When the clear removes a consent gate while something else still fires the provider, the approval_id of an approved tracking_provider.clear request for it.  See POST /sfvb/approvals. (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\SfvbTrackingProvider|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\SfvbTrackingProvider|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteSfvbTrackingProviderWithHttpInfoRetry($retry , $storefront_oid, $provider, $if_match)
+    public function deleteSfvbTrackingProviderWithHttpInfoRetry($retry , $storefront_oid, $provider, $if_match, $dry_run = null, $approval_id = null)
     {
         $returnType = '\ultracart\v2\models\SfvbTrackingProvider';
-        $request = $this->deleteSfvbTrackingProviderRequest($storefront_oid, $provider, $if_match);
+        $request = $this->deleteSfvbTrackingProviderRequest($storefront_oid, $provider, $if_match, $dry_run, $approval_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -17569,7 +17575,7 @@ class SfvbApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->deleteSfvbTrackingProviderWithHttpInfoRetry(false ,   $storefront_oid,   $provider,   $if_match);
+                        return $this->deleteSfvbTrackingProviderWithHttpInfoRetry(false ,   $storefront_oid,   $provider,   $if_match,   $dry_run,   $approval_id);
                     }
                 }
 
@@ -17680,6 +17686,21 @@ class SfvbApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 case 500:
                     if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody()->getContents(); //stream goes to serializer
@@ -17755,6 +17776,14 @@ class SfvbApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -17779,13 +17808,15 @@ class SfvbApi
      * @param  int $storefront_oid (required)
      * @param  string $provider (required)
      * @param  string $if_match The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale. (required)
+     * @param  bool $dry_run (optional)
+     * @param  string $approval_id When the clear removes a consent gate while something else still fires the provider, the approval_id of an approved tracking_provider.clear request for it.  See POST /sfvb/approvals. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteSfvbTrackingProviderAsync($storefront_oid, $provider, $if_match)
+    public function deleteSfvbTrackingProviderAsync($storefront_oid, $provider, $if_match, $dry_run = null, $approval_id = null)
     {
-        return $this->deleteSfvbTrackingProviderAsyncWithHttpInfo($storefront_oid, $provider, $if_match)
+        return $this->deleteSfvbTrackingProviderAsyncWithHttpInfo($storefront_oid, $provider, $if_match, $dry_run, $approval_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -17801,14 +17832,16 @@ class SfvbApi
      * @param  int $storefront_oid (required)
      * @param  string $provider (required)
      * @param  string $if_match The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale. (required)
+     * @param  bool $dry_run (optional)
+     * @param  string $approval_id When the clear removes a consent gate while something else still fires the provider, the approval_id of an approved tracking_provider.clear request for it.  See POST /sfvb/approvals. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteSfvbTrackingProviderAsyncWithHttpInfo($storefront_oid, $provider, $if_match)
+    public function deleteSfvbTrackingProviderAsyncWithHttpInfo($storefront_oid, $provider, $if_match, $dry_run = null, $approval_id = null)
     {
         $returnType = '\ultracart\v2\models\SfvbTrackingProvider';
-        $request = $this->deleteSfvbTrackingProviderRequest($storefront_oid, $provider, $if_match);
+        $request = $this->deleteSfvbTrackingProviderRequest($storefront_oid, $provider, $if_match, $dry_run, $approval_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -17852,11 +17885,13 @@ class SfvbApi
      * @param  int $storefront_oid (required)
      * @param  string $provider (required)
      * @param  string $if_match The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale. (required)
+     * @param  bool $dry_run (optional)
+     * @param  string $approval_id When the clear removes a consent gate while something else still fires the provider, the approval_id of an approved tracking_provider.clear request for it.  See POST /sfvb/approvals. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteSfvbTrackingProviderRequest($storefront_oid, $provider, $if_match)
+    public function deleteSfvbTrackingProviderRequest($storefront_oid, $provider, $if_match, $dry_run = null, $approval_id = null)
     {
         // verify the required parameter 'storefront_oid' is set
         if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
@@ -17884,10 +17919,23 @@ class SfvbApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $dry_run,
+            'dry_run', // param base name
+            'boolean', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
         // header params
         if ($if_match !== null) {
             $headerParams['If-Match'] = ObjectSerializer::toHeaderValue($if_match);
+        }
+        // header params
+        if ($approval_id !== null) {
+            $headerParams['Approval-Id'] = ObjectSerializer::toHeaderValue($approval_id);
         }
 
         // path params
@@ -102047,6 +102095,488 @@ class SfvbApi
     }
 
     /**
+     * Operation putSfvbPreviewTrackingHtml
+     *
+     * Stage custom tracking HTML in a preview session
+     *
+     * @param  int $storefront_oid storefront_oid (required)
+     * @param  string $preview_session_id preview_session_id (required)
+     * @param  \ultracart\v2\models\SfvbPreviewTrackingHtmlRequest $preview_tracking_html The HTML to stage (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\SfvbTrackingHtmlResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function putSfvbPreviewTrackingHtml($storefront_oid, $preview_session_id, $preview_tracking_html)
+    {
+        list($response) = $this->putSfvbPreviewTrackingHtmlWithHttpInfo($storefront_oid, $preview_session_id, $preview_tracking_html);
+        return $response;
+    }
+
+    /**
+     * Operation putSfvbPreviewTrackingHtmlWithHttpInfo
+     *
+     * Stage custom tracking HTML in a preview session
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $preview_session_id (required)
+     * @param  \ultracart\v2\models\SfvbPreviewTrackingHtmlRequest $preview_tracking_html The HTML to stage (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbTrackingHtmlResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function putSfvbPreviewTrackingHtmlWithHttpInfo($storefront_oid, $preview_session_id, $preview_tracking_html)
+    {
+        return $this->putSfvbPreviewTrackingHtmlWithHttpInfoRetry(true ,   $storefront_oid,   $preview_session_id,   $preview_tracking_html);
+    }
+
+
+
+    /**
+     * Operation putSfvbPreviewTrackingHtmlWithHttpInfoRetry
+     *
+     * Stage custom tracking HTML in a preview session
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $preview_session_id (required)
+     * @param  \ultracart\v2\models\SfvbPreviewTrackingHtmlRequest $preview_tracking_html The HTML to stage (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbTrackingHtmlResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function putSfvbPreviewTrackingHtmlWithHttpInfoRetry($retry , $storefront_oid, $preview_session_id, $preview_tracking_html)
+    {
+        $returnType = '\ultracart\v2\models\SfvbTrackingHtmlResponse';
+        $request = $this->putSfvbPreviewTrackingHtmlRequest($storefront_oid, $preview_session_id, $preview_tracking_html);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->putSfvbPreviewTrackingHtmlWithHttpInfoRetry(false ,   $storefront_oid,   $preview_session_id,   $preview_tracking_html);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\SfvbTrackingHtmlResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\SfvbTrackingHtmlResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\SfvbTrackingHtmlResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\SfvbTrackingHtmlResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\SfvbTrackingHtmlResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation putSfvbPreviewTrackingHtmlAsync
+     *
+     * Stage custom tracking HTML in a preview session
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $preview_session_id (required)
+     * @param  \ultracart\v2\models\SfvbPreviewTrackingHtmlRequest $preview_tracking_html The HTML to stage (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function putSfvbPreviewTrackingHtmlAsync($storefront_oid, $preview_session_id, $preview_tracking_html)
+    {
+        return $this->putSfvbPreviewTrackingHtmlAsyncWithHttpInfo($storefront_oid, $preview_session_id, $preview_tracking_html)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation putSfvbPreviewTrackingHtmlAsyncWithHttpInfo
+     *
+     * Stage custom tracking HTML in a preview session
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $preview_session_id (required)
+     * @param  \ultracart\v2\models\SfvbPreviewTrackingHtmlRequest $preview_tracking_html The HTML to stage (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function putSfvbPreviewTrackingHtmlAsyncWithHttpInfo($storefront_oid, $preview_session_id, $preview_tracking_html)
+    {
+        $returnType = '\ultracart\v2\models\SfvbTrackingHtmlResponse';
+        $request = $this->putSfvbPreviewTrackingHtmlRequest($storefront_oid, $preview_session_id, $preview_tracking_html);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'putSfvbPreviewTrackingHtml'
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $preview_session_id (required)
+     * @param  \ultracart\v2\models\SfvbPreviewTrackingHtmlRequest $preview_tracking_html The HTML to stage (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function putSfvbPreviewTrackingHtmlRequest($storefront_oid, $preview_session_id, $preview_tracking_html)
+    {
+        // verify the required parameter 'storefront_oid' is set
+        if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $storefront_oid when calling putSfvbPreviewTrackingHtml'
+            );
+        }
+        // verify the required parameter 'preview_session_id' is set
+        if ($preview_session_id === null || (is_array($preview_session_id) && count($preview_session_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $preview_session_id when calling putSfvbPreviewTrackingHtml'
+            );
+        }
+        // verify the required parameter 'preview_tracking_html' is set
+        if ($preview_tracking_html === null || (is_array($preview_tracking_html) && count($preview_tracking_html) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $preview_tracking_html when calling putSfvbPreviewTrackingHtml'
+            );
+        }
+
+        $resourcePath = '/sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id}/tracking_html';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($storefront_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'storefront_oid' . '}',
+                ObjectSerializer::toPathValue($storefront_oid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($preview_session_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'preview_session_id' . '}',
+                ObjectSerializer::toPathValue($preview_session_id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json; charset=UTF-8']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($preview_tracking_html)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($preview_tracking_html));
+            } else {
+                $httpBody = $preview_tracking_html;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation putSfvbRecordingSettings
      *
      * Turn the storefront&#39;s screen recording on or off
@@ -105797,6 +106327,465 @@ class SfvbApi
                 $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($email_render_request));
             } else {
                 $httpBody = $email_render_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation renderSfvbTrackingHtml
+     *
+     * Render the Conversion HTML against a test order
+     *
+     * @param  int $storefront_oid storefront_oid (required)
+     * @param  string $slot conversion (required)
+     * @param  \ultracart\v2\models\SfvbTrackingHtmlRenderRequest $tracking_html_render_request The test order, and optionally a draft (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\SfvbTrackingHtmlRenderResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function renderSfvbTrackingHtml($storefront_oid, $slot, $tracking_html_render_request)
+    {
+        list($response) = $this->renderSfvbTrackingHtmlWithHttpInfo($storefront_oid, $slot, $tracking_html_render_request);
+        return $response;
+    }
+
+    /**
+     * Operation renderSfvbTrackingHtmlWithHttpInfo
+     *
+     * Render the Conversion HTML against a test order
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $slot conversion (required)
+     * @param  \ultracart\v2\models\SfvbTrackingHtmlRenderRequest $tracking_html_render_request The test order, and optionally a draft (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbTrackingHtmlRenderResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function renderSfvbTrackingHtmlWithHttpInfo($storefront_oid, $slot, $tracking_html_render_request)
+    {
+        return $this->renderSfvbTrackingHtmlWithHttpInfoRetry(true ,   $storefront_oid,   $slot,   $tracking_html_render_request);
+    }
+
+
+
+    /**
+     * Operation renderSfvbTrackingHtmlWithHttpInfoRetry
+     *
+     * Render the Conversion HTML against a test order
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $slot conversion (required)
+     * @param  \ultracart\v2\models\SfvbTrackingHtmlRenderRequest $tracking_html_render_request The test order, and optionally a draft (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbTrackingHtmlRenderResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function renderSfvbTrackingHtmlWithHttpInfoRetry($retry , $storefront_oid, $slot, $tracking_html_render_request)
+    {
+        $returnType = '\ultracart\v2\models\SfvbTrackingHtmlRenderResponse';
+        $request = $this->renderSfvbTrackingHtmlRequest($storefront_oid, $slot, $tracking_html_render_request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->renderSfvbTrackingHtmlWithHttpInfoRetry(false ,   $storefront_oid,   $slot,   $tracking_html_render_request);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\SfvbTrackingHtmlRenderResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\SfvbTrackingHtmlRenderResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\SfvbTrackingHtmlRenderResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\SfvbTrackingHtmlRenderResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\SfvbTrackingHtmlRenderResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation renderSfvbTrackingHtmlAsync
+     *
+     * Render the Conversion HTML against a test order
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $slot conversion (required)
+     * @param  \ultracart\v2\models\SfvbTrackingHtmlRenderRequest $tracking_html_render_request The test order, and optionally a draft (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function renderSfvbTrackingHtmlAsync($storefront_oid, $slot, $tracking_html_render_request)
+    {
+        return $this->renderSfvbTrackingHtmlAsyncWithHttpInfo($storefront_oid, $slot, $tracking_html_render_request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation renderSfvbTrackingHtmlAsyncWithHttpInfo
+     *
+     * Render the Conversion HTML against a test order
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $slot conversion (required)
+     * @param  \ultracart\v2\models\SfvbTrackingHtmlRenderRequest $tracking_html_render_request The test order, and optionally a draft (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function renderSfvbTrackingHtmlAsyncWithHttpInfo($storefront_oid, $slot, $tracking_html_render_request)
+    {
+        $returnType = '\ultracart\v2\models\SfvbTrackingHtmlRenderResponse';
+        $request = $this->renderSfvbTrackingHtmlRequest($storefront_oid, $slot, $tracking_html_render_request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'renderSfvbTrackingHtml'
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $slot conversion (required)
+     * @param  \ultracart\v2\models\SfvbTrackingHtmlRenderRequest $tracking_html_render_request The test order, and optionally a draft (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function renderSfvbTrackingHtmlRequest($storefront_oid, $slot, $tracking_html_render_request)
+    {
+        // verify the required parameter 'storefront_oid' is set
+        if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $storefront_oid when calling renderSfvbTrackingHtml'
+            );
+        }
+        // verify the required parameter 'slot' is set
+        if ($slot === null || (is_array($slot) && count($slot) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $slot when calling renderSfvbTrackingHtml'
+            );
+        }
+        // verify the required parameter 'tracking_html_render_request' is set
+        if ($tracking_html_render_request === null || (is_array($tracking_html_render_request) && count($tracking_html_render_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tracking_html_render_request when calling renderSfvbTrackingHtml'
+            );
+        }
+
+        $resourcePath = '/sfvb/storefronts/{storefront_oid}/tracking/html/{slot}/render';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($storefront_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'storefront_oid' . '}',
+                ObjectSerializer::toPathValue($storefront_oid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($slot !== null) {
+            $resourcePath = str_replace(
+                '{' . 'slot' . '}',
+                ObjectSerializer::toPathValue($slot),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json; charset=UTF-8']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($tracking_html_render_request)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($tracking_html_render_request));
+            } else {
+                $httpBody = $tracking_html_render_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

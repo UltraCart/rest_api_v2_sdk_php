@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **app_error** | **bool** | True when the render itself failed and the page could not be produced. | [optional]
 **duration_ms** | **int** | How long the render took in milliseconds. | [optional]
-**error_count** | **int** | Error lines in the log, including Velocity problems such as a null | [optional]
+**error_count** | **int** | Error lines in the log, including Velocity problems such as setting a variable to null. | [optional]
 **line_count** | **int** | Lines in the full log text. | [optional]
 **log_id** | **string** | Opaque id of this log.  Pass it to the get endpoint.  Preview pages send the same id in the X-UltraCart-Storefront-Log-Id response header. | [optional]
 **request_template** | **string** | The template the page rendered with, when known. | [optional]

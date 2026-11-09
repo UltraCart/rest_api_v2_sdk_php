@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.233"
+    "ultracart/rest_api_v2_sdk_php": "4.1.234"
   }
 }
 ```
@@ -714,6 +714,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**putSfvbPageSelectors**](docs/Api/SfvbApi.md#putsfvbpageselectors) | **PUT** /sfvb/storefronts/{storefront_oid}/pages/selectors | Replace a page&#39;s selectors
 *SfvbApi* | [**putSfvbPageSettings**](docs/Api/SfvbApi.md#putsfvbpagesettings) | **PUT** /sfvb/storefronts/{storefront_oid}/pages/settings | Change a page&#39;s settings
 *SfvbApi* | [**putSfvbPreviewSession**](docs/Api/SfvbApi.md#putsfvbpreviewsession) | **PUT** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Push containers into a preview session
+*SfvbApi* | [**putSfvbPreviewTrackingHtml**](docs/Api/SfvbApi.md#putsfvbpreviewtrackinghtml) | **PUT** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id}/tracking_html | Stage custom tracking HTML in a preview session
 *SfvbApi* | [**putSfvbRecordingSettings**](docs/Api/SfvbApi.md#putsfvbrecordingsettings) | **PUT** /sfvb/storefronts/{storefront_oid}/recording_settings | Turn the storefront&#39;s screen recording on or off
 *SfvbApi* | [**putSfvbSiteAttributes**](docs/Api/SfvbApi.md#putsfvbsiteattributes) | **PUT** /sfvb/storefronts/{storefront_oid}/attributes | Change a storefront&#39;s site attributes
 *SfvbApi* | [**putSfvbThemeAttributes**](docs/Api/SfvbApi.md#putsfvbthemeattributes) | **PUT** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Change a theme&#39;s colors, fonts and settings
@@ -722,6 +723,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**removeSfvbPageBlogPosts**](docs/Api/SfvbApi.md#removesfvbpageblogposts) | **POST** /sfvb/storefronts/{storefront_oid}/pages/blog_posts/remove | Take blog posts off a page
 *SfvbApi* | [**removeSfvbPageItems**](docs/Api/SfvbApi.md#removesfvbpageitems) | **POST** /sfvb/storefronts/{storefront_oid}/pages/items/remove | Take items off a page
 *SfvbApi* | [**renderSfvbEmail**](docs/Api/SfvbApi.md#rendersfvbemail) | **POST** /sfvb/storefronts/{storefront_oid}/emails/{email_uuid}/render | Render a flow or campaign email without sending it
+*SfvbApi* | [**renderSfvbTrackingHtml**](docs/Api/SfvbApi.md#rendersfvbtrackinghtml) | **POST** /sfvb/storefronts/{storefront_oid}/tracking/html/{slot}/render | Render the Conversion HTML against a test order
 *SfvbApi* | [**renderSfvbTransactionalEmail**](docs/Api/SfvbApi.md#rendersfvbtransactionalemail) | **POST** /sfvb/storefronts/{storefront_oid}/transactional_emails/{file_name}/render | Render a transactional email without sending it
 *SfvbApi* | [**renderSfvbWidgets**](docs/Api/SfvbApi.md#rendersfvbwidgets) | **POST** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/render | Render a CJSON node to HTML
 *SfvbApi* | [**reserveSfvbWidgetIds**](docs/Api/SfvbApi.md#reservesfvbwidgetids) | **POST** /sfvb/storefronts/{storefront_oid}/widget_ids | Reserve a block of widget ids
@@ -2238,6 +2240,7 @@ Class | Method | HTTP request | Description
 - [SfvbPreviewAccessResponse](docs/Model/SfvbPreviewAccessResponse.md)
 - [SfvbPreviewSessionRequest](docs/Model/SfvbPreviewSessionRequest.md)
 - [SfvbPreviewSessionResponse](docs/Model/SfvbPreviewSessionResponse.md)
+- [SfvbPreviewTrackingHtmlRequest](docs/Model/SfvbPreviewTrackingHtmlRequest.md)
 - [SfvbPreviewUrlResponse](docs/Model/SfvbPreviewUrlResponse.md)
 - [SfvbRecording](docs/Model/SfvbRecording.md)
 - [SfvbRecordingEvent](docs/Model/SfvbRecordingEvent.md)
@@ -2328,6 +2331,8 @@ Class | Method | HTTP request | Description
 - [SfvbTrackingAdvancedRequest](docs/Model/SfvbTrackingAdvancedRequest.md)
 - [SfvbTrackingChange](docs/Model/SfvbTrackingChange.md)
 - [SfvbTrackingHtml](docs/Model/SfvbTrackingHtml.md)
+- [SfvbTrackingHtmlRenderRequest](docs/Model/SfvbTrackingHtmlRenderRequest.md)
+- [SfvbTrackingHtmlRenderResponse](docs/Model/SfvbTrackingHtmlRenderResponse.md)
 - [SfvbTrackingHtmlRequest](docs/Model/SfvbTrackingHtmlRequest.md)
 - [SfvbTrackingHtmlResponse](docs/Model/SfvbTrackingHtmlResponse.md)
 - [SfvbTrackingPrivacy](docs/Model/SfvbTrackingPrivacy.md)
@@ -2559,6 +2564,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.234 | 11/09/2026 | sfvb internal testing |
 | 4.1.233 | 11/06/2026 | sfvb internal testing |
 | 4.1.232 | 11/05/2026 | sfvb internal testing |
 | 4.1.231 | 11/05/2026 | sfvb internal testing |

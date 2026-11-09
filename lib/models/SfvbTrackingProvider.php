@@ -74,6 +74,7 @@ class SfvbTrackingProvider implements ModelInterface, ArrayAccess, \JsonSerializ
         'name' => 'string',
         'notes' => 'string[]',
         'oauth' => '\ultracart\v2\models\SfvbTrackingProviderOauth',
+        'server_side' => 'string',
         'wholesale_tiers' => '\ultracart\v2\models\SfvbTrackingWholesaleTier[]'
     ];
 
@@ -101,6 +102,7 @@ class SfvbTrackingProvider implements ModelInterface, ArrayAccess, \JsonSerializ
         'name' => null,
         'notes' => null,
         'oauth' => null,
+        'server_side' => null,
         'wholesale_tiers' => null
     ];
 
@@ -147,6 +149,7 @@ class SfvbTrackingProvider implements ModelInterface, ArrayAccess, \JsonSerializ
         'name' => 'name',
         'notes' => 'notes',
         'oauth' => 'oauth',
+        'server_side' => 'server_side',
         'wholesale_tiers' => 'wholesale_tiers'
     ];
 
@@ -172,6 +175,7 @@ class SfvbTrackingProvider implements ModelInterface, ArrayAccess, \JsonSerializ
         'name' => 'setName',
         'notes' => 'setNotes',
         'oauth' => 'setOauth',
+        'server_side' => 'setServerSide',
         'wholesale_tiers' => 'setWholesaleTiers'
     ];
 
@@ -197,6 +201,7 @@ class SfvbTrackingProvider implements ModelInterface, ArrayAccess, \JsonSerializ
         'name' => 'getName',
         'notes' => 'getNotes',
         'oauth' => 'getOauth',
+        'server_side' => 'getServerSide',
         'wholesale_tiers' => 'getWholesaleTiers'
     ];
 
@@ -273,6 +278,7 @@ class SfvbTrackingProvider implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->container['name'] = $data['name'] ?? null;
         $this->container['notes'] = $data['notes'] ?? null;
         $this->container['oauth'] = $data['oauth'] ?? null;
+        $this->container['server_side'] = $data['server_side'] ?? null;
         $this->container['wholesale_tiers'] = $data['wholesale_tiers'] ?? null;
     }
 
@@ -680,6 +686,30 @@ class SfvbTrackingProvider implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setOauth($oauth)
     {
         $this->container['oauth'] = $oauth;
+
+        return $this;
+    }
+
+    /**
+     * Gets server_side
+     *
+     * @return string|null
+     */
+    public function getServerSide()
+    {
+        return $this->container['server_side'];
+    }
+
+    /**
+     * Sets server_side
+     *
+     * @param string|null $server_side What the provider also sends from UltraCart's servers.  A consent gate holds back only the browser pixel, not these.  Absent when it sends nothing server side.
+     *
+     * @return self
+     */
+    public function setServerSide($server_side)
+    {
+        $this->container['server_side'] = $server_side;
 
         return $this;
     }

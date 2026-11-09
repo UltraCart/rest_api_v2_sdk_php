@@ -58,6 +58,7 @@ class SfvbCommsLookupOwner implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
+        'archived' => 'bool',
         'live' => 'bool',
         'name' => 'string',
         'status' => 'string',
@@ -73,6 +74,7 @@ class SfvbCommsLookupOwner implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'archived' => null,
         'live' => null,
         'name' => null,
         'status' => null,
@@ -107,6 +109,7 @@ class SfvbCommsLookupOwner implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
+        'archived' => 'archived',
         'live' => 'live',
         'name' => 'name',
         'status' => 'status',
@@ -120,6 +123,7 @@ class SfvbCommsLookupOwner implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
+        'archived' => 'setArchived',
         'live' => 'setLive',
         'name' => 'setName',
         'status' => 'setStatus',
@@ -133,6 +137,7 @@ class SfvbCommsLookupOwner implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
+        'archived' => 'getArchived',
         'live' => 'getLive',
         'name' => 'getName',
         'status' => 'getStatus',
@@ -197,6 +202,7 @@ class SfvbCommsLookupOwner implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
+        $this->container['archived'] = $data['archived'] ?? null;
         $this->container['live'] = $data['live'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
@@ -227,6 +233,30 @@ class SfvbCommsLookupOwner implements ModelInterface, ArrayAccess, \JsonSerializ
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets archived
+     *
+     * @return bool|null
+     */
+    public function getArchived()
+    {
+        return $this->container['archived'];
+    }
+
+    /**
+     * Sets archived
+     *
+     * @param bool|null $archived True when the campaign or flow is archived.  It sends nothing, and 'sf comms flows list' or 'campaigns list' shows it only with --include-deleted.
+     *
+     * @return self
+     */
+    public function setArchived($archived)
+    {
+        $this->container['archived'] = $archived;
+
+        return $this;
+    }
 
     /**
      * Gets live

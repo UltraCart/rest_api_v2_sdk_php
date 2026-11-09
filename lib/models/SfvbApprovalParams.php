@@ -871,7 +871,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets tracking_provider
      *
-     * @param string|null $tracking_provider The tracking provider key, for tracking_provider.change.
+     * @param string|null $tracking_provider The tracking provider key, for tracking_provider.change and tracking_provider.clear.
      *
      * @return self
      */

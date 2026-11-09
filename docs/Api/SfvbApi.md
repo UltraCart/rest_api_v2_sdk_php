@@ -227,6 +227,7 @@ Method | HTTP request | Description
 [**putSfvbPageSelectors()**](SfvbApi.md#putSfvbPageSelectors) | **PUT** /sfvb/storefronts/{storefront_oid}/pages/selectors | Replace a page&#39;s selectors
 [**putSfvbPageSettings()**](SfvbApi.md#putSfvbPageSettings) | **PUT** /sfvb/storefronts/{storefront_oid}/pages/settings | Change a page&#39;s settings
 [**putSfvbPreviewSession()**](SfvbApi.md#putSfvbPreviewSession) | **PUT** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Push containers into a preview session
+[**putSfvbPreviewTrackingHtml()**](SfvbApi.md#putSfvbPreviewTrackingHtml) | **PUT** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id}/tracking_html | Stage custom tracking HTML in a preview session
 [**putSfvbRecordingSettings()**](SfvbApi.md#putSfvbRecordingSettings) | **PUT** /sfvb/storefronts/{storefront_oid}/recording_settings | Turn the storefront&#39;s screen recording on or off
 [**putSfvbSiteAttributes()**](SfvbApi.md#putSfvbSiteAttributes) | **PUT** /sfvb/storefronts/{storefront_oid}/attributes | Change a storefront&#39;s site attributes
 [**putSfvbThemeAttributes()**](SfvbApi.md#putSfvbThemeAttributes) | **PUT** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Change a theme&#39;s colors, fonts and settings
@@ -235,6 +236,7 @@ Method | HTTP request | Description
 [**removeSfvbPageBlogPosts()**](SfvbApi.md#removeSfvbPageBlogPosts) | **POST** /sfvb/storefronts/{storefront_oid}/pages/blog_posts/remove | Take blog posts off a page
 [**removeSfvbPageItems()**](SfvbApi.md#removeSfvbPageItems) | **POST** /sfvb/storefronts/{storefront_oid}/pages/items/remove | Take items off a page
 [**renderSfvbEmail()**](SfvbApi.md#renderSfvbEmail) | **POST** /sfvb/storefronts/{storefront_oid}/emails/{email_uuid}/render | Render a flow or campaign email without sending it
+[**renderSfvbTrackingHtml()**](SfvbApi.md#renderSfvbTrackingHtml) | **POST** /sfvb/storefronts/{storefront_oid}/tracking/html/{slot}/render | Render the Conversion HTML against a test order
 [**renderSfvbTransactionalEmail()**](SfvbApi.md#renderSfvbTransactionalEmail) | **POST** /sfvb/storefronts/{storefront_oid}/transactional_emails/{file_name}/render | Render a transactional email without sending it
 [**renderSfvbWidgets()**](SfvbApi.md#renderSfvbWidgets) | **POST** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/render | Render a CJSON node to HTML
 [**reserveSfvbWidgetIds()**](SfvbApi.md#reserveSfvbWidgetIds) | **POST** /sfvb/storefronts/{storefront_oid}/widget_ids | Reserve a block of widget ids
@@ -1924,12 +1926,12 @@ void (empty response body)
 ## `deleteSfvbTrackingProvider()`
 
 ```php
-deleteSfvbTrackingProvider($storefront_oid, $provider, $if_match): \ultracart\v2\models\SfvbTrackingProvider
+deleteSfvbTrackingProvider($storefront_oid, $provider, $if_match, $dry_run, $approval_id): \ultracart\v2\models\SfvbTrackingProvider
 ```
 
 Clear one tracking provider
 
-Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  The provider stops being sent anything.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider's hash_sha256 as If-Match.  Needs sfvb_publish.  No approval.
+Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider's hash_sha256 as If-Match.  Needs sfvb_publish.  dry_run=true reports the changes, and approval_needed, without clearing.  No approval, except when the clear removes a consent gate while something outside the provider's fields still fires it (Google Ads for an affiliate's own Google conversion id, Commission Junction for an affiliate network of its type): that needs an approved tracking_provider.clear request for the provider (Approval-Id).
 
 
 ### Example
@@ -1945,6 +1947,8 @@ Name | Type | Description  | Notes
  **storefront_oid** | **int**|  |
  **provider** | **string**|  |
  **if_match** | **string**| The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale. |
+ **dry_run** | **bool**|  | [optional]
+ **approval_id** | **string**| When the clear removes a consent gate while something else still fires the provider, the approval_id of an approved tracking_provider.clear request for it.  See POST /sfvb/approvals. | [optional]
 
 ### Return type
 
@@ -3576,7 +3580,7 @@ getSfvbCommsLookup($uuid): \ultracart\v2\models\SfvbCommsLookupResponse
 
 Find which storefront a communications uuid lives on
 
-Takes a campaign, flow, sequence, step, email, postcard, list or segment uuid and says which of this account's storefronts it is on, what it is, the campaign or flow it belongs to, and the command that reads it.  A uuid nothing on this account has, another account's included, is 404.  Read only.
+Takes a campaign, flow, sequence, step, email, postcard, list or segment uuid and says which of this account's storefronts it is on, what it is, the campaign or flow it belongs to, and the command that reads it.  An archived campaign or flow is found too, with archived true, and owner.archived is true when what was found belongs to one.  A uuid nothing on this account has, another account's included, and a deleted step, email, postcard, list or segment, is 404.  Read only.
 
 
 ### Example
@@ -9551,6 +9555,48 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `putSfvbPreviewTrackingHtml()`
+
+```php
+putSfvbPreviewTrackingHtml($storefront_oid, $preview_session_id, $preview_tracking_html): \ultracart\v2\models\SfvbTrackingHtmlResponse
+```
+
+Stage custom tracking HTML in a preview session
+
+Runs Tracking HTML, Conversion HTML or both instead of the storefront's live slots, only in a browser that opened this session's preview access link, so a page can be checked before the write is approved.  Staged Conversion HTML runs only on a test order's receipt.  Each slot gets the same checks as a write.  An empty string unstages a slot; a slot left out is left as it is.  Containers pushed to the session later keep what is staged.  Needs sfvb_write and a token that resolves to a user; no approval, since nothing durable is written and only that user's own session runs it.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **preview_session_id** | **string**|  |
+ **preview_tracking_html** | [**\ultracart\v2\models\SfvbPreviewTrackingHtmlRequest**](../Model/SfvbPreviewTrackingHtmlRequest.md)| The HTML to stage |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbTrackingHtmlResponse**](../Model/SfvbTrackingHtmlResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `putSfvbRecordingSettings()`
 
 ```php
@@ -9876,6 +9922,48 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `renderSfvbTrackingHtml()`
+
+```php
+renderSfvbTrackingHtml($storefront_oid, $slot, $tracking_html_render_request): \ultracart\v2\models\SfvbTrackingHtmlRenderResponse
+```
+
+Render the Conversion HTML against a test order
+
+The Conversion HTML as the receipt of that order would inject it: order tokens filled, then Velocity run with $order, $conversion and $formatHelper.  Renders the stored slot, or content when it is sent (a draft, checked as a write is).  Only a test order on this account may be used; a real or unknown order is refused the same way.  Nothing is saved, injected or sent: the receipt's provider pixels, analytics and postbacks do not run, and a token that would write something ([CouponForNewAffiliate=...]) is left as written.  Only the conversion slot renders; tracking HTML is checked by staging it in a preview session.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **slot** | **string**| conversion |
+ **tracking_html_render_request** | [**\ultracart\v2\models\SfvbTrackingHtmlRenderRequest**](../Model/SfvbTrackingHtmlRenderRequest.md)| The test order, and optionally a draft |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbTrackingHtmlRenderResponse**](../Model/SfvbTrackingHtmlRenderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json; charset=UTF-8`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

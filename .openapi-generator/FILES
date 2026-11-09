@@ -1228,6 +1228,7 @@ docs/Model/SfvbPreviewAccessRequest.md
 docs/Model/SfvbPreviewAccessResponse.md
 docs/Model/SfvbPreviewSessionRequest.md
 docs/Model/SfvbPreviewSessionResponse.md
+docs/Model/SfvbPreviewTrackingHtmlRequest.md
 docs/Model/SfvbPreviewUrlResponse.md
 docs/Model/SfvbRecording.md
 docs/Model/SfvbRecordingEvent.md
@@ -1318,6 +1319,8 @@ docs/Model/SfvbTrackingAdvanced.md
 docs/Model/SfvbTrackingAdvancedRequest.md
 docs/Model/SfvbTrackingChange.md
 docs/Model/SfvbTrackingHtml.md
+docs/Model/SfvbTrackingHtmlRenderRequest.md
+docs/Model/SfvbTrackingHtmlRenderResponse.md
 docs/Model/SfvbTrackingHtmlRequest.md
 docs/Model/SfvbTrackingHtmlResponse.md
 docs/Model/SfvbTrackingPrivacy.md
@@ -2685,6 +2688,7 @@ lib/models/SfvbPreviewAccessRequest.php
 lib/models/SfvbPreviewAccessResponse.php
 lib/models/SfvbPreviewSessionRequest.php
 lib/models/SfvbPreviewSessionResponse.php
+lib/models/SfvbPreviewTrackingHtmlRequest.php
 lib/models/SfvbPreviewUrlResponse.php
 lib/models/SfvbRecording.php
 lib/models/SfvbRecordingEvent.php
@@ -2775,6 +2779,8 @@ lib/models/SfvbTrackingAdvanced.php
 lib/models/SfvbTrackingAdvancedRequest.php
 lib/models/SfvbTrackingChange.php
 lib/models/SfvbTrackingHtml.php
+lib/models/SfvbTrackingHtmlRenderRequest.php
+lib/models/SfvbTrackingHtmlRenderResponse.php
 lib/models/SfvbTrackingHtmlRequest.php
 lib/models/SfvbTrackingHtmlResponse.php
 lib/models/SfvbTrackingPrivacy.php

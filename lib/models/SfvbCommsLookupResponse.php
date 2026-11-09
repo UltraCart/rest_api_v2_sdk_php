@@ -58,6 +58,7 @@ class SfvbCommsLookupResponse implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
+        'archived' => 'bool',
         'communication_sequence_uuid' => 'string',
         'kind' => 'string',
         'name' => 'string',
@@ -77,6 +78,7 @@ class SfvbCommsLookupResponse implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'archived' => null,
         'communication_sequence_uuid' => null,
         'kind' => null,
         'name' => null,
@@ -115,6 +117,7 @@ class SfvbCommsLookupResponse implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
+        'archived' => 'archived',
         'communication_sequence_uuid' => 'communication_sequence_uuid',
         'kind' => 'kind',
         'name' => 'name',
@@ -132,6 +135,7 @@ class SfvbCommsLookupResponse implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
+        'archived' => 'setArchived',
         'communication_sequence_uuid' => 'setCommunicationSequenceUuid',
         'kind' => 'setKind',
         'name' => 'setName',
@@ -149,6 +153,7 @@ class SfvbCommsLookupResponse implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
+        'archived' => 'getArchived',
         'communication_sequence_uuid' => 'getCommunicationSequenceUuid',
         'kind' => 'getKind',
         'name' => 'getName',
@@ -217,6 +222,7 @@ class SfvbCommsLookupResponse implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
+        $this->container['archived'] = $data['archived'] ?? null;
         $this->container['communication_sequence_uuid'] = $data['communication_sequence_uuid'] ?? null;
         $this->container['kind'] = $data['kind'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
@@ -251,6 +257,30 @@ class SfvbCommsLookupResponse implements ModelInterface, ArrayAccess, \JsonSeria
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets archived
+     *
+     * @return bool|null
+     */
+    public function getArchived()
+    {
+        return $this->container['archived'];
+    }
+
+    /**
+     * Sets archived
+     *
+     * @param bool|null $archived True when the uuid is an archived campaign or flow.  It is still on its storefront and can be read; it sends nothing.
+     *
+     * @return self
+     */
+    public function setArchived($archived)
+    {
+        $this->container['archived'] = $archived;
+
+        return $this;
+    }
 
     /**
      * Gets communication_sequence_uuid

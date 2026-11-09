@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **side** | **string** | For sequence_step.move with branch_step_uuid, the side&#39;s label from the sequence read. | [optional]
 **slot** | **string** | For experiment.start of a page experiment, the page body name, which defaults to body.  For tracking_html.put, tracking or conversion. | [optional]
 **step_uuid** | **string** | The step to remove, for sequence_step.delete, to move, for sequence_step.move, or to turn on, for sequence_step.enable_postcard. | [optional]
-**tracking_provider** | **string** | The tracking provider key, for tracking_provider.change. | [optional]
+**tracking_provider** | **string** | The tracking provider key, for tracking_provider.change and tracking_provider.clear. | [optional]
 **upsell_kind** | **string** | For upsell.enable, what to switch on. | [optional]
 **upsell_oid** | **int** | For upsell.enable, the oid of the offer or path to switch on. | [optional]
 **version** | **int** | For file.put_script, the history version a revert restores.  Leave it out, and send content instead, for a write. | [optional]

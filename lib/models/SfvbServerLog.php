@@ -325,7 +325,7 @@ class SfvbServerLog implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets error_count
      *
-     * @param int|null $error_count Error lines in the log, including Velocity problems such as a null
+     * @param int|null $error_count Error lines in the log, including Velocity problems such as setting a variable to null.
      *
      * @return self
      */
