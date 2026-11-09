@@ -655,7 +655,7 @@ class SfvbTrackingProvider implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets notes
      *
-     * @param string[]|null $notes Anything the write left for a person to do, such as disconnecting an OAuth connection in the admin.
+     * @param string[]|null $notes Anything for a person to know or do, such as a field the provider needs before it sends anything, or an OAuth connection to disconnect in the admin after a write.
      *
      * @return self
      */

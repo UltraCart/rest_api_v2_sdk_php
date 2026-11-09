@@ -264,6 +264,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     public const ACTION_SMART_ATTRIBUTION_CHANGE = 'smart_attribution.change';
     public const ACTION_SMART_ATTRIBUTION_DELETE = 'smart_attribution.delete';
     public const ACTION_TRACKING_PROVIDER_CHANGE = 'tracking_provider.change';
+    public const ACTION_TRACKING_PROVIDER_CLEAR = 'tracking_provider.clear';
     public const ACTION_TRACKING_HTML_PUT = 'tracking_html.put';
     public const ACTION_AFFILIATE_NETWORK_CHANGE = 'affiliate_network.change';
     public const ACTION_AFFILIATE_NETWORK_DELETE = 'affiliate_network.delete';
@@ -300,6 +301,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
             self::ACTION_SMART_ATTRIBUTION_CHANGE,
             self::ACTION_SMART_ATTRIBUTION_DELETE,
             self::ACTION_TRACKING_PROVIDER_CHANGE,
+            self::ACTION_TRACKING_PROVIDER_CLEAR,
             self::ACTION_TRACKING_HTML_PUT,
             self::ACTION_AFFILIATE_NETWORK_CHANGE,
             self::ACTION_AFFILIATE_NETWORK_DELETE,
