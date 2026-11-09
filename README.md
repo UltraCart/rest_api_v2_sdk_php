@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.234"
+    "ultracart/rest_api_v2_sdk_php": "4.1.235"
   }
 }
 ```
@@ -637,6 +637,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbTheme**](docs/Api/SfvbApi.md#getsfvbtheme) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid} | Get a theme
 *SfvbApi* | [**getSfvbThemeAttributes**](docs/Api/SfvbApi.md#getsfvbthemeattributes) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Read a theme&#39;s colors, fonts and settings
 *SfvbApi* | [**getSfvbThemeJob**](docs/Api/SfvbApi.md#getsfvbthemejob) | **GET** /sfvb/storefronts/{storefront_oid}/theme_jobs/{job_id} | Status of an asynchronous theme job
+*SfvbApi* | [**getSfvbTrackingCheckPlan**](docs/Api/SfvbApi.md#getsfvbtrackingcheckplan) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/check_plan | Plan a browser check of a storefront&#39;s tracking
 *SfvbApi* | [**getSfvbTrackingHtml**](docs/Api/SfvbApi.md#getsfvbtrackinghtml) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/html/{slot} | Read one custom tracking HTML slot
 *SfvbApi* | [**getSfvbTrackingHtmlSlots**](docs/Api/SfvbApi.md#getsfvbtrackinghtmlslots) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/html | List a storefront&#39;s custom tracking HTML slots
 *SfvbApi* | [**getSfvbTrackingProvider**](docs/Api/SfvbApi.md#getsfvbtrackingprovider) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/providers/{provider} | Read one tracking provider
@@ -2330,6 +2331,13 @@ Class | Method | HTTP request | Description
 - [SfvbTrackingAdvanced](docs/Model/SfvbTrackingAdvanced.md)
 - [SfvbTrackingAdvancedRequest](docs/Model/SfvbTrackingAdvancedRequest.md)
 - [SfvbTrackingChange](docs/Model/SfvbTrackingChange.md)
+- [SfvbTrackingCheckPlan](docs/Model/SfvbTrackingCheckPlan.md)
+- [SfvbTrackingCheckPlanEvent](docs/Model/SfvbTrackingCheckPlanEvent.md)
+- [SfvbTrackingCheckPlanGate](docs/Model/SfvbTrackingCheckPlanGate.md)
+- [SfvbTrackingCheckPlanProvider](docs/Model/SfvbTrackingCheckPlanProvider.md)
+- [SfvbTrackingCheckPlanRequest](docs/Model/SfvbTrackingCheckPlanRequest.md)
+- [SfvbTrackingCheckPlanServerSide](docs/Model/SfvbTrackingCheckPlanServerSide.md)
+- [SfvbTrackingCheckPlanUnchecked](docs/Model/SfvbTrackingCheckPlanUnchecked.md)
 - [SfvbTrackingHtml](docs/Model/SfvbTrackingHtml.md)
 - [SfvbTrackingHtmlRenderRequest](docs/Model/SfvbTrackingHtmlRenderRequest.md)
 - [SfvbTrackingHtmlRenderResponse](docs/Model/SfvbTrackingHtmlRenderResponse.md)
@@ -2564,6 +2572,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.235 | 11/09/2026 | sfvb internal testing |
 | 4.1.234 | 11/09/2026 | sfvb internal testing |
 | 4.1.233 | 11/06/2026 | sfvb internal testing |
 | 4.1.232 | 11/05/2026 | sfvb internal testing |

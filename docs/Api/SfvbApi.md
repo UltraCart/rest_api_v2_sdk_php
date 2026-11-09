@@ -150,6 +150,7 @@ Method | HTTP request | Description
 [**getSfvbTheme()**](SfvbApi.md#getSfvbTheme) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid} | Get a theme
 [**getSfvbThemeAttributes()**](SfvbApi.md#getSfvbThemeAttributes) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Read a theme&#39;s colors, fonts and settings
 [**getSfvbThemeJob()**](SfvbApi.md#getSfvbThemeJob) | **GET** /sfvb/storefronts/{storefront_oid}/theme_jobs/{job_id} | Status of an asynchronous theme job
+[**getSfvbTrackingCheckPlan()**](SfvbApi.md#getSfvbTrackingCheckPlan) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/check_plan | Plan a browser check of a storefront&#39;s tracking
 [**getSfvbTrackingHtml()**](SfvbApi.md#getSfvbTrackingHtml) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/html/{slot} | Read one custom tracking HTML slot
 [**getSfvbTrackingHtmlSlots()**](SfvbApi.md#getSfvbTrackingHtmlSlots) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/html | List a storefront&#39;s custom tracking HTML slots
 [**getSfvbTrackingProvider()**](SfvbApi.md#getSfvbTrackingProvider) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/providers/{provider} | Read one tracking provider
@@ -6310,6 +6311,51 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\SfvbThemeJobResponse**](../Model/SfvbThemeJobResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getSfvbTrackingCheckPlan()`
+
+```php
+getSfvbTrackingCheckPlan($storefront_oid, $path, $event, $order_id, $consent, $region): \ultracart\v2\models\SfvbTrackingCheckPlan
+```
+
+Plan a browser check of a storefront's tracking
+
+What each tracking provider should load on one page, for page_view or a test order's purchase, under a consent state and region, with the requests and calls to look for and the ones that must not appear.  Built from the same rules the storefront's tracking templates follow, never by running them, so nothing is sent to any provider.  Includes the hosts the storefront's custom and affiliate network HTML loads, the sends made from UltraCart servers, and a snippet that collects what the browser saw.  Grade the results locally; they are never sent here.  With neither consent nor region, every provider is listed with the gate that holds it back.  A purchase needs a test order on this account.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **path** | **string**| A storefront page path, such as / or /checkout/receipt.html, with an optional query |
+ **event** | **string**| page_view (the default) or purchase | [optional]
+ **order_id** | **string**| For purchase, a test order on this account | [optional]
+ **consent** | **string**| none, all, or a comma list of statistics, preferences and marketing | [optional]
+ **region** | **string**| Where the browser is.  eea, non-us or other | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\SfvbTrackingCheckPlan**](../Model/SfvbTrackingCheckPlan.md)
 
 ### Authorization
 

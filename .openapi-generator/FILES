@@ -1318,6 +1318,13 @@ docs/Model/SfvbThemesResponse.md
 docs/Model/SfvbTrackingAdvanced.md
 docs/Model/SfvbTrackingAdvancedRequest.md
 docs/Model/SfvbTrackingChange.md
+docs/Model/SfvbTrackingCheckPlan.md
+docs/Model/SfvbTrackingCheckPlanEvent.md
+docs/Model/SfvbTrackingCheckPlanGate.md
+docs/Model/SfvbTrackingCheckPlanProvider.md
+docs/Model/SfvbTrackingCheckPlanRequest.md
+docs/Model/SfvbTrackingCheckPlanServerSide.md
+docs/Model/SfvbTrackingCheckPlanUnchecked.md
 docs/Model/SfvbTrackingHtml.md
 docs/Model/SfvbTrackingHtmlRenderRequest.md
 docs/Model/SfvbTrackingHtmlRenderResponse.md
@@ -2778,6 +2785,13 @@ lib/models/SfvbThemesResponse.php
 lib/models/SfvbTrackingAdvanced.php
 lib/models/SfvbTrackingAdvancedRequest.php
 lib/models/SfvbTrackingChange.php
+lib/models/SfvbTrackingCheckPlan.php
+lib/models/SfvbTrackingCheckPlanEvent.php
+lib/models/SfvbTrackingCheckPlanGate.php
+lib/models/SfvbTrackingCheckPlanProvider.php
+lib/models/SfvbTrackingCheckPlanRequest.php
+lib/models/SfvbTrackingCheckPlanServerSide.php
+lib/models/SfvbTrackingCheckPlanUnchecked.php
 lib/models/SfvbTrackingHtml.php
 lib/models/SfvbTrackingHtmlRenderRequest.php
 lib/models/SfvbTrackingHtmlRenderResponse.php
