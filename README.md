@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.236"
+    "ultracart/rest_api_v2_sdk_php": "4.1.237"
   }
 }
 ```
@@ -585,6 +585,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbCommsUnreferenced**](docs/Api/SfvbApi.md#getsfvbcommsunreferenced) | **GET** /sfvb/storefronts/{storefront_oid}/comms/unreferenced | List the emails and postcards on a storefront that no step names
 *SfvbApi* | [**getSfvbContainer**](docs/Api/SfvbApi.md#getsfvbcontainer) | **GET** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Read a container stored outside the file system
 *SfvbApi* | [**getSfvbContainerVersion**](docs/Api/SfvbApi.md#getsfvbcontainerversion) | **GET** /sfvb/storefronts/{storefront_oid}/container_versions/{container_history_oid} | Read the CJSON stored in one container history entry
+*SfvbApi* | [**getSfvbDocsGap**](docs/Api/SfvbApi.md#getsfvbdocsgap) | **GET** /sfvb/docs/gaps/{report_id} | Get a documentation-gap report&#39;s status
 *SfvbApi* | [**getSfvbElement**](docs/Api/SfvbApi.md#getsfvbelement) | **GET** /sfvb/elements/{element_type} | Configuration schema and field card for one element type
 *SfvbApi* | [**getSfvbEmail**](docs/Api/SfvbApi.md#getsfvbemail) | **GET** /sfvb/storefronts/{storefront_oid}/emails/{email_uuid} | Get a flow or campaign email&#39;s subject and preview text
 *SfvbApi* | [**getSfvbEvents**](docs/Api/SfvbApi.md#getsfvbevents) | **GET** /sfvb/events | Replay events
@@ -664,6 +665,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**insertSfvbCommsSegment**](docs/Api/SfvbApi.md#insertsfvbcommssegment) | **POST** /sfvb/storefronts/{storefront_oid}/segments | Create a segment
 *SfvbApi* | [**insertSfvbCommsSendingDomain**](docs/Api/SfvbApi.md#insertsfvbcommssendingdomain) | **POST** /sfvb/comms/sending_domains | Add a sending domain
 *SfvbApi* | [**insertSfvbCommsTwilioAccount**](docs/Api/SfvbApi.md#insertsfvbcommstwilioaccount) | **POST** /sfvb/comms/twilio_account | Connect the Twilio account
+*SfvbApi* | [**insertSfvbDocsGap**](docs/Api/SfvbApi.md#insertsfvbdocsgap) | **POST** /sfvb/docs/gaps | Send UltraCart a documentation-gap report
 *SfvbApi* | [**insertSfvbPage**](docs/Api/SfvbApi.md#insertsfvbpage) | **POST** /sfvb/storefronts/{storefront_oid}/pages | Create a page
 *SfvbApi* | [**insertSfvbRedirect**](docs/Api/SfvbApi.md#insertsfvbredirect) | **POST** /sfvb/storefronts/{storefront_oid}/redirects | Create a 301 redirect rule
 *SfvbApi* | [**insertSfvbSecretRequest**](docs/Api/SfvbApi.md#insertsfvbsecretrequest) | **POST** /sfvb/secrets | Ask a person to enter secret values
@@ -2100,6 +2102,9 @@ Class | Method | HTTP request | Description
 - [SfvbContainerVersion](docs/Model/SfvbContainerVersion.md)
 - [SfvbContainerVersionsResponse](docs/Model/SfvbContainerVersionsResponse.md)
 - [SfvbContainerWriteRequest](docs/Model/SfvbContainerWriteRequest.md)
+- [SfvbDocsGap](docs/Model/SfvbDocsGap.md)
+- [SfvbDocsGapReport](docs/Model/SfvbDocsGapReport.md)
+- [SfvbDocsGapReportGap](docs/Model/SfvbDocsGapReportGap.md)
 - [SfvbElement](docs/Model/SfvbElement.md)
 - [SfvbElementSchemaResponse](docs/Model/SfvbElementSchemaResponse.md)
 - [SfvbElementsResponse](docs/Model/SfvbElementsResponse.md)
@@ -2572,6 +2577,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.237 | 11/10/2026 | sfvb internal testing |
 | 4.1.236 | 11/09/2026 | sfvb internal testing |
 | 4.1.235 | 11/09/2026 | sfvb internal testing |
 | 4.1.234 | 11/09/2026 | sfvb internal testing |

@@ -1087,6 +1087,9 @@ docs/Model/SfvbContainerRevertRequest.md
 docs/Model/SfvbContainerVersion.md
 docs/Model/SfvbContainerVersionsResponse.md
 docs/Model/SfvbContainerWriteRequest.md
+docs/Model/SfvbDocsGap.md
+docs/Model/SfvbDocsGapReport.md
+docs/Model/SfvbDocsGapReportGap.md
 docs/Model/SfvbElement.md
 docs/Model/SfvbElementSchemaResponse.md
 docs/Model/SfvbElementsResponse.md
@@ -2554,6 +2557,9 @@ lib/models/SfvbContainerRevertRequest.php
 lib/models/SfvbContainerVersion.php
 lib/models/SfvbContainerVersionsResponse.php
 lib/models/SfvbContainerWriteRequest.php
+lib/models/SfvbDocsGap.php
+lib/models/SfvbDocsGapReport.php
+lib/models/SfvbDocsGapReportGap.php
 lib/models/SfvbElement.php
 lib/models/SfvbElementSchemaResponse.php
 lib/models/SfvbElementsResponse.php
