@@ -59,6 +59,7 @@ class SfvbTrackingCheckPlanGate implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static $openAPITypes = [
         'region' => 'string',
+        'service' => 'string',
         'type' => 'string'
     ];
 
@@ -71,6 +72,7 @@ class SfvbTrackingCheckPlanGate implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static $openAPIFormats = [
         'region' => null,
+        'service' => null,
         'type' => null
     ];
 
@@ -102,6 +104,7 @@ class SfvbTrackingCheckPlanGate implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $attributeMap = [
         'region' => 'region',
+        'service' => 'service',
         'type' => 'type'
     ];
 
@@ -112,6 +115,7 @@ class SfvbTrackingCheckPlanGate implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $setters = [
         'region' => 'setRegion',
+        'service' => 'setService',
         'type' => 'setType'
     ];
 
@@ -122,6 +126,7 @@ class SfvbTrackingCheckPlanGate implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $getters = [
         'region' => 'getRegion',
+        'service' => 'getService',
         'type' => 'getType'
     ];
 
@@ -217,6 +222,7 @@ class SfvbTrackingCheckPlanGate implements ModelInterface, ArrayAccess, \JsonSer
     public function __construct(array $data = null)
     {
         $this->container['region'] = $data['region'] ?? null;
+        $this->container['service'] = $data['service'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
     }
 
@@ -292,6 +298,30 @@ class SfvbTrackingCheckPlanGate implements ModelInterface, ArrayAccess, \JsonSer
             );
         }
         $this->container['region'] = $region;
+
+        return $this;
+    }
+
+    /**
+     * Gets service
+     *
+     * @return string|null
+     */
+    public function getService()
+    {
+        return $this->container['service'];
+    }
+
+    /**
+     * Sets service
+     *
+     * @param string|null $service The cookie service the consent gate is stored under, for example openai or facebook (#1959).
+     *
+     * @return self
+     */
+    public function setService($service)
+    {
+        $this->container['service'] = $service;
 
         return $this;
     }

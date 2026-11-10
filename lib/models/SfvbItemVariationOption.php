@@ -58,7 +58,7 @@ class SfvbItemVariationOption implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'default' => 'bool',
+        'default_option' => 'bool',
         'multimedia_oid' => 'int',
         'value' => 'string'
     ];
@@ -71,7 +71,7 @@ class SfvbItemVariationOption implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'default' => null,
+        'default_option' => null,
         'multimedia_oid' => 'int32',
         'value' => null
     ];
@@ -103,7 +103,7 @@ class SfvbItemVariationOption implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'default' => 'default',
+        'default_option' => 'default_option',
         'multimedia_oid' => 'multimedia_oid',
         'value' => 'value'
     ];
@@ -114,7 +114,7 @@ class SfvbItemVariationOption implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'default' => 'setDefault',
+        'default_option' => 'setDefaultOption',
         'multimedia_oid' => 'setMultimediaOid',
         'value' => 'setValue'
     ];
@@ -125,7 +125,7 @@ class SfvbItemVariationOption implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'default' => 'getDefault',
+        'default_option' => 'getDefaultOption',
         'multimedia_oid' => 'getMultimediaOid',
         'value' => 'getValue'
     ];
@@ -187,7 +187,7 @@ class SfvbItemVariationOption implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
-        $this->container['default'] = $data['default'] ?? null;
+        $this->container['default_option'] = $data['default_option'] ?? null;
         $this->container['multimedia_oid'] = $data['multimedia_oid'] ?? null;
         $this->container['value'] = $data['value'] ?? null;
     }
@@ -217,25 +217,25 @@ class SfvbItemVariationOption implements ModelInterface, ArrayAccess, \JsonSeria
 
 
     /**
-     * Gets default
+     * Gets default_option
      *
      * @return bool|null
      */
-    public function getDefault()
+    public function getDefaultOption()
     {
-        return $this->container['default'];
+        return $this->container['default_option'];
     }
 
     /**
-     * Sets default
+     * Sets default_option
      *
-     * @param bool|null $default True for the option the item page starts on.  At most one per axis.
+     * @param bool|null $default_option True for the option the item page starts on.  At most one per axis.
      *
      * @return self
      */
-    public function setDefault($default)
+    public function setDefaultOption($default_option)
     {
-        $this->container['default'] = $default;
+        $this->container['default_option'] = $default_option;
 
         return $this;
     }

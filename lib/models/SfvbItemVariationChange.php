@@ -61,7 +61,7 @@ class SfvbItemVariationChange implements ModelInterface, ArrayAccess, \JsonSeria
         'axis' => 'string',
         'before' => 'string',
         'child' => 'string',
-        'default' => 'bool',
+        'default_option' => 'bool',
         'default_text' => 'string',
         'multimedia_oid' => 'int',
         'op' => 'string',
@@ -83,7 +83,7 @@ class SfvbItemVariationChange implements ModelInterface, ArrayAccess, \JsonSeria
         'axis' => null,
         'before' => null,
         'child' => null,
-        'default' => null,
+        'default_option' => null,
         'default_text' => null,
         'multimedia_oid' => 'int32',
         'op' => null,
@@ -124,7 +124,7 @@ class SfvbItemVariationChange implements ModelInterface, ArrayAccess, \JsonSeria
         'axis' => 'axis',
         'before' => 'before',
         'child' => 'child',
-        'default' => 'default',
+        'default_option' => 'default_option',
         'default_text' => 'default_text',
         'multimedia_oid' => 'multimedia_oid',
         'op' => 'op',
@@ -144,7 +144,7 @@ class SfvbItemVariationChange implements ModelInterface, ArrayAccess, \JsonSeria
         'axis' => 'setAxis',
         'before' => 'setBefore',
         'child' => 'setChild',
-        'default' => 'setDefault',
+        'default_option' => 'setDefaultOption',
         'default_text' => 'setDefaultText',
         'multimedia_oid' => 'setMultimediaOid',
         'op' => 'setOp',
@@ -164,7 +164,7 @@ class SfvbItemVariationChange implements ModelInterface, ArrayAccess, \JsonSeria
         'axis' => 'getAxis',
         'before' => 'getBefore',
         'child' => 'getChild',
-        'default' => 'getDefault',
+        'default_option' => 'getDefaultOption',
         'default_text' => 'getDefaultText',
         'multimedia_oid' => 'getMultimediaOid',
         'op' => 'getOp',
@@ -235,7 +235,7 @@ class SfvbItemVariationChange implements ModelInterface, ArrayAccess, \JsonSeria
         $this->container['axis'] = $data['axis'] ?? null;
         $this->container['before'] = $data['before'] ?? null;
         $this->container['child'] = $data['child'] ?? null;
-        $this->container['default'] = $data['default'] ?? null;
+        $this->container['default_option'] = $data['default_option'] ?? null;
         $this->container['default_text'] = $data['default_text'] ?? null;
         $this->container['multimedia_oid'] = $data['multimedia_oid'] ?? null;
         $this->container['op'] = $data['op'] ?? null;
@@ -343,25 +343,25 @@ class SfvbItemVariationChange implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Gets default
+     * Gets default_option
      *
      * @return bool|null
      */
-    public function getDefault()
+    public function getDefaultOption()
     {
-        return $this->container['default'];
+        return $this->container['default_option'];
     }
 
     /**
-     * Sets default
+     * Sets default_option
      *
-     * @param bool|null $default add_option and add_axis make the option the default.
+     * @param bool|null $default_option add_option and add_axis make the option the default.
      *
      * @return self
      */
-    public function setDefault($default)
+    public function setDefaultOption($default_option)
     {
-        $this->container['default'] = $default;
+        $this->container['default_option'] = $default_option;
 
         return $this;
     }
