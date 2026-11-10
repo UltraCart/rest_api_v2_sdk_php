@@ -51,6 +51,7 @@ Method | HTTP request | Description
 [**disableSfvbUpsellPath()**](SfvbApi.md#disableSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/disable | Disable an upsell path
 [**downloadSfvbFile()**](SfvbApi.md#downloadSfvbFile) | **GET** /sfvb/storefronts/{storefront_oid}/files/download | Read a storefront file&#39;s raw bytes
 [**dryRunSfvbItemAttributeBatch()**](SfvbApi.md#dryRunSfvbItemAttributeBatch) | **POST** /sfvb/storefronts/{storefront_oid}/items/attributes/batch/dry_run | Check attribute changes across many items without writing them
+[**dryRunSfvbItemDefaultPage()**](SfvbApi.md#dryRunSfvbItemDefaultPage) | **POST** /sfvb/storefronts/{storefront_oid}/items/default_page/dry_run | Check moving items&#39; default (canonical) pages
 [**dryRunSfvbRedirectDelete()**](SfvbApi.md#dryRunSfvbRedirectDelete) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/delete/dry_run | Check a batch delete of redirect rules without writing it
 [**dryRunSfvbRedirectImport()**](SfvbApi.md#dryRunSfvbRedirectImport) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/import/dry_run | Check a redirect import without writing it
 [**duplicateSfvbLibraryEntry()**](SfvbApi.md#duplicateSfvbLibraryEntry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/duplicate | Copy a library entry into a new private entry
@@ -114,10 +115,12 @@ Method | HTTP request | Description
 [**getSfvbI18nMessage()**](SfvbApi.md#getSfvbI18nMessage) | **GET** /sfvb/storefronts/{storefront_oid}/i18n/messages/{key} | Read one built-in message
 [**getSfvbI18nMessageMachineTranslations()**](SfvbApi.md#getSfvbI18nMessageMachineTranslations) | **GET** /sfvb/storefronts/{storefront_oid}/i18n/messages/{key}/machine_translations | Read where a message&#39;s translations come from
 [**getSfvbItem()**](SfvbApi.md#getSfvbItem) | **GET** /sfvb/storefronts/{storefront_oid}/items | Read an item&#39;s storefront facing content
+[**getSfvbItemPages()**](SfvbApi.md#getSfvbItemPages) | **GET** /sfvb/storefronts/{storefront_oid}/items/pages | Read the pages an item is on and its default page
 [**getSfvbItemPreorder()**](SfvbApi.md#getSfvbItemPreorder) | **GET** /sfvb/storefronts/{storefront_oid}/items/preorder | Read an item&#39;s pre-order flag and ETA
 [**getSfvbItemPreorderChildren()**](SfvbApi.md#getSfvbItemPreorderChildren) | **GET** /sfvb/storefronts/{storefront_oid}/items/preorder/children | Read the pre-order flag and ETA of a parent item&#39;s variations
 [**getSfvbItemPricing()**](SfvbApi.md#getSfvbItemPricing) | **GET** /sfvb/storefronts/{storefront_oid}/items/pricing | Read what an item charges
 [**getSfvbItemRelated()**](SfvbApi.md#getSfvbItemRelated) | **GET** /sfvb/storefronts/{storefront_oid}/items/related | Read an item&#39;s related items
+[**getSfvbItemVariations()**](SfvbApi.md#getSfvbItemVariations) | **GET** /sfvb/storefronts/{storefront_oid}/items/variations | Read an item&#39;s variations
 [**getSfvbLibraryEntry()**](SfvbApi.md#getSfvbLibraryEntry) | **GET** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Read one library entry including its CJSON
 [**getSfvbLibraryHistory()**](SfvbApi.md#getSfvbLibraryHistory) | **GET** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/history | List a library entry&#39;s published revisions
 [**getSfvbLibraryShareTargets()**](SfvbApi.md#getSfvbLibraryShareTargets) | **GET** /sfvb/storefronts/{storefront_oid}/library/share_targets | List the accounts a library entry can be shared with
@@ -181,6 +184,7 @@ Method | HTTP request | Description
 [**insertSfvbCommsSendingDomain()**](SfvbApi.md#insertSfvbCommsSendingDomain) | **POST** /sfvb/comms/sending_domains | Add a sending domain
 [**insertSfvbCommsTwilioAccount()**](SfvbApi.md#insertSfvbCommsTwilioAccount) | **POST** /sfvb/comms/twilio_account | Connect the Twilio account
 [**insertSfvbDocsGap()**](SfvbApi.md#insertSfvbDocsGap) | **POST** /sfvb/docs/gaps | Send UltraCart a documentation-gap report
+[**insertSfvbItemChild()**](SfvbApi.md#insertSfvbItemChild) | **POST** /sfvb/storefronts/{storefront_oid}/items/children | Create a child item for a parent&#39;s variations
 [**insertSfvbPage()**](SfvbApi.md#insertSfvbPage) | **POST** /sfvb/storefronts/{storefront_oid}/pages | Create a page
 [**insertSfvbRedirect()**](SfvbApi.md#insertSfvbRedirect) | **POST** /sfvb/storefronts/{storefront_oid}/redirects | Create a 301 redirect rule
 [**insertSfvbSecretRequest()**](SfvbApi.md#insertSfvbSecretRequest) | **POST** /sfvb/secrets | Ask a person to enter secret values
@@ -228,6 +232,7 @@ Method | HTTP request | Description
 [**putSfvbItemPricing()**](SfvbApi.md#putSfvbItemPricing) | **PUT** /sfvb/storefronts/{storefront_oid}/items/pricing | Change what an item charges
 [**putSfvbItemRelated()**](SfvbApi.md#putSfvbItemRelated) | **PUT** /sfvb/storefronts/{storefront_oid}/items/related | Replace an item&#39;s related items
 [**putSfvbItemSeo()**](SfvbApi.md#putSfvbItemSeo) | **PUT** /sfvb/storefronts/{storefront_oid}/items/seo | Change an item&#39;s search metadata
+[**putSfvbItemVariations()**](SfvbApi.md#putSfvbItemVariations) | **PUT** /sfvb/storefronts/{storefront_oid}/items/variations | Change an item&#39;s variations
 [**putSfvbMenu()**](SfvbApi.md#putSfvbMenu) | **PUT** /sfvb/storefronts/{storefront_oid}/menus/{code} | Replace a store menu&#39;s entries
 [**putSfvbPageAttributes()**](SfvbApi.md#putSfvbPageAttributes) | **PUT** /sfvb/storefronts/{storefront_oid}/pages/attributes | Change a page&#39;s attributes
 [**putSfvbPageMultimedia()**](SfvbApi.md#putSfvbPageMultimedia) | **PUT** /sfvb/storefronts/{storefront_oid}/pages/multimedia | Attach an image to a page
@@ -283,6 +288,7 @@ Method | HTTP request | Description
 [**updateSfvbFlow()**](SfvbApi.md#updateSfvbFlow) | **PUT** /sfvb/storefronts/{storefront_oid}/flows/{flow_uuid} | Change a flow
 [**updateSfvbFlowStatus()**](SfvbApi.md#updateSfvbFlowStatus) | **PUT** /sfvb/storefronts/{storefront_oid}/flows/{flow_uuid}/status | Turn a flow on or off
 [**updateSfvbItemAttributeBatch()**](SfvbApi.md#updateSfvbItemAttributeBatch) | **POST** /sfvb/storefronts/{storefront_oid}/items/attributes/batch | Change attributes across many items in one call
+[**updateSfvbItemDefaultPage()**](SfvbApi.md#updateSfvbItemDefaultPage) | **POST** /sfvb/storefronts/{storefront_oid}/items/default_page | Move items&#39; default (canonical) pages
 [**updateSfvbLibraryEntry()**](SfvbApi.md#updateSfvbLibraryEntry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Update a library entry&#39;s draft
 [**updateSfvbRedirect()**](SfvbApi.md#updateSfvbRedirect) | **PUT** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Change a redirect rule
 [**updateSfvbSequenceStep()**](SfvbApi.md#updateSfvbSequenceStep) | **PUT** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid} | Change one step&#39;s settings or audience filter
@@ -2250,6 +2256,47 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\SfvbItemAttributeBatchResponse**](../Model/SfvbItemAttributeBatchResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `dryRunSfvbItemDefaultPage()`
+
+```php
+dryRunSfvbItemDefaultPage($storefront_oid, $item_default_page_request): \ultracart\v2\models\SfvbItemDefaultPageResponse
+```
+
+Check moving items' default (canonical) pages
+
+Checks up to 2,000 rows on up to 200 items, each naming an item and a page it is already on, and saves nothing.  Each row answers ready, already_default, target_not_found, target_not_on_host, target_not_assigned, target_hidden (refused - a hidden page isn't served to shoppers), item_not_found, invalid or stale, with the item's current default and current_sha256.  rows_sha256 covers the ready rows - request item.default_page with exactly those rows, then apply them.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **item_default_page_request** | [**\ultracart\v2\models\SfvbItemDefaultPageRequest**](../Model/SfvbItemDefaultPageRequest.md)| The rows |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbItemDefaultPageResponse**](../Model/SfvbItemDefaultPageResponse.md)
 
 ### Authorization
 
@@ -4848,6 +4895,48 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getSfvbItemPages()`
+
+```php
+getSfvbItemPages($storefront_oid, $merchant_item_id, $merchant_item_oid): \ultracart\v2\models\SfvbItemPages
+```
+
+Read the pages an item is on and its default page
+
+Every page the item is assigned to on this storefront, whether each is visible, and which is the default - the page the item's canonical link uses.  Another storefront's pages aren't listed.  hash_sha256 is the same value the default-page dry run reports as current_sha256.  Address the item by merchant_item_id or merchant_item_oid.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **merchant_item_id** | **string**|  | [optional]
+ **merchant_item_oid** | **int**|  | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\SfvbItemPages**](../Model/SfvbItemPages.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getSfvbItemPreorder()`
 
 ```php
@@ -5002,6 +5091,48 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\SfvbItemRelated**](../Model/SfvbItemRelated.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getSfvbItemVariations()`
+
+```php
+getSfvbItemVariations($storefront_oid, $merchant_item_id, $merchant_item_oid): \ultracart\v2\models\SfvbItemVariations
+```
+
+Read an item's variations
+
+The variation axes, such as Size, with their options in the order shoppers see them, and every filled combination with the child item it sells and its quantity.  A combination not listed has no child, and storefronts show it as unavailable.  hash_sha256 goes back as If-Match on the update.  Address the parent by merchant_item_id or merchant_item_oid.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **merchant_item_id** | **string**|  | [optional]
+ **merchant_item_oid** | **int**|  | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\SfvbItemVariations**](../Model/SfvbItemVariations.md)
 
 ### Authorization
 
@@ -7606,6 +7737,47 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `insertSfvbItemChild()`
+
+```php
+insertSfvbItemChild($storefront_oid, $item_child_request): \ultracart\v2\models\SfvbItemChildCreateResponse
+```
+
+Create a child item for a parent's variations
+
+Creates a new item copying the parent's description, cost, weight, dimensions and item folder, so it can be assigned to a combination with the variations update.  It is not assigned here and nothing else is copied.  merchant_item_id may use letters, digits, dot, underscore and dash, at most 20 characters; an id already on the account is 409 sfvb.item_exists.  Needs sfvb_publish when items are live.  dry_run checks without creating.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **item_child_request** | [**\ultracart\v2\models\SfvbItemChildCreateRequest**](../Model/SfvbItemChildCreateRequest.md)| The child to create |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbItemChildCreateResponse**](../Model/SfvbItemChildCreateResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `insertSfvbPage()`
 
 ```php
@@ -9601,6 +9773,51 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `putSfvbItemVariations()`
+
+```php
+putSfvbItemVariations($storefront_oid, $if_match, $item_variations_request, $merchant_item_id, $merchant_item_oid, $approval_id): \ultracart\v2\models\SfvbItemVariationsResponse
+```
+
+Change an item's variations
+
+A list of changes applied in order - add_axis, remove_axis, rename_axis, add_option, remove_option, rename_option, reorder_options, set_default, set_default_text, set_option_multimedia and set_combination.  Every change is checked before anything is saved, and nothing the list doesn't mention changes.  Child items must already exist; create one with POST items/children.  Needs sfvb_publish when items are live and If-Match with the hash_sha256 from the read.  Removing an axis, removing an option whose combinations sell a child, or re-pointing or clearing a combination shoppers can buy today also needs the approval of the person who signed in the CLI - an approved item.variations request for this item and exactly this list.  Adding never does.  dry_run returns the planned variations, what each change does, and whether approval is needed.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **if_match** | **string**| hash_sha256 from the variations read.  Required; 428 when absent, 412 when stale. |
+ **item_variations_request** | [**\ultracart\v2\models\SfvbItemVariationsRequest**](../Model/SfvbItemVariationsRequest.md)| The changes |
+ **merchant_item_id** | **string**|  | [optional]
+ **merchant_item_oid** | **int**|  | [optional]
+ **approval_id** | **string**| The approval_id of an approved item.variations request for this item and list.  Required when the list removes or re-points something shoppers can buy.  See POST /sfvb/approvals. | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\SfvbItemVariationsResponse**](../Model/SfvbItemVariationsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json; charset=UTF-8`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -11913,6 +12130,48 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\SfvbItemAttributeBatchResponse**](../Model/SfvbItemAttributeBatchResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateSfvbItemDefaultPage()`
+
+```php
+updateSfvbItemDefaultPage($storefront_oid, $item_default_page_request, $approval_id): \ultracart\v2\models\SfvbItemDefaultPageResponse
+```
+
+Move items' default (canonical) pages
+
+Applies the dry run's ready rows with their rows_sha256 under an approved item.default_page request for exactly those rows.  Each item's default moves to the named page on this storefront only; every page assignment stays, and nothing else on the item changes.  A row whose pages changed since the dry run is skipped as stale, and one failed row doesn't stop the others.  Each row is read back; it answers updated with previous_default_path, so the change can be undone, or failed.  Needs sfvb_publish when items are live.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **item_default_page_request** | [**\ultracart\v2\models\SfvbItemDefaultPageRequest**](../Model/SfvbItemDefaultPageRequest.md)| The dry run&#39;s ready rows and rows_sha256 |
+ **approval_id** | **string**| The approval_id of an approved item.default_page request for exactly these rows.  Required.  See POST /sfvb/approvals. | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\SfvbItemDefaultPageResponse**](../Model/SfvbItemDefaultPageResponse.md)
 
 ### Authorization
 
