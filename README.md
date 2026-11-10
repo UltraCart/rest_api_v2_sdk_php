@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.237"
+    "ultracart/rest_api_v2_sdk_php": "4.1.238"
   }
 }
 ```
@@ -601,6 +601,8 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbI18nMessage**](docs/Api/SfvbApi.md#getsfvbi18nmessage) | **GET** /sfvb/storefronts/{storefront_oid}/i18n/messages/{key} | Read one built-in message
 *SfvbApi* | [**getSfvbI18nMessageMachineTranslations**](docs/Api/SfvbApi.md#getsfvbi18nmessagemachinetranslations) | **GET** /sfvb/storefronts/{storefront_oid}/i18n/messages/{key}/machine_translations | Read where a message&#39;s translations come from
 *SfvbApi* | [**getSfvbItem**](docs/Api/SfvbApi.md#getsfvbitem) | **GET** /sfvb/storefronts/{storefront_oid}/items | Read an item&#39;s storefront facing content
+*SfvbApi* | [**getSfvbItemPreorder**](docs/Api/SfvbApi.md#getsfvbitempreorder) | **GET** /sfvb/storefronts/{storefront_oid}/items/preorder | Read an item&#39;s pre-order flag and ETA
+*SfvbApi* | [**getSfvbItemPreorderChildren**](docs/Api/SfvbApi.md#getsfvbitempreorderchildren) | **GET** /sfvb/storefronts/{storefront_oid}/items/preorder/children | Read the pre-order flag and ETA of a parent item&#39;s variations
 *SfvbApi* | [**getSfvbItemPricing**](docs/Api/SfvbApi.md#getsfvbitempricing) | **GET** /sfvb/storefronts/{storefront_oid}/items/pricing | Read what an item charges
 *SfvbApi* | [**getSfvbItemRelated**](docs/Api/SfvbApi.md#getsfvbitemrelated) | **GET** /sfvb/storefronts/{storefront_oid}/items/related | Read an item&#39;s related items
 *SfvbApi* | [**getSfvbLibraryEntry**](docs/Api/SfvbApi.md#getsfvblibraryentry) | **GET** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Read one library entry including its CJSON
@@ -708,6 +710,8 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**putSfvbItemContent**](docs/Api/SfvbApi.md#putsfvbitemcontent) | **PUT** /sfvb/storefronts/{storefront_oid}/items/content | Change an item&#39;s title or long description
 *SfvbApi* | [**putSfvbItemMultimedia**](docs/Api/SfvbApi.md#putsfvbitemmultimedia) | **PUT** /sfvb/storefronts/{storefront_oid}/items/multimedia | Attach an image to an item
 *SfvbApi* | [**putSfvbItemMultimediaDescription**](docs/Api/SfvbApi.md#putsfvbitemmultimediadescription) | **PUT** /sfvb/storefronts/{storefront_oid}/items/multimedia/description | Change an item image&#39;s description
+*SfvbApi* | [**putSfvbItemPreorder**](docs/Api/SfvbApi.md#putsfvbitempreorder) | **PUT** /sfvb/storefronts/{storefront_oid}/items/preorder | Change an item&#39;s pre-order flag or ETA
+*SfvbApi* | [**putSfvbItemPreorderChildren**](docs/Api/SfvbApi.md#putsfvbitempreorderchildren) | **PUT** /sfvb/storefronts/{storefront_oid}/items/preorder/children | Change the pre-order flag or ETA of several variations of one parent
 *SfvbApi* | [**putSfvbItemPricing**](docs/Api/SfvbApi.md#putsfvbitempricing) | **PUT** /sfvb/storefronts/{storefront_oid}/items/pricing | Change what an item charges
 *SfvbApi* | [**putSfvbItemRelated**](docs/Api/SfvbApi.md#putsfvbitemrelated) | **PUT** /sfvb/storefronts/{storefront_oid}/items/related | Replace an item&#39;s related items
 *SfvbApi* | [**putSfvbItemSeo**](docs/Api/SfvbApi.md#putsfvbitemseo) | **PUT** /sfvb/storefronts/{storefront_oid}/items/seo | Change an item&#39;s search metadata
@@ -2169,6 +2173,13 @@ Class | Method | HTTP request | Description
 - [SfvbItemMultimedia](docs/Model/SfvbItemMultimedia.md)
 - [SfvbItemMultimediaDescriptionRequest](docs/Model/SfvbItemMultimediaDescriptionRequest.md)
 - [SfvbItemMultimediaRequest](docs/Model/SfvbItemMultimediaRequest.md)
+- [SfvbItemPreorder](docs/Model/SfvbItemPreorder.md)
+- [SfvbItemPreorderChange](docs/Model/SfvbItemPreorderChange.md)
+- [SfvbItemPreorderChildRow](docs/Model/SfvbItemPreorderChildRow.md)
+- [SfvbItemPreorderChildrenRequest](docs/Model/SfvbItemPreorderChildrenRequest.md)
+- [SfvbItemPreorderListResponse](docs/Model/SfvbItemPreorderListResponse.md)
+- [SfvbItemPreorderOption](docs/Model/SfvbItemPreorderOption.md)
+- [SfvbItemPreorderRequest](docs/Model/SfvbItemPreorderRequest.md)
 - [SfvbItemPricing](docs/Model/SfvbItemPricing.md)
 - [SfvbItemPricingRequest](docs/Model/SfvbItemPricingRequest.md)
 - [SfvbItemRelated](docs/Model/SfvbItemRelated.md)
@@ -2577,6 +2588,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.238 | 11/10/2026 | sfvb internal testing |
 | 4.1.237 | 11/10/2026 | sfvb internal testing |
 | 4.1.236 | 11/09/2026 | sfvb internal testing |
 | 4.1.235 | 11/09/2026 | sfvb internal testing |

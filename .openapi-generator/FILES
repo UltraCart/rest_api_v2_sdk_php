@@ -1154,6 +1154,13 @@ docs/Model/SfvbItemContentRequest.md
 docs/Model/SfvbItemMultimedia.md
 docs/Model/SfvbItemMultimediaDescriptionRequest.md
 docs/Model/SfvbItemMultimediaRequest.md
+docs/Model/SfvbItemPreorder.md
+docs/Model/SfvbItemPreorderChange.md
+docs/Model/SfvbItemPreorderChildRow.md
+docs/Model/SfvbItemPreorderChildrenRequest.md
+docs/Model/SfvbItemPreorderListResponse.md
+docs/Model/SfvbItemPreorderOption.md
+docs/Model/SfvbItemPreorderRequest.md
 docs/Model/SfvbItemPricing.md
 docs/Model/SfvbItemPricingRequest.md
 docs/Model/SfvbItemRelated.md
@@ -2624,6 +2631,13 @@ lib/models/SfvbItemContentRequest.php
 lib/models/SfvbItemMultimedia.php
 lib/models/SfvbItemMultimediaDescriptionRequest.php
 lib/models/SfvbItemMultimediaRequest.php
+lib/models/SfvbItemPreorder.php
+lib/models/SfvbItemPreorderChange.php
+lib/models/SfvbItemPreorderChildRow.php
+lib/models/SfvbItemPreorderChildrenRequest.php
+lib/models/SfvbItemPreorderListResponse.php
+lib/models/SfvbItemPreorderOption.php
+lib/models/SfvbItemPreorderRequest.php
 lib/models/SfvbItemPricing.php
 lib/models/SfvbItemPricingRequest.php
 lib/models/SfvbItemRelated.php

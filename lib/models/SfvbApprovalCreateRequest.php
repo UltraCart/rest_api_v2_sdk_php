@@ -66,6 +66,8 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'experiment_start' => '\ultracart\v2\models\SfvbExperimentStartRequest',
         'flow_backfill' => '\ultracart\v2\models\SfvbFlowBackfillRequest',
         'item_attribute_rows' => '\ultracart\v2\models\SfvbItemAttributeBatchRow[]',
+        'item_preorder' => '\ultracart\v2\models\SfvbItemPreorderRequest',
+        'item_preorder_children' => '\ultracart\v2\models\SfvbItemPreorderChildrenRequest',
         'item_pricing' => '\ultracart\v2\models\SfvbItemPricingRequest',
         'params' => '\ultracart\v2\models\SfvbApprovalParams',
         'postcard_test_mail' => '\ultracart\v2\models\SfvbCommsTestPostcardRequest',
@@ -94,6 +96,8 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'experiment_start' => null,
         'flow_backfill' => null,
         'item_attribute_rows' => null,
+        'item_preorder' => null,
+        'item_preorder_children' => null,
         'item_pricing' => null,
         'params' => null,
         'postcard_test_mail' => null,
@@ -141,6 +145,8 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'experiment_start' => 'experiment_start',
         'flow_backfill' => 'flow_backfill',
         'item_attribute_rows' => 'item_attribute_rows',
+        'item_preorder' => 'item_preorder',
+        'item_preorder_children' => 'item_preorder_children',
         'item_pricing' => 'item_pricing',
         'params' => 'params',
         'postcard_test_mail' => 'postcard_test_mail',
@@ -167,6 +173,8 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'experiment_start' => 'setExperimentStart',
         'flow_backfill' => 'setFlowBackfill',
         'item_attribute_rows' => 'setItemAttributeRows',
+        'item_preorder' => 'setItemPreorder',
+        'item_preorder_children' => 'setItemPreorderChildren',
         'item_pricing' => 'setItemPricing',
         'params' => 'setParams',
         'postcard_test_mail' => 'setPostcardTestMail',
@@ -193,6 +201,8 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'experiment_start' => 'getExperimentStart',
         'flow_backfill' => 'getFlowBackfill',
         'item_attribute_rows' => 'getItemAttributeRows',
+        'item_preorder' => 'getItemPreorder',
+        'item_preorder_children' => 'getItemPreorderChildren',
         'item_pricing' => 'getItemPricing',
         'params' => 'getParams',
         'postcard_test_mail' => 'getPostcardTestMail',
@@ -255,6 +265,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     public const ACTION_UPSELL_ENABLE = 'upsell.enable';
     public const ACTION_ITEM_ATTRIBUTE_BATCH = 'item.attribute_batch';
     public const ACTION_ITEM_PRICING = 'item.pricing';
+    public const ACTION_ITEM_PREORDER = 'item.preorder';
     public const ACTION_TWILIO_ACCOUNT_DELETE = 'twilio_account.delete';
     public const ACTION_SENDING_DOMAIN_DELETE = 'sending_domain.delete';
     public const ACTION_SEQUENCE_STEP_DELETE = 'sequence_step.delete';
@@ -292,6 +303,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
             self::ACTION_UPSELL_ENABLE,
             self::ACTION_ITEM_ATTRIBUTE_BATCH,
             self::ACTION_ITEM_PRICING,
+            self::ACTION_ITEM_PREORDER,
             self::ACTION_TWILIO_ACCOUNT_DELETE,
             self::ACTION_SENDING_DOMAIN_DELETE,
             self::ACTION_SEQUENCE_STEP_DELETE,
@@ -337,6 +349,8 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         $this->container['experiment_start'] = $data['experiment_start'] ?? null;
         $this->container['flow_backfill'] = $data['flow_backfill'] ?? null;
         $this->container['item_attribute_rows'] = $data['item_attribute_rows'] ?? null;
+        $this->container['item_preorder'] = $data['item_preorder'] ?? null;
+        $this->container['item_preorder_children'] = $data['item_preorder_children'] ?? null;
         $this->container['item_pricing'] = $data['item_pricing'] ?? null;
         $this->container['params'] = $data['params'] ?? null;
         $this->container['postcard_test_mail'] = $data['postcard_test_mail'] ?? null;
@@ -580,6 +594,54 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     public function setItemAttributeRows($item_attribute_rows)
     {
         $this->container['item_attribute_rows'] = $item_attribute_rows;
+
+        return $this;
+    }
+
+    /**
+     * Gets item_preorder
+     *
+     * @return \ultracart\v2\models\SfvbItemPreorderRequest|null
+     */
+    public function getItemPreorder()
+    {
+        return $this->container['item_preorder'];
+    }
+
+    /**
+     * Sets item_preorder
+     *
+     * @param \ultracart\v2\models\SfvbItemPreorderRequest|null $item_preorder item_preorder
+     *
+     * @return self
+     */
+    public function setItemPreorder($item_preorder)
+    {
+        $this->container['item_preorder'] = $item_preorder;
+
+        return $this;
+    }
+
+    /**
+     * Gets item_preorder_children
+     *
+     * @return \ultracart\v2\models\SfvbItemPreorderChildrenRequest|null
+     */
+    public function getItemPreorderChildren()
+    {
+        return $this->container['item_preorder_children'];
+    }
+
+    /**
+     * Sets item_preorder_children
+     *
+     * @param \ultracart\v2\models\SfvbItemPreorderChildrenRequest|null $item_preorder_children item_preorder_children
+     *
+     * @return self
+     */
+    public function setItemPreorderChildren($item_preorder_children)
+    {
+        $this->container['item_preorder_children'] = $item_preorder_children;
 
         return $this;
     }

@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **experiment_start** | [**\ultracart\v2\models\SfvbExperimentStartRequest**](SfvbExperimentStartRequest.md) |  | [optional]
 **flow_backfill** | [**\ultracart\v2\models\SfvbFlowBackfillRequest**](SfvbFlowBackfillRequest.md) |  | [optional]
 **item_attribute_rows** | [**\ultracart\v2\models\SfvbItemAttributeBatchRow[]**](SfvbItemAttributeBatchRow.md) | For item.attribute_batch, exactly the rows the batch will send - the dry run&#39;s change rows, each with merchant_item_oid and current_sha256.  UltraCart keeps only their hash. | [optional]
+**item_preorder** | [**\ultracart\v2\models\SfvbItemPreorderRequest**](SfvbItemPreorderRequest.md) |  | [optional]
+**item_preorder_children** | [**\ultracart\v2\models\SfvbItemPreorderChildrenRequest**](SfvbItemPreorderChildrenRequest.md) |  | [optional]
 **item_pricing** | [**\ultracart\v2\models\SfvbItemPricingRequest**](SfvbItemPricingRequest.md) |  | [optional]
 **params** | [**\ultracart\v2\models\SfvbApprovalParams**](SfvbApprovalParams.md) |  | [optional]
 **postcard_test_mail** | [**\ultracart\v2\models\SfvbCommsTestPostcardRequest**](SfvbCommsTestPostcardRequest.md) |  | [optional]

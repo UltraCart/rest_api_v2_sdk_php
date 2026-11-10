@@ -61,9 +61,11 @@ class SfvbWhoamiResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'acting_as_user' => 'bool',
         'application_name' => 'string',
         'authentication_type' => 'string',
+        'can_edit_items' => 'bool',
         'can_publish' => 'bool',
         'can_publish_public' => 'bool',
         'can_read' => 'bool',
+        'can_read_items' => 'bool',
         'can_write' => 'bool',
         'device_scope' => 'string',
         'login' => 'string',
@@ -85,9 +87,11 @@ class SfvbWhoamiResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'acting_as_user' => null,
         'application_name' => null,
         'authentication_type' => null,
+        'can_edit_items' => null,
         'can_publish' => null,
         'can_publish_public' => null,
         'can_read' => null,
+        'can_read_items' => null,
         'can_write' => null,
         'device_scope' => null,
         'login' => null,
@@ -128,9 +132,11 @@ class SfvbWhoamiResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'acting_as_user' => 'acting_as_user',
         'application_name' => 'application_name',
         'authentication_type' => 'authentication_type',
+        'can_edit_items' => 'can_edit_items',
         'can_publish' => 'can_publish',
         'can_publish_public' => 'can_publish_public',
         'can_read' => 'can_read',
+        'can_read_items' => 'can_read_items',
         'can_write' => 'can_write',
         'device_scope' => 'device_scope',
         'login' => 'login',
@@ -150,9 +156,11 @@ class SfvbWhoamiResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'acting_as_user' => 'setActingAsUser',
         'application_name' => 'setApplicationName',
         'authentication_type' => 'setAuthenticationType',
+        'can_edit_items' => 'setCanEditItems',
         'can_publish' => 'setCanPublish',
         'can_publish_public' => 'setCanPublishPublic',
         'can_read' => 'setCanRead',
+        'can_read_items' => 'setCanReadItems',
         'can_write' => 'setCanWrite',
         'device_scope' => 'setDeviceScope',
         'login' => 'setLogin',
@@ -172,9 +180,11 @@ class SfvbWhoamiResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'acting_as_user' => 'getActingAsUser',
         'application_name' => 'getApplicationName',
         'authentication_type' => 'getAuthenticationType',
+        'can_edit_items' => 'getCanEditItems',
         'can_publish' => 'getCanPublish',
         'can_publish_public' => 'getCanPublishPublic',
         'can_read' => 'getCanRead',
+        'can_read_items' => 'getCanReadItems',
         'can_write' => 'getCanWrite',
         'device_scope' => 'getDeviceScope',
         'login' => 'getLogin',
@@ -245,9 +255,11 @@ class SfvbWhoamiResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->container['acting_as_user'] = $data['acting_as_user'] ?? null;
         $this->container['application_name'] = $data['application_name'] ?? null;
         $this->container['authentication_type'] = $data['authentication_type'] ?? null;
+        $this->container['can_edit_items'] = $data['can_edit_items'] ?? null;
         $this->container['can_publish'] = $data['can_publish'] ?? null;
         $this->container['can_publish_public'] = $data['can_publish_public'] ?? null;
         $this->container['can_read'] = $data['can_read'] ?? null;
+        $this->container['can_read_items'] = $data['can_read_items'] ?? null;
         $this->container['can_write'] = $data['can_write'] ?? null;
         $this->container['device_scope'] = $data['device_scope'] ?? null;
         $this->container['login'] = $data['login'] ?? null;
@@ -355,6 +367,30 @@ class SfvbWhoamiResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
+     * Gets can_edit_items
+     *
+     * @return bool|null
+     */
+    public function getCanEditItems()
+    {
+        return $this->container['can_edit_items'];
+    }
+
+    /**
+     * Sets can_edit_items
+     *
+     * @param bool|null $can_edit_items True when this token may change item data.  Needs can_write, and the UltraCart user behind the token must hold Edit Items.  A token with no user is judged on its scopes alone.
+     *
+     * @return self
+     */
+    public function setCanEditItems($can_edit_items)
+    {
+        $this->container['can_edit_items'] = $can_edit_items;
+
+        return $this;
+    }
+
+    /**
      * Gets can_publish
      *
      * @return bool|null
@@ -422,6 +458,30 @@ class SfvbWhoamiResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setCanRead($can_read)
     {
         $this->container['can_read'] = $can_read;
+
+        return $this;
+    }
+
+    /**
+     * Gets can_read_items
+     *
+     * @return bool|null
+     */
+    public function getCanReadItems()
+    {
+        return $this->container['can_read_items'];
+    }
+
+    /**
+     * Sets can_read_items
+     *
+     * @param bool|null $can_read_items True when this token may read item data - the item, its pricing, pre-order and related items.  Needs can_read, and the UltraCart user behind the token must hold View Items or Edit Items.  A token with no user is judged on its scopes alone.
+     *
+     * @return self
+     */
+    public function setCanReadItems($can_read_items)
+    {
+        $this->container['can_read_items'] = $can_read_items;
 
         return $this;
     }

@@ -63,6 +63,7 @@ class TaxJarConfig implements ModelInterface, ArrayAccess, \JsonSerializable
         'estimate_only' => 'bool',
         'send_outside_nexus' => 'bool',
         'send_test_orders' => 'bool',
+        'skip_calculation_outside_nexus' => 'bool',
         'skip_channel_orders' => 'bool',
         'use_distribution_center_from' => 'bool'
     ];
@@ -80,6 +81,7 @@ class TaxJarConfig implements ModelInterface, ArrayAccess, \JsonSerializable
         'estimate_only' => null,
         'send_outside_nexus' => null,
         'send_test_orders' => null,
+        'skip_calculation_outside_nexus' => null,
         'skip_channel_orders' => null,
         'use_distribution_center_from' => null
     ];
@@ -116,6 +118,7 @@ class TaxJarConfig implements ModelInterface, ArrayAccess, \JsonSerializable
         'estimate_only' => 'estimate_only',
         'send_outside_nexus' => 'send_outside_nexus',
         'send_test_orders' => 'send_test_orders',
+        'skip_calculation_outside_nexus' => 'skip_calculation_outside_nexus',
         'skip_channel_orders' => 'skip_channel_orders',
         'use_distribution_center_from' => 'use_distribution_center_from'
     ];
@@ -131,6 +134,7 @@ class TaxJarConfig implements ModelInterface, ArrayAccess, \JsonSerializable
         'estimate_only' => 'setEstimateOnly',
         'send_outside_nexus' => 'setSendOutsideNexus',
         'send_test_orders' => 'setSendTestOrders',
+        'skip_calculation_outside_nexus' => 'setSkipCalculationOutsideNexus',
         'skip_channel_orders' => 'setSkipChannelOrders',
         'use_distribution_center_from' => 'setUseDistributionCenterFrom'
     ];
@@ -146,6 +150,7 @@ class TaxJarConfig implements ModelInterface, ArrayAccess, \JsonSerializable
         'estimate_only' => 'getEstimateOnly',
         'send_outside_nexus' => 'getSendOutsideNexus',
         'send_test_orders' => 'getSendTestOrders',
+        'skip_calculation_outside_nexus' => 'getSkipCalculationOutsideNexus',
         'skip_channel_orders' => 'getSkipChannelOrders',
         'use_distribution_center_from' => 'getUseDistributionCenterFrom'
     ];
@@ -212,6 +217,7 @@ class TaxJarConfig implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['estimate_only'] = $data['estimate_only'] ?? null;
         $this->container['send_outside_nexus'] = $data['send_outside_nexus'] ?? null;
         $this->container['send_test_orders'] = $data['send_test_orders'] ?? null;
+        $this->container['skip_calculation_outside_nexus'] = $data['skip_calculation_outside_nexus'] ?? null;
         $this->container['skip_channel_orders'] = $data['skip_channel_orders'] ?? null;
         $this->container['use_distribution_center_from'] = $data['use_distribution_center_from'] ?? null;
     }
@@ -356,6 +362,30 @@ class TaxJarConfig implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setSendTestOrders($send_test_orders)
     {
         $this->container['send_test_orders'] = $send_test_orders;
+
+        return $this;
+    }
+
+    /**
+     * Gets skip_calculation_outside_nexus
+     *
+     * @return bool|null
+     */
+    public function getSkipCalculationOutsideNexus()
+    {
+        return $this->container['skip_calculation_outside_nexus'];
+    }
+
+    /**
+     * Sets skip_calculation_outside_nexus
+     *
+     * @param bool|null $skip_calculation_outside_nexus Only calculate tax for states within your nexus.  Requires send_outside_nexus to be true.  When true, orders outside your nexus are still transmitted to TaxJar for nexus tracking, but no tax calculation is requested for them, reducing API calls.
+     *
+     * @return self
+     */
+    public function setSkipCalculationOutsideNexus($skip_calculation_outside_nexus)
+    {
+        $this->container['skip_calculation_outside_nexus'] = $skip_calculation_outside_nexus;
 
         return $this;
     }
