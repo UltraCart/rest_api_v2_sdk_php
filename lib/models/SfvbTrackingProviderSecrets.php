@@ -70,6 +70,7 @@ class SfvbTrackingProviderSecrets implements ModelInterface, ArrayAccess, \JsonS
         'klaviyo_private_api_key' => 'string',
         'nextdoor_access_token' => 'string',
         'northbeam_api_key' => 'string',
+        'openai_conversions_api_key' => 'string',
         'pinterest_token' => 'string',
         'referralcandy_secret_key' => 'string',
         'retention_key' => 'string'
@@ -95,6 +96,7 @@ class SfvbTrackingProviderSecrets implements ModelInterface, ArrayAccess, \JsonS
         'klaviyo_private_api_key' => null,
         'nextdoor_access_token' => null,
         'northbeam_api_key' => null,
+        'openai_conversions_api_key' => null,
         'pinterest_token' => null,
         'referralcandy_secret_key' => null,
         'retention_key' => null
@@ -139,6 +141,7 @@ class SfvbTrackingProviderSecrets implements ModelInterface, ArrayAccess, \JsonS
         'klaviyo_private_api_key' => 'klaviyo_private_api_key',
         'nextdoor_access_token' => 'nextdoor_access_token',
         'northbeam_api_key' => 'northbeam_api_key',
+        'openai_conversions_api_key' => 'openai_conversions_api_key',
         'pinterest_token' => 'pinterest_token',
         'referralcandy_secret_key' => 'referralcandy_secret_key',
         'retention_key' => 'retention_key'
@@ -162,6 +165,7 @@ class SfvbTrackingProviderSecrets implements ModelInterface, ArrayAccess, \JsonS
         'klaviyo_private_api_key' => 'setKlaviyoPrivateApiKey',
         'nextdoor_access_token' => 'setNextdoorAccessToken',
         'northbeam_api_key' => 'setNorthbeamApiKey',
+        'openai_conversions_api_key' => 'setOpenaiConversionsApiKey',
         'pinterest_token' => 'setPinterestToken',
         'referralcandy_secret_key' => 'setReferralcandySecretKey',
         'retention_key' => 'setRetentionKey'
@@ -185,6 +189,7 @@ class SfvbTrackingProviderSecrets implements ModelInterface, ArrayAccess, \JsonS
         'klaviyo_private_api_key' => 'getKlaviyoPrivateApiKey',
         'nextdoor_access_token' => 'getNextdoorAccessToken',
         'northbeam_api_key' => 'getNorthbeamApiKey',
+        'openai_conversions_api_key' => 'getOpenaiConversionsApiKey',
         'pinterest_token' => 'getPinterestToken',
         'referralcandy_secret_key' => 'getReferralcandySecretKey',
         'retention_key' => 'getRetentionKey'
@@ -259,6 +264,7 @@ class SfvbTrackingProviderSecrets implements ModelInterface, ArrayAccess, \JsonS
         $this->container['klaviyo_private_api_key'] = $data['klaviyo_private_api_key'] ?? null;
         $this->container['nextdoor_access_token'] = $data['nextdoor_access_token'] ?? null;
         $this->container['northbeam_api_key'] = $data['northbeam_api_key'] ?? null;
+        $this->container['openai_conversions_api_key'] = $data['openai_conversions_api_key'] ?? null;
         $this->container['pinterest_token'] = $data['pinterest_token'] ?? null;
         $this->container['referralcandy_secret_key'] = $data['referralcandy_secret_key'] ?? null;
         $this->container['retention_key'] = $data['retention_key'] ?? null;
@@ -572,6 +578,30 @@ class SfvbTrackingProviderSecrets implements ModelInterface, ArrayAccess, \JsonS
     public function setNorthbeamApiKey($northbeam_api_key)
     {
         $this->container['northbeam_api_key'] = $northbeam_api_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets openai_conversions_api_key
+     *
+     * @return string|null
+     */
+    public function getOpenaiConversionsApiKey()
+    {
+        return $this->container['openai_conversions_api_key'];
+    }
+
+    /**
+     * Sets openai_conversions_api_key
+     *
+     * @param string|null $openai_conversions_api_key OpenAI Conversions API Key.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.openai.conversions_api_key, or an empty string to clear it.
+     *
+     * @return self
+     */
+    public function setOpenaiConversionsApiKey($openai_conversions_api_key)
+    {
+        $this->container['openai_conversions_api_key'] = $openai_conversions_api_key;
 
         return $this;
     }
