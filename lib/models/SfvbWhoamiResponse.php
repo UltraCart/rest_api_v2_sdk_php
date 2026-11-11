@@ -67,6 +67,7 @@ class SfvbWhoamiResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'can_read' => 'bool',
         'can_read_items' => 'bool',
         'can_write' => 'bool',
+        'cli_access' => '\ultracart\v2\models\SfvbCliAccess',
         'device_scope' => 'string',
         'login' => 'string',
         'merchant_id' => 'string',
@@ -93,6 +94,7 @@ class SfvbWhoamiResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'can_read' => null,
         'can_read_items' => null,
         'can_write' => null,
+        'cli_access' => null,
         'device_scope' => null,
         'login' => null,
         'merchant_id' => null,
@@ -138,6 +140,7 @@ class SfvbWhoamiResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'can_read' => 'can_read',
         'can_read_items' => 'can_read_items',
         'can_write' => 'can_write',
+        'cli_access' => 'cli_access',
         'device_scope' => 'device_scope',
         'login' => 'login',
         'merchant_id' => 'merchant_id',
@@ -162,6 +165,7 @@ class SfvbWhoamiResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'can_read' => 'setCanRead',
         'can_read_items' => 'setCanReadItems',
         'can_write' => 'setCanWrite',
+        'cli_access' => 'setCliAccess',
         'device_scope' => 'setDeviceScope',
         'login' => 'setLogin',
         'merchant_id' => 'setMerchantId',
@@ -186,6 +190,7 @@ class SfvbWhoamiResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'can_read' => 'getCanRead',
         'can_read_items' => 'getCanReadItems',
         'can_write' => 'getCanWrite',
+        'cli_access' => 'getCliAccess',
         'device_scope' => 'getDeviceScope',
         'login' => 'getLogin',
         'merchant_id' => 'getMerchantId',
@@ -261,6 +266,7 @@ class SfvbWhoamiResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->container['can_read'] = $data['can_read'] ?? null;
         $this->container['can_read_items'] = $data['can_read_items'] ?? null;
         $this->container['can_write'] = $data['can_write'] ?? null;
+        $this->container['cli_access'] = $data['cli_access'] ?? null;
         $this->container['device_scope'] = $data['device_scope'] ?? null;
         $this->container['login'] = $data['login'] ?? null;
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
@@ -506,6 +512,30 @@ class SfvbWhoamiResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setCanWrite($can_write)
     {
         $this->container['can_write'] = $can_write;
+
+        return $this;
+    }
+
+    /**
+     * Gets cli_access
+     *
+     * @return \ultracart\v2\models\SfvbCliAccess|null
+     */
+    public function getCliAccess()
+    {
+        return $this->container['cli_access'];
+    }
+
+    /**
+     * Sets cli_access
+     *
+     * @param \ultracart\v2\models\SfvbCliAccess|null $cli_access cli_access
+     *
+     * @return self
+     */
+    public function setCliAccess($cli_access)
+    {
+        $this->container['cli_access'] = $cli_access;
 
         return $this;
     }

@@ -60,10 +60,12 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPITypes = [
         'access_token' => 'string',
         'error' => 'string',
+        'error_code' => 'string',
         'error_description' => 'string',
         'error_uri' => 'string',
         'expires_in' => 'string',
         'merchant_id' => 'string',
+        'object_id' => 'string',
         'refresh_token' => 'string',
         'refresh_token_expires_in' => 'string',
         'scope' => 'string',
@@ -80,10 +82,12 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPIFormats = [
         'access_token' => null,
         'error' => null,
+        'error_code' => null,
         'error_description' => null,
         'error_uri' => null,
         'expires_in' => null,
         'merchant_id' => null,
+        'object_id' => null,
         'refresh_token' => null,
         'refresh_token_expires_in' => null,
         'scope' => null,
@@ -119,10 +123,12 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $attributeMap = [
         'access_token' => 'access_token',
         'error' => 'error',
+        'error_code' => 'error_code',
         'error_description' => 'error_description',
         'error_uri' => 'error_uri',
         'expires_in' => 'expires_in',
         'merchant_id' => 'merchant_id',
+        'object_id' => 'object_id',
         'refresh_token' => 'refresh_token',
         'refresh_token_expires_in' => 'refresh_token_expires_in',
         'scope' => 'scope',
@@ -137,10 +143,12 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $setters = [
         'access_token' => 'setAccessToken',
         'error' => 'setError',
+        'error_code' => 'setErrorCode',
         'error_description' => 'setErrorDescription',
         'error_uri' => 'setErrorUri',
         'expires_in' => 'setExpiresIn',
         'merchant_id' => 'setMerchantId',
+        'object_id' => 'setObjectId',
         'refresh_token' => 'setRefreshToken',
         'refresh_token_expires_in' => 'setRefreshTokenExpiresIn',
         'scope' => 'setScope',
@@ -155,10 +163,12 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $getters = [
         'access_token' => 'getAccessToken',
         'error' => 'getError',
+        'error_code' => 'getErrorCode',
         'error_description' => 'getErrorDescription',
         'error_uri' => 'getErrorUri',
         'expires_in' => 'getExpiresIn',
         'merchant_id' => 'getMerchantId',
+        'object_id' => 'getObjectId',
         'refresh_token' => 'getRefreshToken',
         'refresh_token_expires_in' => 'getRefreshTokenExpiresIn',
         'scope' => 'getScope',
@@ -237,10 +247,12 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $this->container['access_token'] = $data['access_token'] ?? null;
         $this->container['error'] = $data['error'] ?? null;
+        $this->container['error_code'] = $data['error_code'] ?? null;
         $this->container['error_description'] = $data['error_description'] ?? null;
         $this->container['error_uri'] = $data['error_uri'] ?? null;
         $this->container['expires_in'] = $data['expires_in'] ?? null;
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
+        $this->container['object_id'] = $data['object_id'] ?? null;
         $this->container['refresh_token'] = $data['refresh_token'] ?? null;
         $this->container['refresh_token_expires_in'] = $data['refresh_token_expires_in'] ?? null;
         $this->container['scope'] = $data['scope'] ?? null;
@@ -324,6 +336,30 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setError($error)
     {
         $this->container['error'] = $error;
+
+        return $this;
+    }
+
+    /**
+     * Gets error_code
+     *
+     * @return string|null
+     */
+    public function getErrorCode()
+    {
+        return $this->container['error_code'];
+    }
+
+    /**
+     * Sets error_code
+     *
+     * @param string|null $error_code With error access_denied, a machine readable reason.  sfvb.beta_access_required means the account isn't enabled for the StoreFront CLI beta, not that a person clicked Deny.
+     *
+     * @return self
+     */
+    public function setErrorCode($error_code)
+    {
+        $this->container['error_code'] = $error_code;
 
         return $this;
     }
@@ -420,6 +456,30 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setMerchantId($merchant_id)
     {
         $this->container['merchant_id'] = $merchant_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets object_id
+     *
+     * @return string|null
+     */
+    public function getObjectId()
+    {
+        return $this->container['object_id'];
+    }
+
+    /**
+     * Sets object_id
+     *
+     * @param string|null $object_id With error_code sfvb.beta_access_required, the merchant id that was refused.
+     *
+     * @return self
+     */
+    public function setObjectId($object_id)
+    {
+        $this->container['object_id'] = $object_id;
 
         return $this;
     }
