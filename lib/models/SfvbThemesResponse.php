@@ -59,6 +59,8 @@ class SfvbThemesResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPITypes = [
         'active_theme_oid' => 'int',
+        'theme_count' => 'int',
+        'theme_limit' => 'int',
         'themes' => '\ultracart\v2\models\SfvbTheme[]'
     ];
 
@@ -71,6 +73,8 @@ class SfvbThemesResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPIFormats = [
         'active_theme_oid' => 'int32',
+        'theme_count' => 'int32',
+        'theme_limit' => 'int32',
         'themes' => null
     ];
 
@@ -102,6 +106,8 @@ class SfvbThemesResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $attributeMap = [
         'active_theme_oid' => 'active_theme_oid',
+        'theme_count' => 'theme_count',
+        'theme_limit' => 'theme_limit',
         'themes' => 'themes'
     ];
 
@@ -112,6 +118,8 @@ class SfvbThemesResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $setters = [
         'active_theme_oid' => 'setActiveThemeOid',
+        'theme_count' => 'setThemeCount',
+        'theme_limit' => 'setThemeLimit',
         'themes' => 'setThemes'
     ];
 
@@ -122,6 +130,8 @@ class SfvbThemesResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $getters = [
         'active_theme_oid' => 'getActiveThemeOid',
+        'theme_count' => 'getThemeCount',
+        'theme_limit' => 'getThemeLimit',
         'themes' => 'getThemes'
     ];
 
@@ -183,6 +193,8 @@ class SfvbThemesResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     public function __construct(array $data = null)
     {
         $this->container['active_theme_oid'] = $data['active_theme_oid'] ?? null;
+        $this->container['theme_count'] = $data['theme_count'] ?? null;
+        $this->container['theme_limit'] = $data['theme_limit'] ?? null;
         $this->container['themes'] = $data['themes'] ?? null;
     }
 
@@ -230,6 +242,54 @@ class SfvbThemesResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setActiveThemeOid($active_theme_oid)
     {
         $this->container['active_theme_oid'] = $active_theme_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets theme_count
+     *
+     * @return int|null
+     */
+    public function getThemeCount()
+    {
+        return $this->container['theme_count'];
+    }
+
+    /**
+     * Sets theme_count
+     *
+     * @param int|null $theme_count How many themes the storefront holds now.  When it equals theme_limit, delete an inactive theme in the admin before duplicating.
+     *
+     * @return self
+     */
+    public function setThemeCount($theme_count)
+    {
+        $this->container['theme_count'] = $theme_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets theme_limit
+     *
+     * @return int|null
+     */
+    public function getThemeLimit()
+    {
+        return $this->container['theme_limit'];
+    }
+
+    /**
+     * Sets theme_limit
+     *
+     * @param int|null $theme_limit Most themes a storefront can hold, active and inactive together.  A duplicate or install at the limit is refused with sfvb.theme_limit_reached.
+     *
+     * @return self
+     */
+    public function setThemeLimit($theme_limit)
+    {
+        $this->container['theme_limit'] = $theme_limit;
 
         return $this;
     }

@@ -61,6 +61,8 @@ class SfvbTheme implements ModelInterface, ArrayAccess, \JsonSerializable
         'active' => 'bool',
         'description' => 'string',
         'fs_directory_oid' => 'int',
+        'merge_conflict_count' => 'int',
+        'ok_to_activate' => 'bool',
         'path' => 'string',
         'storefront_oid' => 'int',
         'theme_name' => 'string',
@@ -81,6 +83,8 @@ class SfvbTheme implements ModelInterface, ArrayAccess, \JsonSerializable
         'active' => null,
         'description' => null,
         'fs_directory_oid' => 'int32',
+        'merge_conflict_count' => 'int32',
+        'ok_to_activate' => null,
         'path' => null,
         'storefront_oid' => 'int32',
         'theme_name' => null,
@@ -120,6 +124,8 @@ class SfvbTheme implements ModelInterface, ArrayAccess, \JsonSerializable
         'active' => 'active',
         'description' => 'description',
         'fs_directory_oid' => 'fs_directory_oid',
+        'merge_conflict_count' => 'merge_conflict_count',
+        'ok_to_activate' => 'ok_to_activate',
         'path' => 'path',
         'storefront_oid' => 'storefront_oid',
         'theme_name' => 'theme_name',
@@ -138,6 +144,8 @@ class SfvbTheme implements ModelInterface, ArrayAccess, \JsonSerializable
         'active' => 'setActive',
         'description' => 'setDescription',
         'fs_directory_oid' => 'setFsDirectoryOid',
+        'merge_conflict_count' => 'setMergeConflictCount',
+        'ok_to_activate' => 'setOkToActivate',
         'path' => 'setPath',
         'storefront_oid' => 'setStorefrontOid',
         'theme_name' => 'setThemeName',
@@ -156,6 +164,8 @@ class SfvbTheme implements ModelInterface, ArrayAccess, \JsonSerializable
         'active' => 'getActive',
         'description' => 'getDescription',
         'fs_directory_oid' => 'getFsDirectoryOid',
+        'merge_conflict_count' => 'getMergeConflictCount',
+        'ok_to_activate' => 'getOkToActivate',
         'path' => 'getPath',
         'storefront_oid' => 'getStorefrontOid',
         'theme_name' => 'getThemeName',
@@ -225,6 +235,8 @@ class SfvbTheme implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['active'] = $data['active'] ?? null;
         $this->container['description'] = $data['description'] ?? null;
         $this->container['fs_directory_oid'] = $data['fs_directory_oid'] ?? null;
+        $this->container['merge_conflict_count'] = $data['merge_conflict_count'] ?? null;
+        $this->container['ok_to_activate'] = $data['ok_to_activate'] ?? null;
         $this->container['path'] = $data['path'] ?? null;
         $this->container['storefront_oid'] = $data['storefront_oid'] ?? null;
         $this->container['theme_name'] = $data['theme_name'] ?? null;
@@ -326,6 +338,54 @@ class SfvbTheme implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setFsDirectoryOid($fs_directory_oid)
     {
         $this->container['fs_directory_oid'] = $fs_directory_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets merge_conflict_count
+     *
+     * @return int|null
+     */
+    public function getMergeConflictCount()
+    {
+        return $this->container['merge_conflict_count'];
+    }
+
+    /**
+     * Sets merge_conflict_count
+     *
+     * @param int|null $merge_conflict_count How many of the theme's files still have unresolved merge conflicts from an upgrade.  Find them with searchSfvbFiles, merge_conflicts true and this theme's path.
+     *
+     * @return self
+     */
+    public function setMergeConflictCount($merge_conflict_count)
+    {
+        $this->container['merge_conflict_count'] = $merge_conflict_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets ok_to_activate
+     *
+     * @return bool|null
+     */
+    public function getOkToActivate()
+    {
+        return $this->container['ok_to_activate'];
+    }
+
+    /**
+     * Sets ok_to_activate
+     *
+     * @param bool|null $ok_to_activate False while any file in the theme has an unresolved merge conflict.  Never activate a theme that reports false - resolve every conflict first.  Activation itself happens in the UltraCart admin, which runs the same check.
+     *
+     * @return self
+     */
+    public function setOkToActivate($ok_to_activate)
+    {
+        $this->container['ok_to_activate'] = $ok_to_activate;
 
         return $this;
     }

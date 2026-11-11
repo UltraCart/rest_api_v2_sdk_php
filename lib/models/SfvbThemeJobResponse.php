@@ -63,13 +63,16 @@ class SfvbThemeJobResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'error_message' => 'string',
         'finished_dts' => 'string',
         'job_id' => 'int',
+        'merge_conflicts' => 'string[]',
         'progress' => 'int',
         'progress_description' => 'string',
         'started_dts' => 'string',
         'status' => 'string',
         'submitted_dts' => 'string',
         'success' => 'bool',
-        'target_path' => 'string'
+        'target_path' => 'string',
+        'theme_oid' => 'int',
+        'upgrade_to_version' => 'string'
     ];
 
     /**
@@ -85,13 +88,16 @@ class SfvbThemeJobResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'error_message' => null,
         'finished_dts' => 'dateTime',
         'job_id' => 'int32',
+        'merge_conflicts' => null,
         'progress' => 'int32',
         'progress_description' => null,
         'started_dts' => 'dateTime',
         'status' => null,
         'submitted_dts' => 'dateTime',
         'success' => null,
-        'target_path' => null
+        'target_path' => null,
+        'theme_oid' => 'int32',
+        'upgrade_to_version' => null
     ];
 
     /**
@@ -126,13 +132,16 @@ class SfvbThemeJobResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'error_message' => 'error_message',
         'finished_dts' => 'finished_dts',
         'job_id' => 'job_id',
+        'merge_conflicts' => 'merge_conflicts',
         'progress' => 'progress',
         'progress_description' => 'progress_description',
         'started_dts' => 'started_dts',
         'status' => 'status',
         'submitted_dts' => 'submitted_dts',
         'success' => 'success',
-        'target_path' => 'target_path'
+        'target_path' => 'target_path',
+        'theme_oid' => 'theme_oid',
+        'upgrade_to_version' => 'upgrade_to_version'
     ];
 
     /**
@@ -146,13 +155,16 @@ class SfvbThemeJobResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'error_message' => 'setErrorMessage',
         'finished_dts' => 'setFinishedDts',
         'job_id' => 'setJobId',
+        'merge_conflicts' => 'setMergeConflicts',
         'progress' => 'setProgress',
         'progress_description' => 'setProgressDescription',
         'started_dts' => 'setStartedDts',
         'status' => 'setStatus',
         'submitted_dts' => 'setSubmittedDts',
         'success' => 'setSuccess',
-        'target_path' => 'setTargetPath'
+        'target_path' => 'setTargetPath',
+        'theme_oid' => 'setThemeOid',
+        'upgrade_to_version' => 'setUpgradeToVersion'
     ];
 
     /**
@@ -166,13 +178,16 @@ class SfvbThemeJobResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'error_message' => 'getErrorMessage',
         'finished_dts' => 'getFinishedDts',
         'job_id' => 'getJobId',
+        'merge_conflicts' => 'getMergeConflicts',
         'progress' => 'getProgress',
         'progress_description' => 'getProgressDescription',
         'started_dts' => 'getStartedDts',
         'status' => 'getStatus',
         'submitted_dts' => 'getSubmittedDts',
         'success' => 'getSuccess',
-        'target_path' => 'getTargetPath'
+        'target_path' => 'getTargetPath',
+        'theme_oid' => 'getThemeOid',
+        'upgrade_to_version' => 'getUpgradeToVersion'
     ];
 
     /**
@@ -258,6 +273,7 @@ class SfvbThemeJobResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->container['error_message'] = $data['error_message'] ?? null;
         $this->container['finished_dts'] = $data['finished_dts'] ?? null;
         $this->container['job_id'] = $data['job_id'] ?? null;
+        $this->container['merge_conflicts'] = $data['merge_conflicts'] ?? null;
         $this->container['progress'] = $data['progress'] ?? null;
         $this->container['progress_description'] = $data['progress_description'] ?? null;
         $this->container['started_dts'] = $data['started_dts'] ?? null;
@@ -265,6 +281,8 @@ class SfvbThemeJobResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->container['submitted_dts'] = $data['submitted_dts'] ?? null;
         $this->container['success'] = $data['success'] ?? null;
         $this->container['target_path'] = $data['target_path'] ?? null;
+        $this->container['theme_oid'] = $data['theme_oid'] ?? null;
+        $this->container['upgrade_to_version'] = $data['upgrade_to_version'] ?? null;
     }
 
     /**
@@ -416,6 +434,30 @@ class SfvbThemeJobResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setJobId($job_id)
     {
         $this->container['job_id'] = $job_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets merge_conflicts
+     *
+     * @return string[]|null
+     */
+    public function getMergeConflicts()
+    {
+        return $this->container['merge_conflicts'];
+    }
+
+    /**
+     * Sets merge_conflicts
+     *
+     * @param string[]|null $merge_conflicts Paths of the copy's files that still have unresolved merge conflicts, read fresh on every poll, so the list shrinks as you resolve them.  Each needs its conflict marker lines resolved and the file saved before the theme can be activated.  Empty when there are none.
+     *
+     * @return self
+     */
+    public function setMergeConflicts($merge_conflicts)
+    {
+        $this->container['merge_conflicts'] = $merge_conflicts;
 
         return $this;
     }
@@ -587,13 +629,61 @@ class SfvbThemeJobResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets target_path
      *
-     * @param string|null $target_path Path the new theme is being created at.  Returned when the job is started and on every poll, so you do not have to keep the response that started it.  The theme oid itself is NOT returned, so once the job completes you list themes and match on this path.  It is also what success is checked against - a finished job whose theme is not here reports success false rather than pretending.
+     * @param string|null $target_path Path the new theme is being created at.  Returned when the job is started and on every poll, so you do not have to keep the response that started it.  Once the job completes, the theme found at this path is reported as theme_oid.  It is also what success is checked against - a finished job whose theme is not here reports success false rather than pretending.
      *
      * @return self
      */
     public function setTargetPath($target_path)
     {
         $this->container['target_path'] = $target_path;
+
+        return $this;
+    }
+
+    /**
+     * Gets theme_oid
+     *
+     * @return int|null
+     */
+    public function getThemeOid()
+    {
+        return $this->container['theme_oid'];
+    }
+
+    /**
+     * Sets theme_oid
+     *
+     * @param int|null $theme_oid Oid of the theme the job created, once it is complete and the theme exists.  Null until then.
+     *
+     * @return self
+     */
+    public function setThemeOid($theme_oid)
+    {
+        $this->container['theme_oid'] = $theme_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets upgrade_to_version
+     *
+     * @return string|null
+     */
+    public function getUpgradeToVersion()
+    {
+        return $this->container['upgrade_to_version'];
+    }
+
+    /**
+     * Sets upgrade_to_version
+     *
+     * @param string|null $upgrade_to_version The version the copy was asked to be upgraded to, when the duplicate asked for an upgrade.  Null for a plain copy.  A complete job reports success only when the copy is at this version.
+     *
+     * @return self
+     */
+    public function setUpgradeToVersion($upgrade_to_version)
+    {
+        $this->container['upgrade_to_version'] = $upgrade_to_version;
 
         return $this;
     }

@@ -667,7 +667,7 @@ class SfvbFileSearchRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets text
      *
-     * @param string|null $text Text to find inside files.  Only text/_* files are searched.  This is the expensive filter; narrow with path or file_name where possible.
+     * @param string|null $text Text to find inside files.  Text files are searched, including .cjson and .json; binaries such as images, fonts and PDFs are skipped.  This is the expensive filter; narrow with path or file_name where possible.
      *
      * @return self
      */

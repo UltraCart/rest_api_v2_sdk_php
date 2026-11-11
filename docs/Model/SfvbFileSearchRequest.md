@@ -19,6 +19,6 @@ Name | Type | Description | Notes
 **size_max** | **int** | Maximum size in bytes. | [optional]
 **size_min** | **int** | Minimum size in bytes. | [optional]
 **sub_directories** | **bool** | Recurse below path.  Defaults to true. | [optional]
-**text** | **string** | Text to find inside files.  Only text/_* files are searched.  This is the expensive filter; narrow with path or file_name where possible. | [optional]
+**text** | **string** | Text to find inside files.  Text files are searched, including .cjson and .json; binaries such as images, fonts and PDFs are skipped.  This is the expensive filter; narrow with path or file_name where possible. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

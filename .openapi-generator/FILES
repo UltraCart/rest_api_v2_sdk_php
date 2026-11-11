@@ -1338,10 +1338,12 @@ docs/Model/SfvbThemeAttribute.md
 docs/Model/SfvbThemeAttributeUpdate.md
 docs/Model/SfvbThemeAttributeUpdateRequest.md
 docs/Model/SfvbThemeAttributesResponse.md
+docs/Model/SfvbThemeChangeLogEntry.md
 docs/Model/SfvbThemeDuplicateRequest.md
 docs/Model/SfvbThemeFont.md
 docs/Model/SfvbThemeFontFamily.md
 docs/Model/SfvbThemeJobResponse.md
+docs/Model/SfvbThemeUpgradeCheckResponse.md
 docs/Model/SfvbThemesResponse.md
 docs/Model/SfvbTrackingAdvanced.md
 docs/Model/SfvbTrackingAdvancedRequest.md
@@ -2833,10 +2835,12 @@ lib/models/SfvbThemeAttribute.php
 lib/models/SfvbThemeAttributeUpdate.php
 lib/models/SfvbThemeAttributeUpdateRequest.php
 lib/models/SfvbThemeAttributesResponse.php
+lib/models/SfvbThemeChangeLogEntry.php
 lib/models/SfvbThemeDuplicateRequest.php
 lib/models/SfvbThemeFont.php
 lib/models/SfvbThemeFontFamily.php
 lib/models/SfvbThemeJobResponse.php
+lib/models/SfvbThemeUpgradeCheckResponse.php
 lib/models/SfvbThemesResponse.php
 lib/models/SfvbTrackingAdvanced.php
 lib/models/SfvbTrackingAdvancedRequest.php

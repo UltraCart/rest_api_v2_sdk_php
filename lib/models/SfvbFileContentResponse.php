@@ -62,6 +62,7 @@ class SfvbFileContentResponse implements ModelInterface, ArrayAccess, \JsonSeria
         'content' => 'string',
         'fs_file_oid' => 'int',
         'hash_sha256' => 'string',
+        'merge_conflict' => 'bool',
         'mime_type' => 'string',
         'path' => 'string',
         'size' => 'int',
@@ -83,6 +84,7 @@ class SfvbFileContentResponse implements ModelInterface, ArrayAccess, \JsonSeria
         'content' => null,
         'fs_file_oid' => 'int32',
         'hash_sha256' => null,
+        'merge_conflict' => null,
         'mime_type' => null,
         'path' => null,
         'size' => 'int32',
@@ -123,6 +125,7 @@ class SfvbFileContentResponse implements ModelInterface, ArrayAccess, \JsonSeria
         'content' => 'content',
         'fs_file_oid' => 'fs_file_oid',
         'hash_sha256' => 'hash_sha256',
+        'merge_conflict' => 'merge_conflict',
         'mime_type' => 'mime_type',
         'path' => 'path',
         'size' => 'size',
@@ -142,6 +145,7 @@ class SfvbFileContentResponse implements ModelInterface, ArrayAccess, \JsonSeria
         'content' => 'setContent',
         'fs_file_oid' => 'setFsFileOid',
         'hash_sha256' => 'setHashSha256',
+        'merge_conflict' => 'setMergeConflict',
         'mime_type' => 'setMimeType',
         'path' => 'setPath',
         'size' => 'setSize',
@@ -161,6 +165,7 @@ class SfvbFileContentResponse implements ModelInterface, ArrayAccess, \JsonSeria
         'content' => 'getContent',
         'fs_file_oid' => 'getFsFileOid',
         'hash_sha256' => 'getHashSha256',
+        'merge_conflict' => 'getMergeConflict',
         'mime_type' => 'getMimeType',
         'path' => 'getPath',
         'size' => 'getSize',
@@ -231,6 +236,7 @@ class SfvbFileContentResponse implements ModelInterface, ArrayAccess, \JsonSeria
         $this->container['content'] = $data['content'] ?? null;
         $this->container['fs_file_oid'] = $data['fs_file_oid'] ?? null;
         $this->container['hash_sha256'] = $data['hash_sha256'] ?? null;
+        $this->container['merge_conflict'] = $data['merge_conflict'] ?? null;
         $this->container['mime_type'] = $data['mime_type'] ?? null;
         $this->container['path'] = $data['path'] ?? null;
         $this->container['size'] = $data['size'] ?? null;
@@ -356,6 +362,30 @@ class SfvbFileContentResponse implements ModelInterface, ArrayAccess, \JsonSeria
     public function setHashSha256($hash_sha256)
     {
         $this->container['hash_sha256'] = $hash_sha256;
+
+        return $this;
+    }
+
+    /**
+     * Gets merge_conflict
+     *
+     * @return bool|null
+     */
+    public function getMergeConflict()
+    {
+        return $this->container['merge_conflict'];
+    }
+
+    /**
+     * Sets merge_conflict
+     *
+     * @param bool|null $merge_conflict True when a theme upgrade left unresolved merge conflicts in this file.  The content holds conflict marker lines.  Resolve each conflict and save the file without any marker lines to clear it - a save that still has marker lines is refused.
+     *
+     * @return self
+     */
+    public function setMergeConflict($merge_conflict)
+    {
+        $this->container['merge_conflict'] = $merge_conflict;
 
         return $this;
     }

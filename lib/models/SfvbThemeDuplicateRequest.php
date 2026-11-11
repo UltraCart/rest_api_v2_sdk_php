@@ -60,7 +60,8 @@ class SfvbThemeDuplicateRequest implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPITypes = [
         'folder' => 'string',
         'target_storefront_oid' => 'int',
-        'theme_name' => 'string'
+        'theme_name' => 'string',
+        'upgrade_to_version' => 'string'
     ];
 
     /**
@@ -73,7 +74,8 @@ class SfvbThemeDuplicateRequest implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPIFormats = [
         'folder' => null,
         'target_storefront_oid' => 'int32',
-        'theme_name' => null
+        'theme_name' => null,
+        'upgrade_to_version' => null
     ];
 
     /**
@@ -105,7 +107,8 @@ class SfvbThemeDuplicateRequest implements ModelInterface, ArrayAccess, \JsonSer
     protected static $attributeMap = [
         'folder' => 'folder',
         'target_storefront_oid' => 'target_storefront_oid',
-        'theme_name' => 'theme_name'
+        'theme_name' => 'theme_name',
+        'upgrade_to_version' => 'upgrade_to_version'
     ];
 
     /**
@@ -116,7 +119,8 @@ class SfvbThemeDuplicateRequest implements ModelInterface, ArrayAccess, \JsonSer
     protected static $setters = [
         'folder' => 'setFolder',
         'target_storefront_oid' => 'setTargetStorefrontOid',
-        'theme_name' => 'setThemeName'
+        'theme_name' => 'setThemeName',
+        'upgrade_to_version' => 'setUpgradeToVersion'
     ];
 
     /**
@@ -127,7 +131,8 @@ class SfvbThemeDuplicateRequest implements ModelInterface, ArrayAccess, \JsonSer
     protected static $getters = [
         'folder' => 'getFolder',
         'target_storefront_oid' => 'getTargetStorefrontOid',
-        'theme_name' => 'getThemeName'
+        'theme_name' => 'getThemeName',
+        'upgrade_to_version' => 'getUpgradeToVersion'
     ];
 
     /**
@@ -190,6 +195,7 @@ class SfvbThemeDuplicateRequest implements ModelInterface, ArrayAccess, \JsonSer
         $this->container['folder'] = $data['folder'] ?? null;
         $this->container['target_storefront_oid'] = $data['target_storefront_oid'] ?? null;
         $this->container['theme_name'] = $data['theme_name'] ?? null;
+        $this->container['upgrade_to_version'] = $data['upgrade_to_version'] ?? null;
     }
 
     /**
@@ -284,6 +290,30 @@ class SfvbThemeDuplicateRequest implements ModelInterface, ArrayAccess, \JsonSer
     public function setThemeName($theme_name)
     {
         $this->container['theme_name'] = $theme_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets upgrade_to_version
+     *
+     * @return string|null
+     */
+    public function getUpgradeToVersion()
+    {
+        return $this->container['upgrade_to_version'];
+    }
+
+    /**
+     * Sets upgrade_to_version
+     *
+     * @param string|null $upgrade_to_version Upgrade the copy to this theme version after copying it, as the admin's Duplicate and Upgrade does.  Only the copy is upgraded - the source theme is never touched.  Must be one of the available_versions from getSfvbThemeUpgradeCheck, which also predicts the merge conflicts.  Omit for a plain copy.
+     *
+     * @return self
+     */
+    public function setUpgradeToVersion($upgrade_to_version)
+    {
+        $this->container['upgrade_to_version'] = $upgrade_to_version;
 
         return $this;
     }

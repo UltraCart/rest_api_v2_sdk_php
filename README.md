@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.241"
+    "ultracart/rest_api_v2_sdk_php": "4.1.242"
   }
 }
 ```
@@ -643,6 +643,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbTheme**](docs/Api/SfvbApi.md#getsfvbtheme) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid} | Get a theme
 *SfvbApi* | [**getSfvbThemeAttributes**](docs/Api/SfvbApi.md#getsfvbthemeattributes) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Read a theme&#39;s colors, fonts and settings
 *SfvbApi* | [**getSfvbThemeJob**](docs/Api/SfvbApi.md#getsfvbthemejob) | **GET** /sfvb/storefronts/{storefront_oid}/theme_jobs/{job_id} | Status of an asynchronous theme job
+*SfvbApi* | [**getSfvbThemeUpgradeCheck**](docs/Api/SfvbApi.md#getsfvbthemeupgradecheck) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/upgrade_check | Check what upgrading a theme would do
 *SfvbApi* | [**getSfvbTrackingCheckPlan**](docs/Api/SfvbApi.md#getsfvbtrackingcheckplan) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/check_plan | Plan a browser check of a storefront&#39;s tracking
 *SfvbApi* | [**getSfvbTrackingHtml**](docs/Api/SfvbApi.md#getsfvbtrackinghtml) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/html/{slot} | Read one custom tracking HTML slot
 *SfvbApi* | [**getSfvbTrackingHtmlSlots**](docs/Api/SfvbApi.md#getsfvbtrackinghtmlslots) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/html | List a storefront&#39;s custom tracking HTML slots
@@ -2363,10 +2364,12 @@ Class | Method | HTTP request | Description
 - [SfvbThemeAttributeUpdate](docs/Model/SfvbThemeAttributeUpdate.md)
 - [SfvbThemeAttributeUpdateRequest](docs/Model/SfvbThemeAttributeUpdateRequest.md)
 - [SfvbThemeAttributesResponse](docs/Model/SfvbThemeAttributesResponse.md)
+- [SfvbThemeChangeLogEntry](docs/Model/SfvbThemeChangeLogEntry.md)
 - [SfvbThemeDuplicateRequest](docs/Model/SfvbThemeDuplicateRequest.md)
 - [SfvbThemeFont](docs/Model/SfvbThemeFont.md)
 - [SfvbThemeFontFamily](docs/Model/SfvbThemeFontFamily.md)
 - [SfvbThemeJobResponse](docs/Model/SfvbThemeJobResponse.md)
+- [SfvbThemeUpgradeCheckResponse](docs/Model/SfvbThemeUpgradeCheckResponse.md)
 - [SfvbThemesResponse](docs/Model/SfvbThemesResponse.md)
 - [SfvbTrackingAdvanced](docs/Model/SfvbTrackingAdvanced.md)
 - [SfvbTrackingAdvancedRequest](docs/Model/SfvbTrackingAdvancedRequest.md)
@@ -2612,6 +2615,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.242 | 11/11/2026 | sfvb internal testing |
 | 4.1.241 | 11/10/2026 | sfvb internal testing |
 | 4.1.240 | 11/10/2026 | sfvb internal testing |
 | 4.1.239 | 11/10/2026 | sfvb internal testing |
