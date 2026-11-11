@@ -59,12 +59,19 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'attributes' => '\ultracart\v2\models\SfvbPageAttribute[]',
+        'blog_post_template' => 'string',
         'description' => 'string',
         'exclude_from_sitemap' => 'bool',
         'group_template' => 'string',
         'item_template' => 'string',
+        'items_per_page' => 'int',
         'multimedia' => '\ultracart\v2\models\SfvbPageMultimedia[]',
+        'page_type' => 'string',
         'path' => 'string',
+        'review_template' => 'string',
+        'sort_order' => 'int',
+        'sort_order_child_groups' => 'string',
+        'sort_order_child_items' => 'string',
         'title' => 'string',
         'visible' => 'bool',
         'visible_dts' => 'string'
@@ -79,12 +86,19 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'attributes' => null,
+        'blog_post_template' => null,
         'description' => null,
         'exclude_from_sitemap' => null,
         'group_template' => null,
         'item_template' => null,
+        'items_per_page' => 'int32',
         'multimedia' => null,
+        'page_type' => null,
         'path' => null,
+        'review_template' => null,
+        'sort_order' => 'int32',
+        'sort_order_child_groups' => null,
+        'sort_order_child_items' => null,
         'title' => null,
         'visible' => null,
         'visible_dts' => 'dateTime'
@@ -118,12 +132,19 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'attributes' => 'attributes',
+        'blog_post_template' => 'blog_post_template',
         'description' => 'description',
         'exclude_from_sitemap' => 'exclude_from_sitemap',
         'group_template' => 'group_template',
         'item_template' => 'item_template',
+        'items_per_page' => 'items_per_page',
         'multimedia' => 'multimedia',
+        'page_type' => 'page_type',
         'path' => 'path',
+        'review_template' => 'review_template',
+        'sort_order' => 'sort_order',
+        'sort_order_child_groups' => 'sort_order_child_groups',
+        'sort_order_child_items' => 'sort_order_child_items',
         'title' => 'title',
         'visible' => 'visible',
         'visible_dts' => 'visible_dts'
@@ -136,12 +157,19 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'attributes' => 'setAttributes',
+        'blog_post_template' => 'setBlogPostTemplate',
         'description' => 'setDescription',
         'exclude_from_sitemap' => 'setExcludeFromSitemap',
         'group_template' => 'setGroupTemplate',
         'item_template' => 'setItemTemplate',
+        'items_per_page' => 'setItemsPerPage',
         'multimedia' => 'setMultimedia',
+        'page_type' => 'setPageType',
         'path' => 'setPath',
+        'review_template' => 'setReviewTemplate',
+        'sort_order' => 'setSortOrder',
+        'sort_order_child_groups' => 'setSortOrderChildGroups',
+        'sort_order_child_items' => 'setSortOrderChildItems',
         'title' => 'setTitle',
         'visible' => 'setVisible',
         'visible_dts' => 'setVisibleDts'
@@ -154,12 +182,19 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'attributes' => 'getAttributes',
+        'blog_post_template' => 'getBlogPostTemplate',
         'description' => 'getDescription',
         'exclude_from_sitemap' => 'getExcludeFromSitemap',
         'group_template' => 'getGroupTemplate',
         'item_template' => 'getItemTemplate',
+        'items_per_page' => 'getItemsPerPage',
         'multimedia' => 'getMultimedia',
+        'page_type' => 'getPageType',
         'path' => 'getPath',
+        'review_template' => 'getReviewTemplate',
+        'sort_order' => 'getSortOrder',
+        'sort_order_child_groups' => 'getSortOrderChildGroups',
+        'sort_order_child_items' => 'getSortOrderChildItems',
         'title' => 'getTitle',
         'visible' => 'getVisible',
         'visible_dts' => 'getVisibleDts'
@@ -223,12 +258,19 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->container['attributes'] = $data['attributes'] ?? null;
+        $this->container['blog_post_template'] = $data['blog_post_template'] ?? null;
         $this->container['description'] = $data['description'] ?? null;
         $this->container['exclude_from_sitemap'] = $data['exclude_from_sitemap'] ?? null;
         $this->container['group_template'] = $data['group_template'] ?? null;
         $this->container['item_template'] = $data['item_template'] ?? null;
+        $this->container['items_per_page'] = $data['items_per_page'] ?? null;
         $this->container['multimedia'] = $data['multimedia'] ?? null;
+        $this->container['page_type'] = $data['page_type'] ?? null;
         $this->container['path'] = $data['path'] ?? null;
+        $this->container['review_template'] = $data['review_template'] ?? null;
+        $this->container['sort_order'] = $data['sort_order'] ?? null;
+        $this->container['sort_order_child_groups'] = $data['sort_order_child_groups'] ?? null;
+        $this->container['sort_order_child_items'] = $data['sort_order_child_items'] ?? null;
         $this->container['title'] = $data['title'] ?? null;
         $this->container['visible'] = $data['visible'] ?? null;
         $this->container['visible_dts'] = $data['visible_dts'] ?? null;
@@ -278,6 +320,30 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setAttributes($attributes)
     {
         $this->container['attributes'] = $attributes;
+
+        return $this;
+    }
+
+    /**
+     * Gets blog_post_template
+     *
+     * @return string|null
+     */
+    public function getBlogPostTemplate()
+    {
+        return $this->container['blog_post_template'];
+    }
+
+    /**
+     * Sets blog_post_template
+     *
+     * @param string|null $blog_post_template Template that renders the blog posts under this page.  Omitted when not set.
+     *
+     * @return self
+     */
+    public function setBlogPostTemplate($blog_post_template)
+    {
+        $this->container['blog_post_template'] = $blog_post_template;
 
         return $this;
     }
@@ -379,6 +445,30 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets items_per_page
+     *
+     * @return int|null
+     */
+    public function getItemsPerPage()
+    {
+        return $this->container['items_per_page'];
+    }
+
+    /**
+     * Sets items_per_page
+     *
+     * @param int|null $items_per_page Items per page on a template that paginates.  Omitted when the template's default applies.
+     *
+     * @return self
+     */
+    public function setItemsPerPage($items_per_page)
+    {
+        $this->container['items_per_page'] = $items_per_page;
+
+        return $this;
+    }
+
+    /**
      * Gets multimedia
      *
      * @return \ultracart\v2\models\SfvbPageMultimedia[]|null
@@ -403,6 +493,30 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets page_type
+     *
+     * @return string|null
+     */
+    public function getPageType()
+    {
+        return $this->container['page_type'];
+    }
+
+    /**
+     * Sets page_type
+     *
+     * @param string|null $page_type S for a static page, D for a dynamic one.
+     *
+     * @return self
+     */
+    public function setPageType($page_type)
+    {
+        $this->container['page_type'] = $page_type;
+
+        return $this;
+    }
+
+    /**
      * Gets path
      *
      * @return string|null
@@ -422,6 +536,102 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setPath($path)
     {
         $this->container['path'] = $path;
+
+        return $this;
+    }
+
+    /**
+     * Gets review_template
+     *
+     * @return string|null
+     */
+    public function getReviewTemplate()
+    {
+        return $this->container['review_template'];
+    }
+
+    /**
+     * Sets review_template
+     *
+     * @param string|null $review_template Template that renders the item review pages under this page.  Omitted when not set.
+     *
+     * @return self
+     */
+    public function setReviewTemplate($review_template)
+    {
+        $this->container['review_template'] = $review_template;
+
+        return $this;
+    }
+
+    /**
+     * Gets sort_order
+     *
+     * @return int|null
+     */
+    public function getSortOrder()
+    {
+        return $this->container['sort_order'];
+    }
+
+    /**
+     * Sets sort_order
+     *
+     * @param int|null $sort_order Position among its siblings when the parent sorts child pages by a custom order.  Omitted when not set.
+     *
+     * @return self
+     */
+    public function setSortOrder($sort_order)
+    {
+        $this->container['sort_order'] = $sort_order;
+
+        return $this;
+    }
+
+    /**
+     * Gets sort_order_child_groups
+     *
+     * @return string|null
+     */
+    public function getSortOrderChildGroups()
+    {
+        return $this->container['sort_order_child_groups'];
+    }
+
+    /**
+     * Sets sort_order_child_groups
+     *
+     * @param string|null $sort_order_child_groups How the pages under this one are ordered.  TA or TD by title, DA or DD by description, C custom.
+     *
+     * @return self
+     */
+    public function setSortOrderChildGroups($sort_order_child_groups)
+    {
+        $this->container['sort_order_child_groups'] = $sort_order_child_groups;
+
+        return $this;
+    }
+
+    /**
+     * Gets sort_order_child_items
+     *
+     * @return string|null
+     */
+    public function getSortOrderChildItems()
+    {
+        return $this->container['sort_order_child_items'];
+    }
+
+    /**
+     * Sets sort_order_child_items
+     *
+     * @param string|null $sort_order_child_items How the page's items are ordered.  IA or ID by item id, DA or DD by description, SA or SD by manufacturer SKU, PA or PD by price, RA or RD by review, NA or ND by inventory, C custom.
+     *
+     * @return self
+     */
+    public function setSortOrderChildItems($sort_order_child_items)
+    {
+        $this->container['sort_order_child_items'] = $sort_order_child_items;
 
         return $this;
     }

@@ -6595,7 +6595,7 @@ getSfvbThemeUpgradeCheck($storefront_oid, $theme_oid, $version): \ultracart\v2\m
 
 Check what upgrading a theme would do
 
-The same dry run the admin shows before an upgrade, and nothing is changed.  Lists the newer versions this account may use, and for one of them (version, or the newest when omitted) which customized files the upgrade would merge cleanly, leave with merge conflicts, or overwrite, plus the change log.  Use it before duplicateSfvbTheme with upgrade_to_version.  When no upgrade is possible the response says why in reason with can_duplicate_and_upgrade false.  A version that was asked for and is not available is refused with sfvb.theme_upgrade_unavailable.
+The same dry run the admin shows before an upgrade, and nothing is changed.  Lists the newer versions this account may use, and for one of them (version, or the newest when omitted) which customized files the upgrade would merge cleanly, leave with merge conflicts, or overwrite, plus the change log.  Use it before duplicateSfvbTheme with upgrade_to_version.  When no upgrade is possible the response says why in reason with can_duplicate_and_upgrade false.  A version that was asked for and is not available is refused with sfvb.theme_upgrade_unavailable.  Limited to 10 a minute and 100 an hour per account.
 
 
 ### Example
