@@ -283,7 +283,7 @@ class SfvbThemeDuplicateRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets theme_name
      *
-     * @param string|null $theme_name Name for the new theme.
+     * @param string|null $theme_name Ignored.  A theme is named by its settings.json themeName, which the copy keeps from the source, so the copy has the source's name.  Edit themeName in the copy's settings.json to rename it.  Kept so existing callers still work.
      *
      * @return self
      */
