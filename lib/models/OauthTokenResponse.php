@@ -65,7 +65,9 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'error_uri' => 'string',
         'expires_in' => 'string',
         'merchant_id' => 'string',
+        'minimum_version' => 'string',
         'object_id' => 'string',
+        'recommended_version' => 'string',
         'refresh_token' => 'string',
         'refresh_token_expires_in' => 'string',
         'scope' => 'string',
@@ -87,7 +89,9 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'error_uri' => null,
         'expires_in' => null,
         'merchant_id' => null,
+        'minimum_version' => null,
         'object_id' => null,
+        'recommended_version' => null,
         'refresh_token' => null,
         'refresh_token_expires_in' => null,
         'scope' => null,
@@ -128,7 +132,9 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'error_uri' => 'error_uri',
         'expires_in' => 'expires_in',
         'merchant_id' => 'merchant_id',
+        'minimum_version' => 'minimum_version',
         'object_id' => 'object_id',
+        'recommended_version' => 'recommended_version',
         'refresh_token' => 'refresh_token',
         'refresh_token_expires_in' => 'refresh_token_expires_in',
         'scope' => 'scope',
@@ -148,7 +154,9 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'error_uri' => 'setErrorUri',
         'expires_in' => 'setExpiresIn',
         'merchant_id' => 'setMerchantId',
+        'minimum_version' => 'setMinimumVersion',
         'object_id' => 'setObjectId',
+        'recommended_version' => 'setRecommendedVersion',
         'refresh_token' => 'setRefreshToken',
         'refresh_token_expires_in' => 'setRefreshTokenExpiresIn',
         'scope' => 'setScope',
@@ -168,7 +176,9 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'error_uri' => 'getErrorUri',
         'expires_in' => 'getExpiresIn',
         'merchant_id' => 'getMerchantId',
+        'minimum_version' => 'getMinimumVersion',
         'object_id' => 'getObjectId',
+        'recommended_version' => 'getRecommendedVersion',
         'refresh_token' => 'getRefreshToken',
         'refresh_token_expires_in' => 'getRefreshTokenExpiresIn',
         'scope' => 'getScope',
@@ -252,7 +262,9 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->container['error_uri'] = $data['error_uri'] ?? null;
         $this->container['expires_in'] = $data['expires_in'] ?? null;
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
+        $this->container['minimum_version'] = $data['minimum_version'] ?? null;
         $this->container['object_id'] = $data['object_id'] ?? null;
+        $this->container['recommended_version'] = $data['recommended_version'] ?? null;
         $this->container['refresh_token'] = $data['refresh_token'] ?? null;
         $this->container['refresh_token_expires_in'] = $data['refresh_token_expires_in'] ?? null;
         $this->container['scope'] = $data['scope'] ?? null;
@@ -461,6 +473,30 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
+     * Gets minimum_version
+     *
+     * @return string|null
+     */
+    public function getMinimumVersion()
+    {
+        return $this->container['minimum_version'];
+    }
+
+    /**
+     * Sets minimum_version
+     *
+     * @param string|null $minimum_version With error_code sfvb.cli_upgrade_required, the lowest StoreFront CLI version the server supports.
+     *
+     * @return self
+     */
+    public function setMinimumVersion($minimum_version)
+    {
+        $this->container['minimum_version'] = $minimum_version;
+
+        return $this;
+    }
+
+    /**
      * Gets object_id
      *
      * @return string|null
@@ -480,6 +516,30 @@ class OauthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setObjectId($object_id)
     {
         $this->container['object_id'] = $object_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets recommended_version
+     *
+     * @return string|null
+     */
+    public function getRecommendedVersion()
+    {
+        return $this->container['recommended_version'];
+    }
+
+    /**
+     * Sets recommended_version
+     *
+     * @param string|null $recommended_version With error_code sfvb.cli_upgrade_required, the StoreFront CLI version to install.
+     *
+     * @return self
+     */
+    public function setRecommendedVersion($recommended_version)
+    {
+        $this->container['recommended_version'] = $recommended_version;
 
         return $this;
     }

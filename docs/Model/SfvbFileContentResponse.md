@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **fs_file_oid** | **int** | StoreFront file system file oid. | [optional]
 **hash_sha256** | **string** | SHA-256 of the content.  Send this back as If-Match when writing.  The ETag header carries the same hash, but a compressing proxy may append a suffix such as -gzip to it, so this body value is the authoritative one.  Both forms are accepted on write. | [optional]
 **merge_conflict** | **bool** | True when a theme upgrade left unresolved merge conflicts in this file.  The content holds conflict marker lines.  Resolve each conflict and save the file without any marker lines to clear it - a save that still has marker lines is refused. | [optional]
+**metadata_error** | [**\ultracart\v2\models\SfvbErrorDetail**](SfvbErrorDetail.md) |  | [optional]
 **mime_type** | **string** | Mime type. | [optional]
 **path** | **string** | Full path of the file. | [optional]
 **size** | **int** | Size in bytes. | [optional]

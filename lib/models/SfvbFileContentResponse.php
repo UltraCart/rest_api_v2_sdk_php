@@ -63,6 +63,7 @@ class SfvbFileContentResponse implements ModelInterface, ArrayAccess, \JsonSeria
         'fs_file_oid' => 'int',
         'hash_sha256' => 'string',
         'merge_conflict' => 'bool',
+        'metadata_error' => '\ultracart\v2\models\SfvbErrorDetail',
         'mime_type' => 'string',
         'path' => 'string',
         'size' => 'int',
@@ -85,6 +86,7 @@ class SfvbFileContentResponse implements ModelInterface, ArrayAccess, \JsonSeria
         'fs_file_oid' => 'int32',
         'hash_sha256' => null,
         'merge_conflict' => null,
+        'metadata_error' => null,
         'mime_type' => null,
         'path' => null,
         'size' => 'int32',
@@ -126,6 +128,7 @@ class SfvbFileContentResponse implements ModelInterface, ArrayAccess, \JsonSeria
         'fs_file_oid' => 'fs_file_oid',
         'hash_sha256' => 'hash_sha256',
         'merge_conflict' => 'merge_conflict',
+        'metadata_error' => 'metadata_error',
         'mime_type' => 'mime_type',
         'path' => 'path',
         'size' => 'size',
@@ -146,6 +149,7 @@ class SfvbFileContentResponse implements ModelInterface, ArrayAccess, \JsonSeria
         'fs_file_oid' => 'setFsFileOid',
         'hash_sha256' => 'setHashSha256',
         'merge_conflict' => 'setMergeConflict',
+        'metadata_error' => 'setMetadataError',
         'mime_type' => 'setMimeType',
         'path' => 'setPath',
         'size' => 'setSize',
@@ -166,6 +170,7 @@ class SfvbFileContentResponse implements ModelInterface, ArrayAccess, \JsonSeria
         'fs_file_oid' => 'getFsFileOid',
         'hash_sha256' => 'getHashSha256',
         'merge_conflict' => 'getMergeConflict',
+        'metadata_error' => 'getMetadataError',
         'mime_type' => 'getMimeType',
         'path' => 'getPath',
         'size' => 'getSize',
@@ -237,6 +242,7 @@ class SfvbFileContentResponse implements ModelInterface, ArrayAccess, \JsonSeria
         $this->container['fs_file_oid'] = $data['fs_file_oid'] ?? null;
         $this->container['hash_sha256'] = $data['hash_sha256'] ?? null;
         $this->container['merge_conflict'] = $data['merge_conflict'] ?? null;
+        $this->container['metadata_error'] = $data['metadata_error'] ?? null;
         $this->container['mime_type'] = $data['mime_type'] ?? null;
         $this->container['path'] = $data['path'] ?? null;
         $this->container['size'] = $data['size'] ?? null;
@@ -386,6 +392,30 @@ class SfvbFileContentResponse implements ModelInterface, ArrayAccess, \JsonSeria
     public function setMergeConflict($merge_conflict)
     {
         $this->container['merge_conflict'] = $merge_conflict;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata_error
+     *
+     * @return \ultracart\v2\models\SfvbErrorDetail|null
+     */
+    public function getMetadataError()
+    {
+        return $this->container['metadata_error'];
+    }
+
+    /**
+     * Sets metadata_error
+     *
+     * @param \ultracart\v2\models\SfvbErrorDetail|null $metadata_error metadata_error
+     *
+     * @return self
+     */
+    public function setMetadataError($metadata_error)
+    {
+        $this->container['metadata_error'] = $metadata_error;
 
         return $this;
     }

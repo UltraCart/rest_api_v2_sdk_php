@@ -1015,6 +1015,7 @@ docs/Model/SfvbCampaignMembership.md
 docs/Model/SfvbCampaignWriteRequest.md
 docs/Model/SfvbCampaignsResponse.md
 docs/Model/SfvbCliAccess.md
+docs/Model/SfvbCliVersion.md
 docs/Model/SfvbCodeLibraryEmail.md
 docs/Model/SfvbCodeLibraryEmailsResponse.md
 docs/Model/SfvbCommsBranchStat.md
@@ -2513,6 +2514,7 @@ lib/models/SfvbCampaignMembership.php
 lib/models/SfvbCampaignWriteRequest.php
 lib/models/SfvbCampaignsResponse.php
 lib/models/SfvbCliAccess.php
+lib/models/SfvbCliVersion.php
 lib/models/SfvbCodeLibraryEmail.php
 lib/models/SfvbCodeLibraryEmailsResponse.php
 lib/models/SfvbCommsBranchStat.php
