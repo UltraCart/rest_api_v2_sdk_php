@@ -62,6 +62,7 @@ class SfvbSequenceStepCreateRequest implements ModelInterface, ArrayAccess, \Jso
         'after_step_uuid' => 'string',
         'branch_step_uuid' => 'string',
         'config_json' => 'string',
+        'filter_profile_equation_json' => 'string',
         'library_item_oid' => 'int',
         'name' => 'string',
         'preview_text' => 'string',
@@ -82,6 +83,7 @@ class SfvbSequenceStepCreateRequest implements ModelInterface, ArrayAccess, \Jso
         'after_step_uuid' => null,
         'branch_step_uuid' => null,
         'config_json' => null,
+        'filter_profile_equation_json' => null,
         'library_item_oid' => 'int32',
         'name' => null,
         'preview_text' => null,
@@ -121,6 +123,7 @@ class SfvbSequenceStepCreateRequest implements ModelInterface, ArrayAccess, \Jso
         'after_step_uuid' => 'after_step_uuid',
         'branch_step_uuid' => 'branch_step_uuid',
         'config_json' => 'config_json',
+        'filter_profile_equation_json' => 'filter_profile_equation_json',
         'library_item_oid' => 'library_item_oid',
         'name' => 'name',
         'preview_text' => 'preview_text',
@@ -139,6 +142,7 @@ class SfvbSequenceStepCreateRequest implements ModelInterface, ArrayAccess, \Jso
         'after_step_uuid' => 'setAfterStepUuid',
         'branch_step_uuid' => 'setBranchStepUuid',
         'config_json' => 'setConfigJson',
+        'filter_profile_equation_json' => 'setFilterProfileEquationJson',
         'library_item_oid' => 'setLibraryItemOid',
         'name' => 'setName',
         'preview_text' => 'setPreviewText',
@@ -157,6 +161,7 @@ class SfvbSequenceStepCreateRequest implements ModelInterface, ArrayAccess, \Jso
         'after_step_uuid' => 'getAfterStepUuid',
         'branch_step_uuid' => 'getBranchStepUuid',
         'config_json' => 'getConfigJson',
+        'filter_profile_equation_json' => 'getFilterProfileEquationJson',
         'library_item_oid' => 'getLibraryItemOid',
         'name' => 'getName',
         'preview_text' => 'getPreviewText',
@@ -226,6 +231,7 @@ class SfvbSequenceStepCreateRequest implements ModelInterface, ArrayAccess, \Jso
         $this->container['after_step_uuid'] = $data['after_step_uuid'] ?? null;
         $this->container['branch_step_uuid'] = $data['branch_step_uuid'] ?? null;
         $this->container['config_json'] = $data['config_json'] ?? null;
+        $this->container['filter_profile_equation_json'] = $data['filter_profile_equation_json'] ?? null;
         $this->container['library_item_oid'] = $data['library_item_oid'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['preview_text'] = $data['preview_text'] ?? null;
@@ -343,13 +349,37 @@ class SfvbSequenceStepCreateRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets config_json
      *
-     * @param string|null $config_json A wait step's settings, as the admin saves them and set-config changes them, namely delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), and optionally the delay_until_* options.  Not for an email step.
+     * @param string|null $config_json A wait step's settings, as the admin saves them and set-config changes them, namely delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), and optionally the delay_until_* options.  For a split, percentage_left (0.01 to 0.99, 0.5 by default) and merchant_notes.  For a condition, reverse, disabled and merchant_notes.  Not for an email step.
      *
      * @return self
      */
     public function setConfigJson($config_json)
     {
         $this->container['config_json'] = $config_json;
+
+        return $this;
+    }
+
+    /**
+     * Gets filter_profile_equation_json
+     *
+     * @return string|null
+     */
+    public function getFilterProfileEquationJson()
+    {
+        return $this->container['filter_profile_equation_json'];
+    }
+
+    /**
+     * Sets filter_profile_equation_json
+     *
+     * @param string|null $filter_profile_equation_json A condition step's rule, required for one, as an audience filter in the shape segments use.  Customers who match go to the yes side.  Only for a condition step.
+     *
+     * @return self
+     */
+    public function setFilterProfileEquationJson($filter_profile_equation_json)
+    {
+        $this->container['filter_profile_equation_json'] = $filter_profile_equation_json;
 
         return $this;
     }
@@ -487,7 +517,7 @@ class SfvbSequenceStepCreateRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets type
      *
-     * @param string|null $type The kind of step, one of email (the default), wait or post_card.
+     * @param string|null $type The kind of step, one of email (the default), wait, post_card, split or condition.
      *
      * @return self
      */

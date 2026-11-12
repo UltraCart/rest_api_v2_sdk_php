@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.247"
+    "ultracart/rest_api_v2_sdk_php": "4.1.248"
   }
 }
 ```
@@ -676,7 +676,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**insertSfvbPage**](docs/Api/SfvbApi.md#insertsfvbpage) | **POST** /sfvb/storefronts/{storefront_oid}/pages | Create a page
 *SfvbApi* | [**insertSfvbRedirect**](docs/Api/SfvbApi.md#insertsfvbredirect) | **POST** /sfvb/storefronts/{storefront_oid}/redirects | Create a 301 redirect rule
 *SfvbApi* | [**insertSfvbSecretRequest**](docs/Api/SfvbApi.md#insertsfvbsecretrequest) | **POST** /sfvb/secrets | Ask a person to enter secret values
-*SfvbApi* | [**insertSfvbSequenceStep**](docs/Api/SfvbApi.md#insertsfvbsequencestep) | **POST** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps | Add an email step, with its new email, a wait step, or a postcard step, with its new postcard
+*SfvbApi* | [**insertSfvbSequenceStep**](docs/Api/SfvbApi.md#insertsfvbsequencestep) | **POST** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps | Add an email step, with its new email, a wait step, a postcard step, with its new postcard, or a split or condition step
 *SfvbApi* | [**insertSfvbUpsellOffer**](docs/Api/SfvbApi.md#insertsfvbupselloffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers | Create an upsell offer
 *SfvbApi* | [**insertSfvbUpsellPath**](docs/Api/SfvbApi.md#insertsfvbupsellpath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths | Create an upsell path
 *SfvbApi* | [**insertSfvbUtmShortcode**](docs/Api/SfvbApi.md#insertsfvbutmshortcode) | **POST** /sfvb/storefronts/{storefront_oid}/utm_shortcodes | Create a UTM shortcode
@@ -2617,6 +2617,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.248 | 11/12/2026 | sfvb internal testing |
 | 4.1.247 | 11/12/2026 | sfvb internal testing |
 | 4.1.246 | 11/11/2026 | sfvb internal testing |
 | 4.1.245 | 11/11/2026 | sfvb internal testing |

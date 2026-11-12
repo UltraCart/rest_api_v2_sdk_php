@@ -84064,7 +84064,7 @@ class SfvbApi
     /**
      * Operation insertSfvbSequenceStep
      *
-     * Add an email step, with its new email, a wait step, or a postcard step, with its new postcard
+     * Add an email step, with its new email, a wait step, a postcard step, with its new postcard, or a split or condition step
      *
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $sequence_uuid sequence_uuid (required)
@@ -84084,7 +84084,7 @@ class SfvbApi
     /**
      * Operation insertSfvbSequenceStepWithHttpInfo
      *
-     * Add an email step, with its new email, a wait step, or a postcard step, with its new postcard
+     * Add an email step, with its new email, a wait step, a postcard step, with its new postcard, or a split or condition step
      *
      * @param  int $storefront_oid (required)
      * @param  string $sequence_uuid (required)
@@ -84105,7 +84105,7 @@ class SfvbApi
     /**
      * Operation insertSfvbSequenceStepWithHttpInfoRetry
      *
-     * Add an email step, with its new email, a wait step, or a postcard step, with its new postcard
+     * Add an email step, with its new email, a wait step, a postcard step, with its new postcard, or a split or condition step
      *
      * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
      * @param  int $storefront_oid (required)
@@ -84344,7 +84344,7 @@ class SfvbApi
     /**
      * Operation insertSfvbSequenceStepAsync
      *
-     * Add an email step, with its new email, a wait step, or a postcard step, with its new postcard
+     * Add an email step, with its new email, a wait step, a postcard step, with its new postcard, or a split or condition step
      *
      * @param  int $storefront_oid (required)
      * @param  string $sequence_uuid (required)
@@ -84367,7 +84367,7 @@ class SfvbApi
     /**
      * Operation insertSfvbSequenceStepAsyncWithHttpInfo
      *
-     * Add an email step, with its new email, a wait step, or a postcard step, with its new postcard
+     * Add an email step, with its new email, a wait step, a postcard step, with its new postcard, or a split or condition step
      *
      * @param  int $storefront_oid (required)
      * @param  string $sequence_uuid (required)
