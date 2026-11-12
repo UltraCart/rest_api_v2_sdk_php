@@ -62,6 +62,9 @@ class SfvbApproval implements ModelInterface, ArrayAccess, \JsonSerializable
         'approval_id' => 'string',
         'approval_url' => 'string',
         'created_at' => 'string',
+        'decided_by' => 'string',
+        'delegate_name' => 'string',
+        'delegated' => 'bool',
         'description' => 'string',
         'expires_at' => 'string',
         'expires_in_seconds' => 'int',
@@ -92,6 +95,9 @@ class SfvbApproval implements ModelInterface, ArrayAccess, \JsonSerializable
         'approval_id' => null,
         'approval_url' => null,
         'created_at' => 'dateTime',
+        'decided_by' => null,
+        'delegate_name' => null,
+        'delegated' => null,
         'description' => null,
         'expires_at' => 'dateTime',
         'expires_in_seconds' => 'int32',
@@ -141,6 +147,9 @@ class SfvbApproval implements ModelInterface, ArrayAccess, \JsonSerializable
         'approval_id' => 'approval_id',
         'approval_url' => 'approval_url',
         'created_at' => 'created_at',
+        'decided_by' => 'decided_by',
+        'delegate_name' => 'delegate_name',
+        'delegated' => 'delegated',
         'description' => 'description',
         'expires_at' => 'expires_at',
         'expires_in_seconds' => 'expires_in_seconds',
@@ -169,6 +178,9 @@ class SfvbApproval implements ModelInterface, ArrayAccess, \JsonSerializable
         'approval_id' => 'setApprovalId',
         'approval_url' => 'setApprovalUrl',
         'created_at' => 'setCreatedAt',
+        'decided_by' => 'setDecidedBy',
+        'delegate_name' => 'setDelegateName',
+        'delegated' => 'setDelegated',
         'description' => 'setDescription',
         'expires_at' => 'setExpiresAt',
         'expires_in_seconds' => 'setExpiresInSeconds',
@@ -197,6 +209,9 @@ class SfvbApproval implements ModelInterface, ArrayAccess, \JsonSerializable
         'approval_id' => 'getApprovalId',
         'approval_url' => 'getApprovalUrl',
         'created_at' => 'getCreatedAt',
+        'decided_by' => 'getDecidedBy',
+        'delegate_name' => 'getDelegateName',
+        'delegated' => 'getDelegated',
         'description' => 'getDescription',
         'expires_at' => 'getExpiresAt',
         'expires_in_seconds' => 'getExpiresInSeconds',
@@ -256,6 +271,8 @@ class SfvbApproval implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const DECIDED_BY_REQUESTER = 'requester';
+    public const DECIDED_BY_DELEGATE = 'delegate';
     public const OUTCOME_SUCCEEDED = 'succeeded';
     public const OUTCOME_FAILED = 'failed';
     public const STATUS_REVIEWING = 'reviewing';
@@ -266,6 +283,19 @@ class SfvbApproval implements ModelInterface, ArrayAccess, \JsonSerializable
     public const STATUS_EXPIRED = 'expired';
     public const STATUS_USED = 'used';
     public const STATUS_REFUSED = 'refused';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDecidedByAllowableValues()
+    {
+        return [
+            self::DECIDED_BY_REQUESTER,
+            self::DECIDED_BY_DELEGATE,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -318,6 +348,9 @@ class SfvbApproval implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['approval_id'] = $data['approval_id'] ?? null;
         $this->container['approval_url'] = $data['approval_url'] ?? null;
         $this->container['created_at'] = $data['created_at'] ?? null;
+        $this->container['decided_by'] = $data['decided_by'] ?? null;
+        $this->container['delegate_name'] = $data['delegate_name'] ?? null;
+        $this->container['delegated'] = $data['delegated'] ?? null;
         $this->container['description'] = $data['description'] ?? null;
         $this->container['expires_at'] = $data['expires_at'] ?? null;
         $this->container['expires_in_seconds'] = $data['expires_in_seconds'] ?? null;
@@ -344,6 +377,15 @@ class SfvbApproval implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getDecidedByAllowableValues();
+        if (!is_null($this->container['decided_by']) && !in_array($this->container['decided_by'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'decided_by', must be one of '%s'",
+                $this->container['decided_by'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         $allowedValues = $this->getOutcomeAllowableValues();
         if (!is_null($this->container['outcome']) && !in_array($this->container['outcome'], $allowedValues, true)) {
@@ -470,6 +512,88 @@ class SfvbApproval implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCreatedAt($created_at)
     {
         $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets decided_by
+     *
+     * @return string|null
+     */
+    public function getDecidedBy()
+    {
+        return $this->container['decided_by'];
+    }
+
+    /**
+     * Sets decided_by
+     *
+     * @param string|null $decided_by Who decided the request, once decided.
+     *
+     * @return self
+     */
+    public function setDecidedBy($decided_by)
+    {
+        $allowedValues = $this->getDecidedByAllowableValues();
+        if (!is_null($decided_by) && !in_array($decided_by, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'decided_by', must be one of '%s'",
+                    $decided_by,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['decided_by'] = $decided_by;
+
+        return $this;
+    }
+
+    /**
+     * Gets delegate_name
+     *
+     * @return string|null
+     */
+    public function getDelegateName()
+    {
+        return $this->container['delegate_name'];
+    }
+
+    /**
+     * Sets delegate_name
+     *
+     * @param string|null $delegate_name The name of the colleague the request was handed to, while it is.  Tell the person who is now deciding.
+     *
+     * @return self
+     */
+    public function setDelegateName($delegate_name)
+    {
+        $this->container['delegate_name'] = $delegate_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets delegated
+     *
+     * @return bool|null
+     */
+    public function getDelegated()
+    {
+        return $this->container['delegated'];
+    }
+
+    /**
+     * Sets delegated
+     *
+     * @param bool|null $delegated True when the request was handed to a colleague to decide.
+     *
+     * @return self
+     */
+    public function setDelegated($delegated)
+    {
+        $this->container['delegated'] = $delegated;
 
         return $this;
     }

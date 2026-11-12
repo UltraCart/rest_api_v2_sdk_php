@@ -63,6 +63,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'comms_list_import' => '\ultracart\v2\models\SfvbCommsProviderImportRequest',
         'comms_settings' => '\ultracart\v2\models\SfvbCommsSettingsUpdateRequest',
         'content' => 'string',
+        'delegate_email' => 'string',
         'experiment_start' => '\ultracart\v2\models\SfvbExperimentStartRequest',
         'flow_backfill' => '\ultracart\v2\models\SfvbFlowBackfillRequest',
         'item_attribute_rows' => '\ultracart\v2\models\SfvbItemAttributeBatchRow[]',
@@ -95,6 +96,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'comms_list_import' => null,
         'comms_settings' => null,
         'content' => null,
+        'delegate_email' => null,
         'experiment_start' => null,
         'flow_backfill' => null,
         'item_attribute_rows' => null,
@@ -146,6 +148,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'comms_list_import' => 'comms_list_import',
         'comms_settings' => 'comms_settings',
         'content' => 'content',
+        'delegate_email' => 'delegate_email',
         'experiment_start' => 'experiment_start',
         'flow_backfill' => 'flow_backfill',
         'item_attribute_rows' => 'item_attribute_rows',
@@ -176,6 +179,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'comms_list_import' => 'setCommsListImport',
         'comms_settings' => 'setCommsSettings',
         'content' => 'setContent',
+        'delegate_email' => 'setDelegateEmail',
         'experiment_start' => 'setExperimentStart',
         'flow_backfill' => 'setFlowBackfill',
         'item_attribute_rows' => 'setItemAttributeRows',
@@ -206,6 +210,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'comms_list_import' => 'getCommsListImport',
         'comms_settings' => 'getCommsSettings',
         'content' => 'getContent',
+        'delegate_email' => 'getDelegateEmail',
         'experiment_start' => 'getExperimentStart',
         'flow_backfill' => 'getFlowBackfill',
         'item_attribute_rows' => 'getItemAttributeRows',
@@ -362,6 +367,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
         $this->container['comms_list_import'] = $data['comms_list_import'] ?? null;
         $this->container['comms_settings'] = $data['comms_settings'] ?? null;
         $this->container['content'] = $data['content'] ?? null;
+        $this->container['delegate_email'] = $data['delegate_email'] ?? null;
         $this->container['experiment_start'] = $data['experiment_start'] ?? null;
         $this->container['flow_backfill'] = $data['flow_backfill'] ?? null;
         $this->container['item_attribute_rows'] = $data['item_attribute_rows'] ?? null;
@@ -540,6 +546,30 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     public function setContent($content)
     {
         $this->container['content'] = $content;
+
+        return $this;
+    }
+
+    /**
+     * Gets delegate_email
+     *
+     * @return string|null
+     */
+    public function getDelegateEmail()
+    {
+        return $this->container['delegate_email'];
+    }
+
+    /**
+     * Sets delegate_email
+     *
+     * @param string|null $delegate_email Optional.  The email of a colleague on this account who should decide the request instead of the person who signed in.  They must hold an admin permission that covers the action; they get an email with a link and decide with their own authenticator code.  Any colleague who can't be used is refused with sfvb.delegate_not_allowed, for every reason alike.  The approval stays yours to poll and use.
+     *
+     * @return self
+     */
+    public function setDelegateEmail($delegate_email)
+    {
+        $this->container['delegate_email'] = $delegate_email;
 
         return $this;
     }
