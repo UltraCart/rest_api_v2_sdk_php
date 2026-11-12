@@ -7380,7 +7380,7 @@ insertSfvbApproval($approval_request, $storefront_oid): \ultracart\v2\models\Sfv
 
 Request a human approval
 
-Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert; for tracking_html.put send the HTML as content and params.slot; for affiliate_network.change send affiliate_network.  These three start as reviewing while UltraCart's scanner and two AI models read the content, then become pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same content.
+Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script and file.put_template send the file as content, or params.version for a revert; for tracking_html.put send the HTML as content and params.slot; for affiliate_network.change send affiliate_network.  These four start as reviewing while UltraCart's scanner and two AI models read the content, then become pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same content.
 
 
 ### Example
@@ -9324,7 +9324,7 @@ Name | Type | Description  | Notes
  **if_match** | **string**| Content hash from the last read.  Required; 428 when absent, 412 when stale. |
  **file_write_request** | [**\ultracart\v2\models\SfvbFileWriteRequest**](../Model/SfvbFileWriteRequest.md)| File content to write |
  **path** | **string**|  | [optional]
- **approval_id** | **string**| For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes.  Required for scripts.  See POST /sfvb/approvals. | [optional]
+ **approval_id** | **string**| For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes, and for a .vm or .html file inside a theme, of an approved file.put_template request.  Required for scripts and templates.  See POST /sfvb/approvals. | [optional]
 
 ### Return type
 
@@ -10897,7 +10897,7 @@ Name | Type | Description  | Notes
  **storefront_oid** | **int**|  |
  **if_match** | **string**| Content hash of the file being reverted.  Required; 428 when absent, 412 when stale. |
  **file_revert_request** | [**\ultracart\v2\models\SfvbFileRevertRequest**](../Model/SfvbFileRevertRequest.md)| Version to revert the file to |
- **approval_id** | **string**| For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version.  Required for scripts.  See POST /sfvb/approvals. | [optional]
+ **approval_id** | **string**| For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version, and for a .vm or .html file inside a theme, of an approved file.put_template request.  Required for scripts and templates.  See POST /sfvb/approvals. | [optional]
 
 ### Return type
 

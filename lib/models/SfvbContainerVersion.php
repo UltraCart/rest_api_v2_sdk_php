@@ -62,6 +62,8 @@ class SfvbContainerVersion implements ModelInterface, ArrayAccess, \JsonSerializ
         'comment' => 'string',
         'container_history_oid' => 'int',
         'container_name' => 'string',
+        'content_created_dts' => 'string',
+        'content_edited_by' => 'string',
         'created_dts' => 'string',
         'current' => 'bool',
         'edited_by' => 'string',
@@ -84,6 +86,8 @@ class SfvbContainerVersion implements ModelInterface, ArrayAccess, \JsonSerializ
         'comment' => null,
         'container_history_oid' => 'int32',
         'container_name' => null,
+        'content_created_dts' => 'dateTime',
+        'content_edited_by' => null,
         'created_dts' => 'dateTime',
         'current' => null,
         'edited_by' => null,
@@ -125,6 +129,8 @@ class SfvbContainerVersion implements ModelInterface, ArrayAccess, \JsonSerializ
         'comment' => 'comment',
         'container_history_oid' => 'container_history_oid',
         'container_name' => 'container_name',
+        'content_created_dts' => 'content_created_dts',
+        'content_edited_by' => 'content_edited_by',
         'created_dts' => 'created_dts',
         'current' => 'current',
         'edited_by' => 'edited_by',
@@ -145,6 +151,8 @@ class SfvbContainerVersion implements ModelInterface, ArrayAccess, \JsonSerializ
         'comment' => 'setComment',
         'container_history_oid' => 'setContainerHistoryOid',
         'container_name' => 'setContainerName',
+        'content_created_dts' => 'setContentCreatedDts',
+        'content_edited_by' => 'setContentEditedBy',
         'created_dts' => 'setCreatedDts',
         'current' => 'setCurrent',
         'edited_by' => 'setEditedBy',
@@ -165,6 +173,8 @@ class SfvbContainerVersion implements ModelInterface, ArrayAccess, \JsonSerializ
         'comment' => 'getComment',
         'container_history_oid' => 'getContainerHistoryOid',
         'container_name' => 'getContainerName',
+        'content_created_dts' => 'getContentCreatedDts',
+        'content_edited_by' => 'getContentEditedBy',
         'created_dts' => 'getCreatedDts',
         'current' => 'getCurrent',
         'edited_by' => 'getEditedBy',
@@ -272,6 +282,8 @@ class SfvbContainerVersion implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->container['comment'] = $data['comment'] ?? null;
         $this->container['container_history_oid'] = $data['container_history_oid'] ?? null;
         $this->container['container_name'] = $data['container_name'] ?? null;
+        $this->container['content_created_dts'] = $data['content_created_dts'] ?? null;
+        $this->container['content_edited_by'] = $data['content_edited_by'] ?? null;
         $this->container['created_dts'] = $data['created_dts'] ?? null;
         $this->container['current'] = $data['current'] ?? null;
         $this->container['edited_by'] = $data['edited_by'] ?? null;
@@ -421,6 +433,54 @@ class SfvbContainerVersion implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
+     * Gets content_created_dts
+     *
+     * @return string|null
+     */
+    public function getContentCreatedDts()
+    {
+        return $this->container['content_created_dts'];
+    }
+
+    /**
+     * Sets content_created_dts
+     *
+     * @param string|null $content_created_dts When this version's content was written, ISO 8601 UTC.  Same source and limits as content_edited_by.
+     *
+     * @return self
+     */
+    public function setContentCreatedDts($content_created_dts)
+    {
+        $this->container['content_created_dts'] = $content_created_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets content_edited_by
+     *
+     * @return string|null
+     */
+    public function getContentEditedBy()
+    {
+        return $this->container['content_edited_by'];
+    }
+
+    /**
+     * Sets content_edited_by
+     *
+     * @param string|null $content_edited_by Login of whoever wrote this version's content, taken from the write recorded on the next older entry.  Absent on a create entry and on the oldest entry kept, such as a template body that was in place before any history.  Saves made outside this API, in the admin visual builder, are not recorded, so after one this names the previous API write.
+     *
+     * @return self
+     */
+    public function setContentEditedBy($content_edited_by)
+    {
+        $this->container['content_edited_by'] = $content_edited_by;
+
+        return $this;
+    }
+
+    /**
      * Gets created_dts
      *
      * @return string|null
@@ -433,7 +493,7 @@ class SfvbContainerVersion implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets created_dts
      *
-     * @param string|null $created_dts When this snapshot was taken, ISO 8601 UTC.
+     * @param string|null $created_dts When the write that replaced this version happened, ISO 8601 UTC.  On the current entry, when it was written.
      *
      * @return self
      */
@@ -481,7 +541,7 @@ class SfvbContainerVersion implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets edited_by
      *
-     * @param string|null $edited_by Login of whoever caused this snapshot.
+     * @param string|null $edited_by Login of whoever made the write that replaced this version.  On the current entry, whoever wrote it.  See content_edited_by for who wrote a history entry's content.
      *
      * @return self
      */

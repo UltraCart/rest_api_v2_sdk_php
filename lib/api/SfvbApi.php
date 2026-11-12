@@ -99071,7 +99071,7 @@ class SfvbApi
      * @param  string $if_match Content hash from the last read.  Required; 428 when absent, 412 when stale. (required)
      * @param  \ultracart\v2\models\SfvbFileWriteRequest $file_write_request File content to write (required)
      * @param  string $path path (optional)
-     * @param  string $approval_id For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes.  Required for scripts.  See POST /sfvb/approvals. (optional)
+     * @param  string $approval_id For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes, and for a .vm or .html file inside a theme, of an approved file.put_template request.  Required for scripts and templates.  See POST /sfvb/approvals. (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -99092,7 +99092,7 @@ class SfvbApi
      * @param  string $if_match Content hash from the last read.  Required; 428 when absent, 412 when stale. (required)
      * @param  \ultracart\v2\models\SfvbFileWriteRequest $file_write_request File content to write (required)
      * @param  string $path (optional)
-     * @param  string $approval_id For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes.  Required for scripts.  See POST /sfvb/approvals. (optional)
+     * @param  string $approval_id For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes, and for a .vm or .html file inside a theme, of an approved file.put_template request.  Required for scripts and templates.  See POST /sfvb/approvals. (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -99115,7 +99115,7 @@ class SfvbApi
      * @param  string $if_match Content hash from the last read.  Required; 428 when absent, 412 when stale. (required)
      * @param  \ultracart\v2\models\SfvbFileWriteRequest $file_write_request File content to write (required)
      * @param  string $path (optional)
-     * @param  string $approval_id For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes.  Required for scripts.  See POST /sfvb/approvals. (optional)
+     * @param  string $approval_id For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes, and for a .vm or .html file inside a theme, of an approved file.put_template request.  Required for scripts and templates.  See POST /sfvb/approvals. (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -99354,7 +99354,7 @@ class SfvbApi
      * @param  string $if_match Content hash from the last read.  Required; 428 when absent, 412 when stale. (required)
      * @param  \ultracart\v2\models\SfvbFileWriteRequest $file_write_request File content to write (required)
      * @param  string $path (optional)
-     * @param  string $approval_id For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes.  Required for scripts.  See POST /sfvb/approvals. (optional)
+     * @param  string $approval_id For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes, and for a .vm or .html file inside a theme, of an approved file.put_template request.  Required for scripts and templates.  See POST /sfvb/approvals. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -99378,7 +99378,7 @@ class SfvbApi
      * @param  string $if_match Content hash from the last read.  Required; 428 when absent, 412 when stale. (required)
      * @param  \ultracart\v2\models\SfvbFileWriteRequest $file_write_request File content to write (required)
      * @param  string $path (optional)
-     * @param  string $approval_id For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes.  Required for scripts.  See POST /sfvb/approvals. (optional)
+     * @param  string $approval_id For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes, and for a .vm or .html file inside a theme, of an approved file.put_template request.  Required for scripts and templates.  See POST /sfvb/approvals. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -99431,7 +99431,7 @@ class SfvbApi
      * @param  string $if_match Content hash from the last read.  Required; 428 when absent, 412 when stale. (required)
      * @param  \ultracart\v2\models\SfvbFileWriteRequest $file_write_request File content to write (required)
      * @param  string $path (optional)
-     * @param  string $approval_id For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes.  Required for scripts.  See POST /sfvb/approvals. (optional)
+     * @param  string $approval_id For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes, and for a .vm or .html file inside a theme, of an approved file.put_template request.  Required for scripts and templates.  See POST /sfvb/approvals. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -117240,7 +117240,7 @@ class SfvbApi
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $if_match Content hash of the file being reverted.  Required; 428 when absent, 412 when stale. (required)
      * @param  \ultracart\v2\models\SfvbFileRevertRequest $file_revert_request Version to revert the file to (required)
-     * @param  string $approval_id For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version.  Required for scripts.  See POST /sfvb/approvals. (optional)
+     * @param  string $approval_id For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version, and for a .vm or .html file inside a theme, of an approved file.put_template request.  Required for scripts and templates.  See POST /sfvb/approvals. (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -117260,7 +117260,7 @@ class SfvbApi
      * @param  int $storefront_oid (required)
      * @param  string $if_match Content hash of the file being reverted.  Required; 428 when absent, 412 when stale. (required)
      * @param  \ultracart\v2\models\SfvbFileRevertRequest $file_revert_request Version to revert the file to (required)
-     * @param  string $approval_id For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version.  Required for scripts.  See POST /sfvb/approvals. (optional)
+     * @param  string $approval_id For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version, and for a .vm or .html file inside a theme, of an approved file.put_template request.  Required for scripts and templates.  See POST /sfvb/approvals. (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -117282,7 +117282,7 @@ class SfvbApi
      * @param  int $storefront_oid (required)
      * @param  string $if_match Content hash of the file being reverted.  Required; 428 when absent, 412 when stale. (required)
      * @param  \ultracart\v2\models\SfvbFileRevertRequest $file_revert_request Version to revert the file to (required)
-     * @param  string $approval_id For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version.  Required for scripts.  See POST /sfvb/approvals. (optional)
+     * @param  string $approval_id For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version, and for a .vm or .html file inside a theme, of an approved file.put_template request.  Required for scripts and templates.  See POST /sfvb/approvals. (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -117520,7 +117520,7 @@ class SfvbApi
      * @param  int $storefront_oid (required)
      * @param  string $if_match Content hash of the file being reverted.  Required; 428 when absent, 412 when stale. (required)
      * @param  \ultracart\v2\models\SfvbFileRevertRequest $file_revert_request Version to revert the file to (required)
-     * @param  string $approval_id For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version.  Required for scripts.  See POST /sfvb/approvals. (optional)
+     * @param  string $approval_id For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version, and for a .vm or .html file inside a theme, of an approved file.put_template request.  Required for scripts and templates.  See POST /sfvb/approvals. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -117543,7 +117543,7 @@ class SfvbApi
      * @param  int $storefront_oid (required)
      * @param  string $if_match Content hash of the file being reverted.  Required; 428 when absent, 412 when stale. (required)
      * @param  \ultracart\v2\models\SfvbFileRevertRequest $file_revert_request Version to revert the file to (required)
-     * @param  string $approval_id For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version.  Required for scripts.  See POST /sfvb/approvals. (optional)
+     * @param  string $approval_id For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version, and for a .vm or .html file inside a theme, of an approved file.put_template request.  Required for scripts and templates.  See POST /sfvb/approvals. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -117595,7 +117595,7 @@ class SfvbApi
      * @param  int $storefront_oid (required)
      * @param  string $if_match Content hash of the file being reverted.  Required; 428 when absent, 412 when stale. (required)
      * @param  \ultracart\v2\models\SfvbFileRevertRequest $file_revert_request Version to revert the file to (required)
-     * @param  string $approval_id For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version.  Required for scripts.  See POST /sfvb/approvals. (optional)
+     * @param  string $approval_id For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version, and for a .vm or .html file inside a theme, of an approved file.put_template request.  Required for scripts and templates.  See POST /sfvb/approvals. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

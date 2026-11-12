@@ -269,6 +269,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     public const ACTION_FILE_DELETE = 'file.delete';
     public const ACTION_BLOG_POST_DELETE = 'blog_post.delete';
     public const ACTION_FILE_PUT_SCRIPT = 'file.put_script';
+    public const ACTION_FILE_PUT_TEMPLATE = 'file.put_template';
     public const ACTION_REDIRECT_DELETE_BATCH = 'redirect.delete_batch';
     public const ACTION_EXPERIMENT_START = 'experiment.start';
     public const ACTION_EXPERIMENT_END = 'experiment.end';
@@ -309,6 +310,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
             self::ACTION_FILE_DELETE,
             self::ACTION_BLOG_POST_DELETE,
             self::ACTION_FILE_PUT_SCRIPT,
+            self::ACTION_FILE_PUT_TEMPLATE,
             self::ACTION_REDIRECT_DELETE_BATCH,
             self::ACTION_EXPERIMENT_START,
             self::ACTION_EXPERIMENT_END,
@@ -531,7 +533,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets content
      *
-     * @param string|null $content For a file.put_script write, the exact script to be written, at most 256 KB.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.
+     * @param string|null $content For a file.put_script write, the exact script to be written, at most 256 KB, and for a file.put_template write the exact template.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.
      *
      * @return self
      */
