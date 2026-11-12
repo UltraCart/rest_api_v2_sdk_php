@@ -228,6 +228,7 @@ class SfvbContainerVersion implements ModelInterface, ArrayAccess, \JsonSerializ
 
     public const OPERATION_CREATE = 'create';
     public const OPERATION_UPDATE = 'update';
+    public const OPERATION_DELETE = 'delete';
     public const OWNER_TYPE_ITEM = 'item';
     public const OWNER_TYPE_UPSELL = 'upsell';
     public const OWNER_TYPE_EMAIL = 'email';
@@ -244,6 +245,7 @@ class SfvbContainerVersion implements ModelInterface, ArrayAccess, \JsonSerializ
         return [
             self::OPERATION_CREATE,
             self::OPERATION_UPDATE,
+            self::OPERATION_DELETE,
         ];
     }
 
@@ -589,7 +591,7 @@ class SfvbContainerVersion implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets operation
      *
-     * @param string|null $operation What the container was before the write this entry precedes.  create means it did not exist, so reverting to this entry removes it again; update means it held the cjson recorded here.
+     * @param string|null $operation What the container was before the write this entry precedes.  create means it did not exist, so reverting to this entry removes it again; update means it held the cjson recorded here; delete means it held the cjson recorded here and the write after it removed the container, so reverting to this entry puts that cjson back.
      *
      * @return self
      */
