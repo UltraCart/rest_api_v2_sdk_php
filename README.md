@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.249"
+    "ultracart/rest_api_v2_sdk_php": "4.1.250"
   }
 }
 ```
@@ -2617,6 +2617,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.250 | 11/12/2026 | sfvb internal testing |
 | 4.1.249 | 11/12/2026 | sfvb internal testing |
 | 4.1.248 | 11/12/2026 | sfvb internal testing |
 | 4.1.247 | 11/12/2026 | sfvb internal testing |
