@@ -69,7 +69,10 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'experiment_oid' => 'int',
         'item_count' => 'int',
         'merchant_item_oid' => 'int',
+        'new_path' => 'string',
+        'pages_moved' => 'int',
         'path' => 'string',
+        'redirect_old_url' => 'string',
         'request_sha256' => 'string',
         'rows_sha256' => 'string',
         'rule_count' => 'int',
@@ -105,7 +108,10 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'experiment_oid' => 'int32',
         'item_count' => 'int32',
         'merchant_item_oid' => 'int32',
+        'new_path' => null,
+        'pages_moved' => 'int32',
         'path' => null,
+        'redirect_old_url' => null,
         'request_sha256' => null,
         'rows_sha256' => null,
         'rule_count' => 'int32',
@@ -160,7 +166,10 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'experiment_oid' => 'experiment_oid',
         'item_count' => 'item_count',
         'merchant_item_oid' => 'merchant_item_oid',
+        'new_path' => 'new_path',
+        'pages_moved' => 'pages_moved',
         'path' => 'path',
+        'redirect_old_url' => 'redirect_old_url',
         'request_sha256' => 'request_sha256',
         'rows_sha256' => 'rows_sha256',
         'rule_count' => 'rule_count',
@@ -194,7 +203,10 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'experiment_oid' => 'setExperimentOid',
         'item_count' => 'setItemCount',
         'merchant_item_oid' => 'setMerchantItemOid',
+        'new_path' => 'setNewPath',
+        'pages_moved' => 'setPagesMoved',
         'path' => 'setPath',
+        'redirect_old_url' => 'setRedirectOldUrl',
         'request_sha256' => 'setRequestSha256',
         'rows_sha256' => 'setRowsSha256',
         'rule_count' => 'setRuleCount',
@@ -228,7 +240,10 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'experiment_oid' => 'getExperimentOid',
         'item_count' => 'getItemCount',
         'merchant_item_oid' => 'getMerchantItemOid',
+        'new_path' => 'getNewPath',
+        'pages_moved' => 'getPagesMoved',
         'path' => 'getPath',
+        'redirect_old_url' => 'getRedirectOldUrl',
         'request_sha256' => 'getRequestSha256',
         'rows_sha256' => 'getRowsSha256',
         'rule_count' => 'getRuleCount',
@@ -328,7 +343,10 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->container['experiment_oid'] = $data['experiment_oid'] ?? null;
         $this->container['item_count'] = $data['item_count'] ?? null;
         $this->container['merchant_item_oid'] = $data['merchant_item_oid'] ?? null;
+        $this->container['new_path'] = $data['new_path'] ?? null;
+        $this->container['pages_moved'] = $data['pages_moved'] ?? null;
         $this->container['path'] = $data['path'] ?? null;
+        $this->container['redirect_old_url'] = $data['redirect_old_url'] ?? null;
         $this->container['request_sha256'] = $data['request_sha256'] ?? null;
         $this->container['rows_sha256'] = $data['rows_sha256'] ?? null;
         $this->container['rule_count'] = $data['rule_count'] ?? null;
@@ -643,6 +661,54 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
+     * Gets new_path
+     *
+     * @return string|null
+     */
+    public function getNewPath()
+    {
+        return $this->container['new_path'];
+    }
+
+    /**
+     * Sets new_path
+     *
+     * @param string|null $new_path For page.move, where the page goes, exactly as the move will send it.  path is the page as it is now.
+     *
+     * @return self
+     */
+    public function setNewPath($new_path)
+    {
+        $this->container['new_path'] = $new_path;
+
+        return $this;
+    }
+
+    /**
+     * Gets pages_moved
+     *
+     * @return int|null
+     */
+    public function getPagesMoved()
+    {
+        return $this->container['pages_moved'];
+    }
+
+    /**
+     * Sets pages_moved
+     *
+     * @param int|null $pages_moved For page.move, how many pages move, the page itself included, when it was requested.  Set by the server.
+     *
+     * @return self
+     */
+    public function setPagesMoved($pages_moved)
+    {
+        $this->container['pages_moved'] = $pages_moved;
+
+        return $this;
+    }
+
+    /**
      * Gets path
      *
      * @return string|null
@@ -662,6 +728,30 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setPath($path)
     {
         $this->container['path'] = $path;
+
+        return $this;
+    }
+
+    /**
+     * Gets redirect_old_url
+     *
+     * @return string|null
+     */
+    public function getRedirectOldUrl()
+    {
+        return $this->container['redirect_old_url'];
+    }
+
+    /**
+     * Sets redirect_old_url
+     *
+     * @param string|null $redirect_old_url For page.move, 301 when the move also redirects the old addresses, as the move will send it.  Left out or none for no redirect.
+     *
+     * @return self
+     */
+    public function setRedirectOldUrl($redirect_old_url)
+    {
+        $this->container['redirect_old_url'] = $redirect_old_url;
 
         return $this;
     }

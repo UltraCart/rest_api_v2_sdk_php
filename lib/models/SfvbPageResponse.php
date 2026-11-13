@@ -68,6 +68,8 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'multimedia' => '\ultracart\v2\models\SfvbPageMultimedia[]',
         'page_type' => 'string',
         'path' => 'string',
+        'redirect' => '\ultracart\v2\models\SfvbRedirect',
+        'redirect_warnings' => '\ultracart\v2\models\SfvbErrorDetail[]',
         'review_template' => 'string',
         'sort_order' => 'int',
         'sort_order_child_groups' => 'string',
@@ -95,6 +97,8 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'multimedia' => null,
         'page_type' => null,
         'path' => null,
+        'redirect' => null,
+        'redirect_warnings' => null,
         'review_template' => null,
         'sort_order' => 'int32',
         'sort_order_child_groups' => null,
@@ -141,6 +145,8 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'multimedia' => 'multimedia',
         'page_type' => 'page_type',
         'path' => 'path',
+        'redirect' => 'redirect',
+        'redirect_warnings' => 'redirect_warnings',
         'review_template' => 'review_template',
         'sort_order' => 'sort_order',
         'sort_order_child_groups' => 'sort_order_child_groups',
@@ -166,6 +172,8 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'multimedia' => 'setMultimedia',
         'page_type' => 'setPageType',
         'path' => 'setPath',
+        'redirect' => 'setRedirect',
+        'redirect_warnings' => 'setRedirectWarnings',
         'review_template' => 'setReviewTemplate',
         'sort_order' => 'setSortOrder',
         'sort_order_child_groups' => 'setSortOrderChildGroups',
@@ -191,6 +199,8 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'multimedia' => 'getMultimedia',
         'page_type' => 'getPageType',
         'path' => 'getPath',
+        'redirect' => 'getRedirect',
+        'redirect_warnings' => 'getRedirectWarnings',
         'review_template' => 'getReviewTemplate',
         'sort_order' => 'getSortOrder',
         'sort_order_child_groups' => 'getSortOrderChildGroups',
@@ -267,6 +277,8 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['multimedia'] = $data['multimedia'] ?? null;
         $this->container['page_type'] = $data['page_type'] ?? null;
         $this->container['path'] = $data['path'] ?? null;
+        $this->container['redirect'] = $data['redirect'] ?? null;
+        $this->container['redirect_warnings'] = $data['redirect_warnings'] ?? null;
         $this->container['review_template'] = $data['review_template'] ?? null;
         $this->container['sort_order'] = $data['sort_order'] ?? null;
         $this->container['sort_order_child_groups'] = $data['sort_order_child_groups'] ?? null;
@@ -536,6 +548,54 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setPath($path)
     {
         $this->container['path'] = $path;
+
+        return $this;
+    }
+
+    /**
+     * Gets redirect
+     *
+     * @return \ultracart\v2\models\SfvbRedirect|null
+     */
+    public function getRedirect()
+    {
+        return $this->container['redirect'];
+    }
+
+    /**
+     * Sets redirect
+     *
+     * @param \ultracart\v2\models\SfvbRedirect|null $redirect redirect
+     *
+     * @return self
+     */
+    public function setRedirect($redirect)
+    {
+        $this->container['redirect'] = $redirect;
+
+        return $this;
+    }
+
+    /**
+     * Gets redirect_warnings
+     *
+     * @return \ultracart\v2\models\SfvbErrorDetail[]|null
+     */
+    public function getRedirectWarnings()
+    {
+        return $this->container['redirect_warnings'];
+    }
+
+    /**
+     * Sets redirect_warnings
+     *
+     * @param \ultracart\v2\models\SfvbErrorDetail[]|null $redirect_warnings Findings on that redirect that did not block it, such as a chain.  Left out when there are none.
+     *
+     * @return self
+     */
+    public function setRedirectWarnings($redirect_warnings)
+    {
+        $this->container['redirect_warnings'] = $redirect_warnings;
 
         return $this;
     }

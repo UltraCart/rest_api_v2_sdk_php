@@ -142,6 +142,7 @@ Method | HTTP request | Description
 [**getSfvbRecordingSettings()**](SfvbApi.md#getSfvbRecordingSettings) | **GET** /sfvb/storefronts/{storefront_oid}/recording_settings | Get the storefront&#39;s screen recording settings
 [**getSfvbRedirect()**](SfvbApi.md#getSfvbRedirect) | **GET** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Read one redirect rule
 [**getSfvbRedirects()**](SfvbApi.md#getSfvbRedirects) | **GET** /sfvb/storefronts/{storefront_oid}/redirects | List the storefront&#39;s redirect rules
+[**getSfvbSearchFacets()**](SfvbApi.md#getSfvbSearchFacets) | **GET** /sfvb/storefronts/{storefront_oid}/search/facets | Read the storefront&#39;s faceted search configuration
 [**getSfvbSecretKinds()**](SfvbApi.md#getSfvbSecretKinds) | **GET** /sfvb/secrets/kinds | List the secrets this server collects
 [**getSfvbSecretRequest()**](SfvbApi.md#getSfvbSecretRequest) | **GET** /sfvb/secrets/{request_id} | Read one secret request
 [**getSfvbSecretRequests()**](SfvbApi.md#getSfvbSecretRequests) | **GET** /sfvb/secrets | List this sign-in&#39;s secret requests
@@ -215,6 +216,7 @@ Method | HTTP request | Description
 [**listSfvbThemes()**](SfvbApi.md#listSfvbThemes) | **GET** /sfvb/storefronts/{storefront_oid}/themes | List themes for a storefront
 [**listSfvbUpsellOffers()**](SfvbApi.md#listSfvbUpsellOffers) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_offers | List upsell offers
 [**listSfvbUpsellPaths()**](SfvbApi.md#listSfvbUpsellPaths) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_paths | List upsell paths
+[**moveSfvbPage()**](SfvbApi.md#moveSfvbPage) | **POST** /sfvb/storefronts/{storefront_oid}/pages/move | Move or rename a page
 [**moveSfvbSequenceStep()**](SfvbApi.md#moveSfvbSequenceStep) | **POST** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/move | Move one step
 [**moveSfvbUpsellPath()**](SfvbApi.md#moveSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/move | Move an upsell path
 [**proofSfvbSequencePostcard()**](SfvbApi.md#proofSfvbSequencePostcard) | **POST** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/postcard_proof | Proof a postcard step without mailing it
@@ -292,6 +294,7 @@ Method | HTTP request | Description
 [**updateSfvbItemDefaultPage()**](SfvbApi.md#updateSfvbItemDefaultPage) | **POST** /sfvb/storefronts/{storefront_oid}/items/default_page | Move items&#39; default (canonical) pages
 [**updateSfvbLibraryEntry()**](SfvbApi.md#updateSfvbLibraryEntry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Update a library entry&#39;s draft
 [**updateSfvbRedirect()**](SfvbApi.md#updateSfvbRedirect) | **PUT** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Change a redirect rule
+[**updateSfvbSearchFacets()**](SfvbApi.md#updateSfvbSearchFacets) | **PUT** /sfvb/storefronts/{storefront_oid}/search/facets | Change the storefront&#39;s faceted search configuration
 [**updateSfvbSequenceStep()**](SfvbApi.md#updateSfvbSequenceStep) | **PUT** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid} | Change one step&#39;s settings or audience filter
 [**updateSfvbSiteSeo()**](SfvbApi.md#updateSfvbSiteSeo) | **PUT** /sfvb/storefronts/{storefront_oid}/seo | Change a storefront&#39;s search engine settings
 [**updateSfvbSmartAttribution()**](SfvbApi.md#updateSfvbSmartAttribution) | **PUT** /sfvb/storefronts/{storefront_oid}/smart_attribution | Change a storefront&#39;s Smart Attribution configuration
@@ -6018,6 +6021,46 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getSfvbSearchFacets()`
+
+```php
+getSfvbSearchFacets($storefront_oid): \ultracart\v2\models\SfvbSearchFacetsResponse
+```
+
+Read the storefront's faceted search configuration
+
+Every facet the storefront can offer shoppers - the standard ones and one per item attribute on the storefront - with its heading and whether it is on, in the fixed order shoppers see them, and the Cost facet's price breaks.  The same settings as the store admin's Faceted Search Results.  Send hash_sha256 as If-Match to change them.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbSearchFacetsResponse**](../Model/SfvbSearchFacetsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getSfvbSecretKinds()`
 
 ```php
@@ -9038,6 +9081,48 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `moveSfvbPage()`
+
+```php
+moveSfvbPage($storefront_oid, $page_move_request, $approval_id): \ultracart\v2\models\SfvbPageMoveResponse
+```
+
+Move or rename a page
+
+Moves a page to a new path - a new parent, a new last part, or both, so a rename is a move under the same parent.  Its sub-pages, their items and the page folder with its body move with it.  Refused for the root page, a path inside the page itself, a path where a page or folder already exists, a parent that does not exist, and a page whose folder holds a started experiment.  With redirect_old_url 301 the same call adds one pattern redirect from the old path to the new one, so every old address, sub-pages and items included, keeps working; the redirect is checked before anything moves, and if it is refused after the move the move is undone, so the page moves with its redirect or not at all.  dry_run runs every check and reports what would move.  Needs sfvb_publish, plus the approval of the person who signed in the CLI, as an approved page.move request for exactly this path, new path and redirect in the Approval-Id header.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **page_move_request** | [**\ultracart\v2\models\SfvbPageMoveRequest**](../Model/SfvbPageMoveRequest.md)| The page and where it goes |
+ **approval_id** | **string**| The approval_id of an approved page.move request for exactly this path, new path and redirect.  Required unless dry_run.  See POST /sfvb/approvals. | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\SfvbPageMoveResponse**](../Model/SfvbPageMoveResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `moveSfvbSequenceStep()`
 
 ```php
@@ -10044,7 +10129,7 @@ putSfvbPageSettings($storefront_oid, $path, $page_settings_request): \ultracart\
 
 Change a page's settings
 
-A partial update.  Only the fields you send change - title, description, templates, visibility, sitemap exclusion, sort orders, items per page and page type.  Unlike the store admin's page save, the page's attributes, images, items, selectors and permissions are left exactly as they are.  Fields that would move or rename the page, and fields this endpoint does not know, are refused.  The root page cannot be hidden.  Always needs sfvb_publish, because page settings are live.
+A partial update.  Only the fields you send change - title, description, templates, visibility, sitemap exclusion, sort orders, items per page and page type.  Unlike the store admin's page save, the page's attributes, images, items, selectors and permissions are left exactly as they are.  Fields that would move or rename the page, and fields this endpoint does not know, are refused.  The root page cannot be hidden.  Always needs sfvb_publish, because page settings are live.  Hiding a page with redirect_old_url 301 and redirect_target also adds a 301 redirect from its address, checked first like any redirect rule.  The page is hidden and the rule added together, or neither.
 
 
 ### Example
@@ -10852,7 +10937,7 @@ Name | Type | Description  | Notes
  **storefront_oid** | **int**|  |
  **owner_type** | **string**|  |
  **owner_object_id** | **string**|  |
- **if_match** | **string**| CJSON hash of the container being reverted.  Required; 428 when absent, 412 when stale. |
+ **if_match** | **string**| CJSON hash of the container being reverted.  Required while the container holds content; 428 when absent, 412 when stale.  Leave it out when the container has been removed, since there is nothing to match. |
  **container_revert_request** | [**\ultracart\v2\models\SfvbContainerRevertRequest**](../Model/SfvbContainerRevertRequest.md)| Version to revert the container to |
  **container_name** | **string**|  | [optional]
 
@@ -12301,6 +12386,48 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\SfvbRedirectResponse**](../Model/SfvbRedirectResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateSfvbSearchFacets()`
+
+```php
+updateSfvbSearchFacets($storefront_oid, $search_facets_request, $if_match): \ultracart\v2\models\SfvbSearchFacetsResponse
+```
+
+Change the storefront's faceted search configuration
+
+A partial update.  Turn facets on or off, change their headings, and replace the Cost facet's price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **search_facets_request** | [**\ultracart\v2\models\SfvbSearchFacetsRequest**](../Model/SfvbSearchFacetsRequest.md)| The facets and price breaks to change |
+ **if_match** | **string**| hash_sha256 from the last read.  Required unless dry_run; 428 when absent, 412 when stale. | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\SfvbSearchFacetsResponse**](../Model/SfvbSearchFacetsResponse.md)
 
 ### Authorization
 

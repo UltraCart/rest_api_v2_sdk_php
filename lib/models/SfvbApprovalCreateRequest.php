@@ -303,6 +303,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     public const ACTION_COMMS_LIST_IMPORT = 'comms_list.import';
     public const ACTION_POSTCARD_TEST_MAIL = 'postcard.test_mail';
     public const ACTION_FLOW_BACKFILL = 'flow.backfill';
+    public const ACTION_PAGE_MOVE = 'page.move';
 
     /**
      * Gets allowable values of the enum
@@ -344,6 +345,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
             self::ACTION_COMMS_LIST_IMPORT,
             self::ACTION_POSTCARD_TEST_MAIL,
             self::ACTION_FLOW_BACKFILL,
+            self::ACTION_PAGE_MOVE,
         ];
     }
 

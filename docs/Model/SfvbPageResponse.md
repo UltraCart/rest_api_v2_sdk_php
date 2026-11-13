@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **multimedia** | [**\ultracart\v2\models\SfvbPageMultimedia[]**](SfvbPageMultimedia.md) | The page&#39;s images, including codes a template declares but nothing has attached yet.  These are what the pageimage element renders - the default image when pageImageCode is empty, otherwise the image with that code.  The default image comes first. | [optional]
 **page_type** | **string** | S for a static page, D for a dynamic one. | [optional]
 **path** | **string** | The page path, normalized to begin and end with a slash. | [optional]
+**redirect** | [**\ultracart\v2\models\SfvbRedirect**](SfvbRedirect.md) |  | [optional]
+**redirect_warnings** | [**\ultracart\v2\models\SfvbErrorDetail[]**](SfvbErrorDetail.md) | Findings on that redirect that did not block it, such as a chain.  Left out when there are none. | [optional]
 **review_template** | **string** | Template that renders the item review pages under this page.  Omitted when not set. | [optional]
 **sort_order** | **int** | Position among its siblings when the parent sorts child pages by a custom order.  Omitted when not set. | [optional]
 **sort_order_child_groups** | **string** | How the pages under this one are ordered.  TA or TD by title, DA or DD by description, C custom. | [optional]

@@ -1241,6 +1241,8 @@ docs/Model/SfvbPageItemsAddRequest.md
 docs/Model/SfvbPageItemsRemoveRequest.md
 docs/Model/SfvbPageItemsResponse.md
 docs/Model/SfvbPageListResponse.md
+docs/Model/SfvbPageMoveRequest.md
+docs/Model/SfvbPageMoveResponse.md
 docs/Model/SfvbPageMultimedia.md
 docs/Model/SfvbPageMultimediaRequest.md
 docs/Model/SfvbPageRefreshRequest.md
@@ -1289,6 +1291,10 @@ docs/Model/SfvbRedirectsResponse.md
 docs/Model/SfvbRenderRequest.md
 docs/Model/SfvbRenderResponse.md
 docs/Model/SfvbRobotsTxt.md
+docs/Model/SfvbSearchFacet.md
+docs/Model/SfvbSearchFacetUpdate.md
+docs/Model/SfvbSearchFacetsRequest.md
+docs/Model/SfvbSearchFacetsResponse.md
 docs/Model/SfvbSecretHandle.md
 docs/Model/SfvbSecretKind.md
 docs/Model/SfvbSecretKindsResponse.md
@@ -2740,6 +2746,8 @@ lib/models/SfvbPageItemsAddRequest.php
 lib/models/SfvbPageItemsRemoveRequest.php
 lib/models/SfvbPageItemsResponse.php
 lib/models/SfvbPageListResponse.php
+lib/models/SfvbPageMoveRequest.php
+lib/models/SfvbPageMoveResponse.php
 lib/models/SfvbPageMultimedia.php
 lib/models/SfvbPageMultimediaRequest.php
 lib/models/SfvbPageRefreshRequest.php
@@ -2788,6 +2796,10 @@ lib/models/SfvbRedirectsResponse.php
 lib/models/SfvbRenderRequest.php
 lib/models/SfvbRenderResponse.php
 lib/models/SfvbRobotsTxt.php
+lib/models/SfvbSearchFacet.php
+lib/models/SfvbSearchFacetUpdate.php
+lib/models/SfvbSearchFacetsRequest.php
+lib/models/SfvbSearchFacetsResponse.php
 lib/models/SfvbSecretHandle.php
 lib/models/SfvbSecretKind.php
 lib/models/SfvbSecretKindsResponse.php

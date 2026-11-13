@@ -65,6 +65,9 @@ class SfvbPageSettingsRequest implements ModelInterface, ArrayAccess, \JsonSeria
         'item_template' => 'string',
         'items_per_page' => 'int',
         'page_type' => 'string',
+        'redirect_note' => 'string',
+        'redirect_old_url' => 'string',
+        'redirect_target' => 'string',
         'review_template' => 'string',
         'sort_order' => 'int',
         'sort_order_child_groups' => 'string',
@@ -89,6 +92,9 @@ class SfvbPageSettingsRequest implements ModelInterface, ArrayAccess, \JsonSeria
         'item_template' => null,
         'items_per_page' => 'int32',
         'page_type' => null,
+        'redirect_note' => null,
+        'redirect_old_url' => null,
+        'redirect_target' => null,
         'review_template' => null,
         'sort_order' => 'int32',
         'sort_order_child_groups' => null,
@@ -132,6 +138,9 @@ class SfvbPageSettingsRequest implements ModelInterface, ArrayAccess, \JsonSeria
         'item_template' => 'item_template',
         'items_per_page' => 'items_per_page',
         'page_type' => 'page_type',
+        'redirect_note' => 'redirect_note',
+        'redirect_old_url' => 'redirect_old_url',
+        'redirect_target' => 'redirect_target',
         'review_template' => 'review_template',
         'sort_order' => 'sort_order',
         'sort_order_child_groups' => 'sort_order_child_groups',
@@ -154,6 +163,9 @@ class SfvbPageSettingsRequest implements ModelInterface, ArrayAccess, \JsonSeria
         'item_template' => 'setItemTemplate',
         'items_per_page' => 'setItemsPerPage',
         'page_type' => 'setPageType',
+        'redirect_note' => 'setRedirectNote',
+        'redirect_old_url' => 'setRedirectOldUrl',
+        'redirect_target' => 'setRedirectTarget',
         'review_template' => 'setReviewTemplate',
         'sort_order' => 'setSortOrder',
         'sort_order_child_groups' => 'setSortOrderChildGroups',
@@ -176,6 +188,9 @@ class SfvbPageSettingsRequest implements ModelInterface, ArrayAccess, \JsonSeria
         'item_template' => 'getItemTemplate',
         'items_per_page' => 'getItemsPerPage',
         'page_type' => 'getPageType',
+        'redirect_note' => 'getRedirectNote',
+        'redirect_old_url' => 'getRedirectOldUrl',
+        'redirect_target' => 'getRedirectTarget',
         'review_template' => 'getReviewTemplate',
         'sort_order' => 'getSortOrder',
         'sort_order_child_groups' => 'getSortOrderChildGroups',
@@ -226,6 +241,19 @@ class SfvbPageSettingsRequest implements ModelInterface, ArrayAccess, \JsonSeria
         return self::$openAPIModelName;
     }
 
+    public const REDIRECT_OLD_URL__301 = '301';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRedirectOldUrlAllowableValues()
+    {
+        return [
+            self::REDIRECT_OLD_URL__301,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -249,6 +277,9 @@ class SfvbPageSettingsRequest implements ModelInterface, ArrayAccess, \JsonSeria
         $this->container['item_template'] = $data['item_template'] ?? null;
         $this->container['items_per_page'] = $data['items_per_page'] ?? null;
         $this->container['page_type'] = $data['page_type'] ?? null;
+        $this->container['redirect_note'] = $data['redirect_note'] ?? null;
+        $this->container['redirect_old_url'] = $data['redirect_old_url'] ?? null;
+        $this->container['redirect_target'] = $data['redirect_target'] ?? null;
         $this->container['review_template'] = $data['review_template'] ?? null;
         $this->container['sort_order'] = $data['sort_order'] ?? null;
         $this->container['sort_order_child_groups'] = $data['sort_order_child_groups'] ?? null;
@@ -266,6 +297,15 @@ class SfvbPageSettingsRequest implements ModelInterface, ArrayAccess, \JsonSeria
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getRedirectOldUrlAllowableValues();
+        if (!is_null($this->container['redirect_old_url']) && !in_array($this->container['redirect_old_url'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'redirect_old_url', must be one of '%s'",
+                $this->container['redirect_old_url'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -446,6 +486,88 @@ class SfvbPageSettingsRequest implements ModelInterface, ArrayAccess, \JsonSeria
     public function setPageType($page_type)
     {
         $this->container['page_type'] = $page_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets redirect_note
+     *
+     * @return string|null
+     */
+    public function getRedirectNote()
+    {
+        return $this->container['redirect_note'];
+    }
+
+    /**
+     * Sets redirect_note
+     *
+     * @param string|null $redirect_note The note on that redirect rule.  Up to 500 characters.  A note naming the page is used when left out.
+     *
+     * @return self
+     */
+    public function setRedirectNote($redirect_note)
+    {
+        $this->container['redirect_note'] = $redirect_note;
+
+        return $this;
+    }
+
+    /**
+     * Gets redirect_old_url
+     *
+     * @return string|null
+     */
+    public function getRedirectOldUrl()
+    {
+        return $this->container['redirect_old_url'];
+    }
+
+    /**
+     * Sets redirect_old_url
+     *
+     * @param string|null $redirect_old_url 301 to redirect the page's address to redirect_target in the same call (#1102).  Only with visible false, on a page that is visible now.  The page is hidden and the rule added together, or neither.
+     *
+     * @return self
+     */
+    public function setRedirectOldUrl($redirect_old_url)
+    {
+        $allowedValues = $this->getRedirectOldUrlAllowableValues();
+        if (!is_null($redirect_old_url) && !in_array($redirect_old_url, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'redirect_old_url', must be one of '%s'",
+                    $redirect_old_url,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['redirect_old_url'] = $redirect_old_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets redirect_target
+     *
+     * @return string|null
+     */
+    public function getRedirectTarget()
+    {
+        return $this->container['redirect_target'];
+    }
+
+    /**
+     * Sets redirect_target
+     *
+     * @param string|null $redirect_target Where the hidden page's address redirects to, for example /lp/summer-sale/.  Required with redirect_old_url, and checked like any redirect rule.
+     *
+     * @return self
+     */
+    public function setRedirectTarget($redirect_target)
+    {
+        $this->container['redirect_target'] = $redirect_target;
 
         return $this;
     }
