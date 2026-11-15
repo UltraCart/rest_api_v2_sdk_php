@@ -58,7 +58,9 @@ class SfvbPageSummary implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'catalog_group_oid' => 'int',
         'child_count' => 'int',
+        'detail' => '\ultracart\v2\models\SfvbPageResponse',
         'exclude_from_sitemap' => 'bool',
         'group_template' => 'string',
         'item_count' => 'int',
@@ -82,7 +84,9 @@ class SfvbPageSummary implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'catalog_group_oid' => 'int32',
         'child_count' => 'int32',
+        'detail' => null,
         'exclude_from_sitemap' => null,
         'group_template' => null,
         'item_count' => 'int32',
@@ -125,7 +129,9 @@ class SfvbPageSummary implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'catalog_group_oid' => 'catalog_group_oid',
         'child_count' => 'child_count',
+        'detail' => 'detail',
         'exclude_from_sitemap' => 'exclude_from_sitemap',
         'group_template' => 'group_template',
         'item_count' => 'item_count',
@@ -147,7 +153,9 @@ class SfvbPageSummary implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'catalog_group_oid' => 'setCatalogGroupOid',
         'child_count' => 'setChildCount',
+        'detail' => 'setDetail',
         'exclude_from_sitemap' => 'setExcludeFromSitemap',
         'group_template' => 'setGroupTemplate',
         'item_count' => 'setItemCount',
@@ -169,7 +177,9 @@ class SfvbPageSummary implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'catalog_group_oid' => 'getCatalogGroupOid',
         'child_count' => 'getChildCount',
+        'detail' => 'getDetail',
         'exclude_from_sitemap' => 'getExcludeFromSitemap',
         'group_template' => 'getGroupTemplate',
         'item_count' => 'getItemCount',
@@ -242,7 +252,9 @@ class SfvbPageSummary implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->container['catalog_group_oid'] = $data['catalog_group_oid'] ?? null;
         $this->container['child_count'] = $data['child_count'] ?? null;
+        $this->container['detail'] = $data['detail'] ?? null;
         $this->container['exclude_from_sitemap'] = $data['exclude_from_sitemap'] ?? null;
         $this->container['group_template'] = $data['group_template'] ?? null;
         $this->container['item_count'] = $data['item_count'] ?? null;
@@ -283,6 +295,30 @@ class SfvbPageSummary implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
+     * Gets catalog_group_oid
+     *
+     * @return int|null
+     */
+    public function getCatalogGroupOid()
+    {
+        return $this->container['catalog_group_oid'];
+    }
+
+    /**
+     * Sets catalog_group_oid
+     *
+     * @param int|null $catalog_group_oid The page's id.  It stays the same when the page is moved or renamed, where the path and the page folder's id do not, and it is what a menu entry's catalog_group_oid names.
+     *
+     * @return self
+     */
+    public function setCatalogGroupOid($catalog_group_oid)
+    {
+        $this->container['catalog_group_oid'] = $catalog_group_oid;
+
+        return $this;
+    }
+
+    /**
      * Gets child_count
      *
      * @return int|null
@@ -302,6 +338,30 @@ class SfvbPageSummary implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setChildCount($child_count)
     {
         $this->container['child_count'] = $child_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets detail
+     *
+     * @return \ultracart\v2\models\SfvbPageResponse|null
+     */
+    public function getDetail()
+    {
+        return $this->container['detail'];
+    }
+
+    /**
+     * Sets detail
+     *
+     * @param \ultracart\v2\models\SfvbPageResponse|null $detail detail
+     *
+     * @return self
+     */
+    public function setDetail($detail)
+    {
+        $this->container['detail'] = $detail;
 
         return $this;
     }

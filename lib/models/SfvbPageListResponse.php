@@ -58,7 +58,9 @@ class SfvbPageListResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'pages' => '\ultracart\v2\models\SfvbPageSummary[]'
+        'next_offset' => 'int',
+        'pages' => '\ultracart\v2\models\SfvbPageSummary[]',
+        'total' => 'int'
     ];
 
     /**
@@ -69,7 +71,9 @@ class SfvbPageListResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'pages' => null
+        'next_offset' => 'int32',
+        'pages' => null,
+        'total' => 'int32'
     ];
 
     /**
@@ -99,7 +103,9 @@ class SfvbPageListResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'pages' => 'pages'
+        'next_offset' => 'next_offset',
+        'pages' => 'pages',
+        'total' => 'total'
     ];
 
     /**
@@ -108,7 +114,9 @@ class SfvbPageListResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'pages' => 'setPages'
+        'next_offset' => 'setNextOffset',
+        'pages' => 'setPages',
+        'total' => 'setTotal'
     ];
 
     /**
@@ -117,7 +125,9 @@ class SfvbPageListResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'pages' => 'getPages'
+        'next_offset' => 'getNextOffset',
+        'pages' => 'getPages',
+        'total' => 'getTotal'
     ];
 
     /**
@@ -177,7 +187,9 @@ class SfvbPageListResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
+        $this->container['next_offset'] = $data['next_offset'] ?? null;
         $this->container['pages'] = $data['pages'] ?? null;
+        $this->container['total'] = $data['total'] ?? null;
     }
 
     /**
@@ -205,6 +217,30 @@ class SfvbPageListResponse implements ModelInterface, ArrayAccess, \JsonSerializ
 
 
     /**
+     * Gets next_offset
+     *
+     * @return int|null
+     */
+    public function getNextOffset()
+    {
+        return $this->container['next_offset'];
+    }
+
+    /**
+     * Sets next_offset
+     *
+     * @param int|null $next_offset The offset of the next window, omitted on the last one.  Only with detail=true.
+     *
+     * @return self
+     */
+    public function setNextOffset($next_offset)
+    {
+        $this->container['next_offset'] = $next_offset;
+
+        return $this;
+    }
+
+    /**
      * Gets pages
      *
      * @return \ultracart\v2\models\SfvbPageSummary[]|null
@@ -224,6 +260,30 @@ class SfvbPageListResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setPages($pages)
     {
         $this->container['pages'] = $pages;
+
+        return $this;
+    }
+
+    /**
+     * Gets total
+     *
+     * @return int|null
+     */
+    public function getTotal()
+    {
+        return $this->container['total'];
+    }
+
+    /**
+     * Sets total
+     *
+     * @param int|null $total How many pages the whole list has.  Only with detail=true.
+     *
+     * @return self
+     */
+    public function setTotal($total)
+    {
+        $this->container['total'] = $total;
 
         return $this;
     }

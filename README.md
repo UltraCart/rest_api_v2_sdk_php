@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.253"
+    "ultracart/rest_api_v2_sdk_php": "4.1.254"
   }
 }
 ```
@@ -594,6 +594,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbExperiment**](docs/Api/SfvbApi.md#getsfvbexperiment) | **GET** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid} | Read one experiment and its statistics
 *SfvbApi* | [**getSfvbExperimentObjectives**](docs/Api/SfvbApi.md#getsfvbexperimentobjectives) | **GET** /sfvb/storefronts/{storefront_oid}/experiments/objectives | List the objectives an experiment can optimize
 *SfvbApi* | [**getSfvbFileContent**](docs/Api/SfvbApi.md#getsfvbfilecontent) | **GET** /sfvb/storefronts/{storefront_oid}/files/content | Read a storefront file
+*SfvbApi* | [**getSfvbFileContents**](docs/Api/SfvbApi.md#getsfvbfilecontents) | **POST** /sfvb/storefronts/{storefront_oid}/files/content | Read several storefront files
 *SfvbApi* | [**getSfvbFileUploadUrl**](docs/Api/SfvbApi.md#getsfvbfileuploadurl) | **GET** /sfvb/storefronts/{storefront_oid}/files/upload_url/{extension} | Get a URL to upload a binary asset to
 *SfvbApi* | [**getSfvbFlow**](docs/Api/SfvbApi.md#getsfvbflow) | **GET** /sfvb/storefronts/{storefront_oid}/flows/{flow_uuid} | Get a flow
 *SfvbApi* | [**getSfvbI18nGlossary**](docs/Api/SfvbApi.md#getsfvbi18nglossary) | **GET** /sfvb/storefronts/{storefront_oid}/i18n/glossary | Read the storefront&#39;s translation glossary
@@ -2143,6 +2144,7 @@ Class | Method | HTTP request | Description
 - [SfvbExperimentVariationUpdateRequest](docs/Model/SfvbExperimentVariationUpdateRequest.md)
 - [SfvbExperimentsResponse](docs/Model/SfvbExperimentsResponse.md)
 - [SfvbFileContentResponse](docs/Model/SfvbFileContentResponse.md)
+- [SfvbFileContentResult](docs/Model/SfvbFileContentResult.md)
 - [SfvbFileEntry](docs/Model/SfvbFileEntry.md)
 - [SfvbFileRevertRequest](docs/Model/SfvbFileRevertRequest.md)
 - [SfvbFileSearchRequest](docs/Model/SfvbFileSearchRequest.md)
@@ -2153,6 +2155,8 @@ Class | Method | HTTP request | Description
 - [SfvbFileVersionsResponse](docs/Model/SfvbFileVersionsResponse.md)
 - [SfvbFileWriteRequest](docs/Model/SfvbFileWriteRequest.md)
 - [SfvbFileWriteResponse](docs/Model/SfvbFileWriteResponse.md)
+- [SfvbFilesContentRequest](docs/Model/SfvbFilesContentRequest.md)
+- [SfvbFilesContentResponse](docs/Model/SfvbFilesContentResponse.md)
 - [SfvbFilesResponse](docs/Model/SfvbFilesResponse.md)
 - [SfvbFlow](docs/Model/SfvbFlow.md)
 - [SfvbFlowBackfillRequest](docs/Model/SfvbFlowBackfillRequest.md)
@@ -2626,6 +2630,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.254 | 11/15/2026 | sfvb internal testing |
 | 4.1.253 | 11/13/2026 | sfvb internal testing |
 | 4.1.252 | 11/12/2026 | sfvb internal testing |
 | 4.1.251 | 11/12/2026 | sfvb internal test |

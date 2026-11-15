@@ -60,6 +60,7 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'attributes' => '\ultracart\v2\models\SfvbPageAttribute[]',
         'blog_post_template' => 'string',
+        'catalog_group_oid' => 'int',
         'description' => 'string',
         'exclude_from_sitemap' => 'bool',
         'group_template' => 'string',
@@ -89,6 +90,7 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'attributes' => null,
         'blog_post_template' => null,
+        'catalog_group_oid' => 'int32',
         'description' => null,
         'exclude_from_sitemap' => null,
         'group_template' => null,
@@ -137,6 +139,7 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'attributes' => 'attributes',
         'blog_post_template' => 'blog_post_template',
+        'catalog_group_oid' => 'catalog_group_oid',
         'description' => 'description',
         'exclude_from_sitemap' => 'exclude_from_sitemap',
         'group_template' => 'group_template',
@@ -164,6 +167,7 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'attributes' => 'setAttributes',
         'blog_post_template' => 'setBlogPostTemplate',
+        'catalog_group_oid' => 'setCatalogGroupOid',
         'description' => 'setDescription',
         'exclude_from_sitemap' => 'setExcludeFromSitemap',
         'group_template' => 'setGroupTemplate',
@@ -191,6 +195,7 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'attributes' => 'getAttributes',
         'blog_post_template' => 'getBlogPostTemplate',
+        'catalog_group_oid' => 'getCatalogGroupOid',
         'description' => 'getDescription',
         'exclude_from_sitemap' => 'getExcludeFromSitemap',
         'group_template' => 'getGroupTemplate',
@@ -269,6 +274,7 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->container['attributes'] = $data['attributes'] ?? null;
         $this->container['blog_post_template'] = $data['blog_post_template'] ?? null;
+        $this->container['catalog_group_oid'] = $data['catalog_group_oid'] ?? null;
         $this->container['description'] = $data['description'] ?? null;
         $this->container['exclude_from_sitemap'] = $data['exclude_from_sitemap'] ?? null;
         $this->container['group_template'] = $data['group_template'] ?? null;
@@ -356,6 +362,30 @@ class SfvbPageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setBlogPostTemplate($blog_post_template)
     {
         $this->container['blog_post_template'] = $blog_post_template;
+
+        return $this;
+    }
+
+    /**
+     * Gets catalog_group_oid
+     *
+     * @return int|null
+     */
+    public function getCatalogGroupOid()
+    {
+        return $this->container['catalog_group_oid'];
+    }
+
+    /**
+     * Sets catalog_group_oid
+     *
+     * @param int|null $catalog_group_oid The page's id.  It stays the same when the page is moved or renamed, where the path and the page folder's id do not.  The page read accepts it in place of path.
+     *
+     * @return self
+     */
+    public function setCatalogGroupOid($catalog_group_oid)
+    {
+        $this->container['catalog_group_oid'] = $catalog_group_oid;
 
         return $this;
     }

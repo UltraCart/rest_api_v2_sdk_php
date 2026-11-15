@@ -46452,6 +46452,468 @@ class SfvbApi
     }
 
     /**
+     * Operation getSfvbFileContents
+     *
+     * Read several storefront files
+     *
+     * @param  int $storefront_oid storefront_oid (required)
+     * @param  \ultracart\v2\models\SfvbFilesContentRequest $files_request The files to read (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\SfvbFilesContentResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function getSfvbFileContents($storefront_oid, $files_request)
+    {
+        list($response) = $this->getSfvbFileContentsWithHttpInfo($storefront_oid, $files_request);
+        return $response;
+    }
+
+    /**
+     * Operation getSfvbFileContentsWithHttpInfo
+     *
+     * Read several storefront files
+     *
+     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\SfvbFilesContentRequest $files_request The files to read (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbFilesContentResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSfvbFileContentsWithHttpInfo($storefront_oid, $files_request)
+    {
+        return $this->getSfvbFileContentsWithHttpInfoRetry(true ,   $storefront_oid,   $files_request);
+    }
+
+
+
+    /**
+     * Operation getSfvbFileContentsWithHttpInfoRetry
+     *
+     * Read several storefront files
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\SfvbFilesContentRequest $files_request The files to read (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\SfvbFilesContentResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSfvbFileContentsWithHttpInfoRetry($retry , $storefront_oid, $files_request)
+    {
+        $returnType = '\ultracart\v2\models\SfvbFilesContentResponse';
+        $request = $this->getSfvbFileContentsRequest($storefront_oid, $files_request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getSfvbFileContentsWithHttpInfoRetry(false ,   $storefront_oid,   $files_request);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\SfvbFilesContentResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\SfvbFilesContentResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\SfvbFilesContentResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\SfvbFilesContentResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\SfvbFilesContentResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation getSfvbFileContentsAsync
+     *
+     * Read several storefront files
+     *
+     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\SfvbFilesContentRequest $files_request The files to read (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSfvbFileContentsAsync($storefront_oid, $files_request)
+    {
+        return $this->getSfvbFileContentsAsyncWithHttpInfo($storefront_oid, $files_request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getSfvbFileContentsAsyncWithHttpInfo
+     *
+     * Read several storefront files
+     *
+     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\SfvbFilesContentRequest $files_request The files to read (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSfvbFileContentsAsyncWithHttpInfo($storefront_oid, $files_request)
+    {
+        $returnType = '\ultracart\v2\models\SfvbFilesContentResponse';
+        $request = $this->getSfvbFileContentsRequest($storefront_oid, $files_request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getSfvbFileContents'
+     *
+     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\SfvbFilesContentRequest $files_request The files to read (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getSfvbFileContentsRequest($storefront_oid, $files_request)
+    {
+        // verify the required parameter 'storefront_oid' is set
+        if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $storefront_oid when calling getSfvbFileContents'
+            );
+        }
+        // verify the required parameter 'files_request' is set
+        if ($files_request === null || (is_array($files_request) && count($files_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $files_request when calling getSfvbFileContents'
+            );
+        }
+
+        $resourcePath = '/sfvb/storefronts/{storefront_oid}/files/content';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($storefront_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'storefront_oid' . '}',
+                ObjectSerializer::toPathValue($storefront_oid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($files_request)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($files_request));
+            } else {
+                $httpBody = $files_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getSfvbFileUploadUrl
      *
      * Get a URL to upload a binary asset to
@@ -55287,14 +55749,15 @@ class SfvbApi
      * List a storefront&#39;s store menus
      *
      * @param  int $storefront_oid storefront_oid (required)
+     * @param  bool $include_entries True to include each menu&#39;s entries (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ultracart\v2\models\SfvbMenusResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
      */
-    public function getSfvbMenus($storefront_oid)
+    public function getSfvbMenus($storefront_oid, $include_entries = null)
     {
-        list($response) = $this->getSfvbMenusWithHttpInfo($storefront_oid);
+        list($response) = $this->getSfvbMenusWithHttpInfo($storefront_oid, $include_entries);
         return $response;
     }
 
@@ -55304,14 +55767,15 @@ class SfvbApi
      * List a storefront&#39;s store menus
      *
      * @param  int $storefront_oid (required)
+     * @param  bool $include_entries True to include each menu&#39;s entries (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\SfvbMenusResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSfvbMenusWithHttpInfo($storefront_oid)
+    public function getSfvbMenusWithHttpInfo($storefront_oid, $include_entries = null)
     {
-        return $this->getSfvbMenusWithHttpInfoRetry(true ,   $storefront_oid);
+        return $this->getSfvbMenusWithHttpInfoRetry(true ,   $storefront_oid,   $include_entries);
     }
 
 
@@ -55323,15 +55787,16 @@ class SfvbApi
      *
      * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
      * @param  int $storefront_oid (required)
+     * @param  bool $include_entries True to include each menu&#39;s entries (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\SfvbMenusResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSfvbMenusWithHttpInfoRetry($retry , $storefront_oid)
+    public function getSfvbMenusWithHttpInfoRetry($retry , $storefront_oid, $include_entries = null)
     {
         $returnType = '\ultracart\v2\models\SfvbMenusResponse';
-        $request = $this->getSfvbMenusRequest($storefront_oid);
+        $request = $this->getSfvbMenusRequest($storefront_oid, $include_entries);
 
         try {
             $options = $this->createHttpClientOption();
@@ -55350,7 +55815,7 @@ class SfvbApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->getSfvbMenusWithHttpInfoRetry(false ,   $storefront_oid);
+                        return $this->getSfvbMenusWithHttpInfoRetry(false ,   $storefront_oid,   $include_entries);
                     }
                 }
 
@@ -55535,13 +56000,14 @@ class SfvbApi
      * List a storefront&#39;s store menus
      *
      * @param  int $storefront_oid (required)
+     * @param  bool $include_entries True to include each menu&#39;s entries (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSfvbMenusAsync($storefront_oid)
+    public function getSfvbMenusAsync($storefront_oid, $include_entries = null)
     {
-        return $this->getSfvbMenusAsyncWithHttpInfo($storefront_oid)
+        return $this->getSfvbMenusAsyncWithHttpInfo($storefront_oid, $include_entries)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -55555,14 +56021,15 @@ class SfvbApi
      * List a storefront&#39;s store menus
      *
      * @param  int $storefront_oid (required)
+     * @param  bool $include_entries True to include each menu&#39;s entries (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSfvbMenusAsyncWithHttpInfo($storefront_oid)
+    public function getSfvbMenusAsyncWithHttpInfo($storefront_oid, $include_entries = null)
     {
         $returnType = '\ultracart\v2\models\SfvbMenusResponse';
-        $request = $this->getSfvbMenusRequest($storefront_oid);
+        $request = $this->getSfvbMenusRequest($storefront_oid, $include_entries);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -55604,11 +56071,12 @@ class SfvbApi
      * Create request for operation 'getSfvbMenus'
      *
      * @param  int $storefront_oid (required)
+     * @param  bool $include_entries True to include each menu&#39;s entries (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSfvbMenusRequest($storefront_oid)
+    public function getSfvbMenusRequest($storefront_oid, $include_entries = null)
     {
         // verify the required parameter 'storefront_oid' is set
         if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
@@ -55624,6 +56092,15 @@ class SfvbApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $include_entries,
+            'include_entries', // param base name
+            'boolean', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
         // path params
@@ -57647,15 +58124,16 @@ class SfvbApi
      * Read a page&#39;s attributes and images
      *
      * @param  int $storefront_oid storefront_oid (required)
-     * @param  string $path Page path, for example /catalog/dispensers/ (required)
+     * @param  string $path Page path, for example /catalog/dispensers/.  Required unless catalog_group_oid is given. (optional)
+     * @param  int $catalog_group_oid The page&#39;s id, in place of path (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ultracart\v2\models\SfvbPageResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
      */
-    public function getSfvbPage($storefront_oid, $path)
+    public function getSfvbPage($storefront_oid, $path = null, $catalog_group_oid = null)
     {
-        list($response) = $this->getSfvbPageWithHttpInfo($storefront_oid, $path);
+        list($response) = $this->getSfvbPageWithHttpInfo($storefront_oid, $path, $catalog_group_oid);
         return $response;
     }
 
@@ -57665,15 +58143,16 @@ class SfvbApi
      * Read a page&#39;s attributes and images
      *
      * @param  int $storefront_oid (required)
-     * @param  string $path Page path, for example /catalog/dispensers/ (required)
+     * @param  string $path Page path, for example /catalog/dispensers/.  Required unless catalog_group_oid is given. (optional)
+     * @param  int $catalog_group_oid The page&#39;s id, in place of path (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\SfvbPageResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSfvbPageWithHttpInfo($storefront_oid, $path)
+    public function getSfvbPageWithHttpInfo($storefront_oid, $path = null, $catalog_group_oid = null)
     {
-        return $this->getSfvbPageWithHttpInfoRetry(true ,   $storefront_oid,   $path);
+        return $this->getSfvbPageWithHttpInfoRetry(true ,   $storefront_oid,   $path,   $catalog_group_oid);
     }
 
 
@@ -57685,16 +58164,17 @@ class SfvbApi
      *
      * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
      * @param  int $storefront_oid (required)
-     * @param  string $path Page path, for example /catalog/dispensers/ (required)
+     * @param  string $path Page path, for example /catalog/dispensers/.  Required unless catalog_group_oid is given. (optional)
+     * @param  int $catalog_group_oid The page&#39;s id, in place of path (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\SfvbPageResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSfvbPageWithHttpInfoRetry($retry , $storefront_oid, $path)
+    public function getSfvbPageWithHttpInfoRetry($retry , $storefront_oid, $path = null, $catalog_group_oid = null)
     {
         $returnType = '\ultracart\v2\models\SfvbPageResponse';
-        $request = $this->getSfvbPageRequest($storefront_oid, $path);
+        $request = $this->getSfvbPageRequest($storefront_oid, $path, $catalog_group_oid);
 
         try {
             $options = $this->createHttpClientOption();
@@ -57713,7 +58193,7 @@ class SfvbApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->getSfvbPageWithHttpInfoRetry(false ,   $storefront_oid,   $path);
+                        return $this->getSfvbPageWithHttpInfoRetry(false ,   $storefront_oid,   $path,   $catalog_group_oid);
                     }
                 }
 
@@ -57898,14 +58378,15 @@ class SfvbApi
      * Read a page&#39;s attributes and images
      *
      * @param  int $storefront_oid (required)
-     * @param  string $path Page path, for example /catalog/dispensers/ (required)
+     * @param  string $path Page path, for example /catalog/dispensers/.  Required unless catalog_group_oid is given. (optional)
+     * @param  int $catalog_group_oid The page&#39;s id, in place of path (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSfvbPageAsync($storefront_oid, $path)
+    public function getSfvbPageAsync($storefront_oid, $path = null, $catalog_group_oid = null)
     {
-        return $this->getSfvbPageAsyncWithHttpInfo($storefront_oid, $path)
+        return $this->getSfvbPageAsyncWithHttpInfo($storefront_oid, $path, $catalog_group_oid)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -57919,15 +58400,16 @@ class SfvbApi
      * Read a page&#39;s attributes and images
      *
      * @param  int $storefront_oid (required)
-     * @param  string $path Page path, for example /catalog/dispensers/ (required)
+     * @param  string $path Page path, for example /catalog/dispensers/.  Required unless catalog_group_oid is given. (optional)
+     * @param  int $catalog_group_oid The page&#39;s id, in place of path (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSfvbPageAsyncWithHttpInfo($storefront_oid, $path)
+    public function getSfvbPageAsyncWithHttpInfo($storefront_oid, $path = null, $catalog_group_oid = null)
     {
         $returnType = '\ultracart\v2\models\SfvbPageResponse';
-        $request = $this->getSfvbPageRequest($storefront_oid, $path);
+        $request = $this->getSfvbPageRequest($storefront_oid, $path, $catalog_group_oid);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -57969,23 +58451,18 @@ class SfvbApi
      * Create request for operation 'getSfvbPage'
      *
      * @param  int $storefront_oid (required)
-     * @param  string $path Page path, for example /catalog/dispensers/ (required)
+     * @param  string $path Page path, for example /catalog/dispensers/.  Required unless catalog_group_oid is given. (optional)
+     * @param  int $catalog_group_oid The page&#39;s id, in place of path (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSfvbPageRequest($storefront_oid, $path)
+    public function getSfvbPageRequest($storefront_oid, $path = null, $catalog_group_oid = null)
     {
         // verify the required parameter 'storefront_oid' is set
         if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $storefront_oid when calling getSfvbPage'
-            );
-        }
-        // verify the required parameter 'path' is set
-        if ($path === null || (is_array($path) && count($path) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $path when calling getSfvbPage'
             );
         }
 
@@ -58003,7 +58480,16 @@ class SfvbApi
             'string', // openApiType
             '', // style
             false, // explode
-            true // required
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $catalog_group_oid,
+            'catalog_group_oid', // param base name
+            'integer', // openApiType
+            '', // style
+            false, // explode
+            false // required
         ) ?? []);
 
 
@@ -93256,14 +93742,17 @@ class SfvbApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $under Only this page and the pages below it, for example /lp/ (optional)
+     * @param  bool $detail True to include each page&#39;s single-page read, a window at a time (optional)
+     * @param  int $offset Where the window starts, with detail&#x3D;true.  Default 0. (optional)
+     * @param  int $limit Pages in the window, 1 to 25, with detail&#x3D;true.  Default 25. (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ultracart\v2\models\SfvbPageListResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
      */
-    public function listSfvbPages($storefront_oid, $under = null)
+    public function listSfvbPages($storefront_oid, $under = null, $detail = null, $offset = null, $limit = null)
     {
-        list($response) = $this->listSfvbPagesWithHttpInfo($storefront_oid, $under);
+        list($response) = $this->listSfvbPagesWithHttpInfo($storefront_oid, $under, $detail, $offset, $limit);
         return $response;
     }
 
@@ -93274,14 +93763,17 @@ class SfvbApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $under Only this page and the pages below it, for example /lp/ (optional)
+     * @param  bool $detail True to include each page&#39;s single-page read, a window at a time (optional)
+     * @param  int $offset Where the window starts, with detail&#x3D;true.  Default 0. (optional)
+     * @param  int $limit Pages in the window, 1 to 25, with detail&#x3D;true.  Default 25. (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\SfvbPageListResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listSfvbPagesWithHttpInfo($storefront_oid, $under = null)
+    public function listSfvbPagesWithHttpInfo($storefront_oid, $under = null, $detail = null, $offset = null, $limit = null)
     {
-        return $this->listSfvbPagesWithHttpInfoRetry(true ,   $storefront_oid,   $under);
+        return $this->listSfvbPagesWithHttpInfoRetry(true ,   $storefront_oid,   $under,   $detail,   $offset,   $limit);
     }
 
 
@@ -93294,15 +93786,18 @@ class SfvbApi
      * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
      * @param  int $storefront_oid (required)
      * @param  string $under Only this page and the pages below it, for example /lp/ (optional)
+     * @param  bool $detail True to include each page&#39;s single-page read, a window at a time (optional)
+     * @param  int $offset Where the window starts, with detail&#x3D;true.  Default 0. (optional)
+     * @param  int $limit Pages in the window, 1 to 25, with detail&#x3D;true.  Default 25. (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\SfvbPageListResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listSfvbPagesWithHttpInfoRetry($retry , $storefront_oid, $under = null)
+    public function listSfvbPagesWithHttpInfoRetry($retry , $storefront_oid, $under = null, $detail = null, $offset = null, $limit = null)
     {
         $returnType = '\ultracart\v2\models\SfvbPageListResponse';
-        $request = $this->listSfvbPagesRequest($storefront_oid, $under);
+        $request = $this->listSfvbPagesRequest($storefront_oid, $under, $detail, $offset, $limit);
 
         try {
             $options = $this->createHttpClientOption();
@@ -93321,7 +93816,7 @@ class SfvbApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->listSfvbPagesWithHttpInfoRetry(false ,   $storefront_oid,   $under);
+                        return $this->listSfvbPagesWithHttpInfoRetry(false ,   $storefront_oid,   $under,   $detail,   $offset,   $limit);
                     }
                 }
 
@@ -93507,13 +94002,16 @@ class SfvbApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $under Only this page and the pages below it, for example /lp/ (optional)
+     * @param  bool $detail True to include each page&#39;s single-page read, a window at a time (optional)
+     * @param  int $offset Where the window starts, with detail&#x3D;true.  Default 0. (optional)
+     * @param  int $limit Pages in the window, 1 to 25, with detail&#x3D;true.  Default 25. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listSfvbPagesAsync($storefront_oid, $under = null)
+    public function listSfvbPagesAsync($storefront_oid, $under = null, $detail = null, $offset = null, $limit = null)
     {
-        return $this->listSfvbPagesAsyncWithHttpInfo($storefront_oid, $under)
+        return $this->listSfvbPagesAsyncWithHttpInfo($storefront_oid, $under, $detail, $offset, $limit)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -93528,14 +94026,17 @@ class SfvbApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $under Only this page and the pages below it, for example /lp/ (optional)
+     * @param  bool $detail True to include each page&#39;s single-page read, a window at a time (optional)
+     * @param  int $offset Where the window starts, with detail&#x3D;true.  Default 0. (optional)
+     * @param  int $limit Pages in the window, 1 to 25, with detail&#x3D;true.  Default 25. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listSfvbPagesAsyncWithHttpInfo($storefront_oid, $under = null)
+    public function listSfvbPagesAsyncWithHttpInfo($storefront_oid, $under = null, $detail = null, $offset = null, $limit = null)
     {
         $returnType = '\ultracart\v2\models\SfvbPageListResponse';
-        $request = $this->listSfvbPagesRequest($storefront_oid, $under);
+        $request = $this->listSfvbPagesRequest($storefront_oid, $under, $detail, $offset, $limit);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -93578,11 +94079,14 @@ class SfvbApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $under Only this page and the pages below it, for example /lp/ (optional)
+     * @param  bool $detail True to include each page&#39;s single-page read, a window at a time (optional)
+     * @param  int $offset Where the window starts, with detail&#x3D;true.  Default 0. (optional)
+     * @param  int $limit Pages in the window, 1 to 25, with detail&#x3D;true.  Default 25. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listSfvbPagesRequest($storefront_oid, $under = null)
+    public function listSfvbPagesRequest($storefront_oid, $under = null, $detail = null, $offset = null, $limit = null)
     {
         // verify the required parameter 'storefront_oid' is set
         if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
@@ -93603,6 +94107,33 @@ class SfvbApi
             $under,
             'under', // param base name
             'string', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $detail,
+            'detail', // param base name
+            'boolean', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $offset,
+            'offset', // param base name
+            'integer', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $limit,
+            'limit', // param base name
+            'integer', // openApiType
             '', // style
             false, // explode
             false // required

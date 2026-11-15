@@ -1114,6 +1114,7 @@ docs/Model/SfvbExperimentStartVariation.md
 docs/Model/SfvbExperimentVariationUpdateRequest.md
 docs/Model/SfvbExperimentsResponse.md
 docs/Model/SfvbFileContentResponse.md
+docs/Model/SfvbFileContentResult.md
 docs/Model/SfvbFileEntry.md
 docs/Model/SfvbFileRevertRequest.md
 docs/Model/SfvbFileSearchRequest.md
@@ -1124,6 +1125,8 @@ docs/Model/SfvbFileVersion.md
 docs/Model/SfvbFileVersionsResponse.md
 docs/Model/SfvbFileWriteRequest.md
 docs/Model/SfvbFileWriteResponse.md
+docs/Model/SfvbFilesContentRequest.md
+docs/Model/SfvbFilesContentResponse.md
 docs/Model/SfvbFilesResponse.md
 docs/Model/SfvbFlow.md
 docs/Model/SfvbFlowBackfillRequest.md
@@ -2619,6 +2622,7 @@ lib/models/SfvbExperimentStartVariation.php
 lib/models/SfvbExperimentVariationUpdateRequest.php
 lib/models/SfvbExperimentsResponse.php
 lib/models/SfvbFileContentResponse.php
+lib/models/SfvbFileContentResult.php
 lib/models/SfvbFileEntry.php
 lib/models/SfvbFileRevertRequest.php
 lib/models/SfvbFileSearchRequest.php
@@ -2629,6 +2633,8 @@ lib/models/SfvbFileVersion.php
 lib/models/SfvbFileVersionsResponse.php
 lib/models/SfvbFileWriteRequest.php
 lib/models/SfvbFileWriteResponse.php
+lib/models/SfvbFilesContentRequest.php
+lib/models/SfvbFilesContentResponse.php
 lib/models/SfvbFilesResponse.php
 lib/models/SfvbFlow.php
 lib/models/SfvbFlowBackfillRequest.php
