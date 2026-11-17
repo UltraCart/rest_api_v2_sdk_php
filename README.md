@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.254"
+    "ultracart/rest_api_v2_sdk_php": "4.1.255"
   }
 }
 ```
@@ -675,6 +675,8 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**insertSfvbCommsTwilioAccount**](docs/Api/SfvbApi.md#insertsfvbcommstwilioaccount) | **POST** /sfvb/comms/twilio_account | Connect the Twilio account
 *SfvbApi* | [**insertSfvbDocsGap**](docs/Api/SfvbApi.md#insertsfvbdocsgap) | **POST** /sfvb/docs/gaps | Send UltraCart a documentation-gap report
 *SfvbApi* | [**insertSfvbItemChild**](docs/Api/SfvbApi.md#insertsfvbitemchild) | **POST** /sfvb/storefronts/{storefront_oid}/items/children | Create a child item for a parent&#39;s variations
+*SfvbApi* | [**insertSfvbLocation**](docs/Api/SfvbApi.md#insertsfvblocation) | **POST** /sfvb/location | Add the caller&#39;s address to this StoreFront CLI sign-in
+*SfvbApi* | [**insertSfvbLocationApproval**](docs/Api/SfvbApi.md#insertsfvblocationapproval) | **POST** /sfvb/location/approval | Ask to use this StoreFront CLI sign-in from the caller&#39;s address
 *SfvbApi* | [**insertSfvbPage**](docs/Api/SfvbApi.md#insertsfvbpage) | **POST** /sfvb/storefronts/{storefront_oid}/pages | Create a page
 *SfvbApi* | [**insertSfvbRedirect**](docs/Api/SfvbApi.md#insertsfvbredirect) | **POST** /sfvb/storefronts/{storefront_oid}/redirects | Create a 301 redirect rule
 *SfvbApi* | [**insertSfvbSecretRequest**](docs/Api/SfvbApi.md#insertsfvbsecretrequest) | **POST** /sfvb/secrets | Ask a person to enter secret values
@@ -2045,6 +2047,7 @@ Class | Method | HTTP request | Description
 - [SfvbCampaignWriteRequest](docs/Model/SfvbCampaignWriteRequest.md)
 - [SfvbCampaignsResponse](docs/Model/SfvbCampaignsResponse.md)
 - [SfvbCliAccess](docs/Model/SfvbCliAccess.md)
+- [SfvbCliLocation](docs/Model/SfvbCliLocation.md)
 - [SfvbCliVersion](docs/Model/SfvbCliVersion.md)
 - [SfvbCodeLibraryEmail](docs/Model/SfvbCodeLibraryEmail.md)
 - [SfvbCodeLibraryEmailsResponse](docs/Model/SfvbCodeLibraryEmailsResponse.md)
@@ -2630,6 +2633,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.255 | 11/17/2026 | sfvb internal testing |
 | 4.1.254 | 11/15/2026 | sfvb internal testing |
 | 4.1.253 | 11/13/2026 | sfvb internal testing |
 | 4.1.252 | 11/12/2026 | sfvb internal testing |

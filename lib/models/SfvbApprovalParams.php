@@ -67,6 +67,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'domain' => 'string',
         'esp_twilio_uuid' => 'string',
         'experiment_oid' => 'int',
+        'ip' => 'string',
         'item_count' => 'int',
         'merchant_item_oid' => 'int',
         'new_path' => 'string',
@@ -106,6 +107,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'domain' => null,
         'esp_twilio_uuid' => null,
         'experiment_oid' => 'int32',
+        'ip' => null,
         'item_count' => 'int32',
         'merchant_item_oid' => 'int32',
         'new_path' => null,
@@ -164,6 +166,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'domain' => 'domain',
         'esp_twilio_uuid' => 'esp_twilio_uuid',
         'experiment_oid' => 'experiment_oid',
+        'ip' => 'ip',
         'item_count' => 'item_count',
         'merchant_item_oid' => 'merchant_item_oid',
         'new_path' => 'new_path',
@@ -201,6 +204,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'domain' => 'setDomain',
         'esp_twilio_uuid' => 'setEspTwilioUuid',
         'experiment_oid' => 'setExperimentOid',
+        'ip' => 'setIp',
         'item_count' => 'setItemCount',
         'merchant_item_oid' => 'setMerchantItemOid',
         'new_path' => 'setNewPath',
@@ -238,6 +242,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         'domain' => 'getDomain',
         'esp_twilio_uuid' => 'getEspTwilioUuid',
         'experiment_oid' => 'getExperimentOid',
+        'ip' => 'getIp',
         'item_count' => 'getItemCount',
         'merchant_item_oid' => 'getMerchantItemOid',
         'new_path' => 'getNewPath',
@@ -341,6 +346,7 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->container['domain'] = $data['domain'] ?? null;
         $this->container['esp_twilio_uuid'] = $data['esp_twilio_uuid'] ?? null;
         $this->container['experiment_oid'] = $data['experiment_oid'] ?? null;
+        $this->container['ip'] = $data['ip'] ?? null;
         $this->container['item_count'] = $data['item_count'] ?? null;
         $this->container['merchant_item_oid'] = $data['merchant_item_oid'] ?? null;
         $this->container['new_path'] = $data['new_path'] ?? null;
@@ -608,6 +614,30 @@ class SfvbApprovalParams implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setExperimentOid($experiment_oid)
     {
         $this->container['experiment_oid'] = $experiment_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets ip
+     *
+     * @return string|null
+     */
+    public function getIp()
+    {
+        return $this->container['ip'];
+    }
+
+    /**
+     * Sets ip
+     *
+     * @param string|null $ip For cli.location, the IPv4 address the StoreFront CLI sign-in asks to be used from.  Set by the server from the caller's own address, never by the caller.
+     *
+     * @return self
+     */
+    public function setIp($ip)
+    {
+        $this->container['ip'] = $ip;
 
         return $this;
     }

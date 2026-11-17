@@ -188,6 +188,8 @@ Method | HTTP request | Description
 [**insertSfvbCommsTwilioAccount()**](SfvbApi.md#insertSfvbCommsTwilioAccount) | **POST** /sfvb/comms/twilio_account | Connect the Twilio account
 [**insertSfvbDocsGap()**](SfvbApi.md#insertSfvbDocsGap) | **POST** /sfvb/docs/gaps | Send UltraCart a documentation-gap report
 [**insertSfvbItemChild()**](SfvbApi.md#insertSfvbItemChild) | **POST** /sfvb/storefronts/{storefront_oid}/items/children | Create a child item for a parent&#39;s variations
+[**insertSfvbLocation()**](SfvbApi.md#insertSfvbLocation) | **POST** /sfvb/location | Add the caller&#39;s address to this StoreFront CLI sign-in
+[**insertSfvbLocationApproval()**](SfvbApi.md#insertSfvbLocationApproval) | **POST** /sfvb/location/approval | Ask to use this StoreFront CLI sign-in from the caller&#39;s address
 [**insertSfvbPage()**](SfvbApi.md#insertSfvbPage) | **POST** /sfvb/storefronts/{storefront_oid}/pages | Create a page
 [**insertSfvbRedirect()**](SfvbApi.md#insertSfvbRedirect) | **POST** /sfvb/storefronts/{storefront_oid}/redirects | Create a 301 redirect rule
 [**insertSfvbSecretRequest()**](SfvbApi.md#insertSfvbSecretRequest) | **POST** /sfvb/secrets | Ask a person to enter secret values
@@ -7902,6 +7904,84 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `insertSfvbLocation()`
+
+```php
+insertSfvbLocation($approval_id)
+```
+
+Add the caller's address to this StoreFront CLI sign-in
+
+Spends an approved cli.location approval, named in the Approval-Id header, from the address it was asked for.  From then on the sign-in may be used from that address until it ends.  An approval asked for from another address is refused with sfvb.approval_mismatch.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **approval_id** | **string**| The approval_id of an approved cli.location request asked for from this address.  See POST /sfvb/location/approval. | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `insertSfvbLocationApproval()`
+
+```php
+insertSfvbLocationApproval(): \ultracart\v2\models\SfvbApproval
+```
+
+Ask to use this StoreFront CLI sign-in from the caller's address
+
+For a StoreFront CLI sign-in refused with sfvb.location_approval_required.  Asks the person who signed in to approve the address this call comes from (a cli.location approval).  Show them approval_url and user_code, poll GET approvals/{approval_id}, and once it is approved call POST location from the same address with the approval_id in the Approval-Id header.  Asking again returns the pending request (200).  The person is also emailed, so a request they didn't expect warns them.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\ultracart\v2\models\SfvbApproval**](../Model/SfvbApproval.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
