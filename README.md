@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.255"
+    "ultracart/rest_api_v2_sdk_php": "4.1.256"
   }
 }
 ```
@@ -637,6 +637,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbSequence**](docs/Api/SfvbApi.md#getsfvbsequence) | **GET** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid} | Get a campaign&#39;s or flow&#39;s steps as a tree
 *SfvbApi* | [**getSfvbSequenceStepDispatchLogs**](docs/Api/SfvbApi.md#getsfvbsequencestepdispatchlogs) | **GET** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/dispatch_logs | Read a flow or campaign step&#39;s dispatch log and counts
 *SfvbApi* | [**getSfvbServerLog**](docs/Api/SfvbApi.md#getsfvbserverlog) | **GET** /sfvb/storefronts/{storefront_oid}/logs/{log_id} | Get one storefront render log
+*SfvbApi* | [**getSfvbSession**](docs/Api/SfvbApi.md#getsfvbsession) | **GET** /sfvb/session | Who this token is
 *SfvbApi* | [**getSfvbSiteAttributes**](docs/Api/SfvbApi.md#getsfvbsiteattributes) | **GET** /sfvb/storefronts/{storefront_oid}/attributes | Read a storefront&#39;s site attributes
 *SfvbApi* | [**getSfvbSiteSeo**](docs/Api/SfvbApi.md#getsfvbsiteseo) | **GET** /sfvb/storefronts/{storefront_oid}/seo | Read a storefront&#39;s search engine settings
 *SfvbApi* | [**getSfvbSitemaps**](docs/Api/SfvbApi.md#getsfvbsitemaps) | **GET** /sfvb/storefronts/{storefront_oid}/sitemaps | Read a storefront&#39;s sitemaps and robots.txt
@@ -659,7 +660,6 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbUtmShortcode**](docs/Api/SfvbApi.md#getsfvbutmshortcode) | **GET** /sfvb/storefronts/{storefront_oid}/utm_shortcodes/{shortcode_oid} | Read one UTM shortcode
 *SfvbApi* | [**getSfvbUtmShortcodes**](docs/Api/SfvbApi.md#getsfvbutmshortcodes) | **GET** /sfvb/storefronts/{storefront_oid}/utm_shortcodes | List a storefront&#39;s UTM shortcodes
 *SfvbApi* | [**getSfvbVersion**](docs/Api/SfvbApi.md#getsfvbversion) | **GET** /sfvb/version | Compiler version for this merchant
-*SfvbApi* | [**getSfvbWhoami**](docs/Api/SfvbApi.md#getsfvbwhoami) | **GET** /sfvb/whoami | Who this token is
 *SfvbApi* | [**ignoreSfvbNotFoundEntry**](docs/Api/SfvbApi.md#ignoresfvbnotfoundentry) | **POST** /sfvb/storefronts/{storefront_oid}/not_found/{not_found_id}/ignore | Ignore a 404 path
 *SfvbApi* | [**importSfvbCommsProviderLists**](docs/Api/SfvbApi.md#importsfvbcommsproviderlists) | **POST** /sfvb/storefronts/{storefront_oid}/comms/providers/import | Import lists from another email provider
 *SfvbApi* | [**importSfvbRedirects**](docs/Api/SfvbApi.md#importsfvbredirects) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/import | Apply a reviewed redirect import
@@ -2633,6 +2633,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.256 | 11/17/2026 | sfvb internal testing |
 | 4.1.255 | 11/17/2026 | sfvb internal testing |
 | 4.1.254 | 11/15/2026 | sfvb internal testing |
 | 4.1.253 | 11/13/2026 | sfvb internal testing |

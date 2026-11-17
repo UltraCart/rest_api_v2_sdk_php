@@ -150,6 +150,7 @@ Method | HTTP request | Description
 [**getSfvbSequence()**](SfvbApi.md#getSfvbSequence) | **GET** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid} | Get a campaign&#39;s or flow&#39;s steps as a tree
 [**getSfvbSequenceStepDispatchLogs()**](SfvbApi.md#getSfvbSequenceStepDispatchLogs) | **GET** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/dispatch_logs | Read a flow or campaign step&#39;s dispatch log and counts
 [**getSfvbServerLog()**](SfvbApi.md#getSfvbServerLog) | **GET** /sfvb/storefronts/{storefront_oid}/logs/{log_id} | Get one storefront render log
+[**getSfvbSession()**](SfvbApi.md#getSfvbSession) | **GET** /sfvb/session | Who this token is
 [**getSfvbSiteAttributes()**](SfvbApi.md#getSfvbSiteAttributes) | **GET** /sfvb/storefronts/{storefront_oid}/attributes | Read a storefront&#39;s site attributes
 [**getSfvbSiteSeo()**](SfvbApi.md#getSfvbSiteSeo) | **GET** /sfvb/storefronts/{storefront_oid}/seo | Read a storefront&#39;s search engine settings
 [**getSfvbSitemaps()**](SfvbApi.md#getSfvbSitemaps) | **GET** /sfvb/storefronts/{storefront_oid}/sitemaps | Read a storefront&#39;s sitemaps and robots.txt
@@ -172,7 +173,6 @@ Method | HTTP request | Description
 [**getSfvbUtmShortcode()**](SfvbApi.md#getSfvbUtmShortcode) | **GET** /sfvb/storefronts/{storefront_oid}/utm_shortcodes/{shortcode_oid} | Read one UTM shortcode
 [**getSfvbUtmShortcodes()**](SfvbApi.md#getSfvbUtmShortcodes) | **GET** /sfvb/storefronts/{storefront_oid}/utm_shortcodes | List a storefront&#39;s UTM shortcodes
 [**getSfvbVersion()**](SfvbApi.md#getSfvbVersion) | **GET** /sfvb/version | Compiler version for this merchant
-[**getSfvbWhoami()**](SfvbApi.md#getSfvbWhoami) | **GET** /sfvb/whoami | Who this token is
 [**ignoreSfvbNotFoundEntry()**](SfvbApi.md#ignoreSfvbNotFoundEntry) | **POST** /sfvb/storefronts/{storefront_oid}/not_found/{not_found_id}/ignore | Ignore a 404 path
 [**importSfvbCommsProviderLists()**](SfvbApi.md#importSfvbCommsProviderLists) | **POST** /sfvb/storefronts/{storefront_oid}/comms/providers/import | Import lists from another email provider
 [**importSfvbRedirects()**](SfvbApi.md#importSfvbRedirects) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/import | Apply a reviewed redirect import
@@ -6352,6 +6352,44 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getSfvbSession()`
+
+```php
+getSfvbSession(): \ultracart\v2\models\SfvbWhoamiResponse
+```
+
+Who this token is
+
+Returns the merchant, user, granted scopes and reachable storefronts for the calling token.  Declared for any scope so an application can always discover which account it is connected to.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\ultracart\v2\models\SfvbWhoamiResponse**](../Model/SfvbWhoamiResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getSfvbSiteAttributes()`
 
 ```php
@@ -7243,44 +7281,6 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**\ultracart\v2\models\SfvbVersionResponse**](../Model/SfvbVersionResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getSfvbWhoami()`
-
-```php
-getSfvbWhoami(): \ultracart\v2\models\SfvbWhoamiResponse
-```
-
-Who this token is
-
-Returns the merchant, user, granted scopes and reachable storefronts for the calling token.  Declared for any scope so an application can always discover which account it is connected to.
-
-
-### Example
-
-
-(No example for this operation).
-
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**\ultracart\v2\models\SfvbWhoamiResponse**](../Model/SfvbWhoamiResponse.md)
 
 ### Authorization
 
