@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.256"
+    "ultracart/rest_api_v2_sdk_php": "4.1.257"
   }
 }
 ```
@@ -561,6 +561,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbBlogPost**](docs/Api/SfvbApi.md#getsfvbblogpost) | **GET** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Read a blog post
 *SfvbApi* | [**getSfvbCampaign**](docs/Api/SfvbApi.md#getsfvbcampaign) | **GET** /sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid} | Get a campaign
 *SfvbApi* | [**getSfvbCjsonUsedElements**](docs/Api/SfvbApi.md#getsfvbcjsonusedelements) | **POST** /sfvb/cjson/elements | Element types used by a container
+*SfvbApi* | [**getSfvbCodeLibraryEmail**](docs/Api/SfvbApi.md#getsfvbcodelibraryemail) | **GET** /sfvb/storefronts/{storefront_oid}/code_library/emails/{library_item_oid} | One code library email item, with its body and file list
 *SfvbApi* | [**getSfvbCommsCampaignFolder**](docs/Api/SfvbApi.md#getsfvbcommscampaignfolder) | **GET** /sfvb/storefronts/{storefront_oid}/campaign_folders/{folder_uuid} | Read one campaign folder
 *SfvbApi* | [**getSfvbCommsCampaignFolders**](docs/Api/SfvbApi.md#getsfvbcommscampaignfolders) | **GET** /sfvb/storefronts/{storefront_oid}/campaign_folders | List the campaign folders
 *SfvbApi* | [**getSfvbCommsDashboardStats**](docs/Api/SfvbApi.md#getsfvbcommsdashboardstats) | **GET** /sfvb/storefronts/{storefront_oid}/comms/stats/dashboard | Read every flow&#39;s and campaign&#39;s counts over a window, with the account&#39;s daily sending
@@ -666,6 +667,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**insertSfvbAffiliateNetwork**](docs/Api/SfvbApi.md#insertsfvbaffiliatenetwork) | **POST** /sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks | Add an affiliate network
 *SfvbApi* | [**insertSfvbApproval**](docs/Api/SfvbApi.md#insertsfvbapproval) | **POST** /sfvb/approvals | Request a human approval
 *SfvbApi* | [**insertSfvbBlogPost**](docs/Api/SfvbApi.md#insertsfvbblogpost) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts | Create a blog post
+*SfvbApi* | [**insertSfvbCodeLibraryEmail**](docs/Api/SfvbApi.md#insertsfvbcodelibraryemail) | **POST** /sfvb/storefronts/{storefront_oid}/code_library/emails | Save a reusable email to this account&#39;s code library
 *SfvbApi* | [**insertSfvbCommsCampaignFolder**](docs/Api/SfvbApi.md#insertsfvbcommscampaignfolder) | **POST** /sfvb/storefronts/{storefront_oid}/campaign_folders | Create a campaign folder
 *SfvbApi* | [**insertSfvbCommsFlowFolder**](docs/Api/SfvbApi.md#insertsfvbcommsflowfolder) | **POST** /sfvb/storefronts/{storefront_oid}/flow_folders | Create a flow folder
 *SfvbApi* | [**insertSfvbCommsFolder**](docs/Api/SfvbApi.md#insertsfvbcommsfolder) | **POST** /sfvb/storefronts/{storefront_oid}/list_segment_folders | Create a list and segment folder
@@ -2050,7 +2052,12 @@ Class | Method | HTTP request | Description
 - [SfvbCliLocation](docs/Model/SfvbCliLocation.md)
 - [SfvbCliVersion](docs/Model/SfvbCliVersion.md)
 - [SfvbCodeLibraryEmail](docs/Model/SfvbCodeLibraryEmail.md)
+- [SfvbCodeLibraryEmailCreateRequest](docs/Model/SfvbCodeLibraryEmailCreateRequest.md)
+- [SfvbCodeLibraryEmailDetail](docs/Model/SfvbCodeLibraryEmailDetail.md)
+- [SfvbCodeLibraryEmailResponse](docs/Model/SfvbCodeLibraryEmailResponse.md)
 - [SfvbCodeLibraryEmailsResponse](docs/Model/SfvbCodeLibraryEmailsResponse.md)
+- [SfvbCodeLibraryFile](docs/Model/SfvbCodeLibraryFile.md)
+- [SfvbCodeLibraryFileSkipped](docs/Model/SfvbCodeLibraryFileSkipped.md)
 - [SfvbCommsBranchStat](docs/Model/SfvbCommsBranchStat.md)
 - [SfvbCommsChange](docs/Model/SfvbCommsChange.md)
 - [SfvbCommsClick](docs/Model/SfvbCommsClick.md)
@@ -2633,6 +2640,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.257 | 11/19/2026 | sfvb internal testing |
 | 4.1.256 | 11/17/2026 | sfvb internal testing |
 | 4.1.255 | 11/17/2026 | sfvb internal testing |
 | 4.1.254 | 11/15/2026 | sfvb internal testing |

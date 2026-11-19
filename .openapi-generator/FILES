@@ -1018,7 +1018,12 @@ docs/Model/SfvbCliAccess.md
 docs/Model/SfvbCliLocation.md
 docs/Model/SfvbCliVersion.md
 docs/Model/SfvbCodeLibraryEmail.md
+docs/Model/SfvbCodeLibraryEmailCreateRequest.md
+docs/Model/SfvbCodeLibraryEmailDetail.md
+docs/Model/SfvbCodeLibraryEmailResponse.md
 docs/Model/SfvbCodeLibraryEmailsResponse.md
+docs/Model/SfvbCodeLibraryFile.md
+docs/Model/SfvbCodeLibraryFileSkipped.md
 docs/Model/SfvbCommsBranchStat.md
 docs/Model/SfvbCommsChange.md
 docs/Model/SfvbCommsClick.md
@@ -2527,7 +2532,12 @@ lib/models/SfvbCliAccess.php
 lib/models/SfvbCliLocation.php
 lib/models/SfvbCliVersion.php
 lib/models/SfvbCodeLibraryEmail.php
+lib/models/SfvbCodeLibraryEmailCreateRequest.php
+lib/models/SfvbCodeLibraryEmailDetail.php
+lib/models/SfvbCodeLibraryEmailResponse.php
 lib/models/SfvbCodeLibraryEmailsResponse.php
+lib/models/SfvbCodeLibraryFile.php
+lib/models/SfvbCodeLibraryFileSkipped.php
 lib/models/SfvbCommsBranchStat.php
 lib/models/SfvbCommsChange.php
 lib/models/SfvbCommsClick.php

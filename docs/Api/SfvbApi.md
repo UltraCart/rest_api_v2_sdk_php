@@ -74,6 +74,7 @@ Method | HTTP request | Description
 [**getSfvbBlogPost()**](SfvbApi.md#getSfvbBlogPost) | **GET** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Read a blog post
 [**getSfvbCampaign()**](SfvbApi.md#getSfvbCampaign) | **GET** /sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid} | Get a campaign
 [**getSfvbCjsonUsedElements()**](SfvbApi.md#getSfvbCjsonUsedElements) | **POST** /sfvb/cjson/elements | Element types used by a container
+[**getSfvbCodeLibraryEmail()**](SfvbApi.md#getSfvbCodeLibraryEmail) | **GET** /sfvb/storefronts/{storefront_oid}/code_library/emails/{library_item_oid} | One code library email item, with its body and file list
 [**getSfvbCommsCampaignFolder()**](SfvbApi.md#getSfvbCommsCampaignFolder) | **GET** /sfvb/storefronts/{storefront_oid}/campaign_folders/{folder_uuid} | Read one campaign folder
 [**getSfvbCommsCampaignFolders()**](SfvbApi.md#getSfvbCommsCampaignFolders) | **GET** /sfvb/storefronts/{storefront_oid}/campaign_folders | List the campaign folders
 [**getSfvbCommsDashboardStats()**](SfvbApi.md#getSfvbCommsDashboardStats) | **GET** /sfvb/storefronts/{storefront_oid}/comms/stats/dashboard | Read every flow&#39;s and campaign&#39;s counts over a window, with the account&#39;s daily sending
@@ -179,6 +180,7 @@ Method | HTTP request | Description
 [**insertSfvbAffiliateNetwork()**](SfvbApi.md#insertSfvbAffiliateNetwork) | **POST** /sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks | Add an affiliate network
 [**insertSfvbApproval()**](SfvbApi.md#insertSfvbApproval) | **POST** /sfvb/approvals | Request a human approval
 [**insertSfvbBlogPost()**](SfvbApi.md#insertSfvbBlogPost) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts | Create a blog post
+[**insertSfvbCodeLibraryEmail()**](SfvbApi.md#insertSfvbCodeLibraryEmail) | **POST** /sfvb/storefronts/{storefront_oid}/code_library/emails | Save a reusable email to this account&#39;s code library
 [**insertSfvbCommsCampaignFolder()**](SfvbApi.md#insertSfvbCommsCampaignFolder) | **POST** /sfvb/storefronts/{storefront_oid}/campaign_folders | Create a campaign folder
 [**insertSfvbCommsFlowFolder()**](SfvbApi.md#insertSfvbCommsFlowFolder) | **POST** /sfvb/storefronts/{storefront_oid}/flow_folders | Create a flow folder
 [**insertSfvbCommsFolder()**](SfvbApi.md#insertSfvbCommsFolder) | **POST** /sfvb/storefronts/{storefront_oid}/list_segment_folders | Create a list and segment folder
@@ -3215,6 +3217,47 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getSfvbCodeLibraryEmail()`
+
+```php
+getSfvbCodeLibraryEmail($storefront_oid, $library_item_oid): \ultracart\v2\models\SfvbCodeLibraryEmailResponse
+```
+
+One code library email item, with its body and file list
+
+Answers for an item this account owns, one shared with it, or one published for everyone, approved by UltraCart and free, the same items listSfvbCodeLibraryEmails lists; anything else is not found.  Returns the title, description, subject, preview text, the body as stored and the image files the item carries, without their contents (#2126).
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **library_item_oid** | **int**|  |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbCodeLibraryEmailResponse**](../Model/SfvbCodeLibraryEmailResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -7537,6 +7580,47 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `insertSfvbCodeLibraryEmail()`
+
+```php
+insertSfvbCodeLibraryEmail($storefront_oid, $code_library_email_create_request): \ultracart\v2\models\SfvbCodeLibraryEmailResponse
+```
+
+Save a reusable email to this account's code library
+
+Saves a whole email (body, subject and preview text) as a code library email item that the admin's \"start from library\" picker and the step insert's library_item_oid can start a new email from (#2126).  No flow, campaign, sequence or step is made, and nothing sends.  The item is private to this account, never published or shared.  The body must pass the library content scanner and the email container rules.  Image files the body names by a path starting with / are carried with the item when they are PNG, JPEG or GIF and their contents are that image, up to 25 files, 5 MB each and 20 MB in all; any other file is listed in files_skipped with the reason.  Make a new uuid for each save.  Sending the same uuid again returns the item it saved, unchanged, with created false, so a retry after an uncertain response is safe.  Titles may repeat.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **code_library_email_create_request** | [**\ultracart\v2\models\SfvbCodeLibraryEmailCreateRequest**](../Model/SfvbCodeLibraryEmailCreateRequest.md)| The email to save, with the uuid that makes a retry safe |
+
+### Return type
+
+[**\ultracart\v2\models\SfvbCodeLibraryEmailResponse**](../Model/SfvbCodeLibraryEmailResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
