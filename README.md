@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.257"
+    "ultracart/rest_api_v2_sdk_php": "4.1.258"
   }
 }
 ```
@@ -2640,6 +2640,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.258 | 11/23/2026 | communications - expose the campaign hourly divisor on the settings |
 | 4.1.257 | 11/19/2026 | sfvb internal testing |
 | 4.1.256 | 11/17/2026 | sfvb internal testing |
 | 4.1.255 | 11/17/2026 | sfvb internal testing |

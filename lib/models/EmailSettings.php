@@ -58,6 +58,7 @@ class EmailSettings implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'campaign_hourly_divisor' => 'int',
         'emails_per_day' => 'int',
         'emails_per_hour' => 'int',
         'emails_per_month' => 'int',
@@ -88,6 +89,7 @@ class EmailSettings implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'campaign_hourly_divisor' => 'int32',
         'emails_per_day' => 'int32',
         'emails_per_hour' => 'int32',
         'emails_per_month' => 'int32',
@@ -137,6 +139,7 @@ class EmailSettings implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'campaign_hourly_divisor' => 'campaign_hourly_divisor',
         'emails_per_day' => 'emails_per_day',
         'emails_per_hour' => 'emails_per_hour',
         'emails_per_month' => 'emails_per_month',
@@ -165,6 +168,7 @@ class EmailSettings implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'campaign_hourly_divisor' => 'setCampaignHourlyDivisor',
         'emails_per_day' => 'setEmailsPerDay',
         'emails_per_hour' => 'setEmailsPerHour',
         'emails_per_month' => 'setEmailsPerMonth',
@@ -193,6 +197,7 @@ class EmailSettings implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'campaign_hourly_divisor' => 'getCampaignHourlyDivisor',
         'emails_per_day' => 'getEmailsPerDay',
         'emails_per_hour' => 'getEmailsPerHour',
         'emails_per_month' => 'getEmailsPerMonth',
@@ -272,6 +277,7 @@ class EmailSettings implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->container['campaign_hourly_divisor'] = $data['campaign_hourly_divisor'] ?? null;
         $this->container['emails_per_day'] = $data['emails_per_day'] ?? null;
         $this->container['emails_per_hour'] = $data['emails_per_hour'] ?? null;
         $this->container['emails_per_month'] = $data['emails_per_month'] ?? null;
@@ -317,6 +323,30 @@ class EmailSettings implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets campaign_hourly_divisor
+     *
+     * @return int|null
+     */
+    public function getCampaignHourlyDivisor()
+    {
+        return $this->container['campaign_hourly_divisor'];
+    }
+
+    /**
+     * Sets campaign_hourly_divisor
+     *
+     * @param int|null $campaign_hourly_divisor Campaign hourly send divisor, default 8
+     *
+     * @return self
+     */
+    public function setCampaignHourlyDivisor($campaign_hourly_divisor)
+    {
+        $this->container['campaign_hourly_divisor'] = $campaign_hourly_divisor;
+
+        return $this;
+    }
 
     /**
      * Gets emails_per_day
