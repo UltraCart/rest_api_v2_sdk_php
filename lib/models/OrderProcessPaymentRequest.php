@@ -59,7 +59,8 @@ class OrderProcessPaymentRequest implements ModelInterface, ArrayAccess, \JsonSe
       */
     protected static $openAPITypes = [
         'amount' => 'float',
-        'card_verification_number_token' => 'string'
+        'card_verification_number_token' => 'string',
+        'rotating_transaction_gateway_code' => 'string'
     ];
 
     /**
@@ -71,7 +72,8 @@ class OrderProcessPaymentRequest implements ModelInterface, ArrayAccess, \JsonSe
       */
     protected static $openAPIFormats = [
         'amount' => null,
-        'card_verification_number_token' => null
+        'card_verification_number_token' => null,
+        'rotating_transaction_gateway_code' => null
     ];
 
     /**
@@ -102,7 +104,8 @@ class OrderProcessPaymentRequest implements ModelInterface, ArrayAccess, \JsonSe
      */
     protected static $attributeMap = [
         'amount' => 'amount',
-        'card_verification_number_token' => 'card_verification_number_token'
+        'card_verification_number_token' => 'card_verification_number_token',
+        'rotating_transaction_gateway_code' => 'rotating_transaction_gateway_code'
     ];
 
     /**
@@ -112,7 +115,8 @@ class OrderProcessPaymentRequest implements ModelInterface, ArrayAccess, \JsonSe
      */
     protected static $setters = [
         'amount' => 'setAmount',
-        'card_verification_number_token' => 'setCardVerificationNumberToken'
+        'card_verification_number_token' => 'setCardVerificationNumberToken',
+        'rotating_transaction_gateway_code' => 'setRotatingTransactionGatewayCode'
     ];
 
     /**
@@ -122,7 +126,8 @@ class OrderProcessPaymentRequest implements ModelInterface, ArrayAccess, \JsonSe
      */
     protected static $getters = [
         'amount' => 'getAmount',
-        'card_verification_number_token' => 'getCardVerificationNumberToken'
+        'card_verification_number_token' => 'getCardVerificationNumberToken',
+        'rotating_transaction_gateway_code' => 'getRotatingTransactionGatewayCode'
     ];
 
     /**
@@ -184,6 +189,7 @@ class OrderProcessPaymentRequest implements ModelInterface, ArrayAccess, \JsonSe
     {
         $this->container['amount'] = $data['amount'] ?? null;
         $this->container['card_verification_number_token'] = $data['card_verification_number_token'] ?? null;
+        $this->container['rotating_transaction_gateway_code'] = $data['rotating_transaction_gateway_code'] ?? null;
     }
 
     /**
@@ -254,6 +260,30 @@ class OrderProcessPaymentRequest implements ModelInterface, ArrayAccess, \JsonSe
     public function setCardVerificationNumberToken($card_verification_number_token)
     {
         $this->container['card_verification_number_token'] = $card_verification_number_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets rotating_transaction_gateway_code
+     *
+     * @return string|null
+     */
+    public function getRotatingTransactionGatewayCode()
+    {
+        return $this->container['rotating_transaction_gateway_code'];
+    }
+
+    /**
+     * Sets rotating_transaction_gateway_code
+     *
+     * @param string|null $rotating_transaction_gateway_code Rotating transaction gateway code to process the payment through (optional).  Must be an active rotating transaction gateway on the account.  The charge is attempted on that gateway only, without cascading to other gateways, the same as choosing a gateway on the Accounts Receivable Process Payment screen.
+     *
+     * @return self
+     */
+    public function setRotatingTransactionGatewayCode($rotating_transaction_gateway_code)
+    {
+        $this->container['rotating_transaction_gateway_code'] = $rotating_transaction_gateway_code;
 
         return $this;
     }

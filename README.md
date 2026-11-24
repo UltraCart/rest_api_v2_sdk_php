@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.259"
+    "ultracart/rest_api_v2_sdk_php": "4.1.260"
   }
 }
 ```
@@ -454,6 +454,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**assignToAffiliate**](docs/Api/OrderApi.md#assigntoaffiliate) | **POST** /order/orders/{order_id}/assignToAffiliate | Assigns an order to an affiliate
 *OrderApi* | [**blockRefundOnOrder**](docs/Api/OrderApi.md#blockrefundonorder) | **GET** /order/orders/{order_id}/refund_block | Set a refund block on an order
 *OrderApi* | [**cancelOrder**](docs/Api/OrderApi.md#cancelorder) | **POST** /order/orders/{order_id}/cancel | Cancel an order
+*OrderApi* | [**cancelOrderWithOptions**](docs/Api/OrderApi.md#cancelorderwithoptions) | **POST** /order/orders/{order_id}/cancel_with_options | Cancel an order with options
 *OrderApi* | [**deleteOrder**](docs/Api/OrderApi.md#deleteorder) | **DELETE** /order/orders/{order_id} | Delete an order
 *OrderApi* | [**duplicateOrder**](docs/Api/OrderApi.md#duplicateorder) | **POST** /order/orders/{order_id}/duplicate | Duplicate an order
 *OrderApi* | [**format**](docs/Api/OrderApi.md#format) | **POST** /order/orders/{order_id}/format | Format order
@@ -487,6 +488,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**replacement**](docs/Api/OrderApi.md#replacement) | **POST** /order/orders/{order_id}/replacement | Replacement order
 *OrderApi* | [**resendReceipt**](docs/Api/OrderApi.md#resendreceipt) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
 *OrderApi* | [**resendShipmentConfirmation**](docs/Api/OrderApi.md#resendshipmentconfirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
+*OrderApi* | [**sendUpdateBillingEmail**](docs/Api/OrderApi.md#sendupdatebillingemail) | **POST** /order/orders/{order_id}/send_update_billing_email | Send update billing email
 *OrderApi* | [**unblockRefundOnOrder**](docs/Api/OrderApi.md#unblockrefundonorder) | **GET** /order/orders/{order_id}/refund_unblock | Remove a refund block on an order
 *OrderApi* | [**updateAccountsReceivableRetryConfig**](docs/Api/OrderApi.md#updateaccountsreceivableretryconfig) | **POST** /order/accountsReceivableRetryConfig | Update A/R Retry Configuration
 *OrderApi* | [**updateOrder**](docs/Api/OrderApi.md#updateorder) | **PUT** /order/orders/{order_id} | Update an order
@@ -1859,6 +1861,7 @@ Class | Method | HTTP request | Description
 - [OrderBilling](docs/Model/OrderBilling.md)
 - [OrderBuysafe](docs/Model/OrderBuysafe.md)
 - [OrderByTokenQuery](docs/Model/OrderByTokenQuery.md)
+- [OrderCancelRequest](docs/Model/OrderCancelRequest.md)
 - [OrderChannelPartner](docs/Model/OrderChannelPartner.md)
 - [OrderCheckout](docs/Model/OrderCheckout.md)
 - [OrderCoupon](docs/Model/OrderCoupon.md)
@@ -2641,6 +2644,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.260 | 11/24/2026 | order api - add sendUpdateBillingEmail and cancelOrderWithOptions, add rotating_transaction_gateway to processPayment request |
 | 4.1.259 | 11/24/2026 | sfvb internal testing |
 | 4.1.258 | 11/23/2026 | communications - expose the campaign hourly divisor on the settings |
 | 4.1.257 | 11/19/2026 | sfvb internal testing |

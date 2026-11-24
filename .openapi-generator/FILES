@@ -824,6 +824,7 @@ docs/Model/OrderAutoOrderUpdateBillingUrlResponse.md
 docs/Model/OrderBilling.md
 docs/Model/OrderBuysafe.md
 docs/Model/OrderByTokenQuery.md
+docs/Model/OrderCancelRequest.md
 docs/Model/OrderChannelPartner.md
 docs/Model/OrderCheckout.md
 docs/Model/OrderCoupon.md
@@ -2338,6 +2339,7 @@ lib/models/OrderAutoOrderUpdateBillingUrlResponse.php
 lib/models/OrderBilling.php
 lib/models/OrderBuysafe.php
 lib/models/OrderByTokenQuery.php
+lib/models/OrderCancelRequest.php
 lib/models/OrderChannelPartner.php
 lib/models/OrderCheckout.php
 lib/models/OrderCoupon.php
