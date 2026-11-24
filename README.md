@@ -19,7 +19,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "ultracart/rest_api_v2_sdk_php": "4.1.258"
+    "ultracart/rest_api_v2_sdk_php": "4.1.259"
   }
 }
 ```
@@ -554,6 +554,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**exportSfvbNotFound**](docs/Api/SfvbApi.md#exportsfvbnotfound) | **GET** /sfvb/storefronts/{storefront_oid}/not_found/export | Export the open 404 paths
 *SfvbApi* | [**favoriteSfvbLibraryEntry**](docs/Api/SfvbApi.md#favoritesfvblibraryentry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/favorite | Favorite a library entry
 *SfvbApi* | [**fixSfvbNotFoundEntry**](docs/Api/SfvbApi.md#fixsfvbnotfoundentry) | **POST** /sfvb/storefronts/{storefront_oid}/not_found/{not_found_id}/fixed | Mark a 404 path fixed
+*SfvbApi* | [**flushSfvbStoreFrontCache**](docs/Api/SfvbApi.md#flushsfvbstorefrontcache) | **POST** /sfvb/cache/flush | Flush the StoreFront page cache
 *SfvbApi* | [**getSfvbAffiliateNetwork**](docs/Api/SfvbApi.md#getsfvbaffiliatenetwork) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks/{affiliate_network_oid} | Read one affiliate network
 *SfvbApi* | [**getSfvbAffiliateNetworks**](docs/Api/SfvbApi.md#getsfvbaffiliatenetworks) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks | List a storefront&#39;s affiliate networks
 *SfvbApi* | [**getSfvbApproval**](docs/Api/SfvbApi.md#getsfvbapproval) | **GET** /sfvb/approvals/{approval_id} | Read one approval request
@@ -2640,6 +2641,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.259 | 11/24/2026 | sfvb internal testing |
 | 4.1.258 | 11/23/2026 | communications - expose the campaign hourly divisor on the settings |
 | 4.1.257 | 11/19/2026 | sfvb internal testing |
 | 4.1.256 | 11/17/2026 | sfvb internal testing |

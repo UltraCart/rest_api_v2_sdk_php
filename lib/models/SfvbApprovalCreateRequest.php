@@ -304,6 +304,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
     public const ACTION_POSTCARD_TEST_MAIL = 'postcard.test_mail';
     public const ACTION_FLOW_BACKFILL = 'flow.backfill';
     public const ACTION_PAGE_MOVE = 'page.move';
+    public const ACTION_STOREFRONT_CACHE_FLUSH = 'storefront_cache.flush';
     public const ACTION_CLI_LOCATION = 'cli.location';
 
     /**
@@ -347,6 +348,7 @@ class SfvbApprovalCreateRequest implements ModelInterface, ArrayAccess, \JsonSer
             self::ACTION_POSTCARD_TEST_MAIL,
             self::ACTION_FLOW_BACKFILL,
             self::ACTION_PAGE_MOVE,
+            self::ACTION_STOREFRONT_CACHE_FLUSH,
             self::ACTION_CLI_LOCATION,
         ];
     }

@@ -67,6 +67,7 @@ Method | HTTP request | Description
 [**exportSfvbNotFound()**](SfvbApi.md#exportSfvbNotFound) | **GET** /sfvb/storefronts/{storefront_oid}/not_found/export | Export the open 404 paths
 [**favoriteSfvbLibraryEntry()**](SfvbApi.md#favoriteSfvbLibraryEntry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/favorite | Favorite a library entry
 [**fixSfvbNotFoundEntry()**](SfvbApi.md#fixSfvbNotFoundEntry) | **POST** /sfvb/storefronts/{storefront_oid}/not_found/{not_found_id}/fixed | Mark a 404 path fixed
+[**flushSfvbStoreFrontCache()**](SfvbApi.md#flushSfvbStoreFrontCache) | **POST** /sfvb/cache/flush | Flush the StoreFront page cache
 [**getSfvbAffiliateNetwork()**](SfvbApi.md#getSfvbAffiliateNetwork) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks/{affiliate_network_oid} | Read one affiliate network
 [**getSfvbAffiliateNetworks()**](SfvbApi.md#getSfvbAffiliateNetworks) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks | List a storefront&#39;s affiliate networks
 [**getSfvbApproval()**](SfvbApi.md#getSfvbApproval) | **GET** /sfvb/approvals/{approval_id} | Read one approval request
@@ -2930,6 +2931,46 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\SfvbNotFoundEntry**](../Model/SfvbNotFoundEntry.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `flushSfvbStoreFrontCache()`
+
+```php
+flushSfvbStoreFrontCache($approval_id)
+```
+
+Flush the StoreFront page cache
+
+Marks every cached page on every storefront of the account out of date, so each re-renders on its next visit.  Templates, settings and files are not changed.  Allowed once per account every 15 minutes; an earlier call answers 429.  Needs an approved storefront_cache.flush request (POST approvals with no storefront_oid and empty params), and every request needs a fresh code.
+
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **approval_id** | **string**| The approval_id of an approved storefront_cache.flush request for this account.  See POST /sfvb/approvals. | [optional]
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 
